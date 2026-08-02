@@ -9,6 +9,44 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
+    <Page.Resources>
+        <DataTemplate x:Key="LibraryItemTemplate" x:DataType="models:GameEntry">
+            <Border Style="{StaticResource GameCardStyle}"
+                    Width="{StaticResource GameCardWidth}"
+                    Height="{StaticResource GameCardHeight}">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <Grid Grid.Row="0" Background="{ThemeResource CardStrokeColorDefaultBrush}"
+                          CornerRadius="4">
+                        <Image Source="{x:Bind CoverImagePath, Converter={StaticResource PathToImageSourceConverter}}" Stretch="UniformToFill"
+                               Visibility="{x:Bind HasCover, Converter={StaticResource BoolToVisibilityConverter}}"/>
+                        <FontIcon Glyph="&#xE7FC;" FontSize="48" Opacity="0.4"
+                                  HorizontalAlignment="Center" VerticalAlignment="Center"
+                                  Visibility="{x:Bind HasNoCover, Converter={StaticResource BoolToVisibilityConverter}}"/>
+                        <InfoBadge Style="{ThemeResource CautionIconInfoBadgeStyle}"
+                                   HorizontalAlignment="Right" VerticalAlignment="Top"
+                                   Margin="4"
+                                   Visibility="{x:Bind HasLargeFiles, Converter={StaticResource BoolToVisibilityConverter}}"
+                                   ToolTipService.ToolTip="Contains files larger than 4GB (FAT32 incompatible)"/>
+                    </Grid>
+
+                    <TextBlock Grid.Row="1" Text="{x:Bind Name}"
+                               FontWeight="SemiBold" TextTrimming="CharacterEllipsis"
+                               Margin="0,8,0,2"/>
+
+                    <TextBlock Grid.Row="2"
+                               Text="{x:Bind TotalBytes, Converter={StaticResource BytesToSizeConverter}}"
+                               Opacity="0.7" FontSize="12"/>
+                </Grid>
+            </Border>
+        </DataTemplate>
+    </Page.Resources>
+
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
@@ -19,75 +57,70 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
 
-            <TextBlock Grid.Row="0" Text="Game Library" Style="{StaticResource SectionHeaderStyle}"/>
+            <TextBlock Grid.Row="0" Text="Library" Style="{StaticResource SectionHeaderStyle}"/>
 
             <CommandBar Grid.Row="1" DefaultLabelPosition="Right"
                         Background="Transparent" HorizontalAlignment="Left"
                         Margin="0,0,0,8">
                 <AppBarButton Icon="Add" Label="Add Folder" Click="AddSourceFolder_Click"/>
                 <AppBarButton Icon="Refresh" Label="Scan Library" Command="{x:Bind ViewModel.ScanLibraryCommand}"/>
-                <AppBarButton Icon="SelectAll" Label="Select All" Click="SelectAll_Click"/>
+                <AppBarButton Icon="ClearSelection" Label="Deselect All" Click="DeselectAll_Click"/>
                 <AppBarSeparator/>
                 <AppBarButton Icon="Setting" Label="Settings" Click="OpenSettings_Click"/>
             </CommandBar>
 
-            <Grid Grid.Row="2">
-                <ProgressRing IsActive="{x:Bind ViewModel.IsScanning, Mode=OneWay}"
-                              Width="48" Height="48"
-                              HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <AutoSuggestBox Grid.Row="2" x:Name="SearchBox"
+                             PlaceholderText="Search games and apps..."
+                             QueryIcon="Find"
+                             Text="{x:Bind ViewModel.SearchText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                             HorizontalAlignment="Stretch"
+                             Margin="0,0,0,8"/>
 
-                <TextBlock Text="No games found. Add a source folder in Settings and scan your library."
-                           HorizontalAlignment="Center" VerticalAlignment="Center"
-                           TextWrapping="Wrap" MaxWidth="400" Opacity="0.7"
-                           Visibility="{x:Bind IsLibraryEmpty, Mode=OneWay}"/>
+            <Pivot x:Name="LibraryPivot" Grid.Row="3">
+                <PivotItem Header="Games">
+                    <Grid>
+                        <ProgressRing IsActive="{x:Bind ViewModel.IsScanning, Mode=OneWay}"
+                                      Width="48" Height="48"
+                                      HorizontalAlignment="Center" VerticalAlignment="Center"/>
 
-                <GridView x:Name="GamesGridView"
-                          ItemsSource="{x:Bind ViewModel.Games, Mode=OneWay}"
-                          SelectionMode="Multiple"
-                          SelectionChanged="GamesGridView_SelectionChanged"
-                          IsItemClickEnabled="False">
-                    <GridView.ItemTemplate>
-                        <DataTemplate x:DataType="models:GameEntry">
-                            <Border Style="{StaticResource GameCardStyle}"
-                                    Width="{StaticResource GameCardWidth}"
-                                    Height="{StaticResource GameCardHeight}">
-                                <Grid>
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="*"/>
-                                        <RowDefinition Height="Auto"/>
-                                        <RowDefinition Height="Auto"/>
-                                    </Grid.RowDefinitions>
+                        <TextBlock Text="{x:Bind EmptyGamesMessage, Mode=OneWay}"
+                                   HorizontalAlignment="Center" VerticalAlignment="Center"
+                                   TextWrapping="Wrap" MaxWidth="400" Opacity="0.7"
+                                   Visibility="{x:Bind IsGamesEmpty, Mode=OneWay}"/>
 
-                                    <Grid Grid.Row="0" Background="{ThemeResource CardStrokeColorDefaultBrush}"
-                                          CornerRadius="4">
-                                        <Image Source="{x:Bind CoverImagePath, Converter={StaticResource PathToImageSourceConverter}}" Stretch="UniformToFill"
-                                               Visibility="{x:Bind HasCover, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}"/>
-                                        <FontIcon Glyph="&#xE7FC;" FontSize="48" Opacity="0.4"
-                                                  HorizontalAlignment="Center" VerticalAlignment="Center"
-                                                  Visibility="{x:Bind HasNoCover, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}"/>
-                                        <InfoBadge Style="{ThemeResource CautionIconInfoBadgeStyle}"
-                                                   HorizontalAlignment="Right" VerticalAlignment="Top"
-                                                   Margin="4"
-                                                   Visibility="{x:Bind HasLargeFiles, Converter={StaticResource BoolToVisibilityConverter}}"
-                                                   ToolTipService.ToolTip="Contains files larger than 4GB (FAT32 incompatible)"/>
-                                    </Grid>
+                        <GridView x:Name="GamesGridView"
+                                  ItemsSource="{x:Bind ViewModel.Games, Mode=OneWay}"
+                                  ItemTemplate="{StaticResource LibraryItemTemplate}"
+                                  SelectionMode="Multiple"
+                                  SelectionChanged="GamesGridView_SelectionChanged"
+                                  IsItemClickEnabled="False"/>
+                    </Grid>
+                </PivotItem>
 
-                                    <TextBlock Grid.Row="1" Text="{x:Bind Name}"
-                                               FontWeight="SemiBold" TextTrimming="CharacterEllipsis"
-                                               Margin="0,8,0,2"/>
+                <PivotItem Header="Apps">
+                    <Grid>
+                        <ProgressRing IsActive="{x:Bind ViewModel.IsScanning, Mode=OneWay}"
+                                      Width="48" Height="48"
+                                      HorizontalAlignment="Center" VerticalAlignment="Center"/>
 
-                                    <TextBlock Grid.Row="2"
-                                               Text="{x:Bind TotalBytes, Converter={StaticResource BytesToSizeConverter}}"
-                                               Opacity="0.7" FontSize="12"/>
-                                </Grid>
-                            </Border>
-                        </DataTemplate>
-                    </GridView.ItemTemplate>
-                </GridView>
-            </Grid>
+                        <TextBlock Text="{x:Bind EmptyAppsMessage, Mode=OneWay}"
+                                   HorizontalAlignment="Center" VerticalAlignment="Center"
+                                   TextWrapping="Wrap" MaxWidth="400" Opacity="0.7"
+                                   Visibility="{x:Bind IsAppsEmpty, Mode=OneWay}"/>
+
+                        <GridView x:Name="AppsGridView"
+                                  ItemsSource="{x:Bind ViewModel.Apps, Mode=OneWay}"
+                                  ItemTemplate="{StaticResource LibraryItemTemplate}"
+                                  SelectionMode="Multiple"
+                                  SelectionChanged="AppsGridView_SelectionChanged"
+                                  IsItemClickEnabled="False"/>
+                    </Grid>
+                </PivotItem>
+            </Pivot>
         </Grid>
 
         <Border Grid.Column="1" Style="{StaticResource ActionPanelStyle}">
@@ -194,7 +227,7 @@
                     <TextBlock Text="{x:Bind SelectionSummary, Mode=OneWay}" FontWeight="SemiBold"/>
                 </StackPanel>
 
-                <Button Grid.Row="4" Content="Copy Selected Games" Style="{StaticResource AccentButtonStyle}"
+                <Button Grid.Row="4" Content="Copy Selected" Style="{StaticResource AccentButtonStyle}"
                         Command="{x:Bind ViewModel.CopySelectedGamesCommand}"
                         HorizontalAlignment="Stretch" Margin="0,0,0,8"/>
 

@@ -5,13 +5,20 @@ namespace Easy_Copier.Models
 {
     public record SourceFolder(string FolderPath, bool IsValid, DateTime LastScanned);
 
+    public enum LibraryCategory
+    {
+        Game,
+        App
+    }
+
     public record GameEntry(
         string Name,
         string FolderPath,
         long TotalBytes,
         string? CoverImagePath,
         DateTime DateAdded,
-        bool HasLargeFiles)
+        bool HasLargeFiles,
+        LibraryCategory Category = LibraryCategory.Game)
     {
         public bool HasCover => !string.IsNullOrEmpty(CoverImagePath);
         public bool HasNoCover => !HasCover;
@@ -56,7 +63,8 @@ namespace Easy_Copier.Models
 
     public class AppSettings
     {
-        public List<string> SourceFolders { get; set; } = new();
+        public List<string> GameSourceFolders { get; set; } = new();
+        public List<string> AppSourceFolders { get; set; } = new();
         public bool AutoScanOnStartup { get; set; } = true;
         public string LastSelectedDrive { get; set; } = string.Empty;
         public DateTime LastScanTime { get; set; } = DateTime.MinValue;

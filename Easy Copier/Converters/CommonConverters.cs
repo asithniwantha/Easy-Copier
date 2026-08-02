@@ -65,9 +65,12 @@ namespace Easy_Copier.Converters
                 }
                 catch
                 {
-                    // Malformed path/URI - fall through and return null so no image is shown.
+                    // Malformed path/URI - fall through and return no value so no image is shown.
                 }
             }
+            // x:Bind generated code casts the converter's return value directly to the
+            // target property type (ImageSource), so DependencyProperty.UnsetValue cannot
+            // be used here as it can be with classic {Binding}. Return null instead.
             return null;
         }
 

@@ -2,6 +2,7 @@ using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using Easy_Copier.Models;
 using Easy_Copier.Services;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
@@ -20,7 +21,8 @@ namespace Easy_Copier.ViewModels
         [ObservableProperty]
         private string _statusMessage = string.Empty;
 
-        public ObservableCollection<string> SourceFolders { get; } = new();
+        public ObservableCollection<string> GameSourceFolders { get; } = new();
+        public ObservableCollection<string> AppSourceFolders { get; } = new();
 
         public SettingsViewModel(
             ISettingsService settingsService,
@@ -33,7 +35,18 @@ namespace Easy_Copier.ViewModels
         }
 
         [RelayCommand]
-        private async Task AddSourceFolderAsync()
+        private async Task AddGameSourceFolderAsync()
+        {
+            await AddSourceFolderAsync(GameSourceFolders, "game");
+        }
+
+        [RelayCommand]
+        private async Task AddAppSourceFolderAsync()
+        {
+            await AddSourceFolderAsync(AppSourceFolders, "app");
+        }
+
+        private async Task AddSourceFolderAsync(ObservableCollection<string> targetFolders, string categoryLabel)
         {
             StatusMessage = "Opening folder picker...";
 
@@ -41,10 +54,10 @@ namespace Easy_Copier.ViewModels
 
             if (!string.IsNullOrEmpty(folderPath))
             {
-                if (!SourceFolders.Contains(folderPath))
+                if (!targetFolders.Contains(folderPath))
                 {
-                    SourceFolders.Add(folderPath);
-                    StatusMessage = $"Added: {folderPath}";
+                    targetFolders.Add(folderPath);
+                    StatusMessage = $"Added {categoryLabel} folder: {folderPath}";
                     await SaveSettingsAsync();
                 }
                 else
@@ -59,9 +72,17 @@ namespace Easy_Copier.ViewModels
         }
 
         [RelayCommand]
-        private async Task RemoveSourceFolderAsync(string folderPath)
+        private async Task RemoveGameSourceFolderAsync(string folderPath)
         {
-            SourceFolders.Remove(folderPath);
+            GameSourceFolders.Remove(folderPath);
+            StatusMessage = $"Removed: {folderPath}";
+            await SaveSettingsAsync();
+        }
+
+        [RelayCommand]
+        private async Task RemoveAppSourceFolderAsync(string folderPath)
+        {
+            AppSourceFolders.Remove(folderPath);
             StatusMessage = $"Removed: {folderPath}";
             await SaveSettingsAsync();
         }
@@ -82,8 +103,9 @@ namespace Easy_Copier.ViewModels
             var settings = await _settingsService.LoadSettingsAsync();
             LoadSettings(settings);
 
-            var validatedFolders = await _sourceLibraryService.ValidateSourceFoldersAsync(settings.SourceFolders);
-            var invalidCount = validatedFolders.Count(f => !f.IsValid);
+            var validatedGameFolders = await _sourceLibraryService.ValidateSourceFoldersAsync(settings.GameSourceFolders);
+            var validatedAppFolders = await _sourceLibraryService.ValidateSourceFoldersAsync(settings.AppSourceFolders);
+            var invalidCount = validatedGameFolders.Count(f => !f.IsValid) + validatedAppFolders.Count(f => !f.IsValid);
 
             if (invalidCount > 0)
             {
@@ -94,10 +116,17 @@ namespace Easy_Copier.ViewModels
         public void LoadSettings(AppSettings settings)
         {
             AutoScanOnStartup = settings.AutoScanOnStartup;
-            SourceFolders.Clear();
-            foreach (var folder in settings.SourceFolders)
+
+            GameSourceFolders.Clear();
+            foreach (var folder in settings.GameSourceFolders)
             {
-                SourceFolders.Add(folder);
+                GameSourceFolders.Add(folder);
+            }
+
+            AppSourceFolders.Clear();
+            foreach (var folder in settings.AppSourceFolders)
+            {
+                AppSourceFolders.Add(folder);
             }
         }
 
@@ -106,7 +135,8 @@ namespace Easy_Copier.ViewModels
             return new AppSettings
             {
                 AutoScanOnStartup = AutoScanOnStartup,
-                SourceFolders = new System.Collections.Generic.List<string>(SourceFolders)
+                GameSourceFolders = new List<string>(GameSourceFolders),
+                AppSourceFolders = new List<string>(AppSourceFolders)
             };
         }
     }

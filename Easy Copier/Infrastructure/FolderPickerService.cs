@@ -33,13 +33,9 @@ namespace Easy_Copier.Infrastructure
 
         private IntPtr GetActiveWindowHandle()
         {
-            var windows = Application.Current?.GetType()
-                .GetField("_window", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance)?
-                .GetValue(Application.Current) as Window;
-
-            if (windows != null)
+            if (App.MainWindow != null)
             {
-                return WindowNative.GetWindowHandle(windows);
+                return WindowNative.GetWindowHandle(App.MainWindow);
             }
 
             return IntPtr.Zero;

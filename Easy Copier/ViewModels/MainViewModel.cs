@@ -44,7 +44,14 @@ namespace Easy_Copier.ViewModels
         [ObservableProperty]
         private long _selectedGamesTotalBytes;
 
+        [ObservableProperty]
+        private string _searchText = string.Empty;
+
+        private List<GameEntry> _allGames = new();
+        private List<GameEntry> _allApps = new();
+
         public ObservableCollection<GameEntry> Games { get; } = new();
+        public ObservableCollection<GameEntry> Apps { get; } = new();
         public ObservableCollection<RemovableDrive> AvailableDrives { get; } = new();
         public ObservableCollection<ValidationResult> ValidationMessages { get; } = new();
 
@@ -89,7 +96,7 @@ namespace Easy_Copier.ViewModels
                 _driveDiscoveryService.StartWatching();
                 await RefreshDrivesAsync();
 
-                if (settings.AutoScanOnStartup && settings.SourceFolders.Any())
+                if (settings.AutoScanOnStartup && (settings.GameSourceFolders.Any() || settings.AppSourceFolders.Any()))
                 {
                     await ScanLibraryAsync();
                 }
@@ -114,7 +121,10 @@ namespace Easy_Copier.ViewModels
             try
             {
                 IsScanning = true;
+                _allGames.Clear();
+                _allApps.Clear();
                 Games.Clear();
+                Apps.Clear();
                 ValidationMessages.Clear();
 
                 _scanCancellationTokenSource?.Cancel();
@@ -122,7 +132,7 @@ namespace Easy_Copier.ViewModels
 
                 var settings = await _settingsService.LoadSettingsAsync();
 
-                if (!settings.SourceFolders.Any())
+                if (!settings.GameSourceFolders.Any() && !settings.AppSourceFolders.Any())
                 {
                     StatusMessage = "No source folders configured. Please add folders in Settings.";
                     return;
@@ -133,23 +143,37 @@ namespace Easy_Copier.ViewModels
                     StatusMessage = message;
                 });
 
-                var games = await _gameScannerService.ScanLibraryAsync(
-                    settings.SourceFolders,
-                    progress,
-                    _scanCancellationTokenSource.Token);
-
-                foreach (var game in games)
+                if (settings.GameSourceFolders.Any())
                 {
-                    Games.Add(game);
+                    var games = await _gameScannerService.ScanLibraryAsync(
+                        settings.GameSourceFolders,
+                        LibraryCategory.Game,
+                        progress,
+                        _scanCancellationTokenSource.Token);
+
+                    _allGames.AddRange(games);
                 }
 
-                if (Games.Count == 0)
+                if (settings.AppSourceFolders.Any())
                 {
-                    StatusMessage = "No games found in configured folders";
+                    var apps = await _gameScannerService.ScanLibraryAsync(
+                        settings.AppSourceFolders,
+                        LibraryCategory.App,
+                        progress,
+                        _scanCancellationTokenSource.Token);
+
+                    _allApps.AddRange(apps);
+                }
+
+                ApplyFilter();
+
+                if (_allGames.Count == 0 && _allApps.Count == 0)
+                {
+                    StatusMessage = "No games or apps found in configured folders";
                 }
                 else
                 {
-                    StatusMessage = $"Found {Games.Count} games";
+                    StatusMessage = $"Found {_allGames.Count} game(s), {_allApps.Count} app(s)";
                 }
 
                 settings.LastScanTime = DateTime.Now;
@@ -166,6 +190,33 @@ namespace Easy_Copier.ViewModels
             finally
             {
                 IsScanning = false;
+            }
+        }
+
+        partial void OnSearchTextChanged(string value)
+        {
+            ApplyFilter();
+        }
+
+        private void ApplyFilter()
+        {
+            var query = SearchText?.Trim() ?? string.Empty;
+
+            IEnumerable<GameEntry> FilterEntries(IEnumerable<GameEntry> source) =>
+                string.IsNullOrEmpty(query)
+                    ? source
+                    : source.Where(g => g.Name.Contains(query, StringComparison.OrdinalIgnoreCase));
+
+            Games.Clear();
+            foreach (var game in FilterEntries(_allGames))
+            {
+                Games.Add(game);
+            }
+
+            Apps.Clear();
+            foreach (var app in FilterEntries(_allApps))
+            {
+                Apps.Add(app);
             }
         }
 
@@ -214,7 +265,7 @@ namespace Easy_Copier.ViewModels
             try
             {
                 ValidationMessages.Clear();
-                var destinationPath = Path.Combine($"{SelectedDrive.DriveLetter}\\", "EasyCopier_Games");
+                var destinationPath = $"{SelectedDrive.DriveLetter}\\";
 
                 var validation = await _driveValidationService.ValidateTransferAsync(
                     _selectedGames, SelectedDrive, destinationPath);

@@ -19,7 +19,6 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
         <TextBlock Grid.Row="0" Text="Settings" FontSize="24" FontWeight="SemiBold" Margin="0,0,0,16"/>
@@ -28,32 +27,63 @@
                       IsOn="{x:Bind ViewModel.AutoScanOnStartup, Mode=TwoWay}"
                       Margin="0,0,0,16"/>
 
-        <StackPanel Grid.Row="2" Spacing="8">
-            <TextBlock Text="Source Folders" FontWeight="SemiBold"/>
-            <ListView x:Name="SourceFoldersListView"
-                      ItemsSource="{x:Bind ViewModel.SourceFolders, Mode=OneWay}"
-                      MaxHeight="300">
-                <ListView.ItemTemplate>
-                    <DataTemplate x:DataType="x:String">
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="Auto"/>
-                            </Grid.ColumnDefinitions>
-                            <TextBlock Grid.Column="0" Text="{x:Bind}" VerticalAlignment="Center"
-                                       TextTrimming="CharacterEllipsis"/>
-                            <Button Grid.Column="1" Content="Remove"
-                                    Click="RemoveFolder_Click" Tag="{x:Bind}"/>
-                        </Grid>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
-        </StackPanel>
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="16"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
 
-        <Button Grid.Row="3" Content="Add Source Folder" Command="{x:Bind ViewModel.AddSourceFolderCommand}"
-                HorizontalAlignment="Left" Margin="0,16,0,8"/>
+            <StackPanel Grid.Column="0" Spacing="8">
+                <TextBlock Text="Game Folders" FontWeight="SemiBold"/>
+                <ListView x:Name="GameSourceFoldersListView"
+                          ItemsSource="{x:Bind ViewModel.GameSourceFolders, Mode=OneWay}"
+                          MaxHeight="300">
+                    <ListView.ItemTemplate>
+                        <DataTemplate x:DataType="x:String">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Grid.Column="0" Text="{x:Bind}" VerticalAlignment="Center"
+                                           TextTrimming="CharacterEllipsis"/>
+                                <Button Grid.Column="1" Content="Remove"
+                                        Click="RemoveGameFolder_Click" Tag="{x:Bind}"/>
+                            </Grid>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                <Button Content="Add Game Folder" Command="{x:Bind ViewModel.AddGameSourceFolderCommand}"
+                        HorizontalAlignment="Left" Margin="0,8,0,0"/>
+            </StackPanel>
 
-        <StackPanel Grid.Row="4" Orientation="Horizontal" Spacing="8" HorizontalAlignment="Right">
+            <StackPanel Grid.Column="2" Spacing="8">
+                <TextBlock Text="App Folders" FontWeight="SemiBold"/>
+                <ListView x:Name="AppSourceFoldersListView"
+                          ItemsSource="{x:Bind ViewModel.AppSourceFolders, Mode=OneWay}"
+                          MaxHeight="300">
+                    <ListView.ItemTemplate>
+                        <DataTemplate x:DataType="x:String">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Grid.Column="0" Text="{x:Bind}" VerticalAlignment="Center"
+                                           TextTrimming="CharacterEllipsis"/>
+                                <Button Grid.Column="1" Content="Remove"
+                                        Click="RemoveAppFolder_Click" Tag="{x:Bind}"/>
+                            </Grid>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                <Button Content="Add App Folder" Command="{x:Bind ViewModel.AddAppSourceFolderCommand}"
+                        HorizontalAlignment="Left" Margin="0,8,0,0"/>
+            </StackPanel>
+        </Grid>
+
+        <StackPanel Grid.Row="3" Orientation="Horizontal" Spacing="8" HorizontalAlignment="Right" Margin="0,16,0,0">
             <TextBlock Text="{x:Bind ViewModel.StatusMessage, Mode=OneWay}" VerticalAlignment="Center" Opacity="0.7"/>
             <Button Content="Save and Close" Style="{StaticResource AccentButtonStyle}" Click="SaveAndClose_Click"/>
         </StackPanel>

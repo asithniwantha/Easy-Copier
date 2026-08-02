@@ -10,11 +10,20 @@ using System.Linq;
 
 namespace Easy_Copier.Views
 {
-    public sealed partial class MainPage : Page
+    public sealed partial class MainPage : Page, INotifyPropertyChanged
     {
+        public event PropertyChangedEventHandler? PropertyChanged;
+
         public MainViewModel ViewModel { get; }
 
-        public bool IsLibraryEmpty => !ViewModel.IsScanning && ViewModel.Games.Count == 0;
+        public bool IsGamesEmpty => !ViewModel.IsScanning && ViewModel.Games.Count == 0;
+        public bool IsAppsEmpty => !ViewModel.IsScanning && ViewModel.Apps.Count == 0;
+        public string EmptyGamesMessage => string.IsNullOrWhiteSpace(ViewModel.SearchText)
+            ? "No games found. Add a game folder in Settings and scan your library."
+            : $"No games match \"{ViewModel.SearchText}\".";
+        public string EmptyAppsMessage => string.IsNullOrWhiteSpace(ViewModel.SearchText)
+            ? "No apps found. Add an app folder in Settings and scan your library."
+            : $"No apps match \"{ViewModel.SearchText}\".";
         public bool HasSelectedDrive => ViewModel.SelectedDrive != null;
         public string DriveSpaceSummary => ViewModel.SelectedDrive == null
             ? string.Empty
@@ -23,8 +32,8 @@ namespace Easy_Copier.Views
             ? string.Empty
             : $"{ViewModel.SelectedDrive.DriveLetter} \u2022 {ViewModel.SelectedDrive.Brand} \u2022 {ViewModel.SelectedDrive.FileSystem}";
         public string SelectionSummary => ViewModel.SelectedGamesCount == 0
-            ? "No games selected"
-            : $"{ViewModel.SelectedGamesCount} game(s) selected \u2022 {FormatBytes(ViewModel.SelectedGamesTotalBytes)}";
+            ? "No items selected"
+            : $"{ViewModel.SelectedGamesCount} item(s) selected \u2022 {FormatBytes(ViewModel.SelectedGamesTotalBytes)}";
 
         public MainPage()
         {
@@ -32,7 +41,8 @@ namespace Easy_Copier.Views
             InitializeComponent();
 
             ViewModel.PropertyChanged += ViewModel_PropertyChanged;
-            ViewModel.Games.CollectionChanged += (s, e) => NotifyLibraryStateChanged();
+            ViewModel.Games.CollectionChanged += (s, e) => NotifyGamesStateChanged();
+            ViewModel.Apps.CollectionChanged += (s, e) => NotifyAppsStateChanged();
             ViewModel.TransferCompleted += (s, e) => ClearGameSelection();
 
             _ = ViewModel.InitializeAsync();
@@ -43,7 +53,8 @@ namespace Easy_Copier.Views
             switch (e.PropertyName)
             {
                 case nameof(MainViewModel.IsScanning):
-                    NotifyLibraryStateChanged();
+                    NotifyGamesStateChanged();
+                    NotifyAppsStateChanged();
                     break;
                 case nameof(MainViewModel.SelectedDrive):
                     NotifyPropertyChanged(nameof(HasSelectedDrive));
@@ -54,29 +65,46 @@ namespace Easy_Copier.Views
                 case nameof(MainViewModel.SelectedGamesTotalBytes):
                     NotifyPropertyChanged(nameof(SelectionSummary));
                     break;
+                case nameof(MainViewModel.SearchText):
+                    NotifyPropertyChanged(nameof(EmptyGamesMessage));
+                    NotifyPropertyChanged(nameof(EmptyAppsMessage));
+                    break;
             }
         }
 
-        private void NotifyLibraryStateChanged()
+        private void NotifyGamesStateChanged()
         {
-            NotifyPropertyChanged(nameof(IsLibraryEmpty));
+            NotifyPropertyChanged(nameof(IsGamesEmpty));
+        }
+
+        private void NotifyAppsStateChanged()
+        {
+            NotifyPropertyChanged(nameof(IsAppsEmpty));
         }
 
         private void NotifyPropertyChanged(string propertyName)
         {
-            Bindings.Update();
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
         private async void AddSourceFolder_Click(object sender, RoutedEventArgs e)
         {
             var settingsWindow = new SettingsWindow();
             settingsWindow.Activate();
-            await settingsWindow.ViewModel.AddSourceFolderCommand.ExecuteAsync(null);
+
+            if (LibraryPivot.SelectedIndex == 1)
+            {
+                await settingsWindow.ViewModel.AddAppSourceFolderCommand.ExecuteAsync(null);
+            }
+            else
+            {
+                await settingsWindow.ViewModel.AddGameSourceFolderCommand.ExecuteAsync(null);
+            }
         }
 
-        private void SelectAll_Click(object sender, RoutedEventArgs e)
+        private void DeselectAll_Click(object sender, RoutedEventArgs e)
         {
-            GamesGridView.SelectAll();
+            ClearGameSelection();
         }
 
         private void OpenSettings_Click(object sender, RoutedEventArgs e)
@@ -88,13 +116,25 @@ namespace Easy_Copier.Views
 
         private void GamesGridView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            var selectedGames = GamesGridView.SelectedItems.Cast<GameEntry>();
-            ViewModel.UpdateSelectionSummary(selectedGames);
+            UpdateCombinedSelection();
+        }
+
+        private void AppsGridView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            UpdateCombinedSelection();
+        }
+
+        private void UpdateCombinedSelection()
+        {
+            var selectedItems = GamesGridView.SelectedItems.Cast<GameEntry>()
+                .Concat(AppsGridView.SelectedItems.Cast<GameEntry>());
+            ViewModel.UpdateSelectionSummary(selectedItems);
         }
 
         private void ClearGameSelection()
         {
             GamesGridView.SelectedItems.Clear();
+            AppsGridView.SelectedItems.Clear();
         }
 
         private void OpenDriveInExplorer_Click(object sender, RoutedEventArgs e)

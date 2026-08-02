@@ -13,6 +13,7 @@ namespace Easy_Copier.Services
     {
         Task<IReadOnlyList<GameEntry>> ScanLibraryAsync(
             IEnumerable<string> sourceFolders,
+            LibraryCategory category,
             IProgress<string>? progress = null,
             CancellationToken cancellationToken = default);
 
@@ -33,11 +34,14 @@ namespace Easy_Copier.Services
 
         public async Task<IReadOnlyList<GameEntry>> ScanLibraryAsync(
             IEnumerable<string> sourceFolders,
+            LibraryCategory category,
             IProgress<string>? progress = null,
             CancellationToken cancellationToken = default)
         {
             var games = new List<GameEntry>();
             var processedPaths = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
+
+            var categoryLabel = category == LibraryCategory.App ? "app" : "game";
 
             foreach (var sourceFolder in sourceFolders)
             {
@@ -66,7 +70,7 @@ namespace Easy_Copier.Services
 
                         if (processedPaths.Contains(gameFolder))
                         {
-                            _logger.LogDebug("Duplicate game folder ignored: {Path}", gameFolder);
+                            _logger.LogDebug("Duplicate {Category} folder ignored: {Path}", categoryLabel, gameFolder);
                             continue;
                         }
 
@@ -85,20 +89,21 @@ namespace Easy_Copier.Services
                                 totalSize,
                                 coverImage,
                                 DateTime.Now,
-                                hasLargeFiles);
+                                hasLargeFiles,
+                                category);
 
                             games.Add(game);
                             processedPaths.Add(gameFolder);
 
-                            _logger.LogInformation("Scanned game: {Name}, Size: {Size} bytes", gameName, totalSize);
+                            _logger.LogInformation("Scanned {Category}: {Name}, Size: {Size} bytes", categoryLabel, gameName, totalSize);
                         }
                         catch (UnauthorizedAccessException ex)
                         {
-                            _logger.LogWarning(ex, "Access denied to game folder: {Path}", gameFolder);
+                            _logger.LogWarning(ex, "Access denied to {Category} folder: {Path}", categoryLabel, gameFolder);
                         }
                         catch (Exception ex)
                         {
-                            _logger.LogError(ex, "Error scanning game folder: {Path}", gameFolder);
+                            _logger.LogError(ex, "Error scanning {Category} folder: {Path}", categoryLabel, gameFolder);
                         }
                     }
                 }
@@ -114,7 +119,7 @@ namespace Easy_Copier.Services
                 }
             }
 
-            progress?.Report($"Scan complete: {games.Count} games found");
+            progress?.Report($"Scan complete: {games.Count} {categoryLabel}(s) found");
             return games;
         }
 

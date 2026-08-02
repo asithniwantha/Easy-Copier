@@ -10,6 +10,8 @@ namespace Easy_Copier
         private Window? _window;
         private IServiceProvider? _serviceProvider;
 
+        public static Window? MainWindow { get; private set; }
+
         public App()
         {
             InitializeComponent();
@@ -30,6 +32,7 @@ namespace Easy_Copier
         protected override void OnLaunched(Microsoft.UI.Xaml.LaunchActivatedEventArgs args)
         {
             _window = new MainWindow();
+            MainWindow = _window;
             _window.Activate();
         }
     }
