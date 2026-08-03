@@ -15,12 +15,14 @@ namespace Easy_Copier.ViewModels
     public partial class MainViewModel : ObservableObject
     {
         private readonly ISettingsService _settingsService;
+        private readonly ILibraryCacheService _libraryCacheService;
         private readonly IGameScannerService _gameScannerService;
         private readonly IDriveDiscoveryService _driveDiscoveryService;
         private readonly IDriveValidationService _driveValidationService;
         private readonly IFileTransferService _fileTransferService;
         private readonly Microsoft.UI.Dispatching.DispatcherQueue? _dispatcherQueue;
         private CancellationTokenSource? _scanCancellationTokenSource;
+        private CancellationTokenSource? _validationCancellationTokenSource;
         private List<GameEntry> _selectedGames = new();
 
         [ObservableProperty]
@@ -59,12 +61,14 @@ namespace Easy_Copier.ViewModels
 
         public MainViewModel(
             ISettingsService settingsService,
+            ILibraryCacheService libraryCacheService,
             IGameScannerService gameScannerService,
             IDriveDiscoveryService driveDiscoveryService,
             IDriveValidationService driveValidationService,
             IFileTransferService fileTransferService)
         {
             _settingsService = settingsService;
+            _libraryCacheService = libraryCacheService;
             _gameScannerService = gameScannerService;
             _driveDiscoveryService = driveDiscoveryService;
             _driveValidationService = driveValidationService;
@@ -96,13 +100,52 @@ namespace Easy_Copier.ViewModels
                 _driveDiscoveryService.StartWatching();
                 await RefreshDrivesAsync();
 
-                if (settings.AutoScanOnStartup && (settings.GameSourceFolders.Any() || settings.AppSourceFolders.Any()))
+                if (!settings.GameSourceFolders.Any() && !settings.AppSourceFolders.Any())
                 {
-                    await ScanLibraryAsync();
+                    StatusMessage = "Ready - No source folders configured";
+                    return;
+                }
+
+                var cache = await _libraryCacheService.LoadCacheAsync();
+
+                if (cache != null)
+                {
+                    _allGames.Clear();
+                    _allGames.AddRange(cache.Games);
+
+                    _allApps.Clear();
+                    _allApps.AddRange(cache.Apps);
+
+                    ApplyFilter();
+
+                    var cacheAge = DateTime.Now - cache.CachedAt;
+                    var ageText = cacheAge.TotalHours < 1
+                        ? $"{(int)cacheAge.TotalMinutes}m ago"
+                        : cacheAge.TotalDays < 1
+                            ? $"{(int)cacheAge.TotalHours}h ago"
+                            : $"{(int)cacheAge.TotalDays}d ago";
+
+                    StatusMessage = $"Loaded {_allGames.Count} game(s), {_allApps.Count} app(s) from cache (scanned {ageText}) - Validating...";
+
+                    if (settings.AutoScanOnStartup)
+                    {
+                        _ = Task.Run(async () => await ValidateAndRefreshCacheAsync(cache, settings));
+                    }
+                    else
+                    {
+                        StatusMessage = $"Loaded {_allGames.Count} game(s), {_allApps.Count} app(s) from cache (scanned {ageText})";
+                    }
                 }
                 else
                 {
-                    StatusMessage = "Ready - No source folders configured";
+                    if (settings.AutoScanOnStartup)
+                    {
+                        await ScanLibraryAsync();
+                    }
+                    else
+                    {
+                        StatusMessage = "Ready - Click Scan to discover games and apps";
+                    }
                 }
             }
             catch (Exception ex)
@@ -112,6 +155,62 @@ namespace Easy_Copier.ViewModels
             finally
             {
                 IsLoading = false;
+            }
+        }
+
+        private async Task ValidateAndRefreshCacheAsync(LibraryCacheSnapshot cache, AppSettings settings)
+        {
+            try
+            {
+                _validationCancellationTokenSource?.Cancel();
+                _validationCancellationTokenSource = new CancellationTokenSource();
+
+                var validationResult = await _libraryCacheService.ValidateCacheAsync(
+                    cache,
+                    settings,
+                    _validationCancellationTokenSource.Token);
+
+                if (validationResult.Result == CacheValidationResult.Valid)
+                {
+                    if (_dispatcherQueue != null)
+                    {
+                        _dispatcherQueue.TryEnqueue(() =>
+                        {
+                            StatusMessage = $"Library is up to date: {_allGames.Count} game(s), {_allApps.Count} app(s)";
+                        });
+                    }
+                    return;
+                }
+
+                if (_dispatcherQueue != null)
+                {
+                    _dispatcherQueue.TryEnqueue(() =>
+                    {
+                        StatusMessage = "Changes detected - Rescanning library...";
+                    });
+                }
+
+                await Task.Run(async () =>
+                {
+                    if (_dispatcherQueue != null)
+                    {
+                        _dispatcherQueue.TryEnqueue(async () => await ScanLibraryAsync());
+                    }
+                });
+            }
+            catch (OperationCanceledException)
+            {
+                // Validation cancelled - cache remains displayed
+            }
+            catch (Exception ex)
+            {
+                if (_dispatcherQueue != null)
+                {
+                    _dispatcherQueue.TryEnqueue(() =>
+                    {
+                        StatusMessage = $"Validation error: {ex.Message}";
+                    });
+                }
             }
         }
 
@@ -134,6 +233,7 @@ namespace Easy_Copier.ViewModels
 
                 if (!settings.GameSourceFolders.Any() && !settings.AppSourceFolders.Any())
                 {
+                    await _libraryCacheService.InvalidateCacheAsync();
                     StatusMessage = "No source folders configured. Please add folders in Settings.";
                     return;
                 }
@@ -178,6 +278,8 @@ namespace Easy_Copier.ViewModels
 
                 settings.LastScanTime = DateTime.Now;
                 await _settingsService.SaveSettingsAsync(settings);
+
+                await SaveCacheSnapshotAsync(settings);
             }
             catch (OperationCanceledException)
             {
@@ -191,6 +293,73 @@ namespace Easy_Copier.ViewModels
             {
                 IsScanning = false;
             }
+        }
+
+        private async Task SaveCacheSnapshotAsync(AppSettings settings)
+        {
+            try
+            {
+                var fingerprints = new Dictionary<string, ItemFingerprint>();
+
+                var allEntries = _allGames.Concat(_allApps).ToList();
+
+                foreach (var entry in allEntries)
+                {
+                    try
+                    {
+                        var fingerprint = await ComputeItemFingerprintAsync(entry.FolderPath);
+                        var normalizedPath = Path.GetFullPath(entry.FolderPath)
+                            .TrimEnd(Path.DirectorySeparatorChar, Path.AltDirectorySeparatorChar);
+                        fingerprints[normalizedPath] = fingerprint;
+                    }
+                    catch (Exception ex)
+                    {
+                        StatusMessage = $"Warning: Could not compute fingerprint for {entry.Name}: {ex.Message}";
+                    }
+                }
+
+                var snapshot = new LibraryCacheSnapshot(
+                    LibraryCacheSnapshot.CurrentSchemaVersion,
+                    _allGames.ToList(),
+                    _allApps.ToList(),
+                    settings.GameSourceFolders.ToList(),
+                    settings.AppSourceFolders.ToList(),
+                    DateTime.Now,
+                    fingerprints);
+
+                await _libraryCacheService.SaveCacheAsync(snapshot);
+            }
+            catch (Exception ex)
+            {
+                StatusMessage = $"Failed to save cache: {ex.Message}";
+            }
+        }
+
+        private async Task<ItemFingerprint> ComputeItemFingerprintAsync(string folderPath)
+        {
+            return await Task.Run(() =>
+            {
+                var dirInfo = new DirectoryInfo(folderPath);
+                var files = dirInfo.EnumerateFiles("*", SearchOption.AllDirectories);
+
+                long totalBytes = 0;
+                var latestWriteTime = DateTime.MinValue;
+
+                foreach (var file in files)
+                {
+                    totalBytes += file.Length;
+
+                    if (file.LastWriteTimeUtc > latestWriteTime)
+                    {
+                        latestWriteTime = file.LastWriteTimeUtc;
+                    }
+                }
+
+                var normalizedPath = Path.GetFullPath(folderPath)
+                    .TrimEnd(Path.DirectorySeparatorChar, Path.AltDirectorySeparatorChar);
+
+                return new ItemFingerprint(normalizedPath, totalBytes, latestWriteTime);
+            });
         }
 
         partial void OnSearchTextChanged(string value)

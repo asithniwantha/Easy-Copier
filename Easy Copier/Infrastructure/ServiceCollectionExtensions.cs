@@ -19,6 +19,7 @@ namespace Easy_Copier.Infrastructure
             });
 
             services.AddSingleton<Services.ISettingsService, Services.SettingsService>();
+            services.AddSingleton<Services.ILibraryCacheService, Services.LibraryCacheService>();
             services.AddSingleton<Services.ISourceLibraryService, Services.SourceLibraryService>();
             services.AddSingleton<Services.IFolderPickerService, FolderPickerService>();
             services.AddSingleton<Services.IGameScannerService, Services.GameScannerService>();

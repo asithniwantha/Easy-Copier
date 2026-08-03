@@ -69,4 +69,35 @@ namespace Easy_Copier.Models
         public string LastSelectedDrive { get; set; } = string.Empty;
         public DateTime LastScanTime { get; set; } = DateTime.MinValue;
     }
+
+    public record ItemFingerprint(
+        string RelativePath,
+        long TotalBytes,
+        DateTime LastWriteTimeUtc);
+
+    public record LibraryCacheSnapshot(
+        int SchemaVersion,
+        List<GameEntry> Games,
+        List<GameEntry> Apps,
+        List<string> GameSourceFolders,
+        List<string> AppSourceFolders,
+        DateTime CachedAt,
+        Dictionary<string, ItemFingerprint> ItemFingerprints)
+    {
+        public const int CurrentSchemaVersion = 1;
+    }
+
+    public enum CacheValidationResult
+    {
+        Valid,
+        ConfigurationMismatch,
+        SourcesUnavailable,
+        ItemsChanged,
+        CacheNotFound,
+        CorruptOrInvalid
+    }
+
+    public record CacheValidationOutcome(
+        CacheValidationResult Result,
+        List<string> ChangedItems);
 }
