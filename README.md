@@ -40,6 +40,9 @@ The selected-drive panel also shows a usage bar, free space, total capacity, and
 ### Copy operations
 
 - Copy multiple selected games asynchronously without blocking the UI.
+- Process copy jobs in parallel when they target different USB drives.
+- Keep copy jobs serialized per drive (one at a time per target drive, in queue order).
+- Use the Windows native copy dialog during file transfer operations.
 - Validate destination capacity, source availability, existing destination folders, and FAT32 compatibility.
 - Show transfer status and refresh drive capacity after a successful copy.
 
@@ -58,7 +61,7 @@ The selected-drive panel also shows a usage bar, free space, total capacity, and
 | Language | C# with .NET 10 |
 | Pattern | MVVM with CommunityToolkit.Mvvm |
 | Storage discovery | `DriveInfo` and Windows Management Instrumentation (WMI) |
-| Target platforms | x86, x64, and ARM64 |
+| Target platform | x64 |
 
 ## Requirements
 

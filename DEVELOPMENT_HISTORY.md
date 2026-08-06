@@ -34,5 +34,5 @@ Easy Copier was developed as a WinUI 3 desktop application targeting .NET 10 to 
 
 ## Platform and Packaging
 - Target framework: `.NET 10` (`net10.0-windows10.0.26100.0`).
-- Platforms: `x86`, `x64`, `ARM64`.
+- Platform: `x64`.
 - Windows App SDK + MSIX tooling enabled for packaging/publishing workflows.

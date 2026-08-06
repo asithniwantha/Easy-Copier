@@ -37,7 +37,9 @@
 ## Copy Operations
 - Copy selected items asynchronously to target drive.
 - Non-blocking transfer queue: add more items to the queue while a copy is in progress.
-- Copies are processed one at a time, in the order they were queued.
+- Copies are processed in parallel across different target drives.
+- Copies targeting the same drive are processed one at a time, in the order they were queued.
+- Use the native Windows copy dialog for transfer operations.
 - Reserves space for queued/in-progress transfers targeting the same drive so validation reflects true remaining capacity.
 - View live queue status (queued, in progress, completed, failed) with per-item details.
 - Clear finished (completed/failed) items from the queue view.

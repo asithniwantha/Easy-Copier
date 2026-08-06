@@ -2,6 +2,7 @@ using Easy_Copier.Models;
 using Microsoft.Extensions.Logging;
 using Microsoft.UI.Dispatching;
 using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -28,6 +29,7 @@ namespace Easy_Copier.Services
         private readonly IFileTransferService _fileTransferService;
         private readonly ILogger<TransferQueueService> _logger;
         private readonly Channel<TransferQueueItem> _channel = Channel.CreateUnbounded<TransferQueueItem>();
+        private readonly ConcurrentDictionary<string, Channel<TransferQueueItem>> _driveChannels = new(StringComparer.OrdinalIgnoreCase);
         private readonly DispatcherQueue? _dispatcherQueue;
 
         public ObservableCollection<TransferQueueItem> QueueItems { get; } = new();
@@ -77,8 +79,26 @@ namespace Easy_Copier.Services
         {
             await foreach (var item in _channel.Reader.ReadAllAsync())
             {
+                var driveKey = NormalizeDriveKey(item.TargetDrive.DriveLetter);
+                var driveChannel = _driveChannels.GetOrAdd(driveKey, key =>
+                {
+                    var channel = Channel.CreateUnbounded<TransferQueueItem>();
+                    _ = Task.Run(() => ProcessDriveQueueAsync(key, channel));
+                    return channel;
+                });
+
+                driveChannel.Writer.TryWrite(item);
+            }
+        }
+
+        private async Task ProcessDriveQueueAsync(string driveKey, Channel<TransferQueueItem> driveChannel)
+        {
+            await foreach (var item in driveChannel.Reader.ReadAllAsync())
+            {
                 await ProcessItemAsync(item);
             }
+
+            _driveChannels.TryRemove(driveKey, out _);
         }
 
         private async Task ProcessItemAsync(TransferQueueItem item)
@@ -117,6 +137,11 @@ namespace Easy_Copier.Services
                 item.CompletedAt = DateTime.Now;
                 ItemCompleted?.Invoke(this, item);
             });
+        }
+
+        private static string NormalizeDriveKey(string driveLetter)
+        {
+            return (driveLetter ?? string.Empty).Trim().TrimEnd('\\').ToUpperInvariant();
         }
 
         private void RunOnUiThread(Action action)
