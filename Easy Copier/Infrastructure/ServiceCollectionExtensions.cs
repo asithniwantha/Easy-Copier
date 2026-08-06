@@ -27,6 +27,8 @@ namespace Easy_Copier.Infrastructure
             services.AddSingleton<Services.IDriveValidationService, Services.DriveValidationService>();
             services.AddSingleton<Services.IFileTransferService, Services.WindowsShellTransferService>();
             services.AddSingleton<Services.ITransferQueueService, Services.TransferQueueService>();
+            services.AddSingleton<Services.ICopyHistoryService, Services.CopyHistoryService>();
+            services.AddSingleton<Services.IReportService, Services.ReportService>();
 
             return services;
         }
@@ -35,6 +37,7 @@ namespace Easy_Copier.Infrastructure
         {
             services.AddSingleton<ViewModels.MainViewModel>();
             services.AddTransient<ViewModels.SettingsViewModel>();
+            services.AddTransient<ViewModels.HistoryViewModel>();
 
             return services;
         }

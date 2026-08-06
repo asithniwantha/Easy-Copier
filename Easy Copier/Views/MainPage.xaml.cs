@@ -191,5 +191,14 @@ namespace Easy_Copier.Views
             }
             return $"{len:0.##} {sizes[order]}";
         }
+
+        private void OpenHistory_Click(object sender, RoutedEventArgs e)
+        {
+            var ownerHwnd = App.MainWindow != null
+                ? WinRT.Interop.WindowNative.GetWindowHandle(App.MainWindow)
+                : default;
+            var historyWindow = new HistoryWindow(ownerHwnd);
+            historyWindow.Activate();
+        }
     }
 }

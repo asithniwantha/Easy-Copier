@@ -100,4 +100,32 @@ namespace Easy_Copier.Models
     public record CacheValidationOutcome(
         CacheValidationResult Result,
         List<string> ChangedItems);
+
+    public class CopyHistoryEntry
+    {
+        public int Id { get; set; }
+        public string ItemName { get; set; } = string.Empty;
+        public LibraryCategory Category { get; set; }
+        public string SourcePath { get; set; } = string.Empty;
+        public string DestinationPath { get; set; } = string.Empty;
+        public string TargetDrive { get; set; } = string.Empty;
+        public long BytesCopied { get; set; }
+        public bool Success { get; set; }
+        public string? ErrorMessage { get; set; }
+        public DateTime CopiedAt { get; set; }
+
+        public string CategoryLabel => Category == LibraryCategory.Game ? "Game" : "App";
+        public string StatusLabel => Success ? "Success" : "Failed";
+        public string SizeLabel
+        {
+            get
+            {
+                string[] sizes = { "B", "KB", "MB", "GB", "TB" };
+                int order = 0;
+                double len = BytesCopied;
+                while (len >= 1024 && order < sizes.Length - 1) { order++; len /= 1024; }
+                return $"{len:0.##} {sizes[order]}";
+            }
+        }
+    }
 }

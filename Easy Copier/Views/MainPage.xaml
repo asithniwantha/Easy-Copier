@@ -81,6 +81,7 @@
                 <AppBarButton Icon="ClearSelection" Label="Deselect All" Click="DeselectAll_Click"/>
                 <AppBarSeparator/>
                 <AppBarButton Icon="Setting" Label="Settings" Click="OpenSettings_Click"/>
+                <AppBarButton Icon="Clock" Label="History" Click="OpenHistory_Click"/>
             </CommandBar>
 
             <AutoSuggestBox Grid.Row="2" x:Name="SearchBox"
