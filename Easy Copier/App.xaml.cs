@@ -1,6 +1,6 @@
-﻿using Microsoft.UI.Xaml;
+﻿using Easy_Copier.Infrastructure;
 using Microsoft.Extensions.DependencyInjection;
-using Easy_Copier.Infrastructure;
+using Microsoft.UI.Xaml;
 using System;
 
 namespace Easy_Copier

@@ -1,8 +1,7 @@
+using Easy_Copier.Models;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Data;
-using Easy_Copier.Models;
 using System;
-using System.Globalization;
 
 namespace Easy_Copier.Converters
 {
@@ -52,7 +51,7 @@ namespace Easy_Copier.Converters
 
     public class PathToImageSourceConverter : IValueConverter
     {
-        public object Convert(object value, Type targetType, object parameter, string language)
+        public object? Convert(object value, Type targetType, object parameter, string language)
         {
             if (value is string path && !string.IsNullOrEmpty(path))
             {

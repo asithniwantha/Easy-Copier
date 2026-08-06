@@ -1,8 +1,11 @@
 using Easy_Copier.Infrastructure;
+using Easy_Copier.Services;
 using Easy_Copier.ViewModels;
 using Microsoft.UI;
 using Microsoft.UI.Xaml;
 using System;
+using System.Diagnostics;
+using System.IO;
 using System.Runtime.InteropServices;
 using System.Threading.Tasks;
 using WinRT.Interop;
@@ -123,6 +126,34 @@ namespace Easy_Copier.Views
         private async Task LoadAsync()
         {
             await ViewModel.LoadSettingsAsync();
+        }
+
+        private void OpenDataFolder_Click(object sender, RoutedEventArgs e)
+        {
+            var settingsService = AppServiceLocator.GetService<ISettingsService>();
+            var folderPath = Path.GetDirectoryName(settingsService.GetSettingsFilePath());
+
+            if (string.IsNullOrWhiteSpace(folderPath))
+            {
+                ViewModel.StatusMessage = "Unable to resolve the data folder";
+                return;
+            }
+
+            try
+            {
+                Process.Start(new ProcessStartInfo
+                {
+                    FileName = "explorer.exe",
+                    Arguments = folderPath,
+                    UseShellExecute = true
+                });
+
+                ViewModel.StatusMessage = $"Opened data folder: {folderPath}";
+            }
+            catch (Exception ex)
+            {
+                ViewModel.StatusMessage = $"Unable to open data folder: {ex.Message}";
+            }
         }
 
         private async void RemoveGameFolder_Click(object sender, RoutedEventArgs e)

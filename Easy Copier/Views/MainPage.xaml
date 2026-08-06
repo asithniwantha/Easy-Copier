@@ -30,9 +30,19 @@
                                   Visibility="{x:Bind HasNoCover, Converter={StaticResource BoolToVisibilityConverter}}"/>
                         <InfoBadge Style="{ThemeResource CautionIconInfoBadgeStyle}"
                                    HorizontalAlignment="Right" VerticalAlignment="Top"
-                                   Margin="4"
+                                   Margin="4,4,36,4"
                                    Visibility="{x:Bind HasLargeFiles, Converter={StaticResource BoolToVisibilityConverter}}"
                                    ToolTipService.ToolTip="Contains files larger than 4GB (FAT32 incompatible)"/>
+                        <Button HorizontalAlignment="Right"
+                                VerticalAlignment="Top"
+                                Margin="4"
+                                Padding="4"
+                                MinWidth="0"
+                                Click="OpenItemFolder_Click"
+                                Tag="{x:Bind FolderPath}"
+                                ToolTipService.ToolTip="Open folder in File Explorer">
+                            <FontIcon Glyph="&#xE838;" FontSize="12"/>
+                        </Button>
                     </Grid>
 
                     <TextBlock Grid.Row="1" Text="{x:Bind Name}"

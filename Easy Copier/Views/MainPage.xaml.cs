@@ -1,8 +1,8 @@
+using Easy_Copier.Infrastructure;
+using Easy_Copier.Models;
+using Easy_Copier.ViewModels;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
-using Easy_Copier.Infrastructure;
-using Easy_Copier.ViewModels;
-using Easy_Copier.Models;
 using System;
 using System.ComponentModel;
 using System.Diagnostics;
@@ -156,6 +156,26 @@ namespace Easy_Copier.Views
             catch (Exception)
             {
                 // Ignore failures opening Explorer (e.g. drive was removed).
+            }
+        }
+
+        private void OpenItemFolder_Click(object sender, RoutedEventArgs e)
+        {
+            if (sender is FrameworkElement fe && fe.Tag is string folderPath)
+            {
+                try
+                {
+                    Process.Start(new ProcessStartInfo
+                    {
+                        FileName = "explorer.exe",
+                        Arguments = folderPath,
+                        UseShellExecute = true
+                    });
+                }
+                catch (Exception)
+                {
+                    // Ignore failures opening Explorer (e.g. folder was removed).
+                }
             }
         }
 
