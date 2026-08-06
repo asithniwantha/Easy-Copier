@@ -43,7 +43,7 @@ namespace Easy_Copier.Views
             ViewModel.PropertyChanged += ViewModel_PropertyChanged;
             ViewModel.Games.CollectionChanged += (s, e) => NotifyGamesStateChanged();
             ViewModel.Apps.CollectionChanged += (s, e) => NotifyAppsStateChanged();
-            ViewModel.TransferCompleted += (s, e) => ClearGameSelection();
+            ViewModel.ItemQueued += (s, e) => ClearGameSelection();
 
             _ = ViewModel.InitializeAsync();
         }

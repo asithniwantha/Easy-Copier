@@ -222,8 +222,14 @@
                     </Grid>
                 </StackPanel>
 
-                <ScrollViewer Grid.Row="2">
-                    <ItemsControl ItemsSource="{x:Bind ViewModel.ValidationMessages, Mode=OneWay}">
+                <Grid Grid.Row="2">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <ItemsControl Grid.Row="0" ItemsSource="{x:Bind ViewModel.ValidationMessages, Mode=OneWay}">
                         <ItemsControl.ItemTemplate>
                             <DataTemplate x:DataType="models:ValidationResult">
                                 <InfoBar IsOpen="True" Message="{x:Bind Message}" Margin="0,0,0,4"
@@ -231,13 +237,59 @@
                             </DataTemplate>
                         </ItemsControl.ItemTemplate>
                     </ItemsControl>
-                </ScrollViewer>
+
+                    <Grid Grid.Row="1" Margin="0,8,0,4">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Grid.Column="0" Text="Transfer Queue" FontWeight="SemiBold"/>
+                        <Button Grid.Column="1" Content="Clear Finished"
+                                Command="{x:Bind ViewModel.ClearFinishedQueueItemsCommand}"
+                                FontSize="12" Padding="8,4"/>
+                    </Grid>
+
+                    <ScrollViewer Grid.Row="2">
+                        <ItemsControl ItemsSource="{x:Bind ViewModel.TransferQueue, Mode=OneWay}">
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate x:DataType="models:TransferQueueItem">
+                                    <Border Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
+                                            BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
+                                            BorderThickness="1"
+                                            CornerRadius="4" Padding="8" Margin="0,0,0,6">
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="Auto"/>
+                                                <ColumnDefinition Width="*"/>
+                                            </Grid.ColumnDefinitions>
+
+                                            <FontIcon Grid.Column="0" Glyph="{x:Bind StatusGlyph, Mode=OneWay}"
+                                                      FontSize="16" Margin="0,2,8,0" VerticalAlignment="Top"/>
+
+                                            <StackPanel Grid.Column="1" Spacing="2">
+                                                <TextBlock Text="{x:Bind ItemsSummary}" FontWeight="SemiBold"
+                                                           TextTrimming="CharacterEllipsis"/>
+                                                <TextBlock FontSize="12" Opacity="0.7">
+                                                    <Run Text="{x:Bind TargetDrive.DriveLetter}"/>
+                                                    <Run Text="•"/>
+                                                    <Run Text="{x:Bind TotalBytes, Converter={StaticResource BytesToSizeConverter}}"/>
+                                                </TextBlock>
+                                                <TextBlock Text="{x:Bind StatusMessage, Mode=OneWay}"
+                                                           FontSize="12" Opacity="0.7" TextWrapping="Wrap"/>
+                                            </StackPanel>
+                                        </Grid>
+                                    </Border>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                    </ScrollViewer>
+                </Grid>
 
                 <StackPanel Grid.Row="3" Spacing="4" Margin="0,8,0,8">
                     <TextBlock Text="{x:Bind SelectionSummary, Mode=OneWay}" FontWeight="SemiBold"/>
                 </StackPanel>
 
-                <Button Grid.Row="4" Content="Copy Selected" Style="{StaticResource AccentButtonStyle}"
+                <Button Grid.Row="4" Content="Add to Copy Queue" Style="{StaticResource AccentButtonStyle}"
                         Command="{x:Bind ViewModel.CopySelectedGamesCommand}"
                         HorizontalAlignment="Stretch" Margin="0,0,0,8"/>
 

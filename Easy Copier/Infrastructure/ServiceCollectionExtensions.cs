@@ -26,6 +26,7 @@ namespace Easy_Copier.Infrastructure
             services.AddSingleton<Services.IDriveDiscoveryService, Services.DriveDiscoveryService>();
             services.AddSingleton<Services.IDriveValidationService, Services.DriveValidationService>();
             services.AddSingleton<Services.IFileTransferService, Services.WindowsShellTransferService>();
+            services.AddSingleton<Services.ITransferQueueService, Services.TransferQueueService>();
 
             return services;
         }

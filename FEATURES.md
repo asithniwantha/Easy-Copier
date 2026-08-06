@@ -36,9 +36,14 @@
 
 ## Copy Operations
 - Copy selected items asynchronously to target drive.
+- Non-blocking transfer queue: add more items to the queue while a copy is in progress.
+- Copies are processed one at a time, in the order they were queued.
+- Reserves space for queued/in-progress transfers targeting the same drive so validation reflects true remaining capacity.
+- View live queue status (queued, in progress, completed, failed) with per-item details.
+- Clear finished (completed/failed) items from the queue view.
 - Keep UI responsive during transfer.
 - Provide transfer status and completion feedback.
-- Refresh drive information after successful copy.
+- Refresh drive information after each successful copy completes.
 
 ## Settings and Persistence
 - Manage source folders for Games and Apps (add/remove).

@@ -20,6 +20,7 @@ namespace Easy_Copier.ViewModels
         private readonly IDriveDiscoveryService _driveDiscoveryService;
         private readonly IDriveValidationService _driveValidationService;
         private readonly IFileTransferService _fileTransferService;
+        private readonly ITransferQueueService _transferQueueService;
         private readonly Microsoft.UI.Dispatching.DispatcherQueue? _dispatcherQueue;
         private CancellationTokenSource? _scanCancellationTokenSource;
         private CancellationTokenSource? _validationCancellationTokenSource;
@@ -56,8 +57,9 @@ namespace Easy_Copier.ViewModels
         public ObservableCollection<GameEntry> Apps { get; } = new();
         public ObservableCollection<RemovableDrive> AvailableDrives { get; } = new();
         public ObservableCollection<ValidationResult> ValidationMessages { get; } = new();
+        public ObservableCollection<TransferQueueItem> TransferQueue => _transferQueueService.QueueItems;
 
-        public event EventHandler? TransferCompleted;
+        public event EventHandler? ItemQueued;
 
         public MainViewModel(
             ISettingsService settingsService,
@@ -65,7 +67,8 @@ namespace Easy_Copier.ViewModels
             IGameScannerService gameScannerService,
             IDriveDiscoveryService driveDiscoveryService,
             IDriveValidationService driveValidationService,
-            IFileTransferService fileTransferService)
+            IFileTransferService fileTransferService,
+            ITransferQueueService transferQueueService)
         {
             _settingsService = settingsService;
             _libraryCacheService = libraryCacheService;
@@ -73,6 +76,7 @@ namespace Easy_Copier.ViewModels
             _driveDiscoveryService = driveDiscoveryService;
             _driveValidationService = driveValidationService;
             _fileTransferService = fileTransferService;
+            _transferQueueService = transferQueueService;
             _dispatcherQueue = Microsoft.UI.Dispatching.DispatcherQueue.GetForCurrentThread();
 
             _driveDiscoveryService.DrivesChanged += (s, e) =>
@@ -86,6 +90,8 @@ namespace Easy_Copier.ViewModels
                     _ = RefreshDrivesAsync();
                 }
             };
+
+            _transferQueueService.ItemCompleted += OnQueueItemCompleted;
         }
 
         public async Task InitializeAsync()
@@ -436,8 +442,15 @@ namespace Easy_Copier.ViewModels
                 ValidationMessages.Clear();
                 var destinationPath = $"{SelectedDrive.DriveLetter}\\";
 
+                // Account for bytes already reserved by other queued/in-progress transfers
+                // targeting the same drive, so validation reflects true remaining space.
+                var reservedBytes = _transferQueueService.GetReservedBytes(SelectedDrive.DriveLetter);
+                var driveForValidation = reservedBytes > 0
+                    ? SelectedDrive with { FreeBytes = Math.Max(0, SelectedDrive.FreeBytes - reservedBytes) }
+                    : SelectedDrive;
+
                 var validation = await _driveValidationService.ValidateTransferAsync(
-                    _selectedGames, SelectedDrive, destinationPath);
+                    _selectedGames, driveForValidation, destinationPath);
 
                 foreach (var result in validation)
                 {
@@ -446,37 +459,48 @@ namespace Easy_Copier.ViewModels
 
                 if (validation.Any(v => v.Severity == ValidationSeverity.Error))
                 {
-                    StatusMessage = "Cannot copy: validation failed. See warnings.";
+                    StatusMessage = "Cannot queue transfer: validation failed. See warnings.";
                     return;
                 }
 
-                IsTransferring = true;
-                StatusMessage = $"Copying {SelectedGamesCount} games to {SelectedDrive.DriveLetter}...";
+                var itemsToQueue = _selectedGames.ToList();
+                _transferQueueService.Enqueue(itemsToQueue, SelectedDrive, destinationPath);
 
-                var request = new TransferRequest(_selectedGames, SelectedDrive, destinationPath);
-                var outcome = await _fileTransferService.TransferGamesAsync(request);
+                StatusMessage = $"Queued {itemsToQueue.Count} item(s) for {SelectedDrive.DriveLetter} ({TransferQueue.Count} in queue)";
+                IsTransferring = TransferQueue.Any(i => i.IsActive);
 
-                StatusMessage = outcome.Message;
-
-                if (outcome.Success)
-                {
-                    await RefreshDrivesAsync();
-                    TransferCompleted?.Invoke(this, EventArgs.Empty);
-                }
+                ItemQueued?.Invoke(this, EventArgs.Empty);
             }
             catch (Exception ex)
             {
-                StatusMessage = $"Transfer error: {ex.Message}";
+                StatusMessage = $"Queue error: {ex.Message}";
             }
-            finally
+        }
+
+        private void OnQueueItemCompleted(object? sender, TransferQueueItem completedItem)
+        {
+            IsTransferring = TransferQueue.Any(i => i.IsActive);
+
+            if (completedItem.Status == TransferQueueItemStatus.Completed)
             {
-                IsTransferring = false;
+                StatusMessage = $"Completed: {completedItem.ItemsSummary} \u2192 {completedItem.TargetDrive.DriveLetter}";
+                _ = RefreshDrivesAsync();
             }
+            else
+            {
+                StatusMessage = $"Transfer failed: {completedItem.ItemsSummary} - {completedItem.StatusMessage}";
+            }
+        }
+
+        [RelayCommand]
+        private void ClearFinishedQueueItems()
+        {
+            _transferQueueService.ClearFinished();
         }
 
         private bool CanCopyGames()
         {
-            return SelectedGamesCount > 0 && SelectedDrive != null && !IsTransferring;
+            return SelectedGamesCount > 0 && SelectedDrive != null;
         }
 
         public void UpdateSelectionSummary(System.Collections.Generic.IEnumerable<GameEntry> selectedGames)

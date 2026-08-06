@@ -1,6 +1,6 @@
 ﻿# Easy Copier
 
-![Screenshot](Easy Copier/Assets/Screenshot 2026-08-06 211103.jpg)
+
 
 
 > A Windows app for quickly and safely copying game libraries and large application files to USB storage.
@@ -66,3 +66,4 @@ The selected-drive panel also shows a usage bar, free space, total capacity, and
 - .NET 10 SDK
 - Visual Studio 2026 with Windows App SDK / WinUI development tools
 
+![Screenshot](<Easy Copier/Assets/Screenshot 2026-08-06 211103.jpg>)
