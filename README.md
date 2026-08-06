@@ -1,4 +1,7 @@
-# Easy Copier
+﻿# Easy Copier
+
+![Screenshot](Easy Copier/Assets/Screenshot 2026-08-06 211103.jpg)
+
 
 > A Windows app for quickly and safely copying game libraries and large application files to USB storage.
 
