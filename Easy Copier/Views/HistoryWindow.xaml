@@ -16,11 +16,10 @@
     </Window.SystemBackdrop>
 
 
-    <Window.Resources>
-        <converters:BytesToSizeConverter x:Key="BytesToSizeConverter"/>
-    </Window.Resources>
-
     <Grid Padding="24">
+        <Grid.Resources>
+            <converters:BytesToSizeConverter x:Key="BytesToSizeConverter"/>
+        </Grid.Resources>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>

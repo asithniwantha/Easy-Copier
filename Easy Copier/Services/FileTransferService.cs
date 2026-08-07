@@ -71,7 +71,7 @@ namespace Easy_Copier.Services
                             }
 
                             // Log to history
-                            _ = _copyHistoryService.AddRecordAsync(new CopyHistoryRecord(
+                            _copyHistoryService.AddRecordAsync(new CopyHistoryRecord(
                                 Id: 0,
                                 Timestamp: DateTime.Now,
                                 GameName: game.Name,
@@ -79,7 +79,7 @@ namespace Easy_Copier.Services
                                 TargetDriveLabel: request.TargetDrive.DriveLabel,
                                 BytesTransferred: result ? game.TotalBytes : 0,
                                 IsSuccess: result
-                            ));
+                            )).GetAwaiter().GetResult();
                         }
                         catch (Exception ex)
                         {
@@ -87,7 +87,7 @@ namespace Easy_Copier.Services
                             _logger.LogError(ex, "Error copying game: {Game}", game.Name);
 
                             // Log failure to history
-                            _ = _copyHistoryService.AddRecordAsync(new CopyHistoryRecord(
+                            _copyHistoryService.AddRecordAsync(new CopyHistoryRecord(
                                 Id: 0,
                                 Timestamp: DateTime.Now,
                                 GameName: game.Name,
@@ -95,7 +95,7 @@ namespace Easy_Copier.Services
                                 TargetDriveLabel: request.TargetDrive.DriveLabel,
                                 BytesTransferred: 0,
                                 IsSuccess: false
-                            ));
+                            )).GetAwaiter().GetResult();
                         }
                     }
 

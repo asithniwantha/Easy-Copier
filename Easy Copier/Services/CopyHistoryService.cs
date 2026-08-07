@@ -138,7 +138,7 @@ namespace Easy_Copier.Services
 
                 var command = connection.CreateCommand();
                 // Extract just the YYYY-MM part from the ISO8601 string
-                command.CommandText = "SELECT DISTINCT substr(Timestamp, 1, 7) FROM CopyHistory ORDER BY Timestamp DESC";
+                command.CommandText = "SELECT DISTINCT substr(Timestamp, 1, 7) FROM CopyHistory ORDER BY substr(Timestamp, 1, 7) DESC";
 
                 using var reader = await command.ExecuteReaderAsync();
                 while (await reader.ReadAsync())
