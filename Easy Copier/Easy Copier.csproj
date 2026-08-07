@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
 	<OutputType>WinExe</OutputType>
 	<TargetFramework>net10.0-windows10.0.26100.0</TargetFramework>
@@ -17,7 +17,7 @@
     <Content Remove="Assets\easy copier ico - Copy.ico" />
   </ItemGroup>
   <ItemGroup>
-    <Page Remove="Views\HistoryWindow.xaml" />
+
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\SplashScreen.scale-200.png" />
@@ -42,7 +42,7 @@
     <PackageReference Include="Microsoft.Extensions.Logging" Version="8.0.1" />
     <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="8.0.1" />
     <PackageReference Include="System.Management" Version="8.0.0" />
-  </ItemGroup>
+  <PackageReference Include="Microsoft.Data.Sqlite" Version="8.0.1" /><PackageReference Include="CommunityToolkit.WinUI.UI.Controls.DataGrid" Version="7.1.2" /></ItemGroup>
 
   <ItemGroup>
     <Content Include="Assets\easy copier ico.ico">
@@ -51,11 +51,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="Views\HistoryWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
-    </None>
+
   </ItemGroup>
-  <!-- Publish Properties -->
+
   <PropertyGroup>
     <PublishReadyToRun>false</PublishReadyToRun>
     <PublishTrimmed>False</PublishTrimmed>

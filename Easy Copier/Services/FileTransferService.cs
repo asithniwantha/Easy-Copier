@@ -17,9 +17,14 @@ namespace Easy_Copier.Services
     {
         private readonly ILogger<WindowsShellTransferService> _logger;
 
-        public WindowsShellTransferService(ILogger<WindowsShellTransferService> logger)
+        private readonly ICopyHistoryService _copyHistoryService;
+
+        public WindowsShellTransferService(
+            ILogger<WindowsShellTransferService> logger,
+            ICopyHistoryService copyHistoryService)
         {
             _logger = logger;
+            _copyHistoryService = copyHistoryService;
         }
 
         public async Task<TransferOutcome> TransferGamesAsync(TransferRequest request)
@@ -64,11 +69,33 @@ namespace Easy_Copier.Services
                                 errors.Add($"{game.Name}: Copy operation was cancelled or failed");
                                 _logger.LogWarning("Copy failed or cancelled: {Game}", game.Name);
                             }
+
+                            // Log to history
+                            _ = _copyHistoryService.AddRecordAsync(new CopyHistoryRecord(
+                                Id: 0,
+                                Timestamp: DateTime.Now,
+                                GameName: game.Name,
+                                TargetDriveLetter: request.TargetDrive.DriveLetter,
+                                TargetDriveLabel: request.TargetDrive.DriveLabel,
+                                BytesTransferred: result ? game.TotalBytes : 0,
+                                IsSuccess: result
+                            ));
                         }
                         catch (Exception ex)
                         {
                             errors.Add($"{game.Name}: {ex.Message}");
                             _logger.LogError(ex, "Error copying game: {Game}", game.Name);
+
+                            // Log failure to history
+                            _ = _copyHistoryService.AddRecordAsync(new CopyHistoryRecord(
+                                Id: 0,
+                                Timestamp: DateTime.Now,
+                                GameName: game.Name,
+                                TargetDriveLetter: request.TargetDrive.DriveLetter,
+                                TargetDriveLabel: request.TargetDrive.DriveLabel,
+                                BytesTransferred: 0,
+                                IsSuccess: false
+                            ));
                         }
                     }
 

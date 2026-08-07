@@ -19,6 +19,8 @@ namespace Easy_Copier.Infrastructure
             });
 
             services.AddSingleton<Services.ISettingsService, Services.SettingsService>();
+            services.AddSingleton<Services.ICopyHistoryService, Services.CopyHistoryService>();
+            services.AddSingleton<Services.IReportService, Services.ReportService>();
             services.AddSingleton<Services.ILibraryCacheService, Services.LibraryCacheService>();
             services.AddSingleton<Services.ISourceLibraryService, Services.SourceLibraryService>();
             services.AddSingleton<Services.IFolderPickerService, FolderPickerService>();
@@ -35,6 +37,7 @@ namespace Easy_Copier.Infrastructure
         {
             services.AddSingleton<ViewModels.MainViewModel>();
             services.AddTransient<ViewModels.SettingsViewModel>();
+            services.AddTransient<ViewModels.HistoryViewModel>();
 
             return services;
         }

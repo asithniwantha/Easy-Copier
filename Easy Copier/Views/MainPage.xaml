@@ -80,6 +80,7 @@
                 <AppBarButton Icon="Refresh" Label="Scan Library" Command="{x:Bind ViewModel.ScanLibraryCommand}"/>
                 <AppBarButton Icon="ClearSelection" Label="Deselect All" Click="DeselectAll_Click"/>
                 <AppBarSeparator/>
+                <AppBarButton Icon="Clock" Label="History" Click="OpenHistory_Click"/>
                 <AppBarButton Icon="Setting" Label="Settings" Click="OpenSettings_Click"/>
             </CommandBar>
 
