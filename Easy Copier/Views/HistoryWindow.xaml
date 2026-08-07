@@ -7,12 +7,18 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:controls="using:CommunityToolkit.WinUI.UI.Controls"
     xmlns:viewmodels="using:Easy_Copier.ViewModels"
+    xmlns:converters="using:Easy_Copier.Converters"
     mc:Ignorable="d"
     Title="Transfer History">
 
     <Window.SystemBackdrop>
         <MicaBackdrop />
     </Window.SystemBackdrop>
+
+
+    <Window.Resources>
+        <converters:BytesToSizeConverter x:Key="BytesToSizeConverter"/>
+    </Window.Resources>
 
     <Grid Padding="24">
         <Grid.RowDefinitions>
@@ -62,7 +68,7 @@
                 <controls:DataGridTextColumn Header="Game" Binding="{Binding GameName}" Width="250"/>
                 <controls:DataGridTextColumn Header="Drive" Binding="{Binding TargetDriveLetter}" Width="60"/>
                 <controls:DataGridTextColumn Header="Label" Binding="{Binding TargetDriveLabel}" Width="150"/>
-                <controls:DataGridTextColumn Header="Size" Binding="{Binding BytesTransferred}" Width="100"/>
+                <controls:DataGridTextColumn Header="Size" Binding="{Binding BytesTransferred, Converter={StaticResource BytesToSizeConverter}}" Width="100"/>
                 <controls:DataGridCheckBoxColumn Header="Success" Binding="{Binding IsSuccess}" Width="80"/>
             </controls:DataGrid.Columns>
         </controls:DataGrid>
