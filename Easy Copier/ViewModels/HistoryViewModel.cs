@@ -13,6 +13,8 @@ namespace Easy_Copier.ViewModels
 {
     public partial class HistoryViewModel : ObservableObject
     {
+        public IntPtr WindowHandle { get; set; }
+
         private readonly ICopyHistoryService _copyHistoryService;
         private readonly IReportService _reportService;
 
@@ -91,9 +93,8 @@ namespace Easy_Copier.ViewModels
             };
             savePicker.FileTypeChoices.Add("CSV File", new List<string>() { ".csv" });
 
-            // Using App.MainWindow for interop
-            var hwnd = WinRT.Interop.WindowNative.GetWindowHandle(App.MainWindow);
-            WinRT.Interop.InitializeWithWindow.Initialize(savePicker, hwnd);
+            // Use the current HistoryWindow's handle
+            WinRT.Interop.InitializeWithWindow.Initialize(savePicker, WindowHandle);
 
             var file = await savePicker.PickSaveFileAsync();
             if (file != null)
