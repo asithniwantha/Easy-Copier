@@ -29,11 +29,14 @@ namespace Easy_Copier
             AppServiceLocator.Initialize(_serviceProvider);
         }
 
-        protected override void OnLaunched(Microsoft.UI.Xaml.LaunchActivatedEventArgs args)
+        protected override async void OnLaunched(Microsoft.UI.Xaml.LaunchActivatedEventArgs args)
         {
             _window = new MainWindow();
             MainWindow = _window;
             _window.Activate();
+
+            var copyHistoryService = AppServiceLocator.GetService<Services.ICopyHistoryService>();
+            await copyHistoryService.InitializeAsync();
         }
     }
 }

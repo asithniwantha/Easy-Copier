@@ -100,4 +100,13 @@ namespace Easy_Copier.Models
     public record CacheValidationOutcome(
         CacheValidationResult Result,
         List<string> ChangedItems);
+
+    public record CopyHistoryRecord(
+        int Id,
+        DateTime Timestamp,
+        string GameName,
+        string TargetDriveLetter,
+        string TargetDriveLabel,
+        long BytesTransferred,
+        bool IsSuccess);
 }

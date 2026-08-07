@@ -107,6 +107,12 @@ namespace Easy_Copier.Views
             ClearGameSelection();
         }
 
+        private void OpenHistory_Click(object sender, RoutedEventArgs e)
+        {
+            var historyWindow = new HistoryWindow();
+            historyWindow.Activate();
+        }
+
         private void OpenSettings_Click(object sender, RoutedEventArgs e)
         {
             var settingsWindow = new SettingsWindow();
