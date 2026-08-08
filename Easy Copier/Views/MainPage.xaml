@@ -13,7 +13,8 @@
         <DataTemplate x:Key="LibraryItemTemplate" x:DataType="models:GameEntry">
             <Border Style="{StaticResource GameCardStyle}"
                     Width="{StaticResource GameCardWidth}"
-                    Height="{StaticResource GameCardHeight}">
+                    Height="{StaticResource GameCardHeight}"
+                    RightTapped="GameCard_RightTapped">
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="*"/>
