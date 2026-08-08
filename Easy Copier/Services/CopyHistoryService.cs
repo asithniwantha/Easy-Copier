@@ -180,8 +180,8 @@ namespace Easy_Copier.Services
                 using var reader = await command.ExecuteReaderAsync();
                 if (await reader.ReadAsync())
                 {
-                    int totalItems = reader.IsDBNull(0) ? 0 : reader.GetInt32(0);
-                    int successfulItems = reader.IsDBNull(1) ? 0 : reader.GetInt32(1);
+                    int totalItems = reader.IsDBNull(0) ? 0 : Convert.ToInt32(reader.GetInt64(0));
+                    int successfulItems = reader.IsDBNull(1) ? 0 : Convert.ToInt32(reader.GetInt64(1));
                     long totalBytes = reader.IsDBNull(2) ? 0 : reader.GetInt64(2);
                     return (totalItems, successfulItems, totalBytes);
                 }

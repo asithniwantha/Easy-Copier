@@ -16,7 +16,7 @@
     </Window.SystemBackdrop>
 
 
-    <Grid Padding="24">
+    <Grid Padding="24" x:Name="RootGrid">
         <Grid.Resources>
             <converters:BytesToSizeConverter x:Key="BytesToSizeConverter"/>
         </Grid.Resources>
@@ -78,7 +78,7 @@
                    Margin="0,12,0,0"
                    Style="{ThemeResource CaptionTextBlockStyle}"/>
 
-        <Grid Grid.Row="4" Margin="0,16,0,0">
+        <Grid Grid.Row="3" Margin="0,16,0,0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
@@ -88,37 +88,37 @@
             <!-- Today Stats -->
             <StackPanel Grid.Column="0" Spacing="4">
                 <TextBlock Text="Today" Style="{ThemeResource SubtitleTextBlockStyle}" Foreground="{ThemeResource TextFillColorSecondaryBrush}"/>
-                <TextBlock>
-                    <Run Text="{x:Bind ViewModel.TodayStats.TotalItems, Mode=OneWay}" />
-                    <Run Text=" items (" />
-                    <Run Text="{x:Bind ViewModel.TodayStats.SuccessfulItems, Mode=OneWay}" Foreground="{ThemeResource SystemFillColorSuccessBrush}" />
-                    <Run Text=" successful)" />
-                </TextBlock>
-                <TextBlock Text="{x:Bind ViewModel.TodayStats.TotalBytes, Converter={StaticResource BytesToSizeConverter}, Mode=OneWay}" Style="{ThemeResource CaptionTextBlockStyle}" Foreground="{ThemeResource TextFillColorTertiaryBrush}"/>
+                                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="{x:Bind ViewModel.TodayTotalItems, Mode=OneWay}" />
+                    <TextBlock Text=" items (" />
+                    <TextBlock Text="{x:Bind ViewModel.TodaySuccessfulItems, Mode=OneWay}" Foreground="{StaticResource SystemFillColorSuccessBrush}" />
+                    <TextBlock Text=" successful)" />
+                </StackPanel>
+                <TextBlock Text="{x:Bind ViewModel.TodayTotalBytes, Mode=OneWay}" Style="{ThemeResource CaptionTextBlockStyle}" Foreground="{ThemeResource TextFillColorTertiaryBrush}"/>
             </StackPanel>
 
             <!-- Week Stats -->
             <StackPanel Grid.Column="1" Spacing="4">
                 <TextBlock Text="This Week" Style="{ThemeResource SubtitleTextBlockStyle}" Foreground="{ThemeResource TextFillColorSecondaryBrush}"/>
-                <TextBlock>
-                    <Run Text="{x:Bind ViewModel.WeekStats.TotalItems, Mode=OneWay}" />
-                    <Run Text=" items (" />
-                    <Run Text="{x:Bind ViewModel.WeekStats.SuccessfulItems, Mode=OneWay}" Foreground="{ThemeResource SystemFillColorSuccessBrush}" />
-                    <Run Text=" successful)" />
-                </TextBlock>
-                <TextBlock Text="{x:Bind ViewModel.WeekStats.TotalBytes, Converter={StaticResource BytesToSizeConverter}, Mode=OneWay}" Style="{ThemeResource CaptionTextBlockStyle}" Foreground="{ThemeResource TextFillColorTertiaryBrush}"/>
+                                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="{x:Bind ViewModel.WeekTotalItems, Mode=OneWay}" />
+                    <TextBlock Text=" items (" />
+                    <TextBlock Text="{x:Bind ViewModel.WeekSuccessfulItems, Mode=OneWay}" Foreground="{StaticResource SystemFillColorSuccessBrush}" />
+                    <TextBlock Text=" successful)" />
+                </StackPanel>
+                <TextBlock Text="{x:Bind ViewModel.WeekTotalBytes, Mode=OneWay}" Style="{ThemeResource CaptionTextBlockStyle}" Foreground="{ThemeResource TextFillColorTertiaryBrush}"/>
             </StackPanel>
 
             <!-- Month Stats -->
             <StackPanel Grid.Column="2" Spacing="4">
                 <TextBlock Text="This Month" Style="{ThemeResource SubtitleTextBlockStyle}" Foreground="{ThemeResource TextFillColorSecondaryBrush}"/>
-                <TextBlock>
-                    <Run Text="{x:Bind ViewModel.MonthStats.TotalItems, Mode=OneWay}" />
-                    <Run Text=" items (" />
-                    <Run Text="{x:Bind ViewModel.MonthStats.SuccessfulItems, Mode=OneWay}" Foreground="{ThemeResource SystemFillColorSuccessBrush}" />
-                    <Run Text=" successful)" />
-                </TextBlock>
-                <TextBlock Text="{x:Bind ViewModel.MonthStats.TotalBytes, Converter={StaticResource BytesToSizeConverter}, Mode=OneWay}" Style="{ThemeResource CaptionTextBlockStyle}" Foreground="{ThemeResource TextFillColorTertiaryBrush}"/>
+                                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="{x:Bind ViewModel.MonthTotalItems, Mode=OneWay}" />
+                    <TextBlock Text=" items (" />
+                    <TextBlock Text="{x:Bind ViewModel.MonthSuccessfulItems, Mode=OneWay}" Foreground="{StaticResource SystemFillColorSuccessBrush}" />
+                    <TextBlock Text=" successful)" />
+                </StackPanel>
+                <TextBlock Text="{x:Bind ViewModel.MonthTotalBytes, Mode=OneWay}" Style="{ThemeResource CaptionTextBlockStyle}" Foreground="{ThemeResource TextFillColorTertiaryBrush}"/>
             </StackPanel>
         </Grid>
     </Grid>
