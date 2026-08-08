@@ -1,3 +1,4 @@
+using Easy_Copier.Views;
 using Microsoft.UI;
 using Microsoft.UI.Xaml;
 using System;
