@@ -47,6 +47,12 @@
 - Provide transfer status and completion feedback.
 - Refresh drive information after each successful copy completes.
 
+## History and Reporting
+- View detailed history of all past copy operations.
+- Track success and failure states, including transfer times.
+- Generate and export detailed reports (e.g., CSV) for completed and failed operations.
+- Automatically track transfer metrics like operation timestamps and destination details.
+
 ## Settings and Persistence
 - Manage source folders for Games and Apps (add/remove).
 - Toggle auto-scan on startup.

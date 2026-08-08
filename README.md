@@ -53,6 +53,12 @@ The selected-drive panel also shows a usage bar, free space, total capacity, and
 - Display drive letter, label, model/brand, file system, free space, and total size.
 - Warn when FAT32 cannot store a selected game's files larger than 4 GB.
 
+### History and Reporting
+
+- View a detailed history of past copy operations.
+- Track success, failures, and transfer statuses.
+- Generate and export reports (e.g., CSV) containing historical transfer data and logs.
+
 ## Technology
 
 | Component | Details |
