@@ -14,6 +14,7 @@ namespace Easy_Copier.Services
         Task AddRecordAsync(CopyHistoryRecord record);
         Task<List<CopyHistoryRecord>> GetRecordsByMonthAsync(int year, int month);
         Task<List<(int Year, int Month)>> GetAvailableMonthsAsync();
+        Task<(int TotalItems, int SuccessfulItems, long TotalBytes)> GetStatsAsync(DateTime startDate, DateTime endDate);
     }
 
     public class CopyHistoryService : ICopyHistoryService
@@ -155,6 +156,41 @@ namespace Easy_Copier.Services
                 _logger.LogError(ex, "Failed to get available months from copy history");
             }
             return new List<(int Year, int Month)>(months);
+        }
+
+        public async Task<(int TotalItems, int SuccessfulItems, long TotalBytes)> GetStatsAsync(DateTime startDate, DateTime endDate)
+        {
+            try
+            {
+                using var connection = new SqliteConnection(_connectionString);
+                await connection.OpenAsync();
+
+                var command = connection.CreateCommand();
+                command.CommandText = @"
+                    SELECT
+                        COUNT(*),
+                        SUM(IsSuccess),
+                        SUM(BytesTransferred)
+                    FROM CopyHistory
+                    WHERE Timestamp >= $startDate AND Timestamp < $endDate";
+
+                command.Parameters.AddWithValue("$startDate", startDate);
+                command.Parameters.AddWithValue("$endDate", endDate);
+
+                using var reader = await command.ExecuteReaderAsync();
+                if (await reader.ReadAsync())
+                {
+                    int totalItems = reader.IsDBNull(0) ? 0 : reader.GetInt32(0);
+                    int successfulItems = reader.IsDBNull(1) ? 0 : reader.GetInt32(1);
+                    long totalBytes = reader.IsDBNull(2) ? 0 : reader.GetInt64(2);
+                    return (totalItems, successfulItems, totalBytes);
+                }
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Failed to get copy history stats");
+            }
+            return (0, 0, 0);
         }
     }
 }
