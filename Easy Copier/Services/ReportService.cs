@@ -13,14 +13,9 @@ namespace Easy_Copier.Services
         Task<bool> ExportHistoryToCsvAsync(string filePath, IEnumerable<CopyHistoryRecord> records);
     }
 
-    public class ReportService : IReportService
+    public class ReportService(ILogger<ReportService> logger) : IReportService
     {
-        private readonly ILogger<ReportService> _logger;
-
-        public ReportService(ILogger<ReportService> logger)
-        {
-            _logger = logger;
-        }
+        private readonly ILogger<ReportService> _logger = logger;
 
         public async Task<bool> ExportHistoryToCsvAsync(string filePath, IEnumerable<CopyHistoryRecord> records)
         {

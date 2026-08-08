@@ -18,14 +18,9 @@ namespace Easy_Copier.Services
         Task<bool> FolderExistsAsync(string folderPath);
     }
 
-    public class SourceLibraryService : ISourceLibraryService
+    public class SourceLibraryService(ILogger<SourceLibraryService> logger) : ISourceLibraryService
     {
-        private readonly ILogger<SourceLibraryService> _logger;
-
-        public SourceLibraryService(ILogger<SourceLibraryService> logger)
-        {
-            _logger = logger;
-        }
+        private readonly ILogger<SourceLibraryService> _logger = logger;
 
         public async Task<IReadOnlyList<SourceFolder>> ValidateSourceFoldersAsync(IEnumerable<string> folderPaths)
         {

@@ -14,36 +14,6 @@ namespace Easy_Copier.Views
 {
     public sealed partial class SettingsWindow : Window
     {
-        private const int GWLP_HWNDPARENT = -8;
-
-        [DllImport("user32.dll", EntryPoint = "SetWindowLongPtr", SetLastError = true)]
-        private static extern IntPtr SetWindowLongPtr64(IntPtr hWnd, int nIndex, IntPtr dwNewLong);
-
-        [DllImport("user32.dll", EntryPoint = "SetWindowLong", SetLastError = true)]
-        private static extern int SetWindowLong32(IntPtr hWnd, int nIndex, int dwNewLong);
-
-        [DllImport("user32.dll", SetLastError = true)]
-        [return: MarshalAs(UnmanagedType.Bool)]
-        private static extern bool EnableWindow(IntPtr hWnd, bool bEnable);
-
-        [DllImport("user32.dll")]
-        private static extern bool GetWindowRect(IntPtr hWnd, out RECT lpRect);
-
-        [DllImport("user32.dll")]
-        private static extern bool SetWindowPos(IntPtr hWnd, IntPtr hWndInsertAfter, int X, int Y, int cx, int cy, uint uFlags);
-
-        private const uint SWP_NOSIZE = 0x0001;
-        private const uint SWP_NOZORDER = 0x0004;
-
-        [StructLayout(LayoutKind.Sequential)]
-        private struct RECT
-        {
-            public int Left;
-            public int Top;
-            public int Right;
-            public int Bottom;
-        }
-
         public SettingsViewModel ViewModel { get; }
         public event EventHandler? SettingsClosed;
 
@@ -70,12 +40,12 @@ namespace Easy_Copier.Views
             {
                 // Establish native ownership so this window stays above the main window
                 // and is treated as its modal child by the OS.
-                SetWindowLongPtr(_hwnd, GWLP_HWNDPARENT, _ownerHwnd);
+                NativeWindowHelper.SetOwner(_hwnd, _ownerHwnd);
 
                 // Disable the owner so input can't reach it while this window is open,
                 // then re-enable and restore focus once this window closes.
-                EnableWindow(_ownerHwnd, false);
-                CenterOverOwner();
+                NativeWindowHelper.EnableWindowInput(_ownerHwnd, false);
+                NativeWindowHelper.CenterWindow(_hwnd, _ownerHwnd);
             }
 
             Closed += SettingsWindow_Closed;
@@ -87,39 +57,8 @@ namespace Easy_Copier.Views
         {
             if (_ownerHwnd != IntPtr.Zero)
             {
-                EnableWindow(_ownerHwnd, true);
-                SetForegroundWindow(_ownerHwnd);
-            }
-        }
-
-        [DllImport("user32.dll")]
-        private static extern bool SetForegroundWindow(IntPtr hWnd);
-
-        private void CenterOverOwner()
-        {
-            if (!GetWindowRect(_ownerHwnd, out var ownerRect) || !GetWindowRect(_hwnd, out var selfRect))
-                return;
-
-            var ownerWidth = ownerRect.Right - ownerRect.Left;
-            var ownerHeight = ownerRect.Bottom - ownerRect.Top;
-            var selfWidth = selfRect.Right - selfRect.Left;
-            var selfHeight = selfRect.Bottom - selfRect.Top;
-
-            var x = ownerRect.Left + (ownerWidth - selfWidth) / 2;
-            var y = ownerRect.Top + (ownerHeight - selfHeight) / 2;
-
-            SetWindowPos(_hwnd, IntPtr.Zero, x, y, 0, 0, SWP_NOSIZE | SWP_NOZORDER);
-        }
-
-        private static void SetWindowLongPtr(IntPtr hWnd, int nIndex, IntPtr dwNewLong)
-        {
-            if (IntPtr.Size == 8)
-            {
-                SetWindowLongPtr64(hWnd, nIndex, dwNewLong);
-            }
-            else
-            {
-                SetWindowLong32(hWnd, nIndex, dwNewLong.ToInt32());
+                NativeWindowHelper.EnableWindowInput(_ownerHwnd, true);
+                NativeWindowHelper.SetForeground(_ownerHwnd);
             }
         }
 
@@ -141,12 +80,8 @@ namespace Easy_Copier.Views
 
             try
             {
-                Process.Start(new ProcessStartInfo
-                {
-                    FileName = "explorer.exe",
-                    Arguments = folderPath,
-                    UseShellExecute = true
-                });
+                var processService = AppServiceLocator.GetService<IProcessService>();
+                processService.OpenInExplorer(folderPath);
 
                 ViewModel.StatusMessage = $"Opened data folder: {folderPath}";
             }

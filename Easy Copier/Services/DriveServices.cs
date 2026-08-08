@@ -268,7 +268,7 @@ namespace Easy_Copier.Services
                     results.Add(new ValidationResult(
                         false,
                         ValidationSeverity.Error,
-                        $"Insufficient space: Need {FormatBytes(totalRequiredBytes)}, available {FormatBytes(targetDrive.FreeBytes)}"));
+                        $"Insufficient space: Need {Easy_Copier.Infrastructure.FormattingHelpers.FormatBytes(totalRequiredBytes)}, available {Easy_Copier.Infrastructure.FormattingHelpers.FormatBytes(targetDrive.FreeBytes)}"));
                 }
 
                 if (targetDrive.IsFat32)
@@ -314,24 +314,11 @@ namespace Easy_Copier.Services
                     results.Insert(0, new ValidationResult(
                         true,
                         ValidationSeverity.Info,
-                        $"Ready to copy {gamesList.Count} game(s) ({FormatBytes(totalRequiredBytes)})"));
+                        $"Ready to copy {gamesList.Count} game(s) ({Easy_Copier.Infrastructure.FormattingHelpers.FormatBytes(totalRequiredBytes)})"));
                 }
 
                 return results;
             });
-        }
-
-        private static string FormatBytes(long bytes)
-        {
-            string[] sizes = { "B", "KB", "MB", "GB", "TB" };
-            int order = 0;
-            double len = bytes;
-            while (len >= 1024 && order < sizes.Length - 1)
-            {
-                order++;
-                len = len / 1024;
-            }
-            return $"{len:0.##} {sizes[order]}";
         }
     }
 }

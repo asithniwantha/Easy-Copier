@@ -14,15 +14,10 @@ namespace Easy_Copier.Services
         string GetSettingsFilePath();
     }
 
-    public class SettingsService : ISettingsService
+    public class SettingsService(ILogger<SettingsService> logger) : ISettingsService
     {
-        private readonly ILogger<SettingsService> _logger;
+        private readonly ILogger<SettingsService> _logger = logger;
         private const string SettingsFileName = "appsettings.json";
-
-        public SettingsService(ILogger<SettingsService> logger)
-        {
-            _logger = logger;
-        }
 
         public string GetSettingsFilePath()
         {
