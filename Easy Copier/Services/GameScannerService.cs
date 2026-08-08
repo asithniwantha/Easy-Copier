@@ -25,7 +25,6 @@ namespace Easy_Copier.Services
     {
         private readonly ILogger<GameScannerService> _logger;
         private static readonly string[] CoverImageFileNames = { "cover.jpg", "cover.png", "cover.jpeg", "folder.jpg", "folder.png" };
-        private const long Fat32MaxFileSize = 4L * 1024 * 1024 * 1024;
 
         public GameScannerService(ILogger<GameScannerService> logger)
         {
@@ -81,7 +80,7 @@ namespace Easy_Copier.Services
 
                             var totalSize = await CalculateFolderSizeAsync(gameFolder, cancellationToken);
                             var coverImage = FindCoverImage(gameFolder);
-                            var hasLargeFiles = await HasFilesExceedingLimitAsync(gameFolder, Fat32MaxFileSize, cancellationToken);
+                            var hasLargeFiles = await HasFilesExceedingLimitAsync(gameFolder, RemovableDrive.Fat32MaxFileSize, cancellationToken);
 
                             var game = new GameEntry(
                                 gameName,

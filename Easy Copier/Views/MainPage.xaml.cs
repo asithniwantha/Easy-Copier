@@ -27,13 +27,13 @@ namespace Easy_Copier.Views
         public bool HasSelectedDrive => ViewModel.SelectedDrive != null;
         public string DriveSpaceSummary => ViewModel.SelectedDrive == null
             ? string.Empty
-            : $"{FormatBytes(ViewModel.SelectedDrive.FreeBytes)} free of {FormatBytes(ViewModel.SelectedDrive.TotalBytes)}";
+            : $"{FormattingHelpers.FormatBytes(ViewModel.SelectedDrive.FreeBytes)} free of {FormattingHelpers.FormatBytes(ViewModel.SelectedDrive.TotalBytes)}";
         public string DriveDetailsSummary => ViewModel.SelectedDrive == null
             ? string.Empty
             : $"{ViewModel.SelectedDrive.DriveLetter} \u2022 {ViewModel.SelectedDrive.Brand} \u2022 {ViewModel.SelectedDrive.FileSystem}";
         public string SelectionSummary => ViewModel.SelectedGamesCount == 0
             ? "No items selected"
-            : $"{ViewModel.SelectedGamesCount} item(s) selected \u2022 {FormatBytes(ViewModel.SelectedGamesTotalBytes)}";
+            : $"{ViewModel.SelectedGamesCount} item(s) selected \u2022 {FormattingHelpers.FormatBytes(ViewModel.SelectedGamesTotalBytes)}";
 
         public MainPage()
         {
@@ -87,19 +87,21 @@ namespace Easy_Copier.Views
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
-        private async void AddSourceFolder_Click(object sender, RoutedEventArgs e)
+        private void AddSourceFolder_Click(object sender, RoutedEventArgs e)
         {
-            var settingsWindow = new SettingsWindow();
-            settingsWindow.Activate();
+            var windowService = AppServiceLocator.GetService<IWindowService>();
 
-            if (LibraryPivot.SelectedIndex == 1)
+            windowService.ShowSettingsWindow(null, async (settingsViewModel) =>
             {
-                await settingsWindow.ViewModel.AddAppSourceFolderCommand.ExecuteAsync(null);
-            }
-            else
-            {
-                await settingsWindow.ViewModel.AddGameSourceFolderCommand.ExecuteAsync(null);
-            }
+                if (LibraryPivot.SelectedIndex == 1)
+                {
+                    await settingsViewModel.AddAppSourceFolderCommand.ExecuteAsync(null);
+                }
+                else
+                {
+                    await settingsViewModel.AddGameSourceFolderCommand.ExecuteAsync(null);
+                }
+            });
         }
 
         private void DeselectAll_Click(object sender, RoutedEventArgs e)
@@ -109,15 +111,14 @@ namespace Easy_Copier.Views
 
         private void OpenHistory_Click(object sender, RoutedEventArgs e)
         {
-            var historyWindow = new HistoryWindow();
-            historyWindow.Activate();
+            var windowService = AppServiceLocator.GetService<IWindowService>();
+            windowService.ShowHistoryWindow();
         }
 
         private void OpenSettings_Click(object sender, RoutedEventArgs e)
         {
-            var settingsWindow = new SettingsWindow();
-            settingsWindow.SettingsClosed += async (s, args) => await ViewModel.ScanLibraryCommand.ExecuteAsync(null);
-            settingsWindow.Activate();
+            var windowService = AppServiceLocator.GetService<IWindowService>();
+            windowService.ShowSettingsWindow(async () => await ViewModel.ScanLibraryCommand.ExecuteAsync(null));
         }
 
         private void GamesGridView_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -149,53 +150,18 @@ namespace Easy_Copier.Views
             if (drive == null)
                 return;
 
-            try
-            {
-                var path = $"{drive.DriveLetter}\\";
-                Process.Start(new ProcessStartInfo
-                {
-                    FileName = "explorer.exe",
-                    Arguments = path,
-                    UseShellExecute = true
-                });
-            }
-            catch (Exception)
-            {
-                // Ignore failures opening Explorer (e.g. drive was removed).
-            }
+            var processService = AppServiceLocator.GetService<IProcessService>();
+            processService.OpenInExplorer($"{drive.DriveLetter}\\");
         }
 
         private void OpenItemFolder_Click(object sender, RoutedEventArgs e)
         {
             if (sender is FrameworkElement fe && fe.Tag is string folderPath)
             {
-                try
-                {
-                    Process.Start(new ProcessStartInfo
-                    {
-                        FileName = "explorer.exe",
-                        Arguments = folderPath,
-                        UseShellExecute = true
-                    });
-                }
-                catch (Exception)
-                {
-                    // Ignore failures opening Explorer (e.g. folder was removed).
-                }
+                var processService = AppServiceLocator.GetService<IProcessService>();
+                processService.OpenInExplorer(folderPath);
             }
         }
 
-        private static string FormatBytes(long bytes)
-        {
-            string[] sizes = { "B", "KB", "MB", "GB", "TB" };
-            int order = 0;
-            double len = bytes;
-            while (len >= 1024 && order < sizes.Length - 1)
-            {
-                order++;
-                len = len / 1024;
-            }
-            return $"{len:0.##} {sizes[order]}";
-        }
     }
 }

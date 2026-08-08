@@ -17,6 +17,7 @@ namespace Easy_Copier.ViewModels
 
         private readonly ICopyHistoryService _copyHistoryService;
         private readonly IReportService _reportService;
+        private readonly Infrastructure.IFilePickerService _filePickerService;
 
         [ObservableProperty]
         private ObservableCollection<CopyHistoryRecord> _records = new();
@@ -30,10 +31,11 @@ namespace Easy_Copier.ViewModels
         [ObservableProperty]
         private string _statusMessage = string.Empty;
 
-        public HistoryViewModel(ICopyHistoryService copyHistoryService, IReportService reportService)
+        public HistoryViewModel(ICopyHistoryService copyHistoryService, IReportService reportService, Infrastructure.IFilePickerService filePickerService)
         {
             _copyHistoryService = copyHistoryService;
             _reportService = reportService;
+            _filePickerService = filePickerService;
         }
 
         public async Task InitializeAsync()
@@ -86,24 +88,18 @@ namespace Easy_Copier.ViewModels
                 return;
             }
 
-            var savePicker = new FileSavePicker
-            {
-                SuggestedStartLocation = PickerLocationId.DocumentsLibrary,
-                SuggestedFileName = $"EasyCopier_History_{SelectedMonth.Year}_{SelectedMonth.Month:D2}.csv"
-            };
-            savePicker.FileTypeChoices.Add("CSV File", new List<string>() { ".csv" });
+            var fileName = $"EasyCopier_History_{SelectedMonth.Year}_{SelectedMonth.Month:D2}.csv";
+            var choices = new Dictionary<string, IList<string>> { { "CSV File", new List<string> { ".csv" } } };
 
-            // Use the current HistoryWindow's handle
-            WinRT.Interop.InitializeWithWindow.Initialize(savePicker, WindowHandle);
+            var filePath = await _filePickerService.PickSaveFileAsync(fileName, choices, WindowHandle);
 
-            var file = await savePicker.PickSaveFileAsync();
-            if (file != null)
+            if (filePath != null)
             {
                 StatusMessage = "Exporting...";
-                var success = await _reportService.ExportHistoryToCsvAsync(file.Path, Records);
+                var success = await _reportService.ExportHistoryToCsvAsync(filePath, Records);
                 if (success)
                 {
-                    StatusMessage = $"Exported successfully to {file.Name}";
+                    StatusMessage = $"Exported successfully to {System.IO.Path.GetFileName(filePath)}";
                 }
                 else
                 {
