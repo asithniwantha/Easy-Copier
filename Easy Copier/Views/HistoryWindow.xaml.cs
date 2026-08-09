@@ -20,7 +20,7 @@ namespace Easy_Copier.Views
 
             ViewModel = AppServiceLocator.GetService<HistoryViewModel>();
 
-            var hwnd = WindowNative.GetWindowHandle(this);
+            var hwnd = WinRT.Interop.WindowNative.GetWindowHandle(this);
             ViewModel.WindowHandle = hwnd;
             var windowId = Win32Interop.GetWindowIdFromWindow(hwnd);
             var appWindow = Microsoft.UI.Windowing.AppWindow.GetFromWindowId(windowId);
@@ -48,7 +48,7 @@ namespace Easy_Copier.Views
 
             this.Closed += HistoryWindow_Closed;
 
-            _ = ViewModel.InitializeAsync();
+            RootFrame.Navigate(typeof(HistoryPage));
         }
 
         private void HistoryWindow_Closed(object sender, WindowEventArgs args)
