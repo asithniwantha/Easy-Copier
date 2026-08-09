@@ -2,6 +2,7 @@ using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using Easy_Copier.Models;
 using Easy_Copier.Services;
+using Easy_Copier.Infrastructure;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -21,6 +22,8 @@ namespace Easy_Copier.ViewModels
         private readonly IDriveValidationService _driveValidationService;
         private readonly IFileTransferService _fileTransferService;
         private readonly ITransferQueueService _transferQueueService;
+        private readonly IWindowService _windowService;
+        private readonly IProcessService _processService;
         private readonly Microsoft.UI.Dispatching.DispatcherQueue? _dispatcherQueue;
         private CancellationTokenSource? _scanCancellationTokenSource;
         private CancellationTokenSource? _validationCancellationTokenSource;
@@ -30,6 +33,8 @@ namespace Easy_Copier.ViewModels
         private bool _isLoading;
 
         [ObservableProperty]
+        [NotifyPropertyChangedFor(nameof(IsGamesEmpty))]
+        [NotifyPropertyChangedFor(nameof(IsAppsEmpty))]
         private bool _isScanning;
 
         [ObservableProperty]
@@ -39,19 +44,53 @@ namespace Easy_Copier.ViewModels
         private string _statusMessage = "Ready";
 
         [ObservableProperty]
+        [NotifyPropertyChangedFor(nameof(HasSelectedDrive))]
+        [NotifyPropertyChangedFor(nameof(DriveSpaceSummary))]
+        [NotifyPropertyChangedFor(nameof(DriveDetailsSummary))]
         private RemovableDrive? _selectedDrive;
 
         [ObservableProperty]
+        [NotifyPropertyChangedFor(nameof(SelectionSummary))]
         private int _selectedGamesCount;
 
         [ObservableProperty]
+        [NotifyPropertyChangedFor(nameof(SelectionSummary))]
         private long _selectedGamesTotalBytes;
 
         [ObservableProperty]
+        [NotifyPropertyChangedFor(nameof(EmptyGamesMessage))]
+        [NotifyPropertyChangedFor(nameof(EmptyAppsMessage))]
         private string _searchText = string.Empty;
 
         private List<GameEntry> _allGames = new();
         private List<GameEntry> _allApps = new();
+
+        public bool IsGamesEmpty => !IsScanning && Games.Count == 0;
+        public bool IsAppsEmpty => !IsScanning && Apps.Count == 0;
+
+        public string EmptyGamesMessage => string.IsNullOrWhiteSpace(SearchText)
+            ? "No games found. Add a game folder in Settings and scan your library."
+            : $"No games match \"{SearchText}\".";
+
+        public string EmptyAppsMessage => string.IsNullOrWhiteSpace(SearchText)
+            ? "No apps found. Add an app folder in Settings and scan your library."
+            : $"No apps match \"{SearchText}\".";
+
+        public bool HasSelectedDrive => SelectedDrive != null;
+
+        public string DriveSpaceSummary => SelectedDrive == null
+            ? string.Empty
+            : $"{FormattingHelpers.FormatBytes(SelectedDrive.FreeBytes)} free of {FormattingHelpers.FormatBytes(SelectedDrive.TotalBytes)}";
+
+        public string DriveDetailsSummary => SelectedDrive == null
+            ? string.Empty
+            : $"{SelectedDrive.DriveLetter} \u2022 {SelectedDrive.Brand} \u2022 {SelectedDrive.FileSystem}";
+
+        public string SelectionSummary => SelectedGamesCount == 0
+            ? "No items selected"
+            : $"{SelectedGamesCount} item(s) selected \u2022 {FormattingHelpers.FormatBytes(SelectedGamesTotalBytes)}";
+
+        public int CurrentTabIndex { get; set; } = 0;
 
         public ObservableCollection<GameEntry> Games { get; } = new();
         public ObservableCollection<GameEntry> Apps { get; } = new();
@@ -68,7 +107,9 @@ namespace Easy_Copier.ViewModels
             IDriveDiscoveryService driveDiscoveryService,
             IDriveValidationService driveValidationService,
             IFileTransferService fileTransferService,
-            ITransferQueueService transferQueueService)
+            ITransferQueueService transferQueueService,
+            IWindowService windowService,
+            IProcessService processService)
         {
             _settingsService = settingsService;
             _libraryCacheService = libraryCacheService;
@@ -77,6 +118,8 @@ namespace Easy_Copier.ViewModels
             _driveValidationService = driveValidationService;
             _fileTransferService = fileTransferService;
             _transferQueueService = transferQueueService;
+            _windowService = windowService;
+            _processService = processService;
             _dispatcherQueue = Microsoft.UI.Dispatching.DispatcherQueue.GetForCurrentThread();
 
             _driveDiscoveryService.DrivesChanged += (s, e) =>
@@ -313,7 +356,7 @@ namespace Easy_Copier.ViewModels
                 {
                     try
                     {
-                        var fingerprint = await ComputeItemFingerprintAsync(entry.FolderPath);
+                        var fingerprint = await _libraryCacheService.ComputeItemFingerprintAsync(entry.FolderPath);
                         var normalizedPath = Path.GetFullPath(entry.FolderPath)
                             .TrimEnd(Path.DirectorySeparatorChar, Path.AltDirectorySeparatorChar);
                         fingerprints[normalizedPath] = fingerprint;
@@ -341,33 +384,6 @@ namespace Easy_Copier.ViewModels
             }
         }
 
-        private async Task<ItemFingerprint> ComputeItemFingerprintAsync(string folderPath)
-        {
-            return await Task.Run(() =>
-            {
-                var dirInfo = new DirectoryInfo(folderPath);
-                var files = dirInfo.EnumerateFiles("*", SearchOption.AllDirectories);
-
-                long totalBytes = 0;
-                var latestWriteTime = DateTime.MinValue;
-
-                foreach (var file in files)
-                {
-                    totalBytes += file.Length;
-
-                    if (file.LastWriteTimeUtc > latestWriteTime)
-                    {
-                        latestWriteTime = file.LastWriteTimeUtc;
-                    }
-                }
-
-                var normalizedPath = Path.GetFullPath(folderPath)
-                    .TrimEnd(Path.DirectorySeparatorChar, Path.AltDirectorySeparatorChar);
-
-                return new ItemFingerprint(normalizedPath, totalBytes, latestWriteTime);
-            });
-        }
-
         partial void OnSearchTextChanged(string value)
         {
             ApplyFilter();
@@ -393,6 +409,9 @@ namespace Easy_Copier.ViewModels
             {
                 Apps.Add(app);
             }
+
+            OnPropertyChanged(nameof(IsGamesEmpty));
+            OnPropertyChanged(nameof(IsAppsEmpty));
         }
 
         [RelayCommand]
@@ -509,6 +528,52 @@ namespace Easy_Copier.ViewModels
             SelectedGamesCount = _selectedGames.Count;
             SelectedGamesTotalBytes = _selectedGames.Sum(g => g.TotalBytes);
             CopySelectedGamesCommand.NotifyCanExecuteChanged();
+        }
+
+        [RelayCommand]
+        private void OpenSettings()
+        {
+            _windowService.ShowSettingsWindow(async () => await ScanLibraryCommand.ExecuteAsync(null));
+        }
+
+        [RelayCommand]
+        private void OpenHistory()
+        {
+            _windowService.ShowHistoryWindow();
+        }
+
+        [RelayCommand]
+        private void OpenDriveInExplorer()
+        {
+            if (SelectedDrive != null)
+            {
+                _processService.OpenInExplorer($"{SelectedDrive.DriveLetter}\\");
+            }
+        }
+
+        [RelayCommand]
+        private void OpenItemFolder(string folderPath)
+        {
+            if (!string.IsNullOrEmpty(folderPath))
+            {
+                _processService.OpenInExplorer(folderPath);
+            }
+        }
+
+        [RelayCommand]
+        private void AddSourceFolder()
+        {
+            _windowService.ShowSettingsWindow(null, async (settingsViewModel) =>
+            {
+                if (CurrentTabIndex == 1)
+                {
+                    await settingsViewModel.AddAppSourceFolderCommand.ExecuteAsync(null);
+                }
+                else
+                {
+                    await settingsViewModel.AddGameSourceFolderCommand.ExecuteAsync(null);
+                }
+            });
         }
     }
 }

@@ -16,6 +16,7 @@ namespace Easy_Copier.Services
     {
         Task<IReadOnlyList<SourceFolder>> ValidateSourceFoldersAsync(IEnumerable<string> folderPaths);
         Task<bool> FolderExistsAsync(string folderPath);
+        Task<string> GetSystemRequirementsAsync(string folderPath);
     }
 
     public class SourceLibraryService(ILogger<SourceLibraryService> logger) : ISourceLibraryService
@@ -52,6 +53,30 @@ namespace Easy_Copier.Services
         public async Task<bool> FolderExistsAsync(string folderPath)
         {
             return await Task.Run(() => Directory.Exists(folderPath));
+        }
+
+        public async Task<string> GetSystemRequirementsAsync(string folderPath)
+        {
+            return await Task.Run(() =>
+            {
+                string reqFilePath = Path.Combine(folderPath, "system_requirements.txt");
+
+                if (File.Exists(reqFilePath))
+                {
+                    try
+                    {
+                        return File.ReadAllText(reqFilePath);
+                    }
+                    catch (Exception)
+                    {
+                        return "Error reading system requirements.";
+                    }
+                }
+                else
+                {
+                    return "System requirements aren't available.";
+                }
+            });
         }
     }
 }

@@ -19,6 +19,9 @@ namespace Easy_Copier.Services
             LibraryCacheSnapshot cache,
             AppSettings currentSettings,
             CancellationToken cancellationToken = default);
+        Task<ItemFingerprint> ComputeItemFingerprintAsync(
+            string folderPath,
+            CancellationToken cancellationToken = default);
     }
 
     public class LibraryCacheService : ILibraryCacheService
@@ -312,7 +315,7 @@ namespace Easy_Copier.Services
             }
         }
 
-        private async Task<ItemFingerprint> ComputeItemFingerprintAsync(
+        public async Task<ItemFingerprint> ComputeItemFingerprintAsync(
             string folderPath,
             CancellationToken cancellationToken = default)
         {

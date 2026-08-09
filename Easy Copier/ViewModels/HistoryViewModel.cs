@@ -13,7 +13,6 @@ namespace Easy_Copier.ViewModels
 {
     public partial class HistoryViewModel : ObservableObject
     {
-        public IntPtr WindowHandle { get; set; }
         public HistoryStats TodayStats { get; private set; }
         public HistoryStats WeekStats { get; private set; }
         public HistoryStats MonthStats { get; private set; }
@@ -34,7 +33,8 @@ namespace Easy_Copier.ViewModels
         [ObservableProperty]
         private string _statusMessage = string.Empty;
 
-        public HistoryViewModel(ICopyHistoryService copyHistoryService, IReportService reportService, Infrastructure.IFilePickerService filePickerService)
+        public HistoryViewModel(ICopyHistoryService copyHistoryService, IReportService reportService,
+                                Infrastructure.IFilePickerService filePickerService)
         {
             _copyHistoryService = copyHistoryService;
             _reportService = reportService;
@@ -120,7 +120,7 @@ namespace Easy_Copier.ViewModels
             var fileName = $"EasyCopier_History_{SelectedMonth.Year}_{SelectedMonth.Month:D2}.csv";
             var choices = new Dictionary<string, IList<string>> { { "CSV File", new List<string> { ".csv" } } };
 
-            var filePath = await _filePickerService.PickSaveFileAsync(fileName, choices, WindowHandle);
+            var filePath = await _filePickerService.PickSaveFileAsync(fileName, choices);
 
             if (filePath != null)
             {
