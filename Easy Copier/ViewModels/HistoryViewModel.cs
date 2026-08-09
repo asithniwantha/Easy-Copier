@@ -14,9 +14,6 @@ namespace Easy_Copier.ViewModels
     public partial class HistoryViewModel : ObservableObject
     {
         public IntPtr WindowHandle { get; set; }
-        public HistoryStats TodayStats { get; private set; }
-        public HistoryStats WeekStats { get; private set; }
-        public HistoryStats MonthStats { get; private set; }
 
         private readonly ICopyHistoryService _copyHistoryService;
         private readonly IReportService _reportService;

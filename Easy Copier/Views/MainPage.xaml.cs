@@ -11,6 +11,8 @@ using System.IO;
 using Microsoft.UI.Xaml.Input;
 using Microsoft.UI.Xaml.Controls.Primitives;
 using Microsoft.UI.Text;
+using Microsoft.UI.Xaml.Media;
+using Microsoft.UI.Xaml.Documents;
 
 namespace Easy_Copier.Views
 {
@@ -192,10 +194,67 @@ namespace Easy_Copier.Views
 
                 var textBlock = new TextBlock
                 {
-                    Text = requirementsText,
                     TextWrapping = TextWrapping.Wrap,
                     FontFamily = new Microsoft.UI.Xaml.Media.FontFamily("Consolas")
                 };
+
+                var lines = requirementsText.Split(new[] { "\r\n", "\r", "\n" }, StringSplitOptions.None);
+
+                var colors = new System.Collections.Generic.Dictionary<string, SolidColorBrush>(StringComparer.OrdinalIgnoreCase)
+                {
+                    { "CPU:", new SolidColorBrush(Microsoft.UI.Colors.LightSkyBlue) },
+                    { "GPU:", new SolidColorBrush(Microsoft.UI.Colors.LightGreen) },
+                    { "RAM:", new SolidColorBrush(Microsoft.UI.Colors.LightCoral) },
+                    { "Storage:", new SolidColorBrush(Microsoft.UI.Colors.Plum) },
+                    { "OS:", new SolidColorBrush(Microsoft.UI.Colors.Gold) }
+                };
+
+                for (int i = 0; i < lines.Length; i++)
+                {
+                    string line = lines[i];
+                    bool matched = false;
+
+                    foreach (var kvp in colors)
+                    {
+                        if (line.TrimStart().StartsWith(kvp.Key, StringComparison.OrdinalIgnoreCase))
+                        {
+                            int index = line.IndexOf(kvp.Key, StringComparison.OrdinalIgnoreCase);
+
+                            // Text before keyword
+                            if (index > 0)
+                            {
+                                textBlock.Inlines.Add(new Run { Text = line.Substring(0, index) });
+                            }
+
+                            // Keyword
+                            textBlock.Inlines.Add(new Run
+                            {
+                                Text = line.Substring(index, kvp.Key.Length),
+                                Foreground = kvp.Value,
+                                FontWeight = FontWeights.Bold
+                            });
+
+                            // Text after keyword
+                            if (index + kvp.Key.Length < line.Length)
+                            {
+                                textBlock.Inlines.Add(new Run { Text = line.Substring(index + kvp.Key.Length) });
+                            }
+
+                            matched = true;
+                            break;
+                        }
+                    }
+
+                    if (!matched)
+                    {
+                        textBlock.Inlines.Add(new Run { Text = line });
+                    }
+
+                    if (i < lines.Length - 1)
+                    {
+                        textBlock.Inlines.Add(new LineBreak());
+                    }
+                }
 
                 var scrollViewer = new ScrollViewer
                 {
