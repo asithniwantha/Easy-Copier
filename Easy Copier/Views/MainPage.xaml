@@ -39,8 +39,8 @@
                                 Margin="4"
                                 Padding="4"
                                 MinWidth="0"
-                                Click="OpenItemFolder_Click"
-                                Tag="{x:Bind FolderPath}"
+                                Command="{Binding DataContext.OpenItemFolderCommand, ElementName=RootGrid}"
+                                CommandParameter="{x:Bind FolderPath}"
                                 ToolTipService.ToolTip="Open folder in File Explorer">
                             <FontIcon Glyph="&#xE838;" FontSize="12"/>
                         </Button>
@@ -58,7 +58,7 @@
         </DataTemplate>
     </Page.Resources>
 
-    <Grid>
+    <Grid x:Name="RootGrid">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="340"/>
@@ -77,12 +77,12 @@
             <CommandBar Grid.Row="1" DefaultLabelPosition="Right"
                         Background="Transparent" HorizontalAlignment="Left"
                         Margin="0,0,0,8">
-                <AppBarButton Icon="Add" Label="Add Folder" Click="AddSourceFolder_Click"/>
+                <AppBarButton Icon="Add" Label="Add Folder" Command="{x:Bind ViewModel.AddSourceFolderCommand}"/>
                 <AppBarButton Icon="Refresh" Label="Scan Library" Command="{x:Bind ViewModel.ScanLibraryCommand}"/>
                 <AppBarButton Icon="ClearSelection" Label="Deselect All" Click="DeselectAll_Click"/>
                 <AppBarSeparator/>
-                <AppBarButton Icon="Clock" Label="History" Click="OpenHistory_Click"/>
-                <AppBarButton Icon="Setting" Label="Settings" Click="OpenSettings_Click"/>
+                <AppBarButton Icon="Clock" Label="History" Command="{x:Bind ViewModel.OpenHistoryCommand}"/>
+                <AppBarButton Icon="Setting" Label="Settings" Command="{x:Bind ViewModel.OpenSettingsCommand}"/>
             </CommandBar>
 
             <AutoSuggestBox Grid.Row="2" x:Name="SearchBox"
@@ -92,17 +92,17 @@
                              HorizontalAlignment="Stretch"
                              Margin="0,0,0,8"/>
 
-            <Pivot x:Name="LibraryPivot" Grid.Row="3">
+            <Pivot x:Name="LibraryPivot" Grid.Row="3" SelectedIndex="{x:Bind ViewModel.CurrentTabIndex, Mode=TwoWay}">
                 <PivotItem Header="Games">
                     <Grid>
                         <ProgressRing IsActive="{x:Bind ViewModel.IsScanning, Mode=OneWay}"
                                       Width="48" Height="48"
                                       HorizontalAlignment="Center" VerticalAlignment="Center"/>
 
-                        <TextBlock Text="{x:Bind EmptyGamesMessage, Mode=OneWay}"
+                        <TextBlock Text="{x:Bind ViewModel.EmptyGamesMessage, Mode=OneWay}"
                                    HorizontalAlignment="Center" VerticalAlignment="Center"
                                    TextWrapping="Wrap" MaxWidth="400" Opacity="0.7"
-                                   Visibility="{x:Bind IsGamesEmpty, Mode=OneWay}"/>
+                                   Visibility="{x:Bind ViewModel.IsGamesEmpty, Mode=OneWay}"/>
 
                         <GridView x:Name="GamesGridView"
                                   ItemsSource="{x:Bind ViewModel.Games, Mode=OneWay}"
@@ -119,10 +119,10 @@
                                       Width="48" Height="48"
                                       HorizontalAlignment="Center" VerticalAlignment="Center"/>
 
-                        <TextBlock Text="{x:Bind EmptyAppsMessage, Mode=OneWay}"
+                        <TextBlock Text="{x:Bind ViewModel.EmptyAppsMessage, Mode=OneWay}"
                                    HorizontalAlignment="Center" VerticalAlignment="Center"
                                    TextWrapping="Wrap" MaxWidth="400" Opacity="0.7"
-                                   Visibility="{x:Bind IsAppsEmpty, Mode=OneWay}"/>
+                                   Visibility="{x:Bind ViewModel.IsAppsEmpty, Mode=OneWay}"/>
 
                         <GridView x:Name="AppsGridView"
                                   ItemsSource="{x:Bind ViewModel.Apps, Mode=OneWay}"
@@ -198,8 +198,8 @@
                         <Button Grid.Column="1" Margin="4,0,0,0"
                                 Padding="8"
                                 VerticalAlignment="Stretch"
-                                IsEnabled="{x:Bind HasSelectedDrive, Mode=OneWay}"
-                                Click="OpenDriveInExplorer_Click"
+                                IsEnabled="{x:Bind ViewModel.HasSelectedDrive, Mode=OneWay}"
+                                Command="{x:Bind ViewModel.OpenDriveInExplorerCommand}"
                                 ToolTipService.ToolTip="Open drive in File Explorer">
                             <FontIcon Glyph="&#xE838;" FontSize="14"/>
                         </Button>
@@ -208,7 +208,7 @@
                     <Button Content="Refresh Drives" Command="{x:Bind ViewModel.RefreshDrivesCommand}"
                             HorizontalAlignment="Stretch"/>
 
-                    <Grid Visibility="{x:Bind HasSelectedDrive, Mode=OneWay}">
+                    <Grid Visibility="{x:Bind ViewModel.HasSelectedDrive, Mode=OneWay}">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="Auto"/>
                             <RowDefinition Height="Auto"/>
@@ -218,9 +218,9 @@
                                      Value="{x:Bind ViewModel.SelectedDrive.UsedPercentage, Mode=OneWay}"
                                      Maximum="100" Margin="0,4,0,4"/>
                         <TextBlock Grid.Row="1" FontSize="12" Opacity="0.7"
-                                   Text="{x:Bind DriveSpaceSummary, Mode=OneWay}"/>
+                                   Text="{x:Bind ViewModel.DriveSpaceSummary, Mode=OneWay}"/>
                         <TextBlock Grid.Row="2" FontSize="12" Opacity="0.7"
-                                   Text="{x:Bind DriveDetailsSummary, Mode=OneWay}"/>
+                                   Text="{x:Bind ViewModel.DriveDetailsSummary, Mode=OneWay}"/>
                     </Grid>
                 </StackPanel>
 
@@ -288,7 +288,7 @@
                 </Grid>
 
                 <StackPanel Grid.Row="3" Spacing="4" Margin="0,8,0,8">
-                    <TextBlock Text="{x:Bind SelectionSummary, Mode=OneWay}" FontWeight="SemiBold"/>
+                    <TextBlock Text="{x:Bind ViewModel.SelectionSummary, Mode=OneWay}" FontWeight="SemiBold"/>
                 </StackPanel>
 
                 <Button Grid.Row="4" Content="Add to Copy Queue" Style="{StaticResource AccentButtonStyle}"

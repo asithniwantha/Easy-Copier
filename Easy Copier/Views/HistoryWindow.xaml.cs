@@ -21,7 +21,6 @@ namespace Easy_Copier.Views
             ViewModel = AppServiceLocator.GetService<HistoryViewModel>();
 
             var hwnd = WinRT.Interop.WindowNative.GetWindowHandle(this);
-            ViewModel.WindowHandle = hwnd;
             var windowId = Win32Interop.GetWindowIdFromWindow(hwnd);
             var appWindow = Microsoft.UI.Windowing.AppWindow.GetFromWindowId(windowId);
 

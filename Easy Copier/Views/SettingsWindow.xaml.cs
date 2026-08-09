@@ -67,30 +67,6 @@ namespace Easy_Copier.Views
             await ViewModel.LoadSettingsAsync();
         }
 
-        private void OpenDataFolder_Click(object sender, RoutedEventArgs e)
-        {
-            var settingsService = AppServiceLocator.GetService<ISettingsService>();
-            var folderPath = Path.GetDirectoryName(settingsService.GetSettingsFilePath());
-
-            if (string.IsNullOrWhiteSpace(folderPath))
-            {
-                ViewModel.StatusMessage = "Unable to resolve the data folder";
-                return;
-            }
-
-            try
-            {
-                var processService = AppServiceLocator.GetService<IProcessService>();
-                processService.OpenInExplorer(folderPath);
-
-                ViewModel.StatusMessage = $"Opened data folder: {folderPath}";
-            }
-            catch (Exception ex)
-            {
-                ViewModel.StatusMessage = $"Unable to open data folder: {ex.Message}";
-            }
-        }
-
         private async void RemoveGameFolder_Click(object sender, RoutedEventArgs e)
         {
             if (sender is FrameworkElement fe && fe.Tag is string folderPath)

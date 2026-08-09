@@ -24,14 +24,18 @@ namespace Easy_Copier.ViewModels
         public ObservableCollection<string> GameSourceFolders { get; } = new();
         public ObservableCollection<string> AppSourceFolders { get; } = new();
 
+        private readonly Infrastructure.IProcessService _processService;
+
         public SettingsViewModel(
             ISettingsService settingsService,
             IFolderPickerService folderPickerService,
-            ISourceLibraryService sourceLibraryService)
+            ISourceLibraryService sourceLibraryService,
+            Infrastructure.IProcessService processService)
         {
             _settingsService = settingsService;
             _folderPickerService = folderPickerService;
             _sourceLibraryService = sourceLibraryService;
+            _processService = processService;
         }
 
         [RelayCommand]
@@ -85,6 +89,28 @@ namespace Easy_Copier.ViewModels
             AppSourceFolders.Remove(folderPath);
             StatusMessage = $"Removed: {folderPath}";
             await SaveSettingsAsync();
+        }
+
+        [RelayCommand]
+        private void OpenDataFolder()
+        {
+            var folderPath = System.IO.Path.GetDirectoryName(_settingsService.GetSettingsFilePath());
+
+            if (string.IsNullOrWhiteSpace(folderPath))
+            {
+                StatusMessage = "Unable to resolve the data folder";
+                return;
+            }
+
+            try
+            {
+                _processService.OpenInExplorer(folderPath);
+                StatusMessage = $"Opened data folder: {folderPath}";
+            }
+            catch (Exception ex)
+            {
+                StatusMessage = $"Unable to open data folder: {ex.Message}";
+            }
         }
 
         [RelayCommand]
