@@ -75,9 +75,9 @@ namespace Easy_Copier.Views
                 {
                     Content = textBlock,
                     MaxHeight = 400,
-                    MaxWidth = 600,
+                    MaxWidth = 400,
                     VerticalScrollBarVisibility = ScrollBarVisibility.Auto,
-                    HorizontalScrollBarVisibility = ScrollBarVisibility.Auto,
+                    HorizontalScrollBarVisibility = ScrollBarVisibility.Disabled,
                     Padding = new Thickness(12)
                 };
 
