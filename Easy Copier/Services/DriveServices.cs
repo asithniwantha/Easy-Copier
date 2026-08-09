@@ -34,39 +34,43 @@ namespace Easy_Copier.Services
         {
             return await Task.Run(() =>
             {
-                var removableDrives = new List<RemovableDrive>();
+                List<RemovableDrive> removableDrives = [];
 
                 try
                 {
-                    var allDrives = DriveInfo.GetDrives();
+                    DriveInfo[] allDrives = DriveInfo.GetDrives();
 
-                    foreach (var drive in allDrives)
+                    foreach (DriveInfo drive in allDrives)
                     {
                         try
                         {
                             if (!drive.IsReady)
+                            {
                                 continue;
+                            }
 
-                            var driveLetterWithColon = drive.Name.TrimEnd('\\');
-                            var diskInfo = GetPhysicalDiskInfo(driveLetterWithColon);
+                            string driveLetterWithColon = drive.Name.TrimEnd('\\');
+                            (string? Model, bool IsUsb) = GetPhysicalDiskInfo(driveLetterWithColon);
 
                             // Include drives Windows already flags as Removable (USB flash drives),
                             // plus Fixed drives that are actually connected via USB (e.g. portable
                             // hard drives/SSDs, which Windows often reports as "Fixed").
-                            var isEligible = drive.DriveType == DriveType.Removable
-                                || (drive.DriveType == DriveType.Fixed && diskInfo.IsUsb);
+                            bool isEligible = drive.DriveType == DriveType.Removable
+                                || (drive.DriveType == DriveType.Fixed && IsUsb);
 
                             if (!isEligible)
+                            {
                                 continue;
+                            }
 
-                            var usedBytes = drive.TotalSize - drive.AvailableFreeSpace;
-                            var usedPercentage = drive.TotalSize > 0
+                            long usedBytes = drive.TotalSize - drive.AvailableFreeSpace;
+                            double usedPercentage = drive.TotalSize > 0
                                 ? (double)usedBytes / drive.TotalSize * 100
                                 : 0;
 
-                            var brand = diskInfo.Model ?? "Unknown";
+                            string brand = Model ?? "Unknown";
 
-                            var removableDrive = new RemovableDrive(
+                            RemovableDrive removableDrive = new(
                                 driveLetterWithColon,
                                 string.IsNullOrWhiteSpace(drive.VolumeLabel) ? "Removable Drive" : drive.VolumeLabel,
                                 drive.DriveFormat,
@@ -101,27 +105,29 @@ namespace Easy_Copier.Services
         {
             try
             {
-                var escapedLetter = driveLetterWithColon.Replace("\\", "\\\\");
+                string escapedLetter = driveLetterWithColon.Replace("\\", "\\\\");
 
-                using var partitionSearcher = new ManagementObjectSearcher(
+                using ManagementObjectSearcher partitionSearcher = new(
                     $"ASSOCIATORS OF {{Win32_LogicalDisk.DeviceID='{escapedLetter}'}} WHERE AssocClass = Win32_LogicalDiskToPartition");
 
                 foreach (ManagementObject partition in partitionSearcher.Get())
                 {
-                    var partitionDeviceId = partition["DeviceID"]?.ToString();
+                    string? partitionDeviceId = partition["DeviceID"]?.ToString();
                     if (string.IsNullOrEmpty(partitionDeviceId))
+                    {
                         continue;
+                    }
 
-                    var escapedPartitionId = partitionDeviceId.Replace("\\", "\\\\");
+                    string escapedPartitionId = partitionDeviceId.Replace("\\", "\\\\");
 
-                    using var diskSearcher = new ManagementObjectSearcher(
+                    using ManagementObjectSearcher diskSearcher = new(
                         $"ASSOCIATORS OF {{Win32_DiskPartition.DeviceID='{escapedPartitionId}'}} WHERE AssocClass = Win32_DiskDriveToDiskPartition");
 
                     foreach (ManagementObject disk in diskSearcher.Get())
                     {
-                        var model = disk["Model"]?.ToString();
-                        var interfaceType = disk["InterfaceType"]?.ToString();
-                        var isUsb = string.Equals(interfaceType, "USB", StringComparison.OrdinalIgnoreCase);
+                        string? model = disk["Model"]?.ToString();
+                        string? interfaceType = disk["InterfaceType"]?.ToString();
+                        bool isUsb = string.Equals(interfaceType, "USB", StringComparison.OrdinalIgnoreCase);
 
                         // Some USB enclosures (especially UASP-capable NVMe/SSD bridges) report
                         // InterfaceType as "SCSI" instead of "USB". Fall back to querying the
@@ -149,20 +155,22 @@ namespace Easy_Copier.Services
         private bool IsUsbBusType(string? diskIndex)
         {
             if (string.IsNullOrEmpty(diskIndex))
+            {
                 return false;
+            }
 
             try
             {
-                var scope = new ManagementScope(@"root\Microsoft\Windows\Storage");
+                ManagementScope scope = new(@"root\Microsoft\Windows\Storage");
                 scope.Connect();
 
-                using var searcher = new ManagementObjectSearcher(
+                using ManagementObjectSearcher searcher = new(
                     scope,
                     new ObjectQuery($"SELECT BusType FROM MSFT_PhysicalDisk WHERE DeviceId = '{diskIndex}'"));
 
                 foreach (ManagementObject physicalDisk in searcher.Get())
                 {
-                    var busType = Convert.ToUInt16(physicalDisk["BusType"]);
+                    ushort busType = Convert.ToUInt16(physicalDisk["BusType"]);
                     return busType == UsbBusType;
                 }
             }
@@ -177,11 +185,13 @@ namespace Easy_Copier.Services
         public void StartWatching()
         {
             if (_isWatching)
+            {
                 return;
+            }
 
             try
             {
-                var query = new WqlEventQuery("SELECT * FROM Win32_VolumeChangeEvent WHERE EventType = 2 OR EventType = 3");
+                WqlEventQuery query = new("SELECT * FROM Win32_VolumeChangeEvent WHERE EventType = 2 OR EventType = 3");
                 _driveWatcher = new ManagementEventWatcher(query);
                 _driveWatcher.EventArrived += OnDriveChanged;
                 _driveWatcher.Start();
@@ -198,7 +208,9 @@ namespace Easy_Copier.Services
         public void StopWatching()
         {
             if (!_isWatching || _driveWatcher == null)
+            {
                 return;
+            }
 
             try
             {
@@ -252,8 +264,8 @@ namespace Easy_Copier.Services
         {
             return await Task.Run(() =>
             {
-                var results = new List<ValidationResult>();
-                var gamesList = games.ToList();
+                List<ValidationResult> results = [];
+                List<GameEntry> gamesList = games.ToList();
 
                 if (!gamesList.Any())
                 {
@@ -261,7 +273,7 @@ namespace Easy_Copier.Services
                     return results;
                 }
 
-                var totalRequiredBytes = gamesList.Sum(g => g.TotalBytes);
+                long totalRequiredBytes = gamesList.Sum(g => g.TotalBytes);
 
                 if (totalRequiredBytes > targetDrive.FreeBytes)
                 {
@@ -273,7 +285,7 @@ namespace Easy_Copier.Services
 
                 if (targetDrive.IsFat32)
                 {
-                    var gamesWithLargeFiles = gamesList.Where(g => g.HasLargeFiles).ToList();
+                    List<GameEntry> gamesWithLargeFiles = gamesList.Where(g => g.HasLargeFiles).ToList();
                     if (gamesWithLargeFiles.Any())
                     {
                         results.Add(new ValidationResult(
@@ -285,9 +297,9 @@ namespace Easy_Copier.Services
 
                 if (Directory.Exists(destinationBasePath))
                 {
-                    foreach (var game in gamesList)
+                    foreach (GameEntry game in gamesList)
                     {
-                        var destPath = Path.Combine(destinationBasePath, game.Name);
+                        string destPath = Path.Combine(destinationBasePath, game.Name);
                         if (Directory.Exists(destPath))
                         {
                             results.Add(new ValidationResult(
@@ -298,7 +310,7 @@ namespace Easy_Copier.Services
                     }
                 }
 
-                foreach (var game in gamesList)
+                foreach (GameEntry game in gamesList)
                 {
                     if (!Directory.Exists(game.FolderPath))
                     {

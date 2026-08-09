@@ -40,23 +40,23 @@ namespace Easy_Copier.Services
 
                     if (!Directory.Exists(request.DestinationPath))
                     {
-                        Directory.CreateDirectory(request.DestinationPath);
+                        _ = Directory.CreateDirectory(request.DestinationPath);
                         _logger.LogInformation("Created destination directory: {Path}", request.DestinationPath);
                     }
 
                     int successCount = 0;
                     long totalBytes = 0;
-                    var errors = new List<string>();
+                    List<string> errors = [];
 
-                    foreach (var game in request.Games)
+                    foreach (GameEntry game in request.Games)
                     {
                         try
                         {
-                            var destPath = Path.Combine(request.DestinationPath, game.Name);
+                            string destPath = Path.Combine(request.DestinationPath, game.Name);
 
                             _logger.LogInformation("Copying {Game} to {Dest}", game.Name, destPath);
 
-                            var result = CopyDirectoryWithShellDialog(game.FolderPath, destPath);
+                            bool result = CopyDirectoryWithShellDialog(game.FolderPath, destPath);
 
                             if (result)
                             {
@@ -99,8 +99,8 @@ namespace Easy_Copier.Services
                         }
                     }
 
-                    var allSuccess = successCount == request.Games.Count;
-                    var message = allSuccess
+                    bool allSuccess = successCount == request.Games.Count;
+                    string message = allSuccess
                         ? $"Successfully copied {successCount} game(s)"
                         : $"Copied {successCount} of {request.Games.Count} games. Errors: {string.Join("; ", errors)}";
 
@@ -128,7 +128,7 @@ namespace Easy_Copier.Services
         {
             try
             {
-                var fileOp = new NativeMethods.SHFILEOPSTRUCT
+                NativeMethods.SHFILEOPSTRUCT fileOp = new()
                 {
                     wFunc = NativeMethods.FO_COPY,
                     pFrom = sourcePath + "\0\0",

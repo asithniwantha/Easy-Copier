@@ -1,6 +1,7 @@
 using Easy_Copier.Services;
 using System;
 using System.Threading.Tasks;
+using Windows.Storage;
 using Windows.Storage.Pickers;
 using WinRT.Interop;
 
@@ -10,7 +11,7 @@ namespace Easy_Copier.Infrastructure
     {
         public async Task<string?> PickFolderAsync()
         {
-            var folderPicker = new FolderPicker
+            FolderPicker folderPicker = new()
             {
                 SuggestedStartLocation = PickerLocationId.ComputerFolder,
                 ViewMode = PickerViewMode.List
@@ -18,7 +19,7 @@ namespace Easy_Copier.Infrastructure
 
             folderPicker.FileTypeFilter.Add("*");
 
-            var windowHandle = GetActiveWindowHandle();
+            nint windowHandle = GetActiveWindowHandle();
             if (windowHandle == IntPtr.Zero)
             {
                 return null;
@@ -26,18 +27,13 @@ namespace Easy_Copier.Infrastructure
 
             InitializeWithWindow.Initialize(folderPicker, windowHandle);
 
-            var folder = await folderPicker.PickSingleFolderAsync();
+            StorageFolder folder = await folderPicker.PickSingleFolderAsync();
             return folder?.Path;
         }
 
         private IntPtr GetActiveWindowHandle()
         {
-            if (App.MainWindow != null)
-            {
-                return WindowNative.GetWindowHandle(App.MainWindow);
-            }
-
-            return IntPtr.Zero;
+            return App.MainWindow != null ? WindowNative.GetWindowHandle(App.MainWindow) : nint.Zero;
         }
     }
 }

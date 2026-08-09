@@ -1,5 +1,6 @@
 using Easy_Copier.Views;
 using Microsoft.UI;
+using Microsoft.UI.Windowing;
 using Microsoft.UI.Xaml;
 using System;
 using System.IO;
@@ -13,13 +14,13 @@ namespace Easy_Copier
         {
             InitializeComponent();
 
-            var hwnd = WindowNative.GetWindowHandle(this);
-            var windowId = Win32Interop.GetWindowIdFromWindow(hwnd);
-            var appWindow = Microsoft.UI.Windowing.AppWindow.GetFromWindowId(windowId);
+            nint hwnd = WindowNative.GetWindowHandle(this);
+            WindowId windowId = Win32Interop.GetWindowIdFromWindow(hwnd);
+            AppWindow appWindow = Microsoft.UI.Windowing.AppWindow.GetFromWindowId(windowId);
 
             if (appWindow != null)
             {
-                var iconPath = Path.Combine(AppContext.BaseDirectory, "Assets", "easy copier ico.ico");
+                string iconPath = Path.Combine(AppContext.BaseDirectory, "Assets", "easy copier ico.ico");
                 if (File.Exists(iconPath))
                 {
                     appWindow.SetIcon(iconPath);
@@ -28,7 +29,7 @@ namespace Easy_Copier
                 appWindow.Resize(new Windows.Graphics.SizeInt32(1400, 900));
             }
 
-            RootFrame.Navigate(typeof(MainPage));
+            _ = RootFrame.Navigate(typeof(MainPage));
         }
     }
 }

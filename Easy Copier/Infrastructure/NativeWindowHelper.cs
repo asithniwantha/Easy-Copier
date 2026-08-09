@@ -39,40 +39,37 @@ namespace Easy_Copier.Infrastructure
 
         public static void SetOwner(IntPtr childHwnd, IntPtr ownerHwnd)
         {
-            if (IntPtr.Size == 8)
-            {
-                SetWindowLongPtr64(childHwnd, GWLP_HWNDPARENT, ownerHwnd);
-            }
-            else
-            {
-                SetWindowLong32(childHwnd, GWLP_HWNDPARENT, ownerHwnd.ToInt32());
-            }
+            _ = IntPtr.Size == 8
+                ? SetWindowLongPtr64(childHwnd, GWLP_HWNDPARENT, ownerHwnd)
+                : SetWindowLong32(childHwnd, GWLP_HWNDPARENT, ownerHwnd.ToInt32());
         }
 
         public static void EnableWindowInput(IntPtr hwnd, bool enable)
         {
-            EnableWindow(hwnd, enable);
+            _ = EnableWindow(hwnd, enable);
         }
 
         public static void CenterWindow(IntPtr childHwnd, IntPtr ownerHwnd)
         {
-            if (!GetWindowRect(ownerHwnd, out var ownerRect) || !GetWindowRect(childHwnd, out var selfRect))
+            if (!GetWindowRect(ownerHwnd, out RECT ownerRect) || !GetWindowRect(childHwnd, out RECT selfRect))
+            {
                 return;
+            }
 
-            var ownerWidth = ownerRect.Right - ownerRect.Left;
-            var ownerHeight = ownerRect.Bottom - ownerRect.Top;
-            var selfWidth = selfRect.Right - selfRect.Left;
-            var selfHeight = selfRect.Bottom - selfRect.Top;
+            int ownerWidth = ownerRect.Right - ownerRect.Left;
+            int ownerHeight = ownerRect.Bottom - ownerRect.Top;
+            int selfWidth = selfRect.Right - selfRect.Left;
+            int selfHeight = selfRect.Bottom - selfRect.Top;
 
-            var x = ownerRect.Left + (ownerWidth - selfWidth) / 2;
-            var y = ownerRect.Top + (ownerHeight - selfHeight) / 2;
+            int x = ownerRect.Left + ((ownerWidth - selfWidth) / 2);
+            int y = ownerRect.Top + ((ownerHeight - selfHeight) / 2);
 
-            SetWindowPos(childHwnd, IntPtr.Zero, x, y, 0, 0, SWP_NOSIZE | SWP_NOZORDER);
+            _ = SetWindowPos(childHwnd, IntPtr.Zero, x, y, 0, 0, SWP_NOSIZE | SWP_NOZORDER);
         }
 
         public static void SetForeground(IntPtr hwnd)
         {
-            SetForegroundWindow(hwnd);
+            _ = SetForegroundWindow(hwnd);
         }
     }
 }

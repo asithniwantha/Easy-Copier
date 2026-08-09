@@ -32,7 +32,7 @@ namespace Easy_Copier.Services
         private readonly ConcurrentDictionary<string, Channel<TransferQueueItem>> _driveChannels = new(StringComparer.OrdinalIgnoreCase);
         private readonly DispatcherQueue? _dispatcherQueue;
 
-        public ObservableCollection<TransferQueueItem> QueueItems { get; } = new();
+        public ObservableCollection<TransferQueueItem> QueueItems { get; } = [];
 
         public event EventHandler<TransferQueueItem>? ItemCompleted;
 
@@ -47,10 +47,10 @@ namespace Easy_Copier.Services
 
         public TransferQueueItem Enqueue(IReadOnlyList<GameEntry> games, RemovableDrive targetDrive, string destinationPath)
         {
-            var item = new TransferQueueItem(games, targetDrive, destinationPath);
+            TransferQueueItem item = new(games, targetDrive, destinationPath);
 
             QueueItems.Add(item);
-            _channel.Writer.TryWrite(item);
+            _ = _channel.Writer.TryWrite(item);
 
             _logger.LogInformation(
                 "Enqueued transfer of {Count} item(s) to {Drive} (queue depth: {Depth})",
@@ -68,37 +68,37 @@ namespace Easy_Copier.Services
 
         public void ClearFinished()
         {
-            var toRemove = QueueItems.Where(i => !i.IsActive).ToList();
-            foreach (var item in toRemove)
+            List<TransferQueueItem> toRemove = QueueItems.Where(i => !i.IsActive).ToList();
+            foreach (TransferQueueItem item in toRemove)
             {
-                QueueItems.Remove(item);
+                _ = QueueItems.Remove(item);
             }
         }
 
         private async Task ProcessQueueAsync()
         {
-            await foreach (var item in _channel.Reader.ReadAllAsync())
+            await foreach (TransferQueueItem item in _channel.Reader.ReadAllAsync())
             {
-                var driveKey = NormalizeDriveKey(item.TargetDrive.DriveLetter);
-                var driveChannel = _driveChannels.GetOrAdd(driveKey, key =>
+                string driveKey = NormalizeDriveKey(item.TargetDrive.DriveLetter);
+                Channel<TransferQueueItem> driveChannel = _driveChannels.GetOrAdd(driveKey, key =>
                 {
-                    var channel = Channel.CreateUnbounded<TransferQueueItem>();
+                    Channel<TransferQueueItem> channel = Channel.CreateUnbounded<TransferQueueItem>();
                     _ = Task.Run(() => ProcessDriveQueueAsync(key, channel));
                     return channel;
                 });
 
-                driveChannel.Writer.TryWrite(item);
+                _ = driveChannel.Writer.TryWrite(item);
             }
         }
 
         private async Task ProcessDriveQueueAsync(string driveKey, Channel<TransferQueueItem> driveChannel)
         {
-            await foreach (var item in driveChannel.Reader.ReadAllAsync())
+            await foreach (TransferQueueItem item in driveChannel.Reader.ReadAllAsync())
             {
                 await ProcessItemAsync(item);
             }
 
-            _driveChannels.TryRemove(driveKey, out _);
+            _ = _driveChannels.TryRemove(driveKey, out _);
         }
 
         private async Task ProcessItemAsync(TransferQueueItem item)
@@ -113,7 +113,7 @@ namespace Easy_Copier.Services
 
             try
             {
-                var request = new TransferRequest(item.Games, item.TargetDrive, item.DestinationPath);
+                TransferRequest request = new(item.Games, item.TargetDrive, item.DestinationPath);
                 outcome = await _fileTransferService.TransferGamesAsync(request);
             }
             catch (Exception ex)
@@ -148,7 +148,7 @@ namespace Easy_Copier.Services
         {
             if (_dispatcherQueue != null && !_dispatcherQueue.HasThreadAccess)
             {
-                _dispatcherQueue.TryEnqueue(() => action());
+                _ = _dispatcherQueue.TryEnqueue(() => action());
             }
             else
             {

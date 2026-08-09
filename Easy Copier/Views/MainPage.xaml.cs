@@ -1,19 +1,18 @@
 using Easy_Copier.Infrastructure;
 using Easy_Copier.Models;
+using Easy_Copier.Services;
 using Easy_Copier.ViewModels;
+using Microsoft.UI.Text;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
-using System;
-using System.ComponentModel;
-using System.Diagnostics;
-using System.Linq;
-using System.IO;
-using System.Text.RegularExpressions;
-using Microsoft.UI.Xaml.Input;
 using Microsoft.UI.Xaml.Controls.Primitives;
-using Microsoft.UI.Text;
-using Microsoft.UI.Xaml.Media;
 using Microsoft.UI.Xaml.Documents;
+using Microsoft.UI.Xaml.Input;
+using Microsoft.UI.Xaml.Media;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text.RegularExpressions;
 
 namespace Easy_Copier.Views
 {
@@ -49,7 +48,7 @@ namespace Easy_Copier.Views
 
         private void UpdateCombinedSelection()
         {
-            var selectedItems = GamesGridView.SelectedItems.Cast<GameEntry>()
+            IEnumerable<GameEntry> selectedItems = GamesGridView.SelectedItems.Cast<GameEntry>()
                 .Concat(AppsGridView.SelectedItems.Cast<GameEntry>());
             ViewModel.UpdateSelectionSummary(selectedItems);
         }
@@ -62,7 +61,10 @@ namespace Easy_Copier.Views
 
         private string FormatRequirementsText(string text)
         {
-            if (string.IsNullOrWhiteSpace(text)) return text;
+            if (string.IsNullOrWhiteSpace(text))
+            {
+                return text;
+            }
 
             text = Regex.Replace(text, @"(?<!\n)\s*Processor:", "\nCPU:");
             text = Regex.Replace(text, @"(?<!\n)\s*Graphics:", "\nGPU:");
@@ -87,47 +89,47 @@ namespace Easy_Copier.Views
 
         private Paragraph CreateColoredParagraph(string text)
         {
-            var paragraph = new Paragraph();
+            Paragraph paragraph = new();
 
             // Split the text by lines to process each line and add formatting
-            var lines = text.Split(new[] { "\r\n", "\n" }, StringSplitOptions.None);
+            string[] lines = text.Split(new[] { "\r\n", "\n" }, StringSplitOptions.None);
 
-            foreach (var line in lines)
+            foreach (string line in lines)
             {
                 if (line.StartsWith("CPU:"))
                 {
                     paragraph.Inlines.Add(new Run { Text = "CPU:", Foreground = new SolidColorBrush(Windows.UI.Color.FromArgb(255, 0, 0, 255)), FontWeight = FontWeights.Bold });
-                    paragraph.Inlines.Add(new Run { Text = line.Substring(4) + "\n" });
+                    paragraph.Inlines.Add(new Run { Text = line[4..] + "\n" });
                 }
                 else if (line.StartsWith("GPU:"))
                 {
                     paragraph.Inlines.Add(new Run { Text = "GPU:", Foreground = new SolidColorBrush(Windows.UI.Color.FromArgb(255, 255, 0, 0)), FontWeight = FontWeights.Bold });
-                    paragraph.Inlines.Add(new Run { Text = line.Substring(4) + "\n" });
+                    paragraph.Inlines.Add(new Run { Text = line[4..] + "\n" });
                 }
                 else if (line.StartsWith("RAM:"))
                 {
                     paragraph.Inlines.Add(new Run { Text = "RAM:", Foreground = new SolidColorBrush(Windows.UI.Color.FromArgb(255, 0, 128, 0)), FontWeight = FontWeights.Bold });
-                    paragraph.Inlines.Add(new Run { Text = line.Substring(4) + "\n" });
+                    paragraph.Inlines.Add(new Run { Text = line[4..] + "\n" });
                 }
                 else if (line.StartsWith("Storage:"))
                 {
                     paragraph.Inlines.Add(new Run { Text = "Storage:", Foreground = new SolidColorBrush(Windows.UI.Color.FromArgb(255, 255, 165, 0)), FontWeight = FontWeights.Bold });
-                    paragraph.Inlines.Add(new Run { Text = line.Substring(8) + "\n" });
+                    paragraph.Inlines.Add(new Run { Text = line[8..] + "\n" });
                 }
                 else if (line.StartsWith("OS:"))
                 {
                     paragraph.Inlines.Add(new Run { Text = "OS:", Foreground = new SolidColorBrush(Windows.UI.Color.FromArgb(255, 128, 0, 128)), FontWeight = FontWeights.Bold });
-                    paragraph.Inlines.Add(new Run { Text = line.Substring(3) + "\n" });
+                    paragraph.Inlines.Add(new Run { Text = line[3..] + "\n" });
                 }
                 else if (line.StartsWith("Minimum:"))
                 {
                     paragraph.Inlines.Add(new Run { Text = "Minimum:", FontWeight = FontWeights.Bold });
-                    paragraph.Inlines.Add(new Run { Text = line.Substring(8) + "\n" });
+                    paragraph.Inlines.Add(new Run { Text = line[8..] + "\n" });
                 }
                 else if (line.StartsWith("Recommended:"))
                 {
                     paragraph.Inlines.Add(new Run { Text = "Recommended:", FontWeight = FontWeights.Bold });
-                    paragraph.Inlines.Add(new Run { Text = line.Substring(12) + "\n" });
+                    paragraph.Inlines.Add(new Run { Text = line[12..] + "\n" });
                 }
                 else
                 {
@@ -142,11 +144,11 @@ namespace Easy_Copier.Views
         {
             if (sender is FrameworkElement fe && fe.DataContext is GameEntry gameEntry)
             {
-                var sourceLibraryService = AppServiceLocator.GetService<Easy_Copier.Services.ISourceLibraryService>();
-                var rawRequirementsText = await sourceLibraryService.GetSystemRequirementsAsync(gameEntry.FolderPath);
-                var formattedText = FormatRequirementsText(rawRequirementsText);
+                ISourceLibraryService sourceLibraryService = AppServiceLocator.GetService<Easy_Copier.Services.ISourceLibraryService>();
+                string rawRequirementsText = await sourceLibraryService.GetSystemRequirementsAsync(gameEntry.FolderPath);
+                string formattedText = FormatRequirementsText(rawRequirementsText);
 
-                var richTextBlock = new RichTextBlock
+                RichTextBlock richTextBlock = new()
                 {
                     TextWrapping = TextWrapping.Wrap,
                     FontFamily = new Microsoft.UI.Xaml.Media.FontFamily("Consolas")
@@ -154,7 +156,7 @@ namespace Easy_Copier.Views
 
                 richTextBlock.Blocks.Add(CreateColoredParagraph(formattedText));
 
-                var scrollViewer = new ScrollViewer
+                ScrollViewer scrollViewer = new()
                 {
                     Content = richTextBlock,
                     MaxHeight = 400,
@@ -164,7 +166,7 @@ namespace Easy_Copier.Views
                     Padding = new Thickness(12)
                 };
 
-                var flyout = new Flyout
+                Flyout flyout = new()
                 {
                     Content = scrollViewer,
                     Placement = FlyoutPlacementMode.RightEdgeAlignedTop

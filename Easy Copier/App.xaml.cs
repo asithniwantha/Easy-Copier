@@ -1,4 +1,5 @@
 ﻿using Easy_Copier.Infrastructure;
+using Easy_Copier.Services;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.UI.Xaml;
 using System;
@@ -20,10 +21,10 @@ namespace Easy_Copier
 
         private void ConfigureServices()
         {
-            var services = new ServiceCollection();
+            ServiceCollection services = new();
 
-            services.AddApplicationServices();
-            services.AddViewModels();
+            _ = services.AddApplicationServices();
+            _ = services.AddViewModels();
 
             _serviceProvider = services.BuildServiceProvider();
             AppServiceLocator.Initialize(_serviceProvider);
@@ -35,7 +36,7 @@ namespace Easy_Copier
             MainWindow = _window;
             _window.Activate();
 
-            var copyHistoryService = AppServiceLocator.GetService<Services.ICopyHistoryService>();
+            ICopyHistoryService copyHistoryService = AppServiceLocator.GetService<Services.ICopyHistoryService>();
             await copyHistoryService.InitializeAsync();
         }
     }

@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Windows.Storage;
 using Windows.Storage.Pickers;
 
 namespace Easy_Copier.Infrastructure
@@ -14,18 +15,18 @@ namespace Easy_Copier.Infrastructure
     {
         public async Task<string?> PickSaveFileAsync(string suggestedFileName, IDictionary<string, IList<string>> fileTypeChoices)
         {
-            var savePicker = new FileSavePicker
+            FileSavePicker savePicker = new()
             {
                 SuggestedStartLocation = PickerLocationId.DocumentsLibrary,
                 SuggestedFileName = suggestedFileName
             };
 
-            foreach (var kvp in fileTypeChoices)
+            foreach (KeyValuePair<string, IList<string>> kvp in fileTypeChoices)
             {
                 savePicker.FileTypeChoices.Add(kvp.Key, kvp.Value);
             }
 
-            var windowHandle = GetActiveWindowHandle();
+            nint windowHandle = GetActiveWindowHandle();
             if (windowHandle == IntPtr.Zero)
             {
                 return null;
@@ -33,18 +34,13 @@ namespace Easy_Copier.Infrastructure
 
             WinRT.Interop.InitializeWithWindow.Initialize(savePicker, windowHandle);
 
-            var file = await savePicker.PickSaveFileAsync();
+            StorageFile file = await savePicker.PickSaveFileAsync();
             return file?.Path;
         }
 
         private IntPtr GetActiveWindowHandle()
         {
-            if (App.MainWindow != null)
-            {
-                return WinRT.Interop.WindowNative.GetWindowHandle(App.MainWindow);
-            }
-
-            return IntPtr.Zero;
+            return App.MainWindow != null ? WinRT.Interop.WindowNative.GetWindowHandle(App.MainWindow) : nint.Zero;
         }
     }
 }

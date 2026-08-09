@@ -36,15 +36,15 @@ namespace Easy_Copier.Services
 
         private string GetCacheFilePath()
         {
-            var appDataFolder = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
-            var appFolder = Path.Combine(appDataFolder, "EasyCopier");
-            Directory.CreateDirectory(appFolder);
+            string appDataFolder = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
+            string appFolder = Path.Combine(appDataFolder, "EasyCopier");
+            _ = Directory.CreateDirectory(appFolder);
             return Path.Combine(appFolder, CacheFileName);
         }
 
         public async Task<LibraryCacheSnapshot?> LoadCacheAsync()
         {
-            var cachePath = GetCacheFilePath();
+            string cachePath = GetCacheFilePath();
 
             try
             {
@@ -54,8 +54,8 @@ namespace Easy_Copier.Services
                     return null;
                 }
 
-                var json = await File.ReadAllTextAsync(cachePath);
-                var cache = JsonSerializer.Deserialize<LibraryCacheSnapshot>(json);
+                string json = await File.ReadAllTextAsync(cachePath);
+                LibraryCacheSnapshot? cache = JsonSerializer.Deserialize<LibraryCacheSnapshot>(json);
 
                 if (cache == null)
                 {
@@ -94,17 +94,17 @@ namespace Easy_Copier.Services
 
         public async Task SaveCacheAsync(LibraryCacheSnapshot snapshot)
         {
-            var cachePath = GetCacheFilePath();
-            var tempPath = cachePath + ".tmp";
+            string cachePath = GetCacheFilePath();
+            string tempPath = cachePath + ".tmp";
 
             try
             {
-                var options = new JsonSerializerOptions
+                JsonSerializerOptions options = new()
                 {
                     WriteIndented = true
                 };
 
-                var json = JsonSerializer.Serialize(snapshot, options);
+                string json = JsonSerializer.Serialize(snapshot, options);
                 await File.WriteAllTextAsync(tempPath, json);
 
                 if (File.Exists(cachePath))
@@ -142,7 +142,7 @@ namespace Easy_Copier.Services
 
         public async Task InvalidateCacheAsync()
         {
-            var cachePath = GetCacheFilePath();
+            string cachePath = GetCacheFilePath();
 
             try
             {
@@ -165,22 +165,22 @@ namespace Easy_Copier.Services
         {
             try
             {
-                var normalizedCacheGameFolders = cache.GameSourceFolders
+                List<string> normalizedCacheGameFolders = cache.GameSourceFolders
                     .Select(NormalizePath)
                     .OrderBy(p => p)
                     .ToList();
 
-                var normalizedCacheAppFolders = cache.AppSourceFolders
+                List<string> normalizedCacheAppFolders = cache.AppSourceFolders
                     .Select(NormalizePath)
                     .OrderBy(p => p)
                     .ToList();
 
-                var normalizedCurrentGameFolders = currentSettings.GameSourceFolders
+                List<string> normalizedCurrentGameFolders = currentSettings.GameSourceFolders
                     .Select(NormalizePath)
                     .OrderBy(p => p)
                     .ToList();
 
-                var normalizedCurrentAppFolders = currentSettings.AppSourceFolders
+                List<string> normalizedCurrentAppFolders = currentSettings.AppSourceFolders
                     .Select(NormalizePath)
                     .OrderBy(p => p)
                     .ToList();
@@ -189,31 +189,33 @@ namespace Easy_Copier.Services
                     !normalizedCacheAppFolders.SequenceEqual(normalizedCurrentAppFolders))
                 {
                     _logger.LogInformation("Cache configuration mismatch: source folders have changed");
-                    return new CacheValidationOutcome(CacheValidationResult.ConfigurationMismatch, new List<string>());
+                    return new CacheValidationOutcome(CacheValidationResult.ConfigurationMismatch, []);
                 }
 
-                var allSourceFolders = normalizedCurrentGameFolders.Concat(normalizedCurrentAppFolders).Distinct();
-                foreach (var sourceFolder in allSourceFolders)
+                IEnumerable<string> allSourceFolders = normalizedCurrentGameFolders.Concat(normalizedCurrentAppFolders).Distinct();
+                foreach (string? sourceFolder in allSourceFolders)
                 {
                     if (!Directory.Exists(sourceFolder))
                     {
                         _logger.LogInformation("Cache invalid: source folder no longer exists: {Path}", sourceFolder);
-                        return new CacheValidationOutcome(CacheValidationResult.SourcesUnavailable, new List<string>());
+                        return new CacheValidationOutcome(CacheValidationResult.SourcesUnavailable, []);
                     }
                 }
 
-                var changedItems = new List<string>();
+                List<string> changedItems = [];
 
-                var allCachedItems = cache.Games.Concat(cache.Apps).ToList();
+                List<GameEntry> allCachedItems = cache.Games.Concat(cache.Apps).ToList();
 
-                foreach (var item in allCachedItems)
+                foreach (GameEntry? item in allCachedItems)
                 {
                     if (cancellationToken.IsCancellationRequested)
+                    {
                         break;
+                    }
 
-                    var normalizedPath = NormalizePath(item.FolderPath);
+                    string normalizedPath = NormalizePath(item.FolderPath);
 
-                    if (!cache.ItemFingerprints.TryGetValue(normalizedPath, out var cachedFingerprint))
+                    if (!cache.ItemFingerprints.TryGetValue(normalizedPath, out ItemFingerprint? cachedFingerprint))
                     {
                         _logger.LogDebug("Item missing fingerprint: {Path}", item.FolderPath);
                         changedItems.Add(normalizedPath);
@@ -229,7 +231,7 @@ namespace Easy_Copier.Services
 
                     try
                     {
-                        var currentFingerprint = await ComputeItemFingerprintAsync(item.FolderPath, cancellationToken);
+                        ItemFingerprint currentFingerprint = await ComputeItemFingerprintAsync(item.FolderPath, cancellationToken);
 
                         if (!FingerprintsMatch(cachedFingerprint, currentFingerprint))
                         {
@@ -249,37 +251,39 @@ namespace Easy_Copier.Services
                     }
                 }
 
-                var currentTopLevelItems = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
+                HashSet<string> currentTopLevelItems = new(StringComparer.OrdinalIgnoreCase);
 
-                foreach (var sourceFolder in allSourceFolders)
+                foreach (string? sourceFolder in allSourceFolders)
                 {
                     if (cancellationToken.IsCancellationRequested)
+                    {
                         break;
+                    }
 
                     try
                     {
-                        var subdirectories = await Task.Run(
+                        string[] subdirectories = await Task.Run(
                             () => Directory.GetDirectories(sourceFolder, "*", SearchOption.TopDirectoryOnly),
                             cancellationToken);
 
-                        foreach (var subdir in subdirectories)
+                        foreach (string? subdir in subdirectories)
                         {
-                            currentTopLevelItems.Add(NormalizePath(subdir));
+                            _ = currentTopLevelItems.Add(NormalizePath(subdir));
                         }
                     }
                     catch (Exception ex)
                     {
                         _logger.LogWarning(ex, "Error enumerating source folder (invalidating cache): {Path}", sourceFolder);
-                        return new CacheValidationOutcome(CacheValidationResult.ItemsChanged, new List<string>());
+                        return new CacheValidationOutcome(CacheValidationResult.ItemsChanged, []);
                     }
                 }
 
-                var cachedTopLevelItems = allCachedItems
+                HashSet<string> cachedTopLevelItems = allCachedItems
                     .Select(item => NormalizePath(item.FolderPath))
                     .ToHashSet(StringComparer.OrdinalIgnoreCase);
 
-                var newItems = currentTopLevelItems.Except(cachedTopLevelItems).ToList();
-                var removedItems = cachedTopLevelItems.Except(currentTopLevelItems).ToList();
+                List<string> newItems = currentTopLevelItems.Except(cachedTopLevelItems).ToList();
+                List<string> removedItems = cachedTopLevelItems.Except(currentTopLevelItems).ToList();
 
                 if (newItems.Any())
                 {
@@ -296,7 +300,7 @@ namespace Easy_Copier.Services
                 if (cancellationToken.IsCancellationRequested)
                 {
                     _logger.LogInformation("Cache validation cancelled");
-                    return new CacheValidationOutcome(CacheValidationResult.Valid, new List<string>());
+                    return new CacheValidationOutcome(CacheValidationResult.Valid, []);
                 }
 
                 if (changedItems.Any())
@@ -306,12 +310,12 @@ namespace Easy_Copier.Services
                 }
 
                 _logger.LogInformation("Cache validation successful: no changes detected");
-                return new CacheValidationOutcome(CacheValidationResult.Valid, new List<string>());
+                return new CacheValidationOutcome(CacheValidationResult.Valid, []);
             }
             catch (Exception ex)
             {
                 _logger.LogError(ex, "Error during cache validation");
-                return new CacheValidationOutcome(CacheValidationResult.CorruptOrInvalid, new List<string>());
+                return new CacheValidationOutcome(CacheValidationResult.CorruptOrInvalid, []);
             }
         }
 
@@ -321,16 +325,18 @@ namespace Easy_Copier.Services
         {
             return await Task.Run(() =>
             {
-                var dirInfo = new DirectoryInfo(folderPath);
-                var files = dirInfo.EnumerateFiles("*", SearchOption.AllDirectories);
+                DirectoryInfo dirInfo = new(folderPath);
+                IEnumerable<FileInfo> files = dirInfo.EnumerateFiles("*", SearchOption.AllDirectories);
 
                 long totalBytes = 0;
-                var latestWriteTime = DateTime.MinValue;
+                DateTime latestWriteTime = DateTime.MinValue;
 
-                foreach (var file in files)
+                foreach (FileInfo file in files)
                 {
                     if (cancellationToken.IsCancellationRequested)
+                    {
                         break;
+                    }
 
                     totalBytes += file.Length;
 

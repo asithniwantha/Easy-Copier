@@ -63,8 +63,8 @@ namespace Easy_Copier.Models
 
     public class AppSettings
     {
-        public List<string> GameSourceFolders { get; set; } = new();
-        public List<string> AppSourceFolders { get; set; } = new();
+        public List<string> GameSourceFolders { get; set; } = [];
+        public List<string> AppSourceFolders { get; set; } = [];
         public bool AutoScanOnStartup { get; set; } = true;
         public string LastSelectedDrive { get; set; } = string.Empty;
         public DateTime LastScanTime { get; set; } = DateTime.MinValue;

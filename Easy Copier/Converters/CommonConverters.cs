@@ -17,7 +17,7 @@ namespace Easy_Copier.Converters
                 while (len >= 1024 && order < sizes.Length - 1)
                 {
                     order++;
-                    len = len / 1024;
+                    len /= 1024;
                 }
                 return $"{len:0.##} {sizes[order]}";
             }
@@ -38,7 +38,9 @@ namespace Easy_Copier.Converters
             bool boolValue = value is bool b && b;
 
             if (invert)
+            {
                 boolValue = !boolValue;
+            }
 
             return boolValue ? Microsoft.UI.Xaml.Visibility.Visible : Microsoft.UI.Xaml.Visibility.Collapsed;
         }
@@ -57,7 +59,7 @@ namespace Easy_Copier.Converters
             {
                 try
                 {
-                    if (System.IO.File.Exists(path) && Uri.TryCreate(path, UriKind.Absolute, out var uri))
+                    if (System.IO.File.Exists(path) && Uri.TryCreate(path, UriKind.Absolute, out Uri? uri))
                     {
                         return new Microsoft.UI.Xaml.Media.Imaging.BitmapImage(uri);
                     }
@@ -83,17 +85,15 @@ namespace Easy_Copier.Converters
     {
         public object Convert(object value, Type targetType, object parameter, string language)
         {
-            if (value is ValidationSeverity severity)
-            {
-                return severity switch
+            return value is ValidationSeverity severity
+                ? severity switch
                 {
                     ValidationSeverity.Error => InfoBarSeverity.Error,
                     ValidationSeverity.Warning => InfoBarSeverity.Warning,
                     ValidationSeverity.Info => InfoBarSeverity.Informational,
                     _ => InfoBarSeverity.Informational
-                };
-            }
-            return InfoBarSeverity.Informational;
+                }
+                : InfoBarSeverity.Informational;
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, string language)

@@ -38,9 +38,9 @@ namespace Easy_Copier.Infrastructure
 
         public static IServiceCollection AddViewModels(this IServiceCollection services)
         {
-            services.AddSingleton<ViewModels.MainViewModel>();
-            services.AddTransient<ViewModels.SettingsViewModel>();
-            services.AddTransient<ViewModels.HistoryViewModel>();
+            _ = services.AddSingleton<ViewModels.MainViewModel>();
+            _ = services.AddTransient<ViewModels.SettingsViewModel>();
+            _ = services.AddTransient<ViewModels.HistoryViewModel>();
 
             return services;
         }
@@ -57,10 +57,9 @@ namespace Easy_Copier.Infrastructure
 
         public static T GetService<T>() where T : class
         {
-            if (_instance == null)
-                throw new InvalidOperationException("AppServiceLocator not initialized");
-
-            return _instance.GetRequiredService<T>();
+            return _instance == null
+                ? throw new InvalidOperationException("AppServiceLocator not initialized")
+                : _instance.GetRequiredService<T>();
         }
     }
 }

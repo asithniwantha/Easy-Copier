@@ -21,18 +21,18 @@ namespace Easy_Copier.Services
         {
             try
             {
-                using var writer = new StreamWriter(filePath, false, Encoding.UTF8);
+                using StreamWriter writer = new(filePath, false, Encoding.UTF8);
                 await writer.WriteLineAsync("Id,Timestamp,GameName,TargetDriveLetter,TargetDriveLabel,BytesTransferred,IsSuccess");
 
-                foreach (var record in records)
+                foreach (CopyHistoryRecord record in records)
                 {
-                    var id = record.Id.ToString();
-                    var timestamp = record.Timestamp.ToString("O");
-                    var gameName = EscapeCsv(record.GameName);
-                    var targetDriveLetter = EscapeCsv(record.TargetDriveLetter);
-                    var targetDriveLabel = EscapeCsv(record.TargetDriveLabel);
-                    var bytesTransferred = record.BytesTransferred.ToString();
-                    var isSuccess = record.IsSuccess.ToString();
+                    string id = record.Id.ToString();
+                    string timestamp = record.Timestamp.ToString("O");
+                    string gameName = EscapeCsv(record.GameName);
+                    string targetDriveLetter = EscapeCsv(record.TargetDriveLetter);
+                    string targetDriveLabel = EscapeCsv(record.TargetDriveLabel);
+                    string bytesTransferred = record.BytesTransferred.ToString();
+                    string isSuccess = record.IsSuccess.ToString();
 
                     await writer.WriteLineAsync($"{id},{timestamp},{gameName},{targetDriveLetter},{targetDriveLabel},{bytesTransferred},{isSuccess}");
                 }
@@ -49,13 +49,11 @@ namespace Easy_Copier.Services
 
         private string EscapeCsv(string value)
         {
-            if (string.IsNullOrEmpty(value)) return string.Empty;
-
-            if (value.Contains(",") || value.Contains("\"") || value.Contains("\r") || value.Contains("\n"))
-            {
-                return $"\"{value.Replace("\"", "\"\"")}\"";
-            }
-            return value;
+            return string.IsNullOrEmpty(value)
+                ? string.Empty
+                : value.Contains(",") || value.Contains("\"") || value.Contains("\r") || value.Contains("\n")
+                ? $"\"{value.Replace("\"", "\"\"")}\""
+                : value;
         }
     }
 }

@@ -1,5 +1,4 @@
 using System.Diagnostics;
-using System.Threading.Tasks;
 
 namespace Easy_Copier.Infrastructure
 {
@@ -14,7 +13,7 @@ namespace Easy_Copier.Infrastructure
         {
             try
             {
-                Process.Start(new ProcessStartInfo
+                _ = Process.Start(new ProcessStartInfo
                 {
                     FileName = "explorer.exe",
                     Arguments = path,

@@ -26,9 +26,9 @@ namespace Easy_Copier.Services
         public CopyHistoryService(ILogger<CopyHistoryService> logger)
         {
             _logger = logger;
-            var localAppData = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
-            var appFolder = Path.Combine(localAppData, "EasyCopier");
-            Directory.CreateDirectory(appFolder);
+            string localAppData = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
+            string appFolder = Path.Combine(localAppData, "EasyCopier");
+            _ = Directory.CreateDirectory(appFolder);
             _dbPath = Path.Combine(appFolder, "history.db");
             _connectionString = $"Data Source={_dbPath}";
         }
@@ -37,10 +37,10 @@ namespace Easy_Copier.Services
         {
             try
             {
-                using var connection = new SqliteConnection(_connectionString);
+                using SqliteConnection connection = new(_connectionString);
                 await connection.OpenAsync();
 
-                var command = connection.CreateCommand();
+                SqliteCommand command = connection.CreateCommand();
                 command.CommandText = @"
                     CREATE TABLE IF NOT EXISTS CopyHistory (
                         Id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -52,7 +52,7 @@ namespace Easy_Copier.Services
                         IsSuccess INTEGER NOT NULL
                     )";
 
-                await command.ExecuteNonQueryAsync();
+                _ = await command.ExecuteNonQueryAsync();
                 _logger.LogInformation("CopyHistory DB initialized at {Path}", _dbPath);
             }
             catch (Exception ex)
@@ -65,23 +65,23 @@ namespace Easy_Copier.Services
         {
             try
             {
-                using var connection = new SqliteConnection(_connectionString);
+                using SqliteConnection connection = new(_connectionString);
                 await connection.OpenAsync();
 
-                var command = connection.CreateCommand();
+                SqliteCommand command = connection.CreateCommand();
                 command.CommandText = @"
                     INSERT INTO CopyHistory (Timestamp, GameName, TargetDriveLetter, TargetDriveLabel, BytesTransferred, IsSuccess)
                     VALUES ($timestamp, $gameName, $targetDriveLetter, $targetDriveLabel, $bytesTransferred, $isSuccess)";
 
                 // Use ISO 8601 string for reliable SQLite sorting/filtering
-                command.Parameters.AddWithValue("$timestamp", record.Timestamp.ToString("O"));
-                command.Parameters.AddWithValue("$gameName", record.GameName);
-                command.Parameters.AddWithValue("$targetDriveLetter", record.TargetDriveLetter);
-                command.Parameters.AddWithValue("$targetDriveLabel", record.TargetDriveLabel);
-                command.Parameters.AddWithValue("$bytesTransferred", record.BytesTransferred);
-                command.Parameters.AddWithValue("$isSuccess", record.IsSuccess ? 1 : 0);
+                _ = command.Parameters.AddWithValue("$timestamp", record.Timestamp.ToString("O"));
+                _ = command.Parameters.AddWithValue("$gameName", record.GameName);
+                _ = command.Parameters.AddWithValue("$targetDriveLetter", record.TargetDriveLetter);
+                _ = command.Parameters.AddWithValue("$targetDriveLabel", record.TargetDriveLabel);
+                _ = command.Parameters.AddWithValue("$bytesTransferred", record.BytesTransferred);
+                _ = command.Parameters.AddWithValue("$isSuccess", record.IsSuccess ? 1 : 0);
 
-                await command.ExecuteNonQueryAsync();
+                _ = await command.ExecuteNonQueryAsync();
             }
             catch (Exception ex)
             {
@@ -91,24 +91,24 @@ namespace Easy_Copier.Services
 
         public async Task<List<CopyHistoryRecord>> GetRecordsByMonthAsync(int year, int month)
         {
-            var records = new List<CopyHistoryRecord>();
+            List<CopyHistoryRecord> records = [];
             try
             {
-                using var connection = new SqliteConnection(_connectionString);
+                using SqliteConnection connection = new(_connectionString);
                 await connection.OpenAsync();
 
                 // Format as YYYY-MM
-                var prefix = $"{year:D4}-{month:D2}";
+                string prefix = $"{year:D4}-{month:D2}";
 
-                var command = connection.CreateCommand();
+                SqliteCommand command = connection.CreateCommand();
                 command.CommandText = @"
                     SELECT Id, Timestamp, GameName, TargetDriveLetter, TargetDriveLabel, BytesTransferred, IsSuccess
                     FROM CopyHistory
                     WHERE Timestamp LIKE $prefix
                     ORDER BY Timestamp DESC";
-                command.Parameters.AddWithValue("$prefix", prefix + "%");
+                _ = command.Parameters.AddWithValue("$prefix", prefix + "%");
 
-                using var reader = await command.ExecuteReaderAsync();
+                using SqliteDataReader reader = await command.ExecuteReaderAsync();
                 while (await reader.ReadAsync())
                 {
                     records.Add(new CopyHistoryRecord(
@@ -131,23 +131,23 @@ namespace Easy_Copier.Services
 
         public async Task<List<(int Year, int Month)>> GetAvailableMonthsAsync()
         {
-            var months = new HashSet<(int Year, int Month)>();
+            HashSet<(int Year, int Month)> months = [];
             try
             {
-                using var connection = new SqliteConnection(_connectionString);
+                using SqliteConnection connection = new(_connectionString);
                 await connection.OpenAsync();
 
-                var command = connection.CreateCommand();
+                SqliteCommand command = connection.CreateCommand();
                 // Extract just the YYYY-MM part from the ISO8601 string
                 command.CommandText = "SELECT DISTINCT substr(Timestamp, 1, 7) FROM CopyHistory ORDER BY substr(Timestamp, 1, 7) DESC";
 
-                using var reader = await command.ExecuteReaderAsync();
+                using SqliteDataReader reader = await command.ExecuteReaderAsync();
                 while (await reader.ReadAsync())
                 {
-                    var yyyyMm = reader.GetString(0);
-                    if (yyyyMm.Length == 7 && int.TryParse(yyyyMm.Substring(0, 4), out int year) && int.TryParse(yyyyMm.Substring(5, 2), out int month))
+                    string yyyyMm = reader.GetString(0);
+                    if (yyyyMm.Length == 7 && int.TryParse(yyyyMm[..4], out int year) && int.TryParse(yyyyMm.Substring(5, 2), out int month))
                     {
-                        months.Add((year, month));
+                        _ = months.Add((year, month));
                     }
                 }
             }
@@ -155,17 +155,17 @@ namespace Easy_Copier.Services
             {
                 _logger.LogError(ex, "Failed to get available months from copy history");
             }
-            return new List<(int Year, int Month)>(months);
+            return [.. months];
         }
 
         public async Task<(int TotalItems, int SuccessfulItems, long TotalBytes)> GetStatsAsync(DateTime startDate, DateTime endDate)
         {
             try
             {
-                using var connection = new SqliteConnection(_connectionString);
+                using SqliteConnection connection = new(_connectionString);
                 await connection.OpenAsync();
 
-                var command = connection.CreateCommand();
+                SqliteCommand command = connection.CreateCommand();
                 command.CommandText = @"
                     SELECT
                         COUNT(*),
@@ -174,10 +174,10 @@ namespace Easy_Copier.Services
                     FROM CopyHistory
                     WHERE Timestamp >= $startDate AND Timestamp < $endDate";
 
-                command.Parameters.AddWithValue("$startDate", startDate);
-                command.Parameters.AddWithValue("$endDate", endDate);
+                _ = command.Parameters.AddWithValue("$startDate", startDate);
+                _ = command.Parameters.AddWithValue("$endDate", endDate);
 
-                using var reader = await command.ExecuteReaderAsync();
+                using SqliteDataReader reader = await command.ExecuteReaderAsync();
                 if (await reader.ReadAsync())
                 {
                     int totalItems = reader.IsDBNull(0) ? 0 : reader.GetInt32(0);

@@ -1,12 +1,9 @@
 using Easy_Copier.Infrastructure;
-using Easy_Copier.Services;
 using Easy_Copier.ViewModels;
 using Microsoft.UI;
+using Microsoft.UI.Windowing;
 using Microsoft.UI.Xaml;
 using System;
-using System.Diagnostics;
-using System.IO;
-using System.Runtime.InteropServices;
 using System.Threading.Tasks;
 using WinRT.Interop;
 
@@ -26,13 +23,10 @@ namespace Easy_Copier.Views
             InitializeComponent();
 
             _hwnd = WindowNative.GetWindowHandle(this);
-            var windowId = Win32Interop.GetWindowIdFromWindow(_hwnd);
-            var appWindow = Microsoft.UI.Windowing.AppWindow.GetFromWindowId(windowId);
+            WindowId windowId = Win32Interop.GetWindowIdFromWindow(_hwnd);
+            AppWindow appWindow = Microsoft.UI.Windowing.AppWindow.GetFromWindowId(windowId);
 
-            if (appWindow != null)
-            {
-                appWindow.Resize(new Windows.Graphics.SizeInt32(760, 640));
-            }
+            appWindow?.Resize(new Windows.Graphics.SizeInt32(760, 640));
 
             _ownerHwnd = App.MainWindow != null ? WindowNative.GetWindowHandle(App.MainWindow) : IntPtr.Zero;
 

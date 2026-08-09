@@ -21,28 +21,28 @@ namespace Easy_Copier.Services
 
         public string GetSettingsFilePath()
         {
-            var appDataFolder = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
-            var appFolder = Path.Combine(appDataFolder, "EasyCopier");
-            Directory.CreateDirectory(appFolder);
+            string appDataFolder = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
+            string appFolder = Path.Combine(appDataFolder, "EasyCopier");
+            _ = Directory.CreateDirectory(appFolder);
             return Path.Combine(appFolder, SettingsFileName);
         }
 
         public async Task<AppSettings> LoadSettingsAsync()
         {
-            var settingsPath = GetSettingsFilePath();
+            string settingsPath = GetSettingsFilePath();
 
             try
             {
                 if (!File.Exists(settingsPath))
                 {
                     _logger.LogInformation("Settings file not found, creating default settings");
-                    var defaultSettings = new AppSettings();
+                    AppSettings defaultSettings = new();
                     await SaveSettingsAsync(defaultSettings);
                     return defaultSettings;
                 }
 
-                var json = await File.ReadAllTextAsync(settingsPath);
-                var settings = JsonSerializer.Deserialize<AppSettings>(json);
+                string json = await File.ReadAllTextAsync(settingsPath);
+                AppSettings? settings = JsonSerializer.Deserialize<AppSettings>(json);
 
                 if (settings == null)
                 {
@@ -62,16 +62,16 @@ namespace Easy_Copier.Services
 
         public async Task SaveSettingsAsync(AppSettings settings)
         {
-            var settingsPath = GetSettingsFilePath();
+            string settingsPath = GetSettingsFilePath();
 
             try
             {
-                var options = new JsonSerializerOptions
+                JsonSerializerOptions options = new()
                 {
                     WriteIndented = true
                 };
 
-                var json = JsonSerializer.Serialize(settings, options);
+                string json = JsonSerializer.Serialize(settings, options);
                 await File.WriteAllTextAsync(settingsPath, json);
 
                 _logger.LogInformation("Settings saved successfully to {Path}", settingsPath);

@@ -7,7 +7,6 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
-using Windows.Storage.Pickers;
 
 namespace Easy_Copier.ViewModels
 {
@@ -22,10 +21,10 @@ namespace Easy_Copier.ViewModels
         private readonly Infrastructure.IFilePickerService _filePickerService;
 
         [ObservableProperty]
-        private ObservableCollection<CopyHistoryRecord> _records = new();
+        private ObservableCollection<CopyHistoryRecord> _records = [];
 
         [ObservableProperty]
-        private ObservableCollection<MonthOption> _availableMonths = new();
+        private ObservableCollection<MonthOption> _availableMonths = [];
 
         [ObservableProperty]
         private MonthOption? _selectedMonth;
@@ -45,13 +44,13 @@ namespace Easy_Copier.ViewModels
         {
             await LoadStatsAsync();
 
-            var months = await _copyHistoryService.GetAvailableMonthsAsync();
+            List<(int Year, int Month)> months = await _copyHistoryService.GetAvailableMonthsAsync();
             AvailableMonths.Clear();
 
-            foreach (var m in months)
+            foreach ((int Year, int Month) in months)
             {
-                var date = new DateTime(m.Year, m.Month, 1);
-                AvailableMonths.Add(new MonthOption(m.Year, m.Month, date.ToString("MMMM yyyy")));
+                DateTime date = new(Year, Month, 1);
+                AvailableMonths.Add(new MonthOption(Year, Month, date.ToString("MMMM yyyy")));
             }
 
             if (AvailableMonths.Any())
@@ -62,25 +61,25 @@ namespace Easy_Copier.ViewModels
 
         private async Task LoadStatsAsync()
         {
-            var today = DateTime.Today;
+            DateTime today = DateTime.Today;
 
             // Today
-            var todayStart = today;
-            var todayEnd = today.AddDays(1);
-            var (todayTotal, todaySuccess, todayBytes) = await _copyHistoryService.GetStatsAsync(todayStart, todayEnd);
+            DateTime todayStart = today;
+            DateTime todayEnd = today.AddDays(1);
+            (int todayTotal, int todaySuccess, long todayBytes) = await _copyHistoryService.GetStatsAsync(todayStart, todayEnd);
             TodayStats = new HistoryStats(todayTotal, todaySuccess, todayBytes);
 
             // Week (Starting Sunday)
             int diff = (7 + (today.DayOfWeek - DayOfWeek.Sunday)) % 7;
-            var weekStart = today.AddDays(-1 * diff).Date;
-            var weekEnd = weekStart.AddDays(7);
-            var (weekTotal, weekSuccess, weekBytes) = await _copyHistoryService.GetStatsAsync(weekStart, weekEnd);
+            DateTime weekStart = today.AddDays(-1 * diff).Date;
+            DateTime weekEnd = weekStart.AddDays(7);
+            (int weekTotal, int weekSuccess, long weekBytes) = await _copyHistoryService.GetStatsAsync(weekStart, weekEnd);
             WeekStats = new HistoryStats(weekTotal, weekSuccess, weekBytes);
 
             // Month
-            var monthStart = new DateTime(today.Year, today.Month, 1);
-            var monthEnd = monthStart.AddMonths(1);
-            var (monthTotal, monthSuccess, monthBytes) = await _copyHistoryService.GetStatsAsync(monthStart, monthEnd);
+            DateTime monthStart = new(today.Year, today.Month, 1);
+            DateTime monthEnd = monthStart.AddMonths(1);
+            (int monthTotal, int monthSuccess, long monthBytes) = await _copyHistoryService.GetStatsAsync(monthStart, monthEnd);
             MonthStats = new HistoryStats(monthTotal, monthSuccess, monthBytes);
         }
 
@@ -99,9 +98,9 @@ namespace Easy_Copier.ViewModels
         private async Task LoadRecordsAsync(int year, int month)
         {
             StatusMessage = "Loading records...";
-            var records = await _copyHistoryService.GetRecordsByMonthAsync(year, month);
+            List<CopyHistoryRecord> records = await _copyHistoryService.GetRecordsByMonthAsync(year, month);
             Records.Clear();
-            foreach (var r in records)
+            foreach (CopyHistoryRecord r in records)
             {
                 Records.Add(r);
             }
@@ -117,23 +116,17 @@ namespace Easy_Copier.ViewModels
                 return;
             }
 
-            var fileName = $"EasyCopier_History_{SelectedMonth.Year}_{SelectedMonth.Month:D2}.csv";
-            var choices = new Dictionary<string, IList<string>> { { "CSV File", new List<string> { ".csv" } } };
+            string fileName = $"EasyCopier_History_{SelectedMonth.Year}_{SelectedMonth.Month:D2}.csv";
+            Dictionary<string, IList<string>> choices = new()
+            { { "CSV File", new List<string> { ".csv" } } };
 
-            var filePath = await _filePickerService.PickSaveFileAsync(fileName, choices);
+            string? filePath = await _filePickerService.PickSaveFileAsync(fileName, choices);
 
             if (filePath != null)
             {
                 StatusMessage = "Exporting...";
-                var success = await _reportService.ExportHistoryToCsvAsync(filePath, Records);
-                if (success)
-                {
-                    StatusMessage = $"Exported successfully to {System.IO.Path.GetFileName(filePath)}";
-                }
-                else
-                {
-                    StatusMessage = "Export failed. Check logs.";
-                }
+                bool success = await _reportService.ExportHistoryToCsvAsync(filePath, Records);
+                StatusMessage = success ? $"Exported successfully to {System.IO.Path.GetFileName(filePath)}" : "Export failed. Check logs.";
             }
         }
     }

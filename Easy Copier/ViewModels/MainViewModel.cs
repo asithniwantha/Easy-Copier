@@ -1,8 +1,8 @@
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using Easy_Copier.Infrastructure;
 using Easy_Copier.Models;
 using Easy_Copier.Services;
-using Easy_Copier.Infrastructure;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -27,7 +27,7 @@ namespace Easy_Copier.ViewModels
         private readonly Microsoft.UI.Dispatching.DispatcherQueue? _dispatcherQueue;
         private CancellationTokenSource? _scanCancellationTokenSource;
         private CancellationTokenSource? _validationCancellationTokenSource;
-        private List<GameEntry> _selectedGames = new();
+        private List<GameEntry> _selectedGames = [];
 
         [ObservableProperty]
         private bool _isLoading;
@@ -62,8 +62,8 @@ namespace Easy_Copier.ViewModels
         [NotifyPropertyChangedFor(nameof(EmptyAppsMessage))]
         private string _searchText = string.Empty;
 
-        private List<GameEntry> _allGames = new();
-        private List<GameEntry> _allApps = new();
+        private readonly List<GameEntry> _allGames = [];
+        private readonly List<GameEntry> _allApps = [];
 
         public bool IsGamesEmpty => !IsScanning && Games.Count == 0;
         public bool IsAppsEmpty => !IsScanning && Apps.Count == 0;
@@ -92,10 +92,10 @@ namespace Easy_Copier.ViewModels
 
         public int CurrentTabIndex { get; set; } = 0;
 
-        public ObservableCollection<GameEntry> Games { get; } = new();
-        public ObservableCollection<GameEntry> Apps { get; } = new();
-        public ObservableCollection<RemovableDrive> AvailableDrives { get; } = new();
-        public ObservableCollection<ValidationResult> ValidationMessages { get; } = new();
+        public ObservableCollection<GameEntry> Games { get; } = [];
+        public ObservableCollection<GameEntry> Apps { get; } = [];
+        public ObservableCollection<RemovableDrive> AvailableDrives { get; } = [];
+        public ObservableCollection<ValidationResult> ValidationMessages { get; } = [];
         public ObservableCollection<TransferQueueItem> TransferQueue => _transferQueueService.QueueItems;
 
         public event EventHandler? ItemQueued;
@@ -126,7 +126,7 @@ namespace Easy_Copier.ViewModels
             {
                 if (_dispatcherQueue != null && !_dispatcherQueue.HasThreadAccess)
                 {
-                    _dispatcherQueue.TryEnqueue(async () => await RefreshDrivesAsync());
+                    _ = _dispatcherQueue.TryEnqueue(async () => await RefreshDrivesAsync());
                 }
                 else
                 {
@@ -144,7 +144,7 @@ namespace Easy_Copier.ViewModels
                 IsLoading = true;
                 StatusMessage = "Loading settings...";
 
-                var settings = await _settingsService.LoadSettingsAsync();
+                AppSettings settings = await _settingsService.LoadSettingsAsync();
 
                 _driveDiscoveryService.StartWatching();
                 await RefreshDrivesAsync();
@@ -155,7 +155,7 @@ namespace Easy_Copier.ViewModels
                     return;
                 }
 
-                var cache = await _libraryCacheService.LoadCacheAsync();
+                LibraryCacheSnapshot? cache = await _libraryCacheService.LoadCacheAsync();
 
                 if (cache != null)
                 {
@@ -167,8 +167,8 @@ namespace Easy_Copier.ViewModels
 
                     ApplyFilter();
 
-                    var cacheAge = DateTime.Now - cache.CachedAt;
-                    var ageText = cacheAge.TotalHours < 1
+                    TimeSpan cacheAge = DateTime.Now - cache.CachedAt;
+                    string ageText = cacheAge.TotalHours < 1
                         ? $"{(int)cacheAge.TotalMinutes}m ago"
                         : cacheAge.TotalDays < 1
                             ? $"{(int)cacheAge.TotalHours}h ago"
@@ -214,37 +214,28 @@ namespace Easy_Copier.ViewModels
                 _validationCancellationTokenSource?.Cancel();
                 _validationCancellationTokenSource = new CancellationTokenSource();
 
-                var validationResult = await _libraryCacheService.ValidateCacheAsync(
+                CacheValidationOutcome validationResult = await _libraryCacheService.ValidateCacheAsync(
                     cache,
                     settings,
                     _validationCancellationTokenSource.Token);
 
                 if (validationResult.Result == CacheValidationResult.Valid)
                 {
-                    if (_dispatcherQueue != null)
-                    {
-                        _dispatcherQueue.TryEnqueue(() =>
+                    _ = _dispatcherQueue?.TryEnqueue(() =>
                         {
                             StatusMessage = $"Library is up to date: {_allGames.Count} game(s), {_allApps.Count} app(s)";
                         });
-                    }
                     return;
                 }
 
-                if (_dispatcherQueue != null)
-                {
-                    _dispatcherQueue.TryEnqueue(() =>
+                _ = _dispatcherQueue?.TryEnqueue(() =>
                     {
                         StatusMessage = "Changes detected - Rescanning library...";
                     });
-                }
 
                 await Task.Run(async () =>
                 {
-                    if (_dispatcherQueue != null)
-                    {
-                        _dispatcherQueue.TryEnqueue(async () => await ScanLibraryAsync());
-                    }
+                    _ = _dispatcherQueue?.TryEnqueue(async () => await ScanLibraryAsync());
                 });
             }
             catch (OperationCanceledException)
@@ -253,13 +244,10 @@ namespace Easy_Copier.ViewModels
             }
             catch (Exception ex)
             {
-                if (_dispatcherQueue != null)
-                {
-                    _dispatcherQueue.TryEnqueue(() =>
+                _ = _dispatcherQueue?.TryEnqueue(() =>
                     {
                         StatusMessage = $"Validation error: {ex.Message}";
                     });
-                }
             }
         }
 
@@ -278,7 +266,7 @@ namespace Easy_Copier.ViewModels
                 _scanCancellationTokenSource?.Cancel();
                 _scanCancellationTokenSource = new CancellationTokenSource();
 
-                var settings = await _settingsService.LoadSettingsAsync();
+                AppSettings settings = await _settingsService.LoadSettingsAsync();
 
                 if (!settings.GameSourceFolders.Any() && !settings.AppSourceFolders.Any())
                 {
@@ -287,14 +275,14 @@ namespace Easy_Copier.ViewModels
                     return;
                 }
 
-                var progress = new Progress<string>(message =>
+                Progress<string> progress = new(message =>
                 {
                     StatusMessage = message;
                 });
 
                 if (settings.GameSourceFolders.Any())
                 {
-                    var games = await _gameScannerService.ScanLibraryAsync(
+                    IReadOnlyList<GameEntry> games = await _gameScannerService.ScanLibraryAsync(
                         settings.GameSourceFolders,
                         LibraryCategory.Game,
                         progress,
@@ -305,7 +293,7 @@ namespace Easy_Copier.ViewModels
 
                 if (settings.AppSourceFolders.Any())
                 {
-                    var apps = await _gameScannerService.ScanLibraryAsync(
+                    IReadOnlyList<GameEntry> apps = await _gameScannerService.ScanLibraryAsync(
                         settings.AppSourceFolders,
                         LibraryCategory.App,
                         progress,
@@ -316,14 +304,9 @@ namespace Easy_Copier.ViewModels
 
                 ApplyFilter();
 
-                if (_allGames.Count == 0 && _allApps.Count == 0)
-                {
-                    StatusMessage = "No games or apps found in configured folders";
-                }
-                else
-                {
-                    StatusMessage = $"Found {_allGames.Count} game(s), {_allApps.Count} app(s)";
-                }
+                StatusMessage = _allGames.Count == 0 && _allApps.Count == 0
+                    ? "No games or apps found in configured folders"
+                    : $"Found {_allGames.Count} game(s), {_allApps.Count} app(s)";
 
                 settings.LastScanTime = DateTime.Now;
                 await _settingsService.SaveSettingsAsync(settings);
@@ -348,16 +331,16 @@ namespace Easy_Copier.ViewModels
         {
             try
             {
-                var fingerprints = new Dictionary<string, ItemFingerprint>();
+                Dictionary<string, ItemFingerprint> fingerprints = [];
 
-                var allEntries = _allGames.Concat(_allApps).ToList();
+                List<GameEntry> allEntries = _allGames.Concat(_allApps).ToList();
 
-                foreach (var entry in allEntries)
+                foreach (GameEntry? entry in allEntries)
                 {
                     try
                     {
-                        var fingerprint = await _libraryCacheService.ComputeItemFingerprintAsync(entry.FolderPath);
-                        var normalizedPath = Path.GetFullPath(entry.FolderPath)
+                        ItemFingerprint fingerprint = await _libraryCacheService.ComputeItemFingerprintAsync(entry.FolderPath);
+                        string normalizedPath = Path.GetFullPath(entry.FolderPath)
                             .TrimEnd(Path.DirectorySeparatorChar, Path.AltDirectorySeparatorChar);
                         fingerprints[normalizedPath] = fingerprint;
                     }
@@ -367,7 +350,7 @@ namespace Easy_Copier.ViewModels
                     }
                 }
 
-                var snapshot = new LibraryCacheSnapshot(
+                LibraryCacheSnapshot snapshot = new(
                     LibraryCacheSnapshot.CurrentSchemaVersion,
                     _allGames.ToList(),
                     _allApps.ToList(),
@@ -391,21 +374,23 @@ namespace Easy_Copier.ViewModels
 
         private void ApplyFilter()
         {
-            var query = SearchText?.Trim() ?? string.Empty;
+            string query = SearchText?.Trim() ?? string.Empty;
 
-            IEnumerable<GameEntry> FilterEntries(IEnumerable<GameEntry> source) =>
-                string.IsNullOrEmpty(query)
+            IEnumerable<GameEntry> FilterEntries(IEnumerable<GameEntry> source)
+            {
+                return string.IsNullOrEmpty(query)
                     ? source
                     : source.Where(g => g.Name.Contains(query, StringComparison.OrdinalIgnoreCase));
+            }
 
             Games.Clear();
-            foreach (var game in FilterEntries(_allGames))
+            foreach (GameEntry game in FilterEntries(_allGames))
             {
                 Games.Add(game);
             }
 
             Apps.Clear();
-            foreach (var app in FilterEntries(_allApps))
+            foreach (GameEntry app in FilterEntries(_allApps))
             {
                 Apps.Add(app);
             }
@@ -421,10 +406,10 @@ namespace Easy_Copier.ViewModels
             {
                 StatusMessage = "Refreshing drives...";
 
-                var drives = await _driveDiscoveryService.GetRemovableDrivesAsync();
+                IReadOnlyList<RemovableDrive> drives = await _driveDiscoveryService.GetRemovableDrivesAsync();
 
                 AvailableDrives.Clear();
-                foreach (var drive in drives)
+                foreach (RemovableDrive drive in drives)
                 {
                     AvailableDrives.Add(drive);
                 }
@@ -454,24 +439,26 @@ namespace Easy_Copier.ViewModels
         private async Task CopySelectedGamesAsync()
         {
             if (SelectedDrive == null || !_selectedGames.Any())
+            {
                 return;
+            }
 
             try
             {
                 ValidationMessages.Clear();
-                var destinationPath = $"{SelectedDrive.DriveLetter}\\";
+                string destinationPath = $"{SelectedDrive.DriveLetter}\\";
 
                 // Account for bytes already reserved by other queued/in-progress transfers
                 // targeting the same drive, so validation reflects true remaining space.
-                var reservedBytes = _transferQueueService.GetReservedBytes(SelectedDrive.DriveLetter);
-                var driveForValidation = reservedBytes > 0
+                long reservedBytes = _transferQueueService.GetReservedBytes(SelectedDrive.DriveLetter);
+                RemovableDrive driveForValidation = reservedBytes > 0
                     ? SelectedDrive with { FreeBytes = Math.Max(0, SelectedDrive.FreeBytes - reservedBytes) }
                     : SelectedDrive;
 
-                var validation = await _driveValidationService.ValidateTransferAsync(
+                IReadOnlyList<ValidationResult> validation = await _driveValidationService.ValidateTransferAsync(
                     _selectedGames, driveForValidation, destinationPath);
 
-                foreach (var result in validation)
+                foreach (ValidationResult result in validation)
                 {
                     ValidationMessages.Add(result);
                 }
@@ -482,8 +469,8 @@ namespace Easy_Copier.ViewModels
                     return;
                 }
 
-                var itemsToQueue = _selectedGames.ToList();
-                _transferQueueService.Enqueue(itemsToQueue, SelectedDrive, destinationPath);
+                List<GameEntry> itemsToQueue = _selectedGames.ToList();
+                _ = _transferQueueService.Enqueue(itemsToQueue, SelectedDrive, destinationPath);
 
                 StatusMessage = $"Queued {itemsToQueue.Count} item(s) for {SelectedDrive.DriveLetter} ({TransferQueue.Count} in queue)";
                 IsTransferring = TransferQueue.Any(i => i.IsActive);

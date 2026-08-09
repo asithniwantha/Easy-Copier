@@ -1,5 +1,5 @@
+using Easy_Copier.Views;
 using System;
-using System.Collections.Generic;
 
 namespace Easy_Copier.Infrastructure
 {
@@ -13,21 +13,18 @@ namespace Easy_Copier.Infrastructure
     {
         public void ShowSettingsWindow(Action? onClosed = null, Action<ViewModels.SettingsViewModel>? onViewModelCreated = null)
         {
-            var settingsWindow = new Views.SettingsWindow();
+            SettingsWindow settingsWindow = new();
             if (onClosed != null)
             {
                 settingsWindow.SettingsClosed += (s, e) => onClosed();
             }
-            if (onViewModelCreated != null)
-            {
-                onViewModelCreated(settingsWindow.ViewModel);
-            }
+            onViewModelCreated?.Invoke(settingsWindow.ViewModel);
             settingsWindow.Activate();
         }
 
         public void ShowHistoryWindow()
         {
-            var historyWindow = new Views.HistoryWindow();
+            HistoryWindow historyWindow = new();
             historyWindow.Activate();
         }
     }

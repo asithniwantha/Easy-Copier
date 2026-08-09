@@ -37,15 +37,17 @@ namespace Easy_Copier.Services
             IProgress<string>? progress = null,
             CancellationToken cancellationToken = default)
         {
-            var games = new List<GameEntry>();
-            var processedPaths = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
+            List<GameEntry> games = [];
+            HashSet<string> processedPaths = new(StringComparer.OrdinalIgnoreCase);
 
-            var categoryLabel = category == LibraryCategory.App ? "app" : "game";
+            string categoryLabel = category == LibraryCategory.App ? "app" : "game";
 
-            foreach (var sourceFolder in sourceFolders)
+            foreach (string sourceFolder in sourceFolders)
             {
                 if (cancellationToken.IsCancellationRequested)
+                {
                     break;
+                }
 
                 if (!Directory.Exists(sourceFolder))
                 {
@@ -58,14 +60,16 @@ namespace Easy_Copier.Services
                 {
                     progress?.Report($"Scanning: {sourceFolder}");
 
-                    var subdirectories = await Task.Run(() =>
+                    string[] subdirectories = await Task.Run(() =>
                         Directory.GetDirectories(sourceFolder, "*", SearchOption.TopDirectoryOnly),
                         cancellationToken);
 
-                    foreach (var gameFolder in subdirectories)
+                    foreach (string? gameFolder in subdirectories)
                     {
                         if (cancellationToken.IsCancellationRequested)
+                        {
                             break;
+                        }
 
                         if (processedPaths.Contains(gameFolder))
                         {
@@ -75,14 +79,14 @@ namespace Easy_Copier.Services
 
                         try
                         {
-                            var gameName = Path.GetFileName(gameFolder);
+                            string gameName = Path.GetFileName(gameFolder);
                             progress?.Report($"Processing: {gameName}");
 
-                            var totalSize = await CalculateFolderSizeAsync(gameFolder, cancellationToken);
-                            var coverImage = FindCoverImage(gameFolder);
-                            var hasLargeFiles = await HasFilesExceedingLimitAsync(gameFolder, RemovableDrive.Fat32MaxFileSize, cancellationToken);
+                            long totalSize = await CalculateFolderSizeAsync(gameFolder, cancellationToken);
+                            string? coverImage = FindCoverImage(gameFolder);
+                            bool hasLargeFiles = await HasFilesExceedingLimitAsync(gameFolder, RemovableDrive.Fat32MaxFileSize, cancellationToken);
 
-                            var game = new GameEntry(
+                            GameEntry game = new(
                                 gameName,
                                 gameFolder,
                                 totalSize,
@@ -92,7 +96,7 @@ namespace Easy_Copier.Services
                                 category);
 
                             games.Add(game);
-                            processedPaths.Add(gameFolder);
+                            _ = processedPaths.Add(gameFolder);
 
                             _logger.LogInformation("Scanned {Category}: {Name}, Size: {Size} bytes", categoryLabel, gameName, totalSize);
                         }
@@ -128,7 +132,7 @@ namespace Easy_Copier.Services
             {
                 try
                 {
-                    var dirInfo = new DirectoryInfo(folderPath);
+                    DirectoryInfo dirInfo = new(folderPath);
                     return dirInfo.EnumerateFiles("*", SearchOption.AllDirectories)
                         .Sum(file => file.Length);
                 }
@@ -144,9 +148,9 @@ namespace Easy_Copier.Services
         {
             try
             {
-                foreach (var fileName in CoverImageFileNames)
+                foreach (string fileName in CoverImageFileNames)
                 {
-                    var fullPath = Path.Combine(gameFolderPath, fileName);
+                    string fullPath = Path.Combine(gameFolderPath, fileName);
                     if (File.Exists(fullPath))
                     {
                         _logger.LogDebug("Found cover image: {Path}", fullPath);
@@ -168,7 +172,7 @@ namespace Easy_Copier.Services
             {
                 try
                 {
-                    var dirInfo = new DirectoryInfo(folderPath);
+                    DirectoryInfo dirInfo = new(folderPath);
                     return dirInfo.EnumerateFiles("*", SearchOption.AllDirectories)
                         .Any(file => file.Length > sizeLimit);
                 }
