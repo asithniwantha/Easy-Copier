@@ -33,7 +33,8 @@ namespace Easy_Copier.ViewModels
         [ObservableProperty]
         private string _statusMessage = string.Empty;
 
-        public HistoryViewModel(ICopyHistoryService copyHistoryService, IReportService reportService, Infrastructure.IFilePickerService filePickerService)
+        public HistoryViewModel(ICopyHistoryService copyHistoryService, IReportService reportService,
+                                Infrastructure.IFilePickerService filePickerService)
         {
             _copyHistoryService = copyHistoryService;
             _reportService = reportService;
