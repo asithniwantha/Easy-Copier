@@ -7,6 +7,10 @@ using System;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Linq;
+using System.IO;
+using Microsoft.UI.Xaml.Input;
+using Microsoft.UI.Xaml.Controls.Primitives;
+using Microsoft.UI.Text;
 
 namespace Easy_Copier.Views
 {
@@ -163,5 +167,54 @@ namespace Easy_Copier.Views
             }
         }
 
+        private void GameCard_RightTapped(object sender, RightTappedRoutedEventArgs e)
+        {
+            if (sender is FrameworkElement fe && fe.DataContext is GameEntry gameEntry)
+            {
+                string reqFilePath = Path.Combine(gameEntry.FolderPath, "system_requirements.txt");
+                string requirementsText;
+
+                if (File.Exists(reqFilePath))
+                {
+                    try
+                    {
+                        requirementsText = File.ReadAllText(reqFilePath);
+                    }
+                    catch (Exception)
+                    {
+                        requirementsText = "Error reading system requirements.";
+                    }
+                }
+                else
+                {
+                    requirementsText = "System requirements aren't available.";
+                }
+
+                var textBlock = new TextBlock
+                {
+                    Text = requirementsText,
+                    TextWrapping = TextWrapping.Wrap,
+                    FontFamily = new Microsoft.UI.Xaml.Media.FontFamily("Consolas")
+                };
+
+                var scrollViewer = new ScrollViewer
+                {
+                    Content = textBlock,
+                    MaxHeight = 400,
+                    MaxWidth = 600,
+                    VerticalScrollBarVisibility = ScrollBarVisibility.Auto,
+                    HorizontalScrollBarVisibility = ScrollBarVisibility.Auto,
+                    Padding = new Thickness(12)
+                };
+
+                var flyout = new Flyout
+                {
+                    Content = scrollViewer,
+                    Placement = FlyoutPlacementMode.RightEdgeAlignedTop
+                };
+
+                flyout.ShowAt(fe, new FlyoutShowOptions { Position = e.GetPosition(fe) });
+            }
+        }
     }
 }
