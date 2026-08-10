@@ -3,22 +3,28 @@ using System;
 
 namespace Easy_Copier.Infrastructure
 {
+    public enum SettingsOpenAction
+    {
+        None,
+        AddGameFolder,
+        AddAppFolder
+    }
+
     public interface IWindowService
     {
-        void ShowSettingsWindow(Action? onClosed = null, Action<ViewModels.SettingsViewModel>? onViewModelCreated = null);
+        void ShowSettingsWindow(Action? onClosed = null, SettingsOpenAction openAction = SettingsOpenAction.None);
         void ShowHistoryWindow();
     }
 
     public class WindowService : IWindowService
     {
-        public void ShowSettingsWindow(Action? onClosed = null, Action<ViewModels.SettingsViewModel>? onViewModelCreated = null)
+        public void ShowSettingsWindow(Action? onClosed = null, SettingsOpenAction openAction = SettingsOpenAction.None)
         {
-            SettingsWindow settingsWindow = new();
+            SettingsWindow settingsWindow = new(openAction);
             if (onClosed != null)
             {
                 settingsWindow.SettingsClosed += (s, e) => onClosed();
             }
-            onViewModelCreated?.Invoke(settingsWindow.ViewModel);
             settingsWindow.Activate();
         }
 

@@ -1,3 +1,4 @@
+using Easy_Copier.Infrastructure;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using Easy_Copier.Models;
@@ -17,10 +18,10 @@ namespace Easy_Copier.ViewModels
         private readonly ISourceLibraryService _sourceLibraryService;
 
         [ObservableProperty]
-        private bool _autoScanOnStartup = true;
+        public partial bool AutoScanOnStartup { get; set; } = true;
 
         [ObservableProperty]
-        private string _statusMessage = string.Empty;
+        public partial string StatusMessage { get; set; } = string.Empty;
 
         public ObservableCollection<string> GameSourceFolders { get; } = [];
         public ObservableCollection<string> AppSourceFolders { get; } = [];
@@ -144,17 +145,8 @@ namespace Easy_Copier.ViewModels
         {
             AutoScanOnStartup = settings.AutoScanOnStartup;
 
-            GameSourceFolders.Clear();
-            foreach (string folder in settings.GameSourceFolders)
-            {
-                GameSourceFolders.Add(folder);
-            }
-
-            AppSourceFolders.Clear();
-            foreach (string folder in settings.AppSourceFolders)
-            {
-                AppSourceFolders.Add(folder);
-            }
+            GameSourceFolders.UpdateFrom(settings.GameSourceFolders);
+            AppSourceFolders.UpdateFrom(settings.AppSourceFolders);
         }
 
         public AppSettings GetSettings()

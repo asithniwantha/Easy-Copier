@@ -17,7 +17,7 @@ namespace Easy_Copier.Views
         private readonly IntPtr _ownerHwnd;
         private readonly IntPtr _hwnd;
 
-        public SettingsWindow()
+        public SettingsWindow(SettingsOpenAction openAction = SettingsOpenAction.None)
         {
             ViewModel = AppServiceLocator.GetService<SettingsViewModel>();
             InitializeComponent();
@@ -44,7 +44,7 @@ namespace Easy_Copier.Views
 
             Closed += SettingsWindow_Closed;
 
-            _ = LoadAsync();
+            _ = LoadAsync(openAction);
         }
 
         private void SettingsWindow_Closed(object sender, WindowEventArgs args)
@@ -56,9 +56,17 @@ namespace Easy_Copier.Views
             }
         }
 
-        private async Task LoadAsync()
+        private async Task LoadAsync(SettingsOpenAction openAction)
         {
             await ViewModel.LoadSettingsAsync();
+            if (openAction == SettingsOpenAction.AddAppFolder)
+            {
+                await ViewModel.AddAppSourceFolderCommand.ExecuteAsync(null);
+            }
+            else if (openAction == SettingsOpenAction.AddGameFolder)
+            {
+                await ViewModel.AddGameSourceFolderCommand.ExecuteAsync(null);
+            }
         }
 
         private async void RemoveGameFolder_Click(object sender, RoutedEventArgs e)
