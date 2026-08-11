@@ -99,27 +99,27 @@ namespace Easy_Copier.Views
                 if (line.StartsWith("CPU:"))
                 {
                     paragraph.Inlines.Add(new Run { Text = "CPU:", Foreground = new SolidColorBrush(Windows.UI.Color.FromArgb(255, 0, 0, 255)), FontWeight = FontWeights.Bold });
-                    paragraph.Inlines.Add(new Run { Text = line[4..] + "\n" });
+                    paragraph.Inlines.Add(new Run { Text = line[4..] + "\n", Foreground = new SolidColorBrush(Windows.UI.Color.FromArgb(255, 100, 149, 237)) });
                 }
                 else if (line.StartsWith("GPU:"))
                 {
                     paragraph.Inlines.Add(new Run { Text = "GPU:", Foreground = new SolidColorBrush(Windows.UI.Color.FromArgb(255, 255, 0, 0)), FontWeight = FontWeights.Bold });
-                    paragraph.Inlines.Add(new Run { Text = line[4..] + "\n" });
+                    paragraph.Inlines.Add(new Run { Text = line[4..] + "\n", Foreground = new SolidColorBrush(Windows.UI.Color.FromArgb(255, 255, 100, 100)) });
                 }
                 else if (line.StartsWith("RAM:"))
                 {
                     paragraph.Inlines.Add(new Run { Text = "RAM:", Foreground = new SolidColorBrush(Windows.UI.Color.FromArgb(255, 0, 128, 0)), FontWeight = FontWeights.Bold });
-                    paragraph.Inlines.Add(new Run { Text = line[4..] + "\n" });
+                    paragraph.Inlines.Add(new Run { Text = line[4..] + "\n", Foreground = new SolidColorBrush(Windows.UI.Color.FromArgb(255, 50, 205, 50)) });
                 }
                 else if (line.StartsWith("Storage:"))
                 {
                     paragraph.Inlines.Add(new Run { Text = "Storage:", Foreground = new SolidColorBrush(Windows.UI.Color.FromArgb(255, 255, 165, 0)), FontWeight = FontWeights.Bold });
-                    paragraph.Inlines.Add(new Run { Text = line[8..] + "\n" });
+                    paragraph.Inlines.Add(new Run { Text = line[8..] + "\n", Foreground = new SolidColorBrush(Windows.UI.Color.FromArgb(255, 255, 200, 100)) });
                 }
                 else if (line.StartsWith("OS:"))
                 {
                     paragraph.Inlines.Add(new Run { Text = "OS:", Foreground = new SolidColorBrush(Windows.UI.Color.FromArgb(255, 128, 0, 128)), FontWeight = FontWeights.Bold });
-                    paragraph.Inlines.Add(new Run { Text = line[3..] + "\n" });
+                    paragraph.Inlines.Add(new Run { Text = line[3..] + "\n", Foreground = new SolidColorBrush(Windows.UI.Color.FromArgb(255, 186, 85, 211)) });
                 }
                 else if (line.StartsWith("Minimum:"))
                 {
@@ -140,6 +140,78 @@ namespace Easy_Copier.Views
             return paragraph;
         }
 
+        private UIElement CreateFolderContentsView(string folderPath)
+        {
+            StackPanel stackPanel = new() { Spacing = 4 };
+
+            try
+            {
+                if (System.IO.Directory.Exists(folderPath))
+                {
+                    var dirs = System.IO.Directory.GetDirectories(folderPath).OrderBy(d => d);
+                    var files = System.IO.Directory.GetFiles(folderPath).OrderBy(f => f);
+
+                    foreach (var dir in dirs)
+                    {
+                        stackPanel.Children.Add(CreateFileFolderItem(System.IO.Path.GetFileName(dir), true));
+                    }
+
+                    foreach (var file in files)
+                    {
+                        stackPanel.Children.Add(CreateFileFolderItem(System.IO.Path.GetFileName(file), false));
+                    }
+
+                    if (stackPanel.Children.Count == 0)
+                    {
+                        stackPanel.Children.Add(new TextBlock { Text = "Empty folder", Opacity = 0.5, FontStyle = Windows.UI.Text.FontStyle.Italic });
+                    }
+                }
+                else
+                {
+                    stackPanel.Children.Add(new TextBlock { Text = "Folder not found", Foreground = new SolidColorBrush(Microsoft.UI.Colors.Red) });
+                }
+            }
+            catch (Exception ex)
+            {
+                stackPanel.Children.Add(new TextBlock { Text = $"Error loading folder: {ex.Message}", Foreground = new SolidColorBrush(Microsoft.UI.Colors.Red) });
+            }
+
+            return new ScrollViewer
+            {
+                Content = stackPanel,
+                MaxHeight = 400,
+                MaxWidth = 300,
+                VerticalScrollBarVisibility = ScrollBarVisibility.Auto,
+                HorizontalScrollBarVisibility = ScrollBarVisibility.Disabled,
+                Padding = new Thickness(12)
+            };
+        }
+
+        private UIElement CreateFileFolderItem(string name, bool isFolder)
+        {
+            StackPanel itemPanel = new() { Orientation = Orientation.Horizontal, Spacing = 8 };
+
+            FontIcon icon = new()
+            {
+                Glyph = isFolder ? "\uE8D5" : "\uE7C3", // Folder or Document icon
+                FontSize = 16,
+                Foreground = isFolder ? new SolidColorBrush(Microsoft.UI.Colors.Gold) : new SolidColorBrush(Microsoft.UI.Colors.Gray)
+            };
+
+            TextBlock textBlock = new()
+            {
+                Text = name,
+                TextTrimming = TextTrimming.CharacterEllipsis,
+                MaxWidth = 250,
+                VerticalAlignment = VerticalAlignment.Center
+            };
+
+            itemPanel.Children.Add(icon);
+            itemPanel.Children.Add(textBlock);
+
+            return itemPanel;
+        }
+
         private async void GameCard_RightTapped(object sender, RightTappedRoutedEventArgs e)
         {
             if (sender is FrameworkElement fe && fe.DataContext is GameEntry gameEntry)
@@ -156,7 +228,7 @@ namespace Easy_Copier.Views
 
                 richTextBlock.Blocks.Add(CreateColoredParagraph(formattedText));
 
-                ScrollViewer scrollViewer = new()
+                ScrollViewer sysReqScrollViewer = new()
                 {
                     Content = richTextBlock,
                     MaxHeight = 400,
@@ -166,10 +238,34 @@ namespace Easy_Copier.Views
                     Padding = new Thickness(12)
                 };
 
+                UIElement folderContentsView = CreateFolderContentsView(gameEntry.FolderPath);
+
+                Grid combinedGrid = new();
+                combinedGrid.ColumnDefinitions.Add(new ColumnDefinition { Width = GridLength.Auto });
+                combinedGrid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Pixel) });
+                combinedGrid.ColumnDefinitions.Add(new ColumnDefinition { Width = GridLength.Auto });
+
+                Grid.SetColumn((FrameworkElement)folderContentsView, 0);
+
+                Border separator = new()
+                {
+                    Background = new SolidColorBrush(Microsoft.UI.Colors.Gray),
+                    Width = 1,
+                    Margin = new Thickness(8, 12, 8, 12),
+                    Opacity = 0.5
+                };
+                Grid.SetColumn(separator, 1);
+
+                Grid.SetColumn(sysReqScrollViewer, 2);
+
+                combinedGrid.Children.Add(folderContentsView);
+                combinedGrid.Children.Add(separator);
+                combinedGrid.Children.Add(sysReqScrollViewer);
+
                 Flyout flyout = new()
                 {
-                    Content = scrollViewer,
-                    Placement = FlyoutPlacementMode.RightEdgeAlignedTop
+                    Content = combinedGrid,
+                    Placement = FlyoutPlacementMode.LeftEdgeAlignedTop
                 };
 
                 flyout.ShowAt(fe, new FlyoutShowOptions { Position = e.GetPosition(fe) });
