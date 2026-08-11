@@ -36,6 +36,7 @@ The selected-drive panel also shows a usage bar, free space, total capacity, and
 - Browse games in a responsive cover-art grid.
 - Select multiple games and view their combined size before copying.
 - Highlight games containing files too large for FAT32 drives.
+- Right-click game cards to view a flyout with color-coded system requirements and folder contents.
 
 ### Copy operations
 
@@ -64,15 +65,16 @@ The selected-drive panel also shows a usage bar, free space, total capacity, and
 | Component | Details |
 |---|---|
 | Framework | WinUI 3 / Windows App SDK |
-| Language | C# with .NET 10 |
+| Language | C# with .NET 8 |
 | Pattern | MVVM with CommunityToolkit.Mvvm |
 | Storage discovery | `DriveInfo` and Windows Management Instrumentation (WMI) |
+| CI/CD | GitHub Actions |
 | Target platform | x64 |
 
 ## Requirements
 
 - Windows 11, version 24H2 or later
-- .NET 10 SDK
-- Visual Studio 2026 with Windows App SDK / WinUI development tools
+- .NET 8 SDK
+- Visual Studio 2022 with Windows App SDK / WinUI development tools
 
 ![Screenshot](<Easy Copier/Assets/Screenshot 2026-08-06 211103.jpg>)
