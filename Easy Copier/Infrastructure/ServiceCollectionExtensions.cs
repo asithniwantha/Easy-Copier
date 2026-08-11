@@ -32,6 +32,7 @@ namespace Easy_Copier.Infrastructure
             services.AddSingleton<IProcessService, ProcessService>();
             services.AddSingleton<IWindowService, WindowService>();
             services.AddSingleton<IFilePickerService, FilePickerService>();
+            services.AddSingleton<IDispatcherService, DispatcherService>();
 
             return services;
         }
