@@ -43,19 +43,20 @@ jobs:
         if: steps.check_logs.outputs.has_issues == 'true' || steps.build.outcome == 'failure'
         env:
           GH_TOKEN: ${{ secrets.GHI_JULES_TOKEN || secrets.GITHUB_TOKEN }}
+        shell: bash
         run: |
-          Select-String -Path build.log -Pattern ": warning|: error" -CaseSensitive:$false | Select-Object -ExpandProperty Line | Out-File issues.log -Encoding utf8
+          grep -iE ": warning|: error" build.log > issues.log || true
 
-          Set-Content -Path issue_body.md -Value "The following build issues were detected during CI:"
-          Add-Content -Path issue_body.md -Value ""
-          Add-Content -Path issue_body.md -Value ('```')
-          if (Test-Path issues.log) {
-            Get-Content issues.log | Add-Content issue_body.md
-          }
-          Add-Content -Path issue_body.md -Value ('```')
+          echo "The following build issues were detected during CI:" > issue_body.md
+          echo "" >> issue_body.md
+          echo "\`\`\`" >> issue_body.md
+          if [ -s issues.log ]; then
+            cat issues.log >> issue_body.md
+          fi
+          echo "\`\`\`" >> issue_body.md
 
-          $issueUrl = gh issue create --title "Build Issues Detected in CI" --body-file issue_body.md
-          gh issue comment $issueUrl --body "@jules Please review the recent build failure or warnings. Check the latest run on the main branch for details."
+          issueUrl=$(gh issue create --title "Build Issues Detected in CI" --body-file issue_body.md)
+          gh issue comment "$issueUrl" --body "@jules Please review the recent build failure or warnings. Check the latest run on the main branch for details."
 
       - name: Fail workflow if build failed
         if: steps.build.outcome == 'failure'
