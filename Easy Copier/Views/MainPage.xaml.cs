@@ -148,15 +148,15 @@ namespace Easy_Copier.Views
             {
                 if (System.IO.Directory.Exists(folderPath))
                 {
-                    var dirs = System.IO.Directory.GetDirectories(folderPath).OrderBy(d => d);
-                    var files = System.IO.Directory.GetFiles(folderPath).OrderBy(f => f);
+                    IOrderedEnumerable<string> dirs = System.IO.Directory.GetDirectories(folderPath).OrderBy(d => d);
+                    IOrderedEnumerable<string> files = System.IO.Directory.GetFiles(folderPath).OrderBy(f => f);
 
-                    foreach (var dir in dirs)
+                    foreach (string dir in dirs)
                     {
                         stackPanel.Children.Add(CreateFileFolderItem(System.IO.Path.GetFileName(dir), true));
                     }
 
-                    foreach (var file in files)
+                    foreach (string file in files)
                     {
                         stackPanel.Children.Add(CreateFileFolderItem(System.IO.Path.GetFileName(file), false));
                     }
@@ -265,7 +265,7 @@ namespace Easy_Copier.Views
                 Flyout flyout = new()
                 {
                     Content = combinedGrid,
-                    Placement = FlyoutPlacementMode.LeftEdgeAlignedTop
+                    Placement = FlyoutPlacementMode.RightEdgeAlignedBottom,
                 };
 
                 flyout.ShowAt(fe, new FlyoutShowOptions { Position = e.GetPosition(fe) });

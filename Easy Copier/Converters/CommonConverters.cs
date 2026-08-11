@@ -9,11 +9,7 @@ namespace Easy_Copier.Converters
     {
         public object Convert(object value, Type targetType, object parameter, string language)
         {
-            if (value is long bytes)
-            {
-                return Infrastructure.FormattingHelpers.FormatBytes(bytes);
-            }
-            return "0 B";
+            return value is long bytes ? Infrastructure.FormattingHelpers.FormatBytes(bytes) : "0 B";
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, string language)

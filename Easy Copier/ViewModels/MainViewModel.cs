@@ -531,7 +531,7 @@ namespace Easy_Copier.ViewModels
         [RelayCommand]
         private void AddSourceFolder()
         {
-            var openAction = CurrentTabIndex == 1
+            SettingsOpenAction openAction = CurrentTabIndex == 1
                 ? Infrastructure.SettingsOpenAction.AddAppFolder
                 : Infrastructure.SettingsOpenAction.AddGameFolder;
 

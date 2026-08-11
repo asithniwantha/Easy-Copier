@@ -38,7 +38,7 @@ namespace Easy_Copier.Services
             CancellationToken cancellationToken = default)
         {
             List<GameEntry> games = [];
-            HashSet<string> processedPaths = new(StringComparer.OrdinalIgnoreCase);
+            HashSet<string> processedPaths = [with(StringComparer.OrdinalIgnoreCase)];
 
             string categoryLabel = category == LibraryCategory.App ? "app" : "game";
 
