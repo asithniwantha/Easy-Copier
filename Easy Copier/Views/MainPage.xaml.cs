@@ -168,12 +168,12 @@ namespace Easy_Copier.Views
                 }
                 else
                 {
-                    stackPanel.Children.Add(new TextBlock { Text = "Folder not found", Foreground = new SolidColorBrush(Microsoft.UI.Colors.Red) });
+                    stackPanel.Children.Add(new TextBlock { Text = "Folder not found", Foreground = new SolidColorBrush(Windows.UI.Color.FromArgb(255, 255, 0, 0)) });
                 }
             }
             catch (Exception ex)
             {
-                stackPanel.Children.Add(new TextBlock { Text = $"Error loading folder: {ex.Message}", Foreground = new SolidColorBrush(Microsoft.UI.Colors.Red) });
+                stackPanel.Children.Add(new TextBlock { Text = $"Error loading folder: {ex.Message}", Foreground = new SolidColorBrush(Windows.UI.Color.FromArgb(255, 255, 0, 0)) });
             }
 
             return new ScrollViewer
@@ -195,7 +195,7 @@ namespace Easy_Copier.Views
             {
                 Glyph = isFolder ? "\uE8D5" : "\uE7C3", // Folder or Document icon
                 FontSize = 16,
-                Foreground = isFolder ? new SolidColorBrush(Microsoft.UI.Colors.Gold) : new SolidColorBrush(Microsoft.UI.Colors.Gray)
+                Foreground = isFolder ? new SolidColorBrush(Windows.UI.Color.FromArgb(255, 255, 215, 0)) : new SolidColorBrush(Windows.UI.Color.FromArgb(255, 128, 128, 128))
             };
 
             TextBlock textBlock = new()
@@ -249,7 +249,7 @@ namespace Easy_Copier.Views
 
                 Border separator = new()
                 {
-                    Background = new SolidColorBrush(Microsoft.UI.Colors.Gray),
+                    Background = new SolidColorBrush(Windows.UI.Color.FromArgb(255, 128, 128, 128)),
                     Width = 1,
                     Margin = new Thickness(8, 12, 8, 12),
                     Opacity = 0.5
