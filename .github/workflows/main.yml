@@ -19,11 +19,6 @@ jobs:
         with:
           dotnet-version: '8.0.x' 
 
-      # Quotes added around the file name to handle the space
-      - name: Restore the application
-        run: msbuild "$env:Solution_Name" /t:Restore /p:Configuration=$env:Configuration
-
-      
       - name: Restore Dependencies
         run: dotnet restore "Easy Copier.slnx"
 
