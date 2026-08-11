@@ -12,6 +12,7 @@
 - Fallback icon for entries without cover images.
 - Item size display with human-readable formatting.
 - Large-file indicator badge for FAT32 incompatibility risk.
+- Right-click context flyout displaying color-formatted system requirements and scrollable folder contents.
 
 ## Drive Discovery and Selection
 - Detect connected removable USB drives.
@@ -62,10 +63,11 @@
 
 ## Technical Stack
 - WinUI 3 + Windows App SDK.
-- C# with .NET 10.
+- C# with .NET 8.
 - MVVM pattern via `CommunityToolkit.Mvvm`.
 - DI and logging via `Microsoft.Extensions.*`.
 - Storage discovery via `DriveInfo` + WMI.
+- GitHub Actions for CI/CD workflows.
 
 ## Future Enhancements (to do list)
 - if folder name ends with 'collection' go inside and scan for games/apps.
