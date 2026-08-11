@@ -46,7 +46,7 @@ jobs:
         run: |
           Select-String -Path build.log -Pattern ": warning|: error" -CaseSensitive:$false | Select-Object -ExpandProperty Line | Out-File issues.log -Encoding utf8
 
-          Set-Content -Path issue_body.md -Value "@jules Please review the recent build failure or warnings. Check the latest run on the main branch for details."
+          Set-Content -Path issue_body.md -Value "The following build issues were detected during CI:"
           Add-Content -Path issue_body.md -Value ""
           Add-Content -Path issue_body.md -Value ('```')
           if (Test-Path issues.log) {
@@ -54,7 +54,8 @@ jobs:
           }
           Add-Content -Path issue_body.md -Value ('```')
 
-          gh issue create --title "Build Issues Detected in CI" --body-file issue_body.md
+          $issueUrl = gh issue create --title "Build Issues Detected in CI" --body-file issue_body.md
+          gh issue comment $issueUrl --body "@jules Please review the recent build failure or warnings. Check the latest run on the main branch for details."
 
       - name: Fail workflow if build failed
         if: steps.build.outcome == 'failure'
