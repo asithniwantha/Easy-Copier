@@ -26,7 +26,7 @@ jobs:
         id: build
         # We use continue-on-error so the workflow proceeds to the log checking step even if the build fails
         continue-on-error: true
-        run: dotnet build "Easy Copier/Easy Copier.csproj" --configuration Release --arch x64 > build.log 2>&1
+        run: dotnet build "Easy Copier/Easy Copier.csproj" --configuration Release --arch x64 2>&1 | tee build.log
         shell: bash
 
       - name: Check logs for warnings or errors
@@ -44,7 +44,15 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          gh issue create --title "Build Issues Detected in CI" --body "@jules Please review the recent build failure or warnings. Check the latest run on the main branch for details."
+          grep -iE ": warning|: error" build.log > issues.log || true
+
+          echo "@jules Please review the recent build failure or warnings. Check the latest run on the main branch for details." > issue_body.md
+          echo "" >> issue_body.md
+          echo "\`\`\`" >> issue_body.md
+          cat issues.log >> issue_body.md
+          echo "\`\`\`" >> issue_body.md
+
+          gh issue create --title "Build Issues Detected in CI" --body-file issue_body.md
 
       - name: Fail workflow if build failed
         if: steps.build.outcome == 'failure'
