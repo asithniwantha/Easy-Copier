@@ -59,34 +59,6 @@ namespace Easy_Copier.Views
             AppsGridView.SelectedItems.Clear();
         }
 
-        private string FormatRequirementsText(string text)
-        {
-            if (string.IsNullOrWhiteSpace(text))
-            {
-                return text;
-            }
-
-            text = Regex.Replace(text, @"(?<!\n)\s*Processor:", "\nCPU:");
-            text = Regex.Replace(text, @"(?<!\n)\s*Graphics:", "\nGPU:");
-            text = Regex.Replace(text, @"(?<!\n)\s*Memory:", "\nRAM:");
-            text = Regex.Replace(text, @"(?<!\n)\s*OS\s*\*?:", "\nOS:");
-            text = Regex.Replace(text, @"(?<!\n)\s*Storage:", "\nStorage:");
-            text = Regex.Replace(text, @"(?<!\n)\s*DirectX:", "\nDirectX:");
-            text = Regex.Replace(text, @"(?<!\n)\s*Sound Card:", "\nSound Card:");
-            text = Regex.Replace(text, @"(?<!\n)\s*VR Support:", "\nVR Support:");
-            text = Regex.Replace(text, @"(?<!\n)\s*Additional Notes:", "\nAdditional Notes:");
-            text = Regex.Replace(text, @"(?<!\n)\s*Requires a 64-bit processor and operating system", "\nRequires a 64-bit processor and operating system");
-
-            // Remove the spurious "CPU:" before "Minimum:" and "Recommended:" if it exists
-            text = Regex.Replace(text, @"CPU:\s*Minimum:", "Minimum:");
-            text = Regex.Replace(text, @"CPU:\s*Recommended:", "Recommended:");
-
-            text = Regex.Replace(text, @"(?<!\n)\s*Minimum:", "\nMinimum:");
-            text = Regex.Replace(text, @"(?<!\n)\s*Recommended:", "\nRecommended:");
-            text = text.Replace("&amp;", "&");
-            return text;
-        }
-
         private Paragraph CreateColoredParagraph(string text)
         {
             Paragraph paragraph = new();
@@ -218,7 +190,7 @@ namespace Easy_Copier.Views
             {
                 ISourceLibraryService sourceLibraryService = AppServiceLocator.GetService<Easy_Copier.Services.ISourceLibraryService>();
                 string rawRequirementsText = await sourceLibraryService.GetSystemRequirementsAsync(gameEntry.FolderPath);
-                string formattedText = FormatRequirementsText(rawRequirementsText);
+                string formattedText = SysReqFormatter.FormatText(rawRequirementsText);
 
                 RichTextBlock richTextBlock = new()
                 {

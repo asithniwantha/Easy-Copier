@@ -24,7 +24,7 @@ namespace Easy_Copier.ViewModels
         private readonly ITransferQueueService _transferQueueService;
         private readonly IWindowService _windowService;
         private readonly IProcessService _processService;
-        private readonly Microsoft.UI.Dispatching.DispatcherQueue? _dispatcherQueue;
+        private readonly IDispatcherService _dispatcherService;
         private CancellationTokenSource? _scanCancellationTokenSource;
         private CancellationTokenSource? _validationCancellationTokenSource;
         private List<GameEntry> _selectedGames = [];
@@ -109,7 +109,8 @@ namespace Easy_Copier.ViewModels
             IFileTransferService fileTransferService,
             ITransferQueueService transferQueueService,
             IWindowService windowService,
-            IProcessService processService)
+            IProcessService processService,
+            IDispatcherService dispatcherService)
         {
             _settingsService = settingsService;
             _libraryCacheService = libraryCacheService;
@@ -120,13 +121,13 @@ namespace Easy_Copier.ViewModels
             _transferQueueService = transferQueueService;
             _windowService = windowService;
             _processService = processService;
-            _dispatcherQueue = Microsoft.UI.Dispatching.DispatcherQueue.GetForCurrentThread();
+            _dispatcherService = dispatcherService;
 
             _driveDiscoveryService.DrivesChanged += (s, e) =>
             {
-                if (_dispatcherQueue != null && !_dispatcherQueue.HasThreadAccess)
+                if (!_dispatcherService.HasThreadAccess)
                 {
-                    _ = _dispatcherQueue.TryEnqueue(async () => await RefreshDrivesAsync());
+                    _dispatcherService.TryEnqueue(async () => await RefreshDrivesAsync());
                 }
                 else
                 {
@@ -221,21 +222,21 @@ namespace Easy_Copier.ViewModels
 
                 if (validationResult.Result == CacheValidationResult.Valid)
                 {
-                    _ = _dispatcherQueue?.TryEnqueue(() =>
+                    _dispatcherService.TryEnqueue(() =>
                         {
                             StatusMessage = $"Library is up to date: {_allGames.Count} game(s), {_allApps.Count} app(s)";
                         });
                     return;
                 }
 
-                _ = _dispatcherQueue?.TryEnqueue(() =>
+                _dispatcherService.TryEnqueue(() =>
                     {
                         StatusMessage = "Changes detected - Rescanning library...";
                     });
 
                 await Task.Run(async () =>
                 {
-                    _ = _dispatcherQueue?.TryEnqueue(async () => await ScanLibraryAsync());
+                    _dispatcherService.TryEnqueue(async () => await ScanLibraryAsync());
                 });
             }
             catch (OperationCanceledException)
@@ -244,7 +245,7 @@ namespace Easy_Copier.ViewModels
             }
             catch (Exception ex)
             {
-                _ = _dispatcherQueue?.TryEnqueue(() =>
+                _dispatcherService.TryEnqueue(() =>
                     {
                         StatusMessage = $"Validation error: {ex.Message}";
                     });
