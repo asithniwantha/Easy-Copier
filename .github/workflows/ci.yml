@@ -44,13 +44,15 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          grep -iE ": warning|: error" build.log > issues.log || true
+          Select-String -Path build.log -Pattern ": warning|: error" -CaseSensitive:$false | Select-Object -ExpandProperty Line | Out-File issues.log -Encoding utf8
 
-          echo "@jules Please review the recent build failure or warnings. Check the latest run on the main branch for details." > issue_body.md
-          echo "" >> issue_body.md
-          echo "\`\`\`" >> issue_body.md
-          cat issues.log >> issue_body.md
-          echo "\`\`\`" >> issue_body.md
+          Set-Content -Path issue_body.md -Value "@jules Please review the recent build failure or warnings. Check the latest run on the main branch for details."
+          Add-Content -Path issue_body.md -Value ""
+          Add-Content -Path issue_body.md -Value ('```')
+          if (Test-Path issues.log) {
+            Get-Content issues.log | Add-Content issue_body.md
+          }
+          Add-Content -Path issue_body.md -Value ('```')
 
           gh issue create --title "Build Issues Detected in CI" --body-file issue_body.md
 
