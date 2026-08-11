@@ -367,10 +367,7 @@ namespace Easy_Copier.ViewModels
             }
         }
 
-        partial void OnSearchTextChanged(string? oldValue, string newValue)
-        {
-            ApplyFilter();
-        }
+        partial void OnSearchTextChanged(string? oldValue, string newValue) => ApplyFilter();
 
         private void ApplyFilter()
         {
