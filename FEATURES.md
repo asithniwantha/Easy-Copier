@@ -66,3 +66,8 @@
 - MVVM pattern via `CommunityToolkit.Mvvm`.
 - DI and logging via `Microsoft.Extensions.*`.
 - Storage discovery via `DriveInfo` + WMI.
+
+## Future Enhancements (to do list)
+- if folder name ends with 'collection' go inside and scan for games/apps.
+- run the provided python script to download the cover images and minimum requirements for the games/apps that don't have cover images and requirement file.
+- 
