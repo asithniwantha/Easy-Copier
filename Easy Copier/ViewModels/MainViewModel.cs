@@ -30,37 +30,37 @@ namespace Easy_Copier.ViewModels
         private List<GameEntry> _selectedGames = [];
 
         [ObservableProperty]
-        private bool _isLoading;
+        public partial bool IsLoading { get; set; }
 
         [ObservableProperty]
         [NotifyPropertyChangedFor(nameof(IsGamesEmpty))]
         [NotifyPropertyChangedFor(nameof(IsAppsEmpty))]
-        private bool _isScanning;
+        public partial bool IsScanning { get; set; }
 
         [ObservableProperty]
-        private bool _isTransferring;
+        public partial bool IsTransferring { get; set; }
 
         [ObservableProperty]
-        private string _statusMessage = "Ready";
+        public partial string StatusMessage { get; set; } = "Ready";
 
         [ObservableProperty]
         [NotifyPropertyChangedFor(nameof(HasSelectedDrive))]
         [NotifyPropertyChangedFor(nameof(DriveSpaceSummary))]
         [NotifyPropertyChangedFor(nameof(DriveDetailsSummary))]
-        private RemovableDrive? _selectedDrive;
+        public partial RemovableDrive? SelectedDrive { get; set; }
 
         [ObservableProperty]
         [NotifyPropertyChangedFor(nameof(SelectionSummary))]
-        private int _selectedGamesCount;
+        public partial int SelectedGamesCount { get; set; }
 
         [ObservableProperty]
         [NotifyPropertyChangedFor(nameof(SelectionSummary))]
-        private long _selectedGamesTotalBytes;
+        public partial long SelectedGamesTotalBytes { get; set; }
 
         [ObservableProperty]
         [NotifyPropertyChangedFor(nameof(EmptyGamesMessage))]
         [NotifyPropertyChangedFor(nameof(EmptyAppsMessage))]
-        private string _searchText = string.Empty;
+        public partial string SearchText { get; set; } = string.Empty;
 
         private readonly List<GameEntry> _allGames = [];
         private readonly List<GameEntry> _allApps = [];
@@ -367,7 +367,7 @@ namespace Easy_Copier.ViewModels
             }
         }
 
-        partial void OnSearchTextChanged(string value)
+        partial void OnSearchTextChanged(string? oldValue, string newValue)
         {
             ApplyFilter();
         }
@@ -383,17 +383,8 @@ namespace Easy_Copier.ViewModels
                     : source.Where(g => g.Name.Contains(query, StringComparison.OrdinalIgnoreCase));
             }
 
-            Games.Clear();
-            foreach (GameEntry game in FilterEntries(_allGames))
-            {
-                Games.Add(game);
-            }
-
-            Apps.Clear();
-            foreach (GameEntry app in FilterEntries(_allApps))
-            {
-                Apps.Add(app);
-            }
+            Games.UpdateFrom(FilterEntries(_allGames));
+            Apps.UpdateFrom(FilterEntries(_allApps));
 
             OnPropertyChanged(nameof(IsGamesEmpty));
             OnPropertyChanged(nameof(IsAppsEmpty));
@@ -408,11 +399,7 @@ namespace Easy_Copier.ViewModels
 
                 IReadOnlyList<RemovableDrive> drives = await _driveDiscoveryService.GetRemovableDrivesAsync();
 
-                AvailableDrives.Clear();
-                foreach (RemovableDrive drive in drives)
-                {
-                    AvailableDrives.Add(drive);
-                }
+                AvailableDrives.UpdateFrom(drives);
 
                 if (AvailableDrives.Count == 0)
                 {
@@ -445,7 +432,7 @@ namespace Easy_Copier.ViewModels
 
             try
             {
-                ValidationMessages.Clear();
+
                 string destinationPath = $"{SelectedDrive.DriveLetter}\\";
 
                 // Account for bytes already reserved by other queued/in-progress transfers
@@ -458,10 +445,7 @@ namespace Easy_Copier.ViewModels
                 IReadOnlyList<ValidationResult> validation = await _driveValidationService.ValidateTransferAsync(
                     _selectedGames, driveForValidation, destinationPath);
 
-                foreach (ValidationResult result in validation)
-                {
-                    ValidationMessages.Add(result);
-                }
+                ValidationMessages.UpdateFrom(validation);
 
                 if (validation.Any(v => v.Severity == ValidationSeverity.Error))
                 {
@@ -550,17 +534,11 @@ namespace Easy_Copier.ViewModels
         [RelayCommand]
         private void AddSourceFolder()
         {
-            _windowService.ShowSettingsWindow(null, async (settingsViewModel) =>
-            {
-                if (CurrentTabIndex == 1)
-                {
-                    await settingsViewModel.AddAppSourceFolderCommand.ExecuteAsync(null);
-                }
-                else
-                {
-                    await settingsViewModel.AddGameSourceFolderCommand.ExecuteAsync(null);
-                }
-            });
+            var openAction = CurrentTabIndex == 1
+                ? Infrastructure.SettingsOpenAction.AddAppFolder
+                : Infrastructure.SettingsOpenAction.AddGameFolder;
+
+            _windowService.ShowSettingsWindow(null, openAction);
         }
     }
 }

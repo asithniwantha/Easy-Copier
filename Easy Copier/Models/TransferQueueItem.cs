@@ -24,13 +24,13 @@ namespace Easy_Copier.Models
         public long TotalBytes { get; }
 
         [ObservableProperty]
-        private TransferQueueItemStatus _status = TransferQueueItemStatus.Queued;
+        public partial TransferQueueItemStatus Status { get; set; } = TransferQueueItemStatus.Queued;
 
         [ObservableProperty]
-        private string _statusMessage = "Waiting in queue...";
+        public partial string StatusMessage { get; set; } = "Waiting in queue...";
 
         [ObservableProperty]
-        private DateTime? _completedAt;
+        public partial DateTime? CompletedAt { get; set; }
 
         public TransferQueueItem(IReadOnlyList<GameEntry> games, RemovableDrive targetDrive, string destinationPath)
         {

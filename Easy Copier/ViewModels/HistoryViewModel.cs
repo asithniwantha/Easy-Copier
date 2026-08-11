@@ -1,3 +1,4 @@
+using Easy_Copier.Infrastructure;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using Easy_Copier.Models;
@@ -21,16 +22,16 @@ namespace Easy_Copier.ViewModels
         private readonly Infrastructure.IFilePickerService _filePickerService;
 
         [ObservableProperty]
-        private ObservableCollection<CopyHistoryRecord> _records = [];
+        public partial ObservableCollection<CopyHistoryRecord> Records { get; set; } = [];
 
         [ObservableProperty]
-        private ObservableCollection<MonthOption> _availableMonths = [];
+        public partial ObservableCollection<MonthOption> AvailableMonths { get; set; } = [];
 
         [ObservableProperty]
-        private MonthOption? _selectedMonth;
+        public partial MonthOption? SelectedMonth { get; set; }
 
         [ObservableProperty]
-        private string _statusMessage = string.Empty;
+        public partial string StatusMessage { get; set; } = string.Empty;
 
         public HistoryViewModel(ICopyHistoryService copyHistoryService, IReportService reportService,
                                 Infrastructure.IFilePickerService filePickerService)
@@ -45,13 +46,7 @@ namespace Easy_Copier.ViewModels
             await LoadStatsAsync();
 
             List<(int Year, int Month)> months = await _copyHistoryService.GetAvailableMonthsAsync();
-            AvailableMonths.Clear();
-
-            foreach ((int Year, int Month) in months)
-            {
-                DateTime date = new(Year, Month, 1);
-                AvailableMonths.Add(new MonthOption(Year, Month, date.ToString("MMMM yyyy")));
-            }
+            AvailableMonths.UpdateFrom(months.Select(m => new MonthOption(m.Year, m.Month, new DateTime(m.Year, m.Month, 1).ToString("MMMM yyyy"))));
 
             if (AvailableMonths.Any())
             {
@@ -83,11 +78,11 @@ namespace Easy_Copier.ViewModels
             MonthStats = new HistoryStats(monthTotal, monthSuccess, monthBytes);
         }
 
-        partial void OnSelectedMonthChanged(MonthOption? value)
+        partial void OnSelectedMonthChanged(MonthOption? oldValue, MonthOption? newValue)
         {
-            if (value != null)
+            if (newValue != null)
             {
-                _ = LoadRecordsAsync(value.Year, value.Month);
+                _ = LoadRecordsAsync(newValue.Year, newValue.Month);
             }
             else
             {
@@ -99,11 +94,7 @@ namespace Easy_Copier.ViewModels
         {
             StatusMessage = "Loading records...";
             List<CopyHistoryRecord> records = await _copyHistoryService.GetRecordsByMonthAsync(year, month);
-            Records.Clear();
-            foreach (CopyHistoryRecord r in records)
-            {
-                Records.Add(r);
-            }
+            Records.UpdateFrom(records);
             StatusMessage = $"Loaded {records.Count} records.";
         }
 

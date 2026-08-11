@@ -280,7 +280,7 @@ namespace Easy_Copier.Services
                     results.Add(new ValidationResult(
                         false,
                         ValidationSeverity.Error,
-                        $"Insufficient space: Need {Easy_Copier.Infrastructure.FormattingHelpers.FormatBytes(totalRequiredBytes)}, available {Easy_Copier.Infrastructure.FormattingHelpers.FormatBytes(targetDrive.FreeBytes)}"));
+                        $"Insufficient space: Need {Infrastructure.FormattingHelpers.FormatBytes(totalRequiredBytes)}, available {Infrastructure.FormattingHelpers.FormatBytes(targetDrive.FreeBytes)}"));
                 }
 
                 if (targetDrive.IsFat32)
@@ -326,7 +326,7 @@ namespace Easy_Copier.Services
                     results.Insert(0, new ValidationResult(
                         true,
                         ValidationSeverity.Info,
-                        $"Ready to copy {gamesList.Count} game(s) ({Easy_Copier.Infrastructure.FormattingHelpers.FormatBytes(totalRequiredBytes)})"));
+                        $"Ready to copy {gamesList.Count} game(s) ({Infrastructure.FormattingHelpers.FormatBytes(totalRequiredBytes)})"));
                 }
 
                 return results;
