@@ -265,7 +265,7 @@ namespace Easy_Copier.Views
                 Flyout flyout = new()
                 {
                     Content = combinedGrid,
-                    Placement = FlyoutPlacementMode.RightEdgeAlignedBottom,
+                    Placement = FlyoutPlacementMode.RightEdgeAlignedTop,
                 };
 
                 flyout.ShowAt(fe, new FlyoutShowOptions { Position = e.GetPosition(fe) });
