@@ -55,7 +55,7 @@ jobs:
           fi
           echo "\`\`\`" >> issue_body.md
 
-          issueUrl=$(gh issue create --title "Build Issues Detected in CI" --body-file issue_body.md)
+          issueUrl=$(gh issue create --title "Build Issues Detected in CI" --body-file issue_body.md --label "jules")
           gh issue comment "$issueUrl" --body "@jules Please review the recent build failure or warnings. Check the latest run on the main branch for details."
 
       - name: Fail workflow if build failed
