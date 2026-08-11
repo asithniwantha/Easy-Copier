@@ -42,7 +42,7 @@ jobs:
       - name: Trigger Jules if issues found
         if: steps.check_logs.outputs.has_issues == 'true' || steps.build.outcome == 'failure'
         env:
-          GH_TOKEN: ${{ secrets.GHI_JULES_TOKEN }}
+          GH_TOKEN: ${{ secrets.GHI_JULES_TOKEN || secrets.GITHUB_TOKEN }}
         run: |
           Select-String -Path build.log -Pattern ": warning|: error" -CaseSensitive:$false | Select-Object -ExpandProperty Line | Out-File issues.log -Encoding utf8
 
