@@ -5,6 +5,10 @@ on:
     branches:
       - main
 
+permissions:
+  contents: read
+  issues: write
+
 jobs:
   build:
     runs-on: windows-latest
@@ -18,5 +22,30 @@ jobs:
         with:
           dotnet-version: '8.0.x'
 
-      - name: Build project (x64)
-        run: dotnet build "Easy Copier/Easy Copier.csproj" --configuration Release --arch x64
+      - name: Build project (x64) and capture log
+        id: build
+        # We use continue-on-error so the workflow proceeds to the log checking step even if the build fails
+        continue-on-error: true
+        run: dotnet build "Easy Copier/Easy Copier.csproj" --configuration Release --arch x64 > build.log 2>&1
+        shell: bash
+
+      - name: Check logs for warnings or errors
+        id: check_logs
+        run: |
+          if grep -iE ": warning|: error" build.log > /dev/null; then
+            echo "has_issues=true" >> $GITHUB_OUTPUT
+          else
+            echo "has_issues=false" >> $GITHUB_OUTPUT
+          fi
+        shell: bash
+
+      - name: Trigger Jules if issues found
+        if: steps.check_logs.outputs.has_issues == 'true' || steps.build.outcome == 'failure'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh issue create --title "Build Issues Detected in CI" --body "@jules Please review the recent build failure or warnings. Check the latest run on the main branch for details."
+
+      - name: Fail workflow if build failed
+        if: steps.build.outcome == 'failure'
+        run: exit 1
