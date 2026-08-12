@@ -33,6 +33,7 @@ The selected-drive panel also shows a usage bar, free space, total capacity, and
 ### Game library
 
 - Scan configured source folders automatically at startup or on demand.
+- Automatically expand folders ending in "collection" to surface individual items.
 - Browse games in a responsive cover-art grid.
 - Select multiple games and view their combined size before copying.
 - Highlight games containing files too large for FAT32 drives.
