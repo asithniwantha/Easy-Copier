@@ -31,6 +31,34 @@ namespace Easy_Copier.Services
             _logger = logger;
         }
 
+        private bool IsExcludedFolder(string folderPath)
+        {
+            try
+            {
+                string folderName = Path.GetFileName(folderPath).TrimEnd();
+
+                if (folderName.StartsWith("$"))
+                    return true;
+
+                if (string.Equals(folderName, "recyclebin", StringComparison.OrdinalIgnoreCase))
+                    return true;
+
+                if (string.Equals(folderName, "System Volume Information", StringComparison.OrdinalIgnoreCase))
+                    return true;
+
+                DirectoryInfo dirInfo = new(folderPath);
+                if (dirInfo.Exists && (dirInfo.Attributes & FileAttributes.System) == FileAttributes.System)
+                    return true;
+
+                return false;
+            }
+            catch
+            {
+                // If we can't access it to check attributes, it's safer to exclude it.
+                return true;
+            }
+        }
+
         public async Task<IReadOnlyList<GameEntry>> ScanLibraryAsync(
             IEnumerable<string> sourceFolders,
             LibraryCategory category,
@@ -67,6 +95,12 @@ namespace Easy_Copier.Services
                     List<string> foldersToProcess = [];
                     foreach (string subdir in initialSubdirectories)
                     {
+                        if (IsExcludedFolder(subdir))
+                        {
+                            _logger.LogDebug("Excluded folder: {Path}", subdir);
+                            continue;
+                        }
+
                         string folderName = Path.GetFileName(subdir).TrimEnd();
                         if (folderName.EndsWith("collection", StringComparison.OrdinalIgnoreCase))
                         {
@@ -75,7 +109,17 @@ namespace Easy_Copier.Services
                                 string[] collectionSubdirectories = await Task.Run(() =>
                                     Directory.GetDirectories(subdir, "*", SearchOption.TopDirectoryOnly),
                                     cancellationToken);
-                                foldersToProcess.AddRange(collectionSubdirectories);
+                                foreach (string collSubdir in collectionSubdirectories)
+                                {
+                                    if (!IsExcludedFolder(collSubdir))
+                                    {
+                                        foldersToProcess.Add(collSubdir);
+                                    }
+                                    else
+                                    {
+                                        _logger.LogDebug("Excluded collection subfolder: {Path}", collSubdir);
+                                    }
+                                }
                             }
                             catch (Exception ex)
                             {
@@ -88,7 +132,7 @@ namespace Easy_Copier.Services
                         }
                     }
 
-                    foreach (string? gameFolder in foldersToProcess)
+                    foreach (string gameFolder in foldersToProcess)
                     {
                         if (cancellationToken.IsCancellationRequested)
                         {
