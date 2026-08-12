@@ -39,5 +39,13 @@ namespace Easy_Copier
             ICopyHistoryService copyHistoryService = AppServiceLocator.GetService<Services.ICopyHistoryService>();
             await copyHistoryService.InitializeAsync();
         }
+
+        public void DisposeServices()
+        {
+            if (_serviceProvider is IDisposable disposable)
+            {
+                disposable.Dispose();
+            }
+        }
     }
 }

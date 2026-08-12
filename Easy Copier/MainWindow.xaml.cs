@@ -30,6 +30,16 @@ namespace Easy_Copier
             }
 
             _ = RootFrame.Navigate(typeof(MainPage));
+
+            this.Closed += MainWindow_Closed;
+        }
+
+        private void MainWindow_Closed(object sender, WindowEventArgs args)
+        {
+            if (Application.Current is App app)
+            {
+                app.DisposeServices();
+            }
         }
     }
 }
