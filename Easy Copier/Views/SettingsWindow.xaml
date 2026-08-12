@@ -13,148 +13,198 @@
         <MicaBackdrop />
     </Window.SystemBackdrop>
 
-    <Grid Padding="24">
+    <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
-        <TextBlock Grid.Row="0" Text="Settings" FontSize="24" FontWeight="SemiBold" Margin="0,0,0,16"/>
+        <NavigationView x:Name="SettingsNav"
+                        PaneDisplayMode="Left"
+                        IsSettingsVisible="False"
+                        IsBackButtonVisible="Collapsed"
+                        SelectionChanged="SettingsNav_SelectionChanged"
+                        Loaded="SettingsNav_Loaded">
+            <NavigationView.MenuItems>
+                <NavigationViewItem Tag="General" Content="General">
+                    <NavigationViewItem.Icon>
+                        <SymbolIcon Symbol="Setting" />
+                    </NavigationViewItem.Icon>
+                </NavigationViewItem>
+                <NavigationViewItem Tag="Games" Content="Games">
+                    <NavigationViewItem.Icon>
+                        <SymbolIcon Symbol="Library" />
+                    </NavigationViewItem.Icon>
+                </NavigationViewItem>
+                <NavigationViewItem Tag="Apps" Content="Apps">
+                    <NavigationViewItem.Icon>
+                        <SymbolIcon Symbol="AllApps" />
+                    </NavigationViewItem.Icon>
+                </NavigationViewItem>
+                <NavigationViewItem Tag="FilmAndTv" Content="Film &amp; TV">
+                    <NavigationViewItem.Icon>
+                        <SymbolIcon Symbol="Video" />
+                    </NavigationViewItem.Icon>
+                </NavigationViewItem>
+            </NavigationView.MenuItems>
 
-        <StackPanel Grid.Row="1" Spacing="16" Margin="0,0,0,16">
-            <ToggleSwitch Header="Auto-scan library on startup"
-                          IsOn="{x:Bind ViewModel.AutoScanOnStartup, Mode=TwoWay}"/>
-            <StackPanel Spacing="8">
-                <TextBlock Text="Game Prices (Rs.)" FontWeight="SemiBold"/>
-                <Grid ColumnSpacing="16" RowSpacing="8">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto"/>
-                        <ColumnDefinition Width="100"/>
-                        <ColumnDefinition Width="16"/>
-                        <ColumnDefinition Width="Auto"/>
-                        <ColumnDefinition Width="100"/>
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
-                    </Grid.RowDefinitions>
+            <ScrollViewer Padding="24">
+                <Grid>
+                    <!-- General Panel -->
+                    <StackPanel x:Name="GeneralPanel" Visibility="Visible" Spacing="16">
+                        <TextBlock Text="General Settings" FontSize="20" FontWeight="SemiBold" />
+                        <ToggleSwitch Header="Auto-scan library on startup"
+                                      IsOn="{x:Bind ViewModel.AutoScanOnStartup, Mode=TwoWay}"/>
+                    </StackPanel>
 
-                    <TextBlock Grid.Row="0" Grid.Column="0" Text="Up to 5 GB:" VerticalAlignment="Center"/>
-                    <TextBox Grid.Row="0" Grid.Column="1" Text="{x:Bind ViewModel.PriceTier1, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                    <!-- Games Panel -->
+                    <StackPanel x:Name="GamesPanel" Visibility="Collapsed" Spacing="16">
+                        <TextBlock Text="Games Settings" FontSize="20" FontWeight="SemiBold" />
 
-                    <TextBlock Grid.Row="0" Grid.Column="3" Text="5.1 GB to 10 GB:" VerticalAlignment="Center"/>
-                    <TextBox Grid.Row="0" Grid.Column="4" Text="{x:Bind ViewModel.PriceTier2, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                        <StackPanel Spacing="8">
+                            <TextBlock Text="Game Prices (Rs.)" FontWeight="SemiBold"/>
+                            <Grid ColumnSpacing="16" RowSpacing="8">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="100"/>
+                                    <ColumnDefinition Width="16"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="100"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
 
-                    <TextBlock Grid.Row="1" Grid.Column="0" Text="10.1 GB to 15.9 GB:" VerticalAlignment="Center"/>
-                    <TextBox Grid.Row="1" Grid.Column="1" Text="{x:Bind ViewModel.PriceTier3, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                                <TextBlock Grid.Row="0" Grid.Column="0" Text="Up to 5 GB:" VerticalAlignment="Center"/>
+                                <TextBox Grid.Row="0" Grid.Column="1" Text="{x:Bind ViewModel.PriceTier1, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
 
-                    <TextBlock Grid.Row="1" Grid.Column="3" Text="16 GB and above:" VerticalAlignment="Center"/>
-                    <TextBox Grid.Row="1" Grid.Column="4" Text="{x:Bind ViewModel.PriceTier4, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                                <TextBlock Grid.Row="0" Grid.Column="3" Text="5.1 GB to 10 GB:" VerticalAlignment="Center"/>
+                                <TextBox Grid.Row="0" Grid.Column="4" Text="{x:Bind ViewModel.PriceTier2, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+
+                                <TextBlock Grid.Row="1" Grid.Column="0" Text="10.1 GB to 15.9 GB:" VerticalAlignment="Center"/>
+                                <TextBox Grid.Row="1" Grid.Column="1" Text="{x:Bind ViewModel.PriceTier3, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+
+                                <TextBlock Grid.Row="1" Grid.Column="3" Text="16 GB and above:" VerticalAlignment="Center"/>
+                                <TextBox Grid.Row="1" Grid.Column="4" Text="{x:Bind ViewModel.PriceTier4, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                            </Grid>
+                        </StackPanel>
+
+                        <StackPanel Spacing="8">
+                            <TextBlock Text="Game Folders" FontWeight="SemiBold"/>
+                            <ListView x:Name="GameSourceFoldersListView"
+                                      ItemsSource="{x:Bind ViewModel.GameSourceFolders, Mode=OneWay}"
+                                      MaxHeight="300"
+                                      BorderBrush="{ThemeResource SurfaceStrokeColorDefaultBrush}"
+                                      BorderThickness="1"
+                                      CornerRadius="4">
+                                <ListView.ItemTemplate>
+                                    <DataTemplate x:DataType="x:String">
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="Auto"/>
+                                            </Grid.ColumnDefinitions>
+                                            <TextBlock Grid.Column="0" Text="{x:Bind}" VerticalAlignment="Center"
+                                                       TextTrimming="CharacterEllipsis"/>
+                                            <Button Grid.Column="1" Content="Remove"
+                                                    Click="RemoveGameFolder_Click" Tag="{x:Bind}"/>
+                                        </Grid>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+
+                            <StackPanel Orientation="Horizontal" Spacing="8" Margin="0,8,0,0">
+                                <Button Content="Add Game Folder" Command="{x:Bind ViewModel.AddGameSourceFolderCommand}"
+                                        HorizontalAlignment="Left"/>
+                                <Button Content="Download Covers &amp; Requirements"
+                                        Command="{x:Bind ViewModel.DownloadGameInfoCommand}"
+                                        ToolTipService.ToolTip="Downloads cover images and system requirements for all games in configured folders"
+                                        HorizontalAlignment="Left"/>
+                            </StackPanel>
+                        </StackPanel>
+                    </StackPanel>
+
+                    <!-- Apps Panel -->
+                    <StackPanel x:Name="AppsPanel" Visibility="Collapsed" Spacing="16">
+                        <TextBlock Text="Apps Settings" FontSize="20" FontWeight="SemiBold" />
+                        <StackPanel Spacing="8">
+                            <TextBlock Text="App Folders" FontWeight="SemiBold"/>
+                            <ListView x:Name="AppSourceFoldersListView"
+                                      ItemsSource="{x:Bind ViewModel.AppSourceFolders, Mode=OneWay}"
+                                      MaxHeight="300"
+                                      BorderBrush="{ThemeResource SurfaceStrokeColorDefaultBrush}"
+                                      BorderThickness="1"
+                                      CornerRadius="4">
+                                <ListView.ItemTemplate>
+                                    <DataTemplate x:DataType="x:String">
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="Auto"/>
+                                            </Grid.ColumnDefinitions>
+                                            <TextBlock Grid.Column="0" Text="{x:Bind}" VerticalAlignment="Center"
+                                                       TextTrimming="CharacterEllipsis"/>
+                                            <Button Grid.Column="1" Content="Remove"
+                                                    Click="RemoveAppFolder_Click" Tag="{x:Bind}"/>
+                                        </Grid>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+                            <Button Content="Add App Folder" Command="{x:Bind ViewModel.AddAppSourceFolderCommand}"
+                                    HorizontalAlignment="Left" Margin="0,8,0,0"/>
+                        </StackPanel>
+                    </StackPanel>
+
+                    <!-- Film & TV Panel -->
+                    <StackPanel x:Name="FilmAndTvPanel" Visibility="Collapsed" Spacing="16">
+                        <TextBlock Text="Film &amp; TV Settings" FontSize="20" FontWeight="SemiBold" />
+                        <StackPanel Spacing="8">
+                            <TextBlock Text="Film &amp; TV Folders" FontWeight="SemiBold"/>
+                            <ListView x:Name="TvAndFilmSourceFoldersListView"
+                                      ItemsSource="{x:Bind ViewModel.TvAndFilmSourceFolders, Mode=OneWay}"
+                                      MaxHeight="300"
+                                      BorderBrush="{ThemeResource SurfaceStrokeColorDefaultBrush}"
+                                      BorderThickness="1"
+                                      CornerRadius="4">
+                                <ListView.ItemTemplate>
+                                    <DataTemplate x:DataType="x:String">
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="Auto"/>
+                                            </Grid.ColumnDefinitions>
+                                            <TextBlock Grid.Column="0" Text="{x:Bind}" VerticalAlignment="Center"
+                                                       TextTrimming="CharacterEllipsis"/>
+                                            <Button Grid.Column="1" Content="Remove"
+                                                    Click="RemoveTvAndFilmFolder_Click" Tag="{x:Bind}"/>
+                                        </Grid>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+                            <Button Content="Add Film/TV Folder" Command="{x:Bind ViewModel.AddTvAndFilmSourceFolderCommand}"
+                                    HorizontalAlignment="Left" Margin="0,8,0,0"/>
+
+                            <TextBox Header="Video File Extensions"
+                                     Text="{x:Bind ViewModel.VideoFileExtensions, Mode=TwoWay}"
+                                     PlaceholderText="e.g. .mp4,.mkv,.avi"
+                                     Margin="0,16,0,0"
+                                     ToolTipService.ToolTip="Comma-separated extensions to identify standalone video files" />
+                        </StackPanel>
+                    </StackPanel>
                 </Grid>
+            </ScrollViewer>
+        </NavigationView>
+
+        <!-- Bottom Actions -->
+        <Border Grid.Row="1" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+                BorderBrush="{ThemeResource SurfaceStrokeColorDefaultBrush}"
+                BorderThickness="0,1,0,0" Padding="24,16">
+            <StackPanel Orientation="Horizontal" Spacing="8" HorizontalAlignment="Right">
+                <TextBlock Text="{x:Bind ViewModel.StatusMessage, Mode=OneWay}" VerticalAlignment="Center" Opacity="0.7"/>
+                <Button Content="Open Data Folder" Command="{x:Bind ViewModel.OpenDataFolderCommand}"/>
+                <Button Content="Save and Close" Style="{StaticResource AccentButtonStyle}" Click="SaveAndClose_Click"/>
             </StackPanel>
-        </StackPanel>
-
-        <Grid Grid.Row="2">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="16"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="16"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
-
-            <StackPanel Grid.Column="0" Spacing="8">
-                <TextBlock Text="Game Folders" FontWeight="SemiBold"/>
-                <ListView x:Name="GameSourceFoldersListView"
-                          ItemsSource="{x:Bind ViewModel.GameSourceFolders, Mode=OneWay}"
-                          MaxHeight="300">
-                    <ListView.ItemTemplate>
-                        <DataTemplate x:DataType="x:String">
-                            <Grid>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="*"/>
-                                    <ColumnDefinition Width="Auto"/>
-                                </Grid.ColumnDefinitions>
-                                <TextBlock Grid.Column="0" Text="{x:Bind}" VerticalAlignment="Center"
-                                           TextTrimming="CharacterEllipsis"/>
-                                <Button Grid.Column="1" Content="Remove"
-                                        Click="RemoveGameFolder_Click" Tag="{x:Bind}"/>
-                            </Grid>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
-
-                <StackPanel Orientation="Horizontal" Spacing="8" Margin="0,8,0,0">
-                    <Button Content="Add Game Folder" Command="{x:Bind ViewModel.AddGameSourceFolderCommand}"
-                            HorizontalAlignment="Left"/>
-                    <Button Content="Download Covers &amp; Requirements"
-                            Command="{x:Bind ViewModel.DownloadGameInfoCommand}"
-                            ToolTipService.ToolTip="Downloads cover images and system requirements for all games in configured folders"
-                            HorizontalAlignment="Left"/>
-                </StackPanel>
-            </StackPanel>
-
-            <StackPanel Grid.Column="2" Spacing="8">
-                <TextBlock Text="App Folders" FontWeight="SemiBold"/>
-                <ListView x:Name="AppSourceFoldersListView"
-                          ItemsSource="{x:Bind ViewModel.AppSourceFolders, Mode=OneWay}"
-                          MaxHeight="300">
-                    <ListView.ItemTemplate>
-                        <DataTemplate x:DataType="x:String">
-                            <Grid>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="*"/>
-                                    <ColumnDefinition Width="Auto"/>
-                                </Grid.ColumnDefinitions>
-                                <TextBlock Grid.Column="0" Text="{x:Bind}" VerticalAlignment="Center"
-                                           TextTrimming="CharacterEllipsis"/>
-                                <Button Grid.Column="1" Content="Remove"
-                                        Click="RemoveAppFolder_Click" Tag="{x:Bind}"/>
-                            </Grid>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
-                <Button Content="Add App Folder" Command="{x:Bind ViewModel.AddAppSourceFolderCommand}"
-                        HorizontalAlignment="Left" Margin="0,8,0,0"/>
-            </StackPanel>
-
-            <StackPanel Grid.Column="4" Spacing="8">
-                <TextBlock Text="Film &amp; TV Folders" FontWeight="SemiBold"/>
-                <ListView x:Name="TvAndFilmSourceFoldersListView"
-                          ItemsSource="{x:Bind ViewModel.TvAndFilmSourceFolders, Mode=OneWay}"
-                          MaxHeight="300">
-                    <ListView.ItemTemplate>
-                        <DataTemplate x:DataType="x:String">
-                            <Grid>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="*"/>
-                                    <ColumnDefinition Width="Auto"/>
-                                </Grid.ColumnDefinitions>
-                                <TextBlock Grid.Column="0" Text="{x:Bind}" VerticalAlignment="Center"
-                                           TextTrimming="CharacterEllipsis"/>
-                                <Button Grid.Column="1" Content="Remove"
-                                        Click="RemoveTvAndFilmFolder_Click" Tag="{x:Bind}"/>
-                            </Grid>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
-                <Button Content="Add Film/TV Folder" Command="{x:Bind ViewModel.AddTvAndFilmSourceFolderCommand}"
-                        HorizontalAlignment="Left" Margin="0,8,0,0"/>
-
-                <TextBox Header="Video File Extensions"
-                         Text="{x:Bind ViewModel.VideoFileExtensions, Mode=TwoWay}"
-                         PlaceholderText="e.g. .mp4,.mkv,.avi"
-                         Margin="0,16,0,0"
-                         ToolTipService.ToolTip="Comma-separated extensions to identify standalone video files" />
-            </StackPanel>
-        </Grid>
-
-        <StackPanel Grid.Row="3" Orientation="Horizontal" Spacing="8" HorizontalAlignment="Right" Margin="0,16,0,0">
-            <TextBlock Text="{x:Bind ViewModel.StatusMessage, Mode=OneWay}" VerticalAlignment="Center" Opacity="0.7"/>
-            <Button Content="Open Data Folder" Command="{x:Bind ViewModel.OpenDataFolderCommand}"/>
-            <Button Content="Save and Close" Style="{StaticResource AccentButtonStyle}" Click="SaveAndClose_Click"/>
-        </StackPanel>
+        </Border>
     </Grid>
 </Window>
