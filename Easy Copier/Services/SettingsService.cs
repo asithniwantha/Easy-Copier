@@ -10,6 +10,7 @@ namespace Easy_Copier.Services
     public interface ISettingsService
     {
         Task<AppSettings> LoadSettingsAsync();
+        AppSettings LoadSettingsSync();
         Task SaveSettingsAsync(AppSettings settings);
         string GetSettingsFilePath();
     }
@@ -18,6 +19,7 @@ namespace Easy_Copier.Services
     {
         private readonly ILogger<SettingsService> _logger = logger;
         private const string SettingsFileName = "appsettings.json";
+        private AppSettings? _cachedSettings;
 
         public string GetSettingsFilePath()
         {
@@ -29,6 +31,11 @@ namespace Easy_Copier.Services
 
         public async Task<AppSettings> LoadSettingsAsync()
         {
+            if (_cachedSettings != null)
+            {
+                return _cachedSettings;
+            }
+
             string settingsPath = GetSettingsFilePath();
 
             try
@@ -38,6 +45,7 @@ namespace Easy_Copier.Services
                     _logger.LogInformation("Settings file not found, creating default settings");
                     AppSettings defaultSettings = new();
                     await SaveSettingsAsync(defaultSettings);
+                    _cachedSettings = defaultSettings;
                     return defaultSettings;
                 }
 
@@ -47,16 +55,47 @@ namespace Easy_Copier.Services
                 if (settings == null)
                 {
                     _logger.LogWarning("Failed to deserialize settings, using defaults");
-                    return new AppSettings();
+                    _cachedSettings = new AppSettings();
+                    return _cachedSettings;
                 }
 
                 _logger.LogInformation("Settings loaded successfully from {Path}", settingsPath);
+                _cachedSettings = settings;
                 return settings;
             }
             catch (Exception ex)
             {
                 _logger.LogError(ex, "Error loading settings from {Path}", settingsPath);
-                return new AppSettings();
+                _cachedSettings = new AppSettings();
+                return _cachedSettings;
+            }
+        }
+
+        public AppSettings LoadSettingsSync()
+        {
+            if (_cachedSettings != null)
+            {
+                return _cachedSettings;
+            }
+
+            string settingsPath = GetSettingsFilePath();
+            try
+            {
+                if (!File.Exists(settingsPath))
+                {
+                    _cachedSettings = new AppSettings();
+                    return _cachedSettings;
+                }
+
+                string json = File.ReadAllText(settingsPath);
+                AppSettings? settings = JsonSerializer.Deserialize<AppSettings>(json);
+                _cachedSettings = settings ?? new AppSettings();
+                return _cachedSettings;
+            }
+            catch
+            {
+                _cachedSettings = new AppSettings();
+                return _cachedSettings;
             }
         }
 
@@ -73,6 +112,9 @@ namespace Easy_Copier.Services
 
                 string json = JsonSerializer.Serialize(settings, options);
                 await File.WriteAllTextAsync(settingsPath, json);
+
+                // Invalidate or update cache on save
+                _cachedSettings = settings;
 
                 _logger.LogInformation("Settings saved successfully to {Path}", settingsPath);
             }

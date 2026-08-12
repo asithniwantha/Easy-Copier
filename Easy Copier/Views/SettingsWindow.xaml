@@ -23,9 +23,38 @@
 
         <TextBlock Grid.Row="0" Text="Settings" FontSize="24" FontWeight="SemiBold" Margin="0,0,0,16"/>
 
-        <ToggleSwitch Grid.Row="1" Header="Auto-scan library on startup"
-                      IsOn="{x:Bind ViewModel.AutoScanOnStartup, Mode=TwoWay}"
-                      Margin="0,0,0,16"/>
+        <StackPanel Grid.Row="1" Spacing="16" Margin="0,0,0,16">
+            <ToggleSwitch Header="Auto-scan library on startup"
+                          IsOn="{x:Bind ViewModel.AutoScanOnStartup, Mode=TwoWay}"/>
+            <StackPanel Spacing="8">
+                <TextBlock Text="Game Prices (Rs.)" FontWeight="SemiBold"/>
+                <Grid ColumnSpacing="16" RowSpacing="8">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="16"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="100"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Grid.Row="0" Grid.Column="0" Text="Up to 5 GB:" VerticalAlignment="Center"/>
+                    <TextBox Grid.Row="0" Grid.Column="1" Text="{x:Bind ViewModel.PriceTier1, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+
+                    <TextBlock Grid.Row="0" Grid.Column="3" Text="5.1 GB to 10 GB:" VerticalAlignment="Center"/>
+                    <TextBox Grid.Row="0" Grid.Column="4" Text="{x:Bind ViewModel.PriceTier2, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+
+                    <TextBlock Grid.Row="1" Grid.Column="0" Text="10.1 GB to 15.9 GB:" VerticalAlignment="Center"/>
+                    <TextBox Grid.Row="1" Grid.Column="1" Text="{x:Bind ViewModel.PriceTier3, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+
+                    <TextBlock Grid.Row="1" Grid.Column="3" Text="16 GB and above:" VerticalAlignment="Center"/>
+                    <TextBox Grid.Row="1" Grid.Column="4" Text="{x:Bind ViewModel.PriceTier4, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                </Grid>
+            </StackPanel>
+        </StackPanel>
 
         <Grid Grid.Row="2">
             <Grid.ColumnDefinitions>

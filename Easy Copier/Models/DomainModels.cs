@@ -71,6 +71,10 @@ namespace Easy_Copier.Models
         public bool AutoScanOnStartup { get; set; } = true;
         public string LastSelectedDrive { get; set; } = string.Empty;
         public DateTime LastScanTime { get; set; } = DateTime.MinValue;
+        public int PriceTier1 { get; set; } = 100;
+        public int PriceTier2 { get; set; } = 200;
+        public int PriceTier3 { get; set; } = 300;
+        public int PriceTier4 { get; set; } = 400;
     }
 
     public record ItemFingerprint(

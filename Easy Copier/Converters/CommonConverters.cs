@@ -2,9 +2,66 @@ using Easy_Copier.Models;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Data;
 using System;
+using System.Threading.Tasks;
+using Easy_Copier.Services;
+using Easy_Copier.Infrastructure;
 
 namespace Easy_Copier.Converters
 {
+    public class GameCategoryToVisibilityConverter : IValueConverter
+    {
+        public object Convert(object value, Type targetType, object parameter, string language)
+        {
+            if (value is LibraryCategory category)
+            {
+                return category == LibraryCategory.Game ? Microsoft.UI.Xaml.Visibility.Visible : Microsoft.UI.Xaml.Visibility.Collapsed;
+            }
+            return Microsoft.UI.Xaml.Visibility.Collapsed;
+        }
+
+        public object ConvertBack(object value, Type targetType, object parameter, string language)
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    public class GameSizeToPriceConverter : IValueConverter
+    {
+        public object Convert(object value, Type targetType, object parameter, string language)
+        {
+            if (value is long bytes)
+            {
+                double gb = bytes / (1024.0 * 1024.0 * 1024.0);
+
+                try
+                {
+                    // Access settings synchronously to prevent UI thread blocking or deadlocking
+                    var settingsService = AppServiceLocator.GetService<ISettingsService>();
+                    var settings = settingsService.LoadSettingsSync();
+
+                    if (gb <= 5.0) return $"Rs. {settings.PriceTier1}";
+                    if (gb <= 10.0) return $"Rs. {settings.PriceTier2}";
+                    if (gb < 16.0) return $"Rs. {settings.PriceTier3}";
+                    return $"Rs. {settings.PriceTier4}";
+                }
+                catch
+                {
+                    // Fallback to default prices if service unavailable
+                    if (gb <= 5.0) return "Rs. 100";
+                    if (gb <= 10.0) return "Rs. 200";
+                    if (gb < 16.0) return "Rs. 300";
+                    return "Rs. 400";
+                }
+            }
+            return "Rs. -";
+        }
+
+        public object ConvertBack(object value, Type targetType, object parameter, string language)
+        {
+            throw new NotImplementedException();
+        }
+    }
+
     public class BytesToSizeConverter : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, string language)

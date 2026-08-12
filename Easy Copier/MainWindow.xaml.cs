@@ -34,6 +34,9 @@ namespace Easy_Copier
             this.Closed += MainWindow_Closed;
         }
 
+        /// <summary>
+        /// Handles the Closed event of the MainWindow.
+        /// </summary>
         private void MainWindow_Closed(object sender, WindowEventArgs args)
         {
             if (Application.Current is App app)
