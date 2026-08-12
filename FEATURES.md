@@ -18,12 +18,12 @@
 - Detect connected removable USB drives.
 - Detect USB-attached fixed disks (portable HDD/SSD/NVMe enclosures).
 - Show drive details:
-  - drive letter,
-  - volume label,
-  - model/brand,
-  - file system,
-  - free space and total capacity,
-  - usage percentage.
+  - Drive letter.
+  - Volume label.
+  - Model/brand.
+  - File system.
+  - Free space and total capacity.
+  - Usage percentage.
 - Auto-refresh drive list on attach/remove events.
 - Open selected drive directly in File Explorer.
 
@@ -69,7 +69,6 @@
 - Storage discovery via `DriveInfo` + WMI.
 - GitHub Actions for CI/CD workflows.
 
-## Future Enhancements (to do list)
-- if folder name ends with 'collection' go inside and scan for games/apps.
-- run the provided python script to download the cover images and minimum requirements for the games/apps that don't have cover images and requirement file.
-- 
+## Future Enhancements (To Do List)
+- If folder name ends with 'collection' go inside and scan for games/apps.
+- Run the provided python script to download the cover images and minimum requirements for the games/apps that don't have cover images and requirement file.
