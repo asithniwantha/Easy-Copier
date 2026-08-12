@@ -62,7 +62,12 @@ jobs:
           echo "" >> issue_body.md
           echo "\`\`\`" >> issue_body.md
           if [ -s issues.log ]; then
-            cat issues.log >> issue_body.md
+            head -n 250 issues.log >> issue_body.md
+
+            line_count=$(wc -l < issues.log)
+            if [ "$line_count" -gt 250 ]; then
+              echo "... (Log truncated. See CI run for full details)" >> issue_body.md
+            fi
           fi
           echo "\`\`\`" >> issue_body.md
 
