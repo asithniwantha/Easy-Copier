@@ -22,6 +22,8 @@ Easy Copier was developed as a WinUI 3 desktop application targeting .NET 10 to 
 - Implemented copy operations via Windows shell API (`SHFileOperation`).
 - Added selection summaries, validation messages, transfer status feedback, and empty-state UX.
 - Added settings window behavior with owner-window centering and modal-like input blocking.
+- Refined Settings window navigation by implementing a sidebar (NavigationView) to categorize options cleanly.
+- Implemented configurable game pricing tags that calculate estimated prices based on per-GB file size thresholds.
 
 ## Key Development Decisions
 - **Safety-first transfer pipeline**: run validation before copy; block operation on hard errors.
