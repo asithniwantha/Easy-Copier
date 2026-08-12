@@ -66,7 +66,7 @@ The selected-drive panel also shows a usage bar, free space, total capacity, and
 | Component | Details |
 |---|---|
 | Framework | WinUI 3 / Windows App SDK |
-| Language | C# with .NET 8 |
+| Language | C# 14 with .NET 10 |
 | Pattern | MVVM with CommunityToolkit.Mvvm |
 | Storage discovery | `DriveInfo` and Windows Management Instrumentation (WMI) |
 | CI/CD | GitHub Actions |
@@ -75,7 +75,7 @@ The selected-drive panel also shows a usage bar, free space, total capacity, and
 ## Requirements
 
 - Windows 11, version 24H2 or later
-- .NET 8 SDK
+- .NET 10 SDK
 - Visual Studio 2022 with Windows App SDK / WinUI development tools
 
 ![Screenshot](<Easy Copier/Assets/Screenshot 2026-08-06 211103.jpg>)

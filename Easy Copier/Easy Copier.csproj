@@ -1,8 +1,8 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <LangVersion>preview</LangVersion>
+    <LangVersion>14</LangVersion>
 	<OutputType>WinExe</OutputType>
-	<TargetFramework>net8.0-windows10.0.26100.0</TargetFramework>
+	<TargetFramework>net10.0-windows10.0.26100.0</TargetFramework>
 	<TargetPlatformMinVersion>10.0.17763.0</TargetPlatformMinVersion>
 	<RootNamespace>Easy_Copier</RootNamespace>
 	<ApplicationManifest>app.manifest</ApplicationManifest>
@@ -36,12 +36,12 @@
     <PackageReference Include="Microsoft.Windows.SDK.BuildTools" Version="10.0.28000.2526" />
     <PackageReference Include="Microsoft.WindowsAppSDK" Version="2.3.1" />
     <PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.2" />
-    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="10.0.10" />
-    <PackageReference Include="Microsoft.Extensions.Logging" Version="10.0.10" />
-    <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="10.0.10" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="10.0.11" />
+    <PackageReference Include="Microsoft.Extensions.Logging" Version="10.0.11" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="10.0.11" />
     <PackageReference Include="SQLitePCLRaw.lib.e_sqlite3" Version="3.53.3" />
-    <PackageReference Include="System.Management" Version="10.0.10" />
-  <PackageReference Include="Microsoft.Data.Sqlite" Version="10.0.10" /><PackageReference Include="CommunityToolkit.WinUI.UI.Controls.DataGrid" Version="7.1.2" /></ItemGroup>
+    <PackageReference Include="System.Management" Version="10.0.11" />
+  <PackageReference Include="Microsoft.Data.Sqlite" Version="10.0.11" /><PackageReference Include="CommunityToolkit.WinUI.UI.Controls.DataGrid" Version="7.1.2" /></ItemGroup>
 
   <ItemGroup>
     <Content Include="Assets\easy copier ico.ico">
