@@ -53,10 +53,14 @@ namespace Easy_Copier.Services
                         try
                         {
                             string destPath = Path.Combine(request.DestinationPath, game.Name);
+                            if (File.Exists(game.FolderPath))
+                            {
+                                destPath = Path.Combine(request.DestinationPath, Path.GetFileName(game.FolderPath));
+                            }
 
                             _logger.LogInformation("Copying {Game} to {Dest}", game.Name, destPath);
 
-                            bool result = CopyDirectoryWithShellDialog(game.FolderPath, destPath);
+                            bool result = CopyItemWithShellDialog(game.FolderPath, destPath);
 
                             if (result)
                             {
@@ -124,7 +128,7 @@ namespace Easy_Copier.Services
             });
         }
 
-        private bool CopyDirectoryWithShellDialog(string sourcePath, string destPath)
+        private bool CopyItemWithShellDialog(string sourcePath, string destPath)
         {
             try
             {

@@ -8,7 +8,8 @@ namespace Easy_Copier.Models
     public enum LibraryCategory
     {
         Game,
-        App
+        App,
+        TvAndFilm
     }
 
     public record GameEntry(
@@ -65,6 +66,8 @@ namespace Easy_Copier.Models
     {
         public List<string> GameSourceFolders { get; set; } = [];
         public List<string> AppSourceFolders { get; set; } = [];
+        public List<string> TvAndFilmSourceFolders { get; set; } = [];
+        public string VideoFileExtensions { get; set; } = ".mp4,.mkv,.avi";
         public bool AutoScanOnStartup { get; set; } = true;
         public string LastSelectedDrive { get; set; } = string.Empty;
         public DateTime LastScanTime { get; set; } = DateTime.MinValue;
@@ -83,8 +86,10 @@ namespace Easy_Copier.Models
         int SchemaVersion,
         List<GameEntry> Games,
         List<GameEntry> Apps,
+        List<GameEntry> TvAndFilms,
         List<string> GameSourceFolders,
         List<string> AppSourceFolders,
+        List<string> TvAndFilmSourceFolders,
         DateTime CachedAt,
         Dictionary<string, ItemFingerprint> ItemFingerprints)
     {

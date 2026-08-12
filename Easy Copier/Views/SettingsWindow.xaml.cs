@@ -26,7 +26,7 @@ namespace Easy_Copier.Views
             WindowId windowId = Win32Interop.GetWindowIdFromWindow(_hwnd);
             AppWindow appWindow = Microsoft.UI.Windowing.AppWindow.GetFromWindowId(windowId);
 
-            appWindow?.Resize(new Windows.Graphics.SizeInt32(760, 640));
+            appWindow?.Resize(new Windows.Graphics.SizeInt32(960, 640));
 
             _ownerHwnd = App.MainWindow != null ? WindowNative.GetWindowHandle(App.MainWindow) : IntPtr.Zero;
 
@@ -67,6 +67,10 @@ namespace Easy_Copier.Views
             {
                 await ViewModel.AddGameSourceFolderCommand.ExecuteAsync(null);
             }
+            else if (openAction == SettingsOpenAction.AddTvAndFilmFolder)
+            {
+                await ViewModel.AddTvAndFilmSourceFolderCommand.ExecuteAsync(null);
+            }
         }
 
         private async void RemoveGameFolder_Click(object sender, RoutedEventArgs e)
@@ -82,6 +86,14 @@ namespace Easy_Copier.Views
             if (sender is FrameworkElement fe && fe.Tag is string folderPath)
             {
                 await ViewModel.RemoveAppSourceFolderCommand.ExecuteAsync(folderPath);
+            }
+        }
+
+        private async void RemoveTvAndFilmFolder_Click(object sender, RoutedEventArgs e)
+        {
+            if (sender is FrameworkElement fe && fe.Tag is string folderPath)
+            {
+                await ViewModel.RemoveTvAndFilmSourceFolderCommand.ExecuteAsync(folderPath);
             }
         }
 

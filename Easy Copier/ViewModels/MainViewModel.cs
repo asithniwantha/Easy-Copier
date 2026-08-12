@@ -35,6 +35,7 @@ namespace Easy_Copier.ViewModels
         [ObservableProperty]
         [NotifyPropertyChangedFor(nameof(IsGamesEmpty))]
         [NotifyPropertyChangedFor(nameof(IsAppsEmpty))]
+        [NotifyPropertyChangedFor(nameof(IsTvAndFilmsEmpty))]
         public partial bool IsScanning { get; set; }
 
         [ObservableProperty]
@@ -60,13 +61,16 @@ namespace Easy_Copier.ViewModels
         [ObservableProperty]
         [NotifyPropertyChangedFor(nameof(EmptyGamesMessage))]
         [NotifyPropertyChangedFor(nameof(EmptyAppsMessage))]
+        [NotifyPropertyChangedFor(nameof(EmptyTvAndFilmsMessage))]
         public partial string SearchText { get; set; } = string.Empty;
 
         private readonly List<GameEntry> _allGames = [];
         private readonly List<GameEntry> _allApps = [];
+        private readonly List<GameEntry> _allTvAndFilms = [];
 
         public bool IsGamesEmpty => !IsScanning && Games.Count == 0;
         public bool IsAppsEmpty => !IsScanning && Apps.Count == 0;
+        public bool IsTvAndFilmsEmpty => !IsScanning && TvAndFilms.Count == 0;
 
         public string EmptyGamesMessage => string.IsNullOrWhiteSpace(SearchText)
             ? "No games found. Add a game folder in Settings and scan your library."
@@ -75,6 +79,10 @@ namespace Easy_Copier.ViewModels
         public string EmptyAppsMessage => string.IsNullOrWhiteSpace(SearchText)
             ? "No apps found. Add an app folder in Settings and scan your library."
             : $"No apps match \"{SearchText}\".";
+
+        public string EmptyTvAndFilmsMessage => string.IsNullOrWhiteSpace(SearchText)
+            ? "No films/TV series found. Add a folder in Settings and scan your library."
+            : $"No films/TV series match \"{SearchText}\".";
 
         public bool HasSelectedDrive => SelectedDrive != null;
 
@@ -94,6 +102,7 @@ namespace Easy_Copier.ViewModels
 
         public ObservableCollection<GameEntry> Games { get; } = [];
         public ObservableCollection<GameEntry> Apps { get; } = [];
+        public ObservableCollection<GameEntry> TvAndFilms { get; } = [];
         public ObservableCollection<RemovableDrive> AvailableDrives { get; } = [];
         public ObservableCollection<ValidationResult> ValidationMessages { get; } = [];
         public ObservableCollection<TransferQueueItem> TransferQueue => _transferQueueService.QueueItems;
@@ -150,7 +159,7 @@ namespace Easy_Copier.ViewModels
                 _driveDiscoveryService.StartWatching();
                 await RefreshDrivesAsync();
 
-                if (!settings.GameSourceFolders.Any() && !settings.AppSourceFolders.Any())
+                if (!settings.GameSourceFolders.Any() && !settings.AppSourceFolders.Any() && !(settings.TvAndFilmSourceFolders?.Any() ?? false))
                 {
                     StatusMessage = "Ready - No source folders configured";
                     return;
@@ -166,6 +175,9 @@ namespace Easy_Copier.ViewModels
                     _allApps.Clear();
                     _allApps.AddRange(cache.Apps);
 
+                    _allTvAndFilms.Clear();
+                    _allTvAndFilms.AddRange(cache.TvAndFilms ?? []);
+
                     ApplyFilter();
 
                     TimeSpan cacheAge = DateTime.Now - cache.CachedAt;
@@ -175,7 +187,7 @@ namespace Easy_Copier.ViewModels
                             ? $"{(int)cacheAge.TotalHours}h ago"
                             : $"{(int)cacheAge.TotalDays}d ago";
 
-                    StatusMessage = $"Loaded {_allGames.Count} game(s), {_allApps.Count} app(s) from cache (scanned {ageText}) - Validating...";
+                    StatusMessage = $"Loaded {_allGames.Count} game(s), {_allApps.Count} app(s), {_allTvAndFilms.Count} film/TV(s) from cache (scanned {ageText}) - Validating...";
 
                     if (settings.AutoScanOnStartup)
                     {
@@ -183,7 +195,7 @@ namespace Easy_Copier.ViewModels
                     }
                     else
                     {
-                        StatusMessage = $"Loaded {_allGames.Count} game(s), {_allApps.Count} app(s) from cache (scanned {ageText})";
+                        StatusMessage = $"Loaded {_allGames.Count} game(s), {_allApps.Count} app(s), {_allTvAndFilms.Count} film/TV(s) from cache (scanned {ageText})";
                     }
                 }
                 else
@@ -224,7 +236,7 @@ namespace Easy_Copier.ViewModels
                 {
                     _dispatcherService.TryEnqueue(() =>
                         {
-                            StatusMessage = $"Library is up to date: {_allGames.Count} game(s), {_allApps.Count} app(s)";
+                            StatusMessage = $"Library is up to date: {_allGames.Count} game(s), {_allApps.Count} app(s), {_allTvAndFilms.Count} film/TV(s)";
                         });
                     return;
                 }
@@ -260,8 +272,10 @@ namespace Easy_Copier.ViewModels
                 IsScanning = true;
                 _allGames.Clear();
                 _allApps.Clear();
+                _allTvAndFilms.Clear();
                 Games.Clear();
                 Apps.Clear();
+                TvAndFilms.Clear();
                 ValidationMessages.Clear();
 
                 _scanCancellationTokenSource?.Cancel();
@@ -269,7 +283,7 @@ namespace Easy_Copier.ViewModels
 
                 AppSettings settings = await _settingsService.LoadSettingsAsync();
 
-                if (!settings.GameSourceFolders.Any() && !settings.AppSourceFolders.Any())
+                if (!settings.GameSourceFolders.Any() && !settings.AppSourceFolders.Any() && !(settings.TvAndFilmSourceFolders?.Any() ?? false))
                 {
                     await _libraryCacheService.InvalidateCacheAsync();
                     StatusMessage = "No source folders configured. Please add folders in Settings.";
@@ -303,11 +317,23 @@ namespace Easy_Copier.ViewModels
                     _allApps.AddRange(apps);
                 }
 
+                if (settings.TvAndFilmSourceFolders?.Any() ?? false)
+                {
+                    IReadOnlyList<GameEntry> tvAndFilms = await _gameScannerService.ScanLibraryAsync(
+                        settings.TvAndFilmSourceFolders,
+                        LibraryCategory.TvAndFilm,
+                        progress,
+                        _scanCancellationTokenSource.Token,
+                        settings.VideoFileExtensions);
+
+                    _allTvAndFilms.AddRange(tvAndFilms);
+                }
+
                 ApplyFilter();
 
-                StatusMessage = _allGames.Count == 0 && _allApps.Count == 0
-                    ? "No games or apps found in configured folders"
-                    : $"Found {_allGames.Count} game(s), {_allApps.Count} app(s)";
+                StatusMessage = _allGames.Count == 0 && _allApps.Count == 0 && _allTvAndFilms.Count == 0
+                    ? "No items found in configured folders"
+                    : $"Found {_allGames.Count} game(s), {_allApps.Count} app(s), {_allTvAndFilms.Count} film/TV(s)";
 
                 settings.LastScanTime = DateTime.Now;
                 await _settingsService.SaveSettingsAsync(settings);
@@ -334,7 +360,7 @@ namespace Easy_Copier.ViewModels
             {
                 Dictionary<string, ItemFingerprint> fingerprints = [];
 
-                List<GameEntry> allEntries = _allGames.Concat(_allApps).ToList();
+                List<GameEntry> allEntries = _allGames.Concat(_allApps).Concat(_allTvAndFilms).ToList();
 
                 foreach (GameEntry? entry in allEntries)
                 {
@@ -355,8 +381,10 @@ namespace Easy_Copier.ViewModels
                     LibraryCacheSnapshot.CurrentSchemaVersion,
                     _allGames.ToList(),
                     _allApps.ToList(),
+                    _allTvAndFilms.ToList(),
                     settings.GameSourceFolders.ToList(),
                     settings.AppSourceFolders.ToList(),
+                    (settings.TvAndFilmSourceFolders ?? []).ToList(),
                     DateTime.Now,
                     fingerprints);
 
@@ -383,9 +411,11 @@ namespace Easy_Copier.ViewModels
 
             Games.UpdateFrom(FilterEntries(_allGames));
             Apps.UpdateFrom(FilterEntries(_allApps));
+            TvAndFilms.UpdateFrom(FilterEntries(_allTvAndFilms));
 
             OnPropertyChanged(nameof(IsGamesEmpty));
             OnPropertyChanged(nameof(IsAppsEmpty));
+            OnPropertyChanged(nameof(IsTvAndFilmsEmpty));
         }
 
         [RelayCommand]
@@ -532,9 +562,9 @@ namespace Easy_Copier.ViewModels
         [RelayCommand]
         private void AddSourceFolder()
         {
-            SettingsOpenAction openAction = CurrentTabIndex == 1
-                ? Infrastructure.SettingsOpenAction.AddAppFolder
-                : Infrastructure.SettingsOpenAction.AddGameFolder;
+            SettingsOpenAction openAction = CurrentTabIndex == 0 ? Infrastructure.SettingsOpenAction.AddGameFolder :
+                                            CurrentTabIndex == 1 ? Infrastructure.SettingsOpenAction.AddAppFolder :
+                                            Infrastructure.SettingsOpenAction.AddTvAndFilmFolder;
 
             _windowService.ShowSettingsWindow(null, openAction);
         }

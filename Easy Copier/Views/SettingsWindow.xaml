@@ -61,6 +61,8 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="16"/>
                 <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="16"/>
+                <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
             <StackPanel Grid.Column="0" Spacing="8">
@@ -116,6 +118,36 @@
                 </ListView>
                 <Button Content="Add App Folder" Command="{x:Bind ViewModel.AddAppSourceFolderCommand}"
                         HorizontalAlignment="Left" Margin="0,8,0,0"/>
+            </StackPanel>
+
+            <StackPanel Grid.Column="4" Spacing="8">
+                <TextBlock Text="Film &amp; TV Folders" FontWeight="SemiBold"/>
+                <ListView x:Name="TvAndFilmSourceFoldersListView"
+                          ItemsSource="{x:Bind ViewModel.TvAndFilmSourceFolders, Mode=OneWay}"
+                          MaxHeight="300">
+                    <ListView.ItemTemplate>
+                        <DataTemplate x:DataType="x:String">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Grid.Column="0" Text="{x:Bind}" VerticalAlignment="Center"
+                                           TextTrimming="CharacterEllipsis"/>
+                                <Button Grid.Column="1" Content="Remove"
+                                        Click="RemoveTvAndFilmFolder_Click" Tag="{x:Bind}"/>
+                            </Grid>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                <Button Content="Add Film/TV Folder" Command="{x:Bind ViewModel.AddTvAndFilmSourceFolderCommand}"
+                        HorizontalAlignment="Left" Margin="0,8,0,0"/>
+
+                <TextBox Header="Video File Extensions"
+                         Text="{x:Bind ViewModel.VideoFileExtensions, Mode=TwoWay}"
+                         PlaceholderText="e.g. .mp4,.mkv,.avi"
+                         Margin="0,16,0,0"
+                         ToolTipService.ToolTip="Comma-separated extensions to identify standalone video files" />
             </StackPanel>
         </Grid>
 

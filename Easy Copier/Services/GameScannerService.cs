@@ -15,7 +15,8 @@ namespace Easy_Copier.Services
             IEnumerable<string> sourceFolders,
             LibraryCategory category,
             IProgress<string>? progress = null,
-            CancellationToken cancellationToken = default);
+            CancellationToken cancellationToken = default,
+            string? videoExtensions = null);
 
         Task<long> CalculateFolderSizeAsync(string folderPath, CancellationToken cancellationToken = default);
         string? FindCoverImage(string gameFolderPath);
@@ -63,12 +64,14 @@ namespace Easy_Copier.Services
             IEnumerable<string> sourceFolders,
             LibraryCategory category,
             IProgress<string>? progress = null,
-            CancellationToken cancellationToken = default)
+            CancellationToken cancellationToken = default,
+            string? videoExtensions = null)
         {
             List<GameEntry> games = new List<GameEntry>();
             HashSet<string> processedPaths = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
 
-            string categoryLabel = category == LibraryCategory.App ? "app" : "game";
+            string categoryLabel = category == LibraryCategory.App ? "app" :
+                                   (category == LibraryCategory.TvAndFilm ? "film/tv" : "game");
 
             foreach (string sourceFolder in sourceFolders)
             {
@@ -91,6 +94,47 @@ namespace Easy_Copier.Services
                     string[] initialSubdirectories = await Task.Run(() =>
                         Directory.GetDirectories(sourceFolder, "*", SearchOption.TopDirectoryOnly),
                         cancellationToken);
+
+                    if (category == LibraryCategory.TvAndFilm && !string.IsNullOrWhiteSpace(videoExtensions))
+                    {
+                        var extList = videoExtensions.Split(new[] { ',', ';', ' ' }, StringSplitOptions.RemoveEmptyEntries)
+                                                     .Select(e => e.Trim().StartsWith(".") ? e.Trim() : "." + e.Trim())
+                                                     .ToList();
+
+                        try
+                        {
+                            var files = await Task.Run(() => Directory.GetFiles(sourceFolder, "*.*", SearchOption.TopDirectoryOnly), cancellationToken);
+                            foreach (var file in files)
+                            {
+                                if (extList.Contains(Path.GetExtension(file), StringComparer.OrdinalIgnoreCase))
+                                {
+                                    if (processedPaths.Contains(file)) continue;
+
+                                    string fileName = Path.GetFileName(file);
+                                    progress?.Report($"Processing file: {fileName}");
+                                    FileInfo fi = new FileInfo(file);
+                                    long totalSize = fi.Length;
+                                    bool hasLargeFiles = totalSize > RemovableDrive.Fat32MaxFileSize;
+
+                                    GameEntry entry = new(
+                                        Path.GetFileNameWithoutExtension(fileName),
+                                        file,
+                                        totalSize,
+                                        null, // Standalone files covers to be implemented later
+                                        DateTime.Now,
+                                        hasLargeFiles,
+                                        category);
+
+                                    games.Add(entry);
+                                    processedPaths.Add(file);
+                                }
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            _logger.LogWarning(ex, "Error scanning root files in {Path}", sourceFolder);
+                        }
+                    }
 
                     List<string> foldersToProcess = [];
                     foreach (string subdir in initialSubdirectories)
@@ -200,6 +244,10 @@ namespace Easy_Copier.Services
             {
                 try
                 {
+                    if (File.Exists(folderPath))
+                    {
+                        return new FileInfo(folderPath).Length;
+                    }
                     DirectoryInfo dirInfo = new(folderPath);
                     return dirInfo.EnumerateFiles("*", SearchOption.AllDirectories)
                         .Sum(file => file.Length);
@@ -214,6 +262,11 @@ namespace Easy_Copier.Services
 
         public string? FindCoverImage(string gameFolderPath)
         {
+            if (File.Exists(gameFolderPath))
+            {
+                return null;
+            }
+
             try
             {
                 foreach (string fileName in CoverImageFileNames)
@@ -240,6 +293,11 @@ namespace Easy_Copier.Services
             {
                 try
                 {
+                    if (File.Exists(folderPath))
+                    {
+                        return new FileInfo(folderPath).Length > sizeLimit;
+                    }
+
                     DirectoryInfo dirInfo = new(folderPath);
                     return dirInfo.EnumerateFiles("*", SearchOption.AllDirectories)
                         .Any(file => file.Length > sizeLimit);
