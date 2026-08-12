@@ -23,6 +23,18 @@ namespace Easy_Copier.ViewModels
         public partial bool AutoScanOnStartup { get; set; } = true;
 
         [ObservableProperty]
+        public partial string PriceTier1 { get; set; } = "100";
+
+        [ObservableProperty]
+        public partial string PriceTier2 { get; set; } = "200";
+
+        [ObservableProperty]
+        public partial string PriceTier3 { get; set; } = "300";
+
+        [ObservableProperty]
+        public partial string PriceTier4 { get; set; } = "400";
+
+        [ObservableProperty]
         public partial string StatusMessage { get; set; } = string.Empty;
 
         public ObservableCollection<string> GameSourceFolders { get; } = [];
@@ -177,6 +189,10 @@ namespace Easy_Copier.ViewModels
         public void LoadSettings(AppSettings settings)
         {
             AutoScanOnStartup = settings.AutoScanOnStartup;
+            PriceTier1 = settings.PriceTier1.ToString();
+            PriceTier2 = settings.PriceTier2.ToString();
+            PriceTier3 = settings.PriceTier3.ToString();
+            PriceTier4 = settings.PriceTier4.ToString();
 
             GameSourceFolders.UpdateFrom(settings.GameSourceFolders);
             AppSourceFolders.UpdateFrom(settings.AppSourceFolders);
@@ -187,6 +203,10 @@ namespace Easy_Copier.ViewModels
             return new AppSettings
             {
                 AutoScanOnStartup = AutoScanOnStartup,
+                PriceTier1 = int.TryParse(PriceTier1, out int p1) ? p1 : 100,
+                PriceTier2 = int.TryParse(PriceTier2, out int p2) ? p2 : 200,
+                PriceTier3 = int.TryParse(PriceTier3, out int p3) ? p3 : 300,
+                PriceTier4 = int.TryParse(PriceTier4, out int p4) ? p4 : 400,
                 GameSourceFolders = [.. GameSourceFolders],
                 AppSourceFolders = [.. AppSourceFolders]
             };

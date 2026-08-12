@@ -15,7 +15,6 @@
 - Item size display with human-readable formatting.
 - Large-file indicator badge for FAT32 incompatibility risk.
 - Right-click context flyout displaying color-formatted system requirements and scrollable folder contents.
-- Game pricing tags displayed in the library based on file size thresholds configurable via App Settings.
 
 ## Drive Discovery and Selection
 - Detect connected removable USB drives.
@@ -63,7 +62,6 @@
 - Persist settings in local app data.
 - Persist library cache for faster startup experience.
 - Validate cache contents against current filesystem state.
-- Configurable price tiers for game size categories.
 
 ## Technical Stack
 - WinUI 3 + Windows App SDK.
@@ -77,3 +75,4 @@
 - Run the provided python script to download the cover images and minimum requirements for the games/apps that don't have cover images and requirement file.
 - Add github actions to build and publish the app to github releases automatically with versioning number based on git tags.
 - add tv series and films tab
+- add price tag for each item in the library that should be calculated from the size of the per GB.
