@@ -34,7 +34,8 @@ jobs:
       - name: Publish App
         shell: bash
         run: |
-          dotnet publish "Easy Copier/Easy Copier.csproj" -c Release -r win-x64 -p:Version=${{ steps.get_version.outputs.VERSION }} -p:AssemblyVersion=${{ steps.get_version.outputs.VERSION }} -p:FileVersion=${{ steps.get_version.outputs.VERSION }} -o publish_output
+          cd "Easy Copier"
+          dotnet publish "Easy Copier.csproj" -c Release -r win-x64 -p:Version=${{ steps.get_version.outputs.VERSION }} -p:AssemblyVersion=${{ steps.get_version.outputs.VERSION }} -p:FileVersion=${{ steps.get_version.outputs.VERSION }} -o ../publish_output
 
       - name: Zip Release
         shell: pwsh
