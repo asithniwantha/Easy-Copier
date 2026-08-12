@@ -8,7 +8,6 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
-using System.Threading;
 
 namespace Easy_Copier.ViewModels
 {
@@ -17,7 +16,6 @@ namespace Easy_Copier.ViewModels
         private readonly ISettingsService _settingsService;
         private readonly IFolderPickerService _folderPickerService;
         private readonly ISourceLibraryService _sourceLibraryService;
-        private readonly IGameInfoDownloadService _gameInfoDownloadService;
 
         [ObservableProperty]
         public partial bool AutoScanOnStartup { get; set; } = true;
@@ -34,43 +32,12 @@ namespace Easy_Copier.ViewModels
             ISettingsService settingsService,
             IFolderPickerService folderPickerService,
             ISourceLibraryService sourceLibraryService,
-            Infrastructure.IProcessService processService,
-            IGameInfoDownloadService gameInfoDownloadService)
+            Infrastructure.IProcessService processService)
         {
             _settingsService = settingsService;
             _folderPickerService = folderPickerService;
             _sourceLibraryService = sourceLibraryService;
             _processService = processService;
-            _gameInfoDownloadService = gameInfoDownloadService;
-        }
-
-        [RelayCommand]
-        private async Task DownloadGameInfoAsync()
-        {
-            if (GameSourceFolders.Count == 0)
-            {
-                StatusMessage = "No game folders configured";
-                return;
-            }
-
-            StatusMessage = "Downloading game covers and requirements...";
-
-            try
-            {
-                var progress = new Progress<string>(msg =>
-                {
-                    var dispatcher = AppServiceLocator.GetService<IDispatcherService>();
-                    dispatcher.TryEnqueue(() => StatusMessage = msg);
-                });
-
-                await _gameInfoDownloadService.DownloadGameInfoAsync(GameSourceFolders, progress, CancellationToken.None);
-
-                StatusMessage = "Game info download complete";
-            }
-            catch (Exception ex)
-            {
-                StatusMessage = $"Error downloading game info: {ex.Message}";
-            }
         }
 
         [RelayCommand]
