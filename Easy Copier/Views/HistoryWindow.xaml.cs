@@ -14,14 +14,17 @@ namespace Easy_Copier.Views
 
         public event EventHandler? HistoryClosed;
 
+        private readonly IntPtr _ownerHwnd;
+        private readonly IntPtr _hwnd;
+
         public HistoryWindow()
         {
             InitializeComponent();
 
             ViewModel = AppServiceLocator.GetService<HistoryViewModel>();
 
-            nint hwnd = WinRT.Interop.WindowNative.GetWindowHandle(this);
-            WindowId windowId = Win32Interop.GetWindowIdFromWindow(hwnd);
+            _hwnd = WinRT.Interop.WindowNative.GetWindowHandle(this);
+            WindowId windowId = Win32Interop.GetWindowIdFromWindow(_hwnd);
             AppWindow appWindow = Microsoft.UI.Windowing.AppWindow.GetFromWindowId(windowId);
 
             if (appWindow != null)
@@ -32,7 +35,25 @@ namespace Easy_Copier.Views
                     appWindow.SetIcon(iconPath);
                 }
 
-                // Center window
+                appWindow.Resize(new Windows.Graphics.SizeInt32 { Width = 1000, Height = 700 });
+            }
+
+            _ownerHwnd = App.MainWindow != null ? WinRT.Interop.WindowNative.GetWindowHandle(App.MainWindow) : IntPtr.Zero;
+
+            if (_ownerHwnd != IntPtr.Zero)
+            {
+                // Establish native ownership so this window stays above the main window
+                // and is treated as its modal child by the OS.
+                NativeWindowHelper.SetOwner(_hwnd, _ownerHwnd);
+
+                // Disable the owner so input can't reach it while this window is open,
+                // then re-enable and restore focus once this window closes.
+                NativeWindowHelper.EnableWindowInput(_ownerHwnd, false);
+                NativeWindowHelper.CenterWindow(_hwnd, _ownerHwnd);
+            }
+            else if (appWindow != null)
+            {
+                // Fallback Center window
                 DisplayArea displayArea = Microsoft.UI.Windowing.DisplayArea.GetFromWindowId(windowId, Microsoft.UI.Windowing.DisplayAreaFallback.Nearest);
                 if (displayArea != null)
                 {
@@ -52,6 +73,12 @@ namespace Easy_Copier.Views
 
         private void HistoryWindow_Closed(object sender, WindowEventArgs args)
         {
+            if (_ownerHwnd != IntPtr.Zero)
+            {
+                NativeWindowHelper.EnableWindowInput(_ownerHwnd, true);
+                NativeWindowHelper.SetForeground(_ownerHwnd);
+            }
+            this.Content = null;
             HistoryClosed?.Invoke(this, EventArgs.Empty);
         }
     }
