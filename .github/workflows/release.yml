@@ -1,0 +1,48 @@
+name: Release App
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: write
+
+jobs:
+  build_and_release:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+
+      - name: Get Version
+        id: get_version
+        shell: bash
+        run: |
+          TAG="${GITHUB_REF#refs/tags/}"
+          VERSION="${TAG#v}"
+          echo "VERSION=$VERSION" >> $GITHUB_OUTPUT
+
+      - name: Publish App
+        shell: bash
+        run: |
+          dotnet publish "Easy Copier/Easy Copier.csproj" -c Release -r win-x64 -p:Version=${{ steps.get_version.outputs.VERSION }} -p:AssemblyVersion=${{ steps.get_version.outputs.VERSION }} -p:FileVersion=${{ steps.get_version.outputs.VERSION }} -o publish_output
+
+      - name: Zip Release
+        shell: pwsh
+        run: |
+          Compress-Archive -Path publish_output\* -DestinationPath "EasyCopier-${{ steps.get_version.outputs.VERSION }}-win-x64.zip"
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: EasyCopier-${{ steps.get_version.outputs.VERSION }}-win-x64.zip
+          generate_release_notes: true
