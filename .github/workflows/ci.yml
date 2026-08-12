@@ -36,7 +36,8 @@ jobs:
         id: build
         # We use continue-on-error so the workflow proceeds to the log checking step even if the build fails
         continue-on-error: true
-        run: dotnet build "Easy Copier/Easy Copier.csproj" --configuration Release --arch x64 2>&1 | tee build.log
+        run: dotnet build "Easy Copier/Easy Copier.csproj" --configuration Release --arch x64 -v d /p:EnforceCodeStyleInBuild=true 2>&1 | tee build.log
+
         shell: bash
 
       - name: Check logs for warnings or errors
