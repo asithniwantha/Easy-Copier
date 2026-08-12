@@ -37,8 +37,8 @@ namespace Easy_Copier.Services
             IProgress<string>? progress = null,
             CancellationToken cancellationToken = default)
         {
-            List<GameEntry> games = [];
-            HashSet<string> processedPaths = [with(StringComparer.OrdinalIgnoreCase)];
+            List<GameEntry> games = new List<GameEntry>();
+            HashSet<string> processedPaths = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
 
             string categoryLabel = category == LibraryCategory.App ? "app" : "game";
 

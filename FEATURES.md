@@ -64,7 +64,7 @@
 
 ## Technical Stack
 - WinUI 3 + Windows App SDK.
-- C# with .NET 8.
+- C# 14 with .NET 10.
 - MVVM pattern via `CommunityToolkit.Mvvm`.
 - DI and logging via `Microsoft.Extensions.*`.
 - Storage discovery via `DriveInfo` + WMI.
