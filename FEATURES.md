@@ -7,6 +7,7 @@
 - Display library items in separate tabs (Games / Apps).
 - Search/filter items by name.
 - Multi-select items and show combined selection size.
+- Exclude folders starting with `$`, `recyclebin`, and `System Volume Information` from scanning.
 
 ## Visual Presentation
 - Cover-art grid view for items.
