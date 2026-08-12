@@ -73,6 +73,27 @@ namespace Easy_Copier.Views
             }
         }
 
+        private void SettingsNav_Loaded(object sender, RoutedEventArgs e)
+        {
+            if (SettingsNav.MenuItems.Count > 0)
+            {
+                SettingsNav.SelectedItem = SettingsNav.MenuItems[0];
+            }
+        }
+
+        private void SettingsNav_SelectionChanged(Microsoft.UI.Xaml.Controls.NavigationView sender, Microsoft.UI.Xaml.Controls.NavigationViewSelectionChangedEventArgs args)
+        {
+            if (args.SelectedItem is Microsoft.UI.Xaml.Controls.NavigationViewItem selectedItem)
+            {
+                string tag = selectedItem.Tag?.ToString() ?? string.Empty;
+
+                GeneralPanel.Visibility = tag == "General" ? Visibility.Visible : Visibility.Collapsed;
+                GamesPanel.Visibility = tag == "Games" ? Visibility.Visible : Visibility.Collapsed;
+                AppsPanel.Visibility = tag == "Apps" ? Visibility.Visible : Visibility.Collapsed;
+                FilmAndTvPanel.Visibility = tag == "FilmAndTv" ? Visibility.Visible : Visibility.Collapsed;
+            }
+        }
+
         private async void RemoveGameFolder_Click(object sender, RoutedEventArgs e)
         {
             if (sender is FrameworkElement fe && fe.Tag is string folderPath)
