@@ -60,11 +60,35 @@ namespace Easy_Copier.Services
                 {
                     progress?.Report($"Scanning: {sourceFolder}");
 
-                    string[] subdirectories = await Task.Run(() =>
+                    string[] initialSubdirectories = await Task.Run(() =>
                         Directory.GetDirectories(sourceFolder, "*", SearchOption.TopDirectoryOnly),
                         cancellationToken);
 
-                    foreach (string? gameFolder in subdirectories)
+                    List<string> foldersToProcess = [];
+                    foreach (string subdir in initialSubdirectories)
+                    {
+                        string folderName = Path.GetFileName(subdir).TrimEnd();
+                        if (folderName.EndsWith("collection", StringComparison.OrdinalIgnoreCase))
+                        {
+                            try
+                            {
+                                string[] collectionSubdirectories = await Task.Run(() =>
+                                    Directory.GetDirectories(subdir, "*", SearchOption.TopDirectoryOnly),
+                                    cancellationToken);
+                                foldersToProcess.AddRange(collectionSubdirectories);
+                            }
+                            catch (Exception ex)
+                            {
+                                _logger.LogWarning(ex, "Error reading collection folder: {Path}", subdir);
+                            }
+                        }
+                        else
+                        {
+                            foldersToProcess.Add(subdir);
+                        }
+                    }
+
+                    foreach (string? gameFolder in foldersToProcess)
                     {
                         if (cancellationToken.IsCancellationRequested)
                         {
