@@ -2,6 +2,7 @@
 
 ## Library Management
 - Scan configured source folders for **Games** and **Apps**.
+- Automatically expand folders ending in "collection" to scan their subdirectories.
 - Support startup auto-scan and on-demand rescanning.
 - Display library items in separate tabs (Games / Apps).
 - Search/filter items by name.
@@ -70,6 +71,4 @@
 - GitHub Actions for CI/CD workflows.
 
 ## Future Enhancements (to do list)
-- if folder name ends with 'collection' go inside and scan for games/apps.
 - run the provided python script to download the cover images and minimum requirements for the games/apps that don't have cover images and requirement file.
-- 
