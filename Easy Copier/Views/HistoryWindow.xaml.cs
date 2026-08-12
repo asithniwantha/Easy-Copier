@@ -71,6 +71,9 @@ namespace Easy_Copier.Views
             _ = RootFrame.Navigate(typeof(HistoryPage));
         }
 
+        /// <summary>
+        /// Handles the Closed event of the HistoryWindow.
+        /// </summary>
         private void HistoryWindow_Closed(object sender, WindowEventArgs args)
         {
             if (_ownerHwnd != IntPtr.Zero)
