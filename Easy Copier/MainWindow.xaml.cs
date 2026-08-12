@@ -18,6 +18,7 @@ namespace Easy_Copier
             WindowId windowId = Win32Interop.GetWindowIdFromWindow(hwnd);
             AppWindow appWindow = Microsoft.UI.Windowing.AppWindow.GetFromWindowId(windowId);
 
+            // Set the window icon and size
             if (appWindow != null)
             {
                 string iconPath = Path.Combine(AppContext.BaseDirectory, "Assets", "easy copier ico.ico");
