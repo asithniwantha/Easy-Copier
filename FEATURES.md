@@ -19,12 +19,12 @@
 - Detect connected removable USB drives.
 - Detect USB-attached fixed disks (portable HDD/SSD/NVMe enclosures).
 - Show drive details:
-  - drive letter,
-  - volume label,
-  - model/brand,
-  - file system,
-  - free space and total capacity,
-  - usage percentage.
+  - Drive letter.
+  - Volume label.
+  - Model/brand.
+  - File system.
+  - Free space and total capacity.
+  - Usage percentage.
 - Auto-refresh drive list on attach/remove events.
 - Open selected drive directly in File Explorer.
 
@@ -71,4 +71,5 @@
 - GitHub Actions for CI/CD workflows.
 
 ## Future Enhancements (to do list)
-- run the provided python script to download the cover images and minimum requirements for the games/apps that don't have cover images and requirement file.
+- Run the provided python script to download the cover images and minimum requirements for the games/apps that don't have cover images and requirement file.
+- Add github actions to build and publish the app to github releases automatically with versioning number based on git tags.
