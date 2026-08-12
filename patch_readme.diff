@@ -1,0 +1,9 @@
+--- README.md
++++ README.md
+@@ -23,6 +23,7 @@
+ - **Copy History:** Keeps track of previous transfers with their status and target drive.
+ - **Robust Cancellation:** Cancel ongoing transfers gracefully.
+ - **Background Scanning:** Scans for drives and validates sizes/file-systems seamlessly.
++- **Game Pricing Configuration:** Automatically estimates pricing for game transfers based on file size thresholds configurable via App Settings.
+
+ ## Screenshots

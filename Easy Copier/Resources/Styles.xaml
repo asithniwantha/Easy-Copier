@@ -7,6 +7,8 @@
     <converters:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter"/>
     <converters:SeverityToInfoBarSeverityConverter x:Key="SeverityConverter"/>
     <converters:PathToImageSourceConverter x:Key="PathToImageSourceConverter"/>
+    <converters:GameSizeToPriceConverter x:Key="GameSizeToPriceConverter"/>
+    <converters:GameCategoryToVisibilityConverter x:Key="GameCategoryToVisibilityConverter"/>
 
     <SolidColorBrush x:Key="AppAccentBrush" Color="#0078D4"/>
     <SolidColorBrush x:Key="AppSuccessBrush" Color="#107C10"/>
