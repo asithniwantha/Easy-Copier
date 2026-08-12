@@ -11,7 +11,7 @@ This file defines the operational standards for all AI agents and contributors w
 
 ## 2. Architecture & Design
 - **Architecture**: MVVM tool kit
-- **Modularity**: Prioritize clean code principles (DRY, KISS). Avoid deep nesting where possible.
+- **Modularity**: Prioritize clean code principles (DRY, KISS, SOLID). Avoid deep nesting where possible.
 - **Safety**: Ensure error handling is robust. Always assume external inputs (like file paths or clipboard data) might be malformed.
 
 ## 3. Implementation Process
