@@ -64,6 +64,8 @@
 - Persist library cache for faster startup experience.
 - Validate cache contents against current filesystem state.
 - Configurable price tiers for game size categories.
+- Navigational sidebar (NavigationView) for organized settings categories (General, Games, etc.).
+- Modal-like behavior for secondary windows (Settings, History) to prevent main window interaction while open.
 
 ## Technical Stack
 - WinUI 3 + Windows App SDK.

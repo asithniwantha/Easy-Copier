@@ -21,6 +21,7 @@ Easy Copier helps shop environments prepare customer drives without guessing whi
 * **🏗️ MVVM Architecture:** Clean, maintainable codebase ensuring a smooth separation of logic and presentation.
 * **📊 Progress Tracking:** Real-time transfer speeds, ETA calculations, and detailed progress bars.
 * **🛡️ Reliability:** Built-in error handling to ensure your directories transfer securely.
+* **💸 Game Pricing:** Automatically estimates pricing for game transfers based on file size thresholds configurable via App Settings.
 
 ## Highlights
 
@@ -30,6 +31,7 @@ Easy Copier helps shop environments prepare customer drives without guessing whi
 | **Broad portable-drive support** | Detects USB flash drives, portable HDDs, and USB NVMe/SSD enclosures—even when Windows reports them as fixed or UASP/SCSI disks. |
 | **Safe transfers** | Checks available capacity, source accessibility, duplicate destinations, and FAT32's 4 GB single-file limit before copying. |
 | **Visual library** | Displays games in a cover-art grid with size and large-file indicators. |
+| **Settings UI** | Sidebar-based navigation for configuration and modal window protection. |
 
 ---
 
