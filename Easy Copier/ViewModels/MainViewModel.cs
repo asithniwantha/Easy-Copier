@@ -98,7 +98,7 @@ namespace Easy_Copier.ViewModels
             ? "No items selected"
             : $"{SelectedGamesCount} item(s) selected \u2022 {FormattingHelpers.FormatBytes(SelectedGamesTotalBytes)}";
 
-        public int CurrentTabIndex { get; set; } = 0;
+        public int CurrentTabIndex { get; set; }
 
         public ObservableCollection<GameEntry> Games { get; } = [];
         public ObservableCollection<GameEntry> Apps { get; } = [];

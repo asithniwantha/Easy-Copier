@@ -155,6 +155,7 @@ namespace Easy_Copier.Services
         private static class NativeMethods
         {
             [DllImport("shell32.dll", CharSet = CharSet.Unicode)]
+            [DefaultDllImportSearchPaths(DllImportSearchPath.System32)]
             public static extern int SHFileOperation(ref SHFILEOPSTRUCT lpFileOp);
 
             public const int FO_COPY = 0x0002;

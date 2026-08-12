@@ -46,7 +46,7 @@ namespace Easy_Copier.ViewModels
             await LoadStatsAsync();
 
             List<(int Year, int Month)> months = await _copyHistoryService.GetAvailableMonthsAsync();
-            AvailableMonths.UpdateFrom(months.Select(m => new MonthOption(m.Year, m.Month, new DateTime(m.Year, m.Month, 1).ToString("MMMM yyyy"))));
+            AvailableMonths.UpdateFrom(months.Select(m => new MonthOption(m.Year, m.Month, new DateTime(m.Year, m.Month, 1).ToString("MMMM yyyy", System.Globalization.CultureInfo.CurrentCulture))));
 
             if (AvailableMonths.Any())
             {

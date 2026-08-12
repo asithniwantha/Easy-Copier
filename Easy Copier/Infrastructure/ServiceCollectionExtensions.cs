@@ -48,7 +48,7 @@ namespace Easy_Copier.Infrastructure
         }
     }
 
-    public class AppServiceLocator
+    public static class AppServiceLocator
     {
         private static IServiceProvider? _instance;
 

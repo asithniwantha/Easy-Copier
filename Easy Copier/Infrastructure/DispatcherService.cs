@@ -17,6 +17,8 @@ namespace Easy_Copier.Infrastructure
 
         public void TryEnqueue(Action action)
         {
+            ArgumentNullException.ThrowIfNull(action);
+
             if (_dispatcherQueue != null)
             {
                 _ = _dispatcherQueue.TryEnqueue(() => action());
@@ -29,6 +31,8 @@ namespace Easy_Copier.Infrastructure
 
         public void TryEnqueue(Func<Task> action)
         {
+            ArgumentNullException.ThrowIfNull(action);
+
             if (_dispatcherQueue != null)
             {
                 _ = _dispatcherQueue.TryEnqueue(async () => await action());

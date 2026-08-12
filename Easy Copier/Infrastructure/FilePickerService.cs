@@ -15,6 +15,8 @@ namespace Easy_Copier.Infrastructure
     {
         public async Task<string?> PickSaveFileAsync(string suggestedFileName, IDictionary<string, IList<string>> fileTypeChoices)
         {
+            ArgumentNullException.ThrowIfNull(fileTypeChoices);
+
             FileSavePicker savePicker = new()
             {
                 SuggestedStartLocation = PickerLocationId.DocumentsLibrary,
@@ -38,7 +40,7 @@ namespace Easy_Copier.Infrastructure
             return file?.Path;
         }
 
-        private IntPtr GetActiveWindowHandle()
+        private static IntPtr GetActiveWindowHandle()
         {
             return App.MainWindow != null ? WinRT.Interop.WindowNative.GetWindowHandle(App.MainWindow) : nint.Zero;
         }
