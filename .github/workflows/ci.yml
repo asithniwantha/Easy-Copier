@@ -43,7 +43,7 @@ jobs:
       - name: Check logs for warnings or errors
         id: check_logs
         run: |
-          if grep -iE ": warning|: error" build.log > /dev/null; then
+          if grep -iE ": warning|: error|: message [a-zA-Z]+[0-9]+:" build.log > /dev/null; then
             echo "has_issues=true" >> $GITHUB_OUTPUT
           else
             echo "has_issues=false" >> $GITHUB_OUTPUT
@@ -56,7 +56,7 @@ jobs:
           GH_TOKEN: ${{ secrets.GHI_JULES_TOKEN || secrets.GITHUB_TOKEN }}
         shell: bash
         run: |
-          grep -iE ": warning|: error" build.log > issues.log || true
+          grep -iE ": warning|: error|: message [a-zA-Z]+[0-9]+:" build.log > issues.log || true
 
           echo "The following build issues were detected during CI:" > issue_body.md
           echo "" >> issue_body.md
