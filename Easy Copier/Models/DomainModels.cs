@@ -37,12 +37,17 @@ namespace Easy_Copier.Models
         public bool IsFat32 => FileSystem.Equals("FAT32", StringComparison.OrdinalIgnoreCase);
         public const long Fat32MaxFileSize = 4L * 1024 * 1024 * 1024; // 4GB
     }
-
+    /// <summary>
+    /// Represents the result of a validation operation, including whether it is valid, the severity of the validation, and an associated message.
+    /// </summary>
     public record ValidationResult(
         bool IsValid,
         ValidationSeverity Severity,
         string Message);
 
+    /// <summary>
+    /// Represents the severity level of a validation result.
+    /// </summary>
     public enum ValidationSeverity
     {
         Info,
