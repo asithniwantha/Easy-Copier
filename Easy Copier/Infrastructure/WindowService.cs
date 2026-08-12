@@ -7,7 +7,8 @@ namespace Easy_Copier.Infrastructure
     {
         None,
         AddGameFolder,
-        AddAppFolder
+        AddAppFolder,
+        AddTvAndFilmFolder
     }
 
     public interface IWindowService

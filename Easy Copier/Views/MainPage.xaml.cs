@@ -46,10 +46,17 @@ namespace Easy_Copier.Views
             UpdateCombinedSelection();
         }
 
+        private void TvAndFilmsGridView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            UpdateCombinedSelection();
+        }
+
         private void UpdateCombinedSelection()
         {
+            var tvItems = TvAndFilmsGridView?.SelectedItems.Cast<GameEntry>() ?? Enumerable.Empty<GameEntry>();
             IEnumerable<GameEntry> selectedItems = GamesGridView.SelectedItems.Cast<GameEntry>()
-                .Concat(AppsGridView.SelectedItems.Cast<GameEntry>());
+                .Concat(AppsGridView.SelectedItems.Cast<GameEntry>())
+                .Concat(tvItems);
             ViewModel.UpdateSelectionSummary(selectedItems);
         }
 

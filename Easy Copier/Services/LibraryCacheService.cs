@@ -175,6 +175,11 @@ namespace Easy_Copier.Services
                     .OrderBy(p => p)
                     .ToList();
 
+                List<string> normalizedCacheTvAndFilmFolders = (cache.TvAndFilmSourceFolders ?? [])
+                    .Select(NormalizePath)
+                    .OrderBy(p => p)
+                    .ToList();
+
                 List<string> normalizedCurrentGameFolders = currentSettings.GameSourceFolders
                     .Select(NormalizePath)
                     .OrderBy(p => p)
@@ -185,14 +190,20 @@ namespace Easy_Copier.Services
                     .OrderBy(p => p)
                     .ToList();
 
+                List<string> normalizedCurrentTvAndFilmFolders = (currentSettings.TvAndFilmSourceFolders ?? [])
+                    .Select(NormalizePath)
+                    .OrderBy(p => p)
+                    .ToList();
+
                 if (!normalizedCacheGameFolders.SequenceEqual(normalizedCurrentGameFolders) ||
-                    !normalizedCacheAppFolders.SequenceEqual(normalizedCurrentAppFolders))
+                    !normalizedCacheAppFolders.SequenceEqual(normalizedCurrentAppFolders) ||
+                    !normalizedCacheTvAndFilmFolders.SequenceEqual(normalizedCurrentTvAndFilmFolders))
                 {
                     _logger.LogInformation("Cache configuration mismatch: source folders have changed");
                     return new CacheValidationOutcome(CacheValidationResult.ConfigurationMismatch, []);
                 }
 
-                IEnumerable<string> allSourceFolders = normalizedCurrentGameFolders.Concat(normalizedCurrentAppFolders).Distinct();
+                IEnumerable<string> allSourceFolders = normalizedCurrentGameFolders.Concat(normalizedCurrentAppFolders).Concat(normalizedCurrentTvAndFilmFolders).Distinct();
                 foreach (string? sourceFolder in allSourceFolders)
                 {
                     if (!Directory.Exists(sourceFolder))
@@ -204,7 +215,7 @@ namespace Easy_Copier.Services
 
                 List<string> changedItems = [];
 
-                List<GameEntry> allCachedItems = cache.Games.Concat(cache.Apps).ToList();
+                List<GameEntry> allCachedItems = cache.Games.Concat(cache.Apps).Concat(cache.TvAndFilms ?? []).ToList();
 
                 foreach (GameEntry? item in allCachedItems)
                 {
@@ -222,7 +233,7 @@ namespace Easy_Copier.Services
                         continue;
                     }
 
-                    if (!Directory.Exists(item.FolderPath))
+                    if (!Directory.Exists(item.FolderPath) && !File.Exists(item.FolderPath))
                     {
                         _logger.LogDebug("Item removed: {Path}", item.FolderPath);
                         changedItems.Add(normalizedPath);
@@ -325,24 +336,33 @@ namespace Easy_Copier.Services
         {
             return await Task.Run(() =>
             {
-                DirectoryInfo dirInfo = new(folderPath);
-                IEnumerable<FileInfo> files = dirInfo.EnumerateFiles("*", SearchOption.AllDirectories);
-
                 long totalBytes = 0;
                 DateTime latestWriteTime = DateTime.MinValue;
 
-                foreach (FileInfo file in files)
+                if (File.Exists(folderPath))
                 {
-                    if (cancellationToken.IsCancellationRequested)
-                    {
-                        break;
-                    }
+                    FileInfo fileInfo = new(folderPath);
+                    totalBytes = fileInfo.Length;
+                    latestWriteTime = fileInfo.LastWriteTimeUtc;
+                }
+                else
+                {
+                    DirectoryInfo dirInfo = new(folderPath);
+                    IEnumerable<FileInfo> files = dirInfo.EnumerateFiles("*", SearchOption.AllDirectories);
 
-                    totalBytes += file.Length;
-
-                    if (file.LastWriteTimeUtc > latestWriteTime)
+                    foreach (FileInfo file in files)
                     {
-                        latestWriteTime = file.LastWriteTimeUtc;
+                        if (cancellationToken.IsCancellationRequested)
+                        {
+                            break;
+                        }
+
+                        totalBytes += file.Length;
+
+                        if (file.LastWriteTimeUtc > latestWriteTime)
+                        {
+                            latestWriteTime = file.LastWriteTimeUtc;
+                        }
                     }
                 }
 

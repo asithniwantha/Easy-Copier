@@ -27,6 +27,10 @@ namespace Easy_Copier.ViewModels
 
         public ObservableCollection<string> GameSourceFolders { get; } = [];
         public ObservableCollection<string> AppSourceFolders { get; } = [];
+        public ObservableCollection<string> TvAndFilmSourceFolders { get; } = [];
+
+        [ObservableProperty]
+        public partial string VideoFileExtensions { get; set; } = ".mp4,.mkv,.avi";
 
         private readonly Infrastructure.IProcessService _processService;
 
@@ -85,6 +89,12 @@ namespace Easy_Copier.ViewModels
             await AddSourceFolderAsync(AppSourceFolders, "app");
         }
 
+        [RelayCommand]
+        private async Task AddTvAndFilmSourceFolderAsync()
+        {
+            await AddSourceFolderAsync(TvAndFilmSourceFolders, "film/tv");
+        }
+
         private async Task AddSourceFolderAsync(ObservableCollection<string> targetFolders, string categoryLabel)
         {
             StatusMessage = "Opening folder picker...";
@@ -122,6 +132,14 @@ namespace Easy_Copier.ViewModels
         private async Task RemoveAppSourceFolderAsync(string folderPath)
         {
             _ = AppSourceFolders.Remove(folderPath);
+            StatusMessage = $"Removed: {folderPath}";
+            await SaveSettingsAsync();
+        }
+
+        [RelayCommand]
+        private async Task RemoveTvAndFilmSourceFolderAsync(string folderPath)
+        {
+            _ = TvAndFilmSourceFolders.Remove(folderPath);
             StatusMessage = $"Removed: {folderPath}";
             await SaveSettingsAsync();
         }
@@ -177,9 +195,11 @@ namespace Easy_Copier.ViewModels
         public void LoadSettings(AppSettings settings)
         {
             AutoScanOnStartup = settings.AutoScanOnStartup;
+            VideoFileExtensions = settings.VideoFileExtensions ?? ".mp4,.mkv,.avi";
 
             GameSourceFolders.UpdateFrom(settings.GameSourceFolders);
             AppSourceFolders.UpdateFrom(settings.AppSourceFolders);
+            TvAndFilmSourceFolders.UpdateFrom(settings.TvAndFilmSourceFolders ?? []);
         }
 
         public AppSettings GetSettings()
@@ -187,8 +207,10 @@ namespace Easy_Copier.ViewModels
             return new AppSettings
             {
                 AutoScanOnStartup = AutoScanOnStartup,
+                VideoFileExtensions = VideoFileExtensions,
                 GameSourceFolders = [.. GameSourceFolders],
-                AppSourceFolders = [.. AppSourceFolders]
+                AppSourceFolders = [.. AppSourceFolders],
+                TvAndFilmSourceFolders = [.. TvAndFilmSourceFolders]
             };
         }
     }

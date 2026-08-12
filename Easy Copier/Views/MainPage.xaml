@@ -132,6 +132,26 @@
                                   IsItemClickEnabled="False"/>
                     </Grid>
                 </PivotItem>
+
+                <PivotItem Header="Films &amp; TV series">
+                    <Grid>
+                        <ProgressRing IsActive="{x:Bind ViewModel.IsScanning, Mode=OneWay}"
+                                      Width="48" Height="48"
+                                      HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
+                        <TextBlock Text="{x:Bind ViewModel.EmptyTvAndFilmsMessage, Mode=OneWay}"
+                                   HorizontalAlignment="Center" VerticalAlignment="Center"
+                                   TextWrapping="Wrap" MaxWidth="400" Opacity="0.7"
+                                   Visibility="{x:Bind ViewModel.IsTvAndFilmsEmpty, Mode=OneWay}"/>
+
+                        <GridView x:Name="TvAndFilmsGridView"
+                                  ItemsSource="{x:Bind ViewModel.TvAndFilms, Mode=OneWay}"
+                                  ItemTemplate="{StaticResource LibraryItemTemplate}"
+                                  SelectionMode="Multiple"
+                                  SelectionChanged="TvAndFilmsGridView_SelectionChanged"
+                                  IsItemClickEnabled="False"/>
+                    </Grid>
+                </PivotItem>
             </Pivot>
         </Grid>
 
