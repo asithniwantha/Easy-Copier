@@ -72,3 +72,4 @@
 ## Future Enhancements (To Do List)
 - If folder name ends with 'collection' go inside and scan for games/apps.
 - Run the provided python script to download the cover images and minimum requirements for the games/apps that don't have cover images and requirement file.
+- Add github actions to build and publish the app to github releases automatically with versioning number based on git tags.
