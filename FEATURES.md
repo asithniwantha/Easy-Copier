@@ -73,5 +73,6 @@
 ## Future Enhancements (to do list)
 - Run the provided python script to download the cover images and minimum requirements for the games/apps that don't have cover images and requirement file.
 - Add github actions to build and publish the app to github releases automatically with versioning number based on git tags.
-- exclude folder names start with $ and recyclebin systems volume information
+- exclude folder names start with $ and recyclebin 'systems volume information'
 - add tv series and films tab
+- add price tag for each item in the library that should be calculated from the size of the per GB.
