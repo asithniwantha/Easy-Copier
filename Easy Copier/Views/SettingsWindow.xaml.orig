@@ -54,15 +54,8 @@
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
-
-                <StackPanel Orientation="Horizontal" Spacing="8" Margin="0,8,0,0">
-                    <Button Content="Add Game Folder" Command="{x:Bind ViewModel.AddGameSourceFolderCommand}"
-                            HorizontalAlignment="Left"/>
-                    <Button Content="Download Covers &amp; Requirements"
-                            Command="{x:Bind ViewModel.DownloadGameInfoCommand}"
-                            ToolTipService.ToolTip="Downloads cover images and system requirements for all games in configured folders"
-                            HorizontalAlignment="Left"/>
-                </StackPanel>
+                <Button Content="Add Game Folder" Command="{x:Bind ViewModel.AddGameSourceFolderCommand}"
+                        HorizontalAlignment="Left" Margin="0,8,0,0"/>
             </StackPanel>
 
             <StackPanel Grid.Column="2" Spacing="8">
