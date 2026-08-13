@@ -100,7 +100,7 @@ namespace Easy_Copier.Infrastructure
             }
         }
 
-        public static void ShowAsModal(Microsoft.UI.Xaml.Window childWindow, Microsoft.UI.Xaml.Window ownerWindow)
+        public static void ShowAsModal(Microsoft.UI.Xaml.Window childWindow, Microsoft.UI.Xaml.Window? ownerWindow)
         {
             IntPtr childHwnd = WindowNative.GetWindowHandle(childWindow);
             IntPtr ownerHwnd = ownerWindow != null ? WindowNative.GetWindowHandle(ownerWindow) : IntPtr.Zero;
@@ -113,7 +113,7 @@ namespace Easy_Copier.Infrastructure
             }
         }
 
-        public static void RestoreOwnerInput(Microsoft.UI.Xaml.Window ownerWindow)
+        public static void RestoreOwnerInput(Microsoft.UI.Xaml.Window? ownerWindow)
         {
             IntPtr ownerHwnd = ownerWindow != null ? WindowNative.GetWindowHandle(ownerWindow) : IntPtr.Zero;
             if (ownerHwnd != IntPtr.Zero)

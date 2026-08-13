@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 
 namespace Easy_Copier.ViewModels
 {
-    public partial class MainViewModel : ObservableObject, IDisposable
+    public sealed partial class MainViewModel : ObservableObject, IDisposable
     {
         private readonly ISettingsService _settingsService;
         private readonly ILibraryCacheService _libraryCacheService;
@@ -162,7 +162,7 @@ namespace Easy_Copier.ViewModels
                 _driveDiscoveryService.StartWatching();
                 await RefreshDrivesAsync();
 
-                if (!settings.GameSourceFolders.Any() && !settings.AppSourceFolders.Any() && !(settings.TvAndFilmSourceFolders?.Any() ?? false))
+                if (settings.GameSourceFolders.Count == 0 && settings.AppSourceFolders.Count == 0 && (settings.TvAndFilmSourceFolders == null || settings.TvAndFilmSourceFolders.Count == 0))
                 {
                     StatusMessage = "Ready - No source folders configured";
                     return;
@@ -227,7 +227,10 @@ namespace Easy_Copier.ViewModels
         {
             try
             {
-                _validationCancellationTokenSource?.Cancel();
+                if (_validationCancellationTokenSource != null)
+                {
+                    await _validationCancellationTokenSource.CancelAsync();
+                }
                 _validationCancellationTokenSource = new CancellationTokenSource();
 
                 CacheValidationOutcome validationResult = await _libraryCacheService.ValidateCacheAsync(
@@ -281,12 +284,15 @@ namespace Easy_Copier.ViewModels
                 TvAndFilms.Clear();
                 ValidationMessages.Clear();
 
-                _scanCancellationTokenSource?.Cancel();
+                if (_scanCancellationTokenSource != null)
+                {
+                    await _scanCancellationTokenSource.CancelAsync();
+                }
                 _scanCancellationTokenSource = new CancellationTokenSource();
 
                 AppSettings settings = await _settingsService.LoadSettingsAsync();
 
-                if (!settings.GameSourceFolders.Any() && !settings.AppSourceFolders.Any() && !(settings.TvAndFilmSourceFolders?.Any() ?? false))
+                if (settings.GameSourceFolders.Count == 0 && settings.AppSourceFolders.Count == 0 && (settings.TvAndFilmSourceFolders == null || settings.TvAndFilmSourceFolders.Count == 0))
                 {
                     await _libraryCacheService.InvalidateCacheAsync();
                     StatusMessage = "No source folders configured. Please add folders in Settings.";
@@ -298,7 +304,7 @@ namespace Easy_Copier.ViewModels
                     StatusMessage = message;
                 });
 
-                if (settings.GameSourceFolders.Any())
+                if (settings.GameSourceFolders.Count > 0)
                 {
                     IReadOnlyList<GameEntry> games = await _gameScannerService.ScanLibraryAsync(
                         settings.GameSourceFolders,
@@ -309,7 +315,7 @@ namespace Easy_Copier.ViewModels
                     _allGames.AddRange(games);
                 }
 
-                if (settings.AppSourceFolders.Any())
+                if (settings.AppSourceFolders.Count > 0)
                 {
                     IReadOnlyList<GameEntry> apps = await _gameScannerService.ScanLibraryAsync(
                         settings.AppSourceFolders,
@@ -320,7 +326,7 @@ namespace Easy_Copier.ViewModels
                     _allApps.AddRange(apps);
                 }
 
-                if (settings.TvAndFilmSourceFolders?.Any() ?? false)
+                if (settings.TvAndFilmSourceFolders != null && settings.TvAndFilmSourceFolders.Count > 0)
                 {
                     IReadOnlyList<GameEntry> tvAndFilms = await _gameScannerService.ScanLibraryAsync(
                         settings.TvAndFilmSourceFolders,

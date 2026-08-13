@@ -38,7 +38,7 @@ namespace Easy_Copier.Services
             {
                 string folderName = Path.GetFileName(folderPath).TrimEnd();
 
-                if (folderName.StartsWith("$"))
+                if (folderName.StartsWith('$'))
                     return true;
 
                 if (string.Equals(folderName, "recyclebin", StringComparison.OrdinalIgnoreCase))
@@ -100,7 +100,7 @@ namespace Easy_Copier.Services
                     if (category == LibraryCategory.TvAndFilm && !string.IsNullOrWhiteSpace(videoExtensions))
                     {
                         var extList = videoExtensions.Split(new[] { ',', ';', ' ' }, StringSplitOptions.RemoveEmptyEntries)
-                                                     .Select(e => e.Trim().StartsWith(".") ? e.Trim() : "." + e.Trim())
+                                                     .Select(e => e.Trim().StartsWith('.') ? e.Trim() : "." + e.Trim())
                                                      .ToList();
 
                         try

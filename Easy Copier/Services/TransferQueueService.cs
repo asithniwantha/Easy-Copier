@@ -47,6 +47,9 @@ namespace Easy_Copier.Services
 
         public TransferQueueItem Enqueue(IReadOnlyList<GameEntry> games, RemovableDrive targetDrive, string destinationPath)
         {
+            ArgumentNullException.ThrowIfNull(games);
+            ArgumentNullException.ThrowIfNull(targetDrive);
+
             TransferQueueItem item = new(games, targetDrive, destinationPath);
 
             QueueItems.Add(item);

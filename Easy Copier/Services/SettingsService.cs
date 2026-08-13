@@ -17,6 +17,7 @@ namespace Easy_Copier.Services
 
     public class SettingsService(ILogger<SettingsService> logger) : ISettingsService
     {
+        private static readonly JsonSerializerOptions _jsonOptions = new() { WriteIndented = true };
         private readonly ILogger<SettingsService> _logger = logger;
         private const string SettingsFileName = "appsettings.json";
         private AppSettings? _cachedSettings;
@@ -105,12 +106,7 @@ namespace Easy_Copier.Services
 
             try
             {
-                JsonSerializerOptions options = new()
-                {
-                    WriteIndented = true
-                };
-
-                string json = JsonSerializer.Serialize(settings, options);
+                string json = JsonSerializer.Serialize(settings, _jsonOptions);
                 await File.WriteAllTextAsync(settingsPath, json);
 
                 // Invalidate or update cache on save
