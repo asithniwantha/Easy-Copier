@@ -93,6 +93,14 @@ namespace Easy_Copier.Services
                     {
                         try
                         {
+                            // Verify that both the transfer item and its associated game entry are not null.
+                            // This ensures proper support for C# nullable reference types and guards against malformed inputs.
+                            if (item == null || item.Game == null)
+                            {
+                                _logger.LogWarning("Found null transfer item or game reference; skipping.");
+                                continue;
+                            }
+
                             GameEntry game = item.Game;
                             string destPath = Path.Combine(request.DestinationPath, game.Name);
                             if (File.Exists(game.FolderPath))
@@ -162,7 +170,8 @@ namespace Easy_Copier.Services
                         }
                         catch (Exception ex)
                         {
-                            string itemName = item.Game?.Name ?? "Unknown item";
+                            // Safely extract the game name using null-conditional access to handle cases where item is null
+                            string itemName = item?.Game?.Name ?? "Unknown item";
                             errors.Add($"{itemName}: {ex.Message}");
                             _logger.LogError(ex, "Error copying game: {Game}", itemName);
 
