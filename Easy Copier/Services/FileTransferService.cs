@@ -162,14 +162,15 @@ namespace Easy_Copier.Services
                         }
                         catch (Exception ex)
                         {
-                            errors.Add($"{game.Name}: {ex.Message}");
-                            _logger.LogError(ex, "Error copying game: {Game}", game.Name);
+                            string itemName = item.Game?.Name ?? "Unknown item";
+                            errors.Add($"{itemName}: {ex.Message}");
+                            _logger.LogError(ex, "Error copying game: {Game}", itemName);
 
                             // Log failure to history
                             _copyHistoryService.AddRecordAsync(new CopyHistoryRecord(
                                 Id: 0,
                                 Timestamp: DateTime.Now,
-                                GameName: game.Name,
+                                GameName: itemName,
                                 TargetDriveLetter: request.TargetDrive.DriveLetter,
                                 TargetDriveLabel: request.TargetDrive.DriveLabel,
                                 BytesTransferred: 0,
