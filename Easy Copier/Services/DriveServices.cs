@@ -17,7 +17,7 @@ namespace Easy_Copier.Services
         void StopWatching();
     }
 
-    public class DriveDiscoveryService : IDriveDiscoveryService
+    public sealed class DriveDiscoveryService : IDriveDiscoveryService
     {
         private readonly ILogger<DriveDiscoveryService> _logger;
         private ManagementEventWatcher? _driveWatcher;

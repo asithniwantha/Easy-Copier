@@ -29,7 +29,7 @@ namespace Easy_Copier.Infrastructure
 
             text = Regex.Replace(text, @"(?<!\n)\s*Minimum:", "\nMinimum:");
             text = Regex.Replace(text, @"(?<!\n)\s*Recommended:", "\nRecommended:");
-            text = text.Replace("&amp;", "&");
+            text = text.Replace("&amp;", "&", StringComparison.Ordinal);
             return text;
         }
     }

@@ -208,10 +208,10 @@ namespace Easy_Copier.ViewModels
         {
             AutoScanOnStartup = settings.AutoScanOnStartup;
             VideoFileExtensions = settings.VideoFileExtensions ?? ".mp4,.mkv,.avi";
-            PriceTier1 = settings.PriceTier1.ToString();
-            PriceTier2 = settings.PriceTier2.ToString();
-            PriceTier3 = settings.PriceTier3.ToString();
-            PriceTier4 = settings.PriceTier4.ToString();
+            PriceTier1 = settings.PriceTier1.ToString(System.Globalization.CultureInfo.InvariantCulture);
+            PriceTier2 = settings.PriceTier2.ToString(System.Globalization.CultureInfo.InvariantCulture);
+            PriceTier3 = settings.PriceTier3.ToString(System.Globalization.CultureInfo.InvariantCulture);
+            PriceTier4 = settings.PriceTier4.ToString(System.Globalization.CultureInfo.InvariantCulture);
 
             GameSourceFolders.UpdateFrom(settings.GameSourceFolders);
             AppSourceFolders.UpdateFrom(settings.AppSourceFolders);

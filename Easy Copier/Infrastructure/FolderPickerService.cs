@@ -31,7 +31,7 @@ namespace Easy_Copier.Infrastructure
             return folder?.Path;
         }
 
-        private IntPtr GetActiveWindowHandle()
+        private static IntPtr GetActiveWindowHandle()
         {
             return App.MainWindow != null ? WindowNative.GetWindowHandle(App.MainWindow) : nint.Zero;
         }
