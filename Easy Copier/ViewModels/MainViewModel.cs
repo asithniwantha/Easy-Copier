@@ -369,7 +369,7 @@ namespace Easy_Copier.ViewModels
             {
                 Dictionary<string, ItemFingerprint> fingerprints = [];
 
-                List<GameEntry> allEntries = _allGames.Concat(_allApps).Concat(_allTvAndFilms).ToList();
+                List<GameEntry> allEntries = [.. _allGames, .. _allApps, .. _allTvAndFilms];
 
                 foreach (GameEntry? entry in allEntries)
                 {
@@ -388,12 +388,12 @@ namespace Easy_Copier.ViewModels
 
                 LibraryCacheSnapshot snapshot = new(
                     LibraryCacheSnapshot.CurrentSchemaVersion,
-                    _allGames.ToList(),
-                    _allApps.ToList(),
-                    _allTvAndFilms.ToList(),
-                    settings.GameSourceFolders.ToList(),
-                    settings.AppSourceFolders.ToList(),
-                    (settings.TvAndFilmSourceFolders ?? []).ToList(),
+                    [.. _allGames],
+                    [.. _allApps],
+                    [.. _allTvAndFilms],
+                    [.. settings.GameSourceFolders],
+                    [.. settings.AppSourceFolders],
+                    [.. settings.TvAndFilmSourceFolders ?? []],
                     DateTime.Now,
                     fingerprints);
 
@@ -532,7 +532,7 @@ namespace Easy_Copier.ViewModels
 
         public void UpdateSelectionSummary(System.Collections.Generic.IEnumerable<GameEntry> selectedGames)
         {
-            _selectedGames = selectedGames.ToList();
+            _selectedGames = [.. selectedGames];
             SelectedGamesCount = _selectedGames.Count;
             SelectedGamesTotalBytes = _selectedGames.Sum(g => g.TotalBytes);
             CopySelectedGamesCommand.NotifyCanExecuteChanged();
@@ -570,7 +570,11 @@ namespace Easy_Copier.ViewModels
 
         public async Task<string> GetFormattedSystemRequirementsAsync(string folderPath)
         {
-            if (string.IsNullOrEmpty(folderPath)) return string.Empty;
+            if (string.IsNullOrEmpty(folderPath))
+            {
+                return string.Empty;
+            }
+
             string rawRequirementsText = await _sourceLibraryService.GetSystemRequirementsAsync(folderPath);
             return SysReqFormatter.FormatText(rawRequirementsText);
         }

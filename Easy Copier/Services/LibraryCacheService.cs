@@ -262,7 +262,7 @@ namespace Easy_Copier.Services
                     }
                 }
 
-                HashSet<string> currentTopLevelItems = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
+                HashSet<string> currentTopLevelItems = new(StringComparer.OrdinalIgnoreCase);
 
                 foreach (string? sourceFolder in allSourceFolders)
                 {

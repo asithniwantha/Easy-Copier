@@ -1,13 +1,13 @@
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Net.Http;
+using System.Text;
 using System.Text.Json;
 using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
-using Microsoft.Extensions.Logging;
 
 namespace Easy_Copier.Services
 {
@@ -31,9 +31,12 @@ namespace Easy_Copier.Services
         public async Task DownloadGameInfoAsync(IEnumerable<string> sourceFolders, IProgress<string>? progress = null, CancellationToken cancellationToken = default)
         {
             ArgumentNullException.ThrowIfNull(sourceFolders);
-            foreach (var sourceFolder in sourceFolders)
+            foreach (string sourceFolder in sourceFolders)
             {
-                if (cancellationToken.IsCancellationRequested) break;
+                if (cancellationToken.IsCancellationRequested)
+                {
+                    break;
+                }
 
                 if (!Directory.Exists(sourceFolder))
                 {
@@ -45,17 +48,17 @@ namespace Easy_Copier.Services
                 try
                 {
                     progress?.Report($"Scanning: {sourceFolder}");
-                    var initialSubdirectories = await Task.Run(() => Directory.GetDirectories(sourceFolder, "*", SearchOption.TopDirectoryOnly), cancellationToken);
+                    string[] initialSubdirectories = await Task.Run(() => Directory.GetDirectories(sourceFolder, "*", SearchOption.TopDirectoryOnly), cancellationToken);
 
-                    var foldersToProcess = new List<string>();
-                    foreach (var subdir in initialSubdirectories)
+                    List<string> foldersToProcess = [];
+                    foreach (string? subdir in initialSubdirectories)
                     {
-                        var folderName = Path.GetFileName(subdir).TrimEnd();
+                        string folderName = Path.GetFileName(subdir).TrimEnd();
                         if (folderName.EndsWith("collection", StringComparison.OrdinalIgnoreCase))
                         {
                             try
                             {
-                                var collectionSubdirectories = await Task.Run(() => Directory.GetDirectories(subdir, "*", SearchOption.TopDirectoryOnly), cancellationToken);
+                                string[] collectionSubdirectories = await Task.Run(() => Directory.GetDirectories(subdir, "*", SearchOption.TopDirectoryOnly), cancellationToken);
                                 foldersToProcess.AddRange(collectionSubdirectories);
                             }
                             catch (Exception ex)
@@ -70,11 +73,14 @@ namespace Easy_Copier.Services
                     }
 
                     int idx = 1;
-                    foreach (var gameFolder in foldersToProcess)
+                    foreach (string gameFolder in foldersToProcess)
                     {
-                        if (cancellationToken.IsCancellationRequested) break;
+                        if (cancellationToken.IsCancellationRequested)
+                        {
+                            break;
+                        }
 
-                        var gameName = Path.GetFileName(gameFolder);
+                        string gameName = Path.GetFileName(gameFolder);
                         progress?.Report($"[{idx}/{foldersToProcess.Count}] Processing: {gameName}");
 
                         await ProcessGameAsync(gameName, gameFolder, cancellationToken);
@@ -98,19 +104,22 @@ namespace Easy_Copier.Services
 
         private async Task DownloadRequirementsAsync(string gameName, string gameFolder, CancellationToken cancellationToken)
         {
-            var reqFile = Path.Combine(gameFolder, "system_requirements.txt");
+            string reqFile = Path.Combine(gameFolder, "system_requirements.txt");
             if (File.Exists(reqFile))
             {
-                var content = await File.ReadAllTextAsync(reqFile, cancellationToken);
-                if (content.Contains("Steam Web API", StringComparison.Ordinal)) return; // Already fetched
+                string content = await File.ReadAllTextAsync(reqFile, cancellationToken);
+                if (content.Contains("Steam Web API", StringComparison.Ordinal))
+                {
+                    return; // Already fetched
+                }
             }
 
             try
             {
-                var reqs = await FetchSteamRequirementsAsync(gameName, cancellationToken);
+                Dictionary<string, Dictionary<string, string>>? reqs = await FetchSteamRequirementsAsync(gameName, cancellationToken);
                 if (reqs != null)
                 {
-                    var formatted = FormatRequirements(gameName, reqs);
+                    string formatted = FormatRequirements(gameName, reqs);
                     await File.WriteAllTextAsync(reqFile, formatted, cancellationToken);
                     await Task.Delay(300, cancellationToken); // Rate limiting
                 }
@@ -123,12 +132,15 @@ namespace Easy_Copier.Services
 
         private async Task DownloadCoverAsync(string gameName, string gameFolder, CancellationToken cancellationToken)
         {
-            var coverPath = Path.Combine(gameFolder, "cover.jpg");
-            if (File.Exists(coverPath)) return;
+            string coverPath = Path.Combine(gameFolder, "cover.jpg");
+            if (File.Exists(coverPath))
+            {
+                return;
+            }
 
             try
             {
-                var appId = await FetchSteamAppIdAsync(gameName, cancellationToken);
+                string? appId = await FetchSteamAppIdAsync(gameName, cancellationToken);
                 if (appId != null && await TryFetchSteamCoverAsync(appId, coverPath, cancellationToken))
                 {
                     await Task.Delay(200, cancellationToken);
@@ -152,31 +164,46 @@ namespace Easy_Copier.Services
 
         private async Task<Dictionary<string, Dictionary<string, string>>?> FetchSteamRequirementsAsync(string gameName, CancellationToken cancellationToken)
         {
-            var appId = await FetchSteamAppIdAsync(gameName, cancellationToken);
-            if (appId == null) return null;
-
-            var url = new Uri($"https://store.steampowered.com/api/appdetails?appids={appId}");
-            var response = await _httpClient.GetAsync(url, cancellationToken);
-            if (!response.IsSuccessStatusCode) return null;
-
-            var content = await response.Content.ReadAsStringAsync(cancellationToken);
-            using var doc = JsonDocument.Parse(content);
-            if (!doc.RootElement.TryGetProperty(appId, out var appData) || !appData.GetProperty("success").GetBoolean()) return null;
-
-            var data = appData.GetProperty("data");
-            var requirements = new Dictionary<string, Dictionary<string, string>>();
-
-            if (data.TryGetProperty("pc_requirements", out var pcReqs))
+            string? appId = await FetchSteamAppIdAsync(gameName, cancellationToken);
+            if (appId == null)
             {
-                if (pcReqs.TryGetProperty("minimum", out var minProp))
+                return null;
+            }
+
+            Uri url = new($"https://store.steampowered.com/api/appdetails?appids={appId}");
+            HttpResponseMessage response = await _httpClient.GetAsync(url, cancellationToken);
+            if (!response.IsSuccessStatusCode)
+            {
+                return null;
+            }
+
+            string content = await response.Content.ReadAsStringAsync(cancellationToken);
+            using JsonDocument doc = JsonDocument.Parse(content);
+            if (!doc.RootElement.TryGetProperty(appId, out JsonElement appData) || !appData.GetProperty("success").GetBoolean())
+            {
+                return null;
+            }
+
+            JsonElement data = appData.GetProperty("data");
+            Dictionary<string, Dictionary<string, string>> requirements = [];
+
+            if (data.TryGetProperty("pc_requirements", out JsonElement pcReqs))
+            {
+                if (pcReqs.TryGetProperty("minimum", out JsonElement minProp))
                 {
-                    var parsed = ParseSteamRequirements(minProp.GetString());
-                    if (parsed.Count > 0) requirements["minimum"] = parsed;
+                    Dictionary<string, string> parsed = ParseSteamRequirements(minProp.GetString());
+                    if (parsed.Count > 0)
+                    {
+                        requirements["minimum"] = parsed;
+                    }
                 }
-                if (pcReqs.TryGetProperty("recommended", out var recProp))
+                if (pcReqs.TryGetProperty("recommended", out JsonElement recProp))
                 {
-                    var parsed = ParseSteamRequirements(recProp.GetString());
-                    if (parsed.Count > 0) requirements["recommended"] = parsed;
+                    Dictionary<string, string> parsed = ParseSteamRequirements(recProp.GetString());
+                    if (parsed.Count > 0)
+                    {
+                        requirements["recommended"] = parsed;
+                    }
                 }
             }
 
@@ -185,60 +212,78 @@ namespace Easy_Copier.Services
 
         private static Dictionary<string, string> ParseSteamRequirements(string? html)
         {
-            var specs = new Dictionary<string, string>();
-            if (string.IsNullOrWhiteSpace(html)) return specs;
-
-            var text = Regex.Replace(html, "<[^<]+?>", "");
-            text = Regex.Replace(text, "\n+", "\n").Trim();
-            var lines = text.Split('\n', StringSplitOptions.RemoveEmptyEntries);
-
-            foreach (var line in lines)
+            Dictionary<string, string> specs = [];
+            if (string.IsNullOrWhiteSpace(html))
             {
-                var t = line.Trim();
-                if (string.IsNullOrEmpty(t)) continue;
+                return specs;
+            }
 
-                if (Regex.IsMatch(t, "cpu|processor", RegexOptions.IgnoreCase)) specs["CPU"] = t;
-                else if (Regex.IsMatch(t, "gpu|graphics|video|directx", RegexOptions.IgnoreCase)) specs["GPU"] = t;
-                else if (Regex.IsMatch(t, "memory|ram|gb", RegexOptions.IgnoreCase)) specs["RAM"] = t;
-                else if (Regex.IsMatch(t, "storage|disk|space", RegexOptions.IgnoreCase)) specs["Storage"] = t;
+            string text = Regex.Replace(html, "<[^<]+?>", "");
+            text = Regex.Replace(text, "\n+", "\n").Trim();
+            string[] lines = text.Split('\n', StringSplitOptions.RemoveEmptyEntries);
+
+            foreach (string line in lines)
+            {
+                string t = line.Trim();
+                if (string.IsNullOrEmpty(t))
+                {
+                    continue;
+                }
+
+                if (Regex.IsMatch(t, "cpu|processor", RegexOptions.IgnoreCase))
+                {
+                    specs["CPU"] = t;
+                }
+                else if (Regex.IsMatch(t, "gpu|graphics|video|directx", RegexOptions.IgnoreCase))
+                {
+                    specs["GPU"] = t;
+                }
+                else if (Regex.IsMatch(t, "memory|ram|gb", RegexOptions.IgnoreCase))
+                {
+                    specs["RAM"] = t;
+                }
+                else if (Regex.IsMatch(t, "storage|disk|space", RegexOptions.IgnoreCase))
+                {
+                    specs["Storage"] = t;
+                }
             }
             return specs;
         }
 
         private static string FormatRequirements(string gameName, Dictionary<string, Dictionary<string, string>> requirements)
         {
-            var sb = new System.Text.StringBuilder();
-            sb.AppendLine(System.Globalization.CultureInfo.InvariantCulture, $"SYSTEM REQUIREMENTS FOR: {gameName}");
-            sb.AppendLine(new string('=', 70));
-            sb.AppendLine();
+            StringBuilder sb = new();
+            _ = sb.AppendLine(System.Globalization.CultureInfo.InvariantCulture, $"SYSTEM REQUIREMENTS FOR: {gameName}");
+            _ = sb.AppendLine(new string('=', 70));
+            _ = sb.AppendLine();
 
-            sb.AppendLine("MINIMUM REQUIREMENTS:");
-            sb.AppendLine(new string('-', 70));
-            if (!requirements.TryGetValue("minimum", out var minSpecs))
+            _ = sb.AppendLine("MINIMUM REQUIREMENTS:");
+            _ = sb.AppendLine(new string('-', 70));
+            if (!requirements.TryGetValue("minimum", out Dictionary<string, string>? minSpecs))
             {
-                minSpecs = new Dictionary<string, string>();
+                minSpecs = [];
             }
-            sb.AppendLine(System.Globalization.CultureInfo.InvariantCulture, $"CPU: {(minSpecs.TryGetValue("CPU", out var cpu) ? cpu : "Not available")}");
-            sb.AppendLine(System.Globalization.CultureInfo.InvariantCulture, $"GPU: {(minSpecs.TryGetValue("GPU", out var gpu) ? gpu : "Not available")}");
-            sb.AppendLine(System.Globalization.CultureInfo.InvariantCulture, $"RAM: {(minSpecs.TryGetValue("RAM", out var ram) ? ram : "Not available")}");
-            sb.AppendLine(System.Globalization.CultureInfo.InvariantCulture, $"Storage: {(minSpecs.TryGetValue("Storage", out var storage) ? storage : "Not available")}");
-            sb.AppendLine();
+            _ = sb.AppendLine(System.Globalization.CultureInfo.InvariantCulture, $"CPU: {(minSpecs.TryGetValue("CPU", out string? cpu) ? cpu : "Not available")}");
+            _ = sb.AppendLine(System.Globalization.CultureInfo.InvariantCulture, $"GPU: {(minSpecs.TryGetValue("GPU", out string? gpu) ? gpu : "Not available")}");
+            _ = sb.AppendLine(System.Globalization.CultureInfo.InvariantCulture, $"RAM: {(minSpecs.TryGetValue("RAM", out string? ram) ? ram : "Not available")}");
+            _ = sb.AppendLine(System.Globalization.CultureInfo.InvariantCulture, $"Storage: {(minSpecs.TryGetValue("Storage", out string? storage) ? storage : "Not available")}");
+            _ = sb.AppendLine();
 
-            sb.AppendLine("RECOMMENDED REQUIREMENTS:");
-            sb.AppendLine(new string('-', 70));
-            if (!requirements.TryGetValue("recommended", out var recSpecs))
+            _ = sb.AppendLine("RECOMMENDED REQUIREMENTS:");
+            _ = sb.AppendLine(new string('-', 70));
+            if (!requirements.TryGetValue("recommended", out Dictionary<string, string>? recSpecs))
             {
-                recSpecs = new Dictionary<string, string>();
+                recSpecs = [];
             }
-            sb.AppendLine(System.Globalization.CultureInfo.InvariantCulture, $"CPU: {(recSpecs.TryGetValue("CPU", out var rcpu) ? rcpu : "Not available")}");
-            sb.AppendLine(System.Globalization.CultureInfo.InvariantCulture, $"GPU: {(recSpecs.TryGetValue("GPU", out var rgpu) ? rgpu : "Not available")}");
-            sb.AppendLine(System.Globalization.CultureInfo.InvariantCulture, $"RAM: {(recSpecs.TryGetValue("RAM", out var rram) ? rram : "Not available")}");
-            sb.AppendLine(System.Globalization.CultureInfo.InvariantCulture, $"Storage: {(recSpecs.TryGetValue("Storage", out var rstorage) ? rstorage : "Not available")}");
-            sb.AppendLine();
+            _ = sb.AppendLine(System.Globalization.CultureInfo.InvariantCulture, $"CPU: {(recSpecs.TryGetValue("CPU", out string? rcpu) ? rcpu : "Not available")}");
+            _ = sb.AppendLine(System.Globalization.CultureInfo.InvariantCulture, $"GPU: {(recSpecs.TryGetValue("GPU", out string? rgpu) ? rgpu : "Not available")}");
+            _ = sb.AppendLine(System.Globalization.CultureInfo.InvariantCulture, $"RAM: {(recSpecs.TryGetValue("RAM", out string? rram) ? rram : "Not available")}");
+            _ = sb.AppendLine(System.Globalization.CultureInfo.InvariantCulture, $"Storage: {(recSpecs.TryGetValue("Storage", out string? rstorage) ? rstorage : "Not available")}");
+            _ = sb.AppendLine();
 
-            sb.AppendLine(new string('-', 70));
-            sb.AppendLine(System.Globalization.CultureInfo.InvariantCulture, $"Created on: {DateTime.Now:yyyy-MM-dd HH:mm:ss}");
-            sb.AppendLine("Source: Fetched from Steam Web API");
+            _ = sb.AppendLine(new string('-', 70));
+            _ = sb.AppendLine(System.Globalization.CultureInfo.InvariantCulture, $"Created on: {DateTime.Now:yyyy-MM-dd HH:mm:ss}");
+            _ = sb.AppendLine("Source: Fetched from Steam Web API");
 
             return sb.ToString();
         }
@@ -247,13 +292,17 @@ namespace Easy_Copier.Services
 
         private async Task<string?> FetchSteamAppIdAsync(string gameName, CancellationToken cancellationToken)
         {
-            var url = new Uri($"https://steamcommunity.com/actions/SearchApps/{Uri.EscapeDataString(gameName)}");
+            Uri url = new($"https://steamcommunity.com/actions/SearchApps/{Uri.EscapeDataString(gameName)}");
             try
             {
-                var response = await _httpClient.GetAsync(url, cancellationToken);
-                if (!response.IsSuccessStatusCode) return null;
-                var content = await response.Content.ReadAsStringAsync(cancellationToken);
-                using var doc = JsonDocument.Parse(content);
+                HttpResponseMessage response = await _httpClient.GetAsync(url, cancellationToken);
+                if (!response.IsSuccessStatusCode)
+                {
+                    return null;
+                }
+
+                string content = await response.Content.ReadAsStringAsync(cancellationToken);
+                using JsonDocument doc = JsonDocument.Parse(content);
                 if (doc.RootElement.GetArrayLength() > 0)
                 {
                     return doc.RootElement[0].GetProperty("appid").GetString();
@@ -270,10 +319,10 @@ namespace Easy_Copier.Services
         {
             try
             {
-                var response = await _httpClient.GetAsync(new Uri(url), cancellationToken);
+                HttpResponseMessage response = await _httpClient.GetAsync(new Uri(url), cancellationToken);
                 if (response.IsSuccessStatusCode)
                 {
-                    var bytes = await response.Content.ReadAsByteArrayAsync(cancellationToken);
+                    byte[] bytes = await response.Content.ReadAsByteArrayAsync(cancellationToken);
                     await File.WriteAllBytesAsync(outputPath, bytes, cancellationToken);
                     return true;
                 }
@@ -287,26 +336,26 @@ namespace Easy_Copier.Services
 
         private async Task<bool> TryFetchSteamCoverAsync(string appId, string coverPath, CancellationToken cancellationToken)
         {
-            var url = $"https://steamcdn-a.akamaihd.net/steam/apps/{appId}/library_600x900.jpg";
+            string url = $"https://steamcdn-a.akamaihd.net/steam/apps/{appId}/library_600x900.jpg";
             return await DownloadImageAsync(url, coverPath, cancellationToken);
         }
 
         private async Task<bool> TryFetchGogCoverAsync(string gameName, string coverPath, CancellationToken cancellationToken)
         {
-            var url = new Uri($"https://catalog.gog.com/v1/catalog?query=like:{Uri.EscapeDataString(gameName)}&limit=1");
+            Uri url = new($"https://catalog.gog.com/v1/catalog?query=like:{Uri.EscapeDataString(gameName)}&limit=1");
             try
             {
-                var response = await _httpClient.GetAsync(url, cancellationToken);
+                HttpResponseMessage response = await _httpClient.GetAsync(url, cancellationToken);
                 if (response.IsSuccessStatusCode)
                 {
-                    var content = await response.Content.ReadAsStringAsync(cancellationToken);
-                    using var doc = JsonDocument.Parse(content);
-                    if (doc.RootElement.TryGetProperty("products", out var products) && products.GetArrayLength() > 0)
+                    string content = await response.Content.ReadAsStringAsync(cancellationToken);
+                    using JsonDocument doc = JsonDocument.Parse(content);
+                    if (doc.RootElement.TryGetProperty("products", out JsonElement products) && products.GetArrayLength() > 0)
                     {
-                        var product = products[0];
-                        if (product.TryGetProperty("coverVertical", out var cover))
+                        JsonElement product = products[0];
+                        if (product.TryGetProperty("coverVertical", out JsonElement cover))
                         {
-                            var imgUrl = cover.GetString();
+                            string? imgUrl = cover.GetString();
                             if (!string.IsNullOrEmpty(imgUrl))
                             {
                                 imgUrl = imgUrl.Replace("{formatter}", "avif", StringComparison.Ordinal).Replace("{ext}", "webp", StringComparison.Ordinal);
@@ -322,18 +371,22 @@ namespace Easy_Copier.Services
 
         private async Task<bool> TryFetchGsrCoverAsync(string gameName, string coverPath, CancellationToken cancellationToken)
         {
-            var url = new Uri($"https://gamesystemrequirements.com/games.php?req={Uri.EscapeDataString(gameName)}");
+            Uri url = new($"https://gamesystemrequirements.com/games.php?req={Uri.EscapeDataString(gameName)}");
             try
             {
-                var response = await _httpClient.GetAsync(url, cancellationToken);
+                HttpResponseMessage response = await _httpClient.GetAsync(url, cancellationToken);
                 if (response.IsSuccessStatusCode)
                 {
-                    var html = await response.Content.ReadAsStringAsync(cancellationToken);
-                    var match = Regex.Match(html, @"<div class=""game-item"">.*?<a href=""([^""]+)"">.*?<img src=""([^""]+)""", RegexOptions.Singleline);
+                    string html = await response.Content.ReadAsStringAsync(cancellationToken);
+                    Match match = Regex.Match(html, @"<div class=""game-item"">.*?<a href=""([^""]+)"">.*?<img src=""([^""]+)""", RegexOptions.Singleline);
                     if (match.Success)
                     {
-                        var imgUrl = match.Groups[2].Value;
-                        if (imgUrl.StartsWith('/')) imgUrl = "https://gamesystemrequirements.com" + imgUrl;
+                        string imgUrl = match.Groups[2].Value;
+                        if (imgUrl.StartsWith('/'))
+                        {
+                            imgUrl = "https://gamesystemrequirements.com" + imgUrl;
+                        }
+
                         return await DownloadImageAsync(imgUrl, coverPath, cancellationToken);
                     }
                 }
@@ -344,19 +397,25 @@ namespace Easy_Copier.Services
 
         private async Task<bool> TryFetchWikipediaCoverAsync(string gameName, string coverPath, CancellationToken cancellationToken)
         {
-            var url = new Uri($"https://en.wikipedia.org/wiki/Special:Search?search={Uri.EscapeDataString(gameName)}");
+            Uri url = new($"https://en.wikipedia.org/wiki/Special:Search?search={Uri.EscapeDataString(gameName)}");
             try
             {
-                var response = await _httpClient.GetAsync(url, cancellationToken);
+                HttpResponseMessage response = await _httpClient.GetAsync(url, cancellationToken);
                 if (response.IsSuccessStatusCode)
                 {
-                    var html = await response.Content.ReadAsStringAsync(cancellationToken);
-                    var match = Regex.Match(html, @"<table class=""infobox[^""]*"">.*?<img[^>]+src=""([^""]+)""", RegexOptions.Singleline);
+                    string html = await response.Content.ReadAsStringAsync(cancellationToken);
+                    Match match = Regex.Match(html, @"<table class=""infobox[^""]*"">.*?<img[^>]+src=""([^""]+)""", RegexOptions.Singleline);
                     if (match.Success)
                     {
-                        var imgUrl = match.Groups[1].Value;
-                        if (imgUrl.StartsWith("//", StringComparison.Ordinal)) imgUrl = "https:" + imgUrl;
-                        else if (imgUrl.StartsWith('/')) imgUrl = "https://en.wikipedia.org" + imgUrl;
+                        string imgUrl = match.Groups[1].Value;
+                        if (imgUrl.StartsWith("//", StringComparison.Ordinal))
+                        {
+                            imgUrl = "https:" + imgUrl;
+                        }
+                        else if (imgUrl.StartsWith('/'))
+                        {
+                            imgUrl = "https://en.wikipedia.org" + imgUrl;
+                        }
 
                         imgUrl = imgUrl.Replace("/220px-", "/500px-", StringComparison.Ordinal).Replace("/250px-", "/500px-", StringComparison.Ordinal);
                         return await DownloadImageAsync(imgUrl, coverPath, cancellationToken);
@@ -369,21 +428,21 @@ namespace Easy_Copier.Services
 
         private async Task<bool> TryFetchPcgwCoverAsync(string gameName, string coverPath, CancellationToken cancellationToken)
         {
-            var url = new Uri($"https://www.pcgamingwiki.com/w/api.php?action=query&prop=pageimages&titles={Uri.EscapeDataString(gameName)}&format=json&pithumbsize=800");
+            Uri url = new($"https://www.pcgamingwiki.com/w/api.php?action=query&prop=pageimages&titles={Uri.EscapeDataString(gameName)}&format=json&pithumbsize=800");
             try
             {
-                var response = await _httpClient.GetAsync(url, cancellationToken);
+                HttpResponseMessage response = await _httpClient.GetAsync(url, cancellationToken);
                 if (response.IsSuccessStatusCode)
                 {
-                    var content = await response.Content.ReadAsStringAsync(cancellationToken);
-                    using var doc = JsonDocument.Parse(content);
-                    if (doc.RootElement.TryGetProperty("query", out var query) && query.TryGetProperty("pages", out var pages))
+                    string content = await response.Content.ReadAsStringAsync(cancellationToken);
+                    using JsonDocument doc = JsonDocument.Parse(content);
+                    if (doc.RootElement.TryGetProperty("query", out JsonElement query) && query.TryGetProperty("pages", out JsonElement pages))
                     {
-                        foreach (var pageProp in pages.EnumerateObject())
+                        foreach (JsonProperty pageProp in pages.EnumerateObject())
                         {
-                            if (pageProp.Name != "-1" && pageProp.Value.TryGetProperty("thumbnail", out var thumb))
+                            if (pageProp.Name != "-1" && pageProp.Value.TryGetProperty("thumbnail", out JsonElement thumb))
                             {
-                                if (thumb.TryGetProperty("source", out var source))
+                                if (thumb.TryGetProperty("source", out JsonElement source))
                                 {
                                     return await DownloadImageAsync(source.GetString() ?? "", coverPath, cancellationToken);
                                 }
@@ -398,31 +457,31 @@ namespace Easy_Copier.Services
 
         private async Task<bool> TryFetchOpenCriticCoverAsync(string gameName, string coverPath, CancellationToken cancellationToken)
         {
-            var url = new Uri($"https://api.opencritic.com/api/game/search?criteria={Uri.EscapeDataString(gameName)}");
+            Uri url = new($"https://api.opencritic.com/api/game/search?criteria={Uri.EscapeDataString(gameName)}");
             try
             {
-                var response = await _httpClient.GetAsync(url, cancellationToken);
+                HttpResponseMessage response = await _httpClient.GetAsync(url, cancellationToken);
                 if (response.IsSuccessStatusCode)
                 {
-                    var content = await response.Content.ReadAsStringAsync(cancellationToken);
-                    using var doc = JsonDocument.Parse(content);
+                    string content = await response.Content.ReadAsStringAsync(cancellationToken);
+                    using JsonDocument doc = JsonDocument.Parse(content);
                     if (doc.RootElement.GetArrayLength() > 0)
                     {
-                        var gameId = doc.RootElement[0].GetProperty("id").GetInt32();
-                        var gameUrl = new Uri($"https://api.opencritic.com/api/game/{gameId}");
-                        var gameResponse = await _httpClient.GetAsync(gameUrl, cancellationToken);
+                        int gameId = doc.RootElement[0].GetProperty("id").GetInt32();
+                        Uri gameUrl = new($"https://api.opencritic.com/api/game/{gameId}");
+                        HttpResponseMessage gameResponse = await _httpClient.GetAsync(gameUrl, cancellationToken);
                         if (gameResponse.IsSuccessStatusCode)
                         {
-                            var gameContent = await gameResponse.Content.ReadAsStringAsync(cancellationToken);
-                            using var gameDoc = JsonDocument.Parse(gameContent);
-                            var root = gameDoc.RootElement;
+                            string gameContent = await gameResponse.Content.ReadAsStringAsync(cancellationToken);
+                            using JsonDocument gameDoc = JsonDocument.Parse(gameContent);
+                            JsonElement root = gameDoc.RootElement;
 
                             string? imgUrl = null;
-                            if (root.TryGetProperty("images", out var images) && images.TryGetProperty("boxArt", out var boxArt) && boxArt.TryGetProperty("og", out var og))
+                            if (root.TryGetProperty("images", out JsonElement images) && images.TryGetProperty("boxArt", out JsonElement boxArt) && boxArt.TryGetProperty("og", out JsonElement og))
                             {
                                 imgUrl = $"https://img.opencritic.com/{og.GetString()}";
                             }
-                            else if (root.TryGetProperty("bannerImageUrl", out var banner))
+                            else if (root.TryGetProperty("bannerImageUrl", out JsonElement banner))
                             {
                                 imgUrl = banner.GetString();
                                 if (!string.IsNullOrEmpty(imgUrl) && !imgUrl.StartsWith("http", StringComparison.Ordinal))
@@ -445,18 +504,22 @@ namespace Easy_Copier.Services
 
         private async Task<bool> TryFetchLutrisCoverAsync(string gameName, string coverPath, CancellationToken cancellationToken)
         {
-            var url = new Uri($"https://lutris.net/games/?q={Uri.EscapeDataString(gameName)}");
+            Uri url = new($"https://lutris.net/games/?q={Uri.EscapeDataString(gameName)}");
             try
             {
-                var response = await _httpClient.GetAsync(url, cancellationToken);
+                HttpResponseMessage response = await _httpClient.GetAsync(url, cancellationToken);
                 if (response.IsSuccessStatusCode)
                 {
-                    var html = await response.Content.ReadAsStringAsync(cancellationToken);
-                    var match = Regex.Match(html, @"<a href=""/games/[^/]+/"".*?<img.*?src=""([^""]+)""", RegexOptions.Singleline);
+                    string html = await response.Content.ReadAsStringAsync(cancellationToken);
+                    Match match = Regex.Match(html, @"<a href=""/games/[^/]+/"".*?<img.*?src=""([^""]+)""", RegexOptions.Singleline);
                     if (match.Success)
                     {
-                        var imgUrl = match.Groups[1].Value;
-                        if (imgUrl.StartsWith('/')) imgUrl = "https://lutris.net" + imgUrl;
+                        string imgUrl = match.Groups[1].Value;
+                        if (imgUrl.StartsWith('/'))
+                        {
+                            imgUrl = "https://lutris.net" + imgUrl;
+                        }
+
                         return await DownloadImageAsync(imgUrl, coverPath, cancellationToken);
                     }
                 }

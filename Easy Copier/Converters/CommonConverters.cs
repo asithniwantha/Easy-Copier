@@ -1,10 +1,9 @@
+using Easy_Copier.Infrastructure;
 using Easy_Copier.Models;
+using Easy_Copier.Services;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Data;
 using System;
-using System.Threading.Tasks;
-using Easy_Copier.Services;
-using Easy_Copier.Infrastructure;
 
 namespace Easy_Copier.Converters
 {
@@ -12,11 +11,9 @@ namespace Easy_Copier.Converters
     {
         public object Convert(object value, Type targetType, object parameter, string language)
         {
-            if (value is LibraryCategory category)
-            {
-                return category == LibraryCategory.Game ? Microsoft.UI.Xaml.Visibility.Visible : Microsoft.UI.Xaml.Visibility.Collapsed;
-            }
-            return Microsoft.UI.Xaml.Visibility.Collapsed;
+            return value is LibraryCategory category
+                ? category == LibraryCategory.Game ? Microsoft.UI.Xaml.Visibility.Visible : Microsoft.UI.Xaml.Visibility.Collapsed
+                : Microsoft.UI.Xaml.Visibility.Collapsed;
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, string language)
@@ -36,21 +33,17 @@ namespace Easy_Copier.Converters
                 try
                 {
                     // Access settings synchronously to prevent UI thread blocking or deadlocking
-                    var settingsService = AppServiceLocator.GetService<ISettingsService>();
-                    var settings = settingsService.LoadSettingsSync();
+                    ISettingsService settingsService = AppServiceLocator.GetService<ISettingsService>();
+                    AppSettings settings = settingsService.LoadSettingsSync();
 
-                    if (gb <= 5.0) return $"Rs. {settings.PriceTier1}";
-                    if (gb <= 10.0) return $"Rs. {settings.PriceTier2}";
-                    if (gb < 16.0) return $"Rs. {settings.PriceTier3}";
-                    return $"Rs. {settings.PriceTier4}";
+                    return gb <= 5.0
+                        ? $"Rs. {settings.PriceTier1}"
+                        : gb <= 10.0 ? $"Rs. {settings.PriceTier2}" : gb < 16.0 ? $"Rs. {settings.PriceTier3}" : $"Rs. {settings.PriceTier4}";
                 }
                 catch
                 {
                     // Fallback to default prices if service unavailable
-                    if (gb <= 5.0) return "Rs. 100";
-                    if (gb <= 10.0) return "Rs. 200";
-                    if (gb < 16.0) return "Rs. 300";
-                    return "Rs. 400";
+                    return gb <= 5.0 ? "Rs. 100" : gb <= 10.0 ? "Rs. 200" : gb < 16.0 ? "Rs. 300" : "Rs. 400";
                 }
             }
             return "Rs. -";

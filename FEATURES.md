@@ -60,6 +60,7 @@
 ## Settings and Persistence
 - Manage source folders for Games and Apps (add/remove).
 - Toggle auto-scan on startup.
+- Toggle application to start automatically on Windows log-on.
 - Persist settings in local app data.
 - Persist library cache for faster startup experience.
 - Validate cache contents against current filesystem state.

@@ -7,8 +7,8 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using System.Threading.Tasks;
 using System.Threading;
+using System.Threading.Tasks;
 
 namespace Easy_Copier.ViewModels
 {
@@ -18,9 +18,13 @@ namespace Easy_Copier.ViewModels
         private readonly IFolderPickerService _folderPickerService;
         private readonly ISourceLibraryService _sourceLibraryService;
         private readonly IGameInfoDownloadService _gameInfoDownloadService;
+        private readonly IStartupService _startupService;
 
         [ObservableProperty]
         public partial bool AutoScanOnStartup { get; set; } = true;
+
+        [ObservableProperty]
+        public partial bool StartOnLogon { get; set; } = false;
 
         [ObservableProperty]
         public partial string PriceTier1 { get; set; } = "100";
@@ -51,13 +55,15 @@ namespace Easy_Copier.ViewModels
             IFolderPickerService folderPickerService,
             ISourceLibraryService sourceLibraryService,
             Infrastructure.IProcessService processService,
-            IGameInfoDownloadService gameInfoDownloadService)
+            IGameInfoDownloadService gameInfoDownloadService,
+            IStartupService startupService)
         {
             _settingsService = settingsService;
             _folderPickerService = folderPickerService;
             _sourceLibraryService = sourceLibraryService;
             _processService = processService;
             _gameInfoDownloadService = gameInfoDownloadService;
+            _startupService = startupService;
         }
 
         [RelayCommand]
@@ -73,9 +79,9 @@ namespace Easy_Copier.ViewModels
 
             try
             {
-                var progress = new Progress<string>(msg =>
+                Progress<string> progress = new(msg =>
                 {
-                    var dispatcher = AppServiceLocator.GetService<IDispatcherService>();
+                    IDispatcherService dispatcher = AppServiceLocator.GetService<IDispatcherService>();
                     dispatcher.TryEnqueue(() => StatusMessage = msg);
                 });
 
@@ -186,6 +192,8 @@ namespace Easy_Copier.ViewModels
             AppSettings settings = GetSettings();
             await _settingsService.SaveSettingsAsync(settings);
 
+            _startupService.UpdateStartOnLogon(settings.StartOnLogon);
+
             StatusMessage = "Settings saved";
         }
 
@@ -208,6 +216,7 @@ namespace Easy_Copier.ViewModels
         {
             ArgumentNullException.ThrowIfNull(settings);
             AutoScanOnStartup = settings.AutoScanOnStartup;
+            StartOnLogon = settings.StartOnLogon;
             VideoFileExtensions = settings.VideoFileExtensions ?? ".mp4,.mkv,.avi";
             PriceTier1 = settings.PriceTier1.ToString(System.Globalization.CultureInfo.InvariantCulture);
             PriceTier2 = settings.PriceTier2.ToString(System.Globalization.CultureInfo.InvariantCulture);
@@ -224,6 +233,7 @@ namespace Easy_Copier.ViewModels
             return new AppSettings
             {
                 AutoScanOnStartup = AutoScanOnStartup,
+                StartOnLogon = StartOnLogon,
                 VideoFileExtensions = VideoFileExtensions,
                 PriceTier1 = int.TryParse(PriceTier1, out int p1) ? p1 : 100,
                 PriceTier2 = int.TryParse(PriceTier2, out int p2) ? p2 : 200,
