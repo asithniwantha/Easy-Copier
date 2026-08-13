@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 
 namespace Easy_Copier.ViewModels
 {
-    public partial class MainViewModel : ObservableObject
+    public partial class MainViewModel : ObservableObject, IDisposable
     {
         private readonly ISettingsService _settingsService;
         private readonly ILibraryCacheService _libraryCacheService;
@@ -25,6 +25,7 @@ namespace Easy_Copier.ViewModels
         private readonly IWindowService _windowService;
         private readonly IProcessService _processService;
         private readonly IDispatcherService _dispatcherService;
+        private readonly ISourceLibraryService _sourceLibraryService;
         private CancellationTokenSource? _scanCancellationTokenSource;
         private CancellationTokenSource? _validationCancellationTokenSource;
         private List<GameEntry> _selectedGames = [];
@@ -119,7 +120,8 @@ namespace Easy_Copier.ViewModels
             ITransferQueueService transferQueueService,
             IWindowService windowService,
             IProcessService processService,
-            IDispatcherService dispatcherService)
+            IDispatcherService dispatcherService,
+            ISourceLibraryService sourceLibraryService)
         {
             _settingsService = settingsService;
             _libraryCacheService = libraryCacheService;
@@ -131,6 +133,7 @@ namespace Easy_Copier.ViewModels
             _windowService = windowService;
             _processService = processService;
             _dispatcherService = dispatcherService;
+            _sourceLibraryService = sourceLibraryService;
 
             _driveDiscoveryService.DrivesChanged += (s, e) =>
             {
@@ -559,6 +562,13 @@ namespace Easy_Copier.ViewModels
             }
         }
 
+        public async Task<string> GetFormattedSystemRequirementsAsync(string folderPath)
+        {
+            if (string.IsNullOrEmpty(folderPath)) return string.Empty;
+            string rawRequirementsText = await _sourceLibraryService.GetSystemRequirementsAsync(folderPath);
+            return SysReqFormatter.FormatText(rawRequirementsText);
+        }
+
         [RelayCommand]
         private void AddSourceFolder()
         {
@@ -567,6 +577,13 @@ namespace Easy_Copier.ViewModels
                                             Infrastructure.SettingsOpenAction.AddTvAndFilmFolder;
 
             _windowService.ShowSettingsWindow(null, openAction);
+        }
+
+        public void Dispose()
+        {
+            _scanCancellationTokenSource?.Dispose();
+            _validationCancellationTokenSource?.Dispose();
+            GC.SuppressFinalize(this);
         }
     }
 }

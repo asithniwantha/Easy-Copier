@@ -14,21 +14,7 @@ namespace Easy_Copier
         {
             InitializeComponent();
 
-            nint hwnd = WindowNative.GetWindowHandle(this);
-            WindowId windowId = Win32Interop.GetWindowIdFromWindow(hwnd);
-            AppWindow appWindow = Microsoft.UI.Windowing.AppWindow.GetFromWindowId(windowId);
-
-            // Set the window icon and size
-            if (appWindow != null)
-            {
-                string iconPath = Path.Combine(AppContext.BaseDirectory, "Assets", "easy copier ico.ico");
-                if (File.Exists(iconPath))
-                {
-                    appWindow.SetIcon(iconPath);
-                }
-
-                appWindow.Resize(new Windows.Graphics.SizeInt32(1400, 900));
-            }
+            Easy_Copier.Infrastructure.NativeWindowHelper.InitializeWindow(this, 1400, 900);
 
             _ = RootFrame.Navigate(typeof(MainPage));
 

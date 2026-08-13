@@ -1,5 +1,9 @@
+using Microsoft.UI;
+using Microsoft.UI.Windowing;
 using System;
+using System.IO;
 using System.Runtime.InteropServices;
+using WinRT.Interop;
 
 namespace Easy_Copier.Infrastructure
 {
@@ -70,6 +74,47 @@ namespace Easy_Copier.Infrastructure
         public static void SetForeground(IntPtr hwnd)
         {
             _ = SetForegroundWindow(hwnd);
+        }
+
+        public static void InitializeWindow(Microsoft.UI.Xaml.Window window, int width, int height)
+        {
+            IntPtr hwnd = WindowNative.GetWindowHandle(window);
+            WindowId windowId = Win32Interop.GetWindowIdFromWindow(hwnd);
+            AppWindow appWindow = AppWindow.GetFromWindowId(windowId);
+
+            if (appWindow != null)
+            {
+                string iconPath = Path.Combine(AppContext.BaseDirectory, "Assets", "easy copier ico.ico");
+                if (File.Exists(iconPath))
+                {
+                    appWindow.SetIcon(iconPath);
+                }
+
+                appWindow.Resize(new Windows.Graphics.SizeInt32(width, height));
+            }
+        }
+
+        public static void ShowAsModal(Microsoft.UI.Xaml.Window childWindow, Microsoft.UI.Xaml.Window ownerWindow)
+        {
+            IntPtr childHwnd = WindowNative.GetWindowHandle(childWindow);
+            IntPtr ownerHwnd = ownerWindow != null ? WindowNative.GetWindowHandle(ownerWindow) : IntPtr.Zero;
+
+            if (ownerHwnd != IntPtr.Zero)
+            {
+                SetOwner(childHwnd, ownerHwnd);
+                EnableWindowInput(ownerHwnd, false);
+                CenterWindow(childHwnd, ownerHwnd);
+            }
+        }
+
+        public static void RestoreOwnerInput(Microsoft.UI.Xaml.Window ownerWindow)
+        {
+            IntPtr ownerHwnd = ownerWindow != null ? WindowNative.GetWindowHandle(ownerWindow) : IntPtr.Zero;
+            if (ownerHwnd != IntPtr.Zero)
+            {
+                EnableWindowInput(ownerHwnd, true);
+                SetForeground(ownerHwnd);
+            }
         }
     }
 }

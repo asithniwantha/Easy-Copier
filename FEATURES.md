@@ -67,10 +67,17 @@
 - Navigational sidebar (NavigationView) for organized settings categories (General, Games, etc.).
 - Modal-like behavior for secondary windows (Settings, History) to prevent main window interaction while open.
 
+## Architecture & Code Quality
+- Clean view-model separation enforcing zero View-to-ViewModel UI coupling.
+- Strict adherence to SOLID principles through decoupled, highly-focused service abstractions.
+- Centralized Win32 NativeWindow lifecycle hooks reducing duplicated window initialization logic.
+- Implements `IDisposable` effectively for unmanaged resource and cancellation token lifecycle management.
+- CA and MVVM Toolkit analyzer compliant, leveraging modern C# static methods and configure awaits.
+
 ## Technical Stack
 - WinUI 3 + Windows App SDK.
 - C# 14 with .NET 10.
-- MVVM pattern via `CommunityToolkit.Mvvm`.
+- MVVM pattern via `CommunityToolkit.Mvvm` utilizing source generators (`partial` property observables).
 - DI and logging via `Microsoft.Extensions.*`.
 - Storage discovery via `DriveInfo` + WMI.
 - GitHub Actions for CI/CD workflows.

@@ -16,7 +16,7 @@ namespace Easy_Copier.Services
         Task DownloadGameInfoAsync(IEnumerable<string> sourceFolders, IProgress<string>? progress = null, CancellationToken cancellationToken = default);
     }
 
-    public class GameInfoDownloadService : IGameInfoDownloadService
+    public class GameInfoDownloadService : IGameInfoDownloadService, IDisposable
     {
         private readonly ILogger<GameInfoDownloadService> _logger;
         private readonly HttpClient _httpClient;
@@ -182,7 +182,7 @@ namespace Easy_Copier.Services
             return requirements.Count > 0 ? requirements : null;
         }
 
-        private Dictionary<string, string> ParseSteamRequirements(string? html)
+        private static Dictionary<string, string> ParseSteamRequirements(string? html)
         {
             var specs = new Dictionary<string, string>();
             if (string.IsNullOrWhiteSpace(html)) return specs;
@@ -204,7 +204,7 @@ namespace Easy_Copier.Services
             return specs;
         }
 
-        private string FormatRequirements(string gameName, Dictionary<string, Dictionary<string, string>> requirements)
+        private static string FormatRequirements(string gameName, Dictionary<string, Dictionary<string, string>> requirements)
         {
             var sb = new System.Text.StringBuilder();
             sb.AppendLine($"SYSTEM REQUIREMENTS FOR: {gameName}");
@@ -456,6 +456,12 @@ namespace Easy_Copier.Services
             }
             catch (Exception ex) { _logger.LogWarning(ex, "Lutris cover failed for {GameName}", gameName); }
             return false;
+        }
+
+        public void Dispose()
+        {
+            _httpClient?.Dispose();
+            GC.SuppressFinalize(this);
         }
     }
 }
