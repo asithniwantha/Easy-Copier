@@ -310,7 +310,7 @@ namespace Easy_Copier.ViewModels
                         settings.GameSourceFolders,
                         LibraryCategory.Game,
                         progress,
-                        _scanCancellationTokenSource.Token);
+                        cancellationToken: _scanCancellationTokenSource.Token);
 
                     _allGames.AddRange(games);
                 }
@@ -321,7 +321,7 @@ namespace Easy_Copier.ViewModels
                         settings.AppSourceFolders,
                         LibraryCategory.App,
                         progress,
-                        _scanCancellationTokenSource.Token);
+                        cancellationToken: _scanCancellationTokenSource.Token);
 
                     _allApps.AddRange(apps);
                 }
@@ -332,8 +332,8 @@ namespace Easy_Copier.ViewModels
                         settings.TvAndFilmSourceFolders,
                         LibraryCategory.TvAndFilm,
                         progress,
-                        _scanCancellationTokenSource.Token,
-                        settings.VideoFileExtensions);
+                        settings.VideoFileExtensions,
+                        _scanCancellationTokenSource.Token);
 
                     _allTvAndFilms.AddRange(tvAndFilms);
                 }
@@ -462,7 +462,7 @@ namespace Easy_Copier.ViewModels
         [RelayCommand(CanExecute = nameof(CanCopyGames))]
         private async Task CopySelectedGamesAsync()
         {
-            if (SelectedDrive == null || !_selectedGames.Any())
+            if (SelectedDrive == null || _selectedGames.Count == 0)
             {
                 return;
             }

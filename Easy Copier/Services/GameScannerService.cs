@@ -15,8 +15,8 @@ namespace Easy_Copier.Services
             IEnumerable<string> sourceFolders,
             LibraryCategory category,
             IProgress<string>? progress = null,
-            CancellationToken cancellationToken = default,
-            string? videoExtensions = null);
+            string? videoExtensions = null,
+            CancellationToken cancellationToken = default);
 
         Task<long> CalculateFolderSizeAsync(string folderPath, CancellationToken cancellationToken = default);
         string? FindCoverImage(string gameFolderPath);
@@ -26,6 +26,7 @@ namespace Easy_Copier.Services
     {
         private readonly ILogger<GameScannerService> _logger;
         private static readonly string[] CoverImageFileNames = { "cover.jpg", "cover.png", "cover.jpeg", "folder.jpg", "folder.png" };
+        private static readonly char[] VideoExtensionSeparators = [',', ';', ' '];
 
         public GameScannerService(ILogger<GameScannerService> logger)
         {
@@ -64,8 +65,8 @@ namespace Easy_Copier.Services
             IEnumerable<string> sourceFolders,
             LibraryCategory category,
             IProgress<string>? progress = null,
-            CancellationToken cancellationToken = default,
-            string? videoExtensions = null)
+            string? videoExtensions = null,
+            CancellationToken cancellationToken = default)
         {
             ArgumentNullException.ThrowIfNull(sourceFolders);
 
@@ -99,7 +100,7 @@ namespace Easy_Copier.Services
 
                     if (category == LibraryCategory.TvAndFilm && !string.IsNullOrWhiteSpace(videoExtensions))
                     {
-                        var extList = videoExtensions.Split(new[] { ',', ';', ' ' }, StringSplitOptions.RemoveEmptyEntries)
+                        var extList = videoExtensions.Split(VideoExtensionSeparators, StringSplitOptions.RemoveEmptyEntries)
                                                      .Select(e => e.Trim().StartsWith('.') ? e.Trim() : "." + e.Trim())
                                                      .ToList();
 

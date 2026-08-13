@@ -27,3 +27,6 @@ dotnet_diagnostic.CA1848.severity = none
 
 # CA1873: Evaluation of this argument may be expensive and unnecessary if logging is disabled
 dotnet_diagnostic.CA1873.severity = none
+
+# CA5392: Use DefaultDllImportSearchPaths attribute for P/Invokes (auto-generated code)
+dotnet_diagnostic.CA5392.severity = none
