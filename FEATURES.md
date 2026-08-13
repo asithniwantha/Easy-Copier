@@ -84,12 +84,10 @@
 - GitHub Actions for CI/CD workflows.
 
 ## Future Enhancements (to do list)
-- Run the provided python script to download the cover images and minimum requirements for the games/apps that don't have cover images and requirement file.
-- Add github actions to build and publish the app to github releases automatically with versioning number based on git tags.
-- add tv series and films tab
+- Run the provided python script to download the cover images and minimum requirements for the games/apps that don't have cover images and requirement file.-added
+- Add github actions to build and publish the app to github releases automatically with versioning number based on git tags.-added
+- add tv series and films tab -added
 - add excel like calculator 
-- if the destination drive already contain the folder we tring to coping, ask replace everytinh or merge or do nothing. (compair full size and file count also)
-- add option to copy only the missing files from the source folder to the destination folder if the destination folder already exist.
 - Right-click context flyout display 
   - Color-formatted system requirements.
   - Scrollable folder contents with their details(size).
