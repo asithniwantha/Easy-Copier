@@ -16,7 +16,7 @@ namespace Easy_Copier.Services
         Task DownloadGameInfoAsync(IEnumerable<string> sourceFolders, IProgress<string>? progress = null, CancellationToken cancellationToken = default);
     }
 
-    public class GameInfoDownloadService : IGameInfoDownloadService, IDisposable
+    public sealed class GameInfoDownloadService : IGameInfoDownloadService, IDisposable
     {
         private readonly ILogger<GameInfoDownloadService> _logger;
         private readonly HttpClient _httpClient;
@@ -30,6 +30,7 @@ namespace Easy_Copier.Services
 
         public async Task DownloadGameInfoAsync(IEnumerable<string> sourceFolders, IProgress<string>? progress = null, CancellationToken cancellationToken = default)
         {
+            ArgumentNullException.ThrowIfNull(sourceFolders);
             foreach (var sourceFolder in sourceFolders)
             {
                 if (cancellationToken.IsCancellationRequested) break;
@@ -101,7 +102,7 @@ namespace Easy_Copier.Services
             if (File.Exists(reqFile))
             {
                 var content = await File.ReadAllTextAsync(reqFile, cancellationToken);
-                if (content.Contains("Steam Web API")) return; // Already fetched
+                if (content.Contains("Steam Web API", StringComparison.Ordinal)) return; // Already fetched
             }
 
             try

@@ -206,6 +206,7 @@ namespace Easy_Copier.ViewModels
 
         public void LoadSettings(AppSettings settings)
         {
+            ArgumentNullException.ThrowIfNull(settings);
             AutoScanOnStartup = settings.AutoScanOnStartup;
             VideoFileExtensions = settings.VideoFileExtensions ?? ".mp4,.mkv,.avi";
             PriceTier1 = settings.PriceTier1.ToString(System.Globalization.CultureInfo.InvariantCulture);

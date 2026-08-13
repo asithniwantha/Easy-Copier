@@ -18,6 +18,8 @@ namespace Easy_Copier.Views
 {
     public sealed partial class MainPage : Page
     {
+        private static readonly string[] LineSeparators = ["\r\n", "\n"];
+
         public MainViewModel ViewModel { get; }
 
         public MainPage()
@@ -71,41 +73,41 @@ namespace Easy_Copier.Views
             Paragraph paragraph = new();
 
             // Split the text by lines to process each line and add formatting
-            string[] lines = text.Split(new[] { "\r\n", "\n" }, StringSplitOptions.None);
+            string[] lines = text.Split(LineSeparators, StringSplitOptions.None);
 
             foreach (string line in lines)
             {
-                if (line.StartsWith("CPU:"))
+                if (line.StartsWith("CPU:", StringComparison.Ordinal))
                 {
                     paragraph.Inlines.Add(new Run { Text = "CPU:", Foreground = new SolidColorBrush(Windows.UI.Color.FromArgb(255, 0, 0, 255)), FontWeight = FontWeights.Bold });
                     paragraph.Inlines.Add(new Run { Text = line[4..] + "\n", Foreground = new SolidColorBrush(Windows.UI.Color.FromArgb(255, 100, 149, 237)) });
                 }
-                else if (line.StartsWith("GPU:"))
+                else if (line.StartsWith("GPU:", StringComparison.Ordinal))
                 {
                     paragraph.Inlines.Add(new Run { Text = "GPU:", Foreground = new SolidColorBrush(Windows.UI.Color.FromArgb(255, 255, 0, 0)), FontWeight = FontWeights.Bold });
                     paragraph.Inlines.Add(new Run { Text = line[4..] + "\n", Foreground = new SolidColorBrush(Windows.UI.Color.FromArgb(255, 255, 100, 100)) });
                 }
-                else if (line.StartsWith("RAM:"))
+                else if (line.StartsWith("RAM:", StringComparison.Ordinal))
                 {
                     paragraph.Inlines.Add(new Run { Text = "RAM:", Foreground = new SolidColorBrush(Windows.UI.Color.FromArgb(255, 0, 128, 0)), FontWeight = FontWeights.Bold });
                     paragraph.Inlines.Add(new Run { Text = line[4..] + "\n", Foreground = new SolidColorBrush(Windows.UI.Color.FromArgb(255, 50, 205, 50)) });
                 }
-                else if (line.StartsWith("Storage:"))
+                else if (line.StartsWith("Storage:", StringComparison.Ordinal))
                 {
                     paragraph.Inlines.Add(new Run { Text = "Storage:", Foreground = new SolidColorBrush(Windows.UI.Color.FromArgb(255, 255, 165, 0)), FontWeight = FontWeights.Bold });
                     paragraph.Inlines.Add(new Run { Text = line[8..] + "\n", Foreground = new SolidColorBrush(Windows.UI.Color.FromArgb(255, 255, 200, 100)) });
                 }
-                else if (line.StartsWith("OS:"))
+                else if (line.StartsWith("OS:", StringComparison.Ordinal))
                 {
                     paragraph.Inlines.Add(new Run { Text = "OS:", Foreground = new SolidColorBrush(Windows.UI.Color.FromArgb(255, 128, 0, 128)), FontWeight = FontWeights.Bold });
                     paragraph.Inlines.Add(new Run { Text = line[3..] + "\n", Foreground = new SolidColorBrush(Windows.UI.Color.FromArgb(255, 186, 85, 211)) });
                 }
-                else if (line.StartsWith("Minimum:"))
+                else if (line.StartsWith("Minimum:", StringComparison.Ordinal))
                 {
                     paragraph.Inlines.Add(new Run { Text = "Minimum:", FontWeight = FontWeights.Bold });
                     paragraph.Inlines.Add(new Run { Text = line[8..] + "\n" });
                 }
-                else if (line.StartsWith("Recommended:"))
+                else if (line.StartsWith("Recommended:", StringComparison.Ordinal))
                 {
                     paragraph.Inlines.Add(new Run { Text = "Recommended:", FontWeight = FontWeights.Bold });
                     paragraph.Inlines.Add(new Run { Text = line[12..] + "\n" });

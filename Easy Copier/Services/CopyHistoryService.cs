@@ -63,6 +63,7 @@ namespace Easy_Copier.Services
 
         public async Task AddRecordAsync(CopyHistoryRecord record)
         {
+            ArgumentNullException.ThrowIfNull(record);
             try
             {
                 using SqliteConnection connection = new(_connectionString);
@@ -113,7 +114,7 @@ namespace Easy_Copier.Services
                 {
                     records.Add(new CopyHistoryRecord(
                         reader.GetInt32(0),
-                        DateTime.Parse(reader.GetString(1)),
+                        DateTime.Parse(reader.GetString(1), System.Globalization.CultureInfo.InvariantCulture),
                         reader.GetString(2),
                         reader.GetString(3),
                         reader.GetString(4),
@@ -145,7 +146,7 @@ namespace Easy_Copier.Services
                 while (await reader.ReadAsync())
                 {
                     string yyyyMm = reader.GetString(0);
-                    if (yyyyMm.Length == 7 && int.TryParse(yyyyMm[..4], out int year) && int.TryParse(yyyyMm.Substring(5, 2), out int month))
+                    if (yyyyMm.Length == 7 && int.TryParse(yyyyMm.AsSpan(0, 4), out int year) && int.TryParse(yyyyMm.AsSpan(5, 2), out int month))
                     {
                         _ = months.Add((year, month));
                     }

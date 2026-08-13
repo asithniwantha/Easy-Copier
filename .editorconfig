@@ -21,3 +21,9 @@ dotnet_diagnostic.CA1031.severity = none
 
 # CA1003: Use generic event handler instances
 dotnet_diagnostic.CA1003.severity = none
+
+# CA1848: Use the LoggerMessage delegates for improved performance
+dotnet_diagnostic.CA1848.severity = none
+
+# CA1873: Evaluation of this argument may be expensive and unnecessary if logging is disabled
+dotnet_diagnostic.CA1873.severity = none

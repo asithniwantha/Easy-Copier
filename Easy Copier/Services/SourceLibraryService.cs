@@ -25,6 +25,7 @@ namespace Easy_Copier.Services
 
         public async Task<IReadOnlyList<SourceFolder>> ValidateSourceFoldersAsync(IEnumerable<string> folderPaths)
         {
+            ArgumentNullException.ThrowIfNull(folderPaths);
             List<SourceFolder> validatedFolders = [];
 
             foreach (string path in folderPaths)

@@ -26,6 +26,7 @@ namespace Easy_Copier.Services
 
     public class LibraryCacheService : ILibraryCacheService
     {
+        private static readonly JsonSerializerOptions _jsonOptions = new() { WriteIndented = true };
         private readonly ILogger<LibraryCacheService> _logger;
         private const string CacheFileName = "library_cache.json";
 
@@ -94,17 +95,13 @@ namespace Easy_Copier.Services
 
         public async Task SaveCacheAsync(LibraryCacheSnapshot snapshot)
         {
+            ArgumentNullException.ThrowIfNull(snapshot);
             string cachePath = GetCacheFilePath();
             string tempPath = cachePath + ".tmp";
 
             try
             {
-                JsonSerializerOptions options = new()
-                {
-                    WriteIndented = true
-                };
-
-                string json = JsonSerializer.Serialize(snapshot, options);
+                string json = JsonSerializer.Serialize(snapshot, _jsonOptions);
                 await File.WriteAllTextAsync(tempPath, json);
 
                 if (File.Exists(cachePath))

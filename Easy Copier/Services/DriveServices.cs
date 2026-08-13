@@ -105,7 +105,7 @@ namespace Easy_Copier.Services
         {
             try
             {
-                string escapedLetter = driveLetterWithColon.Replace("\\", "\\\\");
+                string escapedLetter = driveLetterWithColon.Replace("\\", "\\\\", StringComparison.Ordinal);
 
                 using ManagementObjectSearcher partitionSearcher = new(
                     $"ASSOCIATORS OF {{Win32_LogicalDisk.DeviceID='{escapedLetter}'}} WHERE AssocClass = Win32_LogicalDiskToPartition");
@@ -118,7 +118,7 @@ namespace Easy_Copier.Services
                         continue;
                     }
 
-                    string escapedPartitionId = partitionDeviceId.Replace("\\", "\\\\");
+                    string escapedPartitionId = partitionDeviceId.Replace("\\", "\\\\", StringComparison.Ordinal);
 
                     using ManagementObjectSearcher diskSearcher = new(
                         $"ASSOCIATORS OF {{Win32_DiskPartition.DeviceID='{escapedPartitionId}'}} WHERE AssocClass = Win32_DiskDriveToDiskPartition");
@@ -170,7 +170,7 @@ namespace Easy_Copier.Services
 
                 foreach (ManagementObject physicalDisk in searcher.Get())
                 {
-                    ushort busType = Convert.ToUInt16(physicalDisk["BusType"]);
+                    ushort busType = Convert.ToUInt16(physicalDisk["BusType"], System.Globalization.CultureInfo.InvariantCulture);
                     return busType == UsbBusType;
                 }
             }
@@ -267,7 +267,7 @@ namespace Easy_Copier.Services
                 List<ValidationResult> results = [];
                 List<GameEntry> gamesList = games.ToList();
 
-                if (!gamesList.Any())
+                if (gamesList.Count == 0)
                 {
                     results.Add(new ValidationResult(false, ValidationSeverity.Error, "No games selected"));
                     return results;
@@ -286,7 +286,7 @@ namespace Easy_Copier.Services
                 if (targetDrive.IsFat32)
                 {
                     List<GameEntry> gamesWithLargeFiles = gamesList.Where(g => g.HasLargeFiles).ToList();
-                    if (gamesWithLargeFiles.Any())
+                    if (gamesWithLargeFiles.Count > 0)
                     {
                         results.Add(new ValidationResult(
                             false,

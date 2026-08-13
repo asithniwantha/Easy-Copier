@@ -19,6 +19,7 @@ namespace Easy_Copier.Services
 
         public async Task<bool> ExportHistoryToCsvAsync(string filePath, IEnumerable<CopyHistoryRecord> records)
         {
+            ArgumentNullException.ThrowIfNull(records);
             try
             {
                 using StreamWriter writer = new(filePath, false, Encoding.UTF8);
@@ -26,12 +27,12 @@ namespace Easy_Copier.Services
 
                 foreach (CopyHistoryRecord record in records)
                 {
-                    string id = record.Id.ToString();
-                    string timestamp = record.Timestamp.ToString("O");
+                    string id = record.Id.ToString(System.Globalization.CultureInfo.InvariantCulture);
+                    string timestamp = record.Timestamp.ToString("O", System.Globalization.CultureInfo.InvariantCulture);
                     string gameName = EscapeCsv(record.GameName);
                     string targetDriveLetter = EscapeCsv(record.TargetDriveLetter);
                     string targetDriveLabel = EscapeCsv(record.TargetDriveLabel);
-                    string bytesTransferred = record.BytesTransferred.ToString();
+                    string bytesTransferred = record.BytesTransferred.ToString(System.Globalization.CultureInfo.InvariantCulture);
                     string isSuccess = record.IsSuccess.ToString();
 
                     await writer.WriteLineAsync($"{id},{timestamp},{gameName},{targetDriveLetter},{targetDriveLabel},{bytesTransferred},{isSuccess}");
@@ -47,12 +48,12 @@ namespace Easy_Copier.Services
             }
         }
 
-        private string EscapeCsv(string value)
+        private static string EscapeCsv(string value)
         {
             return string.IsNullOrEmpty(value)
                 ? string.Empty
-                : value.Contains(",") || value.Contains("\"") || value.Contains("\r") || value.Contains("\n")
-                ? $"\"{value.Replace("\"", "\"\"")}\""
+                : value.Contains(',') || value.Contains('"') || value.Contains('\r') || value.Contains('\n')
+                ? $"\"{value.Replace("\"", "\"\"", StringComparison.Ordinal)}\""
                 : value;
         }
     }
