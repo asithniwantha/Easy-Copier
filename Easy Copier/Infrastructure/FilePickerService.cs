@@ -13,31 +13,58 @@ namespace Easy_Copier.Infrastructure
 
     public class FilePickerService : IFilePickerService
     {
+        private readonly IDispatcherService _dispatcherService;
+
+        public FilePickerService(IDispatcherService dispatcherService)
+        {
+            _dispatcherService = dispatcherService ?? throw new ArgumentNullException(nameof(dispatcherService));
+        }
+
         public async Task<string?> PickSaveFileAsync(string suggestedFileName, IDictionary<string, IList<string>> fileTypeChoices)
         {
             ArgumentNullException.ThrowIfNull(fileTypeChoices);
 
-            FileSavePicker savePicker = new()
-            {
-                SuggestedStartLocation = PickerLocationId.DocumentsLibrary,
-                SuggestedFileName = suggestedFileName
-            };
+            TaskCompletionSource<string?> tcs = new();
 
-            foreach (KeyValuePair<string, IList<string>> kvp in fileTypeChoices)
+            bool enqueued = _dispatcherService.TryEnqueue(async () =>
             {
-                savePicker.FileTypeChoices.Add(kvp.Key, kvp.Value);
+                try
+                {
+                    FileSavePicker savePicker = new()
+                    {
+                        SuggestedStartLocation = PickerLocationId.DocumentsLibrary,
+                        SuggestedFileName = suggestedFileName
+                    };
+
+                    foreach (KeyValuePair<string, IList<string>> kvp in fileTypeChoices)
+                    {
+                        savePicker.FileTypeChoices.Add(kvp.Key, kvp.Value);
+                    }
+
+                    nint windowHandle = GetActiveWindowHandle();
+                    if (windowHandle == IntPtr.Zero)
+                    {
+                        tcs.SetResult(null);
+                        return;
+                    }
+
+                    WinRT.Interop.InitializeWithWindow.Initialize(savePicker, windowHandle);
+
+                    StorageFile file = await savePicker.PickSaveFileAsync();
+                    tcs.SetResult(file?.Path);
+                }
+                catch (Exception ex)
+                {
+                    tcs.SetException(ex);
+                }
+            });
+
+            if (!enqueued)
+            {
+                tcs.SetResult(null);
             }
 
-            nint windowHandle = GetActiveWindowHandle();
-            if (windowHandle == IntPtr.Zero)
-            {
-                return null;
-            }
-
-            WinRT.Interop.InitializeWithWindow.Initialize(savePicker, windowHandle);
-
-            StorageFile file = await savePicker.PickSaveFileAsync();
-            return file?.Path;
+            return await tcs.Task;
         }
 
         private static IntPtr GetActiveWindowHandle()
