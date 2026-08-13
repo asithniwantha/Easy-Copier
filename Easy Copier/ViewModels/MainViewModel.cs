@@ -26,6 +26,7 @@ namespace Easy_Copier.ViewModels
         private readonly IProcessService _processService;
         private readonly IDispatcherService _dispatcherService;
         private readonly ISourceLibraryService _sourceLibraryService;
+        private readonly IDialogService _dialogService;
         private CancellationTokenSource? _scanCancellationTokenSource;
         private CancellationTokenSource? _validationCancellationTokenSource;
         private List<GameEntry> _selectedGames = [];
@@ -121,7 +122,8 @@ namespace Easy_Copier.ViewModels
             IWindowService windowService,
             IProcessService processService,
             IDispatcherService dispatcherService,
-            ISourceLibraryService sourceLibraryService)
+            ISourceLibraryService sourceLibraryService,
+            IDialogService dialogService)
         {
             _settingsService = settingsService;
             _libraryCacheService = libraryCacheService;
@@ -134,6 +136,7 @@ namespace Easy_Copier.ViewModels
             _processService = processService;
             _dispatcherService = dispatcherService;
             _sourceLibraryService = sourceLibraryService;
+            _dialogService = dialogService;
 
             _driveDiscoveryService.DrivesChanged += (s, e) =>
             {
@@ -490,13 +493,70 @@ namespace Easy_Copier.ViewModels
                     return;
                 }
 
-                List<GameEntry> itemsToQueue = _selectedGames.ToList();
-                _ = _transferQueueService.Enqueue(itemsToQueue, SelectedDrive, destinationPath);
+                List<TransferItem> itemsToQueue = [];
+                bool applyToAll = false;
+                CopyAction globalAction = CopyAction.Default;
 
-                StatusMessage = $"Queued {itemsToQueue.Count} item(s) for {SelectedDrive.DriveLetter} ({TransferQueue.Count} in queue)";
-                IsTransferring = TransferQueue.Any(i => i.IsActive);
+                foreach (GameEntry game in _selectedGames)
+                {
+                    string destItemPath = Path.Combine(destinationPath, game.Name);
+                    if (System.IO.File.Exists(game.FolderPath))
+                    {
+                        destItemPath = Path.Combine(destinationPath, Path.GetFileName(game.FolderPath));
+                    }
 
-                ItemQueued?.Invoke(this, EventArgs.Empty);
+                    bool destExists = System.IO.Directory.Exists(destItemPath) || System.IO.File.Exists(destItemPath);
+
+                    if (destExists)
+                    {
+                        if (applyToAll)
+                        {
+                            if (globalAction != CopyAction.Skip)
+                            {
+                                itemsToQueue.Add(new TransferItem(game, globalAction));
+                            }
+                        }
+                        else
+                        {
+                            var srcStats = await _fileTransferService.GetFolderStatsAsync(game.FolderPath);
+                            var destStats = await _fileTransferService.GetFolderStatsAsync(destItemPath);
+
+                            var dialogResult = await _dialogService.ShowConflictDialogAsync(
+                                game.Name,
+                                srcStats.Size,
+                                srcStats.Count,
+                                destStats.Size,
+                                destStats.Count);
+
+                            if (dialogResult.ApplyToAll)
+                            {
+                                applyToAll = true;
+                                globalAction = dialogResult.Action;
+                            }
+
+                            if (dialogResult.Action != CopyAction.Skip)
+                            {
+                                itemsToQueue.Add(new TransferItem(game, dialogResult.Action));
+                            }
+                        }
+                    }
+                    else
+                    {
+                        itemsToQueue.Add(new TransferItem(game, CopyAction.Default));
+                    }
+                }
+
+                if (itemsToQueue.Count > 0)
+                {
+                    _ = _transferQueueService.Enqueue(itemsToQueue, SelectedDrive, destinationPath);
+                    StatusMessage = $"Queued {itemsToQueue.Count} item(s) for {SelectedDrive.DriveLetter} ({TransferQueue.Count} in queue)";
+                    IsTransferring = TransferQueue.Any(i => i.IsActive);
+                    ItemQueued?.Invoke(this, EventArgs.Empty);
+                }
+                else
+                {
+                    StatusMessage = "No items to queue (all skipped).";
+                }
             }
             catch (Exception ex)
             {

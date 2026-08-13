@@ -72,6 +72,8 @@ The selected-drive panel also shows a usage bar, free space, total capacity, and
 
 ### Copy operations
 
+- Ask for conflict resolution (Replace, Merge, Skip) before queuing if destination items exist, comparing size and file count between source and destination.
+- Support "Merge" behavior by intelligently copying only missing files to the destination.
 - Copy multiple selected games asynchronously without blocking the UI.
 - Configure application to start automatically on Windows log-on through the app settings.
 - Process copy jobs in parallel when they target different USB drives.
