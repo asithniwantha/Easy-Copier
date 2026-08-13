@@ -55,6 +55,8 @@
                         <TextBlock Text="General Settings" FontSize="20" FontWeight="SemiBold" />
                         <ToggleSwitch Header="Auto-scan library on startup"
                                       IsOn="{x:Bind ViewModel.AutoScanOnStartup, Mode=TwoWay}"/>
+                        <ToggleSwitch Header="Start application on Windows log-on"
+                                      IsOn="{x:Bind ViewModel.StartOnLogon, Mode=TwoWay}"/>
                     </StackPanel>
 
                     <!-- Games Panel -->

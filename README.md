@@ -66,6 +66,7 @@ The selected-drive panel also shows a usage bar, free space, total capacity, and
 ### Copy operations
 
 - Copy multiple selected games asynchronously without blocking the UI.
+- Configure application to start automatically on Windows log-on through the app settings.
 - Process copy jobs in parallel when they target different USB drives.
 - Keep copy jobs serialized per drive (one at a time per target drive, in queue order).
 - Use the Windows native copy dialog during file transfer operations.
