@@ -121,7 +121,7 @@ namespace Easy_Copier.Views
             return paragraph;
         }
 
-        private ScrollViewer CreateFolderContentsView(string folderPath)
+        private static ScrollViewer CreateFolderContentsView(string folderPath)
         {
             StackPanel stackPanel = new() { Spacing = 4 };
 
