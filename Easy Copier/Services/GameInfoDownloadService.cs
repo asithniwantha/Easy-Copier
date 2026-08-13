@@ -155,7 +155,7 @@ namespace Easy_Copier.Services
             var appId = await FetchSteamAppIdAsync(gameName, cancellationToken);
             if (appId == null) return null;
 
-            var url = $"https://store.steampowered.com/api/appdetails?appids={appId}";
+            var url = new Uri($"https://store.steampowered.com/api/appdetails?appids={appId}");
             var response = await _httpClient.GetAsync(url, cancellationToken);
             if (!response.IsSuccessStatusCode) return null;
 
@@ -208,30 +208,36 @@ namespace Easy_Copier.Services
         private static string FormatRequirements(string gameName, Dictionary<string, Dictionary<string, string>> requirements)
         {
             var sb = new System.Text.StringBuilder();
-            sb.AppendLine($"SYSTEM REQUIREMENTS FOR: {gameName}");
+            sb.AppendLine(System.Globalization.CultureInfo.InvariantCulture, $"SYSTEM REQUIREMENTS FOR: {gameName}");
             sb.AppendLine(new string('=', 70));
             sb.AppendLine();
 
             sb.AppendLine("MINIMUM REQUIREMENTS:");
             sb.AppendLine(new string('-', 70));
-            var minSpecs = requirements.ContainsKey("minimum") ? requirements["minimum"] : new Dictionary<string, string>();
-            sb.AppendLine($"CPU: {(minSpecs.TryGetValue("CPU", out var cpu) ? cpu : "Not available")}");
-            sb.AppendLine($"GPU: {(minSpecs.TryGetValue("GPU", out var gpu) ? gpu : "Not available")}");
-            sb.AppendLine($"RAM: {(minSpecs.TryGetValue("RAM", out var ram) ? ram : "Not available")}");
-            sb.AppendLine($"Storage: {(minSpecs.TryGetValue("Storage", out var storage) ? storage : "Not available")}");
+            if (!requirements.TryGetValue("minimum", out var minSpecs))
+            {
+                minSpecs = new Dictionary<string, string>();
+            }
+            sb.AppendLine(System.Globalization.CultureInfo.InvariantCulture, $"CPU: {(minSpecs.TryGetValue("CPU", out var cpu) ? cpu : "Not available")}");
+            sb.AppendLine(System.Globalization.CultureInfo.InvariantCulture, $"GPU: {(minSpecs.TryGetValue("GPU", out var gpu) ? gpu : "Not available")}");
+            sb.AppendLine(System.Globalization.CultureInfo.InvariantCulture, $"RAM: {(minSpecs.TryGetValue("RAM", out var ram) ? ram : "Not available")}");
+            sb.AppendLine(System.Globalization.CultureInfo.InvariantCulture, $"Storage: {(minSpecs.TryGetValue("Storage", out var storage) ? storage : "Not available")}");
             sb.AppendLine();
 
             sb.AppendLine("RECOMMENDED REQUIREMENTS:");
             sb.AppendLine(new string('-', 70));
-            var recSpecs = requirements.ContainsKey("recommended") ? requirements["recommended"] : new Dictionary<string, string>();
-            sb.AppendLine($"CPU: {(recSpecs.TryGetValue("CPU", out var rcpu) ? rcpu : "Not available")}");
-            sb.AppendLine($"GPU: {(recSpecs.TryGetValue("GPU", out var rgpu) ? rgpu : "Not available")}");
-            sb.AppendLine($"RAM: {(recSpecs.TryGetValue("RAM", out var rram) ? rram : "Not available")}");
-            sb.AppendLine($"Storage: {(recSpecs.TryGetValue("Storage", out var rstorage) ? rstorage : "Not available")}");
+            if (!requirements.TryGetValue("recommended", out var recSpecs))
+            {
+                recSpecs = new Dictionary<string, string>();
+            }
+            sb.AppendLine(System.Globalization.CultureInfo.InvariantCulture, $"CPU: {(recSpecs.TryGetValue("CPU", out var rcpu) ? rcpu : "Not available")}");
+            sb.AppendLine(System.Globalization.CultureInfo.InvariantCulture, $"GPU: {(recSpecs.TryGetValue("GPU", out var rgpu) ? rgpu : "Not available")}");
+            sb.AppendLine(System.Globalization.CultureInfo.InvariantCulture, $"RAM: {(recSpecs.TryGetValue("RAM", out var rram) ? rram : "Not available")}");
+            sb.AppendLine(System.Globalization.CultureInfo.InvariantCulture, $"Storage: {(recSpecs.TryGetValue("Storage", out var rstorage) ? rstorage : "Not available")}");
             sb.AppendLine();
 
             sb.AppendLine(new string('-', 70));
-            sb.AppendLine($"Created on: {DateTime.Now:yyyy-MM-dd HH:mm:ss}");
+            sb.AppendLine(System.Globalization.CultureInfo.InvariantCulture, $"Created on: {DateTime.Now:yyyy-MM-dd HH:mm:ss}");
             sb.AppendLine("Source: Fetched from Steam Web API");
 
             return sb.ToString();
@@ -241,7 +247,7 @@ namespace Easy_Copier.Services
 
         private async Task<string?> FetchSteamAppIdAsync(string gameName, CancellationToken cancellationToken)
         {
-            var url = $"https://steamcommunity.com/actions/SearchApps/{Uri.EscapeDataString(gameName)}";
+            var url = new Uri($"https://steamcommunity.com/actions/SearchApps/{Uri.EscapeDataString(gameName)}");
             try
             {
                 var response = await _httpClient.GetAsync(url, cancellationToken);
@@ -264,7 +270,7 @@ namespace Easy_Copier.Services
         {
             try
             {
-                var response = await _httpClient.GetAsync(url, cancellationToken);
+                var response = await _httpClient.GetAsync(new Uri(url), cancellationToken);
                 if (response.IsSuccessStatusCode)
                 {
                     var bytes = await response.Content.ReadAsByteArrayAsync(cancellationToken);
@@ -287,7 +293,7 @@ namespace Easy_Copier.Services
 
         private async Task<bool> TryFetchGogCoverAsync(string gameName, string coverPath, CancellationToken cancellationToken)
         {
-            var url = $"https://catalog.gog.com/v1/catalog?query=like:{Uri.EscapeDataString(gameName)}&limit=1";
+            var url = new Uri($"https://catalog.gog.com/v1/catalog?query=like:{Uri.EscapeDataString(gameName)}&limit=1");
             try
             {
                 var response = await _httpClient.GetAsync(url, cancellationToken);
@@ -303,7 +309,7 @@ namespace Easy_Copier.Services
                             var imgUrl = cover.GetString();
                             if (!string.IsNullOrEmpty(imgUrl))
                             {
-                                imgUrl = imgUrl.Replace("{formatter}", "avif").Replace("{ext}", "webp");
+                                imgUrl = imgUrl.Replace("{formatter}", "avif", StringComparison.Ordinal).Replace("{ext}", "webp", StringComparison.Ordinal);
                                 return await DownloadImageAsync(imgUrl, coverPath, cancellationToken);
                             }
                         }
@@ -316,7 +322,7 @@ namespace Easy_Copier.Services
 
         private async Task<bool> TryFetchGsrCoverAsync(string gameName, string coverPath, CancellationToken cancellationToken)
         {
-            var url = $"https://gamesystemrequirements.com/games.php?req={Uri.EscapeDataString(gameName)}";
+            var url = new Uri($"https://gamesystemrequirements.com/games.php?req={Uri.EscapeDataString(gameName)}");
             try
             {
                 var response = await _httpClient.GetAsync(url, cancellationToken);
@@ -327,7 +333,7 @@ namespace Easy_Copier.Services
                     if (match.Success)
                     {
                         var imgUrl = match.Groups[2].Value;
-                        if (imgUrl.StartsWith("/")) imgUrl = "https://gamesystemrequirements.com" + imgUrl;
+                        if (imgUrl.StartsWith('/')) imgUrl = "https://gamesystemrequirements.com" + imgUrl;
                         return await DownloadImageAsync(imgUrl, coverPath, cancellationToken);
                     }
                 }
@@ -338,7 +344,7 @@ namespace Easy_Copier.Services
 
         private async Task<bool> TryFetchWikipediaCoverAsync(string gameName, string coverPath, CancellationToken cancellationToken)
         {
-            var url = $"https://en.wikipedia.org/wiki/Special:Search?search={Uri.EscapeDataString(gameName)}";
+            var url = new Uri($"https://en.wikipedia.org/wiki/Special:Search?search={Uri.EscapeDataString(gameName)}");
             try
             {
                 var response = await _httpClient.GetAsync(url, cancellationToken);
@@ -349,10 +355,10 @@ namespace Easy_Copier.Services
                     if (match.Success)
                     {
                         var imgUrl = match.Groups[1].Value;
-                        if (imgUrl.StartsWith("//")) imgUrl = "https:" + imgUrl;
-                        else if (imgUrl.StartsWith("/")) imgUrl = "https://en.wikipedia.org" + imgUrl;
+                        if (imgUrl.StartsWith("//", StringComparison.Ordinal)) imgUrl = "https:" + imgUrl;
+                        else if (imgUrl.StartsWith('/')) imgUrl = "https://en.wikipedia.org" + imgUrl;
 
-                        imgUrl = imgUrl.Replace("/220px-", "/500px-").Replace("/250px-", "/500px-");
+                        imgUrl = imgUrl.Replace("/220px-", "/500px-", StringComparison.Ordinal).Replace("/250px-", "/500px-", StringComparison.Ordinal);
                         return await DownloadImageAsync(imgUrl, coverPath, cancellationToken);
                     }
                 }
@@ -363,7 +369,7 @@ namespace Easy_Copier.Services
 
         private async Task<bool> TryFetchPcgwCoverAsync(string gameName, string coverPath, CancellationToken cancellationToken)
         {
-            var url = $"https://www.pcgamingwiki.com/w/api.php?action=query&prop=pageimages&titles={Uri.EscapeDataString(gameName)}&format=json&pithumbsize=800";
+            var url = new Uri($"https://www.pcgamingwiki.com/w/api.php?action=query&prop=pageimages&titles={Uri.EscapeDataString(gameName)}&format=json&pithumbsize=800");
             try
             {
                 var response = await _httpClient.GetAsync(url, cancellationToken);
@@ -392,7 +398,7 @@ namespace Easy_Copier.Services
 
         private async Task<bool> TryFetchOpenCriticCoverAsync(string gameName, string coverPath, CancellationToken cancellationToken)
         {
-            var url = $"https://api.opencritic.com/api/game/search?criteria={Uri.EscapeDataString(gameName)}";
+            var url = new Uri($"https://api.opencritic.com/api/game/search?criteria={Uri.EscapeDataString(gameName)}");
             try
             {
                 var response = await _httpClient.GetAsync(url, cancellationToken);
@@ -403,7 +409,7 @@ namespace Easy_Copier.Services
                     if (doc.RootElement.GetArrayLength() > 0)
                     {
                         var gameId = doc.RootElement[0].GetProperty("id").GetInt32();
-                        var gameUrl = $"https://api.opencritic.com/api/game/{gameId}";
+                        var gameUrl = new Uri($"https://api.opencritic.com/api/game/{gameId}");
                         var gameResponse = await _httpClient.GetAsync(gameUrl, cancellationToken);
                         if (gameResponse.IsSuccessStatusCode)
                         {
@@ -419,7 +425,7 @@ namespace Easy_Copier.Services
                             else if (root.TryGetProperty("bannerImageUrl", out var banner))
                             {
                                 imgUrl = banner.GetString();
-                                if (!string.IsNullOrEmpty(imgUrl) && !imgUrl.StartsWith("http"))
+                                if (!string.IsNullOrEmpty(imgUrl) && !imgUrl.StartsWith("http", StringComparison.Ordinal))
                                 {
                                     imgUrl = $"https://img.opencritic.com/{imgUrl}";
                                 }
@@ -439,7 +445,7 @@ namespace Easy_Copier.Services
 
         private async Task<bool> TryFetchLutrisCoverAsync(string gameName, string coverPath, CancellationToken cancellationToken)
         {
-            var url = $"https://lutris.net/games/?q={Uri.EscapeDataString(gameName)}";
+            var url = new Uri($"https://lutris.net/games/?q={Uri.EscapeDataString(gameName)}");
             try
             {
                 var response = await _httpClient.GetAsync(url, cancellationToken);
@@ -450,7 +456,7 @@ namespace Easy_Copier.Services
                     if (match.Success)
                     {
                         var imgUrl = match.Groups[1].Value;
-                        if (imgUrl.StartsWith("/")) imgUrl = "https://lutris.net" + imgUrl;
+                        if (imgUrl.StartsWith('/')) imgUrl = "https://lutris.net" + imgUrl;
                         return await DownloadImageAsync(imgUrl, coverPath, cancellationToken);
                     }
                 }

@@ -160,6 +160,9 @@ namespace Easy_Copier.Services
             AppSettings currentSettings,
             CancellationToken cancellationToken = default)
         {
+            ArgumentNullException.ThrowIfNull(cache);
+            ArgumentNullException.ThrowIfNull(currentSettings);
+
             try
             {
                 List<string> normalizedCacheGameFolders = cache.GameSourceFolders
@@ -200,7 +203,7 @@ namespace Easy_Copier.Services
                     return new CacheValidationOutcome(CacheValidationResult.ConfigurationMismatch, []);
                 }
 
-                IEnumerable<string> allSourceFolders = normalizedCurrentGameFolders.Concat(normalizedCurrentAppFolders).Concat(normalizedCurrentTvAndFilmFolders).Distinct();
+                List<string> allSourceFolders = normalizedCurrentGameFolders.Concat(normalizedCurrentAppFolders).Concat(normalizedCurrentTvAndFilmFolders).Distinct().ToList();
                 foreach (string? sourceFolder in allSourceFolders)
                 {
                     if (!Directory.Exists(sourceFolder))
@@ -293,13 +296,13 @@ namespace Easy_Copier.Services
                 List<string> newItems = currentTopLevelItems.Except(cachedTopLevelItems).ToList();
                 List<string> removedItems = cachedTopLevelItems.Except(currentTopLevelItems).ToList();
 
-                if (newItems.Any())
+                if (newItems.Count > 0)
                 {
                     _logger.LogInformation("New items detected: {Count}", newItems.Count);
                     changedItems.AddRange(newItems);
                 }
 
-                if (removedItems.Any())
+                if (removedItems.Count > 0)
                 {
                     _logger.LogInformation("Removed items detected: {Count}", removedItems.Count);
                     changedItems.AddRange(removedItems);
@@ -311,7 +314,7 @@ namespace Easy_Copier.Services
                     return new CacheValidationOutcome(CacheValidationResult.Valid, []);
                 }
 
-                if (changedItems.Any())
+                if (changedItems.Count > 0)
                 {
                     _logger.LogInformation("Cache validation: {Count} items changed", changedItems.Count);
                     return new CacheValidationOutcome(CacheValidationResult.ItemsChanged, changedItems);

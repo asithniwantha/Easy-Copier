@@ -181,9 +181,9 @@ namespace Easy_Copier.Services
                 using SqliteDataReader reader = await command.ExecuteReaderAsync();
                 if (await reader.ReadAsync())
                 {
-                    int totalItems = reader.IsDBNull(0) ? 0 : reader.GetInt32(0);
-                    int successfulItems = reader.IsDBNull(1) ? 0 : reader.GetInt32(1);
-                    long totalBytes = reader.IsDBNull(2) ? 0 : reader.GetInt64(2);
+                    int totalItems = await reader.IsDBNullAsync(0) ? 0 : reader.GetInt32(0);
+                    int successfulItems = await reader.IsDBNullAsync(1) ? 0 : reader.GetInt32(1);
+                    long totalBytes = await reader.IsDBNullAsync(2) ? 0 : reader.GetInt64(2);
                     return (totalItems, successfulItems, totalBytes);
                 }
             }

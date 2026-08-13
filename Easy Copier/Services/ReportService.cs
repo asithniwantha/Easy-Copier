@@ -52,7 +52,7 @@ namespace Easy_Copier.Services
         {
             return string.IsNullOrEmpty(value)
                 ? string.Empty
-                : value.Contains(',') || value.Contains('"') || value.Contains('\r') || value.Contains('\n')
+                : value.Contains(',', StringComparison.Ordinal) || value.Contains('"', StringComparison.Ordinal) || value.Contains('\r', StringComparison.Ordinal) || value.Contains('\n', StringComparison.Ordinal)
                 ? $"\"{value.Replace("\"", "\"\"", StringComparison.Ordinal)}\""
                 : value;
         }

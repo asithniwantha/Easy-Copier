@@ -68,7 +68,7 @@ namespace Easy_Copier.Views
             AppsGridView.SelectedItems.Clear();
         }
 
-        private Paragraph CreateColoredParagraph(string text)
+        private static Paragraph CreateColoredParagraph(string text)
         {
             Paragraph paragraph = new();
 
@@ -121,7 +121,7 @@ namespace Easy_Copier.Views
             return paragraph;
         }
 
-        private UIElement CreateFolderContentsView(string folderPath)
+        private ScrollViewer CreateFolderContentsView(string folderPath)
         {
             StackPanel stackPanel = new() { Spacing = 4 };
 
@@ -168,7 +168,7 @@ namespace Easy_Copier.Views
             };
         }
 
-        private UIElement CreateFileFolderItem(string name, bool isFolder)
+        private static StackPanel CreateFileFolderItem(string name, bool isFolder)
         {
             StackPanel itemPanel = new() { Orientation = Orientation.Horizontal, Spacing = 8 };
 
