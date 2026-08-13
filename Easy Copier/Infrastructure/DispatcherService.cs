@@ -15,31 +15,33 @@ namespace Easy_Copier.Infrastructure
 
         public bool HasThreadAccess => _dispatcherQueue?.HasThreadAccess ?? false;
 
-        public void TryEnqueue(Action action)
+        public bool TryEnqueue(Action action)
         {
             ArgumentNullException.ThrowIfNull(action);
 
             if (_dispatcherQueue != null)
             {
-                _ = _dispatcherQueue.TryEnqueue(() => action());
+                return _dispatcherQueue.TryEnqueue(() => action());
             }
             else
             {
                 action();
+                return true;
             }
         }
 
-        public void TryEnqueue(Func<Task> action)
+        public bool TryEnqueue(Func<Task> action)
         {
             ArgumentNullException.ThrowIfNull(action);
 
             if (_dispatcherQueue != null)
             {
-                _ = _dispatcherQueue.TryEnqueue(async () => await action());
+                return _dispatcherQueue.TryEnqueue(async () => await action());
             }
             else
             {
                 _ = action();
+                return true;
             }
         }
     }

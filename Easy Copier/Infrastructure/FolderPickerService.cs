@@ -9,26 +9,53 @@ namespace Easy_Copier.Infrastructure
 {
     public class FolderPickerService : IFolderPickerService
     {
+        private readonly IDispatcherService _dispatcherService;
+
+        public FolderPickerService(IDispatcherService dispatcherService)
+        {
+            _dispatcherService = dispatcherService ?? throw new ArgumentNullException(nameof(dispatcherService));
+        }
+
         public async Task<string?> PickFolderAsync()
         {
-            FolderPicker folderPicker = new()
-            {
-                SuggestedStartLocation = PickerLocationId.ComputerFolder,
-                ViewMode = PickerViewMode.List
-            };
+            TaskCompletionSource<string?> tcs = new();
 
-            folderPicker.FileTypeFilter.Add("*");
-
-            nint windowHandle = GetActiveWindowHandle();
-            if (windowHandle == IntPtr.Zero)
+            bool enqueued = _dispatcherService.TryEnqueue(async () =>
             {
-                return null;
+                try
+                {
+                    FolderPicker folderPicker = new()
+                    {
+                        SuggestedStartLocation = PickerLocationId.ComputerFolder,
+                        ViewMode = PickerViewMode.List
+                    };
+
+                    folderPicker.FileTypeFilter.Add("*");
+
+                    nint windowHandle = GetActiveWindowHandle();
+                    if (windowHandle == IntPtr.Zero)
+                    {
+                        tcs.SetResult(null);
+                        return;
+                    }
+
+                    InitializeWithWindow.Initialize(folderPicker, windowHandle);
+
+                    StorageFolder folder = await folderPicker.PickSingleFolderAsync();
+                    tcs.SetResult(folder?.Path);
+                }
+                catch (Exception ex)
+                {
+                    tcs.SetException(ex);
+                }
+            });
+
+            if (!enqueued)
+            {
+                tcs.SetResult(null);
             }
 
-            InitializeWithWindow.Initialize(folderPicker, windowHandle);
-
-            StorageFolder folder = await folderPicker.PickSingleFolderAsync();
-            return folder?.Path;
+            return await tcs.Task;
         }
 
         private static IntPtr GetActiveWindowHandle()

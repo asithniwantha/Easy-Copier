@@ -6,7 +6,7 @@ namespace Easy_Copier.Infrastructure
     public interface IDispatcherService
     {
         bool HasThreadAccess { get; }
-        void TryEnqueue(Action action);
-        void TryEnqueue(Func<Task> action);
+        bool TryEnqueue(Action action);
+        bool TryEnqueue(Func<Task> action);
     }
 }
