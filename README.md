@@ -36,8 +36,15 @@ Easy Copier helps shop environments prepare customer drives without guessing whi
 ---
 
 ## 📸 Screenshots
-<!--add padding to the screenshot and make it look better	--> 
-![Screenshot](<Easy Copier/Assets/Screenshot 2026-08-06 211103.jpg>)
+<!-- ![Screenshot](<Easy Copier/Assets/Screenshot 2026-08-06 211103.jpg>)-->
+<dl>  <dd>    <dl>      <dd>
+<!--add padding to the screenshot and make it look better	-->	
+
+<picture>
+    <img width="800" height="450" src="Easy Copier/Assets/Screenshot 2026-08-06 211103.jpg"/>    
+  </picture>
+
+</dd>    </dl>  </dd></dl>
 
 ---
 ## Drive Selection
