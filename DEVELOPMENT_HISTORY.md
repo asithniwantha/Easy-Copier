@@ -24,7 +24,7 @@ Easy Copier was developed as a WinUI 3 desktop application targeting .NET 10 to 
 - Added settings window behavior with owner-window centering and modal-like input blocking.
 - Refined Settings window navigation by implementing a sidebar (NavigationView) to categorize options cleanly.
 - Implemented configurable game pricing tags that calculate estimated prices based on per-GB file size thresholds.
-- Resolved and cleaned up static code analysis and build warnings (Roslyn rules CA1515, CA1707, CA1052, CA1063, CA5392, CA1062, CA1822, CA1805, CA1305, CA1307, etc.) to ensure strict compliance with quality, security, and performance standards.
+- Resolved and cleaned up static code analysis and build warnings (Roslyn rules CA1515, CA1707, CA1052, CA1063, CA5392, CA1062, CA1822, CA1805, CA1305, CA1307, etc.) to ensure strict compliance with quality, security, and performance standards. This included marking the `CreateFolderContentsView` method in `MainPage.xaml.cs` as static (resolving CA1822) and suppressing warning CA5392 in the project files to prevent noise from auto-generated NuGet external dependencies (like the Windows App SDK).
 
 ## Key Development Decisions
 - **Safety-first transfer pipeline**: run validation before copy; block operation on hard errors.
