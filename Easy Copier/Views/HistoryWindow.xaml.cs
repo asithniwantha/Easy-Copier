@@ -1,10 +1,7 @@
 using Easy_Copier.Infrastructure;
 using Easy_Copier.ViewModels;
-using Microsoft.UI;
-using Microsoft.UI.Windowing;
 using Microsoft.UI.Xaml;
 using System;
-using System.IO;
 
 namespace Easy_Copier.Views
 {
@@ -34,7 +31,7 @@ namespace Easy_Copier.Views
         private void HistoryWindow_Closed(object sender, WindowEventArgs args)
         {
             NativeWindowHelper.RestoreOwnerInput(App.MainWindow);
-            this.Content = null;
+            Content = null;
             HistoryClosed?.Invoke(this, EventArgs.Empty);
         }
     }

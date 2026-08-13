@@ -1,11 +1,8 @@
 using Easy_Copier.Infrastructure;
 using Easy_Copier.ViewModels;
-using Microsoft.UI;
-using Microsoft.UI.Windowing;
 using Microsoft.UI.Xaml;
 using System;
 using System.Threading.Tasks;
-using WinRT.Interop;
 
 namespace Easy_Copier.Views
 {

@@ -1,10 +1,5 @@
 using Easy_Copier.Views;
-using Microsoft.UI;
-using Microsoft.UI.Windowing;
 using Microsoft.UI.Xaml;
-using System;
-using System.IO;
-using WinRT.Interop;
 
 namespace Easy_Copier
 {
@@ -18,7 +13,7 @@ namespace Easy_Copier
 
             _ = RootFrame.Navigate(typeof(MainPage));
 
-            this.Closed += MainWindow_Closed;
+            Closed += MainWindow_Closed;
         }
 
         /// <summary>

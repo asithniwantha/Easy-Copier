@@ -1,6 +1,5 @@
 using Easy_Copier.Infrastructure;
 using Easy_Copier.Models;
-using Easy_Copier.Services;
 using Easy_Copier.ViewModels;
 using Microsoft.UI.Text;
 using Microsoft.UI.Xaml;
@@ -12,7 +11,6 @@ using Microsoft.UI.Xaml.Media;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text.RegularExpressions;
 
 namespace Easy_Copier.Views
 {
@@ -55,7 +53,7 @@ namespace Easy_Copier.Views
 
         private void UpdateCombinedSelection()
         {
-            var tvItems = TvAndFilmsGridView?.SelectedItems.Cast<GameEntry>() ?? Enumerable.Empty<GameEntry>();
+            IEnumerable<GameEntry> tvItems = TvAndFilmsGridView?.SelectedItems.Cast<GameEntry>() ?? [];
             IEnumerable<GameEntry> selectedItems = GamesGridView.SelectedItems.Cast<GameEntry>()
                 .Concat(AppsGridView.SelectedItems.Cast<GameEntry>())
                 .Concat(tvItems);

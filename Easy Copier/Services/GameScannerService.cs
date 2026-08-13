@@ -40,19 +40,22 @@ namespace Easy_Copier.Services
                 string folderName = Path.GetFileName(folderPath).TrimEnd();
 
                 if (folderName.StartsWith('$'))
+                {
                     return true;
+                }
 
                 if (string.Equals(folderName, "recyclebin", StringComparison.OrdinalIgnoreCase))
+                {
                     return true;
+                }
 
                 if (string.Equals(folderName, "System Volume Information", StringComparison.OrdinalIgnoreCase))
+                {
                     return true;
+                }
 
                 DirectoryInfo dirInfo = new(folderPath);
-                if (dirInfo.Exists && (dirInfo.Attributes & FileAttributes.System) == FileAttributes.System)
-                    return true;
-
-                return false;
+                return dirInfo.Exists && (dirInfo.Attributes & FileAttributes.System) == FileAttributes.System;
             }
             catch
             {
@@ -70,8 +73,8 @@ namespace Easy_Copier.Services
         {
             ArgumentNullException.ThrowIfNull(sourceFolders);
 
-            List<GameEntry> games = new List<GameEntry>();
-            HashSet<string> processedPaths = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
+            List<GameEntry> games = [];
+            HashSet<string> processedPaths = new(StringComparer.OrdinalIgnoreCase);
 
             string categoryLabel = category == LibraryCategory.App ? "app" :
                                    (category == LibraryCategory.TvAndFilm ? "film/tv" : "game");
@@ -100,22 +103,25 @@ namespace Easy_Copier.Services
 
                     if (category == LibraryCategory.TvAndFilm && !string.IsNullOrWhiteSpace(videoExtensions))
                     {
-                        var extList = videoExtensions.Split(VideoExtensionSeparators, StringSplitOptions.RemoveEmptyEntries)
+                        List<string> extList = videoExtensions.Split(VideoExtensionSeparators, StringSplitOptions.RemoveEmptyEntries)
                                                      .Select(e => e.Trim().StartsWith('.') ? e.Trim() : "." + e.Trim())
                                                      .ToList();
 
                         try
                         {
-                            var files = await Task.Run(() => Directory.GetFiles(sourceFolder, "*.*", SearchOption.TopDirectoryOnly), cancellationToken).ConfigureAwait(false);
-                            foreach (var file in files)
+                            string[] files = await Task.Run(() => Directory.GetFiles(sourceFolder, "*.*", SearchOption.TopDirectoryOnly), cancellationToken).ConfigureAwait(false);
+                            foreach (string? file in files)
                             {
                                 if (extList.Contains(Path.GetExtension(file), StringComparer.OrdinalIgnoreCase))
                                 {
-                                    if (processedPaths.Contains(file)) continue;
+                                    if (processedPaths.Contains(file))
+                                    {
+                                        continue;
+                                    }
 
                                     string fileName = Path.GetFileName(file);
                                     progress?.Report($"Processing file: {fileName}");
-                                    FileInfo fi = new FileInfo(file);
+                                    FileInfo fi = new(file);
                                     long totalSize = fi.Length;
                                     bool hasLargeFiles = totalSize > RemovableDrive.Fat32MaxFileSize;
 
@@ -129,7 +135,7 @@ namespace Easy_Copier.Services
                                         category);
 
                                     games.Add(entry);
-                                    processedPaths.Add(file);
+                                    _ = processedPaths.Add(file);
                                 }
                             }
                         }

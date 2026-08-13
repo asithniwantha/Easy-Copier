@@ -7,8 +7,8 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using System.Threading.Tasks;
 using System.Threading;
+using System.Threading.Tasks;
 
 namespace Easy_Copier.ViewModels
 {
@@ -73,9 +73,9 @@ namespace Easy_Copier.ViewModels
 
             try
             {
-                var progress = new Progress<string>(msg =>
+                Progress<string> progress = new(msg =>
                 {
-                    var dispatcher = AppServiceLocator.GetService<IDispatcherService>();
+                    IDispatcherService dispatcher = AppServiceLocator.GetService<IDispatcherService>();
                     dispatcher.TryEnqueue(() => StatusMessage = msg);
                 });
 
