@@ -119,7 +119,7 @@ namespace Easy_Copier.Views
             return paragraph;
         }
 
-        private static ScrollViewer CreateFolderContentsView(string folderPath)
+        private ScrollViewer CreateFolderContentsView(string folderPath)
         {
             StackPanel stackPanel = new() { Spacing = 4 };
 
@@ -132,12 +132,12 @@ namespace Easy_Copier.Views
 
                     foreach (string dir in dirs)
                     {
-                        stackPanel.Children.Add(CreateFileFolderItem(System.IO.Path.GetFileName(dir), true));
+                        stackPanel.Children.Add(CreateFileFolderItem(dir, true));
                     }
 
                     foreach (string file in files)
                     {
-                        stackPanel.Children.Add(CreateFileFolderItem(System.IO.Path.GetFileName(file), false));
+                        stackPanel.Children.Add(CreateFileFolderItem(file, false));
                     }
 
                     if (stackPanel.Children.Count == 0)
@@ -159,16 +159,19 @@ namespace Easy_Copier.Views
             {
                 Content = stackPanel,
                 MaxHeight = 400,
-                MaxWidth = 300,
                 VerticalScrollBarVisibility = ScrollBarVisibility.Auto,
                 HorizontalScrollBarVisibility = ScrollBarVisibility.Disabled,
                 Padding = new Thickness(12)
             };
         }
 
-        private static StackPanel CreateFileFolderItem(string name, bool isFolder)
+        private Grid CreateFileFolderItem(string path, bool isFolder)
         {
-            StackPanel itemPanel = new() { Orientation = Orientation.Horizontal, Spacing = 8 };
+            string name = System.IO.Path.GetFileName(path);
+            Grid itemGrid = new() { ColumnSpacing = 8 };
+            itemGrid.ColumnDefinitions.Add(new ColumnDefinition { Width = GridLength.Auto });
+            itemGrid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) });
+            itemGrid.ColumnDefinitions.Add(new ColumnDefinition { Width = GridLength.Auto });
 
             FontIcon icon = new()
             {
@@ -176,19 +179,89 @@ namespace Easy_Copier.Views
                 FontSize = 16,
                 Foreground = isFolder ? new SolidColorBrush(Microsoft.UI.Colors.Gold) : new SolidColorBrush(Microsoft.UI.Colors.Gray)
             };
+            Grid.SetColumn(icon, 0);
 
-            TextBlock textBlock = new()
+            TextBlock nameBlock = new()
             {
                 Text = name,
                 TextTrimming = TextTrimming.CharacterEllipsis,
                 MaxWidth = 250,
                 VerticalAlignment = VerticalAlignment.Center
             };
+            Grid.SetColumn(nameBlock, 1);
 
-            itemPanel.Children.Add(icon);
-            itemPanel.Children.Add(textBlock);
+            TextBlock sizeBlock = new()
+            {
+                VerticalAlignment = VerticalAlignment.Center,
+                Opacity = 0.6,
+                FontSize = 12
+            };
+            Grid.SetColumn(sizeBlock, 2);
 
-            return itemPanel;
+            itemGrid.Children.Add(icon);
+            itemGrid.Children.Add(nameBlock);
+            itemGrid.Children.Add(sizeBlock);
+
+            if (isFolder)
+            {
+                sizeBlock.Text = "Calculating...";
+                _ = System.Threading.Tasks.Task.Run(() =>
+                {
+                    try
+                    {
+                        long size = CalculateDirectorySize(new System.IO.DirectoryInfo(path));
+                        DispatcherQueue.TryEnqueue(() =>
+                        {
+                            sizeBlock.Text = Easy_Copier.Infrastructure.FormattingHelpers.FormatBytes(size);
+                        });
+                    }
+                    catch
+                    {
+                        DispatcherQueue.TryEnqueue(() =>
+                        {
+                            sizeBlock.Text = "Unknown";
+                        });
+                    }
+                });
+            }
+            else
+            {
+                try
+                {
+                    long size = new System.IO.FileInfo(path).Length;
+                    sizeBlock.Text = Easy_Copier.Infrastructure.FormattingHelpers.FormatBytes(size);
+                }
+                catch
+                {
+                    sizeBlock.Text = "Unknown";
+                }
+            }
+
+            return itemGrid;
+        }
+
+        private static long CalculateDirectorySize(System.IO.DirectoryInfo directoryInfo)
+        {
+            long size = 0;
+            try
+            {
+                System.IO.FileInfo[] files = directoryInfo.GetFiles();
+                foreach (System.IO.FileInfo file in files)
+                {
+                    size += file.Length;
+                }
+
+                System.IO.DirectoryInfo[] subDirs = directoryInfo.GetDirectories();
+                foreach (System.IO.DirectoryInfo dir in subDirs)
+                {
+                    size += CalculateDirectorySize(dir);
+                }
+            }
+            catch
+            {
+                // Ignore access errors
+            }
+            return size;
         }
 
         private async void GameCard_RightTapped(object sender, RightTappedRoutedEventArgs e)
@@ -209,7 +282,6 @@ namespace Easy_Copier.Views
                 {
                     Content = richTextBlock,
                     MaxHeight = 400,
-                    MaxWidth = 400,
                     VerticalScrollBarVisibility = ScrollBarVisibility.Auto,
                     HorizontalScrollBarVisibility = ScrollBarVisibility.Disabled,
                     Padding = new Thickness(12)
@@ -239,10 +311,14 @@ namespace Easy_Copier.Views
                 combinedGrid.Children.Add(separator);
                 combinedGrid.Children.Add(sysReqScrollViewer);
 
+                Style flyoutStyle = new(typeof(FlyoutPresenter));
+                flyoutStyle.Setters.Add(new Setter(FrameworkElement.MaxWidthProperty, double.PositiveInfinity));
+
                 Flyout flyout = new()
                 {
                     Content = combinedGrid,
                     Placement = FlyoutPlacementMode.RightEdgeAlignedTop,
+                    FlyoutPresenterStyle = flyoutStyle
                 };
 
                 flyout.ShowAt(fe, new FlyoutShowOptions { Position = e.GetPosition(fe) });
