@@ -15,7 +15,7 @@ namespace Easy_Copier.Services
     {
         ObservableCollection<TransferQueueItem> QueueItems { get; }
 
-        TransferQueueItem Enqueue(IReadOnlyList<GameEntry> games, RemovableDrive targetDrive, string destinationPath);
+        TransferQueueItem Enqueue(IReadOnlyList<TransferItem> items, RemovableDrive targetDrive, string destinationPath);
 
         long GetReservedBytes(string driveLetter);
 
@@ -45,19 +45,19 @@ namespace Easy_Copier.Services
             _ = Task.Run(ProcessQueueAsync);
         }
 
-        public TransferQueueItem Enqueue(IReadOnlyList<GameEntry> games, RemovableDrive targetDrive, string destinationPath)
+        public TransferQueueItem Enqueue(IReadOnlyList<TransferItem> items, RemovableDrive targetDrive, string destinationPath)
         {
-            ArgumentNullException.ThrowIfNull(games);
+            ArgumentNullException.ThrowIfNull(items);
             ArgumentNullException.ThrowIfNull(targetDrive);
 
-            TransferQueueItem item = new(games, targetDrive, destinationPath);
+            TransferQueueItem item = new(items, targetDrive, destinationPath);
 
             QueueItems.Add(item);
             _ = _channel.Writer.TryWrite(item);
 
             _logger.LogInformation(
                 "Enqueued transfer of {Count} item(s) to {Drive} (queue depth: {Depth})",
-                games.Count, targetDrive.DriveLetter, QueueItems.Count);
+                items.Count, targetDrive.DriveLetter, QueueItems.Count);
 
             return item;
         }
@@ -116,7 +116,7 @@ namespace Easy_Copier.Services
 
             try
             {
-                TransferRequest request = new(item.Games, item.TargetDrive, item.DestinationPath);
+                TransferRequest request = new(item.Items, item.TargetDrive, item.DestinationPath);
                 outcome = await _fileTransferService.TransferGamesAsync(request);
             }
             catch (Exception ex)

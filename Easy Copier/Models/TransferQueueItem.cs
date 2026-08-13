@@ -17,7 +17,7 @@ namespace Easy_Copier.Models
     public partial class TransferQueueItem : ObservableObject
     {
         public string Id { get; }
-        public IReadOnlyList<GameEntry> Games { get; }
+        public IReadOnlyList<TransferItem> Items { get; }
         public RemovableDrive TargetDrive { get; }
         public string DestinationPath { get; }
         public DateTime EnqueuedAt { get; }
@@ -32,19 +32,19 @@ namespace Easy_Copier.Models
         [ObservableProperty]
         public partial DateTime? CompletedAt { get; set; }
 
-        public TransferQueueItem(IReadOnlyList<GameEntry> games, RemovableDrive targetDrive, string destinationPath)
+        public TransferQueueItem(IReadOnlyList<TransferItem> items, RemovableDrive targetDrive, string destinationPath)
         {
             Id = Guid.NewGuid().ToString();
-            Games = games;
+            Items = items;
             TargetDrive = targetDrive;
             DestinationPath = destinationPath;
             EnqueuedAt = DateTime.Now;
-            TotalBytes = games.Sum(g => g.TotalBytes);
+            TotalBytes = items.Sum(i => i.Game.TotalBytes);
         }
 
-        public string ItemsSummary => Games.Count == 1
-            ? Games[0].Name
-            : $"{Games.Count} items";
+        public string ItemsSummary => Items.Count == 1
+            ? Items[0].Game.Name
+            : $"{Items.Count} items";
 
         public string StatusGlyph => Status switch
         {

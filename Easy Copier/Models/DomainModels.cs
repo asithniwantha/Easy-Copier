@@ -55,8 +55,20 @@ namespace Easy_Copier.Models
         Error
     }
 
+    public enum CopyAction
+    {
+        Default,
+        Replace,
+        Merge,
+        Skip
+    }
+
+    public record TransferItem(
+        GameEntry Game,
+        CopyAction Action = CopyAction.Default);
+
     public record TransferRequest(
-        IReadOnlyList<GameEntry> Games,
+        IReadOnlyList<TransferItem> Items,
         RemovableDrive TargetDrive,
         string DestinationPath);
 
