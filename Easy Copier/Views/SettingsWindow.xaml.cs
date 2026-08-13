@@ -14,33 +14,13 @@ namespace Easy_Copier.Views
         public SettingsViewModel ViewModel { get; }
         public event EventHandler? SettingsClosed;
 
-        private readonly IntPtr _ownerHwnd;
-        private readonly IntPtr _hwnd;
-
         public SettingsWindow(SettingsOpenAction openAction = SettingsOpenAction.None)
         {
             ViewModel = AppServiceLocator.GetService<SettingsViewModel>();
             InitializeComponent();
 
-            _hwnd = WindowNative.GetWindowHandle(this);
-            WindowId windowId = Win32Interop.GetWindowIdFromWindow(_hwnd);
-            AppWindow appWindow = Microsoft.UI.Windowing.AppWindow.GetFromWindowId(windowId);
-
-            appWindow?.Resize(new Windows.Graphics.SizeInt32(960, 640));
-
-            _ownerHwnd = App.MainWindow != null ? WindowNative.GetWindowHandle(App.MainWindow) : IntPtr.Zero;
-
-            if (_ownerHwnd != IntPtr.Zero)
-            {
-                // Establish native ownership so this window stays above the main window
-                // and is treated as its modal child by the OS.
-                NativeWindowHelper.SetOwner(_hwnd, _ownerHwnd);
-
-                // Disable the owner so input can't reach it while this window is open,
-                // then re-enable and restore focus once this window closes.
-                NativeWindowHelper.EnableWindowInput(_ownerHwnd, false);
-                NativeWindowHelper.CenterWindow(_hwnd, _ownerHwnd);
-            }
+            NativeWindowHelper.InitializeWindow(this, 960, 640);
+            NativeWindowHelper.ShowAsModal(this, App.MainWindow);
 
             Closed += SettingsWindow_Closed;
 
@@ -49,11 +29,7 @@ namespace Easy_Copier.Views
 
         private void SettingsWindow_Closed(object sender, WindowEventArgs args)
         {
-            if (_ownerHwnd != IntPtr.Zero)
-            {
-                NativeWindowHelper.EnableWindowInput(_ownerHwnd, true);
-                NativeWindowHelper.SetForeground(_ownerHwnd);
-            }
+            NativeWindowHelper.RestoreOwnerInput(App.MainWindow);
         }
 
         private async Task LoadAsync(SettingsOpenAction openAction)

@@ -34,7 +34,7 @@ namespace Easy_Copier.Services
             _logger = logger;
         }
 
-        private string GetCacheFilePath()
+        private static string GetCacheFilePath()
         {
             string appDataFolder = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
             string appFolder = Path.Combine(appDataFolder, "EasyCopier");
@@ -373,7 +373,7 @@ namespace Easy_Copier.Services
             }, cancellationToken);
         }
 
-        private bool FingerprintsMatch(ItemFingerprint cached, ItemFingerprint current)
+        private static bool FingerprintsMatch(ItemFingerprint cached, ItemFingerprint current)
         {
             return cached.TotalBytes == current.TotalBytes &&
                    cached.LastWriteTimeUtc == current.LastWriteTimeUtc;

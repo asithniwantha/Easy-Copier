@@ -195,9 +195,7 @@ namespace Easy_Copier.Views
         {
             if (sender is FrameworkElement fe && fe.DataContext is GameEntry gameEntry)
             {
-                ISourceLibraryService sourceLibraryService = AppServiceLocator.GetService<Easy_Copier.Services.ISourceLibraryService>();
-                string rawRequirementsText = await sourceLibraryService.GetSystemRequirementsAsync(gameEntry.FolderPath);
-                string formattedText = SysReqFormatter.FormatText(rawRequirementsText);
+                string formattedText = await ViewModel.GetFormattedSystemRequirementsAsync(gameEntry.FolderPath);
 
                 RichTextBlock richTextBlock = new()
                 {

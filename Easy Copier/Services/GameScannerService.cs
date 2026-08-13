@@ -32,7 +32,7 @@ namespace Easy_Copier.Services
             _logger = logger;
         }
 
-        private bool IsExcludedFolder(string folderPath)
+        private static bool IsExcludedFolder(string folderPath)
         {
             try
             {
@@ -67,6 +67,8 @@ namespace Easy_Copier.Services
             CancellationToken cancellationToken = default,
             string? videoExtensions = null)
         {
+            ArgumentNullException.ThrowIfNull(sourceFolders);
+
             List<GameEntry> games = new List<GameEntry>();
             HashSet<string> processedPaths = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
 
@@ -93,7 +95,7 @@ namespace Easy_Copier.Services
 
                     string[] initialSubdirectories = await Task.Run(() =>
                         Directory.GetDirectories(sourceFolder, "*", SearchOption.TopDirectoryOnly),
-                        cancellationToken);
+                        cancellationToken).ConfigureAwait(false);
 
                     if (category == LibraryCategory.TvAndFilm && !string.IsNullOrWhiteSpace(videoExtensions))
                     {
@@ -103,7 +105,7 @@ namespace Easy_Copier.Services
 
                         try
                         {
-                            var files = await Task.Run(() => Directory.GetFiles(sourceFolder, "*.*", SearchOption.TopDirectoryOnly), cancellationToken);
+                            var files = await Task.Run(() => Directory.GetFiles(sourceFolder, "*.*", SearchOption.TopDirectoryOnly), cancellationToken).ConfigureAwait(false);
                             foreach (var file in files)
                             {
                                 if (extList.Contains(Path.GetExtension(file), StringComparer.OrdinalIgnoreCase))
@@ -152,7 +154,7 @@ namespace Easy_Copier.Services
                             {
                                 string[] collectionSubdirectories = await Task.Run(() =>
                                     Directory.GetDirectories(subdir, "*", SearchOption.TopDirectoryOnly),
-                                    cancellationToken);
+                                    cancellationToken).ConfigureAwait(false);
                                 foreach (string collSubdir in collectionSubdirectories)
                                 {
                                     if (!IsExcludedFolder(collSubdir))
@@ -194,9 +196,9 @@ namespace Easy_Copier.Services
                             string gameName = Path.GetFileName(gameFolder);
                             progress?.Report($"Processing: {gameName}");
 
-                            long totalSize = await CalculateFolderSizeAsync(gameFolder, cancellationToken);
+                            long totalSize = await CalculateFolderSizeAsync(gameFolder, cancellationToken).ConfigureAwait(false);
                             string? coverImage = FindCoverImage(gameFolder);
-                            bool hasLargeFiles = await HasFilesExceedingLimitAsync(gameFolder, RemovableDrive.Fat32MaxFileSize, cancellationToken);
+                            bool hasLargeFiles = await HasFilesExceedingLimitAsync(gameFolder, RemovableDrive.Fat32MaxFileSize, cancellationToken).ConfigureAwait(false);
 
                             GameEntry game = new(
                                 gameName,
