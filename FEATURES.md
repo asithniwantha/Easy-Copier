@@ -87,3 +87,6 @@
 - Run the provided python script to download the cover images and minimum requirements for the games/apps that don't have cover images and requirement file.
 - Add github actions to build and publish the app to github releases automatically with versioning number based on git tags.
 - add tv series and films tab
+
+to do
+add excel like calculator 
