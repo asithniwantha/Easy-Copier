@@ -210,14 +210,14 @@ namespace Easy_Copier.Views
                     try
                     {
                         long size = CalculateDirectorySize(new System.IO.DirectoryInfo(path));
-                        DispatcherQueue.TryEnqueue(() =>
+                        _ = DispatcherQueue.TryEnqueue(() =>
                         {
                             sizeBlock.Text = Easy_Copier.Infrastructure.FormattingHelpers.FormatBytes(size);
                         });
                     }
                     catch
                     {
-                        DispatcherQueue.TryEnqueue(() =>
+                        _ = DispatcherQueue.TryEnqueue(() =>
                         {
                             sizeBlock.Text = "Unknown";
                         });

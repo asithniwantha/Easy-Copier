@@ -82,7 +82,7 @@ namespace Easy_Copier.ViewModels
                 Progress<string> progress = new(msg =>
                 {
                     IDispatcherService dispatcher = AppServiceLocator.GetService<IDispatcherService>();
-                    dispatcher.TryEnqueue(() => StatusMessage = msg);
+                    _ = dispatcher.TryEnqueue(() => StatusMessage = msg);
                 });
 
                 await _gameInfoDownloadService.DownloadGameInfoAsync(GameSourceFolders, progress, CancellationToken.None);

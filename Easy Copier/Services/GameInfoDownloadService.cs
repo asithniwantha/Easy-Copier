@@ -16,7 +16,7 @@ namespace Easy_Copier.Services
         Task DownloadGameInfoAsync(IEnumerable<string> sourceFolders, IProgress<string>? progress = null, CancellationToken cancellationToken = default);
     }
 
-    public sealed class GameInfoDownloadService : IGameInfoDownloadService, IDisposable
+    public sealed partial class GameInfoDownloadService : IGameInfoDownloadService, IDisposable
     {
         private readonly ILogger<GameInfoDownloadService> _logger;
         private readonly HttpClient _httpClient;
@@ -218,7 +218,7 @@ namespace Easy_Copier.Services
                 return specs;
             }
 
-            string text = Regex.Replace(html, "<[^<]+?>", "");
+            string text = MyRegex().Replace(html, "");
             text = Regex.Replace(text, "\n+", "\n").Trim();
             string[] lines = text.Split('\n', StringSplitOptions.RemoveEmptyEntries);
 
@@ -533,5 +533,8 @@ namespace Easy_Copier.Services
             _httpClient?.Dispose();
             GC.SuppressFinalize(this);
         }
+
+        [GeneratedRegex("<[^<]+?>")]
+        private static partial Regex MyRegex();
     }
 }

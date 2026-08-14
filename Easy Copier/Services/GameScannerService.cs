@@ -103,9 +103,7 @@ namespace Easy_Copier.Services
 
                     if (category == LibraryCategory.TvAndFilm && !string.IsNullOrWhiteSpace(videoExtensions))
                     {
-                        List<string> extList = videoExtensions.Split(VideoExtensionSeparators, StringSplitOptions.RemoveEmptyEntries)
-                                                     .Select(e => e.Trim().StartsWith('.') ? e.Trim() : "." + e.Trim())
-                                                     .ToList();
+                        List<string> extList = [.. videoExtensions.Split(VideoExtensionSeparators, StringSplitOptions.RemoveEmptyEntries).Select(e => e.Trim().StartsWith('.') ? e.Trim() : "." + e.Trim())];
 
                         try
                         {

@@ -10,9 +10,6 @@ namespace Easy_Copier.Infrastructure
     {
         public async Task<(CopyAction Action, bool ApplyToAll)> ShowConflictDialogAsync(string itemName, long srcSize, int srcCount, long destSize, int destCount)
         {
-            CopyAction selectedAction = CopyAction.Skip;
-            bool applyToAll = false;
-
             if (App.MainWindow?.Content is not FrameworkElement rootElement || rootElement.XamlRoot == null)
             {
                 return (CopyAction.Skip, false); // Fallback if no window
@@ -66,10 +63,8 @@ namespace Easy_Copier.Infrastructure
             };
 
             ContentDialogResult result = await dialog.ShowAsync();
-
-            applyToAll = applyToAllCheckBox.IsChecked ?? false;
-
-            selectedAction = result switch
+            bool applyToAll = applyToAllCheckBox.IsChecked ?? false;
+            CopyAction selectedAction = result switch
             {
                 ContentDialogResult.Primary => CopyAction.Replace,
                 ContentDialogResult.Secondary => CopyAction.Merge,

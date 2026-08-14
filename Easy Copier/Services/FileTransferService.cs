@@ -135,16 +135,9 @@ namespace Easy_Copier.Services
                                 }
                             }
 
-                            bool result;
-                            if (item.Action == CopyAction.Merge && Directory.Exists(destPath) && Directory.Exists(game.FolderPath))
-                            {
-                                result = MergeDirectory(game.FolderPath, destPath);
-                            }
-                            else
-                            {
-                                result = CopyItemWithShellDialog(game.FolderPath, destPath);
-                            }
-
+                            bool result = item.Action == CopyAction.Merge && Directory.Exists(destPath) && Directory.Exists(game.FolderPath)
+                                ? MergeDirectory(game.FolderPath, destPath)
+                                : CopyItemWithShellDialog(game.FolderPath, destPath);
                             if (result)
                             {
                                 successCount++;
@@ -225,14 +218,14 @@ namespace Easy_Copier.Services
                 }
 
                 DirectoryInfo[] dirs = dir.GetDirectories();
-                Directory.CreateDirectory(destDir);
+                _ = Directory.CreateDirectory(destDir);
 
                 foreach (FileInfo file in dir.GetFiles())
                 {
                     string targetFilePath = Path.Combine(destDir, file.Name);
                     if (!File.Exists(targetFilePath))
                     {
-                        file.CopyTo(targetFilePath, false);
+                        _ = file.CopyTo(targetFilePath, false);
                     }
                 }
 

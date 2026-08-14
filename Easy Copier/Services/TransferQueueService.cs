@@ -71,7 +71,7 @@ namespace Easy_Copier.Services
 
         public void ClearFinished()
         {
-            List<TransferQueueItem> toRemove = QueueItems.Where(i => !i.IsActive).ToList();
+            List<TransferQueueItem> toRemove = [.. QueueItems.Where(i => !i.IsActive)];
             foreach (TransferQueueItem item in toRemove)
             {
                 _ = QueueItems.Remove(item);

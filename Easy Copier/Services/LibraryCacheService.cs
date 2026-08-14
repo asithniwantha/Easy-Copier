@@ -165,35 +165,29 @@ namespace Easy_Copier.Services
 
             try
             {
-                List<string> normalizedCacheGameFolders = cache.GameSourceFolders
+                List<string> normalizedCacheGameFolders = [.. cache.GameSourceFolders
                     .Select(NormalizePath)
-                    .OrderBy(p => p)
-                    .ToList();
+                    .OrderBy(p => p)];
 
-                List<string> normalizedCacheAppFolders = cache.AppSourceFolders
+                List<string> normalizedCacheAppFolders = [.. cache.AppSourceFolders
                     .Select(NormalizePath)
-                    .OrderBy(p => p)
-                    .ToList();
+                    .OrderBy(p => p)];
 
-                List<string> normalizedCacheTvAndFilmFolders = (cache.TvAndFilmSourceFolders ?? [])
+                List<string> normalizedCacheTvAndFilmFolders = [.. (cache.TvAndFilmSourceFolders ?? [])
                     .Select(NormalizePath)
-                    .OrderBy(p => p)
-                    .ToList();
+                    .OrderBy(p => p)];
 
-                List<string> normalizedCurrentGameFolders = currentSettings.GameSourceFolders
+                List<string> normalizedCurrentGameFolders = [.. currentSettings.GameSourceFolders
                     .Select(NormalizePath)
-                    .OrderBy(p => p)
-                    .ToList();
+                    .OrderBy(p => p)];
 
-                List<string> normalizedCurrentAppFolders = currentSettings.AppSourceFolders
+                List<string> normalizedCurrentAppFolders = [.. currentSettings.AppSourceFolders
                     .Select(NormalizePath)
-                    .OrderBy(p => p)
-                    .ToList();
+                    .OrderBy(p => p)];
 
-                List<string> normalizedCurrentTvAndFilmFolders = (currentSettings.TvAndFilmSourceFolders ?? [])
+                List<string> normalizedCurrentTvAndFilmFolders = [.. (currentSettings.TvAndFilmSourceFolders ?? [])
                     .Select(NormalizePath)
-                    .OrderBy(p => p)
-                    .ToList();
+                    .OrderBy(p => p)];
 
                 if (!normalizedCacheGameFolders.SequenceEqual(normalizedCurrentGameFolders) ||
                     !normalizedCacheAppFolders.SequenceEqual(normalizedCurrentAppFolders) ||

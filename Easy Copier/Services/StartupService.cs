@@ -1,7 +1,6 @@
-using System;
-using System.IO;
 using Microsoft.Extensions.Logging;
 using Microsoft.Win32;
+using System;
 
 namespace Easy_Copier.Services
 {
@@ -20,7 +19,7 @@ namespace Easy_Copier.Services
         {
             try
             {
-                using var key = Registry.CurrentUser.OpenSubKey(RunKeyPath, true);
+                using RegistryKey? key = Registry.CurrentUser.OpenSubKey(RunKeyPath, true);
                 if (key == null)
                 {
                     _logger.LogWarning("Failed to open Registry Run key.");

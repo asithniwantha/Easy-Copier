@@ -142,7 +142,7 @@ namespace Easy_Copier.ViewModels
             {
                 if (!_dispatcherService.HasThreadAccess)
                 {
-                    _dispatcherService.TryEnqueue(async () => await RefreshDrivesAsync());
+                    _ = _dispatcherService.TryEnqueue(async () => await RefreshDrivesAsync());
                 }
                 else
                 {
@@ -243,21 +243,21 @@ namespace Easy_Copier.ViewModels
 
                 if (validationResult.Result == CacheValidationResult.Valid)
                 {
-                    _dispatcherService.TryEnqueue(() =>
+                    _ = _dispatcherService.TryEnqueue(() =>
                         {
                             StatusMessage = $"Library is up to date: {_allGames.Count} game(s), {_allApps.Count} app(s), {_allTvAndFilms.Count} film/TV(s)";
                         });
                     return;
                 }
 
-                _dispatcherService.TryEnqueue(() =>
+                _ = _dispatcherService.TryEnqueue(() =>
                     {
                         StatusMessage = "Changes detected - Rescanning library...";
                     });
 
                 await Task.Run(async () =>
                 {
-                    _dispatcherService.TryEnqueue(async () => await ScanLibraryAsync());
+                    _ = _dispatcherService.TryEnqueue(async () => await ScanLibraryAsync());
                 });
             }
             catch (OperationCanceledException)
@@ -266,7 +266,7 @@ namespace Easy_Copier.ViewModels
             }
             catch (Exception ex)
             {
-                _dispatcherService.TryEnqueue(() =>
+                _ = _dispatcherService.TryEnqueue(() =>
                     {
                         StatusMessage = $"Validation error: {ex.Message}";
                     });
@@ -518,13 +518,13 @@ namespace Easy_Copier.ViewModels
                         }
                         else
                         {
-                            var srcStats = await _fileTransferService.GetFolderStatsAsync(game.FolderPath);
-                            var destStats = await _fileTransferService.GetFolderStatsAsync(destItemPath);
+                            (long Size, int Count) = await _fileTransferService.GetFolderStatsAsync(game.FolderPath);
+                            (long Size, int Count) destStats = await _fileTransferService.GetFolderStatsAsync(destItemPath);
 
-                            var dialogResult = await _dialogService.ShowConflictDialogAsync(
+                            (CopyAction Action, bool ApplyToAll) dialogResult = await _dialogService.ShowConflictDialogAsync(
                                 game.Name,
-                                srcStats.Size,
-                                srcStats.Count,
+                                Size,
+                                Count,
                                 destStats.Size,
                                 destStats.Count);
 
