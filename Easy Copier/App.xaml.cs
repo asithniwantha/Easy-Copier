@@ -11,6 +11,8 @@ namespace Easy_Copier
         private Window? _window;
         private IServiceProvider? _serviceProvider;
 
+        public IServiceProvider Services => _serviceProvider ?? throw new InvalidOperationException("Services not initialized");
+
         public static Window? MainWindow { get; private set; }
 
         public App()
@@ -27,7 +29,6 @@ namespace Easy_Copier
             _ = services.AddViewModels();
 
             _serviceProvider = services.BuildServiceProvider();
-            AppServiceLocator.Initialize(_serviceProvider);
         }
 
         protected override async void OnLaunched(Microsoft.UI.Xaml.LaunchActivatedEventArgs args)
@@ -36,7 +37,7 @@ namespace Easy_Copier
             MainWindow = _window;
             _window.Activate();
 
-            ICopyHistoryService copyHistoryService = AppServiceLocator.GetService<Services.ICopyHistoryService>();
+            ICopyHistoryService copyHistoryService = Services.GetRequiredService<Services.ICopyHistoryService>();
             await copyHistoryService.InitializeAsync();
         }
 
