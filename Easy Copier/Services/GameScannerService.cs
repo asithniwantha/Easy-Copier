@@ -18,7 +18,7 @@ namespace Easy_Copier.Services
             string? videoExtensions = null,
             CancellationToken cancellationToken = default);
 
-        Task<long> CalculateFolderSizeAsync(string folderPath, CancellationToken cancellationToken = default);
+        Task<(long TotalSize, bool HasLargeFiles)> GetFolderStatsAsync(string folderPath, long sizeLimit, CancellationToken cancellationToken = default);
         string? FindCoverImage(string gameFolderPath);
     }
 
@@ -201,23 +201,22 @@ namespace Easy_Copier.Services
                             string gameName = Path.GetFileName(gameFolder);
                             progress?.Report($"Processing: {gameName}");
 
-                            long totalSize = await CalculateFolderSizeAsync(gameFolder, cancellationToken).ConfigureAwait(false);
+                            var stats = await GetFolderStatsAsync(gameFolder, RemovableDrive.Fat32MaxFileSize, cancellationToken).ConfigureAwait(false);
                             string? coverImage = FindCoverImage(gameFolder);
-                            bool hasLargeFiles = await HasFilesExceedingLimitAsync(gameFolder, RemovableDrive.Fat32MaxFileSize, cancellationToken).ConfigureAwait(false);
 
                             GameEntry game = new(
                                 gameName,
                                 gameFolder,
-                                totalSize,
+                                stats.TotalSize,
                                 coverImage,
                                 DateTime.Now,
-                                hasLargeFiles,
+                                stats.HasLargeFiles,
                                 category);
 
                             games.Add(game);
                             _ = processedPaths.Add(gameFolder);
 
-                            _logger.LogInformation("Scanned {Category}: {Name}, Size: {Size} bytes", categoryLabel, gameName, totalSize);
+                            _logger.LogInformation("Scanned {Category}: {Name}, Size: {Size} bytes", categoryLabel, gameName, stats.TotalSize);
                         }
                         catch (UnauthorizedAccessException ex)
                         {
@@ -245,7 +244,7 @@ namespace Easy_Copier.Services
             return games;
         }
 
-        public async Task<long> CalculateFolderSizeAsync(string folderPath, CancellationToken cancellationToken = default)
+        public async Task<(long TotalSize, bool HasLargeFiles)> GetFolderStatsAsync(string folderPath, long sizeLimit, CancellationToken cancellationToken = default)
         {
             return await Task.Run(() =>
             {
@@ -253,16 +252,35 @@ namespace Easy_Copier.Services
                 {
                     if (File.Exists(folderPath))
                     {
-                        return new FileInfo(folderPath).Length;
+                        long size = new FileInfo(folderPath).Length;
+                        return (size, size > sizeLimit);
                     }
+
                     DirectoryInfo dirInfo = new(folderPath);
-                    return dirInfo.EnumerateFiles("*", SearchOption.AllDirectories)
-                        .Sum(file => file.Length);
+                    long totalSize = 0;
+                    bool hasLargeFiles = false;
+
+                    foreach (var file in dirInfo.EnumerateFiles("*", SearchOption.AllDirectories))
+                    {
+                        if (cancellationToken.IsCancellationRequested)
+                        {
+                            break;
+                        }
+
+                        long fileLength = file.Length;
+                        totalSize += fileLength;
+                        if (fileLength > sizeLimit)
+                        {
+                            hasLargeFiles = true;
+                        }
+                    }
+
+                    return (totalSize, hasLargeFiles);
                 }
                 catch (Exception ex)
                 {
-                    _logger.LogWarning(ex, "Error calculating folder size: {Path}", folderPath);
-                    return 0L;
+                    _logger.LogWarning(ex, "Error getting folder stats: {Path}", folderPath);
+                    return (0L, false);
                 }
             }, cancellationToken);
         }
@@ -292,29 +310,6 @@ namespace Easy_Copier.Services
             }
 
             return null;
-        }
-
-        private async Task<bool> HasFilesExceedingLimitAsync(string folderPath, long sizeLimit, CancellationToken cancellationToken)
-        {
-            return await Task.Run(() =>
-            {
-                try
-                {
-                    if (File.Exists(folderPath))
-                    {
-                        return new FileInfo(folderPath).Length > sizeLimit;
-                    }
-
-                    DirectoryInfo dirInfo = new(folderPath);
-                    return dirInfo.EnumerateFiles("*", SearchOption.AllDirectories)
-                        .Any(file => file.Length > sizeLimit);
-                }
-                catch (Exception ex)
-                {
-                    _logger.LogWarning(ex, "Error checking file sizes in: {Path}", folderPath);
-                    return false;
-                }
-            }, cancellationToken);
         }
     }
 }
