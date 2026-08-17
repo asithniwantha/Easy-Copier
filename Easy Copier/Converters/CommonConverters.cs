@@ -33,7 +33,7 @@ namespace Easy_Copier.Converters
                 try
                 {
                     // Access settings synchronously to prevent UI thread blocking or deadlocking
-                    ISettingsService settingsService = AppServiceLocator.GetService<ISettingsService>();
+                    ISettingsService settingsService = Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService<ISettingsService>(((App)Microsoft.UI.Xaml.Application.Current).Services);
                     AppSettings settings = settingsService.LoadSettingsSync();
 
                     return gb <= 5.0

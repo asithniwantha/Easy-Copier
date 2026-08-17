@@ -19,6 +19,7 @@ namespace Easy_Copier.ViewModels
         private readonly ISourceLibraryService _sourceLibraryService;
         private readonly IGameInfoDownloadService _gameInfoDownloadService;
         private readonly IStartupService _startupService;
+        private readonly IDispatcherService _dispatcherService;
 
         [ObservableProperty]
         public partial bool AutoScanOnStartup { get; set; } = true;
@@ -56,7 +57,8 @@ namespace Easy_Copier.ViewModels
             ISourceLibraryService sourceLibraryService,
             Infrastructure.IProcessService processService,
             IGameInfoDownloadService gameInfoDownloadService,
-            IStartupService startupService)
+            IStartupService startupService,
+            IDispatcherService dispatcherService)
         {
             _settingsService = settingsService;
             _folderPickerService = folderPickerService;
@@ -64,6 +66,7 @@ namespace Easy_Copier.ViewModels
             _processService = processService;
             _gameInfoDownloadService = gameInfoDownloadService;
             _startupService = startupService;
+            _dispatcherService = dispatcherService;
         }
 
         [RelayCommand]
@@ -81,8 +84,7 @@ namespace Easy_Copier.ViewModels
             {
                 Progress<string> progress = new(msg =>
                 {
-                    IDispatcherService dispatcher = AppServiceLocator.GetService<IDispatcherService>();
-                    _ = dispatcher.TryEnqueue(() => StatusMessage = msg);
+                    _ = _dispatcherService.TryEnqueue(() => StatusMessage = msg);
                 });
 
                 await _gameInfoDownloadService.DownloadGameInfoAsync(GameSourceFolders, progress, CancellationToken.None);

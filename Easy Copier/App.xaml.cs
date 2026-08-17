@@ -9,7 +9,8 @@ namespace Easy_Copier
     public partial class App : Application
     {
         private Window? _window;
-        private IServiceProvider? _serviceProvider;
+
+        public IServiceProvider Services { get; private set; } = null!;
 
         public static Window? MainWindow { get; private set; }
 
@@ -26,23 +27,23 @@ namespace Easy_Copier
             _ = services.AddApplicationServices();
             _ = services.AddViewModels();
 
-            _serviceProvider = services.BuildServiceProvider();
-            AppServiceLocator.Initialize(_serviceProvider);
+            Services = services.BuildServiceProvider();
         }
 
         protected override async void OnLaunched(Microsoft.UI.Xaml.LaunchActivatedEventArgs args)
         {
-            _window = new MainWindow();
+            ViewModels.MainViewModel mainViewModel = Services.GetRequiredService<ViewModels.MainViewModel>();
+            _window = new MainWindow(mainViewModel);
             MainWindow = _window;
             _window.Activate();
 
-            ICopyHistoryService copyHistoryService = AppServiceLocator.GetService<Services.ICopyHistoryService>();
+            ICopyHistoryService copyHistoryService = Services.GetRequiredService<Services.ICopyHistoryService>();
             await copyHistoryService.InitializeAsync();
         }
 
         public void DisposeServices()
         {
-            if (_serviceProvider is IDisposable disposable)
+            if (Services is IDisposable disposable)
             {
                 disposable.Dispose();
             }
