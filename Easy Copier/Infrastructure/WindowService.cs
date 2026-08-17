@@ -1,5 +1,7 @@
 using Easy_Copier.Views;
+using Easy_Copier.ViewModels;
 using System;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace Easy_Copier.Infrastructure
 {
@@ -19,9 +21,17 @@ namespace Easy_Copier.Infrastructure
 
     public class WindowService : IWindowService
     {
+        private readonly IServiceProvider _serviceProvider;
+
+        public WindowService(IServiceProvider serviceProvider)
+        {
+            _serviceProvider = serviceProvider;
+        }
+
         public void ShowSettingsWindow(Action? onClosed = null, SettingsOpenAction openAction = SettingsOpenAction.None)
         {
-            SettingsWindow settingsWindow = new(openAction);
+            var viewModel = _serviceProvider.GetRequiredService<SettingsViewModel>();
+            SettingsWindow settingsWindow = new(viewModel, openAction);
             if (onClosed != null)
             {
                 settingsWindow.SettingsClosed += (s, e) => onClosed();
@@ -31,7 +41,8 @@ namespace Easy_Copier.Infrastructure
 
         public void ShowHistoryWindow()
         {
-            HistoryWindow historyWindow = new();
+            var viewModel = _serviceProvider.GetRequiredService<HistoryViewModel>();
+            HistoryWindow historyWindow = new(viewModel);
             historyWindow.Activate();
         }
     }

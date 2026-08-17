@@ -69,7 +69,7 @@
 - Modal-like behavior for secondary windows (Settings, History) to prevent main window interaction while open.
 
 ## Architecture & Code Quality
-- Clean view-model separation enforcing zero View-to-ViewModel UI coupling.
+- Clean view-model separation enforcing zero View-to-ViewModel UI coupling through rigorous Dependency Injection (completely removing AppServiceLocator).
 - Strict adherence to SOLID principles through decoupled, highly-focused service abstractions.
 - Centralized Win32 NativeWindow lifecycle hooks reducing duplicated window initialization logic.
 - Implements `IDisposable` effectively for unmanaged resource and cancellation token lifecycle management.

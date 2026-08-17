@@ -8,6 +8,7 @@ using Microsoft.UI.Xaml.Controls.Primitives;
 using Microsoft.UI.Xaml.Documents;
 using Microsoft.UI.Xaml.Input;
 using Microsoft.UI.Xaml.Media;
+using Microsoft.UI.Xaml.Navigation;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,17 +19,26 @@ namespace Easy_Copier.Views
     {
         private static readonly string[] LineSeparators = ["\r\n", "\n"];
 
-        public MainViewModel ViewModel { get; }
+        public MainViewModel ViewModel { get; private set; }
 
         public MainPage()
         {
-            ViewModel = AppServiceLocator.GetService<MainViewModel>();
             InitializeComponent();
-            DataContext = ViewModel;
+        }
 
-            ViewModel.ItemQueued += (s, e) => ClearGameSelection();
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            base.OnNavigatedTo(e);
+            if (e.Parameter is MainViewModel viewModel)
+            {
+                ViewModel = viewModel;
+                DataContext = ViewModel;
+                Bindings.Update();
 
-            _ = ViewModel.InitializeAsync();
+                ViewModel.ItemQueued += (s, e) => ClearGameSelection();
+
+                _ = ViewModel.InitializeAsync();
+            }
         }
 
         private void DeselectAll_Click(object sender, RoutedEventArgs e)

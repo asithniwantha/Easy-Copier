@@ -11,9 +11,9 @@ namespace Easy_Copier.Views
         public SettingsViewModel ViewModel { get; }
         public event EventHandler? SettingsClosed;
 
-        public SettingsWindow(SettingsOpenAction openAction = SettingsOpenAction.None)
+        public SettingsWindow(SettingsViewModel viewModel, SettingsOpenAction openAction = SettingsOpenAction.None)
         {
-            ViewModel = AppServiceLocator.GetService<SettingsViewModel>();
+            ViewModel = viewModel;
             InitializeComponent();
 
             NativeWindowHelper.InitializeWindow(this, 960, 640);
