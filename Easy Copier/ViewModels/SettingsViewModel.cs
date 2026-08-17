@@ -50,6 +50,7 @@ namespace Easy_Copier.ViewModels
         public partial string VideoFileExtensions { get; set; } = ".mp4,.mkv,.avi";
 
         private readonly Infrastructure.IProcessService _processService;
+        private readonly IDispatcherService _dispatcherService;
 
         public SettingsViewModel(
             ISettingsService settingsService,

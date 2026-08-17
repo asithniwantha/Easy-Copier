@@ -69,7 +69,7 @@
 - Modal-like behavior for secondary windows (Settings, History) to prevent main window interaction while open.
 
 ## Architecture & Code Quality
-- Clean view-model separation enforcing zero View-to-ViewModel UI coupling.
+- Clean view-model separation enforcing zero View-to-ViewModel UI coupling through rigorous Dependency Injection (completely removing AppServiceLocator).
 - Strict adherence to SOLID principles through decoupled, highly-focused service abstractions.
 - Proper Dependency Injection flow used for instantiating View Models across pages and windows, eliminating anti-pattern Service Locators.
 - UI elements decoupled from Services by leveraging `IDispatcherService` interface.

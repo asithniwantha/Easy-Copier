@@ -1,5 +1,7 @@
 using Easy_Copier.Views;
+using Easy_Copier.ViewModels;
 using System;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace Easy_Copier.Infrastructure
 {
@@ -28,7 +30,7 @@ namespace Easy_Copier.Infrastructure
 
         public void ShowSettingsWindow(Action? onClosed = null, SettingsOpenAction openAction = SettingsOpenAction.None)
         {
-            var viewModel = Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService<Easy_Copier.ViewModels.SettingsViewModel>(_serviceProvider);
+            var viewModel = Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService<Easy_Copier.ViewModels.SettingsViewModel>(_serviceProvider)
             SettingsWindow settingsWindow = new(viewModel, openAction);
             if (onClosed != null)
             {

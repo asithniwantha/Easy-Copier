@@ -1,5 +1,6 @@
 using Easy_Copier.Views;
 using Microsoft.UI.Xaml;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace Easy_Copier
 {

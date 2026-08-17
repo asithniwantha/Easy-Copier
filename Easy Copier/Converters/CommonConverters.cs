@@ -4,6 +4,8 @@ using Easy_Copier.Services;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Data;
 using System;
+using Microsoft.UI.Xaml;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace Easy_Copier.Converters
 {
@@ -33,8 +35,13 @@ namespace Easy_Copier.Converters
                 try
                 {
                     // Access settings synchronously to prevent UI thread blocking or deadlocking
-                    ISettingsService settingsService = Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService<ISettingsService>(((App)Microsoft.UI.Xaml.Application.Current).Services);
-                    AppSettings settings = settingsService.LoadSettingsSync();
+                    AppSettings settings = new AppSettings();
+
+                    if (Application.Current is App app)
+                    {
+                        ISettingsService settingsService = app.Services.GetRequiredService<ISettingsService>();
+                        settings = settingsService.LoadSettingsSync();
+                    }
 
                     return gb <= 5.0
                         ? $"Rs. {settings.PriceTier1}"

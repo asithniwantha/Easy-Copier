@@ -12,6 +12,8 @@ namespace Easy_Copier
 
         public IServiceProvider Services { get; private set; } = null!;
 
+        public IServiceProvider Services => _serviceProvider ?? throw new InvalidOperationException("Services not initialized");
+
         public static Window? MainWindow { get; private set; }
 
         public App()
@@ -27,7 +29,7 @@ namespace Easy_Copier
             _ = services.AddApplicationServices();
             _ = services.AddViewModels();
 
-            Services = services.BuildServiceProvider();
+            _serviceProvider = services.BuildServiceProvider();
         }
 
         protected override async void OnLaunched(Microsoft.UI.Xaml.LaunchActivatedEventArgs args)
