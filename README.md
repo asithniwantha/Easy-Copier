@@ -102,6 +102,7 @@ The selected-drive panel also shows a usage bar, free space, total capacity, and
 | Framework | WinUI 3 / Windows App SDK |
 | Language | C# 14 with .NET 10 |
 | Pattern | MVVM with CommunityToolkit.Mvvm (Strict adherence to SOLID principles, dependency injection over service locators, and clean view-model separation) |
+| Architecture | Improved UI decoupling, safely bridging UI-specific operations (e.g., `DialogService`) via abstractions like `IWindowService`. |
 | Storage discovery | `DriveInfo` and Windows Management Instrumentation (WMI) |
 | CI/CD | GitHub Actions |
 | Target platform | x64 |

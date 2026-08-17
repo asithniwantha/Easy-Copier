@@ -8,6 +8,7 @@
 - Search/filter items by name.
 - Multi-select items and show combined selection size.
 - Exclude folders starting with `$`, `recyclebin`, and `System Volume Information` from scanning.
+- Optimized single-pass folder scanning for accurate file sizes and large-file checks.
 
 ## Visual Presentation
 - Cover-art grid view for items.
@@ -72,7 +73,7 @@
 - Clean view-model separation enforcing zero View-to-ViewModel UI coupling through rigorous Dependency Injection (completely removing AppServiceLocator).
 - Strict adherence to SOLID principles through decoupled, highly-focused service abstractions.
 - Proper Dependency Injection flow used for instantiating View Models across pages and windows, eliminating anti-pattern Service Locators.
-- UI elements decoupled from Services by leveraging `IDispatcherService` interface.
+- UI elements decoupled from Services by leveraging `IDispatcherService` and `IWindowService` interfaces (e.g. `DialogService`).
 - Centralized Win32 NativeWindow lifecycle hooks reducing duplicated window initialization logic.
 - Implements `IDisposable` effectively for unmanaged resource and cancellation token lifecycle management.
 - CA and MVVM Toolkit analyzer compliant, leveraging modern C# static methods and configure awaits.
