@@ -49,5 +49,4 @@ namespace Easy_Copier.Infrastructure
             return services;
         }
     }
-
 }

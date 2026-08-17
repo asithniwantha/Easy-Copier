@@ -16,6 +16,12 @@ namespace Easy_Copier.Views
             ViewModel = viewModel;
             InitializeComponent();
 
+            // Allow the settings page viewmodel to bind
+            if (Content is FrameworkElement fe)
+            {
+                fe.DataContext = ViewModel;
+            }
+
             NativeWindowHelper.InitializeWindow(this, 960, 640);
             NativeWindowHelper.ShowAsModal(this, App.MainWindow);
 

@@ -9,7 +9,8 @@ namespace Easy_Copier
     public partial class App : Application
     {
         private Window? _window;
-        private IServiceProvider? _serviceProvider;
+
+        public IServiceProvider Services { get; private set; } = null!;
 
         public IServiceProvider Services => _serviceProvider ?? throw new InvalidOperationException("Services not initialized");
 
@@ -33,7 +34,8 @@ namespace Easy_Copier
 
         protected override async void OnLaunched(Microsoft.UI.Xaml.LaunchActivatedEventArgs args)
         {
-            _window = new MainWindow();
+            ViewModels.MainViewModel mainViewModel = Services.GetRequiredService<ViewModels.MainViewModel>();
+            _window = new MainWindow(mainViewModel);
             MainWindow = _window;
             _window.Activate();
 
@@ -43,7 +45,7 @@ namespace Easy_Copier
 
         public void DisposeServices()
         {
-            if (_serviceProvider is IDisposable disposable)
+            if (Services is IDisposable disposable)
             {
                 disposable.Dispose();
             }

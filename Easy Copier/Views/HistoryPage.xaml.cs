@@ -7,14 +7,14 @@ namespace Easy_Copier.Views
 {
     public sealed partial class HistoryPage : Page
     {
-        public HistoryViewModel ViewModel { get; private set; }
+        public HistoryViewModel ViewModel { get; private set; } = null!;
 
         public HistoryPage()
         {
             InitializeComponent();
         }
 
-        protected override void OnNavigatedTo(NavigationEventArgs e)
+        protected override void OnNavigatedTo(Microsoft.UI.Xaml.Navigation.NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
             if (e.Parameter is HistoryViewModel viewModel)

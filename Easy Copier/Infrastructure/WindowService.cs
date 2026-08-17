@@ -30,7 +30,7 @@ namespace Easy_Copier.Infrastructure
 
         public void ShowSettingsWindow(Action? onClosed = null, SettingsOpenAction openAction = SettingsOpenAction.None)
         {
-            var viewModel = _serviceProvider.GetRequiredService<SettingsViewModel>();
+            var viewModel = Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService<Easy_Copier.ViewModels.SettingsViewModel>(_serviceProvider)
             SettingsWindow settingsWindow = new(viewModel, openAction);
             if (onClosed != null)
             {
@@ -41,7 +41,7 @@ namespace Easy_Copier.Infrastructure
 
         public void ShowHistoryWindow()
         {
-            var viewModel = _serviceProvider.GetRequiredService<HistoryViewModel>();
+            var viewModel = Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService<Easy_Copier.ViewModels.HistoryViewModel>(_serviceProvider);
             HistoryWindow historyWindow = new(viewModel);
             historyWindow.Activate();
         }

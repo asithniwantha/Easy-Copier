@@ -19,24 +19,22 @@ namespace Easy_Copier.Views
     {
         private static readonly string[] LineSeparators = ["\r\n", "\n"];
 
-        public MainViewModel ViewModel { get; private set; }
+        public MainViewModel ViewModel { get; private set; } = null!;
 
         public MainPage()
         {
             InitializeComponent();
         }
 
-        protected override void OnNavigatedTo(NavigationEventArgs e)
+        protected override void OnNavigatedTo(Microsoft.UI.Xaml.Navigation.NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
             if (e.Parameter is MainViewModel viewModel)
             {
                 ViewModel = viewModel;
                 DataContext = ViewModel;
+                ViewModel.ItemQueued += (s, args) => ClearGameSelection();
                 Bindings.Update();
-
-                ViewModel.ItemQueued += (s, e) => ClearGameSelection();
-
                 _ = ViewModel.InitializeAsync();
             }
         }
@@ -219,7 +217,7 @@ namespace Easy_Copier.Views
                 {
                     try
                     {
-                        long size = CalculateDirectorySize(new System.IO.DirectoryInfo(path));
+                        long size = Easy_Copier.Infrastructure.FileSystemHelpers.CalculateDirectorySize(new System.IO.DirectoryInfo(path));
                         _ = DispatcherQueue.TryEnqueue(() =>
                         {
                             sizeBlock.Text = Easy_Copier.Infrastructure.FormattingHelpers.FormatBytes(size);
@@ -248,30 +246,6 @@ namespace Easy_Copier.Views
             }
 
             return itemGrid;
-        }
-
-        private static long CalculateDirectorySize(System.IO.DirectoryInfo directoryInfo)
-        {
-            long size = 0;
-            try
-            {
-                System.IO.FileInfo[] files = directoryInfo.GetFiles();
-                foreach (System.IO.FileInfo file in files)
-                {
-                    size += file.Length;
-                }
-
-                System.IO.DirectoryInfo[] subDirs = directoryInfo.GetDirectories();
-                foreach (System.IO.DirectoryInfo dir in subDirs)
-                {
-                    size += CalculateDirectorySize(dir);
-                }
-            }
-            catch
-            {
-                // Ignore access errors
-            }
-            return size;
         }
 
         private async void GameCard_RightTapped(object sender, RightTappedRoutedEventArgs e)

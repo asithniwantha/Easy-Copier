@@ -19,6 +19,7 @@ namespace Easy_Copier.ViewModels
         private readonly ISourceLibraryService _sourceLibraryService;
         private readonly IGameInfoDownloadService _gameInfoDownloadService;
         private readonly IStartupService _startupService;
+        private readonly IDispatcherService _dispatcherService;
 
         [ObservableProperty]
         public partial bool AutoScanOnStartup { get; set; } = true;

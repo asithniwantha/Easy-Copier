@@ -6,17 +6,13 @@ namespace Easy_Copier
 {
     public sealed partial class MainWindow : Window
     {
-        public MainWindow()
+        public MainWindow(ViewModels.MainViewModel viewModel)
         {
             InitializeComponent();
 
             Easy_Copier.Infrastructure.NativeWindowHelper.InitializeWindow(this, 1400, 900);
 
-            if (Application.Current is App app)
-            {
-                var viewModel = app.Services.GetRequiredService<Easy_Copier.ViewModels.MainViewModel>();
-                _ = RootFrame.Navigate(typeof(MainPage), viewModel);
-            }
+            _ = RootFrame.Navigate(typeof(MainPage), viewModel);
 
             Closed += MainWindow_Closed;
         }

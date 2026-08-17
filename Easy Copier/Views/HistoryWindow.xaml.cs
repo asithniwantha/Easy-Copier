@@ -13,9 +13,8 @@ namespace Easy_Copier.Views
 
         public HistoryWindow(HistoryViewModel viewModel)
         {
-            InitializeComponent();
-
             ViewModel = viewModel;
+            InitializeComponent();
 
             NativeWindowHelper.InitializeWindow(this, 1000, 700);
             NativeWindowHelper.ShowAsModal(this, App.MainWindow);
