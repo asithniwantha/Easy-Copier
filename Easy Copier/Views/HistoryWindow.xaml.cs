@@ -11,18 +11,17 @@ namespace Easy_Copier.Views
 
         public event EventHandler? HistoryClosed;
 
-        public HistoryWindow()
+        public HistoryWindow(HistoryViewModel viewModel)
         {
+            ViewModel = viewModel;
             InitializeComponent();
-
-            ViewModel = AppServiceLocator.GetService<HistoryViewModel>();
 
             NativeWindowHelper.InitializeWindow(this, 1000, 700);
             NativeWindowHelper.ShowAsModal(this, App.MainWindow);
 
             Closed += HistoryWindow_Closed;
 
-            _ = RootFrame.Navigate(typeof(HistoryPage));
+            _ = RootFrame.Navigate(typeof(HistoryPage), ViewModel);
         }
 
         /// <summary>

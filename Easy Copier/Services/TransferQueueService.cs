@@ -30,17 +30,17 @@ namespace Easy_Copier.Services
         private readonly ILogger<TransferQueueService> _logger;
         private readonly Channel<TransferQueueItem> _channel = Channel.CreateUnbounded<TransferQueueItem>();
         private readonly ConcurrentDictionary<string, Channel<TransferQueueItem>> _driveChannels = new(StringComparer.OrdinalIgnoreCase);
-        private readonly DispatcherQueue? _dispatcherQueue;
+        private readonly Infrastructure.IDispatcherService _dispatcherService;
 
         public ObservableCollection<TransferQueueItem> QueueItems { get; } = [];
 
         public event EventHandler<TransferQueueItem>? ItemCompleted;
 
-        public TransferQueueService(IFileTransferService fileTransferService, ILogger<TransferQueueService> logger)
+        public TransferQueueService(IFileTransferService fileTransferService, ILogger<TransferQueueService> logger, Infrastructure.IDispatcherService dispatcherService)
         {
             _fileTransferService = fileTransferService;
             _logger = logger;
-            _dispatcherQueue = DispatcherQueue.GetForCurrentThread();
+            _dispatcherService = dispatcherService;
 
             _ = Task.Run(ProcessQueueAsync);
         }
@@ -149,9 +149,9 @@ namespace Easy_Copier.Services
 
         private void RunOnUiThread(Action action)
         {
-            if (_dispatcherQueue != null && !_dispatcherQueue.HasThreadAccess)
+            if (!_dispatcherService.HasThreadAccess)
             {
-                _ = _dispatcherQueue.TryEnqueue(() => action());
+                _ = _dispatcherService.TryEnqueue(action);
             }
             else
             {

@@ -49,21 +49,4 @@ namespace Easy_Copier.Infrastructure
             return services;
         }
     }
-
-    public static class AppServiceLocator
-    {
-        private static IServiceProvider? _instance;
-
-        public static void Initialize(IServiceProvider provider)
-        {
-            _instance = provider ?? throw new ArgumentNullException(nameof(provider));
-        }
-
-        public static T GetService<T>() where T : class
-        {
-            return _instance == null
-                ? throw new InvalidOperationException("AppServiceLocator not initialized")
-                : _instance.GetRequiredService<T>();
-        }
-    }
 }

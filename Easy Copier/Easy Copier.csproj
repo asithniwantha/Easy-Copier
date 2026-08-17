@@ -13,7 +13,7 @@
 	<Nullable>enable</Nullable>
 	<EnableMsixTooling>true</EnableMsixTooling>
 	<WindowsPackageType Condition="'$(WindowsPackageType)' == ''">None</WindowsPackageType>
-	<NoWarn>$(NoWarn);CA5392</NoWarn>
+	<NoWarn>$(NoWarn);CA5392;MVVMTK0045</NoWarn>
   </PropertyGroup>
   <ItemGroup>
     <Content Remove="Assets\easy copier ico - Copy.ico" />
