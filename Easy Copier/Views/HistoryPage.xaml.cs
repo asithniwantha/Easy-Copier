@@ -7,7 +7,7 @@ namespace Easy_Copier.Views
 {
     public sealed partial class HistoryPage : Page
     {
-        public HistoryViewModel ViewModel { get; private set; }
+        public HistoryViewModel? ViewModel { get; private set; }
 
         public HistoryPage()
         {
@@ -16,12 +16,14 @@ namespace Easy_Copier.Views
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
+            ArgumentNullException.ThrowIfNull(e);
+
             base.OnNavigatedTo(e);
             if (e.Parameter is HistoryViewModel viewModel)
             {
                 ViewModel = viewModel;
                 Bindings.Update();
-                _ = ViewModel.InitializeAsync();
+                _ = viewModel.InitializeAsync();
             }
         }
     }

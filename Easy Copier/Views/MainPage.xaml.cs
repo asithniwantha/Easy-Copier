@@ -19,7 +19,7 @@ namespace Easy_Copier.Views
     {
         private static readonly string[] LineSeparators = ["\r\n", "\n"];
 
-        public MainViewModel ViewModel { get; private set; }
+        public MainViewModel? ViewModel { get; private set; }
 
         public MainPage()
         {
@@ -28,6 +28,8 @@ namespace Easy_Copier.Views
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
+            ArgumentNullException.ThrowIfNull(e);
+
             base.OnNavigatedTo(e);
             if (e.Parameter is MainViewModel viewModel)
             {
@@ -35,9 +37,9 @@ namespace Easy_Copier.Views
                 DataContext = ViewModel;
                 Bindings.Update();
 
-                ViewModel.ItemQueued += (s, e) => ClearGameSelection();
+                viewModel.ItemQueued += (s, ev) => ClearGameSelection();
 
-                _ = ViewModel.InitializeAsync();
+                _ = viewModel.InitializeAsync();
             }
         }
 
@@ -67,7 +69,7 @@ namespace Easy_Copier.Views
             IEnumerable<GameEntry> selectedItems = GamesGridView.SelectedItems.Cast<GameEntry>()
                 .Concat(AppsGridView.SelectedItems.Cast<GameEntry>())
                 .Concat(tvItems);
-            ViewModel.UpdateSelectionSummary(selectedItems);
+            ViewModel?.UpdateSelectionSummary(selectedItems);
         }
 
         private void ClearGameSelection()
@@ -276,7 +278,7 @@ namespace Easy_Copier.Views
 
         private async void GameCard_RightTapped(object sender, RightTappedRoutedEventArgs e)
         {
-            if (sender is FrameworkElement fe && fe.DataContext is GameEntry gameEntry)
+            if (sender is FrameworkElement fe && fe.DataContext is GameEntry gameEntry && ViewModel is not null)
             {
                 string formattedText = await ViewModel.GetFormattedSystemRequirementsAsync(gameEntry.FolderPath);
 
