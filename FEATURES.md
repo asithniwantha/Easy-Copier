@@ -96,3 +96,4 @@
   - with bigger flyout window to show more details.
 -add about page with app version, developer info, and links to github repo and issues page.
 -implement update checking and notification system to inform users of new releases. or automatically download and install updates.
+-add a logging system to track errors, warnings, and important events for troubleshooting and user support.
