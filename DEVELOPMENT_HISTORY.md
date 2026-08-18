@@ -28,6 +28,7 @@ Easy Copier was developed as a WinUI 3 desktop application targeting .NET 10 to 
 - Addressed nullable compiler warnings CS8600 and CS8602 in `FileTransferService.cs` by implementing robust validation checks on the iterated `TransferItem` and `GameEntry` objects, guaranteeing null safety and type-safe reference conversions.
 - Fixed a compilation error (CS1002 missing semicolon) in `WindowService.cs` in `ShowSettingsWindow` and cleaned up DI service resolution syntax across window creation methods.
 - Resolved Roslyn warning CA5392 in CI builds by removing `<NoWarn>` from project files and creating `GlobalSuppressions.cs` with assembly-level `[assembly: SuppressMessage(...)]` attributes to cleanly handle external auto-generated code in the WindowsAppSDK NuGet package (`UndockedRegFreeWinRT-AutoInitializer.cs`).
+- Resolved CI build compilation errors (CS1061) in `SettingsViewModel.cs` by adding missing `using Microsoft.Extensions.Logging;` directive for `ILogger` extension methods (`LogInformation`, `LogWarning`, `LogError`).
 
 ## Key Development Decisions
 - **Safety-first transfer pipeline**: run validation before copy; block operation on hard errors.

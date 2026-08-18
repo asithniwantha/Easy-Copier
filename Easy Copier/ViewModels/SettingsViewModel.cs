@@ -49,7 +49,7 @@ namespace Easy_Copier.ViewModels
         private readonly IGameInfoDownloadService _gameInfoDownloadService;
         private readonly IStartupService _startupService;
         private readonly IDispatcherService _dispatcherService;
-        private readonly Microsoft.Extensions.Logging.ILogger<SettingsViewModel> _logger;
+        private readonly ILogger<SettingsViewModel> _logger;
 
         [ObservableProperty]
         public partial bool AutoScanOnStartup { get; set; } = true;
@@ -82,7 +82,7 @@ namespace Easy_Copier.ViewModels
         private readonly Infrastructure.IProcessService _processService;
 
         public SettingsViewModel(
-            Microsoft.Extensions.Logging.ILogger<SettingsViewModel> logger,
+            ILogger<SettingsViewModel> logger,
             ISettingsService settingsService,
             IFolderPickerService folderPickerService,
             ISourceLibraryService sourceLibraryService,
