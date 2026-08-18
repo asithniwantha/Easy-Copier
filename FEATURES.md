@@ -93,4 +93,4 @@
 - [x] Add option to copy only missing files from the source to the destination if the destination folder already exists ("Merge").
 - [x] Add About page with app version, developer info, and links to GitHub repo and issues page.
 - [ ] Add an Excel-like calculator tool.
-- [ ] Implement update checking and notification system to inform users of new releases, or automatically download and install updates.
+- [x] Implement update checking and notification system to inform users of new releases, or automatically download and install updates.

@@ -1,5 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
+    <DISABLE_XAML_GENERATED_MAIN>true</DISABLE_XAML_GENERATED_MAIN>
+
     <LangVersion>14</LangVersion>
 	<OutputType>WinExe</OutputType>
 	<TargetFramework>net10.0-windows10.0.26100.0</TargetFramework>
@@ -55,6 +57,7 @@
   </ItemGroup>
 
   <PropertyGroup>
+
     <PublishReadyToRun>false</PublishReadyToRun>
     <PublishTrimmed>False</PublishTrimmed>
     <PublishSingleFile>false</PublishSingleFile>

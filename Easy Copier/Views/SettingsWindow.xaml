@@ -62,6 +62,8 @@
                                       IsOn="{x:Bind ViewModel.AutoScanOnStartup, Mode=TwoWay}"/>
                         <ToggleSwitch Header="Start application on Windows log-on"
                                       IsOn="{x:Bind ViewModel.StartOnLogon, Mode=TwoWay}"/>
+                        <ToggleSwitch Header="Automatically download updates in the background"
+                                      IsOn="{x:Bind ViewModel.AutoDownloadUpdates, Mode=TwoWay}"/>
                     </StackPanel>
 
                     <!-- Games Panel -->

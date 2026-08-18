@@ -87,6 +87,7 @@ namespace Easy_Copier.Models
         public string VideoFileExtensions { get; set; } = ".mp4,.mkv,.avi";
         public bool AutoScanOnStartup { get; set; } = true;
         public bool StartOnLogon { get; set; }
+        public bool AutoDownloadUpdates { get; set; } = true;
         public string LastSelectedDrive { get; set; } = string.Empty;
         public DateTime LastScanTime { get; set; } = DateTime.MinValue;
         public int PriceTier1 { get; set; } = 100;
