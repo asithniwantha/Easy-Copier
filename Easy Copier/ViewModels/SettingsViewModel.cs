@@ -3,6 +3,7 @@ using CommunityToolkit.Mvvm.Input;
 using Easy_Copier.Infrastructure;
 using Easy_Copier.Models;
 using Easy_Copier.Services;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
