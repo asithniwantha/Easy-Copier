@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Window
+    x:Class="Easy_Copier.Views.AboutWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Title="Easy Copier - About">
+
+    <Window.SystemBackdrop>
+        <MicaBackdrop />
+    </Window.SystemBackdrop>
+
+    <Grid Padding="24">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- Custom TitleBar drag region (if needed) -->
+
+        <StackPanel Grid.Row="1" Spacing="16" HorizontalAlignment="Center" VerticalAlignment="Center" MaxWidth="400">
+            <Image Source="/Assets/easy copier ico.ico" Width="100" Height="100" Margin="0,0,0,16"/>
+
+            <TextBlock Text="Easy Copier" FontSize="28" FontWeight="Bold" HorizontalAlignment="Center"/>
+
+            <StackPanel Orientation="Horizontal" Spacing="8" HorizontalAlignment="Center">
+                <TextBlock Text="Version:" FontWeight="SemiBold"/>
+                <TextBlock Text="{x:Bind ViewModel.AppVersion, Mode=OneWay}"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Spacing="8" HorizontalAlignment="Center">
+                <TextBlock Text="Developer:" FontWeight="SemiBold"/>
+                <TextBlock Text="{x:Bind ViewModel.DeveloperInfo, Mode=OneWay}"/>
+            </StackPanel>
+
+            <TextBlock Text="A modern utility designed to simplify organizing and transferring large game and application libraries to portable drives."
+                       TextWrapping="Wrap" TextAlignment="Center" Margin="0,8,0,16" Opacity="0.8"/>
+
+            <Button Content="View Source on GitHub"
+                    Command="{x:Bind ViewModel.OpenGitHubRepoCommand}"
+                    HorizontalAlignment="Stretch" HorizontalContentAlignment="Center"/>
+
+            <Button Content="Report an Issue"
+                    Command="{x:Bind ViewModel.OpenGitHubIssuesCommand}"
+                    HorizontalAlignment="Stretch" HorizontalContentAlignment="Center"/>
+        </StackPanel>
+
+        <Button Grid.Row="2" Content="Close" Click="Close_Click" HorizontalAlignment="Center" Margin="0,24,0,0" Style="{StaticResource AccentButtonStyle}" Width="120"/>
+    </Grid>
+</Window>

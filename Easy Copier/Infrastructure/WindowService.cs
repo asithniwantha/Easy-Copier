@@ -17,6 +17,7 @@ namespace Easy_Copier.Infrastructure
     {
         void ShowSettingsWindow(Action? onClosed = null, SettingsOpenAction openAction = SettingsOpenAction.None);
         void ShowHistoryWindow();
+        void ShowAboutWindow();
         Microsoft.UI.Xaml.Window? GetMainWindow();
     }
 
@@ -50,6 +51,13 @@ namespace Easy_Copier.Infrastructure
             var viewModel = _serviceProvider.GetRequiredService<HistoryViewModel>();
             HistoryWindow historyWindow = new(viewModel);
             historyWindow.Activate();
+        }
+
+        public void ShowAboutWindow()
+        {
+            var viewModel = _serviceProvider.GetRequiredService<AboutViewModel>();
+            AboutWindow aboutWindow = new(viewModel);
+            aboutWindow.Activate();
         }
     }
 }

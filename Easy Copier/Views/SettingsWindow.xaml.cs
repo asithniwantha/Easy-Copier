@@ -22,12 +22,38 @@ namespace Easy_Copier.Views
                 fe.DataContext = ViewModel;
             }
 
-            NativeWindowHelper.InitializeWindow(this, 960, 640);
+            NativeWindowHelper.InitializeWindow(this, 960, 720); // Fallback size, will adjust after load
             NativeWindowHelper.ShowAsModal(this, App.MainWindow);
 
             Closed += SettingsWindow_Closed;
 
             _ = LoadAsync(openAction);
+
+            // Adjust size to content dynamically when layout updates
+            if (Content is FrameworkElement rootElement)
+            {
+                rootElement.SizeChanged += RootElement_SizeChanged;
+            }
+        }
+
+        private void RootElement_SizeChanged(object sender, SizeChangedEventArgs e)
+        {
+            if (Content is FrameworkElement rootElement)
+            {
+                rootElement.Measure(new Windows.Foundation.Size(double.PositiveInfinity, double.PositiveInfinity));
+
+                int targetWidth = Math.Max(960, (int)Math.Ceiling(rootElement.DesiredSize.Width));
+                int targetHeight = Math.Max(640, (int)Math.Ceiling(rootElement.DesiredSize.Height) + 40); // Add some padding
+
+                var hwnd = WinRT.Interop.WindowNative.GetWindowHandle(this);
+                var windowId = Microsoft.UI.Win32Interop.GetWindowIdFromWindow(hwnd);
+                var appWindow = Microsoft.UI.Windowing.AppWindow.GetFromWindowId(windowId);
+
+                if (appWindow != null && (appWindow.Size.Width != targetWidth || appWindow.Size.Height != targetHeight))
+                {
+                    appWindow.Resize(new Windows.Graphics.SizeInt32(targetWidth, targetHeight));
+                }
+            }
         }
 
         private void SettingsWindow_Closed(object sender, WindowEventArgs args)

@@ -58,6 +58,7 @@ namespace Easy_Copier.Infrastructure
             _ = services.AddSingleton<ViewModels.MainViewModel>();
             _ = services.AddTransient<ViewModels.SettingsViewModel>();
             _ = services.AddTransient<ViewModels.HistoryViewModel>();
+            _ = services.AddTransient<ViewModels.AboutViewModel>();
 
             return services;
         }

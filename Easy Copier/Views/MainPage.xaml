@@ -96,6 +96,7 @@
                 <AppBarSeparator/>
                 <AppBarButton Icon="Clock" Label="History" Command="{x:Bind ViewModel.OpenHistoryCommand}"/>
                 <AppBarButton Icon="Setting" Label="Settings" Command="{x:Bind ViewModel.OpenSettingsCommand}"/>
+                <AppBarButton Icon="Help" Label="About" Command="{x:Bind ViewModel.OpenAboutCommand}"/>
             </CommandBar>
 
             <AutoSuggestBox Grid.Row="2" x:Name="SearchBox"

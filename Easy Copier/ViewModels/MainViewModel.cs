@@ -611,6 +611,12 @@ namespace Easy_Copier.ViewModels
         }
 
         [RelayCommand]
+        private void OpenAbout()
+        {
+            _windowService.ShowAboutWindow();
+        }
+
+        [RelayCommand]
         private void OpenDriveInExplorer()
         {
             if (SelectedDrive != null)
