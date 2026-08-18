@@ -41,7 +41,7 @@ namespace Easy_Copier.Infrastructure
                         savePicker.FileTypeChoices.Add(kvp.Key, kvp.Value);
                     }
 
-                    nint windowHandle = GetActiveWindowHandle();
+                    nint windowHandle = NativeWindowHelper.GetActiveWindowHandle();
                     if (windowHandle == IntPtr.Zero)
                     {
                         tcs.SetResult(null);
@@ -65,11 +65,6 @@ namespace Easy_Copier.Infrastructure
             }
 
             return await tcs.Task;
-        }
-
-        private static IntPtr GetActiveWindowHandle()
-        {
-            return App.MainWindow != null ? WinRT.Interop.WindowNative.GetWindowHandle(App.MainWindow) : nint.Zero;
         }
     }
 }

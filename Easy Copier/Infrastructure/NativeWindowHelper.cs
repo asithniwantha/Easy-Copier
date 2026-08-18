@@ -47,6 +47,15 @@ namespace Easy_Copier.Infrastructure
         [DefaultDllImportSearchPaths(DllImportSearchPath.System32)]
         private static extern bool SetForegroundWindow(IntPtr hWnd);
 
+        [DllImport("user32.dll")]
+        [DefaultDllImportSearchPaths(DllImportSearchPath.System32)]
+        private static extern IntPtr GetForegroundWindow();
+
+        public static IntPtr GetActiveWindowHandle()
+        {
+            return GetForegroundWindow();
+        }
+
         public static void SetOwner(IntPtr childHwnd, IntPtr ownerHwnd)
         {
             _ = IntPtr.Size == 8
