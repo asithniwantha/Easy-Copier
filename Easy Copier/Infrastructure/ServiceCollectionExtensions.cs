@@ -1,6 +1,7 @@
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Serilog;
+using System.Globalization;
 using System.IO;
 using System;
 
@@ -16,8 +17,12 @@ namespace Easy_Copier.Infrastructure
 
             Log.Logger = new LoggerConfiguration()
                 .MinimumLevel.Debug()
-                .WriteTo.Debug()
-                .WriteTo.File(Path.Combine(logFolder, "log-.txt"), rollingInterval: RollingInterval.Day, retainedFileCountLimit: 7)
+                .WriteTo.Debug(formatProvider: CultureInfo.InvariantCulture)
+                .WriteTo.File(
+                    Path.Combine(logFolder, "log-.txt"),
+                    rollingInterval: RollingInterval.Day,
+                    retainedFileCountLimit: 7,
+                    formatProvider: CultureInfo.InvariantCulture)
                 .CreateLogger();
 
             services.AddLogging(builder =>
