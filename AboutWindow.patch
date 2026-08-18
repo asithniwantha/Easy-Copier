@@ -1,0 +1,11 @@
+--- "Easy Copier/Views/AboutWindow.xaml"
++++ "Easy Copier/Views/AboutWindow.xaml"
+@@ -7,8 +7,7 @@
+     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+     mc:Ignorable="d"
+     Title="Easy Copier - About"
+-    ExtendsContentIntoTitleBar="True">
++>
+
+     <Window.SystemBackdrop>
+         <MicaBackdrop />

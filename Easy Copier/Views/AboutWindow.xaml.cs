@@ -18,8 +18,8 @@ namespace Easy_Copier.Views
                 fe.DataContext = ViewModel;
             }
 
-            ExtendsContentIntoTitleBar = true;
-            SetTitleBar(AppTitleBar);
+
+
 
             NativeWindowHelper.InitializeWindow(this, 500, 600);
             NativeWindowHelper.ShowAsModal(this, App.MainWindow);

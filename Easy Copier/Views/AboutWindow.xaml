@@ -7,7 +7,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     Title="Easy Copier - About"
-    ExtendsContentIntoTitleBar="True">
+    >
 
     <Window.SystemBackdrop>
         <MicaBackdrop />
@@ -21,7 +21,6 @@
         </Grid.RowDefinitions>
 
         <!-- Custom TitleBar drag region (if needed) -->
-        <Border x:Name="AppTitleBar" Height="32" Grid.Row="0" Margin="-24,-24,-24,0" Background="Transparent" />
 
         <StackPanel Grid.Row="1" Spacing="16" HorizontalAlignment="Center" VerticalAlignment="Center" MaxWidth="400">
             <Image Source="/Assets/easy copier ico.ico" Width="100" Height="100" Margin="0,0,0,16"/>
