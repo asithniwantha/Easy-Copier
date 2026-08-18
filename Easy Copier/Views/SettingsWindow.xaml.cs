@@ -70,6 +70,7 @@ namespace Easy_Copier.Views
                 GamesPanel.Visibility = tag == "Games" ? Visibility.Visible : Visibility.Collapsed;
                 AppsPanel.Visibility = tag == "Apps" ? Visibility.Visible : Visibility.Collapsed;
                 FilmAndTvPanel.Visibility = tag == "FilmAndTv" ? Visibility.Visible : Visibility.Collapsed;
+                LogsPanel.Visibility = tag == "Logs" ? Visibility.Visible : Visibility.Collapsed;
             }
         }
 

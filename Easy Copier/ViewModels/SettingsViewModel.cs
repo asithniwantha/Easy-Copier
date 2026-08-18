@@ -14,12 +14,41 @@ namespace Easy_Copier.ViewModels
 {
     public partial class SettingsViewModel : ObservableObject
     {
+        [RelayCommand]
+        private void OpenLogsFolder()
+        {
+            try
+            {
+                string appDataFolder = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
+                string logFolder = System.IO.Path.Combine(appDataFolder, "EasyCopier", "Logs");
+                if (System.IO.Directory.Exists(logFolder))
+                {
+                    System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo()
+                    {
+                        FileName = logFolder,
+                        UseShellExecute = true,
+                        Verb = "open"
+                    });
+                    _logger.LogInformation("Logs folder opened successfully.");
+                }
+                else
+                {
+                    _logger.LogWarning("Logs folder not found.");
+                }
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Failed to open logs folder.");
+            }
+        }
+
         private readonly ISettingsService _settingsService;
         private readonly IFolderPickerService _folderPickerService;
         private readonly ISourceLibraryService _sourceLibraryService;
         private readonly IGameInfoDownloadService _gameInfoDownloadService;
         private readonly IStartupService _startupService;
         private readonly IDispatcherService _dispatcherService;
+        private readonly Microsoft.Extensions.Logging.ILogger<SettingsViewModel> _logger;
 
         [ObservableProperty]
         public partial bool AutoScanOnStartup { get; set; } = true;
@@ -52,6 +81,7 @@ namespace Easy_Copier.ViewModels
         private readonly Infrastructure.IProcessService _processService;
 
         public SettingsViewModel(
+            Microsoft.Extensions.Logging.ILogger<SettingsViewModel> logger,
             ISettingsService settingsService,
             IFolderPickerService folderPickerService,
             ISourceLibraryService sourceLibraryService,
@@ -67,6 +97,7 @@ namespace Easy_Copier.ViewModels
             _gameInfoDownloadService = gameInfoDownloadService;
             _startupService = startupService;
             _dispatcherService = dispatcherService;
+            _logger = logger;
         }
 
         [RelayCommand]

@@ -1,5 +1,7 @@
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using Serilog;
+using System.IO;
 using System;
 
 namespace Easy_Copier.Infrastructure
@@ -8,14 +10,20 @@ namespace Easy_Copier.Infrastructure
     {
         public static IServiceCollection AddApplicationServices(this IServiceCollection services)
         {
+            string appDataFolder = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
+            string logFolder = Path.Combine(appDataFolder, "EasyCopier", "Logs");
+            Directory.CreateDirectory(logFolder);
+
+            Log.Logger = new LoggerConfiguration()
+                .MinimumLevel.Debug()
+                .WriteTo.Debug()
+                .WriteTo.File(Path.Combine(logFolder, "log-.txt"), rollingInterval: RollingInterval.Day, retainedFileCountLimit: 7)
+                .CreateLogger();
+
             services.AddLogging(builder =>
             {
-#if DEBUG
-                builder.AddDebug();
-                builder.SetMinimumLevel(LogLevel.Debug);
-#else
-                builder.SetMinimumLevel(LogLevel.Information);
-#endif
+                builder.ClearProviders();
+                builder.AddSerilog(dispose: true);
             });
 
             services.AddSingleton<Services.ISettingsService, Services.SettingsService>();
