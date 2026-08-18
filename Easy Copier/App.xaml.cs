@@ -9,8 +9,7 @@ namespace Easy_Copier
     public partial class App : Application
     {
         private Window? _window;
-
-        public IServiceProvider Services { get; private set; } = null!;
+        private IServiceProvider? _serviceProvider;
 
         public IServiceProvider Services => _serviceProvider ?? throw new InvalidOperationException("Services not initialized");
 
