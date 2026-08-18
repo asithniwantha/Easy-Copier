@@ -100,6 +100,5 @@
 -add about page with app version, developer info, and links to github repo and issues page.
 -implement update checking and notification system to inform users of new releases. or automatically download and install updates.
 -add a logging system to track errors, warnings, and important events for troubleshooting and user support.
--log one.day into one.file
+-log one day into one file, put the log files into a logs folder in the app data directory.
 -set settings window size to view all elments.
--add about
