@@ -101,7 +101,7 @@
                             <TextBlock Text="Game Folders" FontWeight="SemiBold"/>
                             <ListView x:Name="GameSourceFoldersListView"
                                       ItemsSource="{x:Bind ViewModel.GameSourceFolders, Mode=OneWay}"
-                                      MaxHeight="300"
+
                                       BorderBrush="{ThemeResource SurfaceStrokeColorDefaultBrush}"
                                       BorderThickness="1"
                                       CornerRadius="4">
@@ -139,7 +139,7 @@
                             <TextBlock Text="App Folders" FontWeight="SemiBold"/>
                             <ListView x:Name="AppSourceFoldersListView"
                                       ItemsSource="{x:Bind ViewModel.AppSourceFolders, Mode=OneWay}"
-                                      MaxHeight="300"
+
                                       BorderBrush="{ThemeResource SurfaceStrokeColorDefaultBrush}"
                                       BorderThickness="1"
                                       CornerRadius="4">
@@ -170,7 +170,7 @@
                             <TextBlock Text="Film &amp; TV Folders" FontWeight="SemiBold"/>
                             <ListView x:Name="TvAndFilmSourceFoldersListView"
                                       ItemsSource="{x:Bind ViewModel.TvAndFilmSourceFolders, Mode=OneWay}"
-                                      MaxHeight="300"
+
                                       BorderBrush="{ThemeResource SurfaceStrokeColorDefaultBrush}"
                                       BorderThickness="1"
                                       CornerRadius="4">

@@ -13,19 +13,6 @@ namespace Easy_Copier
             Easy_Copier.Infrastructure.NativeWindowHelper.InitializeWindow(this, 1400, 900);
 
             _ = RootFrame.Navigate(typeof(MainPage), viewModel);
-
-            Closed += MainWindow_Closed;
-        }
-
-        /// <summary>
-        /// Handles the Closed event of the MainWindow.
-        /// </summary>
-        private void MainWindow_Closed(object sender, WindowEventArgs args)
-        {
-            if (Application.Current is App app)
-            {
-                app.DisposeServices();
-            }
         }
     }
 }

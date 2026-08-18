@@ -66,6 +66,7 @@ namespace Easy_Copier
             _window.Closed += (s, e) =>
             {
                 logger.LogInformation("Easy Copier application shutting down.");
+                DisposeServices();
             };
 
             _window.Activate();
