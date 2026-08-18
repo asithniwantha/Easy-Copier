@@ -32,7 +32,7 @@ namespace Easy_Copier.Infrastructure
 
                     folderPicker.FileTypeFilter.Add("*");
 
-                    nint windowHandle = GetActiveWindowHandle();
+                    nint windowHandle = NativeWindowHelper.GetActiveWindowHandle();
                     if (windowHandle == IntPtr.Zero)
                     {
                         tcs.SetResult(null);
@@ -56,11 +56,6 @@ namespace Easy_Copier.Infrastructure
             }
 
             return await tcs.Task;
-        }
-
-        private static IntPtr GetActiveWindowHandle()
-        {
-            return App.MainWindow != null ? WindowNative.GetWindowHandle(App.MainWindow) : nint.Zero;
         }
     }
 }
