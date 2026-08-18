@@ -46,6 +46,11 @@
                         <SymbolIcon Symbol="Video" />
                     </NavigationViewItem.Icon>
                 </NavigationViewItem>
+                <NavigationViewItem Tag="Logs" Content="Logs &amp; Troubleshooting">
+                    <NavigationViewItem.Icon>
+                        <SymbolIcon Symbol="Document" />
+                    </NavigationViewItem.Icon>
+                </NavigationViewItem>
             </NavigationView.MenuItems>
 
             <ScrollViewer Padding="24">
@@ -193,6 +198,12 @@
                                      Margin="0,16,0,0"
                                      ToolTipService.ToolTip="Comma-separated extensions to identify standalone video files" />
                         </StackPanel>
+                    </StackPanel>
+                    <!-- Logs Panel -->
+                    <StackPanel x:Name="LogsPanel" Visibility="Collapsed" Spacing="16">
+                        <TextBlock Text="Logs &amp; Troubleshooting" FontSize="20" FontWeight="SemiBold" />
+                        <TextBlock Text="Access diagnostic logs for troubleshooting and support." TextWrapping="Wrap" />
+                        <Button Content="Open Logs Folder" Command="{x:Bind ViewModel.OpenLogsFolderCommand}" HorizontalAlignment="Left" />
                     </StackPanel>
                 </Grid>
             </ScrollViewer>

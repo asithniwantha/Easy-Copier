@@ -181,12 +181,15 @@ namespace Easy_Copier.Services
                         }
                     }
 
-                    bool allSuccess = successCount == request.Items.Count;
+bool allSuccess = successCount == request.Items.Count;
                     string message = allSuccess
                         ? $"Successfully copied {successCount} item(s)"
                         : $"Copied {successCount} of {request.Items.Count} items. Errors: {string.Join("; ", errors)}";
 
+                    _logger.LogInformation("Transfer completed. Success: {SuccessCount}, Total Bytes: {TotalBytes}, Errors: {ErrorCount}", successCount, totalBytes, errors.Count);
+
                     return new TransferOutcome(
+
                         allSuccess && errors.Count == 0,
                         message,
                         successCount,
