@@ -89,14 +89,8 @@
 - GitHub Actions for CI/CD workflows.
 
 ## 📅 Future Enhancements (To-Do List)
-- [x] Run the provided Python script to download cover images and minimum requirements for the games/apps that don't have them.
-- [x] Add GitHub Actions to build and publish the app to GitHub releases automatically with version numbers based on Git tags.
-- [x] Add TV series and films tab.
 - [x] Handle copy collisions: if the destination drive already contains the folder, ask to replace everything, merge, or do nothing (comparing size and file count).
 - [x] Add option to copy only missing files from the source to the destination if the destination folder already exists ("Merge").
-- [x] Right-click context flyout displaying color-formatted system requirements and scrollable folder contents (needs bigger flyout window to show more details).
 - [x] Add About page with app version, developer info, and links to GitHub repo and issues page.
-- [x] Add a logging system to track errors, warnings, and important events for troubleshooting (rolls one day into one file in `%LocalAppData%\EasyCopier\Logs`).
-- [x] Set settings window size to automatically adjust to fit all elements.
 - [ ] Add an Excel-like calculator tool.
 - [ ] Implement update checking and notification system to inform users of new releases, or automatically download and install updates.
