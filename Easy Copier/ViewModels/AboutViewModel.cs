@@ -2,6 +2,7 @@ using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using Easy_Copier.Infrastructure;
 using System;
+using System.Diagnostics.CodeAnalysis;
 using System.Reflection;
 
 namespace Easy_Copier.ViewModels
@@ -15,6 +16,7 @@ namespace Easy_Copier.ViewModels
             _processService = processService;
         }
 
+        [SuppressMessage("Performance", "CA1822:Mark members as static", Justification = "ViewModel properties are bound by instance references in XAML.")]
         public string AppVersion
         {
             get
@@ -23,7 +25,7 @@ namespace Easy_Copier.ViewModels
                 if (!string.IsNullOrEmpty(version))
                 {
                     // Truncate git commit hash if present (e.g. 1.0.0+hash)
-                    int plusIndex = version.IndexOf('+');
+                    int plusIndex = version.IndexOf('+', StringComparison.Ordinal);
                     if (plusIndex > 0)
                     {
                         return version.Substring(0, plusIndex);
@@ -36,6 +38,7 @@ namespace Easy_Copier.ViewModels
             }
         }
 
+        [SuppressMessage("Performance", "CA1822:Mark members as static", Justification = "ViewModel properties are bound by instance references in XAML.")]
         public string DeveloperInfo => "Asith Niwantha";
 
         [RelayCommand]
