@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Management;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Easy_Copier.Services
@@ -236,6 +237,8 @@ namespace Easy_Copier.Services
 
         public void Dispose()
         {
+            // thread wait for a few seconds to ensure that the event handler has completed before disposing
+            Thread.Sleep(500);
             StopWatching();
         }
     }
