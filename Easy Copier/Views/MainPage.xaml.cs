@@ -28,6 +28,8 @@ namespace Easy_Copier.Views
 
         protected override void OnNavigatedTo(Microsoft.UI.Xaml.Navigation.NavigationEventArgs e)
         {
+            ArgumentNullException.ThrowIfNull(e);
+
             base.OnNavigatedTo(e);
             if (e.Parameter is MainViewModel viewModel)
             {
