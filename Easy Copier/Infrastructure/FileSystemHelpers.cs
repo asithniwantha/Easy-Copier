@@ -6,6 +6,8 @@ namespace Easy_Copier.Infrastructure
     {
         public static long CalculateDirectorySize(DirectoryInfo directoryInfo)
         {
+            System.ArgumentNullException.ThrowIfNull(directoryInfo);
+
             long size = 0;
             try
             {
