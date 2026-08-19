@@ -1,8 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
+    <DefineConstants>DISABLE_XAML_GENERATED_MAIN</DefineConstants>
 
-    <DISABLE_XAML_GENERATED_MAIN>true</DISABLE_XAML_GENERATED_MAIN>
-	<DisableXamlGeneratedMain>true</DisableXamlGeneratedMain>
 
     <LangVersion>14</LangVersion>
 	<OutputType>WinExe</OutputType>
@@ -59,6 +58,7 @@
   </ItemGroup>
 
   <PropertyGroup>
+    <DefineConstants>DISABLE_XAML_GENERATED_MAIN</DefineConstants>
 
     <PublishReadyToRun>false</PublishReadyToRun>
     <PublishTrimmed>False</PublishTrimmed>
