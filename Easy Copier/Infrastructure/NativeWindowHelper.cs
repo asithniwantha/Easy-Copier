@@ -51,9 +51,27 @@ namespace Easy_Copier.Infrastructure
         [DefaultDllImportSearchPaths(DllImportSearchPath.System32)]
         private static extern IntPtr GetForegroundWindow();
 
+        [DllImport("user32.dll")]
+        [DefaultDllImportSearchPaths(DllImportSearchPath.System32)]
+        private static extern IntPtr GetActiveWindow();
+
+        [DllImport("user32.dll", SetLastError = true)]
+        [DefaultDllImportSearchPaths(DllImportSearchPath.System32)]
+        private static extern uint GetWindowThreadProcessId(IntPtr hWnd, out uint lpdwProcessId);
+
         public static IntPtr GetActiveWindowHandle()
         {
-            return GetForegroundWindow();
+            IntPtr foregroundWindow = GetForegroundWindow();
+            if (foregroundWindow != IntPtr.Zero)
+            {
+                GetWindowThreadProcessId(foregroundWindow, out uint processId);
+                if (processId == Environment.ProcessId)
+                {
+                    return foregroundWindow;
+                }
+            }
+
+            return GetActiveWindow();
         }
 
         public static void SetOwner(IntPtr childHwnd, IntPtr ownerHwnd)
