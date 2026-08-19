@@ -58,6 +58,9 @@ namespace Easy_Copier.ViewModels
         public partial bool StartOnLogon { get; set; } = false;
 
         [ObservableProperty]
+        public partial bool AutoDownloadUpdates { get; set; } = true;
+
+        [ObservableProperty]
         public partial string PriceTier1 { get; set; } = "100";
 
         [ObservableProperty]
@@ -251,6 +254,7 @@ namespace Easy_Copier.ViewModels
             ArgumentNullException.ThrowIfNull(settings);
             AutoScanOnStartup = settings.AutoScanOnStartup;
             StartOnLogon = settings.StartOnLogon;
+            AutoDownloadUpdates = settings.AutoDownloadUpdates;
             VideoFileExtensions = settings.VideoFileExtensions ?? ".mp4,.mkv,.avi";
             PriceTier1 = settings.PriceTier1.ToString(System.Globalization.CultureInfo.InvariantCulture);
             PriceTier2 = settings.PriceTier2.ToString(System.Globalization.CultureInfo.InvariantCulture);
@@ -268,6 +272,7 @@ namespace Easy_Copier.ViewModels
             {
                 AutoScanOnStartup = AutoScanOnStartup,
                 StartOnLogon = StartOnLogon,
+                AutoDownloadUpdates = AutoDownloadUpdates,
                 VideoFileExtensions = VideoFileExtensions,
                 PriceTier1 = int.TryParse(PriceTier1, out int p1) ? p1 : 100,
                 PriceTier2 = int.TryParse(PriceTier2, out int p2) ? p2 : 200,

@@ -36,13 +36,19 @@ jobs:
         run: |
           dotnet publish "Easy Copier/Easy Copier.csproj" -c Release -r win-x64 -p:Version=${{ steps.get_version.outputs.VERSION }} -p:AssemblyVersion=${{ steps.get_version.outputs.VERSION }} -p:FileVersion=${{ steps.get_version.outputs.VERSION }} -o publish_output
 
-      - name: Zip Release
-        shell: pwsh
-        run: |
-          Compress-Archive -Path publish_output\* -DestinationPath "EasyCopier-${{ steps.get_version.outputs.VERSION }}-win-x64.zip"
+      - name: Install Velopack
+        shell: bash
+        run: dotnet tool install -g vpk
+
+      - name: Create Velopack Release
+        shell: bash
+        run: vpk pack -u EasyCopier -v ${{ steps.get_version.outputs.VERSION }} -p publish_output -e "Easy Copier.exe"
 
       - name: Create Release
         uses: softprops/action-gh-release@v3
         with:
-          files: EasyCopier-${{ steps.get_version.outputs.VERSION }}-win-x64.zip
+          files: |
+            Releases/*-full.nupkg
+            Releases/Setup.exe
+            Releases/RELEASES
           generate_release_notes: true

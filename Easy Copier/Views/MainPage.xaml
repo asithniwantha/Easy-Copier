@@ -82,12 +82,24 @@
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
 
-            <TextBlock Grid.Row="0" Text="Library" Style="{StaticResource SectionHeaderStyle}"/>
+            <InfoBar Grid.Row="0" IsOpen="{x:Bind ViewModel.IsUpdateAvailable, Mode=OneWay}" Severity="Success" Message="{x:Bind ViewModel.UpdateMessage, Mode=OneWay}" Margin="0,0,0,8">
+                <InfoBar.ActionButton>
+                    <Button Content="Download" Command="{x:Bind ViewModel.DownloadUpdateCommand}"/>
+                </InfoBar.ActionButton>
+            </InfoBar>
+            <InfoBar Grid.Row="1" IsOpen="{x:Bind ViewModel.IsUpdateReadyToInstall, Mode=OneWay}" Severity="Success" Message="{x:Bind ViewModel.UpdateMessage, Mode=OneWay}" Margin="0,0,0,8">
+                <InfoBar.ActionButton>
+                    <Button Content="Restart &amp; Apply" Command="{x:Bind ViewModel.RestartAndApplyUpdateCommand}"/>
+                </InfoBar.ActionButton>
+            </InfoBar>
+            <TextBlock Grid.Row="2" Text="Library" Style="{StaticResource SectionHeaderStyle}" Margin="0,10,0,0"/>
 
-            <CommandBar Grid.Row="1" DefaultLabelPosition="Right"
+            <CommandBar Grid.Row="3" DefaultLabelPosition="Right"
                         Background="Transparent" HorizontalAlignment="Left"
                         Margin="0,0,0,8">
                 <AppBarButton Icon="Add" Label="Add Folder" Command="{x:Bind ViewModel.AddSourceFolderCommand}"/>
@@ -99,14 +111,14 @@
                 <AppBarButton Icon="Help" Label="About" Command="{x:Bind ViewModel.OpenAboutCommand}"/>
             </CommandBar>
 
-            <AutoSuggestBox Grid.Row="2" x:Name="SearchBox"
+            <AutoSuggestBox Grid.Row="4" x:Name="SearchBox"
                              PlaceholderText="Search games and apps..."
                              QueryIcon="Find"
                              Text="{x:Bind ViewModel.SearchText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                              HorizontalAlignment="Stretch"
                              Margin="0,0,0,8"/>
 
-            <Pivot x:Name="LibraryPivot" Grid.Row="3" SelectedIndex="{x:Bind ViewModel.CurrentTabIndex, Mode=TwoWay}">
+            <Pivot x:Name="LibraryPivot" Grid.Row="5" SelectedIndex="{x:Bind ViewModel.CurrentTabIndex, Mode=TwoWay}">
                 <PivotItem Header="Games">
                     <Grid>
                         <ProgressRing IsActive="{x:Bind ViewModel.IsScanning, Mode=OneWay}"

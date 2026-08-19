@@ -49,6 +49,7 @@ namespace Easy_Copier.Infrastructure
             services.AddSingleton<IDispatcherService, DispatcherService>();
             services.AddSingleton<IDialogService, DialogService>();
             services.AddSingleton<Services.IGameInfoDownloadService, Services.GameInfoDownloadService>();
+            services.AddSingleton<Services.IUpdateService, Services.UpdateService>();
 
             return services;
         }

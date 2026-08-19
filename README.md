@@ -91,6 +91,7 @@ The selected-drive panel also shows a usage bar, free space, total capacity, and
 - View a detailed history of past copy operations.
 - Track success, failures, and transfer statuses.
 - Generate and export reports (e.g., CSV) containing historical transfer data and logs.
+- Automatic background updates via Velopack using GitHub Releases.
 
 ## 🛠️ Technology
 

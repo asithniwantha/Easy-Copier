@@ -25,6 +25,7 @@ namespace Easy_Copier.ViewModels
         private readonly IWindowService _windowService;
         private readonly IProcessService _processService;
         private readonly IDispatcherService _dispatcherService;
+        private readonly IUpdateService _updateService;
         private readonly ISourceLibraryService _sourceLibraryService;
         private readonly IDialogService _dialogService;
         private CancellationTokenSource? _scanCancellationTokenSource;
@@ -33,6 +34,15 @@ namespace Easy_Copier.ViewModels
 
         [ObservableProperty]
         public partial bool IsLoading { get; set; }
+
+        [ObservableProperty]
+        public partial bool IsUpdateAvailable { get; set; }
+
+        [ObservableProperty]
+        public partial bool IsUpdateReadyToInstall { get; set; }
+
+        [ObservableProperty]
+        public partial string UpdateMessage { get; set; } = string.Empty;
 
         [ObservableProperty]
         [NotifyPropertyChangedFor(nameof(IsGamesEmpty))]
@@ -112,6 +122,7 @@ namespace Easy_Copier.ViewModels
         public event EventHandler? ItemQueued;
 
         public MainViewModel(
+            IUpdateService updateService,
             ISettingsService settingsService,
             ILibraryCacheService libraryCacheService,
             IGameScannerService gameScannerService,
@@ -135,6 +146,7 @@ namespace Easy_Copier.ViewModels
             _windowService = windowService;
             _processService = processService;
             _dispatcherService = dispatcherService;
+            _updateService = updateService;
             _sourceLibraryService = sourceLibraryService;
             _dialogService = dialogService;
 
@@ -155,6 +167,7 @@ namespace Easy_Copier.ViewModels
 
         public async Task InitializeAsync()
         {
+            _ = CheckForUpdatesBackgroundAsync();
             try
             {
                 IsLoading = true;
@@ -660,6 +673,73 @@ namespace Easy_Copier.ViewModels
             _scanCancellationTokenSource?.Dispose();
             _validationCancellationTokenSource?.Dispose();
             GC.SuppressFinalize(this);
+        }
+private async Task CheckForUpdatesBackgroundAsync()
+        {
+            try
+            {
+                bool hasUpdate = await _updateService.CheckForUpdatesAsync();
+                if (hasUpdate)
+                {
+                    AppSettings settings = await _settingsService.LoadSettingsAsync();
+                    if (settings.AutoDownloadUpdates)
+                    {
+                        _dispatcherService.TryEnqueue(() =>
+                        {
+                            IsUpdateAvailable = true;
+                            UpdateMessage = "Downloading update in background...";
+                        });
+
+                        await _updateService.DownloadUpdateAsync();
+
+                        _dispatcherService.TryEnqueue(() =>
+                        {
+                            IsUpdateAvailable = false;
+                            IsUpdateReadyToInstall = true;
+                            UpdateMessage = "Update ready to install. Restart to apply.";
+                        });
+                    }
+                    else
+                    {
+                        _dispatcherService.TryEnqueue(() =>
+                        {
+                            IsUpdateAvailable = true;
+                            UpdateMessage = "A new update is available!";
+                        });
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine($"Error checking for updates in background: {ex}");
+            }
+        }
+
+        [RelayCommand]
+        private async Task DownloadUpdateAsync()
+        {
+            try
+            {
+                IsUpdateAvailable = true;
+                UpdateMessage = "Downloading update...";
+
+                await _updateService.DownloadUpdateAsync();
+
+                IsUpdateAvailable = false;
+                IsUpdateReadyToInstall = true;
+                UpdateMessage = "Update ready to install. Restart to apply.";
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine($"Error downloading update manually: {ex}");
+                UpdateMessage = "Failed to download update.";
+            }
+        }
+
+        [RelayCommand]
+        private void RestartAndApplyUpdate()
+        {
+            _updateService.RestartAndApplyUpdate();
         }
     }
 }
