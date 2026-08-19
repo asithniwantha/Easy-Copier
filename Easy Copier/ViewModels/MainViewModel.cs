@@ -711,7 +711,7 @@ private async Task CheckForUpdatesBackgroundAsync()
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "Error checking for updates in background.");
+                System.Diagnostics.Debug.WriteLine($"Error checking for updates in background: {ex}");
             }
         }
 
@@ -731,7 +731,7 @@ private async Task CheckForUpdatesBackgroundAsync()
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "Error downloading update manually.");
+                System.Diagnostics.Debug.WriteLine($"Error downloading update manually: {ex}");
                 UpdateMessage = "Failed to download update.";
             }
         }
