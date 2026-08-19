@@ -64,7 +64,7 @@ namespace Easy_Copier.Infrastructure
             IntPtr foregroundWindow = GetForegroundWindow();
             if (foregroundWindow != IntPtr.Zero)
             {
-                GetWindowThreadProcessId(foregroundWindow, out uint processId);
+                _ = GetWindowThreadProcessId(foregroundWindow, out uint processId);
                 if (processId == Environment.ProcessId)
                 {
                     return foregroundWindow;
