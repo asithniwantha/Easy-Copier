@@ -2,6 +2,7 @@
   <PropertyGroup>
 
     <DISABLE_XAML_GENERATED_MAIN>true</DISABLE_XAML_GENERATED_MAIN>
+	<DisableXamlGeneratedMain>true</DisableXamlGeneratedMain>
 
     <LangVersion>14</LangVersion>
 	<OutputType>WinExe</OutputType>
