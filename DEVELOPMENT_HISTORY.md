@@ -30,6 +30,7 @@ Easy Copier was developed as a WinUI 3 desktop application targeting .NET 10 to 
 - Resolved Roslyn warning CA5392 in CI builds by removing `<NoWarn>` from project files and creating `GlobalSuppressions.cs` with assembly-level `[assembly: SuppressMessage(...)]` attributes to cleanly handle external auto-generated code in the WindowsAppSDK NuGet package (`UndockedRegFreeWinRT-AutoInitializer.cs`).
 - Resolved CI build compilation errors (CS1061) in `SettingsViewModel.cs` by adding missing `using Microsoft.Extensions.Logging;` directive for `ILogger` extension methods (`LogInformation`, `LogWarning`, `LogError`).
 - Resolved Roslyn warnings CA1307 and CA1822 in `AboutViewModel.cs` by specifying `StringComparison.Ordinal` in `version.IndexOf('+')` and suppressing CA1822 on instance ViewModel properties used in XAML data bindings.
+- Resolved Roslyn warning CA1806 in `NativeWindowHelper.cs` and `Program.cs` by explicitly discarding return values of `GetWindowThreadProcessId` and `new App()` instantiation.
 
 ## Key Development Decisions
 - **Safety-first transfer pipeline**: run validation before copy; block operation on hard errors.

@@ -33,7 +33,7 @@ namespace Easy_Copier
                     var context = new DispatcherQueueSynchronizationContext(
                         DispatcherQueue.GetForCurrentThread());
                     SynchronizationContext.SetSynchronizationContext(context);
-                    new App();
+                    _ = new App();
                 });
             }
         }
