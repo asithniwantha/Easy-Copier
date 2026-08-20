@@ -20,6 +20,8 @@ namespace Easy_Copier.Services
             IProgress<string>? progress = null,
             CancellationToken cancellationToken = default)
         {
+            ArgumentNullException.ThrowIfNull(settings);
+
             List<GameEntry> allGames = [];
             List<GameEntry> allApps = [];
             List<GameEntry> allTvAndFilms = [];
