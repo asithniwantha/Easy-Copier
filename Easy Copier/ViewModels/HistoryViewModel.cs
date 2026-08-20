@@ -48,7 +48,7 @@ namespace Easy_Copier.ViewModels
             List<(int Year, int Month)> months = await _copyHistoryService.GetAvailableMonthsAsync();
             AvailableMonths.UpdateFrom(months.Select(m => new MonthOption(m.Year, m.Month, new DateTime(m.Year, m.Month, 1).ToString("MMMM yyyy", System.Globalization.CultureInfo.CurrentCulture))));
 
-            if (AvailableMonths.Any())
+            if (AvailableMonths.Count > 0)
             {
                 SelectedMonth = AvailableMonths.First();
             }
@@ -101,7 +101,7 @@ namespace Easy_Copier.ViewModels
         [RelayCommand]
         private async Task ExportToCsvAsync()
         {
-            if (SelectedMonth == null || !Records.Any())
+            if (SelectedMonth == null || Records.Count == 0)
             {
                 StatusMessage = "No records to export.";
                 return;
