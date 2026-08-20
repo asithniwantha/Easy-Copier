@@ -74,6 +74,7 @@
 - Clean view-model separation enforcing zero View-to-ViewModel UI coupling through rigorous Dependency Injection (completely removing AppServiceLocator).
 - Strict adherence to SOLID principles through decoupled, highly-focused service abstractions.
 - Proper Dependency Injection flow used for instantiating View Models across pages and windows, eliminating anti-pattern Service Locators.
+- Optimized clean code base by simplifying large methods and strictly substituting inefficient queries (e.g. refactoring `.Any()` parameterless checks to `.Count > 0` directly on properties) for enhanced compliance.
 - UI elements decoupled from Services by leveraging `IDispatcherService` and `IWindowService` interfaces.
 - Centralized Win32 NativeWindow lifecycle hooks reducing duplicated window initialization logic.
 - Implements `IDisposable` effectively for unmanaged resource and cancellation token lifecycle management.

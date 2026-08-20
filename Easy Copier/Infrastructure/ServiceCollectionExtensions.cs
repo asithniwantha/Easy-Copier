@@ -38,6 +38,7 @@ namespace Easy_Copier.Infrastructure
             services.AddSingleton<Services.ISourceLibraryService, Services.SourceLibraryService>();
             services.AddSingleton<Services.IFolderPickerService, FolderPickerService>();
             services.AddSingleton<Services.IGameScannerService, Services.GameScannerService>();
+            services.AddSingleton<Services.ILibraryScannerService, Services.LibraryScannerService>();
             services.AddSingleton<Services.IDriveDiscoveryService, Services.DriveDiscoveryService>();
             services.AddSingleton<Services.IDriveValidationService, Services.DriveValidationService>();
             services.AddSingleton<Services.IFileTransferService, Services.WindowsShellTransferService>();

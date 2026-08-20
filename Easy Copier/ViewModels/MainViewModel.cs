@@ -17,7 +17,7 @@ namespace Easy_Copier.ViewModels
     {
         private readonly ISettingsService _settingsService;
         private readonly ILibraryCacheService _libraryCacheService;
-        private readonly IGameScannerService _gameScannerService;
+        private readonly ILibraryScannerService _libraryScannerService;
         private readonly IDriveDiscoveryService _driveDiscoveryService;
         private readonly IDriveValidationService _driveValidationService;
         private readonly IFileTransferService _fileTransferService;
@@ -125,7 +125,7 @@ namespace Easy_Copier.ViewModels
             IUpdateService updateService,
             ISettingsService settingsService,
             ILibraryCacheService libraryCacheService,
-            IGameScannerService gameScannerService,
+            ILibraryScannerService libraryScannerService,
             IDriveDiscoveryService driveDiscoveryService,
             IDriveValidationService driveValidationService,
             IFileTransferService fileTransferService,
@@ -138,7 +138,7 @@ namespace Easy_Copier.ViewModels
         {
             _settingsService = settingsService;
             _libraryCacheService = libraryCacheService;
-            _gameScannerService = gameScannerService;
+            _libraryScannerService = libraryScannerService;
             _driveDiscoveryService = driveDiscoveryService;
             _driveValidationService = driveValidationService;
             _fileTransferService = fileTransferService;
@@ -320,39 +320,14 @@ namespace Easy_Copier.ViewModels
                     StatusMessage = message;
                 });
 
-                if (settings.GameSourceFolders.Count > 0)
-                {
-                    IReadOnlyList<GameEntry> games = await _gameScannerService.ScanLibraryAsync(
-                        settings.GameSourceFolders,
-                        LibraryCategory.Game,
-                        progress,
-                        cancellationToken: _scanCancellationTokenSource.Token);
+                var scanResult = await _libraryScannerService.ScanAllLibrariesAsync(
+                    settings,
+                    progress,
+                    _scanCancellationTokenSource.Token);
 
-                    _allGames.AddRange(games);
-                }
-
-                if (settings.AppSourceFolders.Count > 0)
-                {
-                    IReadOnlyList<GameEntry> apps = await _gameScannerService.ScanLibraryAsync(
-                        settings.AppSourceFolders,
-                        LibraryCategory.App,
-                        progress,
-                        cancellationToken: _scanCancellationTokenSource.Token);
-
-                    _allApps.AddRange(apps);
-                }
-
-                if (settings.TvAndFilmSourceFolders != null && settings.TvAndFilmSourceFolders.Count > 0)
-                {
-                    IReadOnlyList<GameEntry> tvAndFilms = await _gameScannerService.ScanLibraryAsync(
-                        settings.TvAndFilmSourceFolders,
-                        LibraryCategory.TvAndFilm,
-                        progress,
-                        settings.VideoFileExtensions,
-                        _scanCancellationTokenSource.Token);
-
-                    _allTvAndFilms.AddRange(tvAndFilms);
-                }
+                _allGames.AddRange(scanResult.Games);
+                _allApps.AddRange(scanResult.Apps);
+                _allTvAndFilms.AddRange(scanResult.TvAndFilms);
 
                 ApplyFilter();
 
