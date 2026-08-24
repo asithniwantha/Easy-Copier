@@ -16,7 +16,8 @@ Easy Copier helps shop environments prepare customer drives without guessing whi
 ## ✨ Features
 
 * **⚡ High-Speed Transfers:** Optimized file I/O operations tailored for handling massive game files and nested directories.
-* **🎨 Modern UI:** A beautiful, responsive interface built with WinUI 3 that feels right at home on Windows 11. Includes an automatically resizing settings window for an optimal experience.
+* **🎨 Modern UI:** A beautiful, responsive interface built with WinUI 3 that feels right at home on Windows 11.
+* **📐 Dynamic View Resizing:** The application cleanly abstracts responsive window resizing and UI teardowns (e.g., Settings, History) directly to a unified `NativeWindowHelper`.
 * **🏗️ MVVM Architecture:** Clean, maintainable codebase ensuring a smooth separation of logic and presentation.
 * **📊 Progress Tracking:** Real-time transfer speeds, ETA calculations, and detailed progress bars via native Windows file operations.
 * **🛡️ Reliability:** Built-in error handling to ensure your directories transfer securely. Advanced conflict resolution for merging and replacing files.
