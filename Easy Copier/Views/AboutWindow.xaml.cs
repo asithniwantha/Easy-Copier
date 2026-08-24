@@ -26,10 +26,10 @@ namespace Easy_Copier.Views
 
             Closed += AboutWindow_Closed;
         }
-
         private void AboutWindow_Closed(object sender, WindowEventArgs args)
         {
             NativeWindowHelper.RestoreOwnerInput(App.MainWindow);
+            Content = null;
         }
 
         private void Close_Click(object sender, RoutedEventArgs e)

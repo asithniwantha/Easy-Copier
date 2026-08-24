@@ -29,36 +29,17 @@ namespace Easy_Copier.Views
 
             _ = LoadAsync(openAction);
 
+
             // Adjust size to content dynamically when layout updates
             if (Content is FrameworkElement rootElement)
             {
-                rootElement.SizeChanged += RootElement_SizeChanged;
+                NativeWindowHelper.EnableDynamicResizing(this, rootElement, 960, 640);
             }
         }
-
-        private void RootElement_SizeChanged(object sender, SizeChangedEventArgs e)
-        {
-            if (Content is FrameworkElement rootElement)
-            {
-                rootElement.Measure(new Windows.Foundation.Size(double.PositiveInfinity, double.PositiveInfinity));
-
-                int targetWidth = Math.Max(960, (int)Math.Ceiling(rootElement.DesiredSize.Width));
-                int targetHeight = Math.Max(640, (int)Math.Ceiling(rootElement.DesiredSize.Height) + 40); // Add some padding
-
-                var hwnd = WinRT.Interop.WindowNative.GetWindowHandle(this);
-                var windowId = Microsoft.UI.Win32Interop.GetWindowIdFromWindow(hwnd);
-                var appWindow = Microsoft.UI.Windowing.AppWindow.GetFromWindowId(windowId);
-
-                if (appWindow != null && (appWindow.Size.Width != targetWidth || appWindow.Size.Height != targetHeight))
-                {
-                    appWindow.Resize(new Windows.Graphics.SizeInt32(targetWidth, targetHeight));
-                }
-            }
-        }
-
         private void SettingsWindow_Closed(object sender, WindowEventArgs args)
         {
             NativeWindowHelper.RestoreOwnerInput(App.MainWindow);
+            Content = null;
         }
 
         private async Task LoadAsync(SettingsOpenAction openAction)

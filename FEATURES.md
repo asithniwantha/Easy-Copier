@@ -95,3 +95,5 @@
 - [x] Add About page with app version, developer info, and links to GitHub repo and issues page.
 - [ ] Add an Excel-like calculator tool.
 - [x] Implement update checking and notification system to inform users of new releases, or automatically download and install updates.
+
+* **📐 Dynamic View Resizing:** The application cleanly abstracts responsive window resizing and UI teardowns (e.g., Settings, History) directly to a unified `NativeWindowHelper`.
