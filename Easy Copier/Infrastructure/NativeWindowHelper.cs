@@ -112,6 +112,9 @@ namespace Easy_Copier.Infrastructure
 
         public static void EnableDynamicResizing(Microsoft.UI.Xaml.Window window, Microsoft.UI.Xaml.FrameworkElement rootElement, int minWidth = 960, int minHeight = 640)
         {
+            ArgumentNullException.ThrowIfNull(window);
+            ArgumentNullException.ThrowIfNull(rootElement);
+
             rootElement.SizeChanged += (s, e) =>
             {
                 rootElement.Measure(new Windows.Foundation.Size(double.PositiveInfinity, double.PositiveInfinity));
@@ -132,6 +135,8 @@ namespace Easy_Copier.Infrastructure
 
         public static void InitializeWindow(Microsoft.UI.Xaml.Window window, int width, int height)
         {
+            ArgumentNullException.ThrowIfNull(window);
+
             IntPtr hwnd = WindowNative.GetWindowHandle(window);
             WindowId windowId = Win32Interop.GetWindowIdFromWindow(hwnd);
             AppWindow appWindow = AppWindow.GetFromWindowId(windowId);
@@ -150,6 +155,8 @@ namespace Easy_Copier.Infrastructure
 
         public static void ShowAsModal(Microsoft.UI.Xaml.Window childWindow, Microsoft.UI.Xaml.Window? ownerWindow)
         {
+            ArgumentNullException.ThrowIfNull(childWindow);
+
             IntPtr childHwnd = WindowNative.GetWindowHandle(childWindow);
             IntPtr ownerHwnd = ownerWindow != null ? WindowNative.GetWindowHandle(ownerWindow) : IntPtr.Zero;
 
