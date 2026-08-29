@@ -25,9 +25,6 @@ namespace Easy_Copier.ViewModels
         public partial ObservableCollection<CopyHistoryRecord> Records { get; set; } = [];
 
         [ObservableProperty]
-        public partial ObservableCollection<HistoryGroup> GroupedRecords { get; set; } = [];
-
-        [ObservableProperty]
         public partial ObservableCollection<WeekOption> AvailableWeeks { get; set; } = [];
 
         [ObservableProperty]
@@ -111,7 +108,6 @@ namespace Easy_Copier.ViewModels
             else if (SelectedMonth == null)
             {
                 Records.Clear();
-                GroupedRecords.Clear();
             }
         }
 
@@ -130,7 +126,6 @@ namespace Easy_Copier.ViewModels
             else if (SelectedWeek == null)
             {
                 Records.Clear();
-                GroupedRecords.Clear();
             }
         }
 
@@ -150,27 +145,37 @@ namespace Easy_Copier.ViewModels
 
         private void ProcessLoadedRecords(List<CopyHistoryRecord> records)
         {
-            Records.UpdateFrom(records);
+            // First sort descending so latest are on top
+            List<CopyHistoryRecord> sortedRecords = records.OrderByDescending(r => r.Timestamp).ToList();
 
-            // Group records by drive and approximate time (e.g., within 15 minutes of each other)
-            List<HistoryGroup> groupedList = [];
-            foreach (CopyHistoryRecord record in records.OrderByDescending(r => r.Timestamp))
+            // Group records by drive and approximate time to calculate batch amount
+            List<List<CopyHistoryRecord>> clusters = [];
+            foreach (CopyHistoryRecord record in sortedRecords)
             {
-                // Find a group where the drive matches and the time difference is less than 15 minutes
-                HistoryGroup? group = groupedList.FirstOrDefault(g =>
-                    g.TargetDriveLetter == record.TargetDriveLetter &&
-                    Math.Abs((g.GroupTimestamp - record.Timestamp).TotalMinutes) < 15);
+                List<CopyHistoryRecord>? cluster = clusters.FirstOrDefault(c =>
+                    c.First().TargetDriveLetter == record.TargetDriveLetter &&
+                    Math.Abs((c.First().Timestamp - record.Timestamp).TotalMinutes) < 15);
 
-                if (group == null)
+                if (cluster == null)
                 {
-                    group = new HistoryGroup(record.TargetDriveLetter, record.Timestamp);
-                    groupedList.Add(group);
+                    cluster = [];
+                    clusters.Add(cluster);
                 }
 
-                group.Add(record);
+                cluster.Add(record);
             }
 
-            GroupedRecords.UpdateFrom(groupedList);
+            // Assign the computed sum back to each record
+            foreach (List<CopyHistoryRecord> cluster in clusters)
+            {
+                int clusterTotal = cluster.Sum(r => r.Amount);
+                foreach (CopyHistoryRecord record in cluster)
+                {
+                    record.BatchAmount = clusterTotal;
+                }
+            }
+
+            Records.UpdateFrom(sortedRecords);
             StatusMessage = $"Loaded {records.Count} records.";
         }
 
@@ -205,19 +210,4 @@ namespace Easy_Copier.ViewModels
     public record MonthOption(int Year, int Month, string DisplayName);
 
     public record HistoryStats(int TotalItems, int SuccessfulItems, long TotalBytes, int TotalAmount);
-
-    public class HistoryGroup : ObservableCollection<CopyHistoryRecord>, IGrouping<string, CopyHistoryRecord>
-    {
-        public string TargetDriveLetter { get; }
-        public DateTime GroupTimestamp { get; }
-        public string Key => $"Drive {TargetDriveLetter} \u2022 {GroupTimestamp:MMM dd, yyyy h:mm tt} (Total: {TotalAmount} \u2022 {FormattedTotalBytes})";
-        public int TotalAmount => this.Sum(r => r.Amount);
-        public string FormattedTotalBytes => Infrastructure.FormattingHelpers.FormatBytes(this.Sum(r => r.BytesTransferred));
-
-        public HistoryGroup(string targetDriveLetter, DateTime groupTimestamp)
-        {
-            TargetDriveLetter = targetDriveLetter;
-            GroupTimestamp = groupTimestamp;
-        }
-    }
 }

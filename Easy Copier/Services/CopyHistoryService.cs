@@ -276,12 +276,11 @@ namespace Easy_Copier.Services
                         SUM(BytesTransferred),
                         SUM(Amount)
                     FROM CopyHistory
-                    WHERE datetime(substr(Timestamp, 1, 19)) >= datetime($startDate)
-                      AND datetime(substr(Timestamp, 1, 19)) < datetime($endDate)";
+                    WHERE substr(Timestamp, 1, 10) >= $startDate
+                      AND substr(Timestamp, 1, 10) < $endDate";
 
-                // Format as strict ISO 8601 without offset so SQLite's datetime() function parses it exactly.
-                _ = command.Parameters.AddWithValue("$startDate", startDate.ToString("yyyy-MM-ddTHH:mm:ss"));
-                _ = command.Parameters.AddWithValue("$endDate", endDate.ToString("yyyy-MM-ddTHH:mm:ss"));
+                _ = command.Parameters.AddWithValue("$startDate", startDate.ToString("yyyy-MM-dd"));
+                _ = command.Parameters.AddWithValue("$endDate", endDate.ToString("yyyy-MM-dd"));
 
                 using SqliteDataReader reader = await command.ExecuteReaderAsync();
                 if (await reader.ReadAsync())
