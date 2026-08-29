@@ -17,15 +17,27 @@ namespace Easy_Copier.Services
     public class WindowsShellTransferService : IFileTransferService
     {
         private readonly ILogger<WindowsShellTransferService> _logger;
-
         private readonly ICopyHistoryService _copyHistoryService;
+        private readonly ISettingsService _settingsService;
 
         public WindowsShellTransferService(
             ILogger<WindowsShellTransferService> logger,
-            ICopyHistoryService copyHistoryService)
+            ICopyHistoryService copyHistoryService,
+            ISettingsService settingsService)
         {
             _logger = logger;
             _copyHistoryService = copyHistoryService;
+            _settingsService = settingsService;
+        }
+
+        private int CalculateAmount(long bytes)
+        {
+            AppSettings settings = _settingsService.LoadSettingsSync();
+            double gb = bytes / (1024.0 * 1024.0 * 1024.0);
+
+            return gb <= 5.0
+                ? settings.PriceTier1
+                : gb <= 10.0 ? settings.PriceTier2 : gb < 16.0 ? settings.PriceTier3 : settings.PriceTier4;
         }
 
         public async Task<(long Size, int Count)> GetFolderStatsAsync(string path)
@@ -158,7 +170,8 @@ namespace Easy_Copier.Services
                                 TargetDriveLetter: request.TargetDrive.DriveLetter,
                                 TargetDriveLabel: request.TargetDrive.DriveLabel,
                                 BytesTransferred: result ? game.TotalBytes : 0,
-                                IsSuccess: result
+                                IsSuccess: result,
+                                Amount: result ? CalculateAmount(game.TotalBytes) : 0
                             )).GetAwaiter().GetResult();
                         }
                         catch (Exception ex)
@@ -176,7 +189,8 @@ namespace Easy_Copier.Services
                                 TargetDriveLetter: request.TargetDrive.DriveLetter,
                                 TargetDriveLabel: request.TargetDrive.DriveLabel,
                                 BytesTransferred: 0,
-                                IsSuccess: false
+                                IsSuccess: false,
+                                Amount: 0
                             )).GetAwaiter().GetResult();
                         }
                     }

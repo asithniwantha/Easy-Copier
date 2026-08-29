@@ -14,7 +14,7 @@ namespace Easy_Copier.Services
         Task AddRecordAsync(CopyHistoryRecord record);
         Task<List<CopyHistoryRecord>> GetRecordsByMonthAsync(int year, int month);
         Task<List<(int Year, int Month)>> GetAvailableMonthsAsync();
-        Task<(int TotalItems, int SuccessfulItems, long TotalBytes)> GetStatsAsync(DateTime startDate, DateTime endDate);
+        Task<(int TotalItems, int SuccessfulItems, long TotalBytes, int TotalAmount)> GetStatsAsync(DateTime startDate, DateTime endDate);
     }
 
     public class CopyHistoryService : ICopyHistoryService
@@ -49,10 +49,34 @@ namespace Easy_Copier.Services
                         TargetDriveLetter TEXT NOT NULL,
                         TargetDriveLabel TEXT NOT NULL,
                         BytesTransferred INTEGER NOT NULL,
-                        IsSuccess INTEGER NOT NULL
+                        IsSuccess INTEGER NOT NULL,
+                        Amount INTEGER NOT NULL DEFAULT 0
                     )";
 
                 _ = await command.ExecuteNonQueryAsync();
+
+                // Schema Migration for older databases: check if Amount column exists
+                command.CommandText = "PRAGMA table_info(CopyHistory)";
+                bool hasAmount = false;
+                using (SqliteDataReader reader = await command.ExecuteReaderAsync())
+                {
+                    while (await reader.ReadAsync())
+                    {
+                        if (reader.GetString(1).Equals("Amount", StringComparison.OrdinalIgnoreCase))
+                        {
+                            hasAmount = true;
+                            break;
+                        }
+                    }
+                }
+
+                if (!hasAmount)
+                {
+                    command.CommandText = "ALTER TABLE CopyHistory ADD COLUMN Amount INTEGER NOT NULL DEFAULT 0";
+                    _ = await command.ExecuteNonQueryAsync();
+                    _logger.LogInformation("Added 'Amount' column to CopyHistory table via schema migration.");
+                }
+
                 _logger.LogInformation("CopyHistory DB initialized at {Path}", _dbPath);
             }
             catch (Exception ex)
@@ -71,8 +95,8 @@ namespace Easy_Copier.Services
 
                 SqliteCommand command = connection.CreateCommand();
                 command.CommandText = @"
-                    INSERT INTO CopyHistory (Timestamp, GameName, TargetDriveLetter, TargetDriveLabel, BytesTransferred, IsSuccess)
-                    VALUES ($timestamp, $gameName, $targetDriveLetter, $targetDriveLabel, $bytesTransferred, $isSuccess)";
+                    INSERT INTO CopyHistory (Timestamp, GameName, TargetDriveLetter, TargetDriveLabel, BytesTransferred, IsSuccess, Amount)
+                    VALUES ($timestamp, $gameName, $targetDriveLetter, $targetDriveLabel, $bytesTransferred, $isSuccess, $amount)";
 
                 // Use ISO 8601 string for reliable SQLite sorting/filtering
                 _ = command.Parameters.AddWithValue("$timestamp", record.Timestamp.ToString("O"));
@@ -81,6 +105,7 @@ namespace Easy_Copier.Services
                 _ = command.Parameters.AddWithValue("$targetDriveLabel", record.TargetDriveLabel);
                 _ = command.Parameters.AddWithValue("$bytesTransferred", record.BytesTransferred);
                 _ = command.Parameters.AddWithValue("$isSuccess", record.IsSuccess ? 1 : 0);
+                _ = command.Parameters.AddWithValue("$amount", record.Amount);
 
                 _ = await command.ExecuteNonQueryAsync();
             }
@@ -103,7 +128,7 @@ namespace Easy_Copier.Services
 
                 SqliteCommand command = connection.CreateCommand();
                 command.CommandText = @"
-                    SELECT Id, Timestamp, GameName, TargetDriveLetter, TargetDriveLabel, BytesTransferred, IsSuccess
+                    SELECT Id, Timestamp, GameName, TargetDriveLetter, TargetDriveLabel, BytesTransferred, IsSuccess, Amount
                     FROM CopyHistory
                     WHERE Timestamp LIKE $prefix
                     ORDER BY Timestamp DESC";
@@ -119,7 +144,8 @@ namespace Easy_Copier.Services
                         reader.GetString(3),
                         reader.GetString(4),
                         reader.GetInt64(5),
-                        reader.GetInt32(6) == 1
+                        reader.GetInt32(6) == 1,
+                        reader.IsDBNull(7) ? 0 : reader.GetInt32(7)
                     ));
                 }
             }
@@ -159,7 +185,7 @@ namespace Easy_Copier.Services
             return [.. months];
         }
 
-        public async Task<(int TotalItems, int SuccessfulItems, long TotalBytes)> GetStatsAsync(DateTime startDate, DateTime endDate)
+        public async Task<(int TotalItems, int SuccessfulItems, long TotalBytes, int TotalAmount)> GetStatsAsync(DateTime startDate, DateTime endDate)
         {
             try
             {
@@ -171,12 +197,13 @@ namespace Easy_Copier.Services
                     SELECT
                         COUNT(*),
                         SUM(IsSuccess),
-                        SUM(BytesTransferred)
+                        SUM(BytesTransferred),
+                        SUM(Amount)
                     FROM CopyHistory
                     WHERE Timestamp >= $startDate AND Timestamp < $endDate";
 
-                _ = command.Parameters.AddWithValue("$startDate", startDate);
-                _ = command.Parameters.AddWithValue("$endDate", endDate);
+                _ = command.Parameters.AddWithValue("$startDate", startDate.ToString("O"));
+                _ = command.Parameters.AddWithValue("$endDate", endDate.ToString("O"));
 
                 using SqliteDataReader reader = await command.ExecuteReaderAsync();
                 if (await reader.ReadAsync())
@@ -184,14 +211,15 @@ namespace Easy_Copier.Services
                     int totalItems = await reader.IsDBNullAsync(0) ? 0 : reader.GetInt32(0);
                     int successfulItems = await reader.IsDBNullAsync(1) ? 0 : reader.GetInt32(1);
                     long totalBytes = await reader.IsDBNullAsync(2) ? 0 : reader.GetInt64(2);
-                    return (totalItems, successfulItems, totalBytes);
+                    int totalAmount = await reader.IsDBNullAsync(3) ? 0 : reader.GetInt32(3);
+                    return (totalItems, successfulItems, totalBytes, totalAmount);
                 }
             }
             catch (Exception ex)
             {
                 _logger.LogError(ex, "Failed to get copy history stats");
             }
-            return (0, 0, 0);
+            return (0, 0, 0, 0);
         }
     }
 }

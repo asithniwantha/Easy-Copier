@@ -13,9 +13,9 @@ namespace Easy_Copier.ViewModels
 {
     public partial class HistoryViewModel : ObservableObject
     {
-        public HistoryStats TodayStats { get; private set; } = new HistoryStats(0, 0, 0);
-        public HistoryStats WeekStats { get; private set; } = new HistoryStats(0, 0, 0);
-        public HistoryStats MonthStats { get; private set; } = new HistoryStats(0, 0, 0);
+        public HistoryStats TodayStats { get; private set; } = new HistoryStats(0, 0, 0, 0);
+        public HistoryStats WeekStats { get; private set; } = new HistoryStats(0, 0, 0, 0);
+        public HistoryStats MonthStats { get; private set; } = new HistoryStats(0, 0, 0, 0);
 
         private readonly ICopyHistoryService _copyHistoryService;
         private readonly IReportService _reportService;
@@ -61,21 +61,21 @@ namespace Easy_Copier.ViewModels
             // Today
             DateTime todayStart = today;
             DateTime todayEnd = today.AddDays(1);
-            (int todayTotal, int todaySuccess, long todayBytes) = await _copyHistoryService.GetStatsAsync(todayStart, todayEnd);
-            TodayStats = new HistoryStats(todayTotal, todaySuccess, todayBytes);
+            (int todayTotal, int todaySuccess, long todayBytes, int todayAmount) = await _copyHistoryService.GetStatsAsync(todayStart, todayEnd);
+            TodayStats = new HistoryStats(todayTotal, todaySuccess, todayBytes, todayAmount);
 
             // Week (Starting Sunday)
             int diff = (7 + (today.DayOfWeek - DayOfWeek.Sunday)) % 7;
             DateTime weekStart = today.AddDays(-1 * diff).Date;
             DateTime weekEnd = weekStart.AddDays(7);
-            (int weekTotal, int weekSuccess, long weekBytes) = await _copyHistoryService.GetStatsAsync(weekStart, weekEnd);
-            WeekStats = new HistoryStats(weekTotal, weekSuccess, weekBytes);
+            (int weekTotal, int weekSuccess, long weekBytes, int weekAmount) = await _copyHistoryService.GetStatsAsync(weekStart, weekEnd);
+            WeekStats = new HistoryStats(weekTotal, weekSuccess, weekBytes, weekAmount);
 
             // Month
             DateTime monthStart = new(today.Year, today.Month, 1);
             DateTime monthEnd = monthStart.AddMonths(1);
-            (int monthTotal, int monthSuccess, long monthBytes) = await _copyHistoryService.GetStatsAsync(monthStart, monthEnd);
-            MonthStats = new HistoryStats(monthTotal, monthSuccess, monthBytes);
+            (int monthTotal, int monthSuccess, long monthBytes, int monthAmount) = await _copyHistoryService.GetStatsAsync(monthStart, monthEnd);
+            MonthStats = new HistoryStats(monthTotal, monthSuccess, monthBytes, monthAmount);
         }
 
         partial void OnSelectedMonthChanged(MonthOption? oldValue, MonthOption? newValue)
@@ -124,5 +124,5 @@ namespace Easy_Copier.ViewModels
 
     public record MonthOption(int Year, int Month, string DisplayName);
 
-    public record HistoryStats(int TotalItems, int SuccessfulItems, long TotalBytes);
+    public record HistoryStats(int TotalItems, int SuccessfulItems, long TotalBytes, int TotalAmount);
 }
