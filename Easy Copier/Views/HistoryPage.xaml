@@ -31,13 +31,21 @@
                 <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
 
-            <ComboBox x:Name="MonthSelector"
-                      ItemsSource="{x:Bind ViewModel.AvailableMonths, Mode=OneWay}"
-                      SelectedItem="{x:Bind ViewModel.SelectedMonth, Mode=TwoWay}"
-                      DisplayMemberPath="DisplayName"
-                      PlaceholderText="Select Month"
-                      Width="200"
-                      Grid.Column="0"/>
+            <StackPanel Grid.Column="0" Orientation="Horizontal" Spacing="16">
+                <ComboBox x:Name="WeekSelector"
+                          ItemsSource="{x:Bind ViewModel.AvailableWeeks, Mode=OneWay}"
+                          SelectedItem="{x:Bind ViewModel.SelectedWeek, Mode=TwoWay}"
+                          DisplayMemberPath="DisplayName"
+                          PlaceholderText="Select Week"
+                          Width="250"/>
+
+                <ComboBox x:Name="MonthSelector"
+                          ItemsSource="{x:Bind ViewModel.AvailableMonths, Mode=OneWay}"
+                          SelectedItem="{x:Bind ViewModel.SelectedMonth, Mode=TwoWay}"
+                          DisplayMemberPath="DisplayName"
+                          PlaceholderText="Select Month"
+                          Width="200"/>
+            </StackPanel>
 
             <Button Grid.Column="2"
                     Command="{x:Bind ViewModel.ExportToCsvCommand}"
@@ -63,6 +71,8 @@
                 <controls:DataGridTextColumn Header="Drive" Binding="{Binding TargetDriveLetter}" Width="60"/>
                 <controls:DataGridTextColumn Header="Label" Binding="{Binding TargetDriveLabel}" Width="150"/>
                 <controls:DataGridTextColumn Header="Size" Binding="{Binding BytesTransferred, Converter={StaticResource BytesToSizeConverter}}" Width="100"/>
+                <controls:DataGridTextColumn Header="Amount" Binding="{Binding Amount}" Width="80"/>
+                <controls:DataGridTextColumn Header="Batch Total" Binding="{Binding BatchAmount}" Width="100"/>
                 <controls:DataGridCheckBoxColumn Header="Success" Binding="{Binding IsSuccess}" Width="80"/>
             </controls:DataGrid.Columns>
         </controls:DataGrid>
@@ -77,10 +87,30 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
-            <!-- Today Stats -->
+            <!-- Selected Filter Stats -->
             <StackPanel Grid.Column="0" Spacing="4">
+                <TextBlock Text="{x:Bind ViewModel.SelectedFilterName, Mode=OneWay}" Style="{ThemeResource SubtitleTextBlockStyle}" Foreground="{ThemeResource TextFillColorSecondaryBrush}"/>
+                <TextBlock>
+                    <Run Text="{x:Bind ViewModel.SelectedFilterStats.TotalItems, Mode=OneWay}" />
+                    <Run Text=" items (" />
+                    <Run Text="{x:Bind ViewModel.SelectedFilterStats.SuccessfulItems, Mode=OneWay}" Foreground="{ThemeResource SystemFillColorSuccessBrush}" />
+                    <Run Text=" successful)" />
+                </TextBlock>
+                <TextBlock Style="{ThemeResource CaptionTextBlockStyle}" Foreground="{ThemeResource TextFillColorTertiaryBrush}">
+                    <Run Text="Total Bytes: " />
+                    <Run Text="{x:Bind ViewModel.SelectedFilterStats.TotalBytes, Converter={StaticResource BytesToSizeConverter}, Mode=OneWay}" />
+                </TextBlock>
+                <TextBlock Style="{ThemeResource BodyTextBlockStyle}" FontWeight="SemiBold" Foreground="{ThemeResource SystemFillColorSuccessBrush}">
+                    <Run Text="Total Amount: " />
+                    <Run Text="{x:Bind ViewModel.SelectedFilterStats.TotalAmount, Mode=OneWay}" />
+                </TextBlock>
+            </StackPanel>
+
+            <!-- Today Stats -->
+            <StackPanel Grid.Column="1" Spacing="4">
                 <TextBlock Text="Today" Style="{ThemeResource SubtitleTextBlockStyle}" Foreground="{ThemeResource TextFillColorSecondaryBrush}"/>
                 <TextBlock>
                     <Run Text="{x:Bind ViewModel.TodayStats.TotalItems, Mode=OneWay}" />
@@ -88,11 +118,18 @@
                     <Run Text="{x:Bind ViewModel.TodayStats.SuccessfulItems, Mode=OneWay}" Foreground="{ThemeResource SystemFillColorSuccessBrush}" />
                     <Run Text=" successful)" />
                 </TextBlock>
-                <TextBlock Text="{x:Bind ViewModel.TodayStats.TotalBytes, Converter={StaticResource BytesToSizeConverter}, Mode=OneWay}" Style="{ThemeResource CaptionTextBlockStyle}" Foreground="{ThemeResource TextFillColorTertiaryBrush}"/>
+                <TextBlock Style="{ThemeResource CaptionTextBlockStyle}" Foreground="{ThemeResource TextFillColorTertiaryBrush}">
+                    <Run Text="Total Bytes: " />
+                    <Run Text="{x:Bind ViewModel.TodayStats.TotalBytes, Converter={StaticResource BytesToSizeConverter}, Mode=OneWay}" />
+                </TextBlock>
+                <TextBlock Style="{ThemeResource BodyTextBlockStyle}" FontWeight="SemiBold" Foreground="{ThemeResource SystemFillColorSuccessBrush}">
+                    <Run Text="Total Amount: " />
+                    <Run Text="{x:Bind ViewModel.TodayStats.TotalAmount, Mode=OneWay}" />
+                </TextBlock>
             </StackPanel>
 
             <!-- Week Stats -->
-            <StackPanel Grid.Column="1" Spacing="4">
+            <StackPanel Grid.Column="2" Spacing="4">
                 <TextBlock Text="This Week" Style="{ThemeResource SubtitleTextBlockStyle}" Foreground="{ThemeResource TextFillColorSecondaryBrush}"/>
                 <TextBlock>
                     <Run Text="{x:Bind ViewModel.WeekStats.TotalItems, Mode=OneWay}" />
@@ -100,11 +137,18 @@
                     <Run Text="{x:Bind ViewModel.WeekStats.SuccessfulItems, Mode=OneWay}" Foreground="{ThemeResource SystemFillColorSuccessBrush}" />
                     <Run Text=" successful)" />
                 </TextBlock>
-                <TextBlock Text="{x:Bind ViewModel.WeekStats.TotalBytes, Converter={StaticResource BytesToSizeConverter}, Mode=OneWay}" Style="{ThemeResource CaptionTextBlockStyle}" Foreground="{ThemeResource TextFillColorTertiaryBrush}"/>
+                <TextBlock Style="{ThemeResource CaptionTextBlockStyle}" Foreground="{ThemeResource TextFillColorTertiaryBrush}">
+                    <Run Text="Total Bytes: " />
+                    <Run Text="{x:Bind ViewModel.WeekStats.TotalBytes, Converter={StaticResource BytesToSizeConverter}, Mode=OneWay}" />
+                </TextBlock>
+                <TextBlock Style="{ThemeResource BodyTextBlockStyle}" FontWeight="SemiBold" Foreground="{ThemeResource SystemFillColorSuccessBrush}">
+                    <Run Text="Total Amount: " />
+                    <Run Text="{x:Bind ViewModel.WeekStats.TotalAmount, Mode=OneWay}" />
+                </TextBlock>
             </StackPanel>
 
             <!-- Month Stats -->
-            <StackPanel Grid.Column="2" Spacing="4">
+            <StackPanel Grid.Column="3" Spacing="4">
                 <TextBlock Text="This Month" Style="{ThemeResource SubtitleTextBlockStyle}" Foreground="{ThemeResource TextFillColorSecondaryBrush}"/>
                 <TextBlock>
                     <Run Text="{x:Bind ViewModel.MonthStats.TotalItems, Mode=OneWay}" />
@@ -112,7 +156,14 @@
                     <Run Text="{x:Bind ViewModel.MonthStats.SuccessfulItems, Mode=OneWay}" Foreground="{ThemeResource SystemFillColorSuccessBrush}" />
                     <Run Text=" successful)" />
                 </TextBlock>
-                <TextBlock Text="{x:Bind ViewModel.MonthStats.TotalBytes, Converter={StaticResource BytesToSizeConverter}, Mode=OneWay}" Style="{ThemeResource CaptionTextBlockStyle}" Foreground="{ThemeResource TextFillColorTertiaryBrush}"/>
+                <TextBlock Style="{ThemeResource CaptionTextBlockStyle}" Foreground="{ThemeResource TextFillColorTertiaryBrush}">
+                    <Run Text="Total Bytes: " />
+                    <Run Text="{x:Bind ViewModel.MonthStats.TotalBytes, Converter={StaticResource BytesToSizeConverter}, Mode=OneWay}" />
+                </TextBlock>
+                <TextBlock Style="{ThemeResource BodyTextBlockStyle}" FontWeight="SemiBold" Foreground="{ThemeResource SystemFillColorSuccessBrush}">
+                    <Run Text="Total Amount: " />
+                    <Run Text="{x:Bind ViewModel.MonthStats.TotalAmount, Mode=OneWay}" />
+                </TextBlock>
             </StackPanel>
         </Grid>
     </Grid>

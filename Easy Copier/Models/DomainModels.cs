@@ -136,5 +136,9 @@ namespace Easy_Copier.Models
         string TargetDriveLetter,
         string TargetDriveLabel,
         long BytesTransferred,
-        bool IsSuccess);
+        bool IsSuccess,
+        int Amount)
+    {
+        public int BatchAmount { get; set; }
+    }
 }

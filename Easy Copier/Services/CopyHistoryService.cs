@@ -4,6 +4,7 @@ using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace Easy_Copier.Services
@@ -12,9 +13,11 @@ namespace Easy_Copier.Services
     {
         Task InitializeAsync();
         Task AddRecordAsync(CopyHistoryRecord record);
+        Task<List<CopyHistoryRecord>> GetRecordsByWeekAsync(DateTime startOfWeek, DateTime endOfWeek);
+        Task<List<DateTime>> GetAvailableWeeksAsync();
         Task<List<CopyHistoryRecord>> GetRecordsByMonthAsync(int year, int month);
         Task<List<(int Year, int Month)>> GetAvailableMonthsAsync();
-        Task<(int TotalItems, int SuccessfulItems, long TotalBytes)> GetStatsAsync(DateTime startDate, DateTime endDate);
+        Task<(int TotalItems, int SuccessfulItems, long TotalBytes, int TotalAmount)> GetStatsAsync(DateTime startDate, DateTime endDate);
     }
 
     public class CopyHistoryService : ICopyHistoryService
@@ -49,10 +52,34 @@ namespace Easy_Copier.Services
                         TargetDriveLetter TEXT NOT NULL,
                         TargetDriveLabel TEXT NOT NULL,
                         BytesTransferred INTEGER NOT NULL,
-                        IsSuccess INTEGER NOT NULL
+                        IsSuccess INTEGER NOT NULL,
+                        Amount INTEGER NOT NULL DEFAULT 0
                     )";
 
                 _ = await command.ExecuteNonQueryAsync();
+
+                // Schema Migration for older databases: check if Amount column exists
+                command.CommandText = "PRAGMA table_info(CopyHistory)";
+                bool hasAmount = false;
+                using (SqliteDataReader reader = await command.ExecuteReaderAsync())
+                {
+                    while (await reader.ReadAsync())
+                    {
+                        if (reader.GetString(1).Equals("Amount", StringComparison.OrdinalIgnoreCase))
+                        {
+                            hasAmount = true;
+                            break;
+                        }
+                    }
+                }
+
+                if (!hasAmount)
+                {
+                    command.CommandText = "ALTER TABLE CopyHistory ADD COLUMN Amount INTEGER NOT NULL DEFAULT 0";
+                    _ = await command.ExecuteNonQueryAsync();
+                    _logger.LogInformation("Added 'Amount' column to CopyHistory table via schema migration.");
+                }
+
                 _logger.LogInformation("CopyHistory DB initialized at {Path}", _dbPath);
             }
             catch (Exception ex)
@@ -71,8 +98,8 @@ namespace Easy_Copier.Services
 
                 SqliteCommand command = connection.CreateCommand();
                 command.CommandText = @"
-                    INSERT INTO CopyHistory (Timestamp, GameName, TargetDriveLetter, TargetDriveLabel, BytesTransferred, IsSuccess)
-                    VALUES ($timestamp, $gameName, $targetDriveLetter, $targetDriveLabel, $bytesTransferred, $isSuccess)";
+                    INSERT INTO CopyHistory (Timestamp, GameName, TargetDriveLetter, TargetDriveLabel, BytesTransferred, IsSuccess, Amount)
+                    VALUES ($timestamp, $gameName, $targetDriveLetter, $targetDriveLabel, $bytesTransferred, $isSuccess, $amount)";
 
                 // Use ISO 8601 string for reliable SQLite sorting/filtering
                 _ = command.Parameters.AddWithValue("$timestamp", record.Timestamp.ToString("O"));
@@ -81,6 +108,7 @@ namespace Easy_Copier.Services
                 _ = command.Parameters.AddWithValue("$targetDriveLabel", record.TargetDriveLabel);
                 _ = command.Parameters.AddWithValue("$bytesTransferred", record.BytesTransferred);
                 _ = command.Parameters.AddWithValue("$isSuccess", record.IsSuccess ? 1 : 0);
+                _ = command.Parameters.AddWithValue("$amount", record.Amount);
 
                 _ = await command.ExecuteNonQueryAsync();
             }
@@ -90,7 +118,7 @@ namespace Easy_Copier.Services
             }
         }
 
-        public async Task<List<CopyHistoryRecord>> GetRecordsByMonthAsync(int year, int month)
+        private async Task<List<CopyHistoryRecord>> GetAllRecordsAsync()
         {
             List<CopyHistoryRecord> records = [];
             try
@@ -98,100 +126,111 @@ namespace Easy_Copier.Services
                 using SqliteConnection connection = new(_connectionString);
                 await connection.OpenAsync();
 
-                // Format as YYYY-MM
-                string prefix = $"{year:D4}-{month:D2}";
-
                 SqliteCommand command = connection.CreateCommand();
-                command.CommandText = @"
-                    SELECT Id, Timestamp, GameName, TargetDriveLetter, TargetDriveLabel, BytesTransferred, IsSuccess
-                    FROM CopyHistory
-                    WHERE Timestamp LIKE $prefix
-                    ORDER BY Timestamp DESC";
-                _ = command.Parameters.AddWithValue("$prefix", prefix + "%");
+                command.CommandText = "SELECT Id, Timestamp, GameName, TargetDriveLetter, TargetDriveLabel, BytesTransferred, IsSuccess, Amount FROM CopyHistory";
 
                 using SqliteDataReader reader = await command.ExecuteReaderAsync();
                 while (await reader.ReadAsync())
                 {
-                    records.Add(new CopyHistoryRecord(
-                        reader.GetInt32(0),
-                        DateTime.Parse(reader.GetString(1), System.Globalization.CultureInfo.InvariantCulture),
-                        reader.GetString(2),
-                        reader.GetString(3),
-                        reader.GetString(4),
-                        reader.GetInt64(5),
-                        reader.GetInt32(6) == 1
-                    ));
-                }
-            }
-            catch (Exception ex)
-            {
-                _logger.LogError(ex, "Failed to get copy history records for {Year}-{Month}", year, month);
-            }
-            return records;
-        }
-
-        public async Task<List<(int Year, int Month)>> GetAvailableMonthsAsync()
-        {
-            HashSet<(int Year, int Month)> months = [];
-            try
-            {
-                using SqliteConnection connection = new(_connectionString);
-                await connection.OpenAsync();
-
-                SqliteCommand command = connection.CreateCommand();
-                // Extract just the YYYY-MM part from the ISO8601 string
-                command.CommandText = "SELECT DISTINCT substr(Timestamp, 1, 7) FROM CopyHistory ORDER BY substr(Timestamp, 1, 7) DESC";
-
-                using SqliteDataReader reader = await command.ExecuteReaderAsync();
-                while (await reader.ReadAsync())
-                {
-                    string yyyyMm = reader.GetString(0);
-                    if (yyyyMm.Length == 7 && int.TryParse(yyyyMm.AsSpan(0, 4), out int year) && int.TryParse(yyyyMm.AsSpan(5, 2), out int month))
+                    string timestampStr = reader.GetString(1);
+                    if (DateTime.TryParse(timestampStr, System.Globalization.CultureInfo.InvariantCulture, System.Globalization.DateTimeStyles.RoundtripKind, out DateTime timestamp))
                     {
-                        _ = months.Add((year, month));
+                        records.Add(new CopyHistoryRecord(
+                            reader.GetInt32(0),
+                            timestamp,
+                            reader.GetString(2),
+                            reader.GetString(3),
+                            reader.GetString(4),
+                            reader.GetInt64(5),
+                            reader.GetInt32(6) == 1,
+                            reader.IsDBNull(7) ? 0 : reader.GetInt32(7)
+                        ));
+                    }
+                    else
+                    {
+                        _logger.LogWarning("Failed to parse Timestamp '{TimestampStr}' in CopyHistory", timestampStr);
                     }
                 }
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "Failed to get available months from copy history");
+                _logger.LogError(ex, "Failed to get all copy history records");
             }
-            return [.. months];
+            return records;
         }
 
-        public async Task<(int TotalItems, int SuccessfulItems, long TotalBytes)> GetStatsAsync(DateTime startDate, DateTime endDate)
+        public async Task<List<CopyHistoryRecord>> GetRecordsByWeekAsync(DateTime startOfWeek, DateTime endOfWeek)
         {
-            try
+            List<CopyHistoryRecord> allRecords = await GetAllRecordsAsync();
+
+            // Adjust endOfWeek to be exclusive for < comparison, since endOfWeek is currently the date (e.g. 23:59:59 implied, or start of next day)
+            // But since startOfWeek and endOfWeek logic usually uses >= and <=, let's just do inclusive if it's the exact day,
+            // but normally endOfWeek is startOfWeek.AddDays(6).
+            DateTime start = startOfWeek.Date;
+            DateTime end = endOfWeek.Date.AddDays(1); // Make it exclusive
+
+            return allRecords
+                .Where(r => r.Timestamp >= start && r.Timestamp < end)
+                .OrderByDescending(r => r.Timestamp)
+                .ToList();
+        }
+
+        public async Task<List<DateTime>> GetAvailableWeeksAsync()
+        {
+            List<CopyHistoryRecord> allRecords = await GetAllRecordsAsync();
+            HashSet<DateTime> startOfWeeks = [];
+
+            foreach (CopyHistoryRecord record in allRecords)
             {
-                using SqliteConnection connection = new(_connectionString);
-                await connection.OpenAsync();
-
-                SqliteCommand command = connection.CreateCommand();
-                command.CommandText = @"
-                    SELECT
-                        COUNT(*),
-                        SUM(IsSuccess),
-                        SUM(BytesTransferred)
-                    FROM CopyHistory
-                    WHERE Timestamp >= $startDate AND Timestamp < $endDate";
-
-                _ = command.Parameters.AddWithValue("$startDate", startDate);
-                _ = command.Parameters.AddWithValue("$endDate", endDate);
-
-                using SqliteDataReader reader = await command.ExecuteReaderAsync();
-                if (await reader.ReadAsync())
-                {
-                    int totalItems = await reader.IsDBNullAsync(0) ? 0 : reader.GetInt32(0);
-                    int successfulItems = await reader.IsDBNullAsync(1) ? 0 : reader.GetInt32(1);
-                    long totalBytes = await reader.IsDBNullAsync(2) ? 0 : reader.GetInt64(2);
-                    return (totalItems, successfulItems, totalBytes);
-                }
+                DateTime date = record.Timestamp.Date;
+                int diff = (7 + (date.DayOfWeek - DayOfWeek.Sunday)) % 7;
+                DateTime startOfWeek = date.AddDays(-1 * diff).Date;
+                _ = startOfWeeks.Add(startOfWeek);
             }
-            catch (Exception ex)
+
+            List<DateTime> sortedWeeks = [.. startOfWeeks];
+            sortedWeeks.Sort((a, b) => b.CompareTo(a)); // Descending order
+            return sortedWeeks;
+        }
+
+        public async Task<List<CopyHistoryRecord>> GetRecordsByMonthAsync(int year, int month)
+        {
+            List<CopyHistoryRecord> allRecords = await GetAllRecordsAsync();
+            return allRecords
+                .Where(r => r.Timestamp.Year == year && r.Timestamp.Month == month)
+                .OrderByDescending(r => r.Timestamp)
+                .ToList();
+        }
+
+        public async Task<List<(int Year, int Month)>> GetAvailableMonthsAsync()
+        {
+            List<CopyHistoryRecord> allRecords = await GetAllRecordsAsync();
+            HashSet<(int Year, int Month)> months = [];
+
+            foreach (CopyHistoryRecord record in allRecords)
             {
-                _logger.LogError(ex, "Failed to get copy history stats");
+                _ = months.Add((record.Timestamp.Year, record.Timestamp.Month));
             }
-            return (0, 0, 0);
+
+            List<(int Year, int Month)> sortedMonths = [.. months];
+            sortedMonths.Sort((a, b) => b.CompareTo(a)); // Descending order
+            return sortedMonths;
+        }
+
+        public async Task<(int TotalItems, int SuccessfulItems, long TotalBytes, int TotalAmount)> GetStatsAsync(DateTime startDate, DateTime endDate)
+        {
+            List<CopyHistoryRecord> allRecords = await GetAllRecordsAsync();
+
+            List<CopyHistoryRecord> filteredRecords = allRecords
+                .Where(r => r.Timestamp >= startDate && r.Timestamp < endDate)
+                .ToList();
+
+            int totalItems = filteredRecords.Count;
+            int successfulItems = filteredRecords.Count(r => r.IsSuccess);
+            long totalBytes = filteredRecords.Sum(r => r.BytesTransferred);
+            int totalAmount = filteredRecords.Sum(r => r.Amount);
+
+            return (totalItems, successfulItems, totalBytes, totalAmount);
         }
     }
 }

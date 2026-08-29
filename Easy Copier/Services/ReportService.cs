@@ -23,7 +23,7 @@ namespace Easy_Copier.Services
             try
             {
                 using StreamWriter writer = new(filePath, false, Encoding.UTF8);
-                await writer.WriteLineAsync("Id,Timestamp,GameName,TargetDriveLetter,TargetDriveLabel,BytesTransferred,IsSuccess");
+                await writer.WriteLineAsync("Id,Timestamp,GameName,TargetDriveLetter,TargetDriveLabel,BytesTransferred,IsSuccess,Amount");
 
                 foreach (CopyHistoryRecord record in records)
                 {
@@ -34,8 +34,9 @@ namespace Easy_Copier.Services
                     string targetDriveLabel = EscapeCsv(record.TargetDriveLabel);
                     string bytesTransferred = record.BytesTransferred.ToString(System.Globalization.CultureInfo.InvariantCulture);
                     string isSuccess = record.IsSuccess.ToString();
+                    string amount = record.Amount.ToString(System.Globalization.CultureInfo.InvariantCulture);
 
-                    await writer.WriteLineAsync($"{id},{timestamp},{gameName},{targetDriveLetter},{targetDriveLabel},{bytesTransferred},{isSuccess}");
+                    await writer.WriteLineAsync($"{id},{timestamp},{gameName},{targetDriveLetter},{targetDriveLabel},{bytesTransferred},{isSuccess},{amount}");
                 }
 
                 _logger.LogInformation("Successfully exported history to {FilePath}", filePath);
