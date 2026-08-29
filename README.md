@@ -100,8 +100,8 @@ The selected-drive panel also shows a usage bar, free space, total capacity, and
 |---|---|
 | **Framework** | WinUI 3 / Windows App SDK |
 | **Language** | C# 14 with .NET 10 |
-| **Pattern** | MVVM with CommunityToolkit.Mvvm (Strict adherence to SOLID principles, dependency injection, and clean view-model separation). Optimized clean code removing inefficient operations. |
-| **Architecture** | High UI decoupling, safely bridging UI-specific operations via abstractions like `IWindowService`. |
+| **Pattern** | MVVM with CommunityToolkit.Mvvm (Strict adherence to SOLID principles, dependency injection, and clean view-model separation). Optimized clean code removing inefficient operations. Suppressed MVVMTK0045 using preview `partial` properties. |
+| **Architecture** | High UI decoupling (e.g. secondary window abstractions without static coupling to App.MainWindow), safely bridging UI-specific operations via abstractions like `IWindowService`. |
 | **Storage Discovery** | `DriveInfo` and Windows Management Instrumentation (WMI) |
 | **CI/CD** | GitHub Actions |
 | **Target Platform** | x64 |

@@ -10,10 +10,12 @@ namespace Easy_Copier.Views
     {
         public SettingsViewModel ViewModel { get; }
         public event EventHandler? SettingsClosed;
+        private readonly Window _owner;
 
-        public SettingsWindow(SettingsViewModel viewModel, SettingsOpenAction openAction = SettingsOpenAction.None)
+        public SettingsWindow(SettingsViewModel viewModel, Window owner, SettingsOpenAction openAction = SettingsOpenAction.None)
         {
             ViewModel = viewModel;
+            _owner = owner;
             InitializeComponent();
 
             // Allow the settings page viewmodel to bind
@@ -23,7 +25,7 @@ namespace Easy_Copier.Views
             }
 
             NativeWindowHelper.InitializeWindow(this, 960, 720); // Fallback size, will adjust after load
-            NativeWindowHelper.ShowAsModal(this, App.MainWindow);
+            NativeWindowHelper.ShowAsModal(this, _owner);
 
             Closed += SettingsWindow_Closed;
 
@@ -38,7 +40,7 @@ namespace Easy_Copier.Views
         }
         private void SettingsWindow_Closed(object sender, WindowEventArgs args)
         {
-            NativeWindowHelper.RestoreOwnerInput(App.MainWindow);
+            NativeWindowHelper.RestoreOwnerInput(_owner);
             Content = null;
         }
 

@@ -7,10 +7,12 @@ namespace Easy_Copier.Views
     public sealed partial class AboutWindow : Window
     {
         public AboutViewModel ViewModel { get; }
+        private readonly Window _owner;
 
-        public AboutWindow(AboutViewModel viewModel)
+        public AboutWindow(AboutViewModel viewModel, Window owner)
         {
             ViewModel = viewModel;
+            _owner = owner;
             InitializeComponent();
 
             if (Content is FrameworkElement fe)
@@ -22,13 +24,13 @@ namespace Easy_Copier.Views
 
 
             NativeWindowHelper.InitializeWindow(this, 500, 600);
-            NativeWindowHelper.ShowAsModal(this, App.MainWindow);
+            NativeWindowHelper.ShowAsModal(this, _owner);
 
             Closed += AboutWindow_Closed;
         }
         private void AboutWindow_Closed(object sender, WindowEventArgs args)
         {
-            NativeWindowHelper.RestoreOwnerInput(App.MainWindow);
+            NativeWindowHelper.RestoreOwnerInput(_owner);
             Content = null;
         }
 
