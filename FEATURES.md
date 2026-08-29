@@ -77,8 +77,9 @@
 - Optimized clean code base by simplifying large methods and strictly substituting inefficient queries (e.g. refactoring `.Any()` parameterless checks to `.Count > 0` directly on properties) for enhanced compliance.
 - UI elements decoupled from Services by leveraging `IDispatcherService` and `IWindowService` interfaces.
 - Centralized Win32 NativeWindow lifecycle hooks reducing duplicated window initialization logic.
+- Secondary modal windows explicitly decouple from static main window contexts, accepting owner parameters directly.
 - Implements `IDisposable` effectively for unmanaged resource and cancellation token lifecycle management.
-- CA and MVVM Toolkit analyzer compliant, leveraging modern C# static methods and configure awaits.
+- CA and MVVM Toolkit analyzer compliant, leveraging modern C# preview features (`partial` properties) to suppress MVVMTK0045 warnings.
 - Comprehensive event logging utilizing Serilog to ensure troubleshooting is easy and traceable.
 
 ## 🛠️ Technical Stack

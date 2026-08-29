@@ -24,12 +24,7 @@ namespace Easy_Copier.ViewModels
                 string logFolder = System.IO.Path.Combine(appDataFolder, "EasyCopier", "Logs");
                 if (System.IO.Directory.Exists(logFolder))
                 {
-                    System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo()
-                    {
-                        FileName = logFolder,
-                        UseShellExecute = true,
-                        Verb = "open"
-                    });
+                    _processService.OpenInExplorer(logFolder);
                     _logger.LogInformation("Logs folder opened successfully.");
                 }
                 else
