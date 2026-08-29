@@ -13,9 +13,20 @@ namespace Easy_Copier.ViewModels
 {
     public partial class HistoryViewModel : ObservableObject
     {
-        public HistoryStats TodayStats { get; private set; } = new HistoryStats(0, 0, 0, 0);
-        public HistoryStats WeekStats { get; private set; } = new HistoryStats(0, 0, 0, 0);
-        public HistoryStats MonthStats { get; private set; } = new HistoryStats(0, 0, 0, 0);
+        [ObservableProperty]
+        public partial HistoryStats TodayStats { get; set; } = new HistoryStats(0, 0, 0, 0);
+
+        [ObservableProperty]
+        public partial HistoryStats WeekStats { get; set; } = new HistoryStats(0, 0, 0, 0);
+
+        [ObservableProperty]
+        public partial HistoryStats MonthStats { get; set; } = new HistoryStats(0, 0, 0, 0);
+
+        [ObservableProperty]
+        public partial HistoryStats SelectedFilterStats { get; set; } = new HistoryStats(0, 0, 0, 0);
+
+        [ObservableProperty]
+        public partial string SelectedFilterName { get; set; } = string.Empty;
 
         private readonly ICopyHistoryService _copyHistoryService;
         private readonly IReportService _reportService;
@@ -134,6 +145,8 @@ namespace Easy_Copier.ViewModels
             StatusMessage = "Loading records...";
             List<CopyHistoryRecord> records = await _copyHistoryService.GetRecordsByWeekAsync(startOfWeek, endOfWeek);
             ProcessLoadedRecords(records);
+
+            SelectedFilterName = $"Stats for {startOfWeek:MMM dd, yyyy} - {endOfWeek:MMM dd, yyyy}";
         }
 
         private async Task LoadRecordsByMonthAsync(int year, int month)
@@ -141,6 +154,8 @@ namespace Easy_Copier.ViewModels
             StatusMessage = "Loading records...";
             List<CopyHistoryRecord> records = await _copyHistoryService.GetRecordsByMonthAsync(year, month);
             ProcessLoadedRecords(records);
+
+            SelectedFilterName = $"Stats for {new DateTime(year, month, 1).ToString("MMMM yyyy", System.Globalization.CultureInfo.CurrentCulture)}";
         }
 
         private void ProcessLoadedRecords(List<CopyHistoryRecord> records)
@@ -176,6 +191,14 @@ namespace Easy_Copier.ViewModels
             }
 
             Records.UpdateFrom(sortedRecords);
+
+            // Calculate filtered stats based on loaded records
+            int totalItems = records.Count;
+            int successfulItems = records.Count(r => r.IsSuccess);
+            long totalBytes = records.Sum(r => r.BytesTransferred);
+            int totalAmount = records.Sum(r => r.Amount);
+            SelectedFilterStats = new HistoryStats(totalItems, successfulItems, totalBytes, totalAmount);
+
             StatusMessage = $"Loaded {records.Count} records.";
         }
 

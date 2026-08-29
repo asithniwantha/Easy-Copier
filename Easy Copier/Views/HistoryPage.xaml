@@ -87,10 +87,30 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
-            <!-- Today Stats -->
+            <!-- Selected Filter Stats -->
             <StackPanel Grid.Column="0" Spacing="4">
+                <TextBlock Text="{x:Bind ViewModel.SelectedFilterName, Mode=OneWay}" Style="{ThemeResource SubtitleTextBlockStyle}" Foreground="{ThemeResource TextFillColorSecondaryBrush}"/>
+                <TextBlock>
+                    <Run Text="{x:Bind ViewModel.SelectedFilterStats.TotalItems, Mode=OneWay}" />
+                    <Run Text=" items (" />
+                    <Run Text="{x:Bind ViewModel.SelectedFilterStats.SuccessfulItems, Mode=OneWay}" Foreground="{ThemeResource SystemFillColorSuccessBrush}" />
+                    <Run Text=" successful)" />
+                </TextBlock>
+                <TextBlock Style="{ThemeResource CaptionTextBlockStyle}" Foreground="{ThemeResource TextFillColorTertiaryBrush}">
+                    <Run Text="Total Bytes: " />
+                    <Run Text="{x:Bind ViewModel.SelectedFilterStats.TotalBytes, Converter={StaticResource BytesToSizeConverter}, Mode=OneWay}" />
+                </TextBlock>
+                <TextBlock Style="{ThemeResource BodyTextBlockStyle}" FontWeight="SemiBold" Foreground="{ThemeResource SystemFillColorSuccessBrush}">
+                    <Run Text="Total Amount: " />
+                    <Run Text="{x:Bind ViewModel.SelectedFilterStats.TotalAmount, Mode=OneWay}" />
+                </TextBlock>
+            </StackPanel>
+
+            <!-- Today Stats -->
+            <StackPanel Grid.Column="1" Spacing="4">
                 <TextBlock Text="Today" Style="{ThemeResource SubtitleTextBlockStyle}" Foreground="{ThemeResource TextFillColorSecondaryBrush}"/>
                 <TextBlock>
                     <Run Text="{x:Bind ViewModel.TodayStats.TotalItems, Mode=OneWay}" />
@@ -109,7 +129,7 @@
             </StackPanel>
 
             <!-- Week Stats -->
-            <StackPanel Grid.Column="1" Spacing="4">
+            <StackPanel Grid.Column="2" Spacing="4">
                 <TextBlock Text="This Week" Style="{ThemeResource SubtitleTextBlockStyle}" Foreground="{ThemeResource TextFillColorSecondaryBrush}"/>
                 <TextBlock>
                     <Run Text="{x:Bind ViewModel.WeekStats.TotalItems, Mode=OneWay}" />
@@ -128,7 +148,7 @@
             </StackPanel>
 
             <!-- Month Stats -->
-            <StackPanel Grid.Column="2" Spacing="4">
+            <StackPanel Grid.Column="3" Spacing="4">
                 <TextBlock Text="This Month" Style="{ThemeResource SubtitleTextBlockStyle}" Foreground="{ThemeResource TextFillColorSecondaryBrush}"/>
                 <TextBlock>
                     <Run Text="{x:Bind ViewModel.MonthStats.TotalItems, Mode=OneWay}" />
