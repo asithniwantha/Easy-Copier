@@ -22,6 +22,7 @@ namespace Easy_Copier.Models
         public string DestinationPath { get; }
         public DateTime EnqueuedAt { get; }
         public long TotalBytes { get; }
+        public int TotalPrice { get; }
 
         [ObservableProperty]
         public partial TransferQueueItemStatus Status { get; set; } = TransferQueueItemStatus.Queued;
@@ -32,12 +33,13 @@ namespace Easy_Copier.Models
         [ObservableProperty]
         public partial DateTime? CompletedAt { get; set; }
 
-        public TransferQueueItem(IReadOnlyList<TransferItem> items, RemovableDrive targetDrive, string destinationPath)
+        public TransferQueueItem(IReadOnlyList<TransferItem> items, RemovableDrive targetDrive, string destinationPath, int totalPrice)
         {
             Id = Guid.NewGuid().ToString();
             Items = items;
             TargetDrive = targetDrive;
             DestinationPath = destinationPath;
+            TotalPrice = totalPrice;
             EnqueuedAt = DateTime.Now;
             TotalBytes = items.Sum(i => i.Game.TotalBytes);
         }

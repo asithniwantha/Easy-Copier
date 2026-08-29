@@ -33,11 +33,7 @@ namespace Easy_Copier.Services
         private int CalculateAmount(long bytes)
         {
             AppSettings settings = _settingsService.LoadSettingsSync();
-            double gb = bytes / (1024.0 * 1024.0 * 1024.0);
-
-            return gb <= 5.0
-                ? settings.PriceTier1
-                : gb <= 10.0 ? settings.PriceTier2 : gb < 16.0 ? settings.PriceTier3 : settings.PriceTier4;
+            return Infrastructure.FormattingHelpers.CalculatePrice(bytes, settings);
         }
 
         public async Task<(long Size, int Count)> GetFolderStatsAsync(string path)

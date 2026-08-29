@@ -71,6 +71,10 @@ namespace Easy_Copier.ViewModels
         public partial long SelectedGamesTotalBytes { get; set; }
 
         [ObservableProperty]
+        [NotifyPropertyChangedFor(nameof(SelectionSummary))]
+        public partial int SelectedGamesTotalPrice { get; set; }
+
+        [ObservableProperty]
         [NotifyPropertyChangedFor(nameof(EmptyGamesMessage))]
         [NotifyPropertyChangedFor(nameof(EmptyAppsMessage))]
         [NotifyPropertyChangedFor(nameof(EmptyTvAndFilmsMessage))]
@@ -108,7 +112,7 @@ namespace Easy_Copier.ViewModels
 
         public string SelectionSummary => SelectedGamesCount == 0
             ? "No items selected"
-            : $"{SelectedGamesCount} item(s) selected \u2022 {FormattingHelpers.FormatBytes(SelectedGamesTotalBytes)}";
+            : $"{SelectedGamesCount} item(s) selected \u2022 {FormattingHelpers.FormatBytes(SelectedGamesTotalBytes)} \u2022 Rs. {SelectedGamesTotalPrice}";
 
         public int CurrentTabIndex { get; set; }
 
@@ -583,6 +587,10 @@ namespace Easy_Copier.ViewModels
             _selectedGames = [.. selectedGames];
             SelectedGamesCount = _selectedGames.Count;
             SelectedGamesTotalBytes = _selectedGames.Sum(g => g.TotalBytes);
+
+            AppSettings settings = _settingsService.LoadSettingsSync();
+            SelectedGamesTotalPrice = _selectedGames.Sum(g => Infrastructure.FormattingHelpers.CalculatePrice(g.TotalBytes, settings));
+
             CopySelectedGamesCommand.NotifyCanExecuteChanged();
         }
 

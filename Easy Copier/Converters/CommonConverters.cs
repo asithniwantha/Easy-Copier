@@ -43,9 +43,7 @@ namespace Easy_Copier.Converters
                         settings = settingsService.LoadSettingsSync();
                     }
 
-                    return gb <= 5.0
-                        ? $"Rs. {settings.PriceTier1}"
-                        : gb <= 10.0 ? $"Rs. {settings.PriceTier2}" : gb < 16.0 ? $"Rs. {settings.PriceTier3}" : $"Rs. {settings.PriceTier4}";
+                    return $"Rs. {Easy_Copier.Infrastructure.FormattingHelpers.CalculatePrice(bytes, settings)}";
                 }
                 catch
                 {
