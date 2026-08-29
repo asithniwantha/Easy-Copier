@@ -36,11 +36,14 @@ namespace Easy_Copier.Services
 
         public event EventHandler<TransferQueueItem>? ItemCompleted;
 
-        public TransferQueueService(IFileTransferService fileTransferService, ILogger<TransferQueueService> logger, Infrastructure.IDispatcherService dispatcherService)
+        private readonly ISettingsService _settingsService;
+
+        public TransferQueueService(IFileTransferService fileTransferService, ILogger<TransferQueueService> logger, Infrastructure.IDispatcherService dispatcherService, ISettingsService settingsService)
         {
             _fileTransferService = fileTransferService;
             _logger = logger;
             _dispatcherService = dispatcherService;
+            _settingsService = settingsService;
 
             _ = Task.Run(ProcessQueueAsync);
         }
@@ -50,7 +53,10 @@ namespace Easy_Copier.Services
             ArgumentNullException.ThrowIfNull(items);
             ArgumentNullException.ThrowIfNull(targetDrive);
 
-            TransferQueueItem item = new(items, targetDrive, destinationPath);
+            AppSettings settings = _settingsService.LoadSettingsSync();
+            int totalPrice = items.Sum(i => Infrastructure.FormattingHelpers.CalculatePrice(i.Game.TotalBytes, settings));
+
+            TransferQueueItem item = new(items, targetDrive, destinationPath, totalPrice);
 
             QueueItems.Add(item);
             _ = _channel.Writer.TryWrite(item);

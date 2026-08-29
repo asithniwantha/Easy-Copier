@@ -321,6 +321,9 @@
                                                     <Run Text="{x:Bind TargetDrive.DriveLetter}"/>
                                                     <Run Text="•"/>
                                                     <Run Text="{x:Bind TotalBytes, Converter={StaticResource BytesToSizeConverter}}"/>
+                                                    <Run Text="•"/>
+                                                    <Run Text="Rs."/>
+                                                    <Run Text="{x:Bind TotalPrice}"/>
                                                 </TextBlock>
                                                 <TextBlock Text="{x:Bind StatusMessage, Mode=OneWay}"
                                                            FontSize="12" Opacity="0.7" TextWrapping="Wrap"/>
