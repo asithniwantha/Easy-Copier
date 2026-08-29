@@ -143,7 +143,7 @@ namespace Easy_Copier.Services
                             reader.GetString(4),
                             reader.GetInt64(5),
                             reader.GetInt32(6) == 1,
-                            reader.IsDBNull(7) ? 0 : reader.GetInt32(7)
+                            await reader.IsDBNullAsync(7) ? 0 : reader.GetInt32(7)
                         ));
                     }
                     else

@@ -79,6 +79,7 @@
 - Centralized Win32 NativeWindow lifecycle hooks reducing duplicated window initialization logic.
 - Secondary modal windows explicitly decouple from static main window contexts, accepting owner parameters directly.
 - Implements `IDisposable` effectively for unmanaged resource and cancellation token lifecycle management.
+- Asynchronous database operations using `IsDBNullAsync` in SQLite readers to prevent synchronous blocking (CA1849).
 - CA and MVVM Toolkit analyzer compliant, leveraging modern C# preview features (`partial` properties) to suppress MVVMTK0045 warnings.
 - Comprehensive event logging utilizing Serilog to ensure troubleshooting is easy and traceable.
 
