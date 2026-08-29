@@ -14,6 +14,8 @@ namespace Easy_Copier.Services
         Task AddRecordAsync(CopyHistoryRecord record);
         Task<List<CopyHistoryRecord>> GetRecordsByWeekAsync(DateTime startOfWeek, DateTime endOfWeek);
         Task<List<DateTime>> GetAvailableWeeksAsync();
+        Task<List<CopyHistoryRecord>> GetRecordsByMonthAsync(int year, int month);
+        Task<List<(int Year, int Month)>> GetAvailableMonthsAsync();
         Task<(int TotalItems, int SuccessfulItems, long TotalBytes, int TotalAmount)> GetStatsAsync(DateTime startDate, DateTime endDate);
     }
 
@@ -189,6 +191,76 @@ namespace Easy_Copier.Services
             return sortedWeeks;
         }
 
+        public async Task<List<CopyHistoryRecord>> GetRecordsByMonthAsync(int year, int month)
+        {
+            List<CopyHistoryRecord> records = [];
+            try
+            {
+                using SqliteConnection connection = new(_connectionString);
+                await connection.OpenAsync();
+
+                // Format as YYYY-MM
+                string prefix = $"{year:D4}-{month:D2}";
+
+                SqliteCommand command = connection.CreateCommand();
+                command.CommandText = @"
+                    SELECT Id, Timestamp, GameName, TargetDriveLetter, TargetDriveLabel, BytesTransferred, IsSuccess, Amount
+                    FROM CopyHistory
+                    WHERE substr(Timestamp, 1, 7) = $prefix
+                    ORDER BY Timestamp DESC";
+                _ = command.Parameters.AddWithValue("$prefix", prefix);
+
+                using SqliteDataReader reader = await command.ExecuteReaderAsync();
+                while (await reader.ReadAsync())
+                {
+                    records.Add(new CopyHistoryRecord(
+                        reader.GetInt32(0),
+                        DateTime.Parse(reader.GetString(1), System.Globalization.CultureInfo.InvariantCulture),
+                        reader.GetString(2),
+                        reader.GetString(3),
+                        reader.GetString(4),
+                        reader.GetInt64(5),
+                        reader.GetInt32(6) == 1,
+                        reader.IsDBNull(7) ? 0 : reader.GetInt32(7)
+                    ));
+                }
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Failed to get copy history records for {Year}-{Month}", year, month);
+            }
+            return records;
+        }
+
+        public async Task<List<(int Year, int Month)>> GetAvailableMonthsAsync()
+        {
+            HashSet<(int Year, int Month)> months = [];
+            try
+            {
+                using SqliteConnection connection = new(_connectionString);
+                await connection.OpenAsync();
+
+                SqliteCommand command = connection.CreateCommand();
+                // Extract just the YYYY-MM part from the ISO8601 string
+                command.CommandText = "SELECT DISTINCT substr(Timestamp, 1, 7) FROM CopyHistory ORDER BY substr(Timestamp, 1, 7) DESC";
+
+                using SqliteDataReader reader = await command.ExecuteReaderAsync();
+                while (await reader.ReadAsync())
+                {
+                    string yyyyMm = reader.GetString(0);
+                    if (yyyyMm.Length == 7 && int.TryParse(yyyyMm.AsSpan(0, 4), out int year) && int.TryParse(yyyyMm.AsSpan(5, 2), out int month))
+                    {
+                        _ = months.Add((year, month));
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Failed to get available months from copy history");
+            }
+            return [.. months];
+        }
+
         public async Task<(int TotalItems, int SuccessfulItems, long TotalBytes, int TotalAmount)> GetStatsAsync(DateTime startDate, DateTime endDate)
         {
             try
@@ -204,10 +276,12 @@ namespace Easy_Copier.Services
                         SUM(BytesTransferred),
                         SUM(Amount)
                     FROM CopyHistory
-                    WHERE substr(Timestamp, 1, 10) >= $startDate AND substr(Timestamp, 1, 10) < $endDate";
+                    WHERE datetime(substr(Timestamp, 1, 19)) >= datetime($startDate)
+                      AND datetime(substr(Timestamp, 1, 19)) < datetime($endDate)";
 
-                _ = command.Parameters.AddWithValue("$startDate", startDate.ToString("yyyy-MM-dd"));
-                _ = command.Parameters.AddWithValue("$endDate", endDate.ToString("yyyy-MM-dd"));
+                // Format as strict ISO 8601 without offset so SQLite's datetime() function parses it exactly.
+                _ = command.Parameters.AddWithValue("$startDate", startDate.ToString("yyyy-MM-ddTHH:mm:ss"));
+                _ = command.Parameters.AddWithValue("$endDate", endDate.ToString("yyyy-MM-ddTHH:mm:ss"));
 
                 using SqliteDataReader reader = await command.ExecuteReaderAsync();
                 if (await reader.ReadAsync())

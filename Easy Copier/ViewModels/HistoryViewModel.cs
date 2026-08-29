@@ -31,10 +31,18 @@ namespace Easy_Copier.ViewModels
         public partial ObservableCollection<WeekOption> AvailableWeeks { get; set; } = [];
 
         [ObservableProperty]
+        public partial ObservableCollection<MonthOption> AvailableMonths { get; set; } = [];
+
+        [ObservableProperty]
         public partial WeekOption? SelectedWeek { get; set; }
 
         [ObservableProperty]
+        public partial MonthOption? SelectedMonth { get; set; }
+
+        [ObservableProperty]
         public partial string StatusMessage { get; set; } = string.Empty;
+
+        private bool _isClearingSelection;
 
         public HistoryViewModel(ICopyHistoryService copyHistoryService, IReportService reportService,
                                 Infrastructure.IFilePickerService filePickerService)
@@ -51,9 +59,16 @@ namespace Easy_Copier.ViewModels
             List<DateTime> startOfWeeks = await _copyHistoryService.GetAvailableWeeksAsync();
             AvailableWeeks.UpdateFrom(startOfWeeks.Select(w => new WeekOption(w, w.AddDays(6), $"{w:MMM dd, yyyy} - {w.AddDays(6):MMM dd, yyyy}")));
 
+            List<(int Year, int Month)> months = await _copyHistoryService.GetAvailableMonthsAsync();
+            AvailableMonths.UpdateFrom(months.Select(m => new MonthOption(m.Year, m.Month, new DateTime(m.Year, m.Month, 1).ToString("MMMM yyyy", System.Globalization.CultureInfo.CurrentCulture))));
+
             if (AvailableWeeks.Count > 0)
             {
                 SelectedWeek = AvailableWeeks.First();
+            }
+            else if (AvailableMonths.Count > 0)
+            {
+                SelectedMonth = AvailableMonths.First();
             }
         }
 
@@ -83,20 +98,58 @@ namespace Easy_Copier.ViewModels
 
         partial void OnSelectedWeekChanged(WeekOption? oldValue, WeekOption? newValue)
         {
+            if (_isClearingSelection) return;
+
             if (newValue != null)
             {
-                _ = LoadRecordsAsync(newValue.StartOfWeek, newValue.EndOfWeek);
+                _isClearingSelection = true;
+                SelectedMonth = null;
+                _isClearingSelection = false;
+
+                _ = LoadRecordsByWeekAsync(newValue.StartOfWeek, newValue.EndOfWeek);
             }
-            else
+            else if (SelectedMonth == null)
             {
                 Records.Clear();
+                GroupedRecords.Clear();
             }
         }
 
-        private async Task LoadRecordsAsync(DateTime startOfWeek, DateTime endOfWeek)
+        partial void OnSelectedMonthChanged(MonthOption? oldValue, MonthOption? newValue)
+        {
+            if (_isClearingSelection) return;
+
+            if (newValue != null)
+            {
+                _isClearingSelection = true;
+                SelectedWeek = null;
+                _isClearingSelection = false;
+
+                _ = LoadRecordsByMonthAsync(newValue.Year, newValue.Month);
+            }
+            else if (SelectedWeek == null)
+            {
+                Records.Clear();
+                GroupedRecords.Clear();
+            }
+        }
+
+        private async Task LoadRecordsByWeekAsync(DateTime startOfWeek, DateTime endOfWeek)
         {
             StatusMessage = "Loading records...";
             List<CopyHistoryRecord> records = await _copyHistoryService.GetRecordsByWeekAsync(startOfWeek, endOfWeek);
+            ProcessLoadedRecords(records);
+        }
+
+        private async Task LoadRecordsByMonthAsync(int year, int month)
+        {
+            StatusMessage = "Loading records...";
+            List<CopyHistoryRecord> records = await _copyHistoryService.GetRecordsByMonthAsync(year, month);
+            ProcessLoadedRecords(records);
+        }
+
+        private void ProcessLoadedRecords(List<CopyHistoryRecord> records)
+        {
             Records.UpdateFrom(records);
 
             // Group records by drive and approximate time (e.g., within 15 minutes of each other)
@@ -124,13 +177,15 @@ namespace Easy_Copier.ViewModels
         [RelayCommand]
         private async Task ExportToCsvAsync()
         {
-            if (SelectedWeek == null || Records.Count == 0)
+            if ((SelectedWeek == null && SelectedMonth == null) || Records.Count == 0)
             {
                 StatusMessage = "No records to export.";
                 return;
             }
 
-            string fileName = $"EasyCopier_History_{SelectedWeek.StartOfWeek:yyyy_MM_dd}.csv";
+            string fileName = SelectedWeek != null
+                ? $"EasyCopier_History_{SelectedWeek.StartOfWeek:yyyy_MM_dd}.csv"
+                : $"EasyCopier_History_{SelectedMonth!.Year}_{SelectedMonth.Month:D2}.csv";
             Dictionary<string, IList<string>> choices = new()
             { { "CSV File", new List<string> { ".csv" } } };
 
@@ -147,9 +202,11 @@ namespace Easy_Copier.ViewModels
 
     public record WeekOption(DateTime StartOfWeek, DateTime EndOfWeek, string DisplayName);
 
+    public record MonthOption(int Year, int Month, string DisplayName);
+
     public record HistoryStats(int TotalItems, int SuccessfulItems, long TotalBytes, int TotalAmount);
 
-    public class HistoryGroup : ObservableCollection<CopyHistoryRecord>
+    public class HistoryGroup : ObservableCollection<CopyHistoryRecord>, IGrouping<string, CopyHistoryRecord>
     {
         public string TargetDriveLetter { get; }
         public DateTime GroupTimestamp { get; }

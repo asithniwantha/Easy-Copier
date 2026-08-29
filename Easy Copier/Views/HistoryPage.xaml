@@ -32,13 +32,21 @@
                 <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
 
-            <ComboBox x:Name="WeekSelector"
-                      ItemsSource="{x:Bind ViewModel.AvailableWeeks, Mode=OneWay}"
-                      SelectedItem="{x:Bind ViewModel.SelectedWeek, Mode=TwoWay}"
-                      DisplayMemberPath="DisplayName"
-                      PlaceholderText="Select Week"
-                      Width="250"
-                      Grid.Column="0"/>
+            <StackPanel Grid.Column="0" Orientation="Horizontal" Spacing="16">
+                <ComboBox x:Name="WeekSelector"
+                          ItemsSource="{x:Bind ViewModel.AvailableWeeks, Mode=OneWay}"
+                          SelectedItem="{x:Bind ViewModel.SelectedWeek, Mode=TwoWay}"
+                          DisplayMemberPath="DisplayName"
+                          PlaceholderText="Select Week"
+                          Width="250"/>
+
+                <ComboBox x:Name="MonthSelector"
+                          ItemsSource="{x:Bind ViewModel.AvailableMonths, Mode=OneWay}"
+                          SelectedItem="{x:Bind ViewModel.SelectedMonth, Mode=TwoWay}"
+                          DisplayMemberPath="DisplayName"
+                          PlaceholderText="Select Month"
+                          Width="200"/>
+            </StackPanel>
 
             <Button Grid.Column="2"
                     Command="{x:Bind ViewModel.ExportToCsvCommand}"
