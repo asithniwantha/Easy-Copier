@@ -96,5 +96,6 @@
 - [x] Add About page with app version, developer info, and links to GitHub repo and issues page.
 - [ ] Add an Excel-like calculator tool.
 - [x] Implement update checking and notification system to inform users of new releases, or automatically download and install updates.
+- [ ] Show total price of selected games in the library view, based on configured price tiers. and after that, show the total price of all selected games in the copy queue view after the total size of the selected games is calculated.
 
 * **📐 Dynamic View Resizing:** The application cleanly abstracts responsive window resizing and UI teardowns (e.g., Settings, History) directly to a unified `NativeWindowHelper`.
