@@ -13,6 +13,7 @@
     <Grid Padding="24">
         <Grid.Resources>
             <converters:BytesToSizeConverter x:Key="BytesToSizeConverter"/>
+            <CollectionViewSource x:Name="GroupedRecordsSource" IsSourceGrouped="True" Source="{x:Bind ViewModel.GroupedRecords, Mode=OneWay}"/>
         </Grid.Resources>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -31,12 +32,12 @@
                 <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
 
-            <ComboBox x:Name="MonthSelector"
-                      ItemsSource="{x:Bind ViewModel.AvailableMonths, Mode=OneWay}"
-                      SelectedItem="{x:Bind ViewModel.SelectedMonth, Mode=TwoWay}"
+            <ComboBox x:Name="WeekSelector"
+                      ItemsSource="{x:Bind ViewModel.AvailableWeeks, Mode=OneWay}"
+                      SelectedItem="{x:Bind ViewModel.SelectedWeek, Mode=TwoWay}"
                       DisplayMemberPath="DisplayName"
-                      PlaceholderText="Select Month"
-                      Width="200"
+                      PlaceholderText="Select Week"
+                      Width="250"
                       Grid.Column="0"/>
 
             <Button Grid.Column="2"
@@ -50,13 +51,20 @@
         </Grid>
 
         <controls:DataGrid Grid.Row="2"
-                  ItemsSource="{x:Bind ViewModel.Records, Mode=OneWay}"
+                  ItemsSource="{Binding Source={StaticResource GroupedRecordsSource}}"
                   AutoGenerateColumns="False"
                   CanUserSortColumns="True"
                   HeadersVisibility="Column"
                   GridLinesVisibility="Horizontal"
                   IsReadOnly="True"
                   AlternatingRowBackground="{ThemeResource LayerFillColorAltBrush}">
+            <controls:DataGrid.RowGroupHeaderStyles>
+                <Style TargetType="controls:DataGridRowGroupHeader">
+                    <Setter Property="PropertyNameVisibility" Value="Collapsed"/>
+                    <Setter Property="ItemCountVisibility" Value="Visible"/>
+                    <Setter Property="Background" Value="{ThemeResource LayerFillColorDefaultBrush}"/>
+                </Style>
+            </controls:DataGrid.RowGroupHeaderStyles>
             <controls:DataGrid.Columns>
                 <controls:DataGridTextColumn Header="Date" Binding="{Binding Timestamp}" Width="200"/>
                 <controls:DataGridTextColumn Header="Game" Binding="{Binding GameName}" Width="250"/>

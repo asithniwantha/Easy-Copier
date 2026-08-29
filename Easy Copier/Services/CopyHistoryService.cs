@@ -12,8 +12,8 @@ namespace Easy_Copier.Services
     {
         Task InitializeAsync();
         Task AddRecordAsync(CopyHistoryRecord record);
-        Task<List<CopyHistoryRecord>> GetRecordsByMonthAsync(int year, int month);
-        Task<List<(int Year, int Month)>> GetAvailableMonthsAsync();
+        Task<List<CopyHistoryRecord>> GetRecordsByWeekAsync(DateTime startOfWeek, DateTime endOfWeek);
+        Task<List<DateTime>> GetAvailableWeeksAsync();
         Task<(int TotalItems, int SuccessfulItems, long TotalBytes, int TotalAmount)> GetStatsAsync(DateTime startDate, DateTime endDate);
     }
 
@@ -115,7 +115,7 @@ namespace Easy_Copier.Services
             }
         }
 
-        public async Task<List<CopyHistoryRecord>> GetRecordsByMonthAsync(int year, int month)
+        public async Task<List<CopyHistoryRecord>> GetRecordsByWeekAsync(DateTime startOfWeek, DateTime endOfWeek)
         {
             List<CopyHistoryRecord> records = [];
             try
@@ -123,16 +123,14 @@ namespace Easy_Copier.Services
                 using SqliteConnection connection = new(_connectionString);
                 await connection.OpenAsync();
 
-                // Format as YYYY-MM
-                string prefix = $"{year:D4}-{month:D2}";
-
                 SqliteCommand command = connection.CreateCommand();
                 command.CommandText = @"
                     SELECT Id, Timestamp, GameName, TargetDriveLetter, TargetDriveLabel, BytesTransferred, IsSuccess, Amount
                     FROM CopyHistory
-                    WHERE Timestamp LIKE $prefix
+                    WHERE substr(Timestamp, 1, 10) >= $startDate AND substr(Timestamp, 1, 10) <= $endDate
                     ORDER BY Timestamp DESC";
-                _ = command.Parameters.AddWithValue("$prefix", prefix + "%");
+                _ = command.Parameters.AddWithValue("$startDate", startOfWeek.ToString("yyyy-MM-dd"));
+                _ = command.Parameters.AddWithValue("$endDate", endOfWeek.ToString("yyyy-MM-dd"));
 
                 using SqliteDataReader reader = await command.ExecuteReaderAsync();
                 while (await reader.ReadAsync())
@@ -151,38 +149,44 @@ namespace Easy_Copier.Services
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "Failed to get copy history records for {Year}-{Month}", year, month);
+                _logger.LogError(ex, "Failed to get copy history records for week {Start}-{End}", startOfWeek, endOfWeek);
             }
             return records;
         }
 
-        public async Task<List<(int Year, int Month)>> GetAvailableMonthsAsync()
+        public async Task<List<DateTime>> GetAvailableWeeksAsync()
         {
-            HashSet<(int Year, int Month)> months = [];
+            HashSet<DateTime> startOfWeeks = [];
             try
             {
                 using SqliteConnection connection = new(_connectionString);
                 await connection.OpenAsync();
 
                 SqliteCommand command = connection.CreateCommand();
-                // Extract just the YYYY-MM part from the ISO8601 string
-                command.CommandText = "SELECT DISTINCT substr(Timestamp, 1, 7) FROM CopyHistory ORDER BY substr(Timestamp, 1, 7) DESC";
+                // Extract the YYYY-MM-DD part to group distinct dates
+                command.CommandText = "SELECT DISTINCT substr(Timestamp, 1, 10) FROM CopyHistory ORDER BY substr(Timestamp, 1, 10) DESC";
 
                 using SqliteDataReader reader = await command.ExecuteReaderAsync();
                 while (await reader.ReadAsync())
                 {
-                    string yyyyMm = reader.GetString(0);
-                    if (yyyyMm.Length == 7 && int.TryParse(yyyyMm.AsSpan(0, 4), out int year) && int.TryParse(yyyyMm.AsSpan(5, 2), out int month))
+                    string dateStr = reader.GetString(0);
+                    if (DateTime.TryParse(dateStr, out DateTime date))
                     {
-                        _ = months.Add((year, month));
+                        // Calculate start of week (Sunday)
+                        int diff = (7 + (date.DayOfWeek - DayOfWeek.Sunday)) % 7;
+                        DateTime startOfWeek = date.AddDays(-1 * diff).Date;
+                        _ = startOfWeeks.Add(startOfWeek);
                     }
                 }
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "Failed to get available months from copy history");
+                _logger.LogError(ex, "Failed to get available weeks from copy history");
             }
-            return [.. months];
+
+            List<DateTime> sortedWeeks = [.. startOfWeeks];
+            sortedWeeks.Sort((a, b) => b.CompareTo(a)); // Descending order
+            return sortedWeeks;
         }
 
         public async Task<(int TotalItems, int SuccessfulItems, long TotalBytes, int TotalAmount)> GetStatsAsync(DateTime startDate, DateTime endDate)
@@ -200,10 +204,10 @@ namespace Easy_Copier.Services
                         SUM(BytesTransferred),
                         SUM(Amount)
                     FROM CopyHistory
-                    WHERE Timestamp >= $startDate AND Timestamp < $endDate";
+                    WHERE substr(Timestamp, 1, 10) >= $startDate AND substr(Timestamp, 1, 10) < $endDate";
 
-                _ = command.Parameters.AddWithValue("$startDate", startDate.ToString("O"));
-                _ = command.Parameters.AddWithValue("$endDate", endDate.ToString("O"));
+                _ = command.Parameters.AddWithValue("$startDate", startDate.ToString("yyyy-MM-dd"));
+                _ = command.Parameters.AddWithValue("$endDate", endDate.ToString("yyyy-MM-dd"));
 
                 using SqliteDataReader reader = await command.ExecuteReaderAsync();
                 if (await reader.ReadAsync())
