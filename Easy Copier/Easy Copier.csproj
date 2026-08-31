@@ -1,7 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <DefineConstants>DISABLE_XAML_GENERATED_MAIN</DefineConstants>
-    <NoWarn>$(NoWarn);MVVMTK0045</NoWarn>
 
     <LangVersion>preview</LangVersion>
 	<OutputType>WinExe</OutputType>

@@ -18,7 +18,6 @@ namespace Easy_Copier.Infrastructure
         void ShowSettingsWindow(Action? onClosed = null, SettingsOpenAction openAction = SettingsOpenAction.None);
         void ShowHistoryWindow();
         void ShowAboutWindow();
-        Microsoft.UI.Xaml.Window? GetMainWindow();
     }
 
     public class WindowService : IWindowService
