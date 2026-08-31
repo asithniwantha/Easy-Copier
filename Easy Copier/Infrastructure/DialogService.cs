@@ -17,7 +17,7 @@ namespace Easy_Copier.Infrastructure
 
         public async Task<(CopyAction Action, bool ApplyToAll)> ShowConflictDialogAsync(string itemName, long srcSize, int srcCount, long destSize, int destCount)
         {
-            if (_windowService.GetMainWindow()?.Content is not FrameworkElement rootElement || rootElement.XamlRoot == null)
+            if (App.MainWindow?.Content is not FrameworkElement rootElement || rootElement.XamlRoot == null)
             {
                 return (CopyAction.Skip, false); // Fallback if no window
             }

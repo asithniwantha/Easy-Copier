@@ -173,23 +173,24 @@ namespace Easy_Copier.ViewModels
         [RelayCommand]
         private async Task RemoveGameSourceFolderAsync(string folderPath)
         {
-            _ = GameSourceFolders.Remove(folderPath);
-            StatusMessage = $"Removed: {folderPath}";
-            await SaveSettingsAsync();
+            await RemoveSourceFolderInternalAsync(GameSourceFolders, folderPath);
         }
 
         [RelayCommand]
         private async Task RemoveAppSourceFolderAsync(string folderPath)
         {
-            _ = AppSourceFolders.Remove(folderPath);
-            StatusMessage = $"Removed: {folderPath}";
-            await SaveSettingsAsync();
+            await RemoveSourceFolderInternalAsync(AppSourceFolders, folderPath);
         }
 
         [RelayCommand]
         private async Task RemoveTvAndFilmSourceFolderAsync(string folderPath)
         {
-            _ = TvAndFilmSourceFolders.Remove(folderPath);
+            await RemoveSourceFolderInternalAsync(TvAndFilmSourceFolders, folderPath);
+        }
+
+        private async Task RemoveSourceFolderInternalAsync(ObservableCollection<string> targetFolders, string folderPath)
+        {
+            _ = targetFolders.Remove(folderPath);
             StatusMessage = $"Removed: {folderPath}";
             await SaveSettingsAsync();
         }

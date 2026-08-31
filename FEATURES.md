@@ -80,7 +80,8 @@
 - Secondary modal windows explicitly decouple from static main window contexts, accepting owner parameters directly.
 - Implements `IDisposable` effectively for unmanaged resource and cancellation token lifecycle management.
 - Asynchronous database operations using `IsDBNullAsync` in SQLite readers to prevent synchronous blocking (CA1849).
-- CA and MVVM Toolkit analyzer compliant, leveraging modern C# preview features (`partial` properties) to suppress MVVMTK0045 warnings.
+- CA and MVVM Toolkit analyzer compliant, leveraging modern C# preview features (`partial` properties) to naturally resolve MVVMTK0045 warnings without project-level suppressions.
+- Strict MVVM architecture avoiding UI elements (like `Window`) in ViewModel interfaces and consolidating shared business logic (e.g. folder removals).
 - Comprehensive event logging utilizing Serilog to ensure troubleshooting is easy and traceable.
 
 ## 🛠️ Technical Stack
