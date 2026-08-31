@@ -29,15 +29,18 @@ namespace Easy_Copier.Infrastructure
             _serviceProvider = serviceProvider;
         }
 
-        public Microsoft.UI.Xaml.Window? GetMainWindow()
-        {
-            return App.MainWindow;
-        }
+        /// <summary>
+        /// Gets the primary active window instance of the application.
+        /// Exposed as a static property to comply with analyzer rules (CA1024, CA1822)
+        /// while providing access to the main application window context.
+        /// </summary>
+        public static Microsoft.UI.Xaml.Window? MainWindow => App.MainWindow;
 
         public void ShowSettingsWindow(Action? onClosed = null, SettingsOpenAction openAction = SettingsOpenAction.None)
         {
             var viewModel = _serviceProvider.GetRequiredService<SettingsViewModel>();
-            SettingsWindow settingsWindow = new(viewModel, GetMainWindow()!, openAction);
+            // Pass the primary application window context to modal dialogs as the owner window
+            SettingsWindow settingsWindow = new(viewModel, MainWindow!, openAction);
             if (onClosed != null)
             {
                 settingsWindow.SettingsClosed += (s, e) => onClosed();
@@ -48,14 +51,16 @@ namespace Easy_Copier.Infrastructure
         public void ShowHistoryWindow()
         {
             var viewModel = _serviceProvider.GetRequiredService<HistoryViewModel>();
-            HistoryWindow historyWindow = new(viewModel, GetMainWindow()!);
+            // Pass the primary application window context to modal dialogs as the owner window
+            HistoryWindow historyWindow = new(viewModel, MainWindow!);
             historyWindow.Activate();
         }
 
         public void ShowAboutWindow()
         {
             var viewModel = _serviceProvider.GetRequiredService<AboutViewModel>();
-            AboutWindow aboutWindow = new(viewModel, GetMainWindow()!);
+            // Pass the primary application window context to modal dialogs as the owner window
+            AboutWindow aboutWindow = new(viewModel, MainWindow!);
             aboutWindow.Activate();
         }
     }
