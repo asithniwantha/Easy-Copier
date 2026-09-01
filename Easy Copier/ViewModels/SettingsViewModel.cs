@@ -15,27 +15,41 @@ namespace Easy_Copier.ViewModels
 {
     public partial class SettingsViewModel : ObservableObject
     {
-        [RelayCommand]
-        private void OpenLogsFolder()
+        private void OpenFolderInExplorer(string? folderPath, string successMessage)
         {
+            if (string.IsNullOrWhiteSpace(folderPath))
+            {
+                StatusMessage = "Unable to resolve the folder path";
+                return;
+            }
+
             try
             {
-                string appDataFolder = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
-                string logFolder = System.IO.Path.Combine(appDataFolder, "EasyCopier", "Logs");
-                if (System.IO.Directory.Exists(logFolder))
+                if (System.IO.Directory.Exists(folderPath))
                 {
-                    _processService.OpenInExplorer(logFolder);
-                    _logger.LogInformation("Logs folder opened successfully.");
+                    _processService.OpenInExplorer(folderPath);
+                    StatusMessage = successMessage;
+                    _logger.LogInformation("{Message}", successMessage);
                 }
                 else
                 {
-                    _logger.LogWarning("Logs folder not found.");
+                    StatusMessage = "Folder not found.";
+                    _logger.LogWarning("Folder not found: {Path}", folderPath);
                 }
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "Failed to open logs folder.");
+                StatusMessage = $"Unable to open folder: {ex.Message}";
+                _logger.LogError(ex, "Failed to open folder: {Path}", folderPath);
             }
+        }
+
+        [RelayCommand]
+        private void OpenLogsFolder()
+        {
+            string appDataFolder = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
+            string logFolder = System.IO.Path.Combine(appDataFolder, "EasyCopier", "Logs");
+            OpenFolderInExplorer(logFolder, "Logs folder opened successfully.");
         }
 
         private readonly ISettingsService _settingsService;
@@ -199,22 +213,7 @@ namespace Easy_Copier.ViewModels
         private void OpenDataFolder()
         {
             string? folderPath = System.IO.Path.GetDirectoryName(_settingsService.GetSettingsFilePath());
-
-            if (string.IsNullOrWhiteSpace(folderPath))
-            {
-                StatusMessage = "Unable to resolve the data folder";
-                return;
-            }
-
-            try
-            {
-                _processService.OpenInExplorer(folderPath);
-                StatusMessage = $"Opened data folder: {folderPath}";
-            }
-            catch (Exception ex)
-            {
-                StatusMessage = $"Unable to open data folder: {ex.Message}";
-            }
+            OpenFolderInExplorer(folderPath, $"Opened data folder: {folderPath}");
         }
 
         [RelayCommand]

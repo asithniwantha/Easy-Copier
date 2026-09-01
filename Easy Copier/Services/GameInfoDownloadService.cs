@@ -19,13 +19,33 @@ namespace Easy_Copier.Services
     public sealed partial class GameInfoDownloadService : IGameInfoDownloadService, IDisposable
     {
         private readonly ILogger<GameInfoDownloadService> _logger;
-        private readonly HttpClient _httpClient;
+        private static readonly HttpClient _httpClient = new();
+
+        static GameInfoDownloadService()
+        {
+            _httpClient.DefaultRequestHeaders.UserAgent.ParseAdd("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36");
+        }
 
         public GameInfoDownloadService(ILogger<GameInfoDownloadService> logger)
         {
             _logger = logger;
-            _httpClient = new HttpClient();
-            _httpClient.DefaultRequestHeaders.UserAgent.ParseAdd("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36");
+        }
+
+        private async Task<string?> FetchStringAsync(Uri url, CancellationToken cancellationToken)
+        {
+            try
+            {
+                HttpResponseMessage response = await _httpClient.GetAsync(url, cancellationToken);
+                if (response.IsSuccessStatusCode)
+                {
+                    return await response.Content.ReadAsStringAsync(cancellationToken);
+                }
+            }
+            catch (Exception ex)
+            {
+                _logger.LogWarning(ex, "Error fetching data from {Url}", url);
+            }
+            return null;
         }
 
         public async Task DownloadGameInfoAsync(IEnumerable<string> sourceFolders, IProgress<string>? progress = null, CancellationToken cancellationToken = default)
@@ -171,13 +191,11 @@ namespace Easy_Copier.Services
             }
 
             Uri url = new($"https://store.steampowered.com/api/appdetails?appids={appId}");
-            HttpResponseMessage response = await _httpClient.GetAsync(url, cancellationToken);
-            if (!response.IsSuccessStatusCode)
+            string? content = await FetchStringAsync(url, cancellationToken);
+            if (content == null)
             {
                 return null;
             }
-
-            string content = await response.Content.ReadAsStringAsync(cancellationToken);
             using JsonDocument doc = JsonDocument.Parse(content);
             if (!doc.RootElement.TryGetProperty(appId, out JsonElement appData) || !appData.GetProperty("success").GetBoolean())
             {
@@ -295,14 +313,12 @@ namespace Easy_Copier.Services
             Uri url = new($"https://steamcommunity.com/actions/SearchApps/{Uri.EscapeDataString(gameName)}");
             try
             {
-                HttpResponseMessage response = await _httpClient.GetAsync(url, cancellationToken);
-                if (!response.IsSuccessStatusCode)
+                string? json = await FetchStringAsync(url, cancellationToken);
+                if (json == null)
                 {
                     return null;
                 }
-
-                string content = await response.Content.ReadAsStringAsync(cancellationToken);
-                using JsonDocument doc = JsonDocument.Parse(content);
+                using JsonDocument doc = JsonDocument.Parse(json);
                 if (doc.RootElement.GetArrayLength() > 0)
                 {
                     return doc.RootElement[0].GetProperty("appid").GetString();
@@ -345,11 +361,10 @@ namespace Easy_Copier.Services
             Uri url = new($"https://catalog.gog.com/v1/catalog?query=like:{Uri.EscapeDataString(gameName)}&limit=1");
             try
             {
-                HttpResponseMessage response = await _httpClient.GetAsync(url, cancellationToken);
-                if (response.IsSuccessStatusCode)
+                string? json = await FetchStringAsync(url, cancellationToken);
+                if (json != null)
                 {
-                    string content = await response.Content.ReadAsStringAsync(cancellationToken);
-                    using JsonDocument doc = JsonDocument.Parse(content);
+                    using JsonDocument doc = JsonDocument.Parse(json);
                     if (doc.RootElement.TryGetProperty("products", out JsonElement products) && products.GetArrayLength() > 0)
                     {
                         JsonElement product = products[0];
@@ -374,10 +389,9 @@ namespace Easy_Copier.Services
             Uri url = new($"https://gamesystemrequirements.com/games.php?req={Uri.EscapeDataString(gameName)}");
             try
             {
-                HttpResponseMessage response = await _httpClient.GetAsync(url, cancellationToken);
-                if (response.IsSuccessStatusCode)
+                string? html = await FetchStringAsync(url, cancellationToken);
+                if (html != null)
                 {
-                    string html = await response.Content.ReadAsStringAsync(cancellationToken);
                     Match match = Regex.Match(html, @"<div class=""game-item"">.*?<a href=""([^""]+)"">.*?<img src=""([^""]+)""", RegexOptions.Singleline);
                     if (match.Success)
                     {
@@ -400,10 +414,9 @@ namespace Easy_Copier.Services
             Uri url = new($"https://en.wikipedia.org/wiki/Special:Search?search={Uri.EscapeDataString(gameName)}");
             try
             {
-                HttpResponseMessage response = await _httpClient.GetAsync(url, cancellationToken);
-                if (response.IsSuccessStatusCode)
+                string? html = await FetchStringAsync(url, cancellationToken);
+                if (html != null)
                 {
-                    string html = await response.Content.ReadAsStringAsync(cancellationToken);
                     Match match = Regex.Match(html, @"<table class=""infobox[^""]*"">.*?<img[^>]+src=""([^""]+)""", RegexOptions.Singleline);
                     if (match.Success)
                     {
@@ -431,11 +444,10 @@ namespace Easy_Copier.Services
             Uri url = new($"https://www.pcgamingwiki.com/w/api.php?action=query&prop=pageimages&titles={Uri.EscapeDataString(gameName)}&format=json&pithumbsize=800");
             try
             {
-                HttpResponseMessage response = await _httpClient.GetAsync(url, cancellationToken);
-                if (response.IsSuccessStatusCode)
+                string? json = await FetchStringAsync(url, cancellationToken);
+                if (json != null)
                 {
-                    string content = await response.Content.ReadAsStringAsync(cancellationToken);
-                    using JsonDocument doc = JsonDocument.Parse(content);
+                    using JsonDocument doc = JsonDocument.Parse(json);
                     if (doc.RootElement.TryGetProperty("query", out JsonElement query) && query.TryGetProperty("pages", out JsonElement pages))
                     {
                         foreach (JsonProperty pageProp in pages.EnumerateObject())
@@ -460,19 +472,17 @@ namespace Easy_Copier.Services
             Uri url = new($"https://api.opencritic.com/api/game/search?criteria={Uri.EscapeDataString(gameName)}");
             try
             {
-                HttpResponseMessage response = await _httpClient.GetAsync(url, cancellationToken);
-                if (response.IsSuccessStatusCode)
+                string? content = await FetchStringAsync(url, cancellationToken);
+                if (content != null)
                 {
-                    string content = await response.Content.ReadAsStringAsync(cancellationToken);
                     using JsonDocument doc = JsonDocument.Parse(content);
                     if (doc.RootElement.GetArrayLength() > 0)
                     {
                         int gameId = doc.RootElement[0].GetProperty("id").GetInt32();
                         Uri gameUrl = new($"https://api.opencritic.com/api/game/{gameId}");
-                        HttpResponseMessage gameResponse = await _httpClient.GetAsync(gameUrl, cancellationToken);
-                        if (gameResponse.IsSuccessStatusCode)
+                        string? gameContent = await FetchStringAsync(gameUrl, cancellationToken);
+                        if (gameContent != null)
                         {
-                            string gameContent = await gameResponse.Content.ReadAsStringAsync(cancellationToken);
                             using JsonDocument gameDoc = JsonDocument.Parse(gameContent);
                             JsonElement root = gameDoc.RootElement;
 
@@ -507,10 +517,9 @@ namespace Easy_Copier.Services
             Uri url = new($"https://lutris.net/games/?q={Uri.EscapeDataString(gameName)}");
             try
             {
-                HttpResponseMessage response = await _httpClient.GetAsync(url, cancellationToken);
-                if (response.IsSuccessStatusCode)
+                string? html = await FetchStringAsync(url, cancellationToken);
+                if (html != null)
                 {
-                    string html = await response.Content.ReadAsStringAsync(cancellationToken);
                     Match match = Regex.Match(html, @"<a href=""/games/[^/]+/"".*?<img.*?src=""([^""]+)""", RegexOptions.Singleline);
                     if (match.Success)
                     {
@@ -530,7 +539,7 @@ namespace Easy_Copier.Services
 
         public void Dispose()
         {
-            _httpClient?.Dispose();
+            // _httpClient is static, do not dispose here.
             GC.SuppressFinalize(this);
         }
 
