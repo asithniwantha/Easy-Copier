@@ -6,6 +6,7 @@ using Easy_Copier.Services;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.ObjectModel;
+using System.Globalization;
 using System.ComponentModel;
 using System.Linq;
 using System.Text.Json;
@@ -95,10 +96,10 @@ namespace Easy_Copier.ViewModels
         [RelayCommand]
         public void DeleteCell(NumberCell cell)
         {
-            ArgumentNullException.ThrowIfNull(entry);
+            ArgumentNullException.ThrowIfNull(cell);
 
-            int entryIndex = Entries.IndexOf(entry);
-            if (entryIndex < 0)
+            int index = Cells.IndexOf(cell);
+            if (index < 0)
             {
                 return;
             }
@@ -128,8 +129,8 @@ namespace Easy_Copier.ViewModels
             try
             {
                 var values = Cells
-                    .Where(c => double.TryParse(c.InputValue, out _))
-                    .Select(c => double.Parse(c.InputValue))
+                    .Where(c => double.TryParse(c.InputValue, NumberStyles.Float | NumberStyles.AllowThousands, CultureInfo.InvariantCulture, out _))
+                    .Select(c => double.Parse(c.InputValue, CultureInfo.InvariantCulture))
                     .ToArray();
 
                 if (values.Length > 0)
