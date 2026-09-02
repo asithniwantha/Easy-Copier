@@ -104,6 +104,8 @@ namespace Easy_Copier.ViewModels
 
         public void RemoveEntry(SmartAdderEntry entry)
         {
+            ArgumentNullException.ThrowIfNull(entry);
+
             int entryIndex = Entries.IndexOf(entry);
             if (entryIndex < 0)
             {
