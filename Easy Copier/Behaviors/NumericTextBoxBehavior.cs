@@ -12,68 +12,67 @@ using Windows.System;
 
 namespace Easy_Copier.Behaviors
 {
-    /// <summary>
-    /// Restricts a <see cref="TextBox"/> to numeric input and implements SmartAdder's
-    /// specialized keyboard navigation: Enter/Down/Plus/Minus move to the next row, Up moves
-    /// to the previous row, and Delete removes the current row.
-    /// </summary>
     public sealed class NumericTextBoxBehavior : Behavior<TextBox>
     {
         protected override void OnAttached()
         {
             base.OnAttached();
             AssociatedObject.PreviewKeyDown += AssociatedObject_PreviewKeyDown;
-            AssociatedObject.BeforeTextChanging += AssociatedObject_BeforeTextChanging;
+            AssociatedObject.TextChanging += AssociatedObject_TextChanging;
         }
 
         protected override void OnDetaching()
         {
             AssociatedObject.PreviewKeyDown -= AssociatedObject_PreviewKeyDown;
-            AssociatedObject.BeforeTextChanging -= AssociatedObject_BeforeTextChanging;
+            AssociatedObject.TextChanging -= AssociatedObject_TextChanging;
             base.OnDetaching();
         }
 
-        private static void AssociatedObject_BeforeTextChanging(TextBox sender, TextBoxBeforeTextChangingEventArgs args)
+        private void AssociatedObject_TextChanging(TextBox sender, TextBoxTextChangingEventArgs args)
         {
-            args.Cancel = !IsValidNumberText(args.NewText);
+            string originalText = sender.Text;
+            string sanitizedText = SanitizeText(originalText);
+
+            if (originalText != sanitizedText)
+            {
+                int cursorPosition = sender.SelectionStart;
+                sender.Text = sanitizedText;
+
+                // Try to keep cursor in a reasonable place
+                sender.SelectionStart = Math.Min(cursorPosition, sanitizedText.Length);
+            }
         }
 
-        private static bool IsValidNumberText(string text)
+        private static string SanitizeText(string input)
         {
-            if (text.Length == 0)
-            {
-                return true;
-            }
+            if (string.IsNullOrEmpty(input)) return input;
 
-            if (text[0] == '-' && text.Length == 1)
-            {
-                return true;
-            }
+            var chars = new List<char>();
+            bool hasDecimal = false;
+            bool isFirst = true;
 
-            int decimalPointCount = 0;
-            for (int i = 0; i < text.Length; i++)
+            foreach (char c in input)
             {
-                char character = text[i];
-                if (character == '-' && i == 0)
+                if (c == '-' && isFirst)
                 {
-                    continue;
+                    chars.Add(c);
                 }
-
-                if (character == '.')
+                else if (c == '.')
                 {
-                    decimalPointCount++;
-                    if (decimalPointCount > 1)
+                    if (!hasDecimal)
                     {
-                        return false;
+                        chars.Add(c);
+                        hasDecimal = true;
                     }
                 }
-                else if (character is < '0' or > '9')
+                else if (char.IsDigit(c))
                 {
-                    return false;
+                    chars.Add(c);
                 }
+                isFirst = false;
             }
 
-            return true;
+            return new string(chars.ToArray());
         }
 
         private void AssociatedObject_PreviewKeyDown(object sender, KeyRoutedEventArgs e)
@@ -99,8 +98,11 @@ namespace Easy_Copier.Behaviors
                     break;
 
                 case VirtualKey.Delete:
-                    RemoveCurrentEntry();
-                    e.Handled = true;
+                    if (string.IsNullOrEmpty(AssociatedObject.Text))
+                    {
+                        RemoveCurrentEntryAndFocusPrevious();
+                        e.Handled = true;
+                    }
                     break;
             }
         }
@@ -121,47 +123,42 @@ namespace Easy_Copier.Behaviors
             }
 
             int targetIndex = forward ? currentIndex + 1 : currentIndex - 1;
-            if (forward && targetIndex >= textBoxes.Count && itemsControl.DataContext is SmartAdderViewModel viewModel)
-            {
-                viewModel.EnsureNextEntry();
-                AssociatedObject.DispatcherQueue.TryEnqueue(() => FocusEntryAt(itemsControl, currentIndex + 1));
-                return;
-            }
 
+            // Note: ViewModel automatically adds empty bottom cells when populated,
+            // so if we are at the end, the next cell might already be there,
+            // but if it isn't, we can't navigate forward. Let's just focus if within bounds.
             if (targetIndex >= 0 && targetIndex < textBoxes.Count)
             {
                 FocusTextBox(textBoxes[targetIndex]);
             }
         }
 
-        private void RemoveCurrentEntry()
+        private void RemoveCurrentEntryAndFocusPrevious()
         {
             ItemsControl? itemsControl = AssociatedObject.FindAscendant<ItemsControl>();
             if (itemsControl?.DataContext is not SmartAdderViewModel viewModel ||
-                AssociatedObject.DataContext is not SmartAdderEntry entry)
+                AssociatedObject.DataContext is not NumberCell cell)
             {
                 return;
             }
 
-            viewModel.RemoveEntry(entry);
-            AssociatedObject.DispatcherQueue.TryEnqueue(() => FocusBottomEntry(itemsControl));
-        }
-
-        private static void FocusEntryAt(ItemsControl itemsControl, int index)
-        {
             List<TextBox> textBoxes = [.. itemsControl.FindDescendants().OfType<TextBox>()];
-            if (index >= 0 && index < textBoxes.Count)
-            {
-                FocusTextBox(textBoxes[index]);
-            }
-        }
+            int currentIndex = textBoxes.IndexOf(AssociatedObject);
 
-        private static void FocusBottomEntry(ItemsControl itemsControl)
-        {
-            List<TextBox> textBoxes = [.. itemsControl.FindDescendants().OfType<TextBox>()];
-            if (textBoxes.Count > 0)
+            viewModel.DeleteCellCommand.Execute(cell);
+
+            int targetIndex = currentIndex - 1;
+            if (targetIndex >= 0)
             {
-                FocusTextBox(textBoxes[^1]);
+                AssociatedObject.DispatcherQueue.TryEnqueue(() =>
+                {
+                    // Find text boxes again after modification
+                    var newTextBoxes = itemsControl.FindDescendants().OfType<TextBox>().ToList();
+                    if (targetIndex < newTextBoxes.Count)
+                    {
+                        FocusTextBox(newTextBoxes[targetIndex]);
+                    }
+                });
             }
         }
 
