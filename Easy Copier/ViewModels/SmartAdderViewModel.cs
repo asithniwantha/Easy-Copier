@@ -13,96 +13,87 @@ using System.Threading.Tasks;
 
 namespace Easy_Copier.ViewModels
 {
-    /// <summary>
-    /// Backs the floating SmartAdder overlay: a dynamic list of number entries that
-    /// automatically grows as the user types and shows a continuously updated running total.
-    /// </summary>
     public sealed partial class SmartAdderViewModel : ObservableObject
     {
-        private readonly ISmartAdderHistoryService _smartAdderHistoryService;
-        private readonly IWindowService _windowService;
+        private readonly IHistoryDialogService _historyDialogService;
+        private readonly IDatabaseService _databaseService;
         private readonly ILogger<SmartAdderViewModel> _logger;
 
         [ObservableProperty]
-        public partial double Total { get; set; }
+        public partial double TotalSum { get; set; }
 
         [ObservableProperty]
-        public partial bool IsExpanded { get; set; }
+        public partial bool IsHovering { get; set; }
 
-        public ObservableCollection<SmartAdderEntry> Entries { get; } = [];
+        [ObservableProperty]
+        public partial bool IsListFocused { get; set; }
+
+        public ObservableCollection<NumberCell> Cells { get; } = [];
 
         public SmartAdderViewModel(
-            ISmartAdderHistoryService smartAdderHistoryService,
-            IWindowService windowService,
+            IHistoryDialogService historyDialogService,
+            IDatabaseService databaseService,
             ILogger<SmartAdderViewModel> logger)
         {
-            _smartAdderHistoryService = smartAdderHistoryService;
-            _windowService = windowService;
+            _historyDialogService = historyDialogService;
+            _databaseService = databaseService;
             _logger = logger;
 
-            AddNewEntry();
+            AddNewCell();
         }
 
-        private void AddNewEntry()
+        private void AddNewCell()
         {
-            SmartAdderEntry entry = new() { Index = Entries.Count };
-            entry.PropertyChanged += Entry_PropertyChanged;
-            Entries.Add(entry);
+            NumberCell cell = new();
+            cell.PropertyChanged += Cell_PropertyChanged;
+            Cells.Add(cell);
         }
 
-        private void Entry_PropertyChanged(object? sender, PropertyChangedEventArgs e)
+        private void Cell_PropertyChanged(object? sender, PropertyChangedEventArgs e)
         {
-            if (e.PropertyName != nameof(SmartAdderEntry.Text) || sender is not SmartAdderEntry entry)
+            if (e.PropertyName != nameof(NumberCell.InputValue))
             {
                 return;
             }
 
-            entry.Value = double.TryParse(entry.Text, out double parsed) ? parsed : null;
-
-            AddEntryIfNeeded();
-            RemoveEmptyTrailingEntries();
+            EnsureOneEmptyBottomCell();
             RecalculateTotal();
         }
 
-        [RelayCommand]
-        private void AddEntryIfNeeded()
+        private void EnsureOneEmptyBottomCell()
         {
-            if (Entries.Count == 0 || !Entries[^1].IsEmpty)
+            // Remove extra empty trailing cells
+            while (Cells.Count > 1 &&
+                   string.IsNullOrWhiteSpace(Cells[^1].InputValue) &&
+                   string.IsNullOrWhiteSpace(Cells[^2].InputValue))
             {
-                AddNewEntry();
-            }
-        }
-
-        [RelayCommand]
-        private void RemoveEmptyTrailingEntries()
-        {
-            while (Entries.Count > 1 && Entries[^1].IsEmpty && Entries[^2].IsEmpty)
-            {
-                SmartAdderEntry last = Entries[^1];
-                last.PropertyChanged -= Entry_PropertyChanged;
-                Entries.RemoveAt(Entries.Count - 1);
+                NumberCell last = Cells[^1];
+                last.PropertyChanged -= Cell_PropertyChanged;
+                Cells.RemoveAt(Cells.Count - 1);
             }
 
-            for (int i = 0; i < Entries.Count; i++)
+            // Ensure there is an empty trailing cell
+            if (Cells.Count == 0 || !string.IsNullOrWhiteSpace(Cells[^1].InputValue))
             {
-                Entries[i].Index = i;
+                AddNewCell();
             }
         }
 
         private void RecalculateTotal()
         {
-            Total = Entries.Where(e => e.Value.HasValue).Sum(e => e.Value!.Value);
-        }
-
-        public void EnsureNextEntry()
-        {
-            if (Entries.Count == 0 || Entries[^1].IsEmpty)
+            double sum = 0;
+            foreach (var cell in Cells)
             {
-                AddNewEntry();
+                if (double.TryParse(cell.InputValue, out double val))
+                {
+                    sum += val;
+                }
             }
+            TotalSum = sum;
         }
 
-        public void RemoveEntry(SmartAdderEntry entry)
+        [RelayCommand]
+        public void DeleteCell(NumberCell cell)
         {
             ArgumentNullException.ThrowIfNull(entry);
 
@@ -112,41 +103,44 @@ namespace Easy_Copier.ViewModels
                 return;
             }
 
-            if (Entries.Count == 1)
+            if (Cells.Count == 1)
             {
-                entry.Text = string.Empty;
+                cell.InputValue = string.Empty;
                 return;
             }
 
-            entry.PropertyChanged -= Entry_PropertyChanged;
-            Entries.RemoveAt(entryIndex);
-            RemoveEmptyTrailingEntries();
+            cell.PropertyChanged -= Cell_PropertyChanged;
+            Cells.RemoveAt(index);
+
+            EnsureOneEmptyBottomCell();
             RecalculateTotal();
         }
 
         [RelayCommand]
-        private void OpenHistory()
+        private async Task OpenHistoryAsync()
         {
-            _windowService.ShowSmartAdderHistoryWindow();
+            await _historyDialogService.ShowHistoryDialogAsync();
         }
 
         [RelayCommand]
-        private async Task ClearAndLogHistoryAsync()
+        private async Task ClearAllAsync()
         {
             try
             {
-                double[] values = [.. Entries.Where(e => e.Value.HasValue).Select(e => e.Value!.Value)];
+                var values = Cells
+                    .Where(c => double.TryParse(c.InputValue, out _))
+                    .Select(c => double.Parse(c.InputValue))
+                    .ToArray();
 
                 if (values.Length > 0)
                 {
-                    SmartAdderHistoryRecord record = new()
+                    var record = new SmartAdderHistoryRecord
                     {
                         Timestamp = DateTime.Now,
                         EntriesJson = JsonSerializer.Serialize(values),
-                        Total = Total
+                        TotalSum = TotalSum
                     };
-
-                    await _smartAdderHistoryService.AddRecordAsync(record);
+                    await _databaseService.AddRecordAsync(record);
                 }
             }
             catch (Exception ex)
@@ -154,14 +148,14 @@ namespace Easy_Copier.ViewModels
                 _logger.LogError(ex, "Failed to log SmartAdder history before clearing.");
             }
 
-            foreach (SmartAdderEntry entry in Entries)
+            foreach (var cell in Cells)
             {
-                entry.PropertyChanged -= Entry_PropertyChanged;
+                cell.PropertyChanged -= Cell_PropertyChanged;
             }
-            Entries.Clear();
-            Total = 0;
+            Cells.Clear();
+            TotalSum = 0;
 
-            AddNewEntry();
+            AddNewCell();
         }
     }
 }

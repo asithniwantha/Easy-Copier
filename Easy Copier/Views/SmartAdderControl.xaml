@@ -11,8 +11,8 @@
     mc:Ignorable="d">
 
     <UserControl.Resources>
-        <DataTemplate x:Key="SmartAdderEntryTemplate" x:DataType="models:SmartAdderEntry">
-            <TextBox Text="{x:Bind Text, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+        <DataTemplate x:Key="SmartAdderEntryTemplate" x:DataType="models:NumberCell">
+            <TextBox Text="{x:Bind InputValue, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                      PlaceholderText="0"
                      InputScope="Number"
                      MinWidth="140"
@@ -35,22 +35,22 @@
             MinWidth="48">
 
         <interactivity:Interaction.Behaviors>
-            <behaviors:HoverBehavior x:Name="HoverBehaviorInstance" IsHovered="{x:Bind ViewModel.IsExpanded, Mode=TwoWay}"/>
-            <behaviors:FocusWithinBehavior x:Name="FocusWithinBehaviorInstance" IsFocusWithin="{x:Bind ViewModel.IsExpanded, Mode=TwoWay}"/>
+            <behaviors:HoverBehavior x:Name="HoverBehaviorInstance" IsHovered="{x:Bind ViewModel.IsHovering, Mode=TwoWay}"/>
+            <behaviors:FocusWithinBehavior x:Name="FocusWithinBehaviorInstance" IsFocusWithin="{x:Bind ViewModel.IsListFocused, Mode=TwoWay}"/>
         </interactivity:Interaction.Behaviors>
 
         <StackPanel Spacing="6">
             <StackPanel Orientation="Horizontal" Spacing="8">
                 <FontIcon Glyph="&#xE8EF;" FontSize="16" VerticalAlignment="Center" Opacity="0.8"/>
                 <TextBlock Text="Smart Adder" FontWeight="SemiBold" FontSize="12" VerticalAlignment="Center" Opacity="0.8"/>
-                <TextBlock Text="{x:Bind ViewModel.Total, Mode=OneWay}" FontWeight="Bold" FontSize="14" VerticalAlignment="Center"/>
+                <TextBlock Text="{x:Bind ViewModel.TotalSum, Mode=OneWay}" FontWeight="Bold" FontSize="14" VerticalAlignment="Center"/>
             </StackPanel>
 
+            <!-- Derived visibility: visible if hovering or focused -->
             <StackPanel Orientation="Vertical"
                         Spacing="4"
-                        Visibility="{x:Bind ViewModel.IsExpanded, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}">
-
-                <ItemsControl ItemsSource="{x:Bind ViewModel.Entries, Mode=OneWay}"
+                        x:Name="InputListPanel">
+                <ItemsControl ItemsSource="{x:Bind ViewModel.Cells, Mode=OneWay}"
                               ItemTemplate="{StaticResource SmartAdderEntryTemplate}"
                               MaxHeight="240">
                     <ItemsControl.ItemsPanel>
@@ -60,10 +60,16 @@
                     </ItemsControl.ItemsPanel>
                 </ItemsControl>
 
-                <Button Content="Clear"
-                        Command="{x:Bind ViewModel.ClearAndLogHistoryCommand}"
-                        HorizontalAlignment="Stretch"
-                        Margin="0,4,0,0"/>
+                <StackPanel Orientation="Horizontal" Spacing="4" HorizontalAlignment="Stretch">
+                    <Button Content="Clear"
+                            Command="{x:Bind ViewModel.ClearAllCommand}"
+                            HorizontalAlignment="Stretch"
+                            Margin="0,4,0,0"/>
+                    <Button Content="History"
+                            Command="{x:Bind ViewModel.OpenHistoryCommand}"
+                            HorizontalAlignment="Stretch"
+                            Margin="0,4,0,0"/>
+                </StackPanel>
             </StackPanel>
         </StackPanel>
     </Border>
