@@ -95,10 +95,10 @@ namespace Easy_Copier.ViewModels
         [RelayCommand]
         public void DeleteCell(NumberCell cell)
         {
-            ArgumentNullException.ThrowIfNull(entry);
+            ArgumentNullException.ThrowIfNull(cell);
 
-            int entryIndex = Entries.IndexOf(entry);
-            if (entryIndex < 0)
+            int cellIndex = Cells.IndexOf(cell);
+            if (cellIndex < 0)
             {
                 return;
             }
@@ -110,7 +110,7 @@ namespace Easy_Copier.ViewModels
             }
 
             cell.PropertyChanged -= Cell_PropertyChanged;
-            Cells.RemoveAt(index);
+            Cells.RemoveAt(cellIndex);
 
             EnsureOneEmptyBottomCell();
             RecalculateTotal();

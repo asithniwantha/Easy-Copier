@@ -96,7 +96,7 @@
 - [x] Handle copy collisions: if the destination drive already contains the folder, ask to replace everything, merge, or do nothing (comparing size and file count).
 - [x] Add option to copy only missing files from the source to the destination if the destination folder already exists ("Merge").
 - [x] Add About page with app version, developer info, and links to GitHub repo and issues page.
-- [ ] Add an Excel-like calculator tool.
+- [x] Add an Excel-like calculator tool (SmartAdder overlay for dynamic addition and calculation history logging).
 - [x] Implement update checking and notification system to inform users of new releases, or automatically download and install updates.
 - [ ] Show total price of selected games in the library view, based on configured price tiers. and after that, show the total price of all selected games in the copy queue view after the total size of the selected games is calculated. 
 
