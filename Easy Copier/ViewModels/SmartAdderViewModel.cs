@@ -95,8 +95,13 @@ namespace Easy_Copier.ViewModels
         [RelayCommand]
         public void DeleteCell(NumberCell cell)
         {
-            int index = Cells.IndexOf(cell);
-            if (index < 0) return;
+            ArgumentNullException.ThrowIfNull(entry);
+
+            int entryIndex = Entries.IndexOf(entry);
+            if (entryIndex < 0)
+            {
+                return;
+            }
 
             if (Cells.Count == 1)
             {
