@@ -28,7 +28,27 @@ namespace Easy_Copier.ViewModels
         [ObservableProperty]
         public partial bool IsListFocused { get; set; }
 
-        public ObservableCollection<NumberCell> Cells { get; } = [];
+        public double Total
+        {
+            get => TotalSum;
+            set => TotalSum = value;
+        }
+
+        public bool IsExpanded
+        {
+            get => IsHovering || IsListFocused;
+            set
+            {
+                IsHovering = value;
+                IsListFocused = value;
+            }
+        }
+
+        public ObservableCollection<SmartAdderEntry> Cells { get; } = [];
+
+        public ObservableCollection<SmartAdderEntry> Entries => Cells;
+
+        public IAsyncRelayCommand ClearAndLogHistoryCommand => ClearAllCommand;
 
         public SmartAdderViewModel(
             IHistoryDialogService historyDialogService,
@@ -44,10 +64,16 @@ namespace Easy_Copier.ViewModels
 
         private void AddNewCell()
         {
-            NumberCell cell = new();
+            SmartAdderEntry cell = new();
             cell.PropertyChanged += Cell_PropertyChanged;
             Cells.Add(cell);
         }
+
+        partial void OnTotalSumChanged(double value) => OnPropertyChanged(nameof(Total));
+
+        partial void OnIsHoveringChanged(bool value) => OnPropertyChanged(nameof(IsExpanded));
+
+        partial void OnIsListFocusedChanged(bool value) => OnPropertyChanged(nameof(IsExpanded));
 
         private void Cell_PropertyChanged(object? sender, PropertyChangedEventArgs e)
         {
@@ -67,7 +93,7 @@ namespace Easy_Copier.ViewModels
                    string.IsNullOrWhiteSpace(Cells[^1].InputValue) &&
                    string.IsNullOrWhiteSpace(Cells[^2].InputValue))
             {
-                NumberCell last = Cells[^1];
+                SmartAdderEntry last = Cells[^1];
                 last.PropertyChanged -= Cell_PropertyChanged;
                 Cells.RemoveAt(Cells.Count - 1);
             }
@@ -93,7 +119,7 @@ namespace Easy_Copier.ViewModels
         }
 
         [RelayCommand]
-        public void DeleteCell(NumberCell cell)
+        public void DeleteCell(SmartAdderEntry cell)
         {
             int index = Cells.IndexOf(cell);
             if (index < 0) return;
