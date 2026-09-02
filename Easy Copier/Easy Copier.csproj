@@ -42,6 +42,7 @@
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="10.0.11" />
     <PackageReference Include="Microsoft.Extensions.Logging" Version="10.0.11" />
     <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="10.0.11" />
+    <PackageReference Include="Microsoft.Xaml.Behaviors.WinUI.Managed" Version="3.0.1" />
     <PackageReference Include="SQLitePCLRaw.lib.e_sqlite3" Version="3.53.3" />
     <PackageReference Include="System.Management" Version="10.0.11" />
   <PackageReference Include="Microsoft.Data.Sqlite" Version="10.0.11" /><PackageReference Include="CommunityToolkit.WinUI.UI.Controls.DataGrid" Version="7.1.2" /></ItemGroup>
@@ -50,10 +51,6 @@
     <Content Include="Assets\easy copier ico.ico">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-  </ItemGroup>
-
-  <ItemGroup>
-
   </ItemGroup>
 
   <PropertyGroup>
@@ -67,9 +64,9 @@
     <ApplicationIcon>Assets\easy copier ico.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
-<PackageReference Include="Serilog.Extensions.Logging" Version="10.0.0" />
+    <PackageReference Include="Serilog.Extensions.Logging" Version="10.0.0" />
     <PackageReference Include="Serilog.Sinks.File" Version="7.0.0" />
     <PackageReference Include="Serilog.Sinks.Debug" Version="3.0.0" />
     <PackageReference Include="Velopack" Version="1.2.0" />
   </ItemGroup>
-</Project>
+  </Project>

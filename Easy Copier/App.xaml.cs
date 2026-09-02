@@ -73,6 +73,9 @@ namespace Easy_Copier
 
             ICopyHistoryService copyHistoryService = Services.GetRequiredService<Services.ICopyHistoryService>();
             await copyHistoryService.InitializeAsync();
+
+            IDatabaseService databaseService = Services.GetRequiredService<IDatabaseService>();
+            await databaseService.InitializeAsync();
         }
 
         public void DisposeServices()

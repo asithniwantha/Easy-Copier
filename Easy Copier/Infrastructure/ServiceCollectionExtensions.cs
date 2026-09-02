@@ -49,8 +49,10 @@ namespace Easy_Copier.Infrastructure
             services.AddSingleton<IFilePickerService, FilePickerService>();
             services.AddSingleton<IDispatcherService, DispatcherService>();
             services.AddSingleton<IDialogService, DialogService>();
+            services.AddSingleton<Services.IHistoryDialogService, Services.HistoryDialogService>();
             services.AddSingleton<Services.IGameInfoDownloadService, Services.GameInfoDownloadService>();
             services.AddSingleton<Services.IUpdateService, Services.UpdateService>();
+            services.AddSingleton<Services.IDatabaseService, Services.DatabaseService>();
 
             return services;
         }
@@ -58,6 +60,7 @@ namespace Easy_Copier.Infrastructure
         public static IServiceCollection AddViewModels(this IServiceCollection services)
         {
             _ = services.AddSingleton<ViewModels.MainViewModel>();
+            _ = services.AddSingleton<ViewModels.SmartAdderViewModel>();
             _ = services.AddTransient<ViewModels.SettingsViewModel>();
             _ = services.AddTransient<ViewModels.HistoryViewModel>();
             _ = services.AddTransient<ViewModels.AboutViewModel>();

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<UserControl
+    x:Class="Easy_Copier.Views.SmartAdderControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:models="using:Easy_Copier.Models"
+    xmlns:behaviors="using:Easy_Copier.Behaviors"
+    xmlns:interactivity="using:Microsoft.Xaml.Interactivity"
+    mc:Ignorable="d">
+
+    <UserControl.Resources>
+        <DataTemplate x:Key="SmartAdderEntryTemplate" x:DataType="models:NumberCell">
+            <TextBox Text="{x:Bind InputValue, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                     PlaceholderText="0"
+                     InputScope="Number"
+                     MinWidth="140"
+                     Margin="0,0,0,4">
+                <interactivity:Interaction.Behaviors>
+                    <behaviors:NumericTextBoxBehavior/>
+                </interactivity:Interaction.Behaviors>
+            </TextBox>
+        </DataTemplate>
+    </UserControl.Resources>
+
+    <Border x:Name="RootBorder"
+            Background="{ThemeResource LayerFillColorDefaultBrush}"
+            BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
+            BorderThickness="1"
+            CornerRadius="8"
+            Padding="12,8,12,8"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Top"
+            MinWidth="48">
+
+        <interactivity:Interaction.Behaviors>
+            <behaviors:HoverBehavior x:Name="HoverBehaviorInstance" IsHovered="{x:Bind ViewModel.IsHovering, Mode=TwoWay}"/>
+            <behaviors:FocusWithinBehavior x:Name="FocusWithinBehaviorInstance" IsFocusWithin="{x:Bind ViewModel.IsListFocused, Mode=TwoWay}"/>
+        </interactivity:Interaction.Behaviors>
+
+        <StackPanel Spacing="6">
+            <StackPanel Orientation="Horizontal" Spacing="8">
+                <FontIcon Glyph="&#xE8EF;" FontSize="16" VerticalAlignment="Center" Opacity="0.8"/>
+                <TextBlock Text="Smart Adder" FontWeight="SemiBold" FontSize="12" VerticalAlignment="Center" Opacity="0.8"/>
+                <TextBlock Text="{x:Bind ViewModel.TotalSum, Mode=OneWay}" FontWeight="Bold" FontSize="14" VerticalAlignment="Center"/>
+            </StackPanel>
+
+            <!-- Derived visibility: visible if hovering or focused -->
+            <StackPanel Orientation="Vertical"
+                        Spacing="4"
+                        x:Name="InputListPanel">
+                <ItemsControl ItemsSource="{x:Bind ViewModel.Cells, Mode=OneWay}"
+                              ItemTemplate="{StaticResource SmartAdderEntryTemplate}"
+                              MaxHeight="240">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <StackPanel Orientation="Vertical"/>
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                </ItemsControl>
+
+                <StackPanel Orientation="Horizontal" Spacing="4" HorizontalAlignment="Stretch">
+                    <Button Content="Clear"
+                            Command="{x:Bind ViewModel.ClearAllCommand}"
+                            HorizontalAlignment="Stretch"
+                            Margin="0,4,0,0"/>
+                    <Button Content="History"
+                            Command="{x:Bind ViewModel.OpenHistoryCommand}"
+                            HorizontalAlignment="Stretch"
+                            Margin="0,4,0,0"/>
+                </StackPanel>
+            </StackPanel>
+        </StackPanel>
+    </Border>
+</UserControl>
