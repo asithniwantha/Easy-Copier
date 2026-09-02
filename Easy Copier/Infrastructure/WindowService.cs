@@ -17,6 +17,7 @@ namespace Easy_Copier.Infrastructure
     {
         void ShowSettingsWindow(Action? onClosed = null, SettingsOpenAction openAction = SettingsOpenAction.None);
         void ShowHistoryWindow();
+        void ShowSmartAdderHistoryWindow();
         void ShowAboutWindow();
     }
 
@@ -54,6 +55,14 @@ namespace Easy_Copier.Infrastructure
             // Pass the primary application window context to modal dialogs as the owner window
             HistoryWindow historyWindow = new(viewModel, MainWindow!);
             historyWindow.Activate();
+        }
+
+        public void ShowSmartAdderHistoryWindow()
+        {
+            var viewModel = _serviceProvider.GetRequiredService<SmartAdderHistoryViewModel>();
+            // Pass the primary application window context to modal dialogs as the owner window
+            SmartAdderHistoryWindow smartAdderHistoryWindow = new(viewModel, MainWindow!);
+            smartAdderHistoryWindow.Activate();
         }
 
         public void ShowAboutWindow()

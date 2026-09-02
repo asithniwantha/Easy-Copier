@@ -51,6 +51,7 @@ namespace Easy_Copier.Infrastructure
             services.AddSingleton<IDialogService, DialogService>();
             services.AddSingleton<Services.IGameInfoDownloadService, Services.GameInfoDownloadService>();
             services.AddSingleton<Services.IUpdateService, Services.UpdateService>();
+            services.AddSingleton<Services.ISmartAdderHistoryService, Services.SmartAdderHistoryService>();
 
             return services;
         }
@@ -58,8 +59,10 @@ namespace Easy_Copier.Infrastructure
         public static IServiceCollection AddViewModels(this IServiceCollection services)
         {
             _ = services.AddSingleton<ViewModels.MainViewModel>();
+            _ = services.AddSingleton<ViewModels.SmartAdderViewModel>();
             _ = services.AddTransient<ViewModels.SettingsViewModel>();
             _ = services.AddTransient<ViewModels.HistoryViewModel>();
+            _ = services.AddTransient<ViewModels.SmartAdderHistoryViewModel>();
             _ = services.AddTransient<ViewModels.AboutViewModel>();
 
             return services;
