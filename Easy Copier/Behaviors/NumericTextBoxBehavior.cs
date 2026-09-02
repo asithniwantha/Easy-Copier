@@ -108,15 +108,23 @@ namespace Easy_Copier.Behaviors
             }
         }
 
-        private void MoveFocus(bool forward)
+        private List<TextBox> GetSortedTextBoxes()
         {
-            ItemsControl? itemsControl = AssociatedObject.FindAscendant<ItemsControl>();
-            if (itemsControl == null)
+            // Find the root control (SmartAdderControl UserControl) to guarantee
+            // we bypass any ControlTemplate visual tree interruptions (like ScrollViewer).
+            UserControl? rootControl = AssociatedObject.FindAscendant<UserControl>();
+            if (rootControl == null)
             {
-                return;
+                return [];
             }
 
-            List<TextBox> textBoxes = [.. itemsControl.FindDescendants().OfType<TextBox>()];
+            // Re-fetch textboxes from the root to ensure we don't get trapped in templates
+            return [.. rootControl.FindDescendants().OfType<TextBox>()];
+        }
+
+        private void MoveFocus(bool forward)
+        {
+            List<TextBox> textBoxes = GetSortedTextBoxes();
             int currentIndex = textBoxes.IndexOf(AssociatedObject);
             if (currentIndex < 0)
             {
@@ -136,13 +144,7 @@ namespace Easy_Copier.Behaviors
 
         private void MoveFocusAndInsertMinus()
         {
-            ItemsControl? itemsControl = AssociatedObject.FindAscendant<ItemsControl>();
-            if (itemsControl == null)
-            {
-                return;
-            }
-
-            List<TextBox> textBoxes = [.. itemsControl.FindDescendants().OfType<TextBox>()];
+            List<TextBox> textBoxes = GetSortedTextBoxes();
             int currentIndex = textBoxes.IndexOf(AssociatedObject);
             if (currentIndex < 0)
             {
@@ -170,14 +172,18 @@ namespace Easy_Copier.Behaviors
 
         private void RemoveCurrentEntryAndFocusPrevious()
         {
-            ItemsControl? itemsControl = AssociatedObject.FindAscendant<ItemsControl>();
-            if (itemsControl?.DataContext is not SmartAdderViewModel viewModel ||
-                AssociatedObject.DataContext is not NumberCell cell)
+            if (AssociatedObject.DataContext is not NumberCell cell)
             {
                 return;
             }
 
-            List<TextBox> textBoxes = [.. itemsControl.FindDescendants().OfType<TextBox>()];
+            UserControl? rootControl = AssociatedObject.FindAscendant<UserControl>();
+            if (rootControl?.DataContext is not SmartAdderViewModel viewModel)
+            {
+                return;
+            }
+
+            List<TextBox> textBoxes = GetSortedTextBoxes();
             int currentIndex = textBoxes.IndexOf(AssociatedObject);
 
             viewModel.DeleteCellCommand.Execute(cell);
@@ -188,7 +194,7 @@ namespace Easy_Copier.Behaviors
                 AssociatedObject.DispatcherQueue.TryEnqueue(() =>
                 {
                     // Find text boxes again after modification
-                    var newTextBoxes = itemsControl.FindDescendants().OfType<TextBox>().ToList();
+                    var newTextBoxes = GetSortedTextBoxes();
                     if (targetIndex < newTextBoxes.Count)
                     {
                         FocusTextBox(newTextBoxes[targetIndex]);
