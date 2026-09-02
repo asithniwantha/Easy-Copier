@@ -4,6 +4,7 @@ using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Markup;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Text.Json;
 using System.Threading.Tasks;
 
@@ -32,8 +33,8 @@ namespace Easy_Copier.Services
             {
                 itemsList.Add(new HistoryPresentationItem
                 {
-                    TimestampDisplay = r.Timestamp.ToString("g"),
-                    TotalSumDisplay = r.TotalSum.ToString("0.##"),
+                    TimestampDisplay = r.Timestamp.ToString("g", CultureInfo.CurrentCulture),
+                    TotalSumDisplay = r.TotalSum.ToString("0.##", CultureInfo.CurrentCulture),
                     Values = JsonSerializer.Deserialize<List<double>>(r.EntriesJson) ?? new List<double>()
                 });
             }
