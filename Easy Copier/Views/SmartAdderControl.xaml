@@ -53,16 +53,22 @@
             <StackPanel Orientation="Vertical"
                         Spacing="4"
                         x:Name="InputListPanel">
-                <ScrollViewer MaxHeight="300" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
-                    <ItemsControl ItemsSource="{x:Bind ViewModel.Cells, Mode=OneWay}"
-                                  ItemTemplate="{StaticResource SmartAdderEntryTemplate}">
-                        <ItemsControl.ItemsPanel>
-                            <ItemsPanelTemplate>
-                                <StackPanel Orientation="Vertical"/>
-                            </ItemsPanelTemplate>
-                        </ItemsControl.ItemsPanel>
-                    </ItemsControl>
-                </ScrollViewer>
+                <ItemsControl ItemsSource="{x:Bind ViewModel.Cells, Mode=OneWay}"
+                              ItemTemplate="{StaticResource SmartAdderEntryTemplate}"
+                              MaxHeight="300">
+                    <ItemsControl.Template>
+                        <ControlTemplate TargetType="ItemsControl">
+                            <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
+                                <ItemsPresenter />
+                            </ScrollViewer>
+                        </ControlTemplate>
+                    </ItemsControl.Template>
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <StackPanel Orientation="Vertical"/>
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                </ItemsControl>
 
                 <StackPanel Orientation="Horizontal" Spacing="4" HorizontalAlignment="Stretch">
                     <Button Content="Clear"

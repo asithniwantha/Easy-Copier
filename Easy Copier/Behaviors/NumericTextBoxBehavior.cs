@@ -82,6 +82,7 @@ namespace Easy_Copier.Behaviors
                 case VirtualKey.Enter:
                 case VirtualKey.Down:
                 case VirtualKey.Add:
+                case (VirtualKey)187: // standard plus/equals key
                     MoveFocus(forward: true);
                     e.Handled = true;
                     break;
@@ -141,33 +142,30 @@ namespace Easy_Copier.Behaviors
                 return;
             }
 
-            AssociatedObject.DispatcherQueue.TryEnqueue(() =>
+            List<TextBox> textBoxes = [.. itemsControl.FindDescendants().OfType<TextBox>()];
+            int currentIndex = textBoxes.IndexOf(AssociatedObject);
+            if (currentIndex < 0)
             {
-                List<TextBox> textBoxes = [.. itemsControl.FindDescendants().OfType<TextBox>()];
-                int currentIndex = textBoxes.IndexOf(AssociatedObject);
-                if (currentIndex < 0)
+                return;
+            }
+
+            // Move to the next cell
+            int targetIndex = currentIndex + 1;
+
+            if (targetIndex >= 0 && targetIndex < textBoxes.Count)
+            {
+                TextBox nextTextBox = textBoxes[targetIndex];
+
+                // Only insert minus if it's currently empty, to avoid double minuses
+                if (string.IsNullOrEmpty(nextTextBox.Text))
                 {
-                    return;
+                    nextTextBox.Text = "-";
+                    // Need to wait for binding to update or directly set selection
+                    nextTextBox.Select(nextTextBox.Text.Length, 0);
                 }
 
-                // Move to the next cell
-                int targetIndex = currentIndex + 1;
-
-                if (targetIndex >= 0 && targetIndex < textBoxes.Count)
-                {
-                    TextBox nextTextBox = textBoxes[targetIndex];
-
-                    // Only insert minus if it's currently empty, to avoid double minuses
-                    if (string.IsNullOrEmpty(nextTextBox.Text))
-                    {
-                        nextTextBox.Text = "-";
-                        // Need to wait for binding to update or directly set selection
-                        nextTextBox.Select(nextTextBox.Text.Length, 0);
-                    }
-
-                    _ = nextTextBox.Focus(FocusState.Keyboard);
-                }
-            });
+                _ = nextTextBox.Focus(FocusState.Keyboard);
+            }
         }
 
         private void RemoveCurrentEntryAndFocusPrevious()
