@@ -57,6 +57,19 @@ namespace Easy_Copier.ViewModels
                 return;
             }
 
+            if (sender is NumberCell cell)
+            {
+                // Set IsNegative flag so UI can bind to it
+                if (double.TryParse(cell.InputValue, out double val))
+                {
+                    cell.IsNegative = val < 0;
+                }
+                else
+                {
+                    cell.IsNegative = cell.InputValue?.TrimStart().StartsWith('-') == true;
+                }
+            }
+
             EnsureOneEmptyBottomCell();
             RecalculateTotal();
         }

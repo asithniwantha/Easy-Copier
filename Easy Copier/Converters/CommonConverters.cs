@@ -24,6 +24,26 @@ namespace Easy_Copier.Converters
         }
     }
 
+    public class NegativeNumberToForegroundConverter : IValueConverter
+    {
+        public object Convert(object value, Type targetType, object parameter, string language)
+        {
+            if (value is bool isNegative && isNegative)
+            {
+                // Use a standard red brush, or look up a theme resource if preferred.
+                return new Microsoft.UI.Xaml.Media.SolidColorBrush(Microsoft.UI.Colors.IndianRed);
+            }
+
+            // Return default foreground (unset will fallback to the theme default).
+            return Microsoft.UI.Xaml.DependencyProperty.UnsetValue;
+        }
+
+        public object ConvertBack(object value, Type targetType, object parameter, string language)
+        {
+            throw new NotImplementedException();
+        }
+    }
+
     public class GameSizeToPriceConverter : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, string language)

@@ -7,16 +7,19 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:models="using:Easy_Copier.Models"
     xmlns:behaviors="using:Easy_Copier.Behaviors"
+    xmlns:converters="using:Easy_Copier.Converters"
     xmlns:interactivity="using:Microsoft.Xaml.Interactivity"
     mc:Ignorable="d">
 
     <UserControl.Resources>
+        <converters:NegativeNumberToForegroundConverter x:Key="NegativeNumberToForegroundConverter" />
         <DataTemplate x:Key="SmartAdderEntryTemplate" x:DataType="models:NumberCell">
             <TextBox Text="{x:Bind InputValue, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                      PlaceholderText="0"
                      InputScope="Number"
                      MinWidth="140"
-                     Margin="0,0,0,4">
+                     Margin="0,0,0,4"
+                     Foreground="{x:Bind IsNegative, Mode=OneWay, Converter={StaticResource NegativeNumberToForegroundConverter}}">
                 <interactivity:Interaction.Behaviors>
                     <behaviors:NumericTextBoxBehavior/>
                 </interactivity:Interaction.Behaviors>
@@ -50,15 +53,16 @@
             <StackPanel Orientation="Vertical"
                         Spacing="4"
                         x:Name="InputListPanel">
-                <ItemsControl ItemsSource="{x:Bind ViewModel.Cells, Mode=OneWay}"
-                              ItemTemplate="{StaticResource SmartAdderEntryTemplate}"
-                              MaxHeight="240">
-                    <ItemsControl.ItemsPanel>
-                        <ItemsPanelTemplate>
-                            <StackPanel Orientation="Vertical"/>
-                        </ItemsPanelTemplate>
-                    </ItemsControl.ItemsPanel>
-                </ItemsControl>
+                <ScrollViewer MaxHeight="300" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
+                    <ItemsControl ItemsSource="{x:Bind ViewModel.Cells, Mode=OneWay}"
+                                  ItemTemplate="{StaticResource SmartAdderEntryTemplate}">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <StackPanel Orientation="Vertical"/>
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                    </ItemsControl>
+                </ScrollViewer>
 
                 <StackPanel Orientation="Horizontal" Spacing="4" HorizontalAlignment="Stretch">
                     <Button Content="Clear"

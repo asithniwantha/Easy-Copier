@@ -87,8 +87,8 @@ namespace Easy_Copier.Behaviors
                     break;
 
                 case VirtualKey.Subtract:
-                    AssociatedObject.SelectAll();
-                    MoveFocus(forward: true);
+                case (VirtualKey)189: // standard minus key
+                    MoveFocusAndInsertMinus();
                     e.Handled = true;
                     break;
 
@@ -131,6 +131,43 @@ namespace Easy_Copier.Behaviors
             {
                 FocusTextBox(textBoxes[targetIndex]);
             }
+        }
+
+        private void MoveFocusAndInsertMinus()
+        {
+            ItemsControl? itemsControl = AssociatedObject.FindAscendant<ItemsControl>();
+            if (itemsControl == null)
+            {
+                return;
+            }
+
+            AssociatedObject.DispatcherQueue.TryEnqueue(() =>
+            {
+                List<TextBox> textBoxes = [.. itemsControl.FindDescendants().OfType<TextBox>()];
+                int currentIndex = textBoxes.IndexOf(AssociatedObject);
+                if (currentIndex < 0)
+                {
+                    return;
+                }
+
+                // Move to the next cell
+                int targetIndex = currentIndex + 1;
+
+                if (targetIndex >= 0 && targetIndex < textBoxes.Count)
+                {
+                    TextBox nextTextBox = textBoxes[targetIndex];
+
+                    // Only insert minus if it's currently empty, to avoid double minuses
+                    if (string.IsNullOrEmpty(nextTextBox.Text))
+                    {
+                        nextTextBox.Text = "-";
+                        // Need to wait for binding to update or directly set selection
+                        nextTextBox.Select(nextTextBox.Text.Length, 0);
+                    }
+
+                    _ = nextTextBox.Focus(FocusState.Keyboard);
+                }
+            });
         }
 
         private void RemoveCurrentEntryAndFocusPrevious()

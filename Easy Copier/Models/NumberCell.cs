@@ -6,5 +6,8 @@ namespace Easy_Copier.Models
     {
         [ObservableProperty]
         public partial string InputValue { get; set; } = string.Empty;
+
+        [ObservableProperty]
+        public partial bool IsNegative { get; set; } = false;
     }
 }
