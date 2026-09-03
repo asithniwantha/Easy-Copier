@@ -106,3 +106,13 @@
 - [ ] Add retry and resume support for transient copy failures.
 - [ ] Add advanced reporting dashboards (daily/weekly totals, most-copied items, and failure-rate trends).
 - [ ] Add portable backup/restore for settings, price tiers, source folders, and library cache metadata.
+- [ ] Add pause and resume capabilities for active transfers.
+- [ ] Add speed throttling for copy operations to limit maximum disk read/write speeds.
+- [ ] Add parallel small file transfers for directories with many small files.
+- [ ] Add receipt generation and exporting for customer transactions.
+- [ ] Add customer or drive profiles using volume serial numbers to track previously copied games.
+- [ ] Add advanced pricing and promotional discounts support.
+- [ ] Add system tray integration to minimize the app during long copies and push toast notifications.
+- [ ] Add native drag-and-drop support from Windows File Explorer to the Copy Queue or Library.
+- [ ] Add a real-time transfer speed graph showing current MB/s in the active transfer view.
+- [ ] Add cloud backup functionality for the SQLite database to secure historical and financial records.
