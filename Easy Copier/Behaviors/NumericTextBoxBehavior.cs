@@ -140,9 +140,12 @@ namespace Easy_Copier.Behaviors
                 if (currentIndex + 1 < textBoxes.Count)
                 {
                     TextBox nextBox = textBoxes[currentIndex + 1];
-                    nextBox.Text = "-";
-                    _ = nextBox.Focus(FocusState.Keyboard);
-                    nextBox.SelectionStart = 1;
+                    AssociatedObject.DispatcherQueue.TryEnqueue(() =>
+                    {
+                        nextBox.Text = "-";
+                        _ = nextBox.Focus(FocusState.Keyboard);
+                        nextBox.SelectionStart = 1;
+                    });
                 }
                 e.Handled = true;
             }
@@ -170,7 +173,11 @@ namespace Easy_Copier.Behaviors
             // but if it isn't, we can't navigate forward. Let's just focus if within bounds.
             if (targetIndex >= 0 && targetIndex < textBoxes.Count)
             {
-                FocusTextBox(textBoxes[targetIndex]);
+                TextBox targetBox = textBoxes[targetIndex];
+                AssociatedObject.DispatcherQueue.TryEnqueue(() =>
+                {
+                    FocusTextBox(targetBox);
+                });
             }
         }
 
