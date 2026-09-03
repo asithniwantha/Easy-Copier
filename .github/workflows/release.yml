@@ -42,7 +42,7 @@ jobs:
 
       - name: Create Velopack Release
         shell: bash
-        run: vpk pack -u EasyCopier -v ${{ steps.get_version.outputs.VERSION }} -p publish_output -e "Easy Copier.exe"
+        run: vpk pack -c win -u EasyCopier -v ${{ steps.get_version.outputs.VERSION }} -p publish_output -e "Easy Copier.exe"
 
       - name: Create Release
         uses: softprops/action-gh-release@v3
