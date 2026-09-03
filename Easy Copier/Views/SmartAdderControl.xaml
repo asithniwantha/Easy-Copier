@@ -52,7 +52,7 @@
                         x:Name="InputListPanel">
                 <ItemsControl ItemsSource="{x:Bind ViewModel.Cells, Mode=OneWay}"
                               ItemTemplate="{StaticResource SmartAdderEntryTemplate}"
-                              MaxHeight="240">
+                              MaxHeight="600">
                     <ItemsControl.ItemsPanel>
                         <ItemsPanelTemplate>
                             <StackPanel Orientation="Vertical"/>
