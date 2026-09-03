@@ -80,5 +80,23 @@ namespace Easy_Copier.Infrastructure
 
             return (selectedAction, applyToAll);
         }
+
+        public async Task ShowMessageDialogAsync(string title, string message, string closeButtonText = "OK")
+        {
+            if (App.MainWindow?.Content is not FrameworkElement rootElement || rootElement.XamlRoot == null)
+            {
+                return;
+            }
+
+            ContentDialog dialog = new()
+            {
+                Title = title,
+                Content = new TextBlock { Text = message, TextWrapping = TextWrapping.Wrap },
+                CloseButtonText = closeButtonText,
+                XamlRoot = rootElement.XamlRoot
+            };
+
+            await dialog.ShowAsync();
+        }
     }
 }

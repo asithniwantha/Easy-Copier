@@ -72,7 +72,7 @@
 - Navigational sidebar (`NavigationView`) for organized settings categories (General, Games, etc.).
 - Modal-like behavior for secondary windows (Settings, History, About) to prevent main window interaction while open.
 - About window with app version, developer details, and repository/issue links.
-- Automatic update checking and release notifications, with support for download/install updates.
+- Automatic update checking and release notifications, with support for automatic background downloads and manual checking.
 - Automatically resize the Settings window to fit content.
 
 ## 🏗️ Architecture & Code Quality

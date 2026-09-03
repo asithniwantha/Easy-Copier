@@ -23,7 +23,7 @@ Easy Copier helps shop environments prepare customer drives without guessing whi
 * **🛡️ Reliability:** Built-in validation and conflict resolution (Replace, Merge, Skip) for safer transfers.
 * **💸 Game Pricing & Totals:** Size-tier pricing tags plus selected-game totals in both the library and copy queue.
 * **🧮 Smart Adder:** Built-in Excel-like calculator support for quick calculations.
-* **🔄 App Updates:** Automatic update checking and release notifications, with update install support.
+* **🔄 App Updates:** Automatic update checking and release notifications, with automatic background downloads and manual checking.
 * **📺 Media Support:** Easily browse, select, and copy TV shows and films in addition to games and apps.
 * **📜 Logging:** Integrated Serilog logging tracks events and errors with daily rolling files.
 
@@ -102,7 +102,7 @@ The selected-drive panel also shows a usage bar, free space, total capacity, and
 - Configure the application to start automatically on Windows log-on.
 - Use a sidebar-based settings experience with modal behavior for secondary windows.
 - Access an About window with app version, developer details, and repository/issue links.
-- Receive automatic update checks and release notifications, with update install support.
+- Receive automatic update checks and release notifications, with support for automatic background downloads and manual checking.
 
 ## 🛠️ Technology
 

@@ -64,6 +64,10 @@
                                       IsOn="{x:Bind ViewModel.StartOnLogon, Mode=TwoWay}"/>
                         <ToggleSwitch Header="Automatically download updates in the background"
                                       IsOn="{x:Bind ViewModel.AutoDownloadUpdates, Mode=TwoWay}"/>
+
+                        <Button Content="Check for updates now"
+                                Command="{x:Bind ViewModel.CheckForUpdatesNowCommand}"
+                                Margin="0,8,0,0"/>
                     </StackPanel>
 
                     <!-- Games Panel -->
