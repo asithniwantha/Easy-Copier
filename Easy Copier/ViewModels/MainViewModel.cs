@@ -10,11 +10,13 @@ using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using Microsoft.Extensions.Logging;
 
 namespace Easy_Copier.ViewModels
 {
     public sealed partial class MainViewModel : ObservableObject, IDisposable
     {
+        private readonly ILogger<MainViewModel> _logger;
         private readonly ISettingsService _settingsService;
         private readonly ILibraryCacheService _libraryCacheService;
         private readonly ILibraryScannerService _libraryScannerService;
@@ -128,6 +130,7 @@ namespace Easy_Copier.ViewModels
         public event EventHandler? ItemQueued;
 
         public MainViewModel(
+            ILogger<MainViewModel> logger,
             IUpdateService updateService,
             ISettingsService settingsService,
             ILibraryCacheService libraryCacheService,
@@ -142,6 +145,7 @@ namespace Easy_Copier.ViewModels
             ISourceLibraryService sourceLibraryService,
             IDialogService dialogService)
         {
+            _logger = logger;
             _settingsService = settingsService;
             _libraryCacheService = libraryCacheService;
             _libraryScannerService = libraryScannerService;
@@ -677,12 +681,15 @@ namespace Easy_Copier.ViewModels
             try
             {
                 _isCheckingForUpdates = true;
+                _logger.LogInformation("Checking for new updates in the background...");
                 bool hasUpdate = await _updateService.CheckForUpdatesAsync();
                 if (hasUpdate)
                 {
+                    _logger.LogInformation("A new update is available.");
                     AppSettings settings = await _settingsService.LoadSettingsAsync();
                     if (settings.AutoDownloadUpdates)
                     {
+                        _logger.LogInformation("Automatic update download is enabled. Starting background download...");
                         _dispatcherService.TryEnqueue(() =>
                         {
                             IsUpdateAvailable = true;
@@ -691,6 +698,7 @@ namespace Easy_Copier.ViewModels
 
                         await _updateService.DownloadUpdateAsync();
 
+                        _logger.LogInformation("Background update download completed. Update is ready to install.");
                         _dispatcherService.TryEnqueue(() =>
                         {
                             IsUpdateAvailable = false;
@@ -700,6 +708,7 @@ namespace Easy_Copier.ViewModels
                     }
                     else
                     {
+                        _logger.LogInformation("Automatic update download is disabled. Notifying user.");
                         _dispatcherService.TryEnqueue(() =>
                         {
                             IsUpdateAvailable = true;
@@ -707,9 +716,14 @@ namespace Easy_Copier.ViewModels
                         });
                     }
                 }
+                else
+                {
+                    _logger.LogInformation("No new updates found in the background.");
+                }
             }
             catch (Exception ex)
             {
+                _logger.LogError(ex, "Error checking for updates in background");
                 System.Diagnostics.Debug.WriteLine($"Error checking for updates in background: {ex}");
             }
             finally

@@ -36,6 +36,7 @@ namespace Easy_Copier.Services
 
             try
             {
+                _logger.LogInformation("Checking for updates via Velopack...");
                 _updateInfo = await _updateManager.CheckForUpdatesAsync();
                 return _updateInfo != null;
             }

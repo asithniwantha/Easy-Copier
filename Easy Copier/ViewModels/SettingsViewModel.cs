@@ -45,6 +45,8 @@ namespace Easy_Copier.ViewModels
         private readonly IStartupService _startupService;
         private readonly IDispatcherService _dispatcherService;
         private readonly ILogger<SettingsViewModel> _logger;
+        private readonly IUpdateService _updateService;
+        private readonly Infrastructure.IDialogService _dialogService;
 
         [ObservableProperty]
         public partial bool AutoScanOnStartup { get; set; } = true;
@@ -87,7 +89,9 @@ namespace Easy_Copier.ViewModels
             Infrastructure.IProcessService processService,
             IGameInfoDownloadService gameInfoDownloadService,
             IStartupService startupService,
-            IDispatcherService dispatcherService)
+            IDispatcherService dispatcherService,
+            IUpdateService updateService,
+            Infrastructure.IDialogService dialogService)
         {
             _settingsService = settingsService;
             _folderPickerService = folderPickerService;
@@ -97,6 +101,56 @@ namespace Easy_Copier.ViewModels
             _startupService = startupService;
             _dispatcherService = dispatcherService;
             _logger = logger;
+            _updateService = updateService;
+            _dialogService = dialogService;
+        }
+
+        [RelayCommand]
+        private async Task CheckForUpdatesNowAsync()
+        {
+            StatusMessage = "Checking for updates...";
+            _logger.LogInformation("Manual update check triggered from Settings.");
+
+            try
+            {
+                bool hasUpdate = await _updateService.CheckForUpdatesAsync();
+
+                if (hasUpdate)
+                {
+                    _logger.LogInformation("Manual update check found an update. Starting download...");
+                    StatusMessage = "Downloading update...";
+
+                    await _updateService.DownloadUpdateAsync();
+
+                    _logger.LogInformation("Manual update download completed.");
+                    StatusMessage = "Update ready! Please restart the app to apply.";
+
+                    await _dialogService.ShowMessageDialogAsync(
+                        "Update Ready",
+                        "The update has been downloaded successfully. Please close and restart the application to apply the update.",
+                        "OK");
+                }
+                else
+                {
+                    _logger.LogInformation("Manual update check found no updates.");
+                    StatusMessage = "App is up to date.";
+
+                    await _dialogService.ShowMessageDialogAsync(
+                        "No Updates",
+                        "The application is up to date.",
+                        "OK");
+                }
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error during manual update check");
+                StatusMessage = "Failed to check for updates.";
+
+                await _dialogService.ShowMessageDialogAsync(
+                    "Error",
+                    "Failed to check for updates. Please try again later.",
+                    "OK");
+            }
         }
 
         [RelayCommand]
