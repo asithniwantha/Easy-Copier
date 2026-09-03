@@ -49,6 +49,6 @@ jobs:
         with:
           files: |
             Releases/*-full.nupkg
-            Releases/Setup.exe
+            Releases/*-Setup.exe
             Releases/RELEASES
           generate_release_notes: true
