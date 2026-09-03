@@ -9,7 +9,7 @@ namespace Easy_Copier.Services
     public class UpdateService : IUpdateService
     {
         private readonly ILogger<UpdateService> _logger;
-        private UpdateManager? _updateManager;
+        private readonly UpdateManager? _updateManager;
         private UpdateInfo? _updateInfo;
 
         public UpdateService(ILogger<UpdateService> logger)
