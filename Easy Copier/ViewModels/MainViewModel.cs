@@ -31,6 +31,8 @@ namespace Easy_Copier.ViewModels
         private CancellationTokenSource? _scanCancellationTokenSource;
         private CancellationTokenSource? _validationCancellationTokenSource;
         private List<GameEntry> _selectedGames = [];
+        private System.Threading.Timer? _updateCheckTimer;
+        private bool _isCheckingForUpdates;
 
         [ObservableProperty]
         public partial bool IsLoading { get; set; }
@@ -172,6 +174,14 @@ namespace Easy_Copier.ViewModels
         public async Task InitializeAsync()
         {
             _ = CheckForUpdatesBackgroundAsync();
+
+            // Start periodic update checks every 4 hours
+            _updateCheckTimer = new System.Threading.Timer(
+                _ => { _dispatcherService.TryEnqueue(() => { _ = CheckForUpdatesBackgroundAsync(); }); },
+                null,
+                TimeSpan.FromHours(4),
+                TimeSpan.FromHours(4));
+
             try
             {
                 IsLoading = true;
@@ -655,12 +665,18 @@ namespace Easy_Copier.ViewModels
         {
             _scanCancellationTokenSource?.Dispose();
             _validationCancellationTokenSource?.Dispose();
+            _updateCheckTimer?.Dispose();
             GC.SuppressFinalize(this);
         }
-private async Task CheckForUpdatesBackgroundAsync()
+
+        private async Task CheckForUpdatesBackgroundAsync()
         {
+            if (_isCheckingForUpdates)
+                return;
+
             try
             {
+                _isCheckingForUpdates = true;
                 bool hasUpdate = await _updateService.CheckForUpdatesAsync();
                 if (hasUpdate)
                 {
@@ -695,6 +711,10 @@ private async Task CheckForUpdatesBackgroundAsync()
             catch (Exception ex)
             {
                 System.Diagnostics.Debug.WriteLine($"Error checking for updates in background: {ex}");
+            }
+            finally
+            {
+                _isCheckingForUpdates = false;
             }
         }
 
