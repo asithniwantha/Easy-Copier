@@ -109,10 +109,10 @@ namespace Easy_Copier.Behaviors
 
         private void HandleMinusKey(KeyRoutedEventArgs e)
         {
-            UserControl? rootControl = AssociatedObject.FindAscendant<UserControl>();
-            if (rootControl == null) return;
+            ItemsControl? itemsControl = AssociatedObject.FindAscendant<ItemsControl>();
+            if (itemsControl == null) return;
 
-            List<TextBox> textBoxes = [.. rootControl.FindDescendants().OfType<TextBox>()];
+            List<TextBox> textBoxes = [.. itemsControl.FindDescendants().OfType<TextBox>()];
             int currentIndex = textBoxes.IndexOf(AssociatedObject);
             if (currentIndex < 0) return;
 
@@ -153,13 +153,13 @@ namespace Easy_Copier.Behaviors
 
         private void MoveFocus(bool forward)
         {
-            UserControl? rootControl = AssociatedObject.FindAscendant<UserControl>();
-            if (rootControl == null)
+            ItemsControl? itemsControl = AssociatedObject.FindAscendant<ItemsControl>();
+            if (itemsControl == null)
             {
                 return;
             }
 
-            List<TextBox> textBoxes = [.. rootControl.FindDescendants().OfType<TextBox>()];
+            List<TextBox> textBoxes = [.. itemsControl.FindDescendants().OfType<TextBox>()];
             int currentIndex = textBoxes.IndexOf(AssociatedObject);
             if (currentIndex < 0)
             {
@@ -183,14 +183,14 @@ namespace Easy_Copier.Behaviors
 
         private void RemoveCurrentEntryAndFocusPrevious()
         {
-            UserControl? rootControl = AssociatedObject.FindAscendant<UserControl>();
-            if (rootControl?.DataContext is not SmartAdderViewModel viewModel ||
+            ItemsControl? itemsControl = AssociatedObject.FindAscendant<ItemsControl>();
+            if (itemsControl?.DataContext is not SmartAdderViewModel viewModel ||
                 AssociatedObject.DataContext is not NumberCell cell)
             {
                 return;
             }
 
-            List<TextBox> textBoxes = [.. rootControl.FindDescendants().OfType<TextBox>()];
+            List<TextBox> textBoxes = [.. itemsControl.FindDescendants().OfType<TextBox>()];
             int currentIndex = textBoxes.IndexOf(AssociatedObject);
 
             viewModel.DeleteCellCommand.Execute(cell);
@@ -201,7 +201,7 @@ namespace Easy_Copier.Behaviors
                 AssociatedObject.DispatcherQueue.TryEnqueue(() =>
                 {
                     // Find text boxes again after modification
-                    var newTextBoxes = rootControl.FindDescendants().OfType<TextBox>().ToList();
+                    var newTextBoxes = itemsControl.FindDescendants().OfType<TextBox>().ToList();
                     if (targetIndex < newTextBoxes.Count)
                     {
                         FocusTextBox(newTextBoxes[targetIndex]);
