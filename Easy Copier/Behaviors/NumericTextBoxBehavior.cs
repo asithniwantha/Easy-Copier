@@ -123,7 +123,8 @@ namespace Easy_Copier.Behaviors
             {
                 if (isFirstCell)
                 {
-                    e.Handled = true;
+                    // Do nothing special, let the TextBox handle the minus key naturally.
+                    // We DO NOT set e.Handled = true here.
                     return;
                 }
                 else
