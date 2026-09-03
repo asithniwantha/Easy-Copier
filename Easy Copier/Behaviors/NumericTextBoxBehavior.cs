@@ -82,14 +82,14 @@ namespace Easy_Copier.Behaviors
                 case VirtualKey.Enter:
                 case VirtualKey.Down:
                 case VirtualKey.Add:
+                case (VirtualKey)187:
                     MoveFocus(forward: true);
                     e.Handled = true;
                     break;
 
                 case VirtualKey.Subtract:
-                    AssociatedObject.SelectAll();
-                    MoveFocus(forward: true);
-                    e.Handled = true;
+                case (VirtualKey)189:
+                    HandleMinusKey(e);
                     break;
 
                 case VirtualKey.Up:
@@ -104,6 +104,51 @@ namespace Easy_Copier.Behaviors
                         e.Handled = true;
                     }
                     break;
+            }
+        }
+
+        private void HandleMinusKey(KeyRoutedEventArgs e)
+        {
+            ItemsControl? itemsControl = AssociatedObject.FindAscendant<ItemsControl>();
+            if (itemsControl == null) return;
+
+            List<TextBox> textBoxes = [.. itemsControl.FindDescendants().OfType<TextBox>()];
+            int currentIndex = textBoxes.IndexOf(AssociatedObject);
+            if (currentIndex < 0) return;
+
+            bool isFirstCell = (currentIndex == 0);
+            bool isEmpty = string.IsNullOrEmpty(AssociatedObject.Text);
+
+            if (isEmpty)
+            {
+                if (isFirstCell)
+                {
+                    // Do nothing special, let the TextBox handle the minus key naturally.
+                    // We DO NOT set e.Handled = true here.
+                    return;
+                }
+                else
+                {
+                    // Not first cell, empty: insert minus, do not move focus.
+                    AssociatedObject.Text = "-";
+                    AssociatedObject.SelectionStart = 1;
+                    e.Handled = true;
+                }
+            }
+            else
+            {
+                // Not empty: move focus to next cell and insert minus
+                if (currentIndex + 1 < textBoxes.Count)
+                {
+                    TextBox nextBox = textBoxes[currentIndex + 1];
+                    AssociatedObject.DispatcherQueue.TryEnqueue(() =>
+                    {
+                        nextBox.Text = "-";
+                        _ = nextBox.Focus(FocusState.Keyboard);
+                        nextBox.SelectionStart = 1;
+                    });
+                }
+                e.Handled = true;
             }
         }
 
@@ -129,7 +174,11 @@ namespace Easy_Copier.Behaviors
             // but if it isn't, we can't navigate forward. Let's just focus if within bounds.
             if (targetIndex >= 0 && targetIndex < textBoxes.Count)
             {
-                FocusTextBox(textBoxes[targetIndex]);
+                TextBox targetBox = textBoxes[targetIndex];
+                AssociatedObject.DispatcherQueue.TryEnqueue(() =>
+                {
+                    FocusTextBox(targetBox);
+                });
             }
         }
 

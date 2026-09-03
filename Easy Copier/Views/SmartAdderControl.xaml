@@ -8,15 +8,20 @@
     xmlns:models="using:Easy_Copier.Models"
     xmlns:behaviors="using:Easy_Copier.Behaviors"
     xmlns:interactivity="using:Microsoft.Xaml.Interactivity"
+    xmlns:converters="using:Easy_Copier.Converters"
     mc:Ignorable="d">
 
     <UserControl.Resources>
+        <converters:NegativeToForegroundConverter x:Key="NegativeToForegroundConverter" />
+        <converters:NegativeToBackgroundConverter x:Key="NegativeToBackgroundConverter" />
         <DataTemplate x:Key="SmartAdderEntryTemplate" x:DataType="models:NumberCell">
             <TextBox Text="{x:Bind InputValue, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                      PlaceholderText="0"
                      InputScope="Number"
                      MinWidth="140"
-                     Margin="0,0,0,4">
+                     Margin="0,0,0,4"
+                     Foreground="{Binding IsNegative, Mode=OneWay, Converter={StaticResource NegativeToForegroundConverter}}"
+                     Background="{Binding IsNegative, Mode=OneWay, Converter={StaticResource NegativeToBackgroundConverter}}">
                 <interactivity:Interaction.Behaviors>
                     <behaviors:NumericTextBoxBehavior/>
                 </interactivity:Interaction.Behaviors>
