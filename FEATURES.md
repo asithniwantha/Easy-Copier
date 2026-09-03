@@ -3,12 +3,12 @@
 ## 📚 Library Management
 - Scan configured source folders for **Games**, **Apps**, and **Film & TV**.
 - Automatically expand folders ending in "collection" to scan their subdirectories.
-- Support startup auto-scan and on-demand rescanning.
+- Support automatic scanning at startup and on-demand rescanning.
 - Display library items in separate tabs (Games / Apps / Film & TV).
-- Search/filter items by name.
+- Search and filter items by name.
 - Multi-select items and show combined selection size.
 - Exclude folders starting with `$`, `recyclebin`, and `System Volume Information` from scanning.
-- Optimized single-pass folder scanning for accurate file sizes and large-file checks.
+- Use optimized single-pass folder scanning for accurate file sizes and large-file checks.
 
 ## 🎨 Visual Presentation
 - Cover-art grid view for items.
@@ -16,7 +16,9 @@
 - Item size display with human-readable formatting.
 - Large-file indicator badge for FAT32 incompatibility risk.
 - Right-click context flyout displaying color-formatted system requirements and scrollable folder contents.
-- Game pricing tags displayed in the library based on file size thresholds configurable via App Settings.
+- Game pricing tags displayed in the library based on file size thresholds configured in App Settings.
+- Total price of selected games shown in the library view based on configured price tiers.
+- Smart Adder tool for quick Excel-like calculations during selection and pricing workflows.
 
 ## 🔌 Drive Discovery and Selection
 - Detect connected removable USB drives.
@@ -36,7 +38,7 @@
 - Validate destination free space against required size.
 - Validate FAT32 single-file constraints (>4 GB).
 - Validate source folder accessibility.
-- Warn when destination folders already exist (Merge / Replace / Skip resolution).
+- Warn when destination folders already exist and provide Merge / Replace / Skip options.
 - Display validation messages with severity levels (Info / Warning / Error).
 
 ## 🚀 Copy Operations
@@ -45,8 +47,9 @@
 - Copies are processed in parallel across different target drives.
 - Copies targeting the same drive are processed one at a time, in the order they were queued.
 - Use the native Windows copy dialog for transfer operations.
-- Reserves space for queued/in-progress transfers targeting the same drive so validation reflects true remaining capacity.
+- Reserve space for queued/in-progress transfers targeting the same drive so validation reflects true remaining capacity.
 - View live queue status (queued, in progress, completed, failed) with per-item details.
+- Show the total price of selected games in the copy queue after total size calculation.
 - Clear finished (completed/failed) items from the queue view.
 - Keep UI responsive during transfers.
 - Provide transfer status and completion feedback.
@@ -68,21 +71,24 @@
 - Configurable price tiers for game size categories.
 - Navigational sidebar (`NavigationView`) for organized settings categories (General, Games, etc.).
 - Modal-like behavior for secondary windows (Settings, History, About) to prevent main window interaction while open.
-- Automatically resizing Settings window to fit content perfectly.
+- About window with app version, developer details, and repository/issue links.
+- Automatic update checking and release notifications, with support for download/install updates.
+- Automatically resize the Settings window to fit content.
 
 ## 🏗️ Architecture & Code Quality
 - Clean view-model separation enforcing zero View-to-ViewModel UI coupling through rigorous Dependency Injection (completely removing AppServiceLocator).
 - Strict adherence to SOLID principles through decoupled, highly-focused service abstractions.
-- Proper Dependency Injection flow used for instantiating View Models across pages and windows, eliminating anti-pattern Service Locators.
-- Optimized clean code base by simplifying large methods and strictly substituting inefficient queries (e.g. refactoring `.Any()` parameterless checks to `.Count > 0` directly on properties) for enhanced compliance.
+- Proper Dependency Injection flow used to instantiate View Models across pages and windows, eliminating service-locator anti-patterns.
+- Optimized the codebase by simplifying large methods and replacing inefficient queries (for example, refactoring parameterless `.Any()` checks to direct `.Count > 0` property checks).
 - UI elements decoupled from Services by leveraging `IDispatcherService` and `IWindowService` interfaces (with static window context resolution via `WindowService.MainWindow`).
 - Centralized Win32 NativeWindow lifecycle hooks reducing duplicated window initialization logic.
 - Secondary modal windows explicitly decouple from static main window contexts, accepting owner parameters directly.
 - Implements `IDisposable` effectively for unmanaged resource and cancellation token lifecycle management.
 - Asynchronous database operations using `IsDBNullAsync` in SQLite readers to prevent synchronous blocking (CA1849).
-- CA and MVVM Toolkit analyzer compliant, leveraging modern C# preview features (`partial` properties) to naturally resolve MVVMTK0045 warnings without project-level suppressions.
+- CA and MVVM Toolkit analyzer compliant, leveraging modern C# preview features (`partial` properties) to resolve MVVMTK0045 warnings without project-level suppressions.
 - Strict MVVM architecture avoiding UI elements (like `Window`) in ViewModel interfaces and consolidating shared business logic (e.g. folder removals).
 - Comprehensive event logging utilizing Serilog to ensure troubleshooting is easy and traceable.
+- **📐 Dynamic View Resizing:** The application cleanly abstracts responsive window resizing and UI teardowns (e.g., Settings, History) directly to a unified `NativeWindowHelper`.
 
 ## 🛠️ Technical Stack
 - WinUI 3 + Windows App SDK.
@@ -93,11 +99,10 @@
 - GitHub Actions for CI/CD workflows.
 
 ## 📅 Future Enhancements (To-Do List)
-- [x] Handle copy collisions: if the destination drive already contains the folder, ask to replace everything, merge, or do nothing (comparing size and file count).
-- [x] Add option to copy only missing files from the source to the destination if the destination folder already exists ("Merge").
-- [x] Add About page with app version, developer info, and links to GitHub repo and issues page.
-- [ ] Add an Excel-like calculator tool.
-- [x] Implement update checking and notification system to inform users of new releases, or automatically download and install updates.
-- [ ] Show total price of selected games in the library view, based on configured price tiers. and after that, show the total price of all selected games in the copy queue view after the total size of the selected games is calculated. 
-
-* **📐 Dynamic View Resizing:** The application cleanly abstracts responsive window resizing and UI teardowns (e.g., Settings, History) directly to a unified `NativeWindowHelper`.
+- [ ] Add transfer profiles and presets for one-click queueing of common game/app/media bundles.
+- [ ] Add optional post-copy verification (hash/size) to confirm file integrity.
+- [ ] Add automatic best-fit suggestions based on selected drive free space.
+- [ ] Add duplicate detection across source libraries with cleanup recommendations.
+- [ ] Add retry and resume support for transient copy failures.
+- [ ] Add advanced reporting dashboards (daily/weekly totals, most-copied items, and failure-rate trends).
+- [ ] Add portable backup/restore for settings, price tiers, source folders, and library cache metadata.

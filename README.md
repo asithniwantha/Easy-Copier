@@ -18,12 +18,14 @@ Easy Copier helps shop environments prepare customer drives without guessing whi
 * **⚡ High-Speed Transfers:** Optimized file I/O operations tailored for handling massive game files and nested directories.
 * **🎨 Modern UI:** A beautiful, responsive interface built with WinUI 3 that feels right at home on Windows 11.
 * **📐 Dynamic View Resizing:** The application cleanly abstracts responsive window resizing and UI teardowns (e.g., Settings, History) directly to a unified `NativeWindowHelper`.
-* **🏗️ MVVM Architecture:** Clean, maintainable codebase ensuring a smooth separation of logic and presentation.
-* **📊 Progress Tracking:** Real-time transfer speeds, ETA calculations, and detailed progress bars via native Windows file operations.
-* **🛡️ Reliability:** Built-in error handling to ensure your directories transfer securely. Advanced conflict resolution for merging and replacing files.
-* **💸 Game Pricing:** Automatically estimates pricing for game transfers based on file size thresholds configurable via App Settings.
+* **🏗️ MVVM Architecture:** A clean, maintainable codebase with strong separation of logic and presentation.
+* **📊 Progress Tracking:** Real-time transfer status and queue visibility with per-item details.
+* **🛡️ Reliability:** Built-in validation and conflict resolution (Replace, Merge, Skip) for safer transfers.
+* **💸 Game Pricing & Totals:** Size-tier pricing tags plus selected-game totals in both the library and copy queue.
+* **🧮 Smart Adder:** Built-in Excel-like calculator support for quick calculations.
+* **🔄 App Updates:** Automatic update checking and release notifications, with update install support.
 * **📺 Media Support:** Easily browse, select, and copy TV shows and films in addition to games and apps.
-* **📜 Logging:** Integrated Serilog logging tracking all events and errors, rotating daily to keep troubleshooting simple.
+* **📜 Logging:** Integrated Serilog logging tracks events and errors with daily rolling files.
 
 ---
 
@@ -34,7 +36,8 @@ Easy Copier helps shop environments prepare customer drives without guessing whi
 | 🔍 **USB Drive Identification** | Shows the drive letter, volume label, physical model/brand, file system, total capacity, and free space. |
 | 🔌 **Broad Portable-Drive Support** | Detects USB flash drives, portable HDDs, and USB NVMe/SSD enclosures—even when Windows reports them as fixed or UASP/SCSI disks. |
 | 🛡️ **Safe Transfers** | Checks available capacity, source accessibility, duplicate destinations, and FAT32's 4 GB single-file limit before copying. |
-| 🎮 **Visual Library** | Displays games in a cover-art grid with size and large-file indicators. |
+| 🎮 **Visual Library** | Displays games in a cover-art grid with size/large-file indicators and selected-game pricing totals. |
+| 🧮 **Smart Adder** | Provides an Excel-like calculator for fast operational calculations. |
 | ⚙️ **Settings UI** | Sidebar-based navigation for configuration, size-to-content window logic, and modal protection. |
 
 ---
@@ -74,25 +77,32 @@ The selected-drive panel also shows a usage bar, free space, total capacity, and
 - Automatically expand folders ending in "collection" to surface individual items.
 - Browse games, apps, and media in a responsive cover-art grid.
 - Select multiple items and view their combined size before copying.
+- Show the total price of selected games based on configured price tiers.
 - Highlight items containing files too large for FAT32 drives.
 - Right-click cards to view a flyout with color-coded system requirements and folder contents.
+- Use Smart Adder for quick Excel-like calculations.
 
 ### 🚀 Copy Operations
 - Ask for conflict resolution (Replace, Merge, Skip) before queuing if destination items exist, comparing size and file count.
 - Support "Merge" behavior by intelligently copying only missing files to the destination.
 - Copy multiple selected items asynchronously without blocking the UI.
-- Configure the application to start automatically on Windows log-on through the app settings.
 - Process copy jobs in parallel when they target different USB drives.
 - Keep copy jobs serialized per drive (one at a time per target drive, in queue order).
 - Use the Windows native copy dialog during file transfer operations.
 - Validate destination capacity, source availability, existing destination folders, and FAT32 compatibility.
-- Show transfer status and refresh drive capacity after a successful copy.
+- Show live queue status and display the total selected-game price in the copy queue after size calculation.
+- Refresh drive capacity after successful copy operations.
 
 ### 📊 History and Reporting
 - View a detailed history of past copy operations.
 - Track success, failures, and transfer statuses.
 - Generate and export reports (e.g., CSV) containing historical transfer data and logs.
-- Automatic background updates via Velopack using GitHub Releases.
+
+### ⚙️ Settings & Updates
+- Configure the application to start automatically on Windows log-on.
+- Use a sidebar-based settings experience with modal behavior for secondary windows.
+- Access an About window with app version, developer details, and repository/issue links.
+- Receive automatic update checks and release notifications, with update install support.
 
 ## 🛠️ Technology
 
@@ -111,6 +121,18 @@ The selected-drive panel also shows a usage bar, free space, total capacity, and
 - Windows 11, version 24H2 or later
 - .NET 10 SDK
 - Visual Studio 2026 with Windows App SDK / WinUI development tools
+
+---
+
+## 📅 Future Enhancements
+
+- [ ] Add transfer profiles and presets for one-click queueing of common game/app/media bundles.
+- [ ] Add optional post-copy verification (hash/size) to confirm file integrity.
+- [ ] Add automatic best-fit suggestions based on selected drive free space.
+- [ ] Add duplicate detection across source libraries with cleanup recommendations.
+- [ ] Add retry and resume support for transient copy failures.
+- [ ] Add advanced reporting dashboards (daily/weekly totals, most-copied items, and failure-rate trends).
+- [ ] Add portable backup/restore for settings, price tiers, source folders, and library cache metadata.
 
 ---
 
