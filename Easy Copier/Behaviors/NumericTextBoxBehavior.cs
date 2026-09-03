@@ -87,9 +87,8 @@ namespace Easy_Copier.Behaviors
                     break;
 
                 case VirtualKey.Subtract:
-                    AssociatedObject.SelectAll();
-                    MoveFocus(forward: true);
-                    e.Handled = true;
+                case (VirtualKey)189:
+                    HandleMinusKey(e);
                     break;
 
                 case VirtualKey.Up:
@@ -104,6 +103,47 @@ namespace Easy_Copier.Behaviors
                         e.Handled = true;
                     }
                     break;
+            }
+        }
+
+        private void HandleMinusKey(KeyRoutedEventArgs e)
+        {
+            ItemsControl? itemsControl = AssociatedObject.FindAscendant<ItemsControl>();
+            if (itemsControl == null) return;
+
+            List<TextBox> textBoxes = [.. itemsControl.FindDescendants().OfType<TextBox>()];
+            int currentIndex = textBoxes.IndexOf(AssociatedObject);
+            if (currentIndex < 0) return;
+
+            bool isFirstCell = (currentIndex == 0);
+            bool isEmpty = string.IsNullOrEmpty(AssociatedObject.Text);
+
+            if (isEmpty)
+            {
+                if (isFirstCell)
+                {
+                    e.Handled = true;
+                    return;
+                }
+                else
+                {
+                    // Not first cell, empty: insert minus, do not move focus.
+                    AssociatedObject.Text = "-";
+                    AssociatedObject.SelectionStart = 1;
+                    e.Handled = true;
+                }
+            }
+            else
+            {
+                // Not empty: move focus to next cell and insert minus
+                if (currentIndex + 1 < textBoxes.Count)
+                {
+                    TextBox nextBox = textBoxes[currentIndex + 1];
+                    nextBox.Text = "-";
+                    _ = nextBox.Focus(FocusState.Keyboard);
+                    nextBox.SelectionStart = 1;
+                }
+                e.Handled = true;
             }
         }
 
