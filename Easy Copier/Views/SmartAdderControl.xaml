@@ -20,8 +20,8 @@
                      InputScope="Number"
                      MinWidth="140"
                      Margin="0,0,0,4"
-                     Foreground="{x:Bind IsNegative, Mode=OneWay, Converter={StaticResource NegativeToForegroundConverter}}"
-                     Background="{x:Bind IsNegative, Mode=OneWay, Converter={StaticResource NegativeToBackgroundConverter}}">
+                     Foreground="{Binding IsNegative, Mode=OneWay, Converter={StaticResource NegativeToForegroundConverter}}"
+                     Background="{Binding IsNegative, Mode=OneWay, Converter={StaticResource NegativeToBackgroundConverter}}">
                 <interactivity:Interaction.Behaviors>
                     <behaviors:NumericTextBoxBehavior/>
                 </interactivity:Interaction.Behaviors>
