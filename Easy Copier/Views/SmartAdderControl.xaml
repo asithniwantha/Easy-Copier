@@ -55,7 +55,7 @@
                         x:Name="InputListPanel">
                 <ItemsControl ItemsSource="{x:Bind ViewModel.Cells, Mode=OneWay}"
                               ItemTemplate="{StaticResource SmartAdderEntryTemplate}"
-                              MaxHeight="300">
+                              MaxHeight="600">
                     <ItemsControl.Template>
                         <ControlTemplate TargetType="ItemsControl">
                             <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
