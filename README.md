@@ -150,3 +150,7 @@ Feel free to check the [issues page](https://github.com/asithniwantha/Easy-Copie
 Distributed under the MIT License. See `LICENSE` for more information.
 
 ⭐️ **If you find this project helpful or interesting, please consider giving it a star!**
+
+## Updated Architecture
+* Separated UI interactions in ViewModels using IAppWindowContext.
+* Split large ViewModels and Services into partial classes.
