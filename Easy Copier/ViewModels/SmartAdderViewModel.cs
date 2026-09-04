@@ -21,13 +21,13 @@ namespace Easy_Copier.ViewModels
         private readonly ILogger<SmartAdderViewModel> _logger;
 
         [ObservableProperty]
-        public partial double TotalSum { get; set; }
+        private double _totalSum;
 
         [ObservableProperty]
-        public partial bool IsHovering { get; set; }
+        private bool _isHovering;
 
         [ObservableProperty]
-        public partial bool IsListFocused { get; set; }
+        private bool _isListFocused;
 
         public ObservableCollection<NumberCell> Cells { get; } = [];
 

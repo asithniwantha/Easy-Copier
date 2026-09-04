@@ -49,35 +49,35 @@ namespace Easy_Copier.ViewModels
         private readonly Infrastructure.IDialogService _dialogService;
 
         [ObservableProperty]
-        public partial bool AutoScanOnStartup { get; set; } = true;
+        private bool _autoScanOnStartup = true;
 
         [ObservableProperty]
-        public partial bool StartOnLogon { get; set; } = false;
+        private bool _startOnLogon = false;
 
         [ObservableProperty]
-        public partial bool AutoDownloadUpdates { get; set; } = true;
+        private bool _autoDownloadUpdates = true;
 
         [ObservableProperty]
-        public partial string PriceTier1 { get; set; } = "100";
+        private string _priceTier1 = "100";
 
         [ObservableProperty]
-        public partial string PriceTier2 { get; set; } = "200";
+        private string _priceTier2 = "200";
 
         [ObservableProperty]
-        public partial string PriceTier3 { get; set; } = "300";
+        private string _priceTier3 = "300";
 
         [ObservableProperty]
-        public partial string PriceTier4 { get; set; } = "400";
+        private string _priceTier4 = "400";
 
         [ObservableProperty]
-        public partial string StatusMessage { get; set; } = string.Empty;
+        private string _statusMessage = string.Empty;
 
         public ObservableCollection<string> GameSourceFolders { get; } = [];
         public ObservableCollection<string> AppSourceFolders { get; } = [];
         public ObservableCollection<string> TvAndFilmSourceFolders { get; } = [];
 
         [ObservableProperty]
-        public partial string VideoFileExtensions { get; set; } = ".mp4,.mkv,.avi";
+        private string _videoFileExtensions = ".mp4,.mkv,.avi";
 
         private readonly Infrastructure.IProcessService _processService;
 
@@ -284,54 +284,5 @@ namespace Easy_Copier.ViewModels
             StatusMessage = "Settings saved";
         }
 
-        public async Task LoadSettingsAsync()
-        {
-            AppSettings settings = await _settingsService.LoadSettingsAsync();
-            LoadSettings(settings);
-
-            IReadOnlyList<SourceFolder> validatedGameFolders = await _sourceLibraryService.ValidateSourceFoldersAsync(settings.GameSourceFolders);
-            IReadOnlyList<SourceFolder> validatedAppFolders = await _sourceLibraryService.ValidateSourceFoldersAsync(settings.AppSourceFolders);
-            int invalidCount = validatedGameFolders.Count(f => !f.IsValid) + validatedAppFolders.Count(f => !f.IsValid);
-
-            if (invalidCount > 0)
-            {
-                StatusMessage = $"Warning: {invalidCount} source folder(s) are not accessible";
             }
-        }
-
-        public void LoadSettings(AppSettings settings)
-        {
-            ArgumentNullException.ThrowIfNull(settings);
-            AutoScanOnStartup = settings.AutoScanOnStartup;
-            StartOnLogon = settings.StartOnLogon;
-            AutoDownloadUpdates = settings.AutoDownloadUpdates;
-            VideoFileExtensions = settings.VideoFileExtensions ?? ".mp4,.mkv,.avi";
-            PriceTier1 = settings.PriceTier1.ToString(System.Globalization.CultureInfo.InvariantCulture);
-            PriceTier2 = settings.PriceTier2.ToString(System.Globalization.CultureInfo.InvariantCulture);
-            PriceTier3 = settings.PriceTier3.ToString(System.Globalization.CultureInfo.InvariantCulture);
-            PriceTier4 = settings.PriceTier4.ToString(System.Globalization.CultureInfo.InvariantCulture);
-
-            GameSourceFolders.UpdateFrom(settings.GameSourceFolders);
-            AppSourceFolders.UpdateFrom(settings.AppSourceFolders);
-            TvAndFilmSourceFolders.UpdateFrom(settings.TvAndFilmSourceFolders ?? []);
-        }
-
-        public AppSettings GetSettings()
-        {
-            return new AppSettings
-            {
-                AutoScanOnStartup = AutoScanOnStartup,
-                StartOnLogon = StartOnLogon,
-                AutoDownloadUpdates = AutoDownloadUpdates,
-                VideoFileExtensions = VideoFileExtensions,
-                PriceTier1 = int.TryParse(PriceTier1, out int p1) ? p1 : 100,
-                PriceTier2 = int.TryParse(PriceTier2, out int p2) ? p2 : 200,
-                PriceTier3 = int.TryParse(PriceTier3, out int p3) ? p3 : 300,
-                PriceTier4 = int.TryParse(PriceTier4, out int p4) ? p4 : 400,
-                GameSourceFolders = [.. GameSourceFolders],
-                AppSourceFolders = [.. AppSourceFolders],
-                TvAndFilmSourceFolders = [.. TvAndFilmSourceFolders]
-            };
-        }
-    }
 }
