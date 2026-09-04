@@ -98,7 +98,7 @@ namespace Easy_Copier.Infrastructure
                 XamlRoot = xamlRoot
             };
 
-            await dialog.ShowAsync();
+            _ = await dialog.ShowAsync();
         }
     }
 }

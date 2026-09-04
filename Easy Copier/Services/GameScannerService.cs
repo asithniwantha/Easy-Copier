@@ -74,7 +74,7 @@ namespace Easy_Copier.Services
             ArgumentNullException.ThrowIfNull(sourceFolders);
 
             List<GameEntry> games = [];
-            HashSet<string> processedPaths = new(StringComparer.OrdinalIgnoreCase);
+            HashSet<string> processedPaths = [with(StringComparer.OrdinalIgnoreCase)];
 
             string categoryLabel = category == LibraryCategory.App ? "app" :
                                    (category == LibraryCategory.TvAndFilm ? "film/tv" : "game");
@@ -201,22 +201,22 @@ namespace Easy_Copier.Services
                             string gameName = Path.GetFileName(gameFolder);
                             progress?.Report($"Processing: {gameName}");
 
-                            var stats = await GetFolderStatsAsync(gameFolder, RemovableDrive.Fat32MaxFileSize, cancellationToken).ConfigureAwait(false);
+                            (long TotalSize, bool HasLargeFiles) = await GetFolderStatsAsync(gameFolder, RemovableDrive.Fat32MaxFileSize, cancellationToken).ConfigureAwait(false);
                             string? coverImage = FindCoverImage(gameFolder);
 
                             GameEntry game = new(
                                 gameName,
                                 gameFolder,
-                                stats.TotalSize,
+                                TotalSize,
                                 coverImage,
                                 DateTime.Now,
-                                stats.HasLargeFiles,
+                                HasLargeFiles,
                                 category);
 
                             games.Add(game);
                             _ = processedPaths.Add(gameFolder);
 
-                            _logger.LogInformation("Scanned {Category}: {Name}, Size: {Size} bytes", categoryLabel, gameName, stats.TotalSize);
+                            _logger.LogInformation("Scanned {Category}: {Name}, Size: {Size} bytes", categoryLabel, gameName, TotalSize);
                         }
                         catch (UnauthorizedAccessException ex)
                         {
@@ -260,7 +260,7 @@ namespace Easy_Copier.Services
                     long totalSize = 0;
                     bool hasLargeFiles = false;
 
-                    foreach (var file in dirInfo.EnumerateFiles("*", SearchOption.AllDirectories))
+                    foreach (FileInfo file in dirInfo.EnumerateFiles("*", SearchOption.AllDirectories))
                     {
                         if (cancellationToken.IsCancellationRequested)
                         {

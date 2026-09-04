@@ -1,5 +1,3 @@
-using System;
-
 namespace Easy_Copier.Infrastructure
 {
     public interface IAppWindowContext

@@ -1,7 +1,7 @@
-using Easy_Copier.Views;
 using Easy_Copier.ViewModels;
-using System;
+using Easy_Copier.Views;
 using Microsoft.Extensions.DependencyInjection;
+using System;
 
 namespace Easy_Copier.Infrastructure
 {
@@ -36,7 +36,7 @@ namespace Easy_Copier.Infrastructure
 
         public void ShowSettingsWindow(Action? onClosed = null, SettingsOpenAction openAction = SettingsOpenAction.None)
         {
-            var viewModel = _serviceProvider.GetRequiredService<SettingsViewModel>();
+            SettingsViewModel viewModel = _serviceProvider.GetRequiredService<SettingsViewModel>();
             // Pass the primary application window context to modal dialogs as the owner window
             SettingsWindow settingsWindow = new(viewModel, MainWindow!, openAction);
             if (onClosed != null)
@@ -48,7 +48,7 @@ namespace Easy_Copier.Infrastructure
 
         public void ShowHistoryWindow()
         {
-            var viewModel = _serviceProvider.GetRequiredService<HistoryViewModel>();
+            HistoryViewModel viewModel = _serviceProvider.GetRequiredService<HistoryViewModel>();
             // Pass the primary application window context to modal dialogs as the owner window
             HistoryWindow historyWindow = new(viewModel, MainWindow!);
             historyWindow.Activate();
@@ -56,7 +56,7 @@ namespace Easy_Copier.Infrastructure
 
         public void ShowSmartAdderHistoryWindow()
         {
-            var viewModel = _serviceProvider.GetRequiredService<SmartAdderHistoryViewModel>();
+            SmartAdderHistoryViewModel viewModel = _serviceProvider.GetRequiredService<SmartAdderHistoryViewModel>();
             // Pass the primary application window context to modal dialogs as the owner window
             SmartAdderHistoryWindow smartAdderHistoryWindow = new(viewModel, MainWindow!);
             smartAdderHistoryWindow.Activate();
@@ -64,7 +64,7 @@ namespace Easy_Copier.Infrastructure
 
         public void ShowAboutWindow()
         {
-            var viewModel = _serviceProvider.GetRequiredService<AboutViewModel>();
+            AboutViewModel viewModel = _serviceProvider.GetRequiredService<AboutViewModel>();
             // Pass the primary application window context to modal dialogs as the owner window
             AboutWindow aboutWindow = new(viewModel, MainWindow!);
             aboutWindow.Activate();

@@ -5,9 +5,7 @@ using Easy_Copier.Models;
 using Easy_Copier.Services;
 using Microsoft.Extensions.Logging;
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -49,35 +47,34 @@ namespace Easy_Copier.ViewModels
         private readonly Infrastructure.IDialogService _dialogService;
 
         [ObservableProperty]
-        private bool _autoScanOnStartup = true;
+        public partial bool AutoScanOnStartup { get; set; } = true;
 
         [ObservableProperty]
-        private bool _startOnLogon = false;
+        public partial bool StartOnLogon { get; set; } = false;
 
         [ObservableProperty]
-        private bool _autoDownloadUpdates = true;
+        public partial bool AutoDownloadUpdates { get; set; } = true;
 
         [ObservableProperty]
-        private string _priceTier1 = "100";
+        public partial string PriceTier1 { get; set; } = "100";
 
         [ObservableProperty]
-        private string _priceTier2 = "200";
+        public partial string PriceTier2 { get; set; } = "200";
 
         [ObservableProperty]
-        private string _priceTier3 = "300";
+        public partial string PriceTier3 { get; set; } = "300";
 
         [ObservableProperty]
-        private string _priceTier4 = "400";
+        public partial string PriceTier4 { get; set; } = "400";
 
         [ObservableProperty]
-        private string _statusMessage = string.Empty;
-
+        public partial string StatusMessage { get; set; } = string.Empty;
         public ObservableCollection<string> GameSourceFolders { get; } = [];
         public ObservableCollection<string> AppSourceFolders { get; } = [];
         public ObservableCollection<string> TvAndFilmSourceFolders { get; } = [];
 
         [ObservableProperty]
-        private string _videoFileExtensions = ".mp4,.mkv,.avi";
+        public partial string VideoFileExtensions { get; set; } = ".mp4,.mkv,.avi";
 
         private readonly Infrastructure.IProcessService _processService;
 
@@ -284,5 +281,5 @@ namespace Easy_Copier.ViewModels
             StatusMessage = "Settings saved";
         }
 
-            }
+    }
 }

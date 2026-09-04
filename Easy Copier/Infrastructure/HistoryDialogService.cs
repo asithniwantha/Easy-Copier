@@ -1,5 +1,5 @@
-using Easy_Copier.Services;
 using Easy_Copier.Models;
+using Easy_Copier.Services;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Markup;
@@ -31,18 +31,18 @@ namespace Easy_Copier.Infrastructure
         {
             List<SmartAdderHistoryRecord> records = await _databaseService.GetRecentRecordsAsync(50);
 
-            var itemsList = new List<HistoryPresentationItem>();
-            foreach(var r in records)
+            List<HistoryPresentationItem> itemsList = [];
+            foreach (SmartAdderHistoryRecord r in records)
             {
                 itemsList.Add(new HistoryPresentationItem
                 {
                     TimestampDisplay = r.Timestamp.ToString("g", CultureInfo.CurrentCulture),
                     TotalSumDisplay = r.TotalSum.ToString("0.##", CultureInfo.CurrentCulture),
-                    Values = JsonSerializer.Deserialize<List<double>>(r.EntriesJson) ?? new List<double>()
+                    Values = JsonSerializer.Deserialize<List<double>>(r.EntriesJson) ?? []
                 });
             }
 
-            var xaml = @"
+            string xaml = @"
             <DataTemplate xmlns=""http://schemas.microsoft.com/winfx/2006/xaml/presentation""
                           xmlns:x=""http://schemas.microsoft.com/winfx/2006/xaml"">
                 <Button Background=""Transparent"" BorderThickness=""0"" HorizontalAlignment=""Stretch"" HorizontalContentAlignment=""Stretch"">
@@ -70,9 +70,9 @@ namespace Easy_Copier.Infrastructure
                 </Button>
             </DataTemplate>";
 
-            var dataTemplate = (DataTemplate)XamlReader.Load(xaml);
+            DataTemplate dataTemplate = (DataTemplate)XamlReader.Load(xaml);
 
-            var listView = new ListView
+            ListView listView = new()
             {
                 ItemsSource = itemsList,
                 ItemTemplate = dataTemplate,
@@ -80,7 +80,7 @@ namespace Easy_Copier.Infrastructure
                 MaxHeight = 400
             };
 
-            var dialog = new ContentDialog
+            ContentDialog dialog = new()
             {
                 Title = "Smart Adder History",
                 Content = listView,
@@ -90,7 +90,7 @@ namespace Easy_Copier.Infrastructure
 
             if (dialog.XamlRoot != null)
             {
-                await dialog.ShowAsync();
+                _ = await dialog.ShowAsync();
             }
         }
     }
@@ -99,6 +99,6 @@ namespace Easy_Copier.Infrastructure
     {
         public string TimestampDisplay { get; set; } = string.Empty;
         public string TotalSumDisplay { get; set; } = string.Empty;
-        public List<double> Values { get; set; } = new();
+        public List<double> Values { get; set; } = [];
     }
 }

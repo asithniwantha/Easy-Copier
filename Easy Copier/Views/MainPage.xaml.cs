@@ -1,4 +1,3 @@
-using Easy_Copier.Infrastructure;
 using Easy_Copier.Models;
 using Easy_Copier.ViewModels;
 using Microsoft.UI.Text;
@@ -8,7 +7,6 @@ using Microsoft.UI.Xaml.Controls.Primitives;
 using Microsoft.UI.Xaml.Documents;
 using Microsoft.UI.Xaml.Input;
 using Microsoft.UI.Xaml.Media;
-using Microsoft.UI.Xaml.Navigation;
 using System;
 using System.Collections.Generic;
 using System.Linq;

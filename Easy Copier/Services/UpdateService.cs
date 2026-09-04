@@ -1,6 +1,6 @@
+using Microsoft.Extensions.Logging;
 using System;
 using System.Threading.Tasks;
-using Microsoft.Extensions.Logging;
 using Velopack;
 using Velopack.Sources;
 
@@ -17,7 +17,7 @@ namespace Easy_Copier.Services
             _logger = logger;
             try
             {
-                var source = new GithubSource("https://github.com/asithniwantha/Easy-Copier", null, false);
+                GithubSource source = new("https://github.com/asithniwantha/Easy-Copier", null, false);
                 _updateManager = new UpdateManager(source);
             }
             catch (Exception ex)

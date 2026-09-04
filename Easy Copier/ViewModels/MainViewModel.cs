@@ -1,16 +1,13 @@
 using CommunityToolkit.Mvvm.ComponentModel;
-using CommunityToolkit.Mvvm.Input;
 using Easy_Copier.Infrastructure;
 using Easy_Copier.Models;
 using Easy_Copier.Services;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.IO;
-using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using Microsoft.Extensions.Logging;
 
 namespace Easy_Copier.ViewModels
 {
@@ -37,52 +34,52 @@ namespace Easy_Copier.ViewModels
         private bool _isCheckingForUpdates;
 
         [ObservableProperty]
-        private bool _isLoading;
+        public partial bool IsLoading { get; set; }
 
         [ObservableProperty]
-        private bool _isUpdateAvailable;
+        public partial bool IsUpdateAvailable { get; set; }
 
         [ObservableProperty]
-        private bool _isUpdateReadyToInstall;
+        public partial bool IsUpdateReadyToInstall { get; set; }
 
         [ObservableProperty]
-        private string _updateMessage = string.Empty;
+        public partial string UpdateMessage { get; set; } = string.Empty;
 
         [ObservableProperty]
         [NotifyPropertyChangedFor(nameof(IsGamesEmpty))]
         [NotifyPropertyChangedFor(nameof(IsAppsEmpty))]
         [NotifyPropertyChangedFor(nameof(IsTvAndFilmsEmpty))]
-        private bool _isScanning;
+        public partial bool IsScanning { get; set; }
 
         [ObservableProperty]
-        private bool _isTransferring;
+        public partial bool IsTransferring { get; set; }
 
         [ObservableProperty]
-        private string _statusMessage = "Ready";
+        public partial string StatusMessage { get; set; } = "Ready";
 
         [ObservableProperty]
         [NotifyPropertyChangedFor(nameof(HasSelectedDrive))]
         [NotifyPropertyChangedFor(nameof(DriveSpaceSummary))]
         [NotifyPropertyChangedFor(nameof(DriveDetailsSummary))]
-        private RemovableDrive? _selectedDrive;
+        public partial RemovableDrive? SelectedDrive { get; set; }
 
         [ObservableProperty]
         [NotifyPropertyChangedFor(nameof(SelectionSummary))]
-        private int _selectedGamesCount;
+        public partial int SelectedGamesCount { get; set; }
 
         [ObservableProperty]
         [NotifyPropertyChangedFor(nameof(SelectionSummary))]
-        private long _selectedGamesTotalBytes;
+        public partial long SelectedGamesTotalBytes { get; set; }
 
         [ObservableProperty]
         [NotifyPropertyChangedFor(nameof(SelectionSummary))]
-        private int _selectedGamesTotalPrice;
+        public partial int SelectedGamesTotalPrice { get; set; }
 
         [ObservableProperty]
         [NotifyPropertyChangedFor(nameof(EmptyGamesMessage))]
         [NotifyPropertyChangedFor(nameof(EmptyAppsMessage))]
         [NotifyPropertyChangedFor(nameof(EmptyTvAndFilmsMessage))]
-        private string _searchText = string.Empty;
+        public partial string SearchText { get; set; } = string.Empty;
 
         private readonly List<GameEntry> _allGames = [];
         private readonly List<GameEntry> _allApps = [];
@@ -181,7 +178,7 @@ namespace Easy_Copier.ViewModels
 
             // Start periodic update checks every 4 hours
             _updateCheckTimer = new System.Threading.Timer(
-                _ => { _dispatcherService.TryEnqueue(() => { _ = CheckForUpdatesBackgroundAsync(); }); },
+                _ => { _ = _dispatcherService.TryEnqueue(() => { _ = CheckForUpdatesBackgroundAsync(); }); },
                 null,
                 TimeSpan.FromHours(4),
                 TimeSpan.FromHours(4));

@@ -1,8 +1,8 @@
 ﻿using Easy_Copier.Infrastructure;
 using Easy_Copier.Services;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.UI.Xaml;
 using Microsoft.Extensions.Logging;
+using Microsoft.UI.Xaml;
 using System;
 
 namespace Easy_Copier
@@ -29,7 +29,7 @@ namespace Easy_Copier
         {
             if (_serviceProvider != null)
             {
-                var logger = _serviceProvider.GetRequiredService<ILogger<App>>();
+                ILogger<App> logger = _serviceProvider.GetRequiredService<ILogger<App>>();
                 logger.LogCritical(e.Exception, "A fatal XAML exception occurred.");
             }
             e.Handled = true; // Attempt to prevent crashing where possible
@@ -39,7 +39,7 @@ namespace Easy_Copier
         {
             if (_serviceProvider != null && e.ExceptionObject is Exception ex)
             {
-                var logger = _serviceProvider.GetRequiredService<ILogger<App>>();
+                ILogger<App> logger = _serviceProvider.GetRequiredService<ILogger<App>>();
                 logger.LogCritical(ex, "A fatal application domain exception occurred.");
             }
         }
@@ -56,7 +56,7 @@ namespace Easy_Copier
 
         protected override async void OnLaunched(Microsoft.UI.Xaml.LaunchActivatedEventArgs args)
         {
-            var logger = Services.GetRequiredService<ILogger<App>>();
+            ILogger<App> logger = Services.GetRequiredService<ILogger<App>>();
             logger.LogInformation("Easy Copier application starting up.");
 
             ViewModels.MainViewModel mainViewModel = Services.GetRequiredService<ViewModels.MainViewModel>();

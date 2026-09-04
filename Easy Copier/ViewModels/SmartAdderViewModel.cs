@@ -6,8 +6,8 @@ using Easy_Copier.Services;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.ObjectModel;
-using System.Globalization;
 using System.ComponentModel;
+using System.Globalization;
 using System.Linq;
 using System.Text.Json;
 using System.Threading.Tasks;
@@ -21,14 +21,13 @@ namespace Easy_Copier.ViewModels
         private readonly ILogger<SmartAdderViewModel> _logger;
 
         [ObservableProperty]
-        private double _totalSum;
+        public partial double TotalSum { get; set; }
 
         [ObservableProperty]
-        private bool _isHovering;
+        public partial bool IsHovering { get; set; }
 
         [ObservableProperty]
-        private bool _isListFocused;
-
+        public partial bool IsListFocused { get; set; }
         public ObservableCollection<NumberCell> Cells { get; } = [];
 
         public SmartAdderViewModel(
@@ -83,7 +82,7 @@ namespace Easy_Copier.ViewModels
         private void RecalculateTotal()
         {
             double sum = 0;
-            foreach (var cell in Cells)
+            foreach (NumberCell cell in Cells)
             {
                 if (double.TryParse(cell.InputValue, out double val))
                 {
@@ -128,14 +127,14 @@ namespace Easy_Copier.ViewModels
         {
             try
             {
-                var values = Cells
+                double[] values = Cells
                     .Where(c => double.TryParse(c.InputValue, NumberStyles.Float | NumberStyles.AllowThousands, CultureInfo.InvariantCulture, out _))
                     .Select(c => double.Parse(c.InputValue, CultureInfo.InvariantCulture))
                     .ToArray();
 
                 if (values.Length > 0)
                 {
-                    var record = new SmartAdderHistoryRecord
+                    SmartAdderHistoryRecord record = new()
                     {
                         Timestamp = DateTime.Now,
                         EntriesJson = JsonSerializer.Serialize(values),
@@ -149,7 +148,7 @@ namespace Easy_Copier.ViewModels
                 _logger.LogError(ex, "Failed to log SmartAdder history before clearing.");
             }
 
-            foreach (var cell in Cells)
+            foreach (NumberCell cell in Cells)
             {
                 cell.PropertyChanged -= Cell_PropertyChanged;
             }

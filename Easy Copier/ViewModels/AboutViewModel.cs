@@ -21,19 +21,15 @@ namespace Easy_Copier.ViewModels
         {
             get
             {
-                var version = Assembly.GetExecutingAssembly().GetCustomAttribute<AssemblyInformationalVersionAttribute>()?.InformationalVersion;
+                string? version = Assembly.GetExecutingAssembly().GetCustomAttribute<AssemblyInformationalVersionAttribute>()?.InformationalVersion;
                 if (!string.IsNullOrEmpty(version))
                 {
                     // Truncate git commit hash if present (e.g. 1.0.0+hash)
                     int plusIndex = version.IndexOf('+', StringComparison.Ordinal);
-                    if (plusIndex > 0)
-                    {
-                        return version.Substring(0, plusIndex);
-                    }
-                    return version;
+                    return plusIndex > 0 ? version[..plusIndex] : version;
                 }
 
-                var fallbackVersion = Assembly.GetExecutingAssembly().GetName().Version;
+                Version? fallbackVersion = Assembly.GetExecutingAssembly().GetName().Version;
                 return fallbackVersion != null ? $"{fallbackVersion.Major}.{fallbackVersion.Minor}.{fallbackVersion.Build}" : "Unknown";
             }
         }

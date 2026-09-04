@@ -1,16 +1,13 @@
-using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using Easy_Copier.Infrastructure;
 using Easy_Copier.Models;
-using Easy_Copier.Services;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using Microsoft.Extensions.Logging;
 
 namespace Easy_Copier.ViewModels
 {
@@ -50,7 +47,7 @@ namespace Easy_Copier.ViewModels
                     StatusMessage = message;
                 });
 
-                var scanResult = await _libraryScannerService.ScanAllLibrariesAsync(
+                (IReadOnlyList<GameEntry> Games, IReadOnlyList<GameEntry> Apps, IReadOnlyList<GameEntry> TvAndFilms) scanResult = await _libraryScannerService.ScanAllLibrariesAsync(
                     settings,
                     progress,
                     _scanCancellationTokenSource.Token);
@@ -392,7 +389,9 @@ namespace Easy_Copier.ViewModels
         private async Task CheckForUpdatesBackgroundAsync()
         {
             if (_isCheckingForUpdates)
+            {
                 return;
+            }
 
             try
             {
@@ -406,7 +405,7 @@ namespace Easy_Copier.ViewModels
                     if (settings.AutoDownloadUpdates)
                     {
                         _logger.LogInformation("Automatic update download is enabled. Starting background download...");
-                        _dispatcherService.TryEnqueue(() =>
+                        _ = _dispatcherService.TryEnqueue(() =>
                         {
                             IsUpdateAvailable = true;
                             UpdateMessage = "Downloading update in background...";
@@ -415,7 +414,7 @@ namespace Easy_Copier.ViewModels
                         await _updateService.DownloadUpdateAsync();
 
                         _logger.LogInformation("Background update download completed. Update is ready to install.");
-                        _dispatcherService.TryEnqueue(() =>
+                        _ = _dispatcherService.TryEnqueue(() =>
                         {
                             IsUpdateAvailable = false;
                             IsUpdateReadyToInstall = true;
@@ -425,7 +424,7 @@ namespace Easy_Copier.ViewModels
                     else
                     {
                         _logger.LogInformation("Automatic update download is disabled. Notifying user.");
-                        _dispatcherService.TryEnqueue(() =>
+                        _ = _dispatcherService.TryEnqueue(() =>
                         {
                             IsUpdateAvailable = true;
                             UpdateMessage = "A new update is available!";

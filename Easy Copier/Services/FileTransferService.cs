@@ -191,7 +191,7 @@ namespace Easy_Copier.Services
                         }
                     }
 
-bool allSuccess = successCount == request.Items.Count;
+                    bool allSuccess = successCount == request.Items.Count;
                     string message = allSuccess
                         ? $"Successfully copied {successCount} item(s)"
                         : $"Copied {successCount} of {request.Items.Count} items. Errors: {string.Join("; ", errors)}";

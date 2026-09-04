@@ -5,10 +5,10 @@ namespace Easy_Copier.Models
     public partial class NumberCell : ObservableObject
     {
         [ObservableProperty]
-        private string _inputValue = string.Empty;
+        public partial string InputValue { get; set; } = string.Empty;
 
         [ObservableProperty]
-        private bool _isNegative;
+        public partial bool IsNegative { get; set; }
 
         partial void OnInputValueChanged(string value)
         {

@@ -1,11 +1,10 @@
-using Easy_Copier.Infrastructure;
 using Easy_Copier.Models;
 using Easy_Copier.Services;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Data;
 using System;
-using Microsoft.UI.Xaml;
-using Microsoft.Extensions.DependencyInjection;
 
 namespace Easy_Copier.Converters
 {
@@ -35,7 +34,7 @@ namespace Easy_Copier.Converters
                 try
                 {
                     // Access settings synchronously to prevent UI thread blocking or deadlocking
-                    AppSettings settings = new AppSettings();
+                    AppSettings settings = new();
 
                     if (Application.Current is App app)
                     {

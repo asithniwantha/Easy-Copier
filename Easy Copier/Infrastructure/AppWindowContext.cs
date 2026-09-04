@@ -1,4 +1,3 @@
-using System;
 using Microsoft.UI.Xaml;
 
 namespace Easy_Copier.Infrastructure
@@ -7,16 +6,6 @@ namespace Easy_Copier.Infrastructure
     {
         public object? MainWindow => App.MainWindow;
 
-        public object? MainXamlRoot
-        {
-            get
-            {
-                if (App.MainWindow?.Content is FrameworkElement rootElement)
-                {
-                    return rootElement.XamlRoot;
-                }
-                return null;
-            }
-        }
+        public object? MainXamlRoot => App.MainWindow?.Content is FrameworkElement rootElement ? rootElement.XamlRoot : (object?)null;
     }
 }

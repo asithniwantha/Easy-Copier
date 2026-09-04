@@ -14,41 +14,40 @@ namespace Easy_Copier.ViewModels
     public partial class HistoryViewModel : ObservableObject
     {
         [ObservableProperty]
-        private HistoryStats _todayStats = new HistoryStats(0, 0, 0, 0);
+        public partial HistoryStats TodayStats { get; set; } = new HistoryStats(0, 0, 0, 0);
 
         [ObservableProperty]
-        private HistoryStats _weekStats = new HistoryStats(0, 0, 0, 0);
+        public partial HistoryStats WeekStats { get; set; } = new HistoryStats(0, 0, 0, 0);
 
         [ObservableProperty]
-        private HistoryStats _monthStats = new HistoryStats(0, 0, 0, 0);
+        public partial HistoryStats MonthStats { get; set; } = new HistoryStats(0, 0, 0, 0);
 
         [ObservableProperty]
-        private HistoryStats _selectedFilterStats = new HistoryStats(0, 0, 0, 0);
+        public partial HistoryStats SelectedFilterStats { get; set; } = new HistoryStats(0, 0, 0, 0);
 
         [ObservableProperty]
-        private string _selectedFilterName = string.Empty;
+        public partial string SelectedFilterName { get; set; } = string.Empty;
 
         private readonly ICopyHistoryService _copyHistoryService;
         private readonly IReportService _reportService;
         private readonly Infrastructure.IFilePickerService _filePickerService;
 
         [ObservableProperty]
-        private ObservableCollection<CopyHistoryRecord> _records= [];
+        public partial ObservableCollection<CopyHistoryRecord> Records { get; set; } = [];
+        [ObservableProperty]
+        public partial ObservableCollection<WeekOption> AvailableWeeks { get; set; } = [];
 
         [ObservableProperty]
-        private ObservableCollection<WeekOption> _availableWeeks= [];
+        public partial ObservableCollection<MonthOption> AvailableMonths { get; set; } = [];
 
         [ObservableProperty]
-        private ObservableCollection<MonthOption> _availableMonths= [];
+        public partial WeekOption? SelectedWeek { get; set; }
 
         [ObservableProperty]
-        private WeekOption? _selectedWeek;
+        public partial MonthOption? SelectedMonth { get; set; }
 
         [ObservableProperty]
-        private MonthOption? _selectedMonth;
-
-        [ObservableProperty]
-        private string _statusMessage = string.Empty;
+        public partial string StatusMessage { get; set; } = string.Empty;
 
         private bool _isClearingSelection;
 

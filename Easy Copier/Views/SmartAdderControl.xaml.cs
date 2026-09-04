@@ -23,8 +23,8 @@ namespace Easy_Copier.Views
 
         private void ViewModel_PropertyChanged(object? sender, PropertyChangedEventArgs e)
         {
-            if (e.PropertyName == nameof(SmartAdderViewModel.IsHovering) ||
-                e.PropertyName == nameof(SmartAdderViewModel.IsListFocused))
+            if (e.PropertyName is (nameof(SmartAdderViewModel.IsHovering)) or
+                (nameof(SmartAdderViewModel.IsListFocused)))
             {
                 UpdateVisibility();
             }

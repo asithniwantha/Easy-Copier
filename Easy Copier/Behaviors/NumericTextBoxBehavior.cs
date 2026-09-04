@@ -45,9 +45,12 @@ namespace Easy_Copier.Behaviors
 
         private static string SanitizeText(string input)
         {
-            if (string.IsNullOrEmpty(input)) return input;
+            if (string.IsNullOrEmpty(input))
+            {
+                return input;
+            }
 
-            var chars = new List<char>();
+            List<char> chars = [];
             bool hasDecimal = false;
             bool isFirst = true;
 
@@ -110,13 +113,19 @@ namespace Easy_Copier.Behaviors
         private void HandleMinusKey(KeyRoutedEventArgs e)
         {
             ItemsControl? itemsControl = AssociatedObject.FindAscendant<ItemsControl>();
-            if (itemsControl == null) return;
+            if (itemsControl == null)
+            {
+                return;
+            }
 
             List<TextBox> textBoxes = [.. itemsControl.FindDescendants().OfType<TextBox>()];
             int currentIndex = textBoxes.IndexOf(AssociatedObject);
-            if (currentIndex < 0) return;
+            if (currentIndex < 0)
+            {
+                return;
+            }
 
-            bool isFirstCell = (currentIndex == 0);
+            bool isFirstCell = currentIndex == 0;
             bool isEmpty = string.IsNullOrEmpty(AssociatedObject.Text);
 
             if (isEmpty)
@@ -141,7 +150,7 @@ namespace Easy_Copier.Behaviors
                 if (currentIndex + 1 < textBoxes.Count)
                 {
                     TextBox nextBox = textBoxes[currentIndex + 1];
-                    AssociatedObject.DispatcherQueue.TryEnqueue(() =>
+                    _ = AssociatedObject.DispatcherQueue.TryEnqueue(() =>
                     {
                         nextBox.Text = "-";
                         _ = nextBox.Focus(FocusState.Keyboard);
@@ -175,7 +184,7 @@ namespace Easy_Copier.Behaviors
             if (targetIndex >= 0 && targetIndex < textBoxes.Count)
             {
                 TextBox targetBox = textBoxes[targetIndex];
-                AssociatedObject.DispatcherQueue.TryEnqueue(() =>
+                _ = AssociatedObject.DispatcherQueue.TryEnqueue(() =>
                 {
                     FocusTextBox(targetBox);
                 });
@@ -199,10 +208,10 @@ namespace Easy_Copier.Behaviors
             int targetIndex = currentIndex - 1;
             if (targetIndex >= 0)
             {
-                AssociatedObject.DispatcherQueue.TryEnqueue(() =>
+                _ = AssociatedObject.DispatcherQueue.TryEnqueue(() =>
                 {
                     // Find text boxes again after modification
-                    var newTextBoxes = itemsControl.FindDescendants().OfType<TextBox>().ToList();
+                    List<TextBox> newTextBoxes = itemsControl.FindDescendants().OfType<TextBox>().ToList();
                     if (targetIndex < newTextBoxes.Count)
                     {
                         FocusTextBox(newTextBoxes[targetIndex]);

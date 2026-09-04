@@ -122,9 +122,9 @@ namespace Easy_Copier.Infrastructure
                 int targetWidth = System.Math.Max(minWidth, (int)System.Math.Ceiling(rootElement.DesiredSize.Width));
                 int targetHeight = System.Math.Max(minHeight, (int)System.Math.Ceiling(rootElement.DesiredSize.Height) + 40);
 
-                var hwnd = WinRT.Interop.WindowNative.GetWindowHandle(window);
-                var windowId = Microsoft.UI.Win32Interop.GetWindowIdFromWindow(hwnd);
-                var appWindow = Microsoft.UI.Windowing.AppWindow.GetFromWindowId(windowId);
+                nint hwnd = WinRT.Interop.WindowNative.GetWindowHandle(window);
+                WindowId windowId = Microsoft.UI.Win32Interop.GetWindowIdFromWindow(hwnd);
+                AppWindow appWindow = Microsoft.UI.Windowing.AppWindow.GetFromWindowId(windowId);
 
                 if (appWindow != null && (appWindow.Size.Width != targetWidth || appWindow.Size.Height != targetHeight))
                 {

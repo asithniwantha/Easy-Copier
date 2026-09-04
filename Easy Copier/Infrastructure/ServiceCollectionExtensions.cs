@@ -1,9 +1,9 @@
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Serilog;
+using System;
 using System.Globalization;
 using System.IO;
-using System;
 
 namespace Easy_Copier.Infrastructure
 {
@@ -13,7 +13,7 @@ namespace Easy_Copier.Infrastructure
         {
             string appDataFolder = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
             string logFolder = Path.Combine(appDataFolder, "EasyCopier", "Logs");
-            Directory.CreateDirectory(logFolder);
+            _ = Directory.CreateDirectory(logFolder);
 
             Log.Logger = new LoggerConfiguration()
                 .MinimumLevel.Debug()
@@ -25,35 +25,35 @@ namespace Easy_Copier.Infrastructure
                     formatProvider: CultureInfo.InvariantCulture)
                 .CreateLogger();
 
-            services.AddLogging(builder =>
+            _ = services.AddLogging(builder =>
             {
-                builder.ClearProviders();
-                builder.AddSerilog(dispose: true);
+                _ = builder.ClearProviders();
+                _ = builder.AddSerilog(dispose: true);
             });
 
-            services.AddSingleton<Services.ISettingsService, Services.SettingsService>();
-            services.AddSingleton<Services.ICopyHistoryService, Services.CopyHistoryService>();
-            services.AddSingleton<Services.IReportService, Services.ReportService>();
-            services.AddSingleton<Services.ILibraryCacheService, Services.LibraryCacheService>();
-            services.AddSingleton<Services.ISourceLibraryService, Services.SourceLibraryService>();
-            services.AddSingleton<Services.IFolderPickerService, FolderPickerService>();
-            services.AddSingleton<Services.IGameScannerService, Services.GameScannerService>();
-            services.AddSingleton<Services.ILibraryScannerService, Services.LibraryScannerService>();
-            services.AddSingleton<Services.IDriveDiscoveryService, Services.DriveDiscoveryService>();
-            services.AddSingleton<Services.IDriveValidationService, Services.DriveValidationService>();
-            services.AddSingleton<Services.IFileTransferService, Services.WindowsShellTransferService>();
-            services.AddSingleton<Services.ITransferQueueService, Services.TransferQueueService>();
-            services.AddSingleton<Services.IStartupService, Services.StartupService>();
-            services.AddSingleton<IProcessService, ProcessService>();
-            services.AddSingleton<IWindowService, WindowService>();
-            services.AddSingleton<IFilePickerService, FilePickerService>();
-            services.AddSingleton<IDispatcherService, DispatcherService>();
-            services.AddSingleton<IDialogService, DialogService>();
-            services.AddSingleton<IAppWindowContext, AppWindowContext>();
-            services.AddSingleton<Infrastructure.IHistoryDialogService, Infrastructure.HistoryDialogService>();
-            services.AddSingleton<Services.IGameInfoDownloadService, Services.GameInfoDownloadService>();
-            services.AddSingleton<Services.IUpdateService, Services.UpdateService>();
-            services.AddSingleton<Services.IDatabaseService, Services.DatabaseService>();
+            _ = services.AddSingleton<Services.ISettingsService, Services.SettingsService>();
+            _ = services.AddSingleton<Services.ICopyHistoryService, Services.CopyHistoryService>();
+            _ = services.AddSingleton<Services.IReportService, Services.ReportService>();
+            _ = services.AddSingleton<Services.ILibraryCacheService, Services.LibraryCacheService>();
+            _ = services.AddSingleton<Services.ISourceLibraryService, Services.SourceLibraryService>();
+            _ = services.AddSingleton<Services.IFolderPickerService, FolderPickerService>();
+            _ = services.AddSingleton<Services.IGameScannerService, Services.GameScannerService>();
+            _ = services.AddSingleton<Services.ILibraryScannerService, Services.LibraryScannerService>();
+            _ = services.AddSingleton<Services.IDriveDiscoveryService, Services.DriveDiscoveryService>();
+            _ = services.AddSingleton<Services.IDriveValidationService, Services.DriveValidationService>();
+            _ = services.AddSingleton<Services.IFileTransferService, Services.WindowsShellTransferService>();
+            _ = services.AddSingleton<Services.ITransferQueueService, Services.TransferQueueService>();
+            _ = services.AddSingleton<Services.IStartupService, Services.StartupService>();
+            _ = services.AddSingleton<IProcessService, ProcessService>();
+            _ = services.AddSingleton<IWindowService, WindowService>();
+            _ = services.AddSingleton<IFilePickerService, FilePickerService>();
+            _ = services.AddSingleton<IDispatcherService, DispatcherService>();
+            _ = services.AddSingleton<IDialogService, DialogService>();
+            _ = services.AddSingleton<IAppWindowContext, AppWindowContext>();
+            _ = services.AddSingleton<Infrastructure.IHistoryDialogService, Infrastructure.HistoryDialogService>();
+            _ = services.AddSingleton<Services.IGameInfoDownloadService, Services.GameInfoDownloadService>();
+            _ = services.AddSingleton<Services.IUpdateService, Services.UpdateService>();
+            _ = services.AddSingleton<Services.IDatabaseService, Services.DatabaseService>();
 
             return services;
         }
