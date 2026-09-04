@@ -127,7 +127,7 @@ namespace Easy_Copier.ViewModels
         /// Handles changes to the SearchText property to re-apply library filtering.
         /// Uses nullable string? for oldValue to match the CommunityToolkit.Mvvm partial method declaration for reference types.
         /// </summary>
-        partial void OnSearchTextChanged(string? oldValue, string newValue) => ApplyFilter();
+        partial void OnSearchTextChanged(string oldValue, string newValue) => ApplyFilter();
 
         private void ApplyFilter()
         {

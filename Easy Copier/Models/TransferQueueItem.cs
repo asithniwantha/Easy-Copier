@@ -14,15 +14,15 @@ namespace Easy_Copier.Models
         Cancelled
     }
 
-    public partial class TransferQueueItem : ObservableObject
+    public partial class TransferQueueItem(IReadOnlyList<TransferItem> items, RemovableDrive targetDrive, string destinationPath, int totalPrice) : ObservableObject
     {
-        public string Id { get; }
-        public IReadOnlyList<TransferItem> Items { get; }
-        public RemovableDrive TargetDrive { get; }
-        public string DestinationPath { get; }
-        public DateTime EnqueuedAt { get; }
-        public long TotalBytes { get; }
-        public int TotalPrice { get; }
+        public string Id { get; } = Guid.NewGuid().ToString();
+        public IReadOnlyList<TransferItem> Items { get; } = items;
+        public RemovableDrive TargetDrive { get; } = targetDrive;
+        public string DestinationPath { get; } = destinationPath;
+        public DateTime EnqueuedAt { get; } = DateTime.Now;
+        public long TotalBytes { get; } = items.Sum(i => i.Game.TotalBytes);
+        public int TotalPrice { get; } = totalPrice;
 
         [ObservableProperty]
         public partial TransferQueueItemStatus Status { get; set; } = TransferQueueItemStatus.Queued;
@@ -32,17 +32,6 @@ namespace Easy_Copier.Models
 
         [ObservableProperty]
         public partial DateTime? CompletedAt { get; set; }
-
-        public TransferQueueItem(IReadOnlyList<TransferItem> items, RemovableDrive targetDrive, string destinationPath, int totalPrice)
-        {
-            Id = Guid.NewGuid().ToString();
-            Items = items;
-            TargetDrive = targetDrive;
-            DestinationPath = destinationPath;
-            TotalPrice = totalPrice;
-            EnqueuedAt = DateTime.Now;
-            TotalBytes = items.Sum(i => i.Game.TotalBytes);
-        }
 
         public string ItemsSummary => Items.Count == 1
             ? Items[0].Game.Name
