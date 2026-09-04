@@ -154,3 +154,4 @@ Distributed under the MIT License. See `LICENSE` for more information.
 ## Updated Architecture
 * Separated UI interactions in ViewModels using IAppWindowContext.
 * Split large ViewModels and Services into partial classes.
+* Resolved CS8611 nullability reference mismatch warnings on `[ObservableProperty]` generated partial method signatures.
