@@ -1,3 +1,4 @@
+using Easy_Copier.Services;
 using Easy_Copier.Models;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
@@ -8,7 +9,7 @@ using System.Globalization;
 using System.Text.Json;
 using System.Threading.Tasks;
 
-namespace Easy_Copier.Services
+namespace Easy_Copier.Infrastructure
 {
     public interface IHistoryDialogService
     {
@@ -18,10 +19,12 @@ namespace Easy_Copier.Services
     public class HistoryDialogService : IHistoryDialogService
     {
         private readonly IDatabaseService _databaseService;
+        private readonly IAppWindowContext _appWindowContext;
 
-        public HistoryDialogService(IDatabaseService databaseService)
+        public HistoryDialogService(IDatabaseService databaseService, IAppWindowContext appWindowContext)
         {
             _databaseService = databaseService;
+            _appWindowContext = appWindowContext;
         }
 
         public async Task ShowHistoryDialogAsync()
@@ -82,7 +85,7 @@ namespace Easy_Copier.Services
                 Title = "Smart Adder History",
                 Content = listView,
                 CloseButtonText = "Close",
-                XamlRoot = App.MainWindow?.Content.XamlRoot
+                XamlRoot = _appWindowContext.MainXamlRoot as XamlRoot
             };
 
             if (dialog.XamlRoot != null)

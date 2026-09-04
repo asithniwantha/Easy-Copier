@@ -116,3 +116,7 @@
 - [ ] Add native drag-and-drop support from Windows File Explorer to the Copy Queue or Library.
 - [ ] Add a real-time transfer speed graph showing current MB/s in the active transfer view.
 - [ ] Add cloud backup functionality for the SQLite database to secure historical and financial records.
+
+## New Architectural Updates
+* IAppWindowContext introduced for clean UI abstraction.
+* File splits using C# partials applied to MainViewModel, SettingsViewModel, and GameInfoDownloadService.

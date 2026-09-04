@@ -49,7 +49,8 @@ namespace Easy_Copier.Infrastructure
             services.AddSingleton<IFilePickerService, FilePickerService>();
             services.AddSingleton<IDispatcherService, DispatcherService>();
             services.AddSingleton<IDialogService, DialogService>();
-            services.AddSingleton<Services.IHistoryDialogService, Services.HistoryDialogService>();
+            services.AddSingleton<IAppWindowContext, AppWindowContext>();
+            services.AddSingleton<Infrastructure.IHistoryDialogService, Infrastructure.HistoryDialogService>();
             services.AddSingleton<Services.IGameInfoDownloadService, Services.GameInfoDownloadService>();
             services.AddSingleton<Services.IUpdateService, Services.UpdateService>();
             services.AddSingleton<Services.IDatabaseService, Services.DatabaseService>();

@@ -24,18 +24,15 @@ namespace Easy_Copier.Infrastructure
     public class WindowService : IWindowService
     {
         private readonly IServiceProvider _serviceProvider;
+        private readonly IAppWindowContext _appWindowContext;
 
-        public WindowService(IServiceProvider serviceProvider)
+        public WindowService(IServiceProvider serviceProvider, IAppWindowContext appWindowContext)
         {
             _serviceProvider = serviceProvider;
+            _appWindowContext = appWindowContext;
         }
 
-        /// <summary>
-        /// Gets the primary active window instance of the application.
-        /// Exposed as a static property to comply with analyzer rules (CA1024, CA1822)
-        /// while providing access to the main application window context.
-        /// </summary>
-        public static Microsoft.UI.Xaml.Window? MainWindow => App.MainWindow;
+        private Microsoft.UI.Xaml.Window? MainWindow => _appWindowContext.MainWindow as Microsoft.UI.Xaml.Window;
 
         public void ShowSettingsWindow(Action? onClosed = null, SettingsOpenAction openAction = SettingsOpenAction.None)
         {

@@ -19,7 +19,7 @@ namespace Easy_Copier.ViewModels
         public ObservableCollection<SmartAdderHistoryEntryViewModel> Records { get; } = [];
 
         [ObservableProperty]
-        public partial bool IsEmpty { get; set; }
+        private bool _isEmpty;
 
         public SmartAdderHistoryViewModel(ISmartAdderHistoryService smartAdderHistoryService)
         {

@@ -9,15 +9,17 @@ namespace Easy_Copier.Infrastructure
     public class DialogService : IDialogService
     {
         private readonly IWindowService _windowService;
+        private readonly IAppWindowContext _appWindowContext;
 
-        public DialogService(IWindowService windowService)
+        public DialogService(IWindowService windowService, IAppWindowContext appWindowContext)
         {
             _windowService = windowService;
+            _appWindowContext = appWindowContext;
         }
 
         public async Task<(CopyAction Action, bool ApplyToAll)> ShowConflictDialogAsync(string itemName, long srcSize, int srcCount, long destSize, int destCount)
         {
-            if (App.MainWindow?.Content is not FrameworkElement rootElement || rootElement.XamlRoot == null)
+            if (_appWindowContext.MainXamlRoot is not XamlRoot xamlRoot)
             {
                 return (CopyAction.Skip, false); // Fallback if no window
             }
@@ -65,7 +67,7 @@ namespace Easy_Copier.Infrastructure
                 PrimaryButtonText = "Replace Everything",
                 SecondaryButtonText = "Merge",
                 CloseButtonText = "Skip",
-                XamlRoot = rootElement.XamlRoot,
+                XamlRoot = xamlRoot,
                 DefaultButton = ContentDialogButton.Primary
             };
 
@@ -83,7 +85,7 @@ namespace Easy_Copier.Infrastructure
 
         public async Task ShowMessageDialogAsync(string title, string message, string closeButtonText = "OK")
         {
-            if (App.MainWindow?.Content is not FrameworkElement rootElement || rootElement.XamlRoot == null)
+            if (_appWindowContext.MainXamlRoot is not XamlRoot xamlRoot)
             {
                 return;
             }
@@ -93,7 +95,7 @@ namespace Easy_Copier.Infrastructure
                 Title = title,
                 Content = new TextBlock { Text = message, TextWrapping = TextWrapping.Wrap },
                 CloseButtonText = closeButtonText,
-                XamlRoot = rootElement.XamlRoot
+                XamlRoot = xamlRoot
             };
 
             await dialog.ShowAsync();
