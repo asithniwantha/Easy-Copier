@@ -58,6 +58,12 @@ namespace Easy_Copier.Services
                 string json = await File.ReadAllTextAsync(cachePath);
                 LibraryCacheSnapshot? cache = JsonSerializer.Deserialize<LibraryCacheSnapshot>(json);
 
+                if (cache != null && cache.SchemaVersion < LibraryCacheSnapshot.CurrentSchemaVersion)
+                {
+                    _logger.LogInformation("Cache schema version {CacheVersion} is older than current {CurrentVersion}. Invalidating cache.", cache.SchemaVersion, LibraryCacheSnapshot.CurrentSchemaVersion);
+                    return null;
+                }
+
                 if (cache == null)
                 {
                     _logger.LogWarning("Failed to deserialize cache from {Path}", cachePath);

@@ -5,6 +5,23 @@ namespace Easy_Copier.Models
 {
     public record SourceFolder(string FolderPath, bool IsValid, DateTime LastScanned);
 
+
+    public enum GameCategory
+    {
+        All,
+        Uncategorized,
+        Shooter,
+        Racing,
+        RPG,
+        Strategy,
+        Adventure,
+        Simulation,
+        Sports,
+        Puzzle,
+        Horror,
+        Platformer
+    }
+
     public enum LibraryCategory
     {
         Game,
@@ -19,7 +36,8 @@ namespace Easy_Copier.Models
         string? CoverImagePath,
         DateTime DateAdded,
         bool HasLargeFiles,
-        LibraryCategory Category = LibraryCategory.Game)
+        LibraryCategory Category = LibraryCategory.Game,
+        IReadOnlyList<GameCategory>? Categories = null)
     {
         public bool HasCover => !string.IsNullOrEmpty(CoverImagePath);
         public bool HasNoCover => !HasCover;
@@ -112,7 +130,7 @@ namespace Easy_Copier.Models
         DateTime CachedAt,
         Dictionary<string, ItemFingerprint> ItemFingerprints)
     {
-        public const int CurrentSchemaVersion = 1;
+        public const int CurrentSchemaVersion = 2;
     }
 
     public enum CacheValidationResult

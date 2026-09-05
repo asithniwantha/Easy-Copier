@@ -20,6 +20,7 @@
                         <RowDefinition Height="*"/>
                         <RowDefinition Height="Auto"/>
                         <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
                     </Grid.RowDefinitions>
 
                     <Grid Grid.Row="0" Background="{ThemeResource CardStrokeColorDefaultBrush}"
@@ -49,8 +50,11 @@
                     <TextBlock Grid.Row="1" Text="{x:Bind Name}"
                                FontWeight="SemiBold" TextTrimming="CharacterEllipsis"
                                Margin="0,8,0,2"/>
+                    <TextBlock Grid.Row="2" Text="{x:Bind Categories, Converter={StaticResource CategoryFormatConverter}}"
+                               FontSize="12" Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+                               TextTrimming="CharacterEllipsis" Margin="0,0,0,2" />
 
-                    <Grid Grid.Row="2">
+                    <Grid Grid.Row="3">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*"/>
                             <ColumnDefinition Width="Auto"/>
@@ -111,12 +115,22 @@
                 <AppBarButton Icon="Help" Label="About" Command="{x:Bind ViewModel.OpenAboutCommand}"/>
             </CommandBar>
 
-            <AutoSuggestBox Grid.Row="4" x:Name="SearchBox"
-                             PlaceholderText="Search games and apps..."
-                             QueryIcon="Find"
-                             Text="{x:Bind ViewModel.SearchText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                             HorizontalAlignment="Stretch"
-                             Margin="0,0,0,8"/>
+            <Grid Grid.Row="4" Margin="0,0,0,8" ColumnSpacing="8">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <AutoSuggestBox x:Name="SearchBox" Grid.Column="0"
+                                PlaceholderText="Search games and apps..."
+                                QueryIcon="Find"
+                                Text="{x:Bind ViewModel.SearchText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                HorizontalAlignment="Stretch" />
+
+                <ComboBox Grid.Column="1"
+                          ItemsSource="{x:Bind ViewModel.AvailableCategories}"
+                          SelectedItem="{x:Bind ViewModel.SelectedCategory, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                          Width="150" />
+            </Grid>
 
             <Pivot x:Name="LibraryPivot" Grid.Row="5" SelectedIndex="{x:Bind ViewModel.CurrentTabIndex, Mode=TwoWay}">
                 <PivotItem Header="Games">
