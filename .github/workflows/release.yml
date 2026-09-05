@@ -49,6 +49,7 @@ jobs:
         with:
           files: |
             Releases/*-full.nupkg
-            Releases/*-Setup.exe
+            Releases/*${{ steps.get_version.outputs.VERSION }}-Setup.exe
+            Releases/*.json
             Releases/RELEASES
           generate_release_notes: true
