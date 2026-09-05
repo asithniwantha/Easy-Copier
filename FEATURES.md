@@ -124,3 +124,4 @@
 * IAppWindowContext introduced for clean UI abstraction.
 * File splits using C# partials applied to MainViewModel, SettingsViewModel, and GameInfoDownloadService.
 * Resolved CS8611 nullability reference mismatch warnings on `[ObservableProperty]` generated partial method signatures.
+* Resolved CA1308 and CA1307 Roslyn static analysis warnings in `GameInfoDownloadService.Categories.cs`.
