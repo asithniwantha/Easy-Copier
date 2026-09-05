@@ -104,6 +104,7 @@ The selected-drive panel also shows a usage bar, free space, total capacity, and
 - Use a sidebar-based settings experience with modal behavior for secondary windows.
 - Access an About window with app version, developer details, and repository/issue links.
 - Receive automatic update checks and release notifications, with support for automatic background downloads and manual checking.
+- Detect and report duplicate items across all configured source libraries, offering a cleanup recommendation.
 
 ## 🛠️ Technology
 
@@ -130,7 +131,7 @@ The selected-drive panel also shows a usage bar, free space, total capacity, and
 - [ ] Add transfer profiles and presets for one-click queueing of common game/app/media bundles.
 - [ ] Add optional post-copy verification (hash/size) to confirm file integrity.
 - [ ] Add automatic best-fit suggestions based on selected drive free space.
-- [ ] Add duplicate detection across source libraries with cleanup recommendations.
+- [x] Add duplicate detection across source libraries with cleanup recommendations.
 - [ ] Add retry and resume support for transient copy failures.
 - [ ] Add advanced reporting dashboards (daily/weekly totals, most-copied items, and failure-rate trends).
 - [ ] Add portable backup/restore for settings, price tiers, source folders, and library cache metadata.
