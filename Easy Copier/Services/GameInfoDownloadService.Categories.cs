@@ -123,18 +123,18 @@ namespace Easy_Copier.Services
 
         private static GameCategory MapSteamGenreToCore(string steamGenre)
         {
-            return steamGenre.ToLowerInvariant() switch
+            return steamGenre.ToUpperInvariant() switch
             {
-                "action" => GameCategory.Shooter,
-                "rpg" => GameCategory.RPG,
-                "strategy" => GameCategory.Strategy,
-                "adventure" => GameCategory.Adventure,
-                "simulation" => GameCategory.Simulation,
-                "racing" => GameCategory.Racing,
-                "sports" => GameCategory.Sports,
-                var s when s.Contains("puzzle") => GameCategory.Puzzle,
-                var s when s.Contains("horror") => GameCategory.Horror,
-                var s when s.Contains("platformer") => GameCategory.Platformer,
+                "ACTION" => GameCategory.Shooter,
+                "RPG" => GameCategory.RPG,
+                "STRATEGY" => GameCategory.Strategy,
+                "ADVENTURE" => GameCategory.Adventure,
+                "SIMULATION" => GameCategory.Simulation,
+                "RACING" => GameCategory.Racing,
+                "SPORTS" => GameCategory.Sports,
+                var s when s.Contains("PUZZLE", StringComparison.OrdinalIgnoreCase) => GameCategory.Puzzle,
+                var s when s.Contains("HORROR", StringComparison.OrdinalIgnoreCase) => GameCategory.Horror,
+                var s when s.Contains("PLATFORMER", StringComparison.OrdinalIgnoreCase) => GameCategory.Platformer,
                 var s when KeywordCategoryMapping.TryGetValue(s, out GameCategory mappedCategory) => mappedCategory,
                 _ => GameCategory.Uncategorized
             };
