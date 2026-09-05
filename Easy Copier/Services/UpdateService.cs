@@ -29,12 +29,9 @@ namespace Easy_Copier.Services
 
         private string GetCurrentVersion()
         {
-            if (_updateManager != null && _updateManager.IsInstalled && _updateManager.CurrentVersion != null)
-            {
-                return _updateManager.CurrentVersion.ToString();
-            }
-
-            return Assembly.GetExecutingAssembly().GetName().Version?.ToString() ?? "Unknown";
+            return _updateManager != null && _updateManager.IsInstalled && _updateManager.CurrentVersion != null
+                ? _updateManager.CurrentVersion.ToString()
+                : Assembly.GetExecutingAssembly().GetName().Version?.ToString() ?? "Unknown";
         }
 
         public async Task<bool> CheckForUpdatesAsync()

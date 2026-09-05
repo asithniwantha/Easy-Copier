@@ -301,11 +301,11 @@ namespace Easy_Copier.Services
                 string catPath = Path.Combine(gameFolderPath, "categories.txt");
                 if (File.Exists(catPath))
                 {
-                    var lines = File.ReadAllLines(catPath);
-                    var categories = new System.Collections.Generic.List<GameCategory>();
-                    foreach (var line in lines)
+                    string[] lines = File.ReadAllLines(catPath);
+                    List<GameCategory> categories = [];
+                    foreach (string line in lines)
                     {
-                        if (Enum.TryParse<GameCategory>(line.Trim(), true, out var cat))
+                        if (Enum.TryParse<GameCategory>(line.Trim(), true, out GameCategory cat))
                         {
                             categories.Add(cat);
                         }

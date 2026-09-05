@@ -140,7 +140,7 @@ namespace Easy_Copier.ViewModels
 
             IEnumerable<GameEntry> FilterEntries(IEnumerable<GameEntry> source)
             {
-                var filtered = string.IsNullOrEmpty(query)
+                IEnumerable<GameEntry> filtered = string.IsNullOrEmpty(query)
                     ? source
                     : source.Where(g => g.Name.Contains(query, StringComparison.OrdinalIgnoreCase));
 

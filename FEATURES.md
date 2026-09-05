@@ -98,7 +98,7 @@
 - MVVM pattern via `CommunityToolkit.Mvvm` utilizing source generators (`partial` property observables).
 - DI and logging via `Microsoft.Extensions.*` and `Serilog`.
 - Storage discovery via `DriveInfo` + WMI.
-- GitHub Actions for CI/CD workflows.
+- GitHub Actions for CI/CD workflows. update and release automation.setup with versioning and release notes generation.
 
 ## 📅 Future Enhancements (To-Do List)
 - [ ] Add transfer profiles and presets for one-click queueing of common game/app/media bundles.

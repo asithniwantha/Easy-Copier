@@ -1,3 +1,5 @@
+using Easy_Copier.Models;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -6,8 +8,6 @@ using System.Net.Http;
 using System.Text.Json;
 using System.Threading;
 using System.Threading.Tasks;
-using Easy_Copier.Models;
-using Microsoft.Extensions.Logging;
 
 namespace Easy_Copier.Services
 {
@@ -143,7 +143,7 @@ namespace Easy_Copier.Services
         private static List<GameCategory> FallbackExtractCategories(string gameName, string gameFolder)
         {
             List<GameCategory> categories = [];
-            foreach (var kvp in KeywordCategoryMapping)
+            foreach (KeyValuePair<string, GameCategory> kvp in KeywordCategoryMapping)
             {
                 if (gameName.Contains(kvp.Key, StringComparison.OrdinalIgnoreCase))
                 {
@@ -153,7 +153,7 @@ namespace Easy_Copier.Services
             string folderName = Path.GetFileName(gameFolder);
             if (!folderName.Equals(gameName, StringComparison.OrdinalIgnoreCase))
             {
-                foreach (var kvp in KeywordCategoryMapping)
+                foreach (KeyValuePair<string, GameCategory> kvp in KeywordCategoryMapping)
                 {
                     if (folderName.Contains(kvp.Key, StringComparison.OrdinalIgnoreCase))
                     {
