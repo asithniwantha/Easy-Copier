@@ -67,7 +67,7 @@
 - Manage source folders for Games, Apps, and Media (add/remove).
 - Toggle auto-scan on startup.
 - Toggle application to start automatically on Windows log-on.
-- Persist settings in local app data.
+- Persist settings in roaming app data (`%AppData%\EasyCopier`).
 - Persist library cache for faster startup experience.
 - Validate cache contents against current filesystem state.
 - Configurable price tiers for game size categories.

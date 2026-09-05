@@ -29,8 +29,8 @@ namespace Easy_Copier.Services
         public CopyHistoryService(ILogger<CopyHistoryService> logger)
         {
             _logger = logger;
-            string localAppData = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
-            string appFolder = Path.Combine(localAppData, "EasyCopier");
+            string appData = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+            string appFolder = Path.Combine(appData, "EasyCopier");
             _ = Directory.CreateDirectory(appFolder);
             _dbPath = Path.Combine(appFolder, "history.db");
             _connectionString = $"Data Source={_dbPath}";
