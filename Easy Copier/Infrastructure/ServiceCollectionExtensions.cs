@@ -50,10 +50,10 @@ namespace Easy_Copier.Infrastructure
             _ = services.AddSingleton<IDispatcherService, DispatcherService>();
             _ = services.AddSingleton<IDialogService, DialogService>();
             _ = services.AddSingleton<IAppWindowContext, AppWindowContext>();
-            _ = services.AddSingleton<Infrastructure.IHistoryDialogService, Infrastructure.HistoryDialogService>();
             _ = services.AddSingleton<Services.IGameInfoDownloadService, Services.GameInfoDownloadService>();
             _ = services.AddSingleton<Services.IUpdateService, Services.UpdateService>();
             _ = services.AddSingleton<Services.IDatabaseService, Services.DatabaseService>();
+            _ = services.AddSingleton<Services.ISmartAdderHistoryService, Services.SmartAdderHistoryService>();
 
             return services;
         }

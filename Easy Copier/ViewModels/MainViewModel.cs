@@ -34,59 +34,59 @@ namespace Easy_Copier.ViewModels
         private bool _isCheckingForUpdates;
 
         [ObservableProperty]
-        public partial bool IsLoading { get; set; }
+        private bool _isLoading;
 
         [ObservableProperty]
-        public partial bool IsUpdateAvailable { get; set; }
+        private bool _isUpdateAvailable;
 
         [ObservableProperty]
-        public partial bool IsUpdateReadyToInstall { get; set; }
+        private bool _isUpdateReadyToInstall;
 
         [ObservableProperty]
-        public partial string UpdateMessage { get; set; } = string.Empty;
+        private string _updateMessage = string.Empty;
 
         [ObservableProperty]
         [NotifyPropertyChangedFor(nameof(IsGamesEmpty))]
         [NotifyPropertyChangedFor(nameof(IsAppsEmpty))]
         [NotifyPropertyChangedFor(nameof(IsTvAndFilmsEmpty))]
-        public partial bool IsScanning { get; set; }
+        private bool _isScanning;
 
         [ObservableProperty]
-        public partial bool IsTransferring { get; set; }
+        private bool _isTransferring;
 
         [ObservableProperty]
-        public partial string StatusMessage { get; set; } = "Ready";
+        private string _statusMessage = "Ready";
 
         [ObservableProperty]
         [NotifyPropertyChangedFor(nameof(HasSelectedDrive))]
         [NotifyPropertyChangedFor(nameof(DriveSpaceSummary))]
         [NotifyPropertyChangedFor(nameof(DriveDetailsSummary))]
-        public partial RemovableDrive? SelectedDrive { get; set; }
+        private RemovableDrive? _selectedDrive;
 
         [ObservableProperty]
         [NotifyPropertyChangedFor(nameof(SelectionSummary))]
-        public partial int SelectedGamesCount { get; set; }
+        private int _selectedGamesCount;
 
         [ObservableProperty]
         [NotifyPropertyChangedFor(nameof(SelectionSummary))]
-        public partial long SelectedGamesTotalBytes { get; set; }
+        private long _selectedGamesTotalBytes;
 
         [ObservableProperty]
         [NotifyPropertyChangedFor(nameof(SelectionSummary))]
-        public partial int SelectedGamesTotalPrice { get; set; }
+        private int _selectedGamesTotalPrice;
 
 
         [ObservableProperty]
         [NotifyPropertyChangedFor(nameof(EmptyGamesMessage))]
         [NotifyPropertyChangedFor(nameof(EmptyAppsMessage))]
         [NotifyPropertyChangedFor(nameof(EmptyTvAndFilmsMessage))]
-        public partial string SearchText { get; set; } = string.Empty;
+        private string _searchText = string.Empty;
 
         [ObservableProperty]
         [NotifyPropertyChangedFor(nameof(EmptyGamesMessage))]
         [NotifyPropertyChangedFor(nameof(EmptyAppsMessage))]
         [NotifyPropertyChangedFor(nameof(EmptyTvAndFilmsMessage))]
-        public partial GameCategory SelectedCategory { get; set; } = GameCategory.All;
+        private GameCategory _selectedCategory = GameCategory.All;
 
         public IReadOnlyList<GameCategory> AvailableCategories { get; } = Enum.GetValues<GameCategory>();
 

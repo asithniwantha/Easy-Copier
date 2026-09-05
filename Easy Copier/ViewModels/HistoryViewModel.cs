@@ -15,36 +15,36 @@ namespace Easy_Copier.ViewModels
                             Infrastructure.IFilePickerService filePickerService) : ObservableObject
     {
         [ObservableProperty]
-        public partial HistoryStats TodayStats { get; set; } = new HistoryStats(0, 0, 0, 0);
+        private HistoryStats _todayStats = new HistoryStats(0, 0, 0, 0);
 
         [ObservableProperty]
-        public partial HistoryStats WeekStats { get; set; } = new HistoryStats(0, 0, 0, 0);
+        private HistoryStats _weekStats = new HistoryStats(0, 0, 0, 0);
 
         [ObservableProperty]
-        public partial HistoryStats MonthStats { get; set; } = new HistoryStats(0, 0, 0, 0);
+        private HistoryStats _monthStats = new HistoryStats(0, 0, 0, 0);
 
         [ObservableProperty]
-        public partial HistoryStats SelectedFilterStats { get; set; } = new HistoryStats(0, 0, 0, 0);
+        private HistoryStats _selectedFilterStats = new HistoryStats(0, 0, 0, 0);
 
         [ObservableProperty]
-        public partial string SelectedFilterName { get; set; } = string.Empty;
+        private string _selectedFilterName = string.Empty;
 
         [ObservableProperty]
-        public partial ObservableCollection<CopyHistoryRecord> Records { get; set; } = [];
+        private ObservableCollection<CopyHistoryRecord> _records = [];
         [ObservableProperty]
-        public partial ObservableCollection<WeekOption> AvailableWeeks { get; set; } = [];
+        private ObservableCollection<WeekOption> _availableWeeks = [];
 
         [ObservableProperty]
-        public partial ObservableCollection<MonthOption> AvailableMonths { get; set; } = [];
+        private ObservableCollection<MonthOption> _availableMonths = [];
 
         [ObservableProperty]
-        public partial WeekOption? SelectedWeek { get; set; }
+        private WeekOption? _selectedWeek;
 
         [ObservableProperty]
-        public partial MonthOption? SelectedMonth { get; set; }
+        private MonthOption? _selectedMonth;
 
         [ObservableProperty]
-        public partial string StatusMessage { get; set; } = string.Empty;
+        private string _statusMessage = string.Empty;
 
         private bool _isClearingSelection;
 
