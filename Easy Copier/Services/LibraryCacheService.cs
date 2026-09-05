@@ -37,7 +37,7 @@ namespace Easy_Copier.Services
 
         private static string GetCacheFilePath()
         {
-            string appDataFolder = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
+            string appDataFolder = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
             string appFolder = Path.Combine(appDataFolder, "EasyCopier");
             _ = Directory.CreateDirectory(appFolder);
             return Path.Combine(appFolder, CacheFileName);

@@ -18,7 +18,7 @@ namespace Easy_Copier.ViewModels
         {
             try
             {
-                string appDataFolder = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
+                string appDataFolder = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
                 string logFolder = System.IO.Path.Combine(appDataFolder, "EasyCopier", "Logs");
                 if (System.IO.Directory.Exists(logFolder))
                 {

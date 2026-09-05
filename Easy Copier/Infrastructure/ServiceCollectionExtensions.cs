@@ -11,7 +11,7 @@ namespace Easy_Copier.Infrastructure
     {
         public static IServiceCollection AddApplicationServices(this IServiceCollection services)
         {
-            string appDataFolder = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
+            string appDataFolder = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
             string logFolder = Path.Combine(appDataFolder, "EasyCopier", "Logs");
             _ = Directory.CreateDirectory(logFolder);
 

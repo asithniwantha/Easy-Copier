@@ -51,3 +51,4 @@ Easy Copier was developed as a WinUI 3 desktop application targeting .NET 10 to 
 - Platform: `x64`.
 - Windows App SDK + MSIX tooling enabled for packaging/publishing workflows.
 - Implemented an update-checking and notification system using Velopack and GitHub Releases, with an option to automatically download and apply updates in the background. Disabling auto-generated XAML `Main` method via `<DISABLE_XAML_GENERATED_MAIN>true</DISABLE_XAML_GENERATED_MAIN>` in `.csproj` to support early Velopack initialization in `Program.cs`. Integrated `vpk pack` into the GitHub Actions release workflow to publish Velopack artifacts natively.
+- Changed user data storage location (settings, databases, caches, logs) from Local AppData (`%LocalAppData%\EasyCopier`) to Roaming AppData (`%AppData%\EasyCopier`) to prevent conflicts and accidental data deletion during Velopack application updates or repairs. Added an "Open Data Folder" button to the Settings page.
