@@ -65,9 +65,13 @@
                         <ToggleSwitch Header="Automatically download updates in the background"
                                       IsOn="{x:Bind ViewModel.AutoDownloadUpdates, Mode=TwoWay}"/>
 
-                        <Button Content="Check for updates now"
-                                Command="{x:Bind ViewModel.CheckForUpdatesNowCommand}"
-                                Margin="0,8,0,0"/>
+                        <StackPanel Orientation="Horizontal" Spacing="8" Margin="0,8,0,0">
+                            <Button Content="Check for updates now"
+                                    Command="{x:Bind ViewModel.CheckForUpdatesNowCommand}"/>
+                            <Button Content="Find Duplicates"
+                                    Command="{x:Bind ViewModel.FindDuplicatesCommand}"
+                                    ToolTipService.ToolTip="Detect duplicates across all source libraries"/>
+                        </StackPanel>
                     </StackPanel>
 
                     <!-- Games Panel -->
