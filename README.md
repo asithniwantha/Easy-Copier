@@ -15,6 +15,7 @@ Easy Copier helps shop environments prepare customer drives without guessing whi
 
 ## ✨ Features
 
+* **🎮 Game Categorization:** Automatically fetches categories from Steam and applies a keyword fallback. Use UI category filters to browse your library.
 * **⚡ High-Speed Transfers:** Optimized file I/O operations tailored for handling massive game files and nested directories.
 * **🎨 Modern UI:** A beautiful, responsive interface built with WinUI 3 that feels right at home on Windows 11.
 * **📐 Dynamic View Resizing:** The application cleanly abstracts responsive window resizing and UI teardowns (e.g., Settings, History) directly to a unified `NativeWindowHelper`.

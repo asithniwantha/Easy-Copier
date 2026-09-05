@@ -80,7 +80,7 @@ public class LibraryCacheServiceTests : IDisposable
     public async Task LoadCacheAsync_WithUnsupportedSchemaVersion_ReturnsNull()
     {
         var snapshot = new LibraryCacheSnapshot(
-            999,
+            0,
             new List<GameEntry>(),
             new List<GameEntry>(),
             new List<string>(),

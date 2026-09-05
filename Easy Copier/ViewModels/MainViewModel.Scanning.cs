@@ -127,17 +127,29 @@ namespace Easy_Copier.ViewModels
         /// Handles changes to the SearchText property to re-apply library filtering.
         /// Uses nullable string? for oldValue to match the CommunityToolkit.Mvvm partial method declaration for reference types.
         /// </summary>
+
         partial void OnSearchTextChanged(string oldValue, string newValue) => ApplyFilter();
+
+        partial void OnSelectedCategoryChanged(GameCategory oldValue, GameCategory newValue) => ApplyFilter();
+
 
         private void ApplyFilter()
         {
             string query = SearchText?.Trim() ?? string.Empty;
+            GameCategory categoryFilter = SelectedCategory;
 
             IEnumerable<GameEntry> FilterEntries(IEnumerable<GameEntry> source)
             {
-                return string.IsNullOrEmpty(query)
+                var filtered = string.IsNullOrEmpty(query)
                     ? source
                     : source.Where(g => g.Name.Contains(query, StringComparison.OrdinalIgnoreCase));
+
+                if (categoryFilter != GameCategory.All)
+                {
+                    filtered = filtered.Where(g => g.Categories != null && g.Categories.Contains(categoryFilter));
+                }
+
+                return filtered;
             }
 
             Games.UpdateFrom(FilterEntries(_allGames));

@@ -75,11 +75,21 @@ namespace Easy_Copier.ViewModels
         [NotifyPropertyChangedFor(nameof(SelectionSummary))]
         public partial int SelectedGamesTotalPrice { get; set; }
 
+
         [ObservableProperty]
         [NotifyPropertyChangedFor(nameof(EmptyGamesMessage))]
         [NotifyPropertyChangedFor(nameof(EmptyAppsMessage))]
         [NotifyPropertyChangedFor(nameof(EmptyTvAndFilmsMessage))]
         public partial string SearchText { get; set; } = string.Empty;
+
+        [ObservableProperty]
+        [NotifyPropertyChangedFor(nameof(EmptyGamesMessage))]
+        [NotifyPropertyChangedFor(nameof(EmptyAppsMessage))]
+        [NotifyPropertyChangedFor(nameof(EmptyTvAndFilmsMessage))]
+        public partial GameCategory SelectedCategory { get; set; } = GameCategory.All;
+
+        public IReadOnlyList<GameCategory> AvailableCategories { get; } = Enum.GetValues<GameCategory>();
+
 
         private readonly List<GameEntry> _allGames = [];
         private readonly List<GameEntry> _allApps = [];

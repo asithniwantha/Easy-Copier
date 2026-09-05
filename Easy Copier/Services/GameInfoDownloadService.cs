@@ -98,6 +98,7 @@ namespace Easy_Copier.Services
         {
             await DownloadRequirementsAsync(gameName, gameFolder, cancellationToken);
             await DownloadCoverAsync(gameName, gameFolder, cancellationToken);
+            await DownloadCategoriesAsync(gameName, gameFolder, cancellationToken);
         }
 
         private async Task DownloadRequirementsAsync(string gameName, string gameFolder, CancellationToken cancellationToken)

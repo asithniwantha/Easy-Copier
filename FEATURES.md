@@ -6,6 +6,8 @@
 - Support automatic scanning at startup and on-demand rescanning.
 - Display library items in separate tabs (Games / Apps / Film & TV).
 - Search and filter items by name.
+- **Game Categorization:** Extracts metadata from Steam with keyword fallbacks, displayed and filterable in the UI.
+
 - Multi-select items and show combined selection size.
 - Exclude folders starting with `$`, `recyclebin`, and `System Volume Information` from scanning.
 - Use optimized single-pass folder scanning for accurate file sizes and large-file checks.
@@ -116,7 +118,6 @@
 - [ ] Add native drag-and-drop support from Windows File Explorer to the Copy Queue or Library.
 - [ ] Add a real-time transfer speed graph showing current MB/s in the active transfer view.
 - [ ] Add cloud backup functionality for the SQLite database to secure historical and financial records.
-- [ ] Add game categorization like shooting, racing, etc. 
 
 
 ## New Architectural Updates

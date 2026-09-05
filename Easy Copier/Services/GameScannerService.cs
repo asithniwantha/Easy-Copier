@@ -20,6 +20,7 @@ namespace Easy_Copier.Services
 
         Task<(long TotalSize, bool HasLargeFiles)> GetFolderStatsAsync(string folderPath, long sizeLimit, CancellationToken cancellationToken = default);
         string? FindCoverImage(string gameFolderPath);
+        IReadOnlyList<GameCategory> GetCategories(string gameFolderPath);
     }
 
     public class GameScannerService : IGameScannerService
@@ -202,7 +203,9 @@ namespace Easy_Copier.Services
                             progress?.Report($"Processing: {gameName}");
 
                             (long TotalSize, bool HasLargeFiles) = await GetFolderStatsAsync(gameFolder, RemovableDrive.Fat32MaxFileSize, cancellationToken).ConfigureAwait(false);
+
                             string? coverImage = FindCoverImage(gameFolder);
+                            IReadOnlyList<GameCategory> categoriesList = GetCategories(gameFolder);
 
                             GameEntry game = new(
                                 gameName,
@@ -211,7 +214,8 @@ namespace Easy_Copier.Services
                                 coverImage,
                                 DateTime.Now,
                                 HasLargeFiles,
-                                category);
+                                category,
+                                categoriesList);
 
                             games.Add(game);
                             _ = processedPaths.Add(gameFolder);
@@ -283,6 +287,40 @@ namespace Easy_Copier.Services
                     return (0L, false);
                 }
             }, cancellationToken);
+        }
+
+
+        public IReadOnlyList<GameCategory> GetCategories(string gameFolderPath)
+        {
+            if (File.Exists(gameFolderPath))
+            {
+                return [];
+            }
+            try
+            {
+                string catPath = Path.Combine(gameFolderPath, "categories.txt");
+                if (File.Exists(catPath))
+                {
+                    var lines = File.ReadAllLines(catPath);
+                    var categories = new System.Collections.Generic.List<GameCategory>();
+                    foreach (var line in lines)
+                    {
+                        if (Enum.TryParse<GameCategory>(line.Trim(), true, out var cat))
+                        {
+                            categories.Add(cat);
+                        }
+                    }
+                    if (categories.Count > 0)
+                    {
+                        return categories;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                _logger.LogWarning(ex, "Error reading categories for: {Path}", gameFolderPath);
+            }
+            return [GameCategory.Uncategorized];
         }
 
         public string? FindCoverImage(string gameFolderPath)
