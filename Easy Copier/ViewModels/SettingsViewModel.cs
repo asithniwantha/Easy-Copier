@@ -47,34 +47,34 @@ namespace Easy_Copier.ViewModels
         private readonly Infrastructure.IDialogService _dialogService;
 
         [ObservableProperty]
-        public partial bool AutoScanOnStartup { get; set; } = true;
+        private bool _autoScanOnStartup = true;
 
         [ObservableProperty]
-        public partial bool StartOnLogon { get; set; } = false;
+        private bool _startOnLogon = false;
 
         [ObservableProperty]
-        public partial bool AutoDownloadUpdates { get; set; } = true;
+        private bool _autoDownloadUpdates = true;
 
         [ObservableProperty]
-        public partial string PriceTier1 { get; set; } = "100";
+        private string _priceTier1 = "100";
 
         [ObservableProperty]
-        public partial string PriceTier2 { get; set; } = "200";
+        private string _priceTier2 = "200";
 
         [ObservableProperty]
-        public partial string PriceTier3 { get; set; } = "300";
+        private string _priceTier3 = "300";
 
         [ObservableProperty]
-        public partial string PriceTier4 { get; set; } = "400";
+        private string _priceTier4 = "400";
 
         [ObservableProperty]
-        public partial string StatusMessage { get; set; } = string.Empty;
+        private string _statusMessage = string.Empty;
         public ObservableCollection<string> GameSourceFolders { get; } = [];
         public ObservableCollection<string> AppSourceFolders { get; } = [];
         public ObservableCollection<string> TvAndFilmSourceFolders { get; } = [];
 
         [ObservableProperty]
-        public partial string VideoFileExtensions { get; set; } = ".mp4,.mkv,.avi";
+        private string _videoFileExtensions = ".mp4,.mkv,.avi";
 
         private readonly Infrastructure.IProcessService _processService;
 

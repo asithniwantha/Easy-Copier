@@ -10,10 +10,10 @@ namespace Easy_Copier.Models
         public int Index { get; set; }
 
         [ObservableProperty]
-        public partial string Text { get; set; } = string.Empty;
+        private string _text = string.Empty;
 
         [ObservableProperty]
-        public partial double? Value { get; set; }
+        private double? _value;
 
         public bool IsEmpty => string.IsNullOrWhiteSpace(Text);
     }

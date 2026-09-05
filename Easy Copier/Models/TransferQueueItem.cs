@@ -25,13 +25,13 @@ namespace Easy_Copier.Models
         public int TotalPrice { get; } = totalPrice;
 
         [ObservableProperty]
-        public partial TransferQueueItemStatus Status { get; set; } = TransferQueueItemStatus.Queued;
+        private TransferQueueItemStatus _status = TransferQueueItemStatus.Queued;
 
         [ObservableProperty]
-        public partial string StatusMessage { get; set; } = "Waiting in queue...";
+        private string _statusMessage = "Waiting in queue...";
 
         [ObservableProperty]
-        public partial DateTime? CompletedAt { get; set; }
+        private DateTime? _completedAt;
 
         public string ItemsSummary => Items.Count == 1
             ? Items[0].Game.Name
