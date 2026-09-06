@@ -45,6 +45,7 @@ namespace Easy_Copier.ViewModels
         private readonly ILogger<SettingsViewModel> _logger;
         private readonly IUpdateService _updateService;
         private readonly Infrastructure.IDialogService _dialogService;
+        private readonly ILibraryScannerService _libraryScannerService;
 
         [ObservableProperty]
         public partial bool AutoScanOnStartup { get; set; } = true;
@@ -88,7 +89,8 @@ namespace Easy_Copier.ViewModels
             IStartupService startupService,
             IDispatcherService dispatcherService,
             IUpdateService updateService,
-            Infrastructure.IDialogService dialogService)
+            Infrastructure.IDialogService dialogService,
+            ILibraryScannerService libraryScannerService)
         {
             _settingsService = settingsService;
             _folderPickerService = folderPickerService;
@@ -100,6 +102,36 @@ namespace Easy_Copier.ViewModels
             _logger = logger;
             _updateService = updateService;
             _dialogService = dialogService;
+            _libraryScannerService = libraryScannerService;
+        }
+
+        [RelayCommand]
+        private async Task FindDuplicatesAsync(CancellationToken cancellationToken)
+        {
+            StatusMessage = "Scanning libraries for duplicates...";
+
+            try
+            {
+                Progress<string> progress = new(msg =>
+                {
+                    _ = _dispatcherService.TryEnqueue(() => StatusMessage = msg);
+                });
+
+                AppSettings settings = GetSettings();
+                string report = await _libraryScannerService.FindDuplicatesReportAsync(settings, progress, cancellationToken);
+
+                await _dialogService.ShowMessageDialogAsync("Duplicate Detection Report", report);
+                StatusMessage = "Duplicate detection complete";
+            }
+            catch (OperationCanceledException)
+            {
+                StatusMessage = "Duplicate scan canceled.";
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Failed to scan for duplicates.");
+                StatusMessage = "Error scanning for duplicates.";
+            }
         }
 
         [RelayCommand]

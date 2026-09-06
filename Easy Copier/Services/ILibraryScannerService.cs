@@ -12,5 +12,10 @@ namespace Easy_Copier.Services
             AppSettings settings,
             IProgress<string>? progress = null,
             CancellationToken cancellationToken = default);
+
+        Task<string> FindDuplicatesReportAsync(
+            AppSettings settings,
+            IProgress<string>? progress = null,
+            CancellationToken cancellationToken = default);
     }
 }

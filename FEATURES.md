@@ -76,6 +76,7 @@
 - About window with app version, developer details, and repository/issue links.
 - Automatic update checking and release notifications, with support for automatic background downloads and manual checking.
 - Automatically resize the Settings window to fit content.
+- Duplicate detection tool across all configured source libraries, identifying duplicates by name and providing actionable cleanup recommendations.
 
 ## 🏗️ Architecture & Code Quality
 - Clean view-model separation enforcing zero View-to-ViewModel UI coupling through rigorous Dependency Injection (completely removing AppServiceLocator).
@@ -104,7 +105,7 @@
 - [ ] Add transfer profiles and presets for one-click queueing of common game/app/media bundles.
 - [ ] Add optional post-copy verification (hash/size) to confirm file integrity.
 - [ ] Add automatic best-fit suggestions based on selected drive free space.
-- [ ] Add duplicate detection across source libraries with cleanup recommendations.
+- [x] Add duplicate detection across source libraries with cleanup recommendations.
 - [ ] Add retry and resume support for transient copy failures.
 - [ ] Add advanced reporting dashboards (daily/weekly totals, most-copied items, and failure-rate trends).
 - [ ] Add portable backup/restore for settings, price tiers, source folders, and library cache metadata.
