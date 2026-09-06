@@ -158,3 +158,4 @@ Distributed under the MIT License. See `LICENSE` for more information.
 * Split large ViewModels and Services into partial classes.
 * Resolved CS8611 nullability reference mismatch warnings on `[ObservableProperty]` generated partial method signatures.
 * Fixed Roslyn static analysis CA1308 and CA1307 warnings in `GameInfoDownloadService.Categories.cs`.
+* Fixed Roslyn static analysis CA1305 warnings in `LibraryScannerService.cs` by specifying `CultureInfo.InvariantCulture` in `StringBuilder.AppendLine` calls.

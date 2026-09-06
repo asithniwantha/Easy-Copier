@@ -1,6 +1,7 @@
 using Easy_Copier.Models;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
@@ -87,15 +88,16 @@ namespace Easy_Copier.Services
             }
 
             System.Text.StringBuilder reportBuilder = new();
-            reportBuilder.AppendLine($"Found {duplicates.Count} duplicated items:");
+            // Use CultureInfo.InvariantCulture to format string interpolations consistently across all user locales (CA1305)
+            reportBuilder.AppendLine(CultureInfo.InvariantCulture, $"Found {duplicates.Count} duplicated items:");
             reportBuilder.AppendLine();
 
             foreach (var group in duplicates)
             {
-                reportBuilder.AppendLine($"- {group.Key} ({group.Count()} copies):");
+                reportBuilder.AppendLine(CultureInfo.InvariantCulture, $"- {group.Key} ({group.Count()} copies):");
                 foreach (var entry in group)
                 {
-                    reportBuilder.AppendLine($"  • [{entry.Category}] {entry.FolderPath}");
+                    reportBuilder.AppendLine(CultureInfo.InvariantCulture, $"  • [{entry.Category}] {entry.FolderPath}");
                 }
                 reportBuilder.AppendLine();
             }
