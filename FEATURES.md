@@ -127,3 +127,7 @@
 * Resolved CS8611 nullability reference mismatch warnings on `[ObservableProperty]` generated partial method signatures.
 * Resolved CA1308 and CA1307 Roslyn static analysis warnings in `GameInfoDownloadService.Categories.cs`.
 * Resolved CA1305 Roslyn static analysis warnings in `LibraryScannerService.cs` by supplying `CultureInfo.InvariantCulture` to string formatting calls.
+
+## Development Highlights
+- **Refactored Architecture**: Consolidated and abstracted duplicated modal window creation logic to reduce code duplication in Views.
+- **WinUI 3 Modernization**: Removed remaining legacy `Windows.UI` namespaces in favor of `Microsoft.UI`.

@@ -18,22 +18,10 @@ namespace Easy_Copier.Views
             _owner = owner;
             InitializeComponent();
 
-            NativeWindowHelper.InitializeWindow(this, 1000, 700);
-            NativeWindowHelper.ShowAsModal(this, _owner);
-
-            Closed += HistoryWindow_Closed;
+            NativeWindowHelper.InitializeModalWindow(this, _owner, ViewModel, 1000, 700);
+            Closed += (s, e) => HistoryClosed?.Invoke(this, EventArgs.Empty);
 
             _ = RootFrame.Navigate(typeof(HistoryPage), ViewModel);
-        }
-
-        /// <summary>
-        /// Handles the Closed event of the HistoryWindow.
-        /// </summary>
-        private void HistoryWindow_Closed(object sender, WindowEventArgs args)
-        {
-            NativeWindowHelper.RestoreOwnerInput(_owner);
-            Content = null;
-            HistoryClosed?.Invoke(this, EventArgs.Empty);
         }
     }
 }

@@ -14,24 +14,7 @@ namespace Easy_Copier.Views
             ViewModel = viewModel;
             _owner = owner;
             InitializeComponent();
-
-            if (Content is FrameworkElement fe)
-            {
-                fe.DataContext = ViewModel;
-            }
-
-
-
-
-            NativeWindowHelper.InitializeWindow(this, 500, 600);
-            NativeWindowHelper.ShowAsModal(this, _owner);
-
-            Closed += AboutWindow_Closed;
-        }
-        private void AboutWindow_Closed(object sender, WindowEventArgs args)
-        {
-            NativeWindowHelper.RestoreOwnerInput(_owner);
-            Content = null;
+            NativeWindowHelper.InitializeModalWindow(this, _owner, ViewModel, 500, 600);
         }
 
         private void Close_Click(object sender, RoutedEventArgs e)

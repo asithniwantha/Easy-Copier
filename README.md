@@ -159,3 +159,5 @@ Distributed under the MIT License. See `LICENSE` for more information.
 * Resolved CS8611 nullability reference mismatch warnings on `[ObservableProperty]` generated partial method signatures.
 * Fixed Roslyn static analysis CA1308 and CA1307 warnings in `GameInfoDownloadService.Categories.cs`.
 * Fixed Roslyn static analysis CA1305 warnings in `LibraryScannerService.cs` by specifying `CultureInfo.InvariantCulture` in `StringBuilder.AppendLine` calls.
+* Consolidated and abstracted duplicated modal window creation logic into `NativeWindowHelper.InitializeModalWindow`.
+* Replaced legacy UWP `Windows.UI.Color` usages with modern `Microsoft.UI.ColorHelper` for WinUI 3 compatibility.

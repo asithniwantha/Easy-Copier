@@ -3,7 +3,6 @@ using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Data;
 using Microsoft.UI.Xaml.Media;
 using System;
-using Windows.UI;
 
 namespace Easy_Copier.Converters
 {
@@ -36,11 +35,11 @@ namespace Easy_Copier.Converters
                 // Using a transparent/light red for the background that works well on both themes
                 if (isDarkMode)
                 {
-                    return new SolidColorBrush(Color.FromArgb(50, 255, 0, 0)); // Very dim red for dark mode
+                    return new SolidColorBrush(ColorHelper.FromArgb(50, 255, 0, 0)); // Very dim red for dark mode
                 }
                 else
                 {
-                    return new SolidColorBrush(Color.FromArgb(30, 255, 0, 0)); // Very light red for light mode
+                    return new SolidColorBrush(ColorHelper.FromArgb(30, 255, 0, 0)); // Very light red for light mode
                 }
             }
             return DependencyProperty.UnsetValue;

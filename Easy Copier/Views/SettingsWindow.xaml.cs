@@ -17,17 +17,7 @@ namespace Easy_Copier.Views
             ViewModel = viewModel;
             _owner = owner;
             InitializeComponent();
-
-            // Allow the settings page viewmodel to bind
-            if (Content is FrameworkElement fe)
-            {
-                fe.DataContext = ViewModel;
-            }
-
-            NativeWindowHelper.InitializeWindow(this, 960, 720); // Fallback size, will adjust after load
-            NativeWindowHelper.ShowAsModal(this, _owner);
-
-            Closed += SettingsWindow_Closed;
+            NativeWindowHelper.InitializeModalWindow(this, _owner, ViewModel, 960, 720);
 
             _ = LoadAsync(openAction);
 
@@ -37,11 +27,6 @@ namespace Easy_Copier.Views
             {
                 NativeWindowHelper.EnableDynamicResizing(this, rootElement, 960, 640);
             }
-        }
-        private void SettingsWindow_Closed(object sender, WindowEventArgs args)
-        {
-            NativeWindowHelper.RestoreOwnerInput(_owner);
-            Content = null;
         }
 
         private async Task LoadAsync(SettingsOpenAction openAction)
