@@ -83,9 +83,11 @@ namespace Easy_Copier.Services
             });
         }
 
-        public async Task<TransferOutcome> TransferGamesAsync(TransferRequest request, IProgress<TransferProgress>? progress = null)
+        public Task<TransferOutcome> TransferGamesAsync(TransferRequest request, IProgress<TransferProgress>? progress = null)
         {
-            return await Task.Run(() =>
+            TaskCompletionSource<TransferOutcome> tcs = new();
+
+            System.Threading.Thread thread = new(() =>
             {
                 try
                 {
@@ -214,25 +216,30 @@ namespace Easy_Copier.Services
 
                     _logger.LogInformation("Transfer completed. Success: {SuccessCount}, Total Bytes: {TotalBytes}, Errors: {ErrorCount}", successCount, totalBytes, errors.Count);
 
-                    return new TransferOutcome(
-
+                    tcs.SetResult(new TransferOutcome(
                         allSuccess && errors.Count == 0,
                         message,
                         successCount,
                         totalBytes,
-                        DateTime.Now);
+                        DateTime.Now));
                 }
                 catch (Exception ex)
                 {
                     _logger.LogError(ex, "Transfer failed");
-                    return new TransferOutcome(
+                    tcs.SetResult(new TransferOutcome(
                         false,
                         $"Transfer failed: {ex.Message}",
                         0,
                         0,
-                        DateTime.Now);
+                        DateTime.Now));
                 }
             });
+
+            thread.SetApartmentState(System.Threading.ApartmentState.STA);
+            thread.IsBackground = true;
+            thread.Start();
+
+            return tcs.Task;
         }
 
         private bool MergeDirectory(string sourceDir, string destDir)
@@ -287,7 +294,17 @@ namespace Easy_Copier.Services
 
                 try
                 {
-                    fileOperation = (NativeMethods.IFileOperation)new NativeMethods.FileOperation();
+                    Type? fileOperationType = Type.GetTypeFromCLSID(new Guid("3ad05575-8857-4850-9277-11b85bdb8e09"));
+                    if (fileOperationType != null)
+                    {
+                        object? obj = Activator.CreateInstance(fileOperationType);
+                        if (obj != null)
+                        {
+                            fileOperation = (NativeMethods.IFileOperation)obj;
+                        }
+                    }
+
+                    if (fileOperation == null) return false;
                     fileOperation.SetOperationFlags(NativeMethods.FOF_NOCONFIRMMKDIR);
 
                     FileOperationProgressSink sink = new(progress, queueTotalBytes, previouslyCopiedBytes, currentItemBytes);
