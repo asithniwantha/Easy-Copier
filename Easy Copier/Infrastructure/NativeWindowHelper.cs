@@ -177,5 +177,30 @@ namespace Easy_Copier.Infrastructure
                 SetForeground(ownerHwnd);
             }
         }
+
+        public static void InitializeModalWindow(Microsoft.UI.Xaml.Window window, Microsoft.UI.Xaml.Window owner, object viewModel, int width, int height)
+        {
+            ArgumentNullException.ThrowIfNull(window);
+            ArgumentNullException.ThrowIfNull(owner);
+
+            // Allow the viewmodel to bind
+            if (window.Content is Microsoft.UI.Xaml.FrameworkElement fe)
+            {
+                fe.DataContext = viewModel;
+            }
+
+            InitializeWindow(window, width, height);
+            ShowAsModal(window, owner);
+
+            // Ensure cleanup on close
+            window.Closed += (s, args) =>
+            {
+                RestoreOwnerInput(owner);
+                if (s is Microsoft.UI.Xaml.Window w)
+                {
+                    w.Content = null;
+                }
+            };
+        }
     }
 }
