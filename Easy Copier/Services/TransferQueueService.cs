@@ -120,10 +120,20 @@ namespace Easy_Copier.Services
 
             TransferOutcome? outcome = null;
 
+            var progress = new Progress<TransferProgress>(p =>
+            {
+                RunOnUiThread(() =>
+                {
+                    item.ProgressPercentage = p.Percentage;
+                    item.SpeedText = p.SpeedText;
+                    item.RemainingTimeText = p.RemainingTimeText;
+                });
+            });
+
             try
             {
                 TransferRequest request = new(item.Items, item.TargetDrive, item.DestinationPath);
-                outcome = await _fileTransferService.TransferGamesAsync(request);
+                outcome = await _fileTransferService.TransferGamesAsync(request, progress);
             }
             catch (Exception ex)
             {

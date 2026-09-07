@@ -8,9 +8,16 @@ using System.Threading.Tasks;
 
 namespace Easy_Copier.Services
 {
+    public class TransferProgress
+    {
+        public double Percentage { get; set; }
+        public string SpeedText { get; set; } = string.Empty;
+        public string RemainingTimeText { get; set; } = string.Empty;
+    }
+
     public interface IFileTransferService
     {
-        Task<TransferOutcome> TransferGamesAsync(TransferRequest request);
+        Task<TransferOutcome> TransferGamesAsync(TransferRequest request, IProgress<TransferProgress>? progress = null);
         Task<(long Size, int Count)> GetFolderStatsAsync(string path);
     }
 
@@ -76,7 +83,7 @@ namespace Easy_Copier.Services
             });
         }
 
-        public async Task<TransferOutcome> TransferGamesAsync(TransferRequest request)
+        public async Task<TransferOutcome> TransferGamesAsync(TransferRequest request, IProgress<TransferProgress>? progress = null)
         {
             return await Task.Run(() =>
             {
@@ -143,9 +150,18 @@ namespace Easy_Copier.Services
                                 }
                             }
 
+                            long queueTotalBytes = 0;
+                            foreach (var i in request.Items)
+                            {
+                                if (i?.Game != null && i.Action != CopyAction.Skip)
+                                {
+                                    queueTotalBytes += i.Game.TotalBytes;
+                                }
+                            }
+
                             bool result = item.Action == CopyAction.Merge && Directory.Exists(destPath) && Directory.Exists(game.FolderPath)
                                 ? MergeDirectory(game.FolderPath, destPath)
-                                : CopyItemWithShellDialog(game.FolderPath, destPath);
+                                : CopyItemWithIFileOperation(game.FolderPath, request.DestinationPath, progress, queueTotalBytes, totalBytes, game.TotalBytes);
                             if (result)
                             {
                                 successCount++;
@@ -260,28 +276,130 @@ namespace Easy_Copier.Services
             }
         }
 
-        private bool CopyItemWithShellDialog(string sourcePath, string destPath)
+        private bool CopyItemWithIFileOperation(string sourcePath, string destPath, IProgress<TransferProgress>? progress, long queueTotalBytes, long previouslyCopiedBytes, long currentItemBytes)
         {
             try
             {
-                NativeMethods.SHFILEOPSTRUCT fileOp = new()
+                NativeMethods.IFileOperation? fileOperation = null;
+                NativeMethods.IShellItem? sourceItem = null;
+                NativeMethods.IShellItem? destFolder = null;
+                uint cookie = 0;
+
+                try
                 {
-                    wFunc = NativeMethods.FO_COPY,
-                    pFrom = sourcePath + "\0\0",
-                    pTo = destPath + "\0\0",
-                    fFlags = NativeMethods.FOF_NOCONFIRMMKDIR,
-                    hwnd = IntPtr.Zero
-                };
+                    fileOperation = (NativeMethods.IFileOperation)new NativeMethods.FileOperation();
+                    fileOperation.SetOperationFlags(NativeMethods.FOF_NOCONFIRMMKDIR);
 
-                int result = NativeMethods.SHFileOperation(ref fileOp);
+                    FileOperationProgressSink sink = new(progress, queueTotalBytes, previouslyCopiedBytes, currentItemBytes);
+                    cookie = fileOperation.Advise(sink);
 
-                return result == 0 && !fileOp.fAnyOperationsAborted;
+                    NativeMethods.SHCreateItemFromParsingName(sourcePath, IntPtr.Zero, typeof(NativeMethods.IShellItem).GUID, out sourceItem);
+                    NativeMethods.SHCreateItemFromParsingName(destPath, IntPtr.Zero, typeof(NativeMethods.IShellItem).GUID, out destFolder);
+
+                    fileOperation.CopyItem(sourceItem, destFolder, null, null);
+                    fileOperation.PerformOperations();
+
+                    return !fileOperation.GetAnyOperationsAborted();
+                }
+                finally
+                {
+                    if (fileOperation != null && cookie != 0)
+                    {
+                        try { fileOperation.Unadvise(cookie); } catch { }
+                    }
+                    if (sourceItem != null) Marshal.ReleaseComObject(sourceItem);
+                    if (destFolder != null) Marshal.ReleaseComObject(destFolder);
+                    if (fileOperation != null) Marshal.ReleaseComObject(fileOperation);
+                }
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "Shell copy operation failed for {Source}", sourcePath);
+                _logger.LogError(ex, "IFileOperation copy failed for {Source}", sourcePath);
                 return false;
             }
+        }
+
+        private class FileOperationProgressSink : NativeMethods.IFileOperationProgressSink
+        {
+            private readonly IProgress<TransferProgress>? _progress;
+            private readonly long _queueTotalBytes;
+            private readonly long _previouslyCopiedBytes;
+            private readonly long _currentItemTotalBytes;
+            private readonly System.Diagnostics.Stopwatch _stopwatch;
+
+            public FileOperationProgressSink(IProgress<TransferProgress>? progress, long queueTotalBytes, long previouslyCopiedBytes, long currentItemTotalBytes)
+            {
+                _progress = progress;
+                _queueTotalBytes = queueTotalBytes;
+                _previouslyCopiedBytes = previouslyCopiedBytes;
+                _currentItemTotalBytes = currentItemTotalBytes;
+                _stopwatch = System.Diagnostics.Stopwatch.StartNew();
+            }
+
+            public void UpdateProgress(uint iWorkTotal, uint iWorkSoFar)
+            {
+                if (_progress == null || _queueTotalBytes == 0) return;
+
+                double currentItemProgress = iWorkTotal > 0 ? (double)iWorkSoFar / iWorkTotal : 0;
+                long currentItemBytesCopied = (long)(currentItemProgress * _currentItemTotalBytes);
+                long totalBytesCopiedSoFar = _previouslyCopiedBytes + currentItemBytesCopied;
+
+                double totalPercentage = ((double)totalBytesCopiedSoFar / _queueTotalBytes) * 100.0;
+                if (totalPercentage > 100.0) totalPercentage = 100.0;
+
+                double elapsedSeconds = _stopwatch.Elapsed.TotalSeconds;
+                string speedText = "";
+                string remainingTimeText = "";
+
+                if (elapsedSeconds > 0)
+                {
+                    double bytesPerSecond = currentItemBytesCopied / elapsedSeconds;
+                    speedText = Infrastructure.FormattingHelpers.FormatBytes((long)bytesPerSecond) + "/s";
+
+                    long bytesRemaining = _queueTotalBytes - totalBytesCopiedSoFar;
+                    if (bytesPerSecond > 0)
+                    {
+                        double secondsRemaining = bytesRemaining / bytesPerSecond;
+                        TimeSpan timeRemaining = TimeSpan.FromSeconds(secondsRemaining);
+
+                        if (timeRemaining.TotalHours >= 1)
+                        {
+                            remainingTimeText = $"{(int)timeRemaining.TotalHours}h {timeRemaining.Minutes}m";
+                        }
+                        else if (timeRemaining.TotalMinutes >= 1)
+                        {
+                            remainingTimeText = $"{timeRemaining.Minutes}m {timeRemaining.Seconds}s";
+                        }
+                        else
+                        {
+                            remainingTimeText = $"{timeRemaining.Seconds}s";
+                        }
+                    }
+                }
+
+                _progress.Report(new TransferProgress
+                {
+                    Percentage = totalPercentage,
+                    SpeedText = speedText,
+                    RemainingTimeText = remainingTimeText
+                });
+            }
+
+            public void StartOperations() { }
+            public void FinishOperations(int hrResult) { }
+            public void PreRenameItem(uint dwFlags, NativeMethods.IShellItem psiItem, string pszNewName) { }
+            public void PostRenameItem(uint dwFlags, NativeMethods.IShellItem psiItem, string pszNewName, int hrRename, NativeMethods.IShellItem psiNewlyCreated) { }
+            public void PreMoveItem(uint dwFlags, NativeMethods.IShellItem psiItem, NativeMethods.IShellItem psiDestinationFolder, string pszNewName) { }
+            public void PostMoveItem(uint dwFlags, NativeMethods.IShellItem psiItem, NativeMethods.IShellItem psiDestinationFolder, string pszNewName, int hrMove, NativeMethods.IShellItem psiNewlyCreated) { }
+            public void PreCopyItem(uint dwFlags, NativeMethods.IShellItem psiItem, NativeMethods.IShellItem psiDestinationFolder, string pszNewName) { }
+            public void PostCopyItem(uint dwFlags, NativeMethods.IShellItem psiItem, NativeMethods.IShellItem psiDestinationFolder, string pszNewName, int hrCopy, NativeMethods.IShellItem psiNewlyCreated) { }
+            public void PreDeleteItem(uint dwFlags, NativeMethods.IShellItem psiItem) { }
+            public void PostDeleteItem(uint dwFlags, NativeMethods.IShellItem psiItem, int hrDelete, NativeMethods.IShellItem psiNewlyCreated) { }
+            public void PreNewItem(uint dwFlags, NativeMethods.IShellItem psiDestinationFolder, string pszNewName) { }
+            public void PostNewItem(uint dwFlags, NativeMethods.IShellItem psiDestinationFolder, string pszNewName, string pszTemplateName, uint dwFileAttributes, int hrNew, NativeMethods.IShellItem psiNewlyCreated) { }
+            public void ResetTimer() { }
+            public void PauseTimer() { }
+            public void ResumeTimer() { }
         }
 
         private static class NativeMethods
@@ -289,6 +407,80 @@ namespace Easy_Copier.Services
             [DllImport("shell32.dll", CharSet = CharSet.Unicode)]
             [DefaultDllImportSearchPaths(DllImportSearchPath.System32)]
             public static extern int SHFileOperation(ref SHFILEOPSTRUCT lpFileOp);
+
+            [DllImport("shell32.dll", CharSet = CharSet.Unicode, PreserveSig = false)]
+            public static extern void SHCreateItemFromParsingName(
+                [In][MarshalAs(UnmanagedType.LPWStr)] string pszPath,
+                [In] IntPtr pbc,
+                [In][MarshalAs(UnmanagedType.LPStruct)] Guid riid,
+                [Out][MarshalAs(UnmanagedType.Interface)] out IShellItem ppv);
+
+            [ComImport]
+            [Guid("3ad05575-8857-4850-9277-11b85bdb8e09")]
+            public class FileOperation { }
+
+            [ComImport]
+            [Guid("947aab5f-0a5c-4713-a4d6-4bf040b5d2b3")]
+            [InterfaceType(ComInterfaceType.InterfaceIsIUnknown)]
+            public interface IFileOperation
+            {
+                uint Advise(IFileOperationProgressSink pfops);
+                void Unadvise(uint dwCookie);
+                void SetOperationFlags(uint dwOperationFlags);
+                void SetProgressMessage([MarshalAs(UnmanagedType.LPWStr)] string pszMessage);
+                void SetProgressDialog(IntPtr popd);
+                void SetProperties(IntPtr pproparray);
+                void SetOwnerWindow(IntPtr hwndOwner);
+                void ApplyPropertiesToItem(IShellItem psiItem);
+                void ApplyPropertiesToItems(IntPtr punkItems);
+                void RenameItem(IShellItem psiItem, [MarshalAs(UnmanagedType.LPWStr)] string pszNewName, IFileOperationProgressSink? pfopsItem);
+                void RenameItems(IntPtr pUnkItems, [MarshalAs(UnmanagedType.LPWStr)] string pszNewName);
+                void MoveItem(IShellItem psiItem, IShellItem psiDestinationFolder, [MarshalAs(UnmanagedType.LPWStr)] string pszNewName, IFileOperationProgressSink? pfopsItem);
+                void MoveItems(IntPtr punkItems, IShellItem psiDestinationFolder);
+                void CopyItem(IShellItem psiItem, IShellItem psiDestinationFolder, [MarshalAs(UnmanagedType.LPWStr)] string pszCopyName, IFileOperationProgressSink? pfopsItem);
+                void CopyItems(IntPtr punkItems, IShellItem psiDestinationFolder);
+                void DeleteItem(IShellItem psiItem, IFileOperationProgressSink? pfopsItem);
+                void DeleteItems(IntPtr punkItems);
+                void NewItem(IShellItem psiDestinationFolder, uint dwFileAttributes, [MarshalAs(UnmanagedType.LPWStr)] string pszName, [MarshalAs(UnmanagedType.LPWStr)] string pszTemplateName, IFileOperationProgressSink? pfopsItem);
+                void PerformOperations();
+                [return: MarshalAs(UnmanagedType.Bool)]
+                bool GetAnyOperationsAborted();
+            }
+
+            [ComImport]
+            [Guid("43826d1e-e718-42ee-bc55-a1e261c37bfe")]
+            [InterfaceType(ComInterfaceType.InterfaceIsIUnknown)]
+            public interface IShellItem
+            {
+                void BindToHandler(IntPtr pbc, [MarshalAs(UnmanagedType.LPStruct)] Guid bhid, [MarshalAs(UnmanagedType.LPStruct)] Guid riid, out IntPtr ppv);
+                void GetParent(out IShellItem ppsi);
+                void GetDisplayName(uint sigdnName, out IntPtr ppszName);
+                void GetAttributes(uint sfgaoMask, out uint psfgaoAttribs);
+                void Compare(IShellItem psi, uint hint, out int piOrder);
+            }
+
+            [ComImport]
+            [Guid("04b0f1a5-8d70-48ea-a084-07d623678da4")]
+            [InterfaceType(ComInterfaceType.InterfaceIsIUnknown)]
+            public interface IFileOperationProgressSink
+            {
+                void StartOperations();
+                void FinishOperations(int hrResult);
+                void PreRenameItem(uint dwFlags, IShellItem psiItem, [MarshalAs(UnmanagedType.LPWStr)] string pszNewName);
+                void PostRenameItem(uint dwFlags, IShellItem psiItem, [MarshalAs(UnmanagedType.LPWStr)] string pszNewName, int hrRename, IShellItem psiNewlyCreated);
+                void PreMoveItem(uint dwFlags, IShellItem psiItem, IShellItem psiDestinationFolder, [MarshalAs(UnmanagedType.LPWStr)] string pszNewName);
+                void PostMoveItem(uint dwFlags, IShellItem psiItem, IShellItem psiDestinationFolder, [MarshalAs(UnmanagedType.LPWStr)] string pszNewName, int hrMove, IShellItem psiNewlyCreated);
+                void PreCopyItem(uint dwFlags, IShellItem psiItem, IShellItem psiDestinationFolder, [MarshalAs(UnmanagedType.LPWStr)] string pszNewName);
+                void PostCopyItem(uint dwFlags, IShellItem psiItem, IShellItem psiDestinationFolder, [MarshalAs(UnmanagedType.LPWStr)] string pszNewName, int hrCopy, IShellItem psiNewlyCreated);
+                void PreDeleteItem(uint dwFlags, IShellItem psiItem);
+                void PostDeleteItem(uint dwFlags, IShellItem psiItem, int hrDelete, IShellItem psiNewlyCreated);
+                void PreNewItem(uint dwFlags, IShellItem psiDestinationFolder, [MarshalAs(UnmanagedType.LPWStr)] string pszNewName);
+                void PostNewItem(uint dwFlags, IShellItem psiDestinationFolder, [MarshalAs(UnmanagedType.LPWStr)] string pszNewName, [MarshalAs(UnmanagedType.LPWStr)] string pszTemplateName, uint dwFileAttributes, int hrNew, IShellItem psiNewlyCreated);
+                void UpdateProgress(uint iWorkTotal, uint iWorkSoFar);
+                void ResetTimer();
+                void PauseTimer();
+                void ResumeTimer();
+            }
 
             public const int FO_COPY = 0x0002;
             public const ushort FOF_NOCONFIRMMKDIR = 0x0200;

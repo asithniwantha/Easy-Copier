@@ -85,28 +85,28 @@ namespace Easy_Copier.Views
             {
                 if (line.StartsWith("CPU:", StringComparison.Ordinal))
                 {
-                    paragraph.Inlines.Add(new Run { Text = "CPU:", Foreground = new SolidColorBrush(Windows.UI.Color.FromArgb(255, 0, 0, 255)), FontWeight = FontWeights.Bold });
-                    paragraph.Inlines.Add(new Run { Text = line[4..] + "\n", Foreground = new SolidColorBrush(Windows.UI.Color.FromArgb(255, 100, 149, 237)) });
+                    paragraph.Inlines.Add(new Run { Text = "CPU:", Foreground = new SolidColorBrush(Microsoft.UI.ColorHelper.FromArgb(255, 0, 0, 255)), FontWeight = FontWeights.Bold });
+                    paragraph.Inlines.Add(new Run { Text = line[4..] + "\n", Foreground = new SolidColorBrush(Microsoft.UI.ColorHelper.FromArgb(255, 100, 149, 237)) });
                 }
                 else if (line.StartsWith("GPU:", StringComparison.Ordinal))
                 {
-                    paragraph.Inlines.Add(new Run { Text = "GPU:", Foreground = new SolidColorBrush(Windows.UI.Color.FromArgb(255, 255, 0, 0)), FontWeight = FontWeights.Bold });
-                    paragraph.Inlines.Add(new Run { Text = line[4..] + "\n", Foreground = new SolidColorBrush(Windows.UI.Color.FromArgb(255, 255, 100, 100)) });
+                    paragraph.Inlines.Add(new Run { Text = "GPU:", Foreground = new SolidColorBrush(Microsoft.UI.ColorHelper.FromArgb(255, 255, 0, 0)), FontWeight = FontWeights.Bold });
+                    paragraph.Inlines.Add(new Run { Text = line[4..] + "\n", Foreground = new SolidColorBrush(Microsoft.UI.ColorHelper.FromArgb(255, 255, 100, 100)) });
                 }
                 else if (line.StartsWith("RAM:", StringComparison.Ordinal))
                 {
-                    paragraph.Inlines.Add(new Run { Text = "RAM:", Foreground = new SolidColorBrush(Windows.UI.Color.FromArgb(255, 0, 128, 0)), FontWeight = FontWeights.Bold });
-                    paragraph.Inlines.Add(new Run { Text = line[4..] + "\n", Foreground = new SolidColorBrush(Windows.UI.Color.FromArgb(255, 50, 205, 50)) });
+                    paragraph.Inlines.Add(new Run { Text = "RAM:", Foreground = new SolidColorBrush(Microsoft.UI.ColorHelper.FromArgb(255, 0, 128, 0)), FontWeight = FontWeights.Bold });
+                    paragraph.Inlines.Add(new Run { Text = line[4..] + "\n", Foreground = new SolidColorBrush(Microsoft.UI.ColorHelper.FromArgb(255, 50, 205, 50)) });
                 }
                 else if (line.StartsWith("Storage:", StringComparison.Ordinal))
                 {
-                    paragraph.Inlines.Add(new Run { Text = "Storage:", Foreground = new SolidColorBrush(Windows.UI.Color.FromArgb(255, 255, 165, 0)), FontWeight = FontWeights.Bold });
-                    paragraph.Inlines.Add(new Run { Text = line[8..] + "\n", Foreground = new SolidColorBrush(Windows.UI.Color.FromArgb(255, 255, 200, 100)) });
+                    paragraph.Inlines.Add(new Run { Text = "Storage:", Foreground = new SolidColorBrush(Microsoft.UI.ColorHelper.FromArgb(255, 255, 165, 0)), FontWeight = FontWeights.Bold });
+                    paragraph.Inlines.Add(new Run { Text = line[8..] + "\n", Foreground = new SolidColorBrush(Microsoft.UI.ColorHelper.FromArgb(255, 255, 200, 100)) });
                 }
                 else if (line.StartsWith("OS:", StringComparison.Ordinal))
                 {
-                    paragraph.Inlines.Add(new Run { Text = "OS:", Foreground = new SolidColorBrush(Windows.UI.Color.FromArgb(255, 128, 0, 128)), FontWeight = FontWeights.Bold });
-                    paragraph.Inlines.Add(new Run { Text = line[3..] + "\n", Foreground = new SolidColorBrush(Windows.UI.Color.FromArgb(255, 186, 85, 211)) });
+                    paragraph.Inlines.Add(new Run { Text = "OS:", Foreground = new SolidColorBrush(Microsoft.UI.ColorHelper.FromArgb(255, 128, 0, 128)), FontWeight = FontWeights.Bold });
+                    paragraph.Inlines.Add(new Run { Text = line[3..] + "\n", Foreground = new SolidColorBrush(Microsoft.UI.ColorHelper.FromArgb(255, 186, 85, 211)) });
                 }
                 else if (line.StartsWith("Minimum:", StringComparison.Ordinal))
                 {

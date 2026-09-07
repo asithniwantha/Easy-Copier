@@ -15,6 +15,7 @@ Easy Copier helps shop environments prepare customer drives without guessing whi
 
 ## ✨ Features
 
+- Real-time copy progress tracking with speed and estimated remaining time natively integrated in the UI.
 * **🎮 Game Categorization:** Automatically fetches categories from Steam and applies a keyword fallback. Use UI category filters to browse your library.
 * **⚡ High-Speed Transfers:** Optimized file I/O operations tailored for handling massive game files and nested directories.
 * **🎨 Modern UI:** A beautiful, responsive interface built with WinUI 3 that feels right at home on Windows 11.
@@ -159,3 +160,5 @@ Distributed under the MIT License. See `LICENSE` for more information.
 * Resolved CS8611 nullability reference mismatch warnings on `[ObservableProperty]` generated partial method signatures.
 * Fixed Roslyn static analysis CA1308 and CA1307 warnings in `GameInfoDownloadService.Categories.cs`.
 * Fixed Roslyn static analysis CA1305 warnings in `LibraryScannerService.cs` by specifying `CultureInfo.InvariantCulture` in `StringBuilder.AppendLine` calls.
+* Consolidated and abstracted duplicated modal window creation logic into `NativeWindowHelper.InitializeModalWindow`.
+* Replaced legacy UWP `Windows.UI.Color` usages with modern `Microsoft.UI.ColorHelper` for WinUI 3 compatibility.

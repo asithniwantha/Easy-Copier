@@ -10,6 +10,8 @@
     mc:Ignorable="d">
 
     <Page.Resources>
+        <converters:BoolToInvertedVisibilityConverter xmlns:converters="using:Easy_Copier.Converters" x:Key="BoolToInvertedVisibilityConverter"/>
+
         <DataTemplate x:Key="LibraryItemTemplate" x:DataType="models:GameEntry">
             <Border Style="{StaticResource GameCardStyle}"
                     Width="{StaticResource GameCardWidth}"
@@ -339,8 +341,22 @@
                                                     <Run Text="Rs."/>
                                                     <Run Text="{x:Bind TotalPrice}"/>
                                                 </TextBlock>
+
+                                                <ProgressBar Maximum="100"
+                                                             Value="{x:Bind ProgressPercentage, Mode=OneWay}"
+                                                             Visibility="{x:Bind IsTransferring, Mode=OneWay}"
+                                                             Margin="0,4,0,2"/>
+
+                                                <Grid Visibility="{x:Bind IsTransferring, Mode=OneWay}" Margin="0,0,0,2">
+                                                    <TextBlock Text="{x:Bind SpeedText, Mode=OneWay}"
+                                                               FontSize="12" Opacity="0.7" HorizontalAlignment="Left"/>
+                                                    <TextBlock Text="{x:Bind RemainingTimeText, Mode=OneWay}"
+                                                               FontSize="12" Opacity="0.7" HorizontalAlignment="Right"/>
+                                                </Grid>
+
                                                 <TextBlock Text="{x:Bind StatusMessage, Mode=OneWay}"
-                                                           FontSize="12" Opacity="0.7" TextWrapping="Wrap"/>
+                                                           FontSize="12" Opacity="0.7" TextWrapping="Wrap"
+                                                           Visibility="{x:Bind IsTransferring, Mode=OneWay, Converter={StaticResource BoolToInvertedVisibilityConverter}}"/>
                                             </StackPanel>
                                         </Grid>
                                     </Border>

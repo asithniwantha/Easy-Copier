@@ -33,6 +33,15 @@ namespace Easy_Copier.Models
         [ObservableProperty]
         public partial DateTime? CompletedAt { get; set; }
 
+        [ObservableProperty]
+        public partial double ProgressPercentage { get; set; }
+
+        [ObservableProperty]
+        public partial string SpeedText { get; set; } = string.Empty;
+
+        [ObservableProperty]
+        public partial string RemainingTimeText { get; set; } = string.Empty;
+
         public string ItemsSummary => Items.Count == 1
             ? Items[0].Game.Name
             : $"{Items.Count} items";
@@ -49,10 +58,13 @@ namespace Easy_Copier.Models
 
         public bool IsActive => Status is TransferQueueItemStatus.Queued or TransferQueueItemStatus.InProgress;
 
+        public bool IsTransferring => Status == TransferQueueItemStatus.InProgress;
+
         partial void OnStatusChanged(TransferQueueItemStatus value)
         {
             OnPropertyChanged(nameof(StatusGlyph));
             OnPropertyChanged(nameof(IsActive));
+            OnPropertyChanged(nameof(IsTransferring));
         }
     }
 }

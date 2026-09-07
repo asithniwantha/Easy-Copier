@@ -23,6 +23,20 @@ namespace Easy_Copier.Converters
         }
     }
 
+    public class BoolToInvertedVisibilityConverter : IValueConverter
+    {
+        public object Convert(object value, Type targetType, object parameter, string language)
+        {
+            bool boolValue = value is bool b && b;
+            return boolValue ? Microsoft.UI.Xaml.Visibility.Collapsed : Microsoft.UI.Xaml.Visibility.Visible;
+        }
+
+        public object ConvertBack(object value, Type targetType, object parameter, string language)
+        {
+            throw new NotImplementedException();
+        }
+    }
+
     public class GameSizeToPriceConverter : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, string language)
