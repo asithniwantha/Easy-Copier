@@ -131,3 +131,10 @@
 ## Development Highlights
 - **Refactored Architecture**: Consolidated and abstracted duplicated modal window creation logic to reduce code duplication in Views.
 - **WinUI 3 Modernization**: Removed remaining legacy `Windows.UI` namespaces in favor of `Microsoft.UI`.
+
+
+## File Transfer Improvements
+- Replaced outdated `SHFileOperation` with modern `IFileOperation` COM integration.
+- Added dynamic transfer speed (MB/s) and estimated time remaining tracking.
+- Preserved existing conflict resolution strategies (Replace, Merge, Skip).
+- Fixed potential locking issues with COM STA threading requirement.

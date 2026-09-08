@@ -3,14 +3,16 @@ using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Runtime.InteropServices;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Easy_Copier.Services
 {
     public interface IFileTransferService
     {
-        Task<TransferOutcome> TransferGamesAsync(TransferRequest request);
+        Task<TransferOutcome> TransferGamesAsync(TransferRequest request, IProgress<TransferProgress>? progress = null, CancellationToken cancellationToken = default);
         Task<(long Size, int Count)> GetFolderStatsAsync(string path);
     }
 
@@ -76,240 +78,214 @@ namespace Easy_Copier.Services
             });
         }
 
-        public async Task<TransferOutcome> TransferGamesAsync(TransferRequest request)
+        public async Task<TransferOutcome> TransferGamesAsync(TransferRequest request, IProgress<TransferProgress>? progress = null, CancellationToken cancellationToken = default)
         {
-            return await Task.Run(() =>
+            TaskCompletionSource<TransferOutcome> tcs = new();
+
+            Thread workerThread = new(() =>
             {
                 try
                 {
-                    _logger.LogInformation(
-                        "Starting transfer of {Count} items to {Drive}",
-                        request.Items.Count,
-                        request.TargetDrive.DriveLetter);
+                    // IFileOperation requires an STA thread
+                    TransferOutcome result = ExecuteTransferWithIFileOperation(request, progress, cancellationToken);
+                    tcs.SetResult(result);
+                }
+                catch (Exception ex)
+                {
+                    _logger.LogError(ex, "Transfer thread encountered an error");
+                    tcs.SetException(ex);
+                }
+            })
+            {
+                IsBackground = true
+            };
+            workerThread.SetApartmentState(ApartmentState.STA);
+            workerThread.Start();
 
-                    if (!Directory.Exists(request.DestinationPath))
-                    {
-                        _ = Directory.CreateDirectory(request.DestinationPath);
-                        _logger.LogInformation("Created destination directory: {Path}", request.DestinationPath);
-                    }
+            return await tcs.Task;
+        }
 
-                    int successCount = 0;
-                    long totalBytes = 0;
-                    List<string> errors = [];
+        private TransferOutcome ExecuteTransferWithIFileOperation(TransferRequest request, IProgress<TransferProgress>? progress, CancellationToken cancellationToken)
+        {
+            _logger.LogInformation(
+                "Starting transfer of {Count} items to {Drive}",
+                request.Items.Count,
+                request.TargetDrive.DriveLetter);
 
+            if (!Directory.Exists(request.DestinationPath))
+            {
+                _ = Directory.CreateDirectory(request.DestinationPath);
+                _logger.LogInformation("Created destination directory: {Path}", request.DestinationPath);
+            }
+
+            long totalBytesToTransfer = request.Items.Where(i => i.Action != CopyAction.Skip && i.Game != null).Sum(i => i.Game.TotalBytes);
+            Dictionary<string, TransferItem> itemMap = new(StringComparer.OrdinalIgnoreCase);
+
+            NativeFileOperation.IFileOperation? fileOp = null;
+            FileOperationProgressSink? sink = null;
+            uint cookie = 0;
+
+            int queuedCount = 0;
+            List<string> initializationErrors = new();
+
+            try
+            {
+                Type? fileOpType = Type.GetTypeFromCLSID(new Guid("3ad05575-8857-4850-9277-11b85bdb8e09"));
+                if (fileOpType == null)
+                {
+                    _logger.LogError("Could not load IFileOperation COM type.");
+                    return new TransferOutcome(false, "COM initialization failed.", 0, 0, DateTime.Now);
+                }
+
+                fileOp = (NativeFileOperation.IFileOperation)Activator.CreateInstance(fileOpType)!;
+
+                // FOF_NOCONFIRMMKDIR ensures we don't get prompts to create target folders.
+                // If we don't pass FOF_NOCONFIRMATION, the user will be prompted for collisions.
+                // But the previous `MergeDirectory` silent-skipped existing files (with no UI prompt).
+                // Wait, actually, the user wants "use shell flags to match current UX intent".
+                // We'll omit FOF_NOCONFIRMATION so standard shell collision resolution applies for "Default".
+
+                uint flags = (uint)(NativeFileOperation.FileOperationFlags.FOF_NOCONFIRMMKDIR);
+
+                fileOp.SetOperationFlags(flags);
+                fileOp.SetOwnerWindow(IntPtr.Zero);
+
+                sink = new FileOperationProgressSink(
+                    progress,
+                    cancellationToken,
+                    totalBytesToTransfer,
+                    itemMap,
+                    _copyHistoryService,
+                    request.TargetDrive,
+                    CalculateAmount);
+
+                cookie = fileOp.Advise(sink);
+
+                NativeFileOperation.SHCreateItemFromParsingName(request.DestinationPath, IntPtr.Zero, NativeFileOperation.IShellItemGuid, out NativeFileOperation.IShellItem destFolderItem);
+
+                try
+                {
                     foreach (TransferItem item in request.Items)
                     {
-                        try
+                        if (cancellationToken.IsCancellationRequested)
                         {
-                            // Verify that both the transfer item and its associated game entry are not null.
-                            // This ensures proper support for C# nullable reference types and guards against malformed inputs.
-                            if (item == null || item.Game == null)
-                            {
-                                _logger.LogWarning("Found null transfer item or game reference; skipping.");
-                                continue;
-                            }
+                            initializationErrors.Add("Transfer cancelled by user.");
+                            break;
+                        }
 
-                            GameEntry game = item.Game;
+                        if (item == null || item.Game == null)
+                        {
+                            _logger.LogWarning("Found null transfer item or game reference; skipping.");
+                            continue;
+                        }
+
+                        GameEntry game = item.Game;
+
+                        if (item.Action == CopyAction.Skip)
+                        {
+                            _logger.LogInformation("Skipping {Game}", game.Name);
+                            continue;
+                        }
+
+                        // Handle Replace action natively using COM
+                        if (item.Action == CopyAction.Replace)
+                        {
                             string destPath = Path.Combine(request.DestinationPath, game.Name);
                             if (File.Exists(game.FolderPath))
                             {
                                 destPath = Path.Combine(request.DestinationPath, Path.GetFileName(game.FolderPath));
                             }
 
-                            _logger.LogInformation("Copying {Game} to {Dest} with action {Action}", game.Name, destPath, item.Action);
-
-                            if (item.Action == CopyAction.Skip)
-                            {
-                                _logger.LogInformation("Skipping {Game}", game.Name);
-                                continue;
-                            }
-
-                            if (item.Action == CopyAction.Replace)
+                            if (Directory.Exists(destPath) || File.Exists(destPath))
                             {
                                 try
                                 {
-                                    if (Directory.Exists(destPath))
-                                    {
-                                        Directory.Delete(destPath, true);
-                                    }
-                                    else if (File.Exists(destPath))
-                                    {
-                                        File.Delete(destPath);
-                                    }
+                                    NativeFileOperation.SHCreateItemFromParsingName(destPath, IntPtr.Zero, NativeFileOperation.IShellItemGuid, out NativeFileOperation.IShellItem existingItem);
+                                    fileOp.DeleteItem(existingItem, null);
+                                    Marshal.ReleaseComObject(existingItem);
                                 }
                                 catch (Exception ex)
                                 {
-                                    _logger.LogWarning(ex, "Failed to delete existing destination for replacement: {Dest}", destPath);
+                                    _logger.LogWarning(ex, "Failed to queue deletion for replacement: {Dest}", destPath);
                                 }
                             }
+                        }
 
-                            bool result = item.Action == CopyAction.Merge && Directory.Exists(destPath) && Directory.Exists(game.FolderPath)
-                                ? MergeDirectory(game.FolderPath, destPath)
-                                : CopyItemWithShellDialog(game.FolderPath, destPath);
-                            if (result)
+                        try
+                        {
+                            NativeFileOperation.SHCreateItemFromParsingName(game.FolderPath, IntPtr.Zero, NativeFileOperation.IShellItemGuid, out NativeFileOperation.IShellItem sourceItem);
+
+                            string? copyName = null;
+                            if (Directory.Exists(game.FolderPath))
                             {
-                                successCount++;
-                                totalBytes += game.TotalBytes;
-                                _logger.LogInformation("Successfully copied: {Game}", game.Name);
-                            }
-                            else
-                            {
-                                errors.Add($"{game.Name}: Copy operation was cancelled or failed");
-                                _logger.LogWarning("Copy failed or cancelled: {Game}", game.Name);
+                                copyName = game.Name;
                             }
 
-                            // Log to history
-                            _copyHistoryService.AddRecordAsync(new CopyHistoryRecord(
-                                Id: 0,
-                                Timestamp: DateTime.Now,
-                                GameName: game.Name,
-                                TargetDriveLetter: request.TargetDrive.DriveLetter,
-                                TargetDriveLabel: request.TargetDrive.DriveLabel,
-                                BytesTransferred: result ? game.TotalBytes : 0,
-                                IsSuccess: result,
-                                Amount: result ? CalculateAmount(game.TotalBytes) : 0
-                            )).GetAwaiter().GetResult();
+                            fileOp.CopyItem(sourceItem, destFolderItem, copyName, null);
+
+                            // Map the parsing path to the item for the sink
+                            string normalizedPath = game.FolderPath.Replace('/', '\\');
+                            itemMap[normalizedPath] = item;
+
+                            queuedCount++;
+
+                            Marshal.ReleaseComObject(sourceItem);
                         }
                         catch (Exception ex)
                         {
-                            // Safely extract the game name using null-conditional access to handle cases where item is null
-                            string itemName = item?.Game?.Name ?? "Unknown item";
-                            errors.Add($"{itemName}: {ex.Message}");
-                            _logger.LogError(ex, "Error copying game: {Game}", itemName);
-
-                            // Log failure to history
-                            _copyHistoryService.AddRecordAsync(new CopyHistoryRecord(
-                                Id: 0,
-                                Timestamp: DateTime.Now,
-                                GameName: itemName,
-                                TargetDriveLetter: request.TargetDrive.DriveLetter,
-                                TargetDriveLabel: request.TargetDrive.DriveLabel,
-                                BytesTransferred: 0,
-                                IsSuccess: false,
-                                Amount: 0
-                            )).GetAwaiter().GetResult();
+                            initializationErrors.Add($"{game.Name}: Missing source path or COM error: {ex.Message}");
+                            _logger.LogWarning("Failed to queue item: {Game}", game.Name);
                         }
                     }
 
-                    bool allSuccess = successCount == request.Items.Count;
-                    string message = allSuccess
-                        ? $"Successfully copied {successCount} item(s)"
-                        : $"Copied {successCount} of {request.Items.Count} items. Errors: {string.Join("; ", errors)}";
-
-                    _logger.LogInformation("Transfer completed. Success: {SuccessCount}, Total Bytes: {TotalBytes}, Errors: {ErrorCount}", successCount, totalBytes, errors.Count);
-
-                    return new TransferOutcome(
-
-                        allSuccess && errors.Count == 0,
-                        message,
-                        successCount,
-                        totalBytes,
-                        DateTime.Now);
-                }
-                catch (Exception ex)
-                {
-                    _logger.LogError(ex, "Transfer failed");
-                    return new TransferOutcome(
-                        false,
-                        $"Transfer failed: {ex.Message}",
-                        0,
-                        0,
-                        DateTime.Now);
-                }
-            });
-        }
-
-        private bool MergeDirectory(string sourceDir, string destDir)
-        {
-            try
-            {
-                DirectoryInfo dir = new(sourceDir);
-
-                if (!dir.Exists)
-                {
-                    return false;
-                }
-
-                DirectoryInfo[] dirs = dir.GetDirectories();
-                _ = Directory.CreateDirectory(destDir);
-
-                foreach (FileInfo file in dir.GetFiles())
-                {
-                    string targetFilePath = Path.Combine(destDir, file.Name);
-                    if (!File.Exists(targetFilePath))
+                    if (queuedCount > 0)
                     {
-                        _ = file.CopyTo(targetFilePath, false);
+                        fileOp.PerformOperations();
+
+                        if (fileOp.GetAnyOperationsAborted() || sink.AnyOperationsAborted)
+                        {
+                            initializationErrors.Add("Operation was cancelled or aborted.");
+                        }
                     }
                 }
-
-                foreach (DirectoryInfo subDir in dirs)
+                finally
                 {
-                    string newDestinationDir = Path.Combine(destDir, subDir.Name);
-                    if (!MergeDirectory(subDir.FullName, newDestinationDir))
-                    {
-                        return false;
-                    }
+                    if (destFolderItem != null) Marshal.ReleaseComObject(destFolderItem);
                 }
-
-                return true;
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "Merge operation failed for {Source}", sourceDir);
-                return false;
+                initializationErrors.Add($"Transfer failed: {ex.Message}");
+                _logger.LogError(ex, "IFileOperation batch failed");
             }
-        }
-
-        private bool CopyItemWithShellDialog(string sourcePath, string destPath)
-        {
-            try
+            finally
             {
-                NativeMethods.SHFILEOPSTRUCT fileOp = new()
+                if (fileOp != null && cookie != 0)
                 {
-                    wFunc = NativeMethods.FO_COPY,
-                    pFrom = sourcePath + "\0\0",
-                    pTo = destPath + "\0\0",
-                    fFlags = NativeMethods.FOF_NOCONFIRMMKDIR,
-                    hwnd = IntPtr.Zero
-                };
+                    try { fileOp.Unadvise(cookie); } catch { }
+                }
 
-                int result = NativeMethods.SHFileOperation(ref fileOp);
-
-                return result == 0 && !fileOp.fAnyOperationsAborted;
+                if (fileOp != null)
+                {
+                    Marshal.ReleaseComObject(fileOp);
+                }
             }
-            catch (Exception ex)
-            {
-                _logger.LogError(ex, "Shell copy operation failed for {Source}", sourcePath);
-                return false;
-            }
-        }
 
-        private static class NativeMethods
-        {
-            [DllImport("shell32.dll", CharSet = CharSet.Unicode)]
-            [DefaultDllImportSearchPaths(DllImportSearchPath.System32)]
-            public static extern int SHFileOperation(ref SHFILEOPSTRUCT lpFileOp);
+            int finalSuccessCount = sink?.SuccessCount ?? 0;
+            long finalBytes = sink?.TotalBytesCopied ?? 0;
+            var finalErrors = initializationErrors.Concat(sink?.Errors ?? new List<string>()).ToList();
 
-            public const int FO_COPY = 0x0002;
-            public const ushort FOF_NOCONFIRMMKDIR = 0x0200;
-            public const ushort FOF_NOERRORUI = 0x0400;
+            bool allSuccess = finalErrors.Count == 0 && finalSuccessCount == request.Items.Count(i => i.Action != CopyAction.Skip);
+            string message = allSuccess
+                ? $"Successfully copied {finalSuccessCount} item(s)"
+                : $"Copied {finalSuccessCount} items. Errors: {string.Join("; ", finalErrors)}";
 
-            [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-            public struct SHFILEOPSTRUCT
-            {
-                public IntPtr hwnd;
-                public int wFunc;
-                [MarshalAs(UnmanagedType.LPWStr)]
-                public string pFrom;
-                [MarshalAs(UnmanagedType.LPWStr)]
-                public string pTo;
-                public ushort fFlags;
-                [MarshalAs(UnmanagedType.Bool)]
-                public bool fAnyOperationsAborted;
-                public IntPtr hNameMappings;
-                [MarshalAs(UnmanagedType.LPWStr)]
-                public string? lpszProgressTitle;
-            }
+            return new TransferOutcome(
+                allSuccess,
+                message,
+                finalSuccessCount,
+                finalBytes,
+                DateTime.Now);
         }
     }
 }

@@ -122,8 +122,25 @@ namespace Easy_Copier.Services
 
             try
             {
+                Progress<TransferProgress> progress = new(p =>
+                {
+                    RunOnUiThread(() =>
+                    {
+                        if (item.Status == TransferQueueItemStatus.InProgress)
+                        {
+                            string speedStr = p.SpeedMegabytesPerSecond > 0 ? $"{p.SpeedMegabytesPerSecond:F1} MB/s" : "Calculating...";
+                            string etaStr = p.EstimatedTimeRemaining.TotalSeconds > 0
+                                ? $"ETA: {(int)p.EstimatedTimeRemaining.TotalMinutes:D2}:{p.EstimatedTimeRemaining.Seconds:D2}"
+                                : "";
+
+                            item.StatusMessage = $"Copying... {p.Percentage}% ({speedStr}) {etaStr}".Trim();
+                        }
+                    });
+                });
+
                 TransferRequest request = new(item.Items, item.TargetDrive, item.DestinationPath);
-                outcome = await _fileTransferService.TransferGamesAsync(request);
+                // Passing a dummy cancellation token for now as per requirements we rely on native UI abort
+                outcome = await _fileTransferService.TransferGamesAsync(request, progress, System.Threading.CancellationToken.None);
             }
             catch (Exception ex)
             {

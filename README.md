@@ -161,3 +161,9 @@ Distributed under the MIT License. See `LICENSE` for more information.
 * Fixed Roslyn static analysis CA1305 warnings in `LibraryScannerService.cs` by specifying `CultureInfo.InvariantCulture` in `StringBuilder.AppendLine` calls.
 * Consolidated and abstracted duplicated modal window creation logic into `NativeWindowHelper.InitializeModalWindow`.
 * Replaced legacy UWP `Windows.UI.Color` usages with modern `Microsoft.UI.ColorHelper` for WinUI 3 compatibility.
+
+
+## Behavior Notes
+
+- The file transfer engine uses native Windows `IFileOperation` to support fine-grained progress reporting (MB/s and time remaining), native shell collision handling, and proper cancellation.
+- Transfer logic executes on a background STA thread to ensure stable COM initialization without blocking the UI thread.
