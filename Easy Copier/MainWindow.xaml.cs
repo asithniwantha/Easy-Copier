@@ -10,6 +10,7 @@ namespace Easy_Copier
             InitializeComponent();
 
             Easy_Copier.Infrastructure.NativeWindowHelper.InitializeWindow(this, 1400, 900);
+            Easy_Copier.Infrastructure.NativeWindowHelper.SetMinimumSize(this, 960, 640);
 
             _ = RootFrame.Navigate(typeof(MainPage), viewModel);
         }

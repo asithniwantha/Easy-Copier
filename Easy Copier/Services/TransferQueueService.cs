@@ -122,8 +122,18 @@ namespace Easy_Copier.Services
 
             try
             {
+                Progress<TransferProgress> progress = new(p =>
+                {
+                    RunOnUiThread(() =>
+                    {
+                        item.ProgressPercentage = p.Percentage;
+                        item.SpeedText = p.SpeedText;
+                        item.RemainingTimeText = p.RemainingTimeText;
+                    });
+                });
+
                 TransferRequest request = new(item.Items, item.TargetDrive, item.DestinationPath);
-                outcome = await _fileTransferService.TransferGamesAsync(request);
+                outcome = await _fileTransferService.TransferGamesAsync(request, progress);
             }
             catch (Exception ex)
             {
@@ -136,6 +146,13 @@ namespace Easy_Copier.Services
                 {
                     item.Status = outcome.Success ? TransferQueueItemStatus.Completed : TransferQueueItemStatus.Failed;
                     item.StatusMessage = outcome.Message;
+
+                    if (outcome.Success)
+                    {
+                        item.ProgressPercentage = 100.0;
+                        item.SpeedText = string.Empty;
+                        item.RemainingTimeText = string.Empty;
+                    }
                 }
                 else
                 {

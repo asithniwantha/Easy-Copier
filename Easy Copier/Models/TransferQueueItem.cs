@@ -31,6 +31,15 @@ namespace Easy_Copier.Models
         public partial string StatusMessage { get; set; } = "Waiting in queue...";
 
         [ObservableProperty]
+        public partial double ProgressPercentage { get; set; }
+
+        [ObservableProperty]
+        public partial string SpeedText { get; set; } = string.Empty;
+
+        [ObservableProperty]
+        public partial string RemainingTimeText { get; set; } = string.Empty;
+
+        [ObservableProperty]
         public partial DateTime? CompletedAt { get; set; }
 
         public string ItemsSummary => Items.Count == 1

@@ -133,6 +133,33 @@ namespace Easy_Copier.Infrastructure
             };
         }
 
+        public static void SetMinimumSize(Microsoft.UI.Xaml.Window window, int minWidth, int minHeight)
+        {
+            ArgumentNullException.ThrowIfNull(window);
+
+            nint hwnd = WindowNative.GetWindowHandle(window);
+            WindowId windowId = Microsoft.UI.Win32Interop.GetWindowIdFromWindow(hwnd);
+            AppWindow appWindow = AppWindow.GetFromWindowId(windowId);
+
+            if (appWindow?.Presenter is Microsoft.UI.Windowing.OverlappedPresenter presenter)
+            {
+                double scale = GetRasterizationScale(hwnd);
+                presenter.PreferredMinimumWidth = (int)Math.Round(minWidth * scale);
+                presenter.PreferredMinimumHeight = (int)Math.Round(minHeight * scale);
+            }
+        }
+
+        private static double GetRasterizationScale(nint hwnd)
+        {
+            const int defaultDpi = 96;
+            uint dpi = GetDpiForWindow(hwnd);
+            return dpi <= 0 ? 1.0 : dpi / (double)defaultDpi;
+        }
+
+        [DllImport("user32.dll")]
+        [DefaultDllImportSearchPaths(DllImportSearchPath.System32)]
+        private static extern uint GetDpiForWindow(IntPtr hWnd);
+
         public static void InitializeWindow(Microsoft.UI.Xaml.Window window, int width, int height)
         {
             ArgumentNullException.ThrowIfNull(window);
