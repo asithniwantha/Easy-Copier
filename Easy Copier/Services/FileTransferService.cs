@@ -86,7 +86,11 @@ namespace Easy_Copier.Services
             {
                 try
                 {
-                    NativeMethods.CoInitializeEx(IntPtr.Zero, NativeMethods.COINIT_APARTMENTTHREADED);
+                    int hr = NativeMethods.CoInitializeEx(IntPtr.Zero, NativeMethods.COINIT_APARTMENTTHREADED);
+                    if (hr < 0)
+                    {
+                        _logger.LogWarning("CoInitializeEx failed with HRESULT 0x{HResult:X8}", hr);
+                    }
 
                     _logger.LogInformation(
                         "Starting transfer of {Count} items to {Drive}",
@@ -263,8 +267,8 @@ namespace Easy_Copier.Services
             if (!Directory.Exists(targetPath) && !File.Exists(targetPath)) return;
 
             object? fileOpObj = null;
-            FileOperationInterop.IFileOperation? fileOp = null;
-            FileOperationInterop.IShellItem? targetItem = null;
+            IFileOperation? fileOp = null;
+            IShellItem? targetItem = null;
 
             try
             {
@@ -274,12 +278,12 @@ namespace Easy_Copier.Services
                 fileOpObj = Activator.CreateInstance(type);
                 if (fileOpObj == null) throw new InvalidOperationException("Could not create IFileOperation instance");
 
-                fileOp = (FileOperationInterop.IFileOperation)fileOpObj;
+                fileOp = (IFileOperation)fileOpObj;
 
-                FileOperationInterop.FILEOP_FLAGS flags = FileOperationInterop.FILEOP_FLAGS.FOF_NOCONFIRMATION | FileOperationInterop.FILEOP_FLAGS.FOFX_SHOWELEVATIONPROMPT;
+                FILEOP_FLAGS flags = FILEOP_FLAGS.FOF_NOCONFIRMATION | FILEOP_FLAGS.FOFX_SHOWELEVATIONPROMPT;
                 fileOp.SetOperationFlags(flags);
 
-                FileOperationInterop.SHCreateItemFromParsingName(targetPath, IntPtr.Zero, typeof(FileOperationInterop.IShellItem).GUID, out targetItem);
+                FileOperationInterop.SHCreateItemFromParsingName(targetPath, IntPtr.Zero, typeof(IShellItem).GUID, out targetItem);
 
                 fileOp.DeleteItem(targetItem, null);
                 fileOp.PerformOperations();
@@ -298,10 +302,10 @@ namespace Easy_Copier.Services
         private bool CopyItemWithFileOperation(string sourcePath, string destFolder, string destPath, IProgress<TransferProgress>? progress, long totalBytes)
         {
             object? fileOpObj = null;
-            FileOperationInterop.IFileOperation? fileOp = null;
-            FileOperationInterop.IFileOperationProgressSink? sink = null;
-            FileOperationInterop.IShellItem? sourceItem = null;
-            FileOperationInterop.IShellItem? destFolderItem = null;
+            IFileOperation? fileOp = null;
+            IFileOperationProgressSink? sink = null;
+            IShellItem? sourceItem = null;
+            IShellItem? destFolderItem = null;
             uint cookie = 0;
 
             try
@@ -312,16 +316,16 @@ namespace Easy_Copier.Services
                 fileOpObj = Activator.CreateInstance(type);
                 if (fileOpObj == null) throw new InvalidOperationException("Could not create IFileOperation instance");
 
-                fileOp = (FileOperationInterop.IFileOperation)fileOpObj;
+                fileOp = (IFileOperation)fileOpObj;
 
-                FileOperationInterop.FILEOP_FLAGS flags = FileOperationInterop.FILEOP_FLAGS.FOF_NOCONFIRMMKDIR | FileOperationInterop.FILEOP_FLAGS.FOFX_SHOWELEVATIONPROMPT;
+                FILEOP_FLAGS flags = FILEOP_FLAGS.FOF_NOCONFIRMMKDIR | FILEOP_FLAGS.FOFX_SHOWELEVATIONPROMPT;
                 fileOp.SetOperationFlags(flags);
 
                 sink = new FileOperationProgressSink(progress, totalBytes);
                 fileOp.Advise(sink, out cookie);
 
-                FileOperationInterop.SHCreateItemFromParsingName(sourcePath, IntPtr.Zero, typeof(FileOperationInterop.IShellItem).GUID, out sourceItem);
-                FileOperationInterop.SHCreateItemFromParsingName(destFolder, IntPtr.Zero, typeof(FileOperationInterop.IShellItem).GUID, out destFolderItem);
+                FileOperationInterop.SHCreateItemFromParsingName(sourcePath, IntPtr.Zero, typeof(IShellItem).GUID, out sourceItem);
+                FileOperationInterop.SHCreateItemFromParsingName(destFolder, IntPtr.Zero, typeof(IShellItem).GUID, out destFolderItem);
 
                 string destName = Path.GetFileName(destPath);
                 fileOp.CopyItem(sourceItem, destFolderItem, destName, null);

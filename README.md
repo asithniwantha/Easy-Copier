@@ -16,7 +16,7 @@ Easy Copier helps shop environments prepare customer drives without guessing whi
 ## ✨ Features
 
 * **🎮 Game Categorization:** Automatically fetches categories from Steam and applies a keyword fallback. Use UI category filters to browse your library.
-* **⚡ High-Speed Transfers:** Optimized file I/O operations tailored for handling massive game files and nested directories.
+* **⚡ High-Speed Transfers:** Optimized file I/O operations tailored for handling massive game files and nested directories using native Windows Shell `IFileOperation`.
 * **🎨 Modern UI:** A beautiful, responsive interface built with WinUI 3 that feels right at home on Windows 11.
 * **📐 Dynamic View Resizing:** The application cleanly abstracts responsive window resizing and UI teardowns (e.g., Settings, History) directly to a unified `NativeWindowHelper`.
 * **🏗️ MVVM Architecture:** A clean, maintainable codebase with strong separation of logic and presentation.
@@ -89,7 +89,7 @@ The selected-drive panel also shows a usage bar, free space, total capacity, and
 - Copy multiple selected items asynchronously without blocking the UI.
 - Process copy jobs in parallel when they target different USB drives.
 - Keep copy jobs serialized per drive (one at a time per target drive, in queue order).
-- Use the Windows native copy dialog during file transfer operations.
+- Use native Windows Shell `IFileOperation` during file transfer operations.
 - Validate destination capacity, source availability, existing destination folders, and FAT32 compatibility.
 - Show live queue status and display the total selected-game price in the copy queue after size calculation.
 - Refresh drive capacity after successful copy operations.
@@ -158,6 +158,8 @@ Distributed under the MIT License. See `LICENSE` for more information.
 * Split large ViewModels and Services into partial classes.
 * Resolved CS8611 nullability reference mismatch warnings on `[ObservableProperty]` generated partial method signatures.
 * Fixed Roslyn static analysis CA1308 and CA1307 warnings in `GameInfoDownloadService.Categories.cs`.
-* Fixed Roslyn static analysis CA1305 warnings in `LibraryScannerService.cs` by specifying `CultureInfo.InvariantCulture` in `StringBuilder.AppendLine` calls.
+* Fixed Roslyn static analysis CA1305 warnings in `LibraryScannerService.cs` and `FileOperationProgressSink.cs` by specifying `CultureInfo.InvariantCulture` in string formatting and `TimeSpan.ToString` calls.
+* Un-nested COM interop interfaces (`IFileOperation`, `IFileOperationProgressSink`, `IShellItem`) to namespace level to satisfy CA1034 guidelines.
+* Updated Interop enum underlying types to `int` and P/Invoke method visibilities to `internal` for CA1028 and CA1401 compliance.
 * Consolidated and abstracted duplicated modal window creation logic into `NativeWindowHelper.InitializeModalWindow`.
 * Replaced legacy UWP `Windows.UI.Color` usages with modern `Microsoft.UI.ColorHelper` for WinUI 3 compatibility.

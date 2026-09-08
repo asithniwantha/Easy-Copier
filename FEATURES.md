@@ -1,4 +1,4 @@
-9# 🚀 Easy Copier - Features
+# 🚀 Easy Copier - Features
 
 ## 📚 Library Management
 - Scan configured source folders for **Games**, **Apps**, and **Film & TV**.
@@ -48,7 +48,7 @@
 - Non-blocking transfer queue: add more items to the queue while a copy is in progress.
 - Copies are processed in parallel across different target drives.
 - Copies targeting the same drive are processed one at a time, in the order they were queued.
-- Use the native Windows copy dialog for transfer operations.
+- Use native Windows Shell `IFileOperation` for transfer operations.
 - Reserve space for queued/in-progress transfers targeting the same drive so validation reflects true remaining capacity.
 - View live queue status (queued, in progress, completed, failed) with per-item details.
 - Show the total price of selected games in the copy queue after total size calculation.
@@ -99,7 +99,7 @@
 - MVVM pattern via `CommunityToolkit.Mvvm` utilizing source generators (`partial` property observables).
 - DI and logging via `Microsoft.Extensions.*` and `Serilog`.
 - Storage discovery via `DriveInfo` + WMI.
-- GitHub Actions for CI/CD workflows. update and release automation.setup with versioning and release notes generation.
+- GitHub Actions for CI/CD workflows, update and release automation, setup with versioning and release notes generation.
 
 ## 📅 Future Enhancements (To-Do List)
 - [ ] Add transfer profiles and presets for one-click queueing of common game/app/media bundles.
@@ -126,7 +126,9 @@
 * File splits using C# partials applied to MainViewModel, SettingsViewModel, and GameInfoDownloadService.
 * Resolved CS8611 nullability reference mismatch warnings on `[ObservableProperty]` generated partial method signatures.
 * Resolved CA1308 and CA1307 Roslyn static analysis warnings in `GameInfoDownloadService.Categories.cs`.
-* Resolved CA1305 Roslyn static analysis warnings in `LibraryScannerService.cs` by supplying `CultureInfo.InvariantCulture` to string formatting calls.
+* Resolved CA1305 Roslyn static analysis warnings in `LibraryScannerService.cs` and `FileOperationProgressSink.cs` by supplying `CultureInfo.InvariantCulture` to string formatting calls.
+* Un-nested COM interop interfaces (`IFileOperation`, `IFileOperationProgressSink`, `IShellItem`) to namespace level to satisfy CA1034 guidelines.
+* Updated Interop enum underlying types to `int` (CA1028) and P/Invoke method visibilities to `internal` (CA1401).
 
 ## Development Highlights
 - **Refactored Architecture**: Consolidated and abstracted duplicated modal window creation logic to reduce code duplication in Views.
