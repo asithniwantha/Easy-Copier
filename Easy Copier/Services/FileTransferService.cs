@@ -298,7 +298,9 @@ namespace Easy_Copier.Services
         {
             try
             {
-                return (NativeFileOperation.IFileOperation)new NativeFileOperation.FileOperation();
+
+                Type fileOpType = Type.GetTypeFromCLSID(new Guid("3ad05575-8857-4850-9277-11b85bdb8e09")) ?? throw new COMException("Failed to get type for IFileOperation");
+                return (NativeFileOperation.IFileOperation)Activator.CreateInstance(fileOpType)!;
             }
             catch (Exception ex) when (ex is InvalidCastException or COMException)
             {

@@ -11,6 +11,11 @@ namespace Easy_Copier.Services
         public class FileOperation { }
 
         [ComImport]
+        [Guid("3ad05575-8857-4850-9277-11b85bdb8e09")]
+        [ClassInterface(ClassInterfaceType.None)]
+        public class FileOperationClass { }
+
+        [ComImport]
         [Guid("43826d1e-e718-42ee-bc55-a1e261c37bfe")]
         [InterfaceType(ComInterfaceType.InterfaceIsIUnknown)]
         public interface IShellItem
