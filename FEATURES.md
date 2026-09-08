@@ -135,6 +135,7 @@
 
 ## File Transfer Improvements
 - Replaced outdated `SHFileOperation` with modern `IFileOperation` COM integration.
+- Added a managed copy fallback when native shell COM activation fails, preventing transfer crashes.
 - Added dynamic transfer speed (MB/s) and estimated time remaining tracking.
 - Preserved existing conflict resolution strategies (Replace, Merge, Skip).
 - Fixed potential locking issues with COM STA threading requirement.

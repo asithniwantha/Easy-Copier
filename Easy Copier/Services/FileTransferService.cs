@@ -2,6 +2,7 @@ using Easy_Copier.Models;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
@@ -143,15 +144,13 @@ namespace Easy_Copier.Services
 
             try
             {
-                // Directly instantiate the CoClass wrapper defined in NativeFileOperation
-                fileOp = (NativeFileOperation.IFileOperation)new NativeFileOperation.FileOperation();
+                fileOp = TryCreateFileOperation();
+                if (fileOp is null)
+                {
+                    return ExecuteTransferWithManagedCopy(request, progress, cancellationToken);
+                }
 
-                // FOF_NOCONFIRMMKDIR ensures we don't get prompts to create target folders.
-                // If we don't pass FOF_NOCONFIRMATION, the user will be prompted for collisions.
-                // But the previous `MergeDirectory` silent-skipped existing files (with no UI prompt).
-                // Wait, actually, the user wants "use shell flags to match current UX intent".
-                // We'll omit FOF_NOCONFIRMATION so standard shell collision resolution applies for "Default".
-
+                // Suppress folder-creation prompts while letting the shell keep its native collision behavior.
                 uint flags = (uint)(NativeFileOperation.FileOperationFlags.FOF_NOCONFIRMMKDIR);
 
                 fileOp.SetOperationFlags(flags);
@@ -293,6 +292,260 @@ namespace Easy_Copier.Services
                 finalSuccessCount,
                 finalBytes,
                 DateTime.Now);
+        }
+
+        private NativeFileOperation.IFileOperation? TryCreateFileOperation()
+        {
+            try
+            {
+                return (NativeFileOperation.IFileOperation)new NativeFileOperation.FileOperation();
+            }
+            catch (Exception ex) when (ex is InvalidCastException or COMException)
+            {
+                _logger.LogWarning(ex, "Native IFileOperation activation failed; using managed copy fallback.");
+                return null;
+            }
+        }
+
+        private TransferOutcome ExecuteTransferWithManagedCopy(TransferRequest request, IProgress<TransferProgress>? progress, CancellationToken cancellationToken)
+        {
+            _logger.LogInformation(
+                "Starting managed transfer of {Count} items to {Drive}",
+                request.Items.Count,
+                request.TargetDrive.DriveLetter);
+
+            if (!Directory.Exists(request.DestinationPath))
+            {
+                _ = Directory.CreateDirectory(request.DestinationPath);
+                _logger.LogInformation("Created destination directory: {Path}", request.DestinationPath);
+            }
+
+            long totalBytesToTransfer = request.Items.Where(i => i.Action != CopyAction.Skip && i.Game != null).Sum(i => i.Game.TotalBytes);
+            long bytesCopied = 0;
+            int successCount = 0;
+            List<string> errors = new();
+            Stopwatch stopwatch = Stopwatch.StartNew();
+
+            try
+            {
+                foreach (TransferItem item in request.Items)
+                {
+                    cancellationToken.ThrowIfCancellationRequested();
+
+                    if (item.Game is null)
+                    {
+                        _logger.LogWarning("Found null transfer item or game reference; skipping.");
+                        continue;
+                    }
+
+                    GameEntry game = item.Game;
+
+                    if (item.Action == CopyAction.Skip)
+                    {
+                        _logger.LogInformation("Skipping {Game}", game.Name);
+                        continue;
+                    }
+
+                    string destinationItemPath = GetManagedDestinationItemPath(request.DestinationPath, game);
+
+                    try
+                    {
+                        if (item.Action == CopyAction.Replace)
+                        {
+                            RemoveExistingPath(destinationItemPath);
+                        }
+
+                        CopyPathManaged(
+                            game.FolderPath,
+                            destinationItemPath,
+                            item.Action,
+                            ref bytesCopied,
+                            totalBytesToTransfer,
+                            stopwatch,
+                            progress,
+                            cancellationToken);
+
+                        successCount++;
+
+                        _copyHistoryService.AddRecordAsync(new CopyHistoryRecord(
+                            Id: 0,
+                            Timestamp: DateTime.Now,
+                            GameName: game.Name,
+                            TargetDriveLetter: request.TargetDrive.DriveLetter,
+                            TargetDriveLabel: request.TargetDrive.DriveLabel,
+                            BytesTransferred: game.TotalBytes,
+                            IsSuccess: true,
+                            Amount: CalculateAmount(game.TotalBytes))).GetAwaiter().GetResult();
+                    }
+                    catch (OperationCanceledException)
+                    {
+                        errors.Add("Transfer cancelled by user.");
+                        break;
+                    }
+                    catch (Exception ex)
+                    {
+                        errors.Add($"{game.Name}: {ex.Message}");
+                        _logger.LogWarning(ex, "Managed copy failed for {Game}", game.Name);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                errors.Add($"Transfer failed: {ex.Message}");
+                _logger.LogError(ex, "Managed transfer failed");
+            }
+
+            ReportManagedProgress(progress, stopwatch, bytesCopied, totalBytesToTransfer, string.Empty);
+
+            bool allSuccess = errors.Count == 0 && successCount == request.Items.Count(i => i.Action != CopyAction.Skip);
+            string message = allSuccess
+                ? $"Successfully copied {successCount} item(s)"
+                : $"Copied {successCount} items. Errors: {string.Join("; ", errors)}";
+
+            return new TransferOutcome(allSuccess, message, successCount, bytesCopied, DateTime.Now);
+        }
+
+        private static string GetManagedDestinationItemPath(string destinationRoot, GameEntry game)
+        {
+            string sourcePath = game.FolderPath.TrimEnd(Path.DirectorySeparatorChar, Path.AltDirectorySeparatorChar);
+            string itemName = Directory.Exists(game.FolderPath)
+                ? game.Name
+                : Path.GetFileName(sourcePath);
+
+            if (string.IsNullOrWhiteSpace(itemName))
+            {
+                itemName = game.Name;
+            }
+
+            return Path.Combine(destinationRoot, itemName);
+        }
+
+        private static void RemoveExistingPath(string path)
+        {
+            if (File.Exists(path))
+            {
+                File.Delete(path);
+                return;
+            }
+
+            if (Directory.Exists(path))
+            {
+                Directory.Delete(path, true);
+            }
+        }
+
+        private void CopyPathManaged(
+            string sourcePath,
+            string destinationPath,
+            CopyAction action,
+            ref long bytesCopied,
+            long totalBytesToTransfer,
+            Stopwatch stopwatch,
+            IProgress<TransferProgress>? progress,
+            CancellationToken cancellationToken)
+        {
+            if (File.Exists(sourcePath))
+            {
+                CopyFileManaged(sourcePath, destinationPath, action, ref bytesCopied, totalBytesToTransfer, stopwatch, progress);
+                return;
+            }
+
+            if (!Directory.Exists(sourcePath))
+            {
+                throw new DirectoryNotFoundException($"Source path not found: {sourcePath}");
+            }
+
+            if (action == CopyAction.Replace)
+            {
+                RemoveExistingPath(destinationPath);
+            }
+
+            Directory.CreateDirectory(destinationPath);
+
+            foreach (string directory in Directory.EnumerateDirectories(sourcePath))
+            {
+                cancellationToken.ThrowIfCancellationRequested();
+                string targetDirectory = Path.Combine(destinationPath, Path.GetFileName(directory));
+                CopyPathManaged(directory, targetDirectory, action, ref bytesCopied, totalBytesToTransfer, stopwatch, progress, cancellationToken);
+            }
+
+            foreach (string file in Directory.EnumerateFiles(sourcePath))
+            {
+                cancellationToken.ThrowIfCancellationRequested();
+                string targetFile = Path.Combine(destinationPath, Path.GetFileName(file));
+                CopyFileManaged(file, targetFile, action, ref bytesCopied, totalBytesToTransfer, stopwatch, progress);
+            }
+        }
+
+        private void CopyFileManaged(
+            string sourcePath,
+            string destinationPath,
+            CopyAction action,
+            ref long bytesCopied,
+            long totalBytesToTransfer,
+            Stopwatch stopwatch,
+            IProgress<TransferProgress>? progress)
+        {
+            if (action != CopyAction.Replace && File.Exists(destinationPath))
+            {
+                return;
+            }
+
+            string? destinationDirectory = Path.GetDirectoryName(destinationPath);
+            if (!string.IsNullOrEmpty(destinationDirectory))
+            {
+                Directory.CreateDirectory(destinationDirectory);
+            }
+
+            File.Copy(sourcePath, destinationPath, overwrite: action == CopyAction.Replace);
+
+            bytesCopied += new FileInfo(sourcePath).Length;
+            ReportManagedProgress(progress, stopwatch, bytesCopied, totalBytesToTransfer, Path.GetFileName(sourcePath));
+        }
+
+        private static void ReportManagedProgress(
+            IProgress<TransferProgress>? progress,
+            Stopwatch stopwatch,
+            long bytesCopied,
+            long totalBytesToTransfer,
+            string currentItemName)
+        {
+            if (progress is null)
+            {
+                return;
+            }
+
+            double fraction = totalBytesToTransfer > 0 ? (double)bytesCopied / totalBytesToTransfer : 0;
+            fraction = Math.Clamp(fraction, 0, 1);
+
+            int percentage = (int)(fraction * 100);
+            percentage = Math.Clamp(percentage, 0, 100);
+
+            double speed = 0;
+            TimeSpan eta = TimeSpan.Zero;
+
+            if (stopwatch.Elapsed.TotalSeconds > 0)
+            {
+                double bytesPerSecond = bytesCopied / stopwatch.Elapsed.TotalSeconds;
+                speed = bytesPerSecond / (1024 * 1024);
+
+                if (bytesPerSecond > 0 && totalBytesToTransfer > bytesCopied)
+                {
+                    double secondsRemaining = (totalBytesToTransfer - bytesCopied) / bytesPerSecond;
+                    if (secondsRemaining < 99 * 3600)
+                    {
+                        eta = TimeSpan.FromSeconds(secondsRemaining);
+                    }
+                }
+            }
+
+            progress.Report(new TransferProgress(
+                Percentage: percentage,
+                SpeedMegabytesPerSecond: speed,
+                EstimatedTimeRemaining: eta,
+                CurrentItemName: currentItemName,
+                BytesTransferred: bytesCopied,
+                TotalBytesToTransfer: totalBytesToTransfer));
         }
     }
 }

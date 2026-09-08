@@ -165,5 +165,6 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 ## Behavior Notes
 
-- The file transfer engine uses native Windows `IFileOperation` to support fine-grained progress reporting (MB/s and time remaining), native shell collision handling, and proper cancellation.
-- Transfer logic executes on a background STA thread to ensure stable COM initialization without blocking the UI thread.
+- The file transfer engine prefers native Windows `IFileOperation` for fine-grained progress reporting (MB/s and time remaining), native shell collision handling, and proper cancellation.
+- If native shell activation is unavailable, it falls back to a managed copy path so transfers keep working instead of crashing.
+- Transfer logic executes on a background STA thread to keep COM-safe work off the UI thread.
