@@ -97,6 +97,11 @@ namespace Easy_Copier.Models
         long BytesTransferred,
         DateTime CompletedAt);
 
+    public record TransferProgress(
+        double Percentage,
+        string SpeedText,
+        string RemainingTimeText);
+
     public class AppSettings
     {
         public List<string> GameSourceFolders { get; set; } = [];

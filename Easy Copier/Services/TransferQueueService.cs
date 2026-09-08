@@ -123,7 +123,12 @@ namespace Easy_Copier.Services
             try
             {
                 TransferRequest request = new(item.Items, item.TargetDrive, item.DestinationPath);
-                outcome = await _fileTransferService.TransferGamesAsync(request);
+
+                var progress = new Progress<TransferProgress>(p => {
+                    // Update queue item progress if needed in the future, for now it's unused per original request
+                });
+
+                outcome = await _fileTransferService.TransferGamesAsync(request, progress);
             }
             catch (Exception ex)
             {
