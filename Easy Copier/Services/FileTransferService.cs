@@ -300,7 +300,7 @@ namespace Easy_Copier.Services
                         object? obj = Activator.CreateInstance(fileOperationType);
                         if (obj != null)
                         {
-                            fileOperation = (NativeMethods.IFileOperation)obj;
+                            fileOperation = obj as NativeMethods.IFileOperation;
                         }
                     }
 
@@ -313,7 +313,7 @@ namespace Easy_Copier.Services
                     NativeMethods.SHCreateItemFromParsingName(sourcePath, IntPtr.Zero, typeof(NativeMethods.IShellItem).GUID, out sourceItem);
                     NativeMethods.SHCreateItemFromParsingName(destPath, IntPtr.Zero, typeof(NativeMethods.IShellItem).GUID, out destFolder);
 
-                    fileOperation.CopyItem(sourceItem, destFolder, null, null);
+                    fileOperation.CopyItem(sourceItem, destFolder, null!, null!);
                     fileOperation.PerformOperations();
 
                     return !fileOperation.GetAnyOperationsAborted();
@@ -439,6 +439,7 @@ namespace Easy_Copier.Services
             [ComImport]
             [Guid("947aab5f-0a5c-4713-a4d6-4bf040b5d2b3")]
             [InterfaceType(ComInterfaceType.InterfaceIsIUnknown)]
+            [CoClass(typeof(FileOperation))]
             public interface IFileOperation
             {
                 uint Advise(IFileOperationProgressSink pfops);
