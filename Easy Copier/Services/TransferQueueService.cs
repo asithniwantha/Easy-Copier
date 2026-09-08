@@ -125,7 +125,12 @@ namespace Easy_Copier.Services
                 TransferRequest request = new(item.Items, item.TargetDrive, item.DestinationPath);
 
                 var progress = new Progress<TransferProgress>(p => {
-                    // Update queue item progress if needed in the future, for now it's unused per original request
+                    RunOnUiThread(() => {
+                        item.ProgressPercentage = p.Percentage;
+                        item.SpeedText = p.SpeedText;
+                        item.RemainingTimeText = p.RemainingTimeText;
+                        item.StatusMessage = $"Copying to {item.TargetDrive.DriveLetter}... {p.Percentage:F1}%";
+                    });
                 });
 
                 outcome = await _fileTransferService.TransferGamesAsync(request, progress);
