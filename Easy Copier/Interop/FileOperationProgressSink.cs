@@ -1,11 +1,12 @@
 using Easy_Copier.Models;
 using System;
 using System.Diagnostics;
+using System.Globalization;
 using System.Runtime.InteropServices;
 
 namespace Easy_Copier.Interop
 {
-    public class FileOperationProgressSink : FileOperationInterop.IFileOperationProgressSink
+    public class FileOperationProgressSink : IFileOperationProgressSink
     {
         private readonly IProgress<TransferProgress>? _progress;
         private readonly long _totalBytes;
@@ -35,25 +36,25 @@ namespace Easy_Copier.Interop
             return 0;
         }
 
-        public uint PreRenameItem(uint dwFlags, FileOperationInterop.IShellItem psiItem, string pszNewName) => 0;
+        public uint PreRenameItem(uint dwFlags, IShellItem psiItem, string pszNewName) => 0;
 
-        public uint PostRenameItem(uint dwFlags, FileOperationInterop.IShellItem psiItem, string pszNewName, uint hrRename, FileOperationInterop.IShellItem psiNewlyCreated) => 0;
+        public uint PostRenameItem(uint dwFlags, IShellItem psiItem, string pszNewName, uint hrRename, IShellItem psiNewlyCreated) => 0;
 
-        public uint PreMoveItem(uint dwFlags, FileOperationInterop.IShellItem psiItem, FileOperationInterop.IShellItem psiDestinationFolder, string pszNewName) => 0;
+        public uint PreMoveItem(uint dwFlags, IShellItem psiItem, IShellItem psiDestinationFolder, string pszNewName) => 0;
 
-        public uint PostMoveItem(uint dwFlags, FileOperationInterop.IShellItem psiItem, FileOperationInterop.IShellItem psiDestinationFolder, string pszNewName, uint hrMove, FileOperationInterop.IShellItem psiNewlyCreated) => 0;
+        public uint PostMoveItem(uint dwFlags, IShellItem psiItem, IShellItem psiDestinationFolder, string pszNewName, uint hrMove, IShellItem psiNewlyCreated) => 0;
 
-        public uint PreCopyItem(uint dwFlags, FileOperationInterop.IShellItem psiItem, FileOperationInterop.IShellItem psiDestinationFolder, string pszNewName) => 0;
+        public uint PreCopyItem(uint dwFlags, IShellItem psiItem, IShellItem psiDestinationFolder, string pszNewName) => 0;
 
-        public uint PostCopyItem(uint dwFlags, FileOperationInterop.IShellItem psiItem, FileOperationInterop.IShellItem psiDestinationFolder, string pszNewName, uint hrCopy, FileOperationInterop.IShellItem psiNewlyCreated) => 0;
+        public uint PostCopyItem(uint dwFlags, IShellItem psiItem, IShellItem psiDestinationFolder, string pszNewName, uint hrCopy, IShellItem psiNewlyCreated) => 0;
 
-        public uint PreDeleteItem(uint dwFlags, FileOperationInterop.IShellItem psiItem) => 0;
+        public uint PreDeleteItem(uint dwFlags, IShellItem psiItem) => 0;
 
-        public uint PostDeleteItem(uint dwFlags, FileOperationInterop.IShellItem psiItem, uint hrDelete, FileOperationInterop.IShellItem psiNewlyCreated) => 0;
+        public uint PostDeleteItem(uint dwFlags, IShellItem psiItem, uint hrDelete, IShellItem psiNewlyCreated) => 0;
 
-        public uint PreNewItem(uint dwFlags, FileOperationInterop.IShellItem psiDestinationFolder, string pszNewName) => 0;
+        public uint PreNewItem(uint dwFlags, IShellItem psiDestinationFolder, string pszNewName) => 0;
 
-        public uint PostNewItem(uint dwFlags, FileOperationInterop.IShellItem psiDestinationFolder, string pszNewName, string pszTemplateName, uint hrNew, FileOperationInterop.IShellItem psiNewlyCreated) => 0;
+        public uint PostNewItem(uint dwFlags, IShellItem psiDestinationFolder, string pszNewName, string pszTemplateName, uint hrNew, IShellItem psiNewlyCreated) => 0;
 
         public uint UpdateProgress(uint iWorkTotal, uint iWorkSoFar)
         {
@@ -78,7 +79,7 @@ namespace Easy_Copier.Interop
                         long remainingBytes = _totalBytes - _bytesTransferred;
                         double remainingSeconds = remainingBytes / bytesPerSecond;
                         TimeSpan remainingTime = TimeSpan.FromSeconds(remainingSeconds);
-                        remainingTimeText = remainingTime.ToString(@"hh\:mm\:ss");
+                        remainingTimeText = remainingTime.ToString(@"hh\:mm\:ss", CultureInfo.InvariantCulture);
                     }
                 }
 
