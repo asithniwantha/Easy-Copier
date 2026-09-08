@@ -25,6 +25,7 @@ namespace Easy_Copier.Services
         [ComImport]
         [Guid("947a90f0-1581-4df8-ac22-a9bd9ec68ee4")]
         [InterfaceType(ComInterfaceType.InterfaceIsIUnknown)]
+        [CoClass(typeof(FileOperation))]
         public interface IFileOperation
         {
             uint Advise(IFileOperationProgressSink pfops);
@@ -79,6 +80,14 @@ namespace Easy_Copier.Services
             [In] IntPtr pbc,
             [In][MarshalAs(UnmanagedType.LPStruct)] Guid riid,
             [Out][MarshalAs(UnmanagedType.Interface)] out IShellItem ppv);
+
+        [DllImport("ole32.dll")]
+        public static extern int CoInitializeEx(IntPtr pvReserved, uint dwCoInit);
+
+        [DllImport("ole32.dll")]
+        public static extern void CoUninitialize();
+
+        public const uint COINIT_APARTMENTTHREADED = 0x2;
 
         public static readonly Guid IShellItemGuid = new("43826d1e-e718-42ee-bc55-a1e261c37bfe");
 

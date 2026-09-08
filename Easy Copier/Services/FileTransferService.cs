@@ -86,9 +86,22 @@ namespace Easy_Copier.Services
             {
                 try
                 {
-                    // IFileOperation requires an STA thread
-                    TransferOutcome result = ExecuteTransferWithIFileOperation(request, progress, cancellationToken);
-                    tcs.SetResult(result);
+                    // IFileOperation requires an STA thread. We must explicitly initialize COM for this thread.
+                    int hr = NativeFileOperation.CoInitializeEx(IntPtr.Zero, NativeFileOperation.COINIT_APARTMENTTHREADED);
+                    bool comInitialized = hr >= 0;
+
+                    try
+                    {
+                        TransferOutcome result = ExecuteTransferWithIFileOperation(request, progress, cancellationToken);
+                        tcs.SetResult(result);
+                    }
+                    finally
+                    {
+                        if (comInitialized)
+                        {
+                            NativeFileOperation.CoUninitialize();
+                        }
+                    }
                 }
                 catch (Exception ex)
                 {
@@ -130,14 +143,8 @@ namespace Easy_Copier.Services
 
             try
             {
-                Type? fileOpType = Type.GetTypeFromCLSID(new Guid("3ad05575-8857-4850-9277-11b85bdb8e09"));
-                if (fileOpType == null)
-                {
-                    _logger.LogError("Could not load IFileOperation COM type.");
-                    return new TransferOutcome(false, "COM initialization failed.", 0, 0, DateTime.Now);
-                }
-
-                fileOp = (NativeFileOperation.IFileOperation)Activator.CreateInstance(fileOpType)!;
+                // Directly instantiate the CoClass wrapper defined in NativeFileOperation
+                fileOp = (NativeFileOperation.IFileOperation)new NativeFileOperation.FileOperation();
 
                 // FOF_NOCONFIRMMKDIR ensures we don't get prompts to create target folders.
                 // If we don't pass FOF_NOCONFIRMATION, the user will be prompted for collisions.

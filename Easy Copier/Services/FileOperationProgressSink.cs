@@ -117,19 +117,15 @@ namespace Easy_Copier.Services
             if (_progress == null)
                 return;
 
-            if (iWorkTotal > _totalBytesToTransfer)
-            {
-                _totalBytesToTransfer = iWorkTotal;
-            }
-
-            _bytesTransferred = iWorkSoFar;
+            double fraction = iWorkTotal > 0 ? (double)iWorkSoFar / iWorkTotal : 0;
+            _bytesTransferred = (long)(fraction * _totalBytesToTransfer);
 
             if ((DateTime.Now - _lastUpdate).TotalMilliseconds < 250 && iWorkSoFar < iWorkTotal)
                 return;
 
             _lastUpdate = DateTime.Now;
 
-            int percentage = _totalBytesToTransfer > 0 ? (int)((double)_bytesTransferred / _totalBytesToTransfer * 100) : 0;
+            int percentage = (int)(fraction * 100);
             percentage = Math.Clamp(percentage, 0, 100);
 
             double speed = 0;
