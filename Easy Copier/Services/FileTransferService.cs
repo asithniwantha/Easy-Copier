@@ -210,6 +210,7 @@ namespace Easy_Copier.Services
                 }
             });
 
+            thread.IsBackground = true;
             thread.SetApartmentState(System.Threading.ApartmentState.STA);
             thread.Start();
 
