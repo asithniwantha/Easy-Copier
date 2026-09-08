@@ -85,6 +85,8 @@ namespace Easy_Copier.Models
         GameEntry Game,
         CopyAction Action = CopyAction.Default);
 
+    public record TransferProgress(double Percentage, string SpeedText, string RemainingTimeText);
+
     public record TransferRequest(
         IReadOnlyList<TransferItem> Items,
         RemovableDrive TargetDrive,

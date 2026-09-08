@@ -4,13 +4,15 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Runtime.InteropServices;
+using System.Linq;
+using Easy_Copier.Interop;
 using System.Threading.Tasks;
 
 namespace Easy_Copier.Services
 {
     public interface IFileTransferService
     {
-        Task<TransferOutcome> TransferGamesAsync(TransferRequest request);
+        Task<TransferOutcome> TransferGamesAsync(TransferRequest request, IProgress<TransferProgress>? progress = null);
         Task<(long Size, int Count)> GetFolderStatsAsync(string path);
     }
 
@@ -76,12 +78,16 @@ namespace Easy_Copier.Services
             });
         }
 
-        public async Task<TransferOutcome> TransferGamesAsync(TransferRequest request)
+        public Task<TransferOutcome> TransferGamesAsync(TransferRequest request, IProgress<TransferProgress>? progress = null)
         {
-            return await Task.Run(() =>
+            TaskCompletionSource<TransferOutcome> tcs = new();
+
+            System.Threading.Thread thread = new(() =>
             {
                 try
                 {
+                    NativeMethods.CoInitializeEx(IntPtr.Zero, NativeMethods.COINIT_APARTMENTTHREADED);
+
                     _logger.LogInformation(
                         "Starting transfer of {Count} items to {Drive}",
                         request.Items.Count,
@@ -126,26 +132,12 @@ namespace Easy_Copier.Services
 
                             if (item.Action == CopyAction.Replace)
                             {
-                                try
-                                {
-                                    if (Directory.Exists(destPath))
-                                    {
-                                        Directory.Delete(destPath, true);
-                                    }
-                                    else if (File.Exists(destPath))
-                                    {
-                                        File.Delete(destPath);
-                                    }
-                                }
-                                catch (Exception ex)
-                                {
-                                    _logger.LogWarning(ex, "Failed to delete existing destination for replacement: {Dest}", destPath);
-                                }
+                                DeleteItemWithFileOperation(destPath);
                             }
 
                             bool result = item.Action == CopyAction.Merge && Directory.Exists(destPath) && Directory.Exists(game.FolderPath)
                                 ? MergeDirectory(game.FolderPath, destPath)
-                                : CopyItemWithShellDialog(game.FolderPath, destPath);
+                                : CopyItemWithFileOperation(game.FolderPath, request.DestinationPath, destPath, progress, game.TotalBytes);
                             if (result)
                             {
                                 successCount++;
@@ -198,25 +190,30 @@ namespace Easy_Copier.Services
 
                     _logger.LogInformation("Transfer completed. Success: {SuccessCount}, Total Bytes: {TotalBytes}, Errors: {ErrorCount}", successCount, totalBytes, errors.Count);
 
-                    return new TransferOutcome(
+                    tcs.SetResult(new TransferOutcome(
 
                         allSuccess && errors.Count == 0,
                         message,
                         successCount,
                         totalBytes,
-                        DateTime.Now);
+                        DateTime.Now));
                 }
                 catch (Exception ex)
                 {
                     _logger.LogError(ex, "Transfer failed");
-                    return new TransferOutcome(
+                    tcs.SetResult(new TransferOutcome(
                         false,
                         $"Transfer failed: {ex.Message}",
                         0,
                         0,
-                        DateTime.Now);
+                        DateTime.Now));
                 }
             });
+
+            thread.SetApartmentState(System.Threading.ApartmentState.STA);
+            thread.Start();
+
+            return tcs.Task;
         }
 
         private bool MergeDirectory(string sourceDir, string destDir)
@@ -260,56 +257,99 @@ namespace Easy_Copier.Services
             }
         }
 
-        private bool CopyItemWithShellDialog(string sourcePath, string destPath)
+        private void DeleteItemWithFileOperation(string targetPath)
         {
+            if (!Directory.Exists(targetPath) && !File.Exists(targetPath)) return;
+
+            object? fileOpObj = null;
+            FileOperationInterop.IFileOperation? fileOp = null;
+            FileOperationInterop.IShellItem? targetItem = null;
+
             try
             {
-                NativeMethods.SHFILEOPSTRUCT fileOp = new()
-                {
-                    wFunc = NativeMethods.FO_COPY,
-                    pFrom = sourcePath + "\0\0",
-                    pTo = destPath + "\0\0",
-                    fFlags = NativeMethods.FOF_NOCONFIRMMKDIR,
-                    hwnd = IntPtr.Zero
-                };
+                Type? type = Type.GetTypeFromCLSID(new Guid(FileOperationInterop.CLSID_FileOperation));
+                if (type == null) throw new InvalidOperationException("Could not get type from CLSID");
 
-                int result = NativeMethods.SHFileOperation(ref fileOp);
+                fileOpObj = Activator.CreateInstance(type);
+                if (fileOpObj == null) throw new InvalidOperationException("Could not create IFileOperation instance");
 
-                return result == 0 && !fileOp.fAnyOperationsAborted;
+                fileOp = (FileOperationInterop.IFileOperation)fileOpObj;
+
+                FileOperationInterop.FILEOP_FLAGS flags = FileOperationInterop.FILEOP_FLAGS.FOF_NOCONFIRMATION | FileOperationInterop.FILEOP_FLAGS.FOFX_SHOWELEVATIONPROMPT;
+                fileOp.SetOperationFlags(flags);
+
+                FileOperationInterop.SHCreateItemFromParsingName(targetPath, IntPtr.Zero, typeof(FileOperationInterop.IShellItem).GUID, out targetItem);
+
+                fileOp.DeleteItem(targetItem, null);
+                fileOp.PerformOperations();
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "Shell copy operation failed for {Source}", sourcePath);
+                _logger.LogWarning(ex, "Failed to delete existing destination for replacement: {Dest}", targetPath);
+            }
+            finally
+            {
+                if (targetItem != null) Marshal.ReleaseComObject(targetItem);
+                if (fileOpObj != null && Marshal.IsComObject(fileOpObj)) Marshal.ReleaseComObject(fileOpObj);
+            }
+        }
+
+        private bool CopyItemWithFileOperation(string sourcePath, string destFolder, string destPath, IProgress<TransferProgress>? progress, long totalBytes)
+        {
+            object? fileOpObj = null;
+            FileOperationInterop.IFileOperation? fileOp = null;
+            FileOperationInterop.IFileOperationProgressSink? sink = null;
+            FileOperationInterop.IShellItem? sourceItem = null;
+            FileOperationInterop.IShellItem? destFolderItem = null;
+            uint cookie = 0;
+
+            try
+            {
+                Type? type = Type.GetTypeFromCLSID(new Guid(FileOperationInterop.CLSID_FileOperation));
+                if (type == null) throw new InvalidOperationException("Could not get type from CLSID");
+
+                fileOpObj = Activator.CreateInstance(type);
+                if (fileOpObj == null) throw new InvalidOperationException("Could not create IFileOperation instance");
+
+                fileOp = (FileOperationInterop.IFileOperation)fileOpObj;
+
+                FileOperationInterop.FILEOP_FLAGS flags = FileOperationInterop.FILEOP_FLAGS.FOF_NOCONFIRMMKDIR | FileOperationInterop.FILEOP_FLAGS.FOFX_SHOWELEVATIONPROMPT;
+                fileOp.SetOperationFlags(flags);
+
+                sink = new FileOperationProgressSink(progress, totalBytes);
+                fileOp.Advise(sink, out cookie);
+
+                FileOperationInterop.SHCreateItemFromParsingName(sourcePath, IntPtr.Zero, typeof(FileOperationInterop.IShellItem).GUID, out sourceItem);
+                FileOperationInterop.SHCreateItemFromParsingName(destFolder, IntPtr.Zero, typeof(FileOperationInterop.IShellItem).GUID, out destFolderItem);
+
+                string destName = Path.GetFileName(destPath);
+                fileOp.CopyItem(sourceItem, destFolderItem, destName, null);
+
+                fileOp.PerformOperations();
+                fileOp.GetAnyOperationsAborted(out bool aborted);
+
+                return !aborted;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "COM copy operation failed for {Source}", sourcePath);
                 return false;
+            }
+            finally
+            {
+                if (fileOp != null && cookie != 0) fileOp.Unadvise(cookie);
+                if (sourceItem != null) Marshal.ReleaseComObject(sourceItem);
+                if (destFolderItem != null) Marshal.ReleaseComObject(destFolderItem);
+                if (fileOpObj != null && Marshal.IsComObject(fileOpObj)) Marshal.ReleaseComObject(fileOpObj);
             }
         }
 
         private static class NativeMethods
         {
-            [DllImport("shell32.dll", CharSet = CharSet.Unicode)]
-            [DefaultDllImportSearchPaths(DllImportSearchPath.System32)]
-            public static extern int SHFileOperation(ref SHFILEOPSTRUCT lpFileOp);
+            [DllImport("ole32.dll")]
+            public static extern int CoInitializeEx(IntPtr pvReserved, uint dwCoInit);
 
-            public const int FO_COPY = 0x0002;
-            public const ushort FOF_NOCONFIRMMKDIR = 0x0200;
-            public const ushort FOF_NOERRORUI = 0x0400;
-
-            [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-            public struct SHFILEOPSTRUCT
-            {
-                public IntPtr hwnd;
-                public int wFunc;
-                [MarshalAs(UnmanagedType.LPWStr)]
-                public string pFrom;
-                [MarshalAs(UnmanagedType.LPWStr)]
-                public string pTo;
-                public ushort fFlags;
-                [MarshalAs(UnmanagedType.Bool)]
-                public bool fAnyOperationsAborted;
-                public IntPtr hNameMappings;
-                [MarshalAs(UnmanagedType.LPWStr)]
-                public string? lpszProgressTitle;
-            }
+            public const uint COINIT_APARTMENTTHREADED = 0x2;
         }
     }
 }
