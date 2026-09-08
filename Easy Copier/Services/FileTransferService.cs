@@ -294,15 +294,7 @@ namespace Easy_Copier.Services
 
                 try
                 {
-                    Type? fileOperationType = Type.GetTypeFromCLSID(new Guid("3ad05575-8857-4850-9277-11b85bdb8e09"));
-                    if (fileOperationType != null)
-                    {
-                        object? obj = Activator.CreateInstance(fileOperationType);
-                        if (obj != null)
-                        {
-                            fileOperation = obj as NativeMethods.IFileOperation;
-                        }
-                    }
+                    fileOperation = (NativeMethods.IFileOperation)new NativeMethods.FileOperation();
 
                     if (fileOperation == null) return false;
                     fileOperation.SetOperationFlags(NativeMethods.FOF_NOCONFIRMMKDIR);
