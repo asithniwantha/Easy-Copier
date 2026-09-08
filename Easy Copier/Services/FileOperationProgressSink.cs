@@ -8,7 +8,7 @@ using System.Threading;
 
 namespace Easy_Copier.Services
 {
-    internal class FileOperationProgressSink : NativeFileOperation.IFileOperationProgressSink
+    internal class FileOperationProgressSink : IFileOperationProgressSink
     {
         private readonly IProgress<TransferProgress>? _progress;
         private readonly CancellationToken _cancellationToken;
@@ -56,12 +56,12 @@ namespace Easy_Copier.Services
             _stopwatch.Stop();
         }
 
-        public void PreRenameItem(uint dwFlags, NativeFileOperation.IShellItem psiItem, string pszNewName) { CheckCancellation(); }
-        public void PostRenameItem(uint dwFlags, NativeFileOperation.IShellItem psiItem, string pszNewName, int hrRename, NativeFileOperation.IShellItem psiNewlyCreated) { }
-        public void PreMoveItem(uint dwFlags, NativeFileOperation.IShellItem psiItem, NativeFileOperation.IShellItem psiDestinationFolder, string pszNewName) { CheckCancellation(); }
-        public void PostMoveItem(uint dwFlags, NativeFileOperation.IShellItem psiItem, NativeFileOperation.IShellItem psiDestinationFolder, string pszNewName, int hrMove, NativeFileOperation.IShellItem psiNewlyCreated) { }
+        public void PreRenameItem(uint dwFlags, IShellItem psiItem, string pszNewName) { CheckCancellation(); }
+        public void PostRenameItem(uint dwFlags, IShellItem psiItem, string pszNewName, int hrRename, IShellItem psiNewlyCreated) { }
+        public void PreMoveItem(uint dwFlags, IShellItem psiItem, IShellItem psiDestinationFolder, string pszNewName) { CheckCancellation(); }
+        public void PostMoveItem(uint dwFlags, IShellItem psiItem, IShellItem psiDestinationFolder, string pszNewName, int hrMove, IShellItem psiNewlyCreated) { }
 
-        public void PreCopyItem(uint dwFlags, NativeFileOperation.IShellItem psiItem, NativeFileOperation.IShellItem psiDestinationFolder, string pszNewName)
+        public void PreCopyItem(uint dwFlags, IShellItem psiItem, IShellItem psiDestinationFolder, string pszNewName)
         {
             CheckCancellation();
             if (psiItem != null)
@@ -71,7 +71,7 @@ namespace Easy_Copier.Services
             }
         }
 
-        public void PostCopyItem(uint dwFlags, NativeFileOperation.IShellItem psiItem, NativeFileOperation.IShellItem psiDestinationFolder, string pszNewName, int hrCopy, NativeFileOperation.IShellItem psiNewlyCreated)
+        public void PostCopyItem(uint dwFlags, IShellItem psiItem, IShellItem psiDestinationFolder, string pszNewName, int hrCopy, IShellItem psiNewlyCreated)
         {
             if (psiItem != null)
             {
@@ -105,10 +105,10 @@ namespace Easy_Copier.Services
             }
         }
 
-        public void PreDeleteItem(uint dwFlags, NativeFileOperation.IShellItem psiItem) { CheckCancellation(); }
-        public void PostDeleteItem(uint dwFlags, NativeFileOperation.IShellItem psiItem, int hrDelete, NativeFileOperation.IShellItem psiNewlyCreated) { }
-        public void PreNewItem(uint dwFlags, NativeFileOperation.IShellItem psiDestinationFolder, string pszNewName) { CheckCancellation(); }
-        public void PostNewItem(uint dwFlags, NativeFileOperation.IShellItem psiDestinationFolder, string pszNewName, string pszTemplateName, uint dwFileAttributes, int hrNew, NativeFileOperation.IShellItem psiNewItem) { }
+        public void PreDeleteItem(uint dwFlags, IShellItem psiItem) { CheckCancellation(); }
+        public void PostDeleteItem(uint dwFlags, IShellItem psiItem, int hrDelete, IShellItem psiNewlyCreated) { }
+        public void PreNewItem(uint dwFlags, IShellItem psiDestinationFolder, string pszNewName) { CheckCancellation(); }
+        public void PostNewItem(uint dwFlags, IShellItem psiDestinationFolder, string pszNewName, string pszTemplateName, uint dwFileAttributes, int hrNew, IShellItem psiNewItem) { }
 
         public void UpdateProgress(uint iWorkTotal, uint iWorkSoFar)
         {

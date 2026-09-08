@@ -135,7 +135,7 @@ namespace Easy_Copier.Services
             long totalBytesToTransfer = request.Items.Where(i => i.Action != CopyAction.Skip && i.Game != null).Sum(i => i.Game.TotalBytes);
             Dictionary<string, TransferItem> itemMap = new(StringComparer.OrdinalIgnoreCase);
 
-            NativeFileOperation.IFileOperation? fileOp = null;
+            IFileOperation? fileOp = null;
             FileOperationProgressSink? sink = null;
             uint cookie = 0;
 
@@ -151,7 +151,7 @@ namespace Easy_Copier.Services
                 }
 
                 // Suppress folder-creation prompts while letting the shell keep its native collision behavior.
-                uint flags = (uint)(NativeFileOperation.FileOperationFlags.FOF_NOCONFIRMMKDIR);
+                uint flags = (uint)(FileOperationFlags.FOF_NOCONFIRMMKDIR);
 
                 fileOp.SetOperationFlags(flags);
                 fileOp.SetOwnerWindow(IntPtr.Zero);
@@ -167,7 +167,7 @@ namespace Easy_Copier.Services
 
                 cookie = fileOp.Advise(sink);
 
-                NativeFileOperation.SHCreateItemFromParsingName(request.DestinationPath, IntPtr.Zero, NativeFileOperation.IShellItemGuid, out NativeFileOperation.IShellItem destFolderItem);
+                NativeFileOperation.SHCreateItemFromParsingName(request.DestinationPath, IntPtr.Zero, IShellItemGuid, out IShellItem destFolderItem);
 
                 try
                 {
@@ -206,7 +206,7 @@ namespace Easy_Copier.Services
                             {
                                 try
                                 {
-                                    NativeFileOperation.SHCreateItemFromParsingName(destPath, IntPtr.Zero, NativeFileOperation.IShellItemGuid, out NativeFileOperation.IShellItem existingItem);
+                                    NativeFileOperation.SHCreateItemFromParsingName(destPath, IntPtr.Zero, IShellItemGuid, out IShellItem existingItem);
                                     fileOp.DeleteItem(existingItem, null);
                                     Marshal.ReleaseComObject(existingItem);
                                 }
@@ -219,7 +219,7 @@ namespace Easy_Copier.Services
 
                         try
                         {
-                            NativeFileOperation.SHCreateItemFromParsingName(game.FolderPath, IntPtr.Zero, NativeFileOperation.IShellItemGuid, out NativeFileOperation.IShellItem sourceItem);
+                            NativeFileOperation.SHCreateItemFromParsingName(game.FolderPath, IntPtr.Zero, IShellItemGuid, out IShellItem sourceItem);
 
                             string? copyName = null;
                             if (Directory.Exists(game.FolderPath))
@@ -294,13 +294,11 @@ namespace Easy_Copier.Services
                 DateTime.Now);
         }
 
-        private NativeFileOperation.IFileOperation? TryCreateFileOperation()
+        private IFileOperation? TryCreateFileOperation()
         {
             try
             {
-
-                Type fileOpType = Type.GetTypeFromCLSID(new Guid("3ad05575-8857-4850-9277-11b85bdb8e09")) ?? throw new COMException("Failed to get type for IFileOperation");
-                return (NativeFileOperation.IFileOperation)Activator.CreateInstance(fileOpType)!;
+                return (IFileOperation)new FileOperation();
             }
             catch (Exception ex) when (ex is InvalidCastException or COMException)
             {
