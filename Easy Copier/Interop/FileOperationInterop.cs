@@ -1,4 +1,5 @@
 using System;
+using System.Diagnostics.CodeAnalysis;
 using System.Runtime.InteropServices;
 
 namespace Easy_Copier.Interop
@@ -113,7 +114,8 @@ namespace Easy_Copier.Interop
     /// Flags that control file operations performed by IFileOperation.
     /// </summary>
     [Flags]
-    public enum FILEOP_FLAGS
+    [SuppressMessage("Design", "CA1028:Enum Storage should be Int32", Justification = "Windows IFileOperation flags map to an unsigned DWORD, including the 0x80000000 bit.")]
+    public enum FILEOP_FLAGS : uint
     {
         FOF_MULTIDESTFILES = 0x0001,
         FOF_CONFIRMMOUSE = 0x0002,
@@ -146,6 +148,6 @@ namespace Easy_Copier.Interop
         FOFX_REQUIREELEVATION = 0x10000000,
         FOFX_ADDUNDORECORD = 0x20000000,
         FOFX_COPYASDOWNLOAD = 0x40000000,
-        FOFX_DONTDISPLAYLOCATIONS = unchecked((int)0x80000000)
+        FOFX_DONTDISPLAYLOCATIONS = 0x80000000
     }
 }
