@@ -1,4 +1,5 @@
 using System;
+using System.Diagnostics.CodeAnalysis;
 using System.Runtime.InteropServices;
 
 namespace Easy_Copier.Interop
@@ -113,6 +114,7 @@ namespace Easy_Copier.Interop
     /// Flags that control file operations performed by IFileOperation.
     /// </summary>
     [Flags]
+    [SuppressMessage("Design", "CA2217:Do not mark enums with FlagsAttribute", Justification = "FILEOP_FLAGS is a native Win32 COM Shell flag enum representing operation flags with legacy bitfield values.")]
     public enum FILEOP_FLAGS
     {
         FOF_MULTIDESTFILES = 0x0001,
