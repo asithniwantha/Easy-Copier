@@ -70,14 +70,14 @@ namespace Easy_Copier.Services
             IProgress<string>? progress = null,
             CancellationToken cancellationToken = default)
         {
-            var (games, apps, tvAndFilms) = await ScanAllLibrariesAsync(settings, progress, cancellationToken);
+            (IReadOnlyList<GameEntry>? games, IReadOnlyList<GameEntry>? apps, IReadOnlyList<GameEntry>? tvAndFilms) = await ScanAllLibrariesAsync(settings, progress, cancellationToken);
 
             List<GameEntry> allEntries = [];
             allEntries.AddRange(games);
             allEntries.AddRange(apps);
             allEntries.AddRange(tvAndFilms);
 
-            var duplicates = allEntries
+            List<IGrouping<string, GameEntry>> duplicates = allEntries
                 .GroupBy(e => e.Name, StringComparer.OrdinalIgnoreCase)
                 .Where(g => g.Count() > 1)
                 .ToList();
@@ -89,20 +89,20 @@ namespace Easy_Copier.Services
 
             System.Text.StringBuilder reportBuilder = new();
             // Use CultureInfo.InvariantCulture to format string interpolations consistently across all user locales (CA1305)
-            reportBuilder.AppendLine(CultureInfo.InvariantCulture, $"Found {duplicates.Count} duplicated items:");
-            reportBuilder.AppendLine();
+            _ = reportBuilder.AppendLine(CultureInfo.InvariantCulture, $"Found {duplicates.Count} duplicated items:");
+            _ = reportBuilder.AppendLine();
 
-            foreach (var group in duplicates)
+            foreach (IGrouping<string, GameEntry>? group in duplicates)
             {
-                reportBuilder.AppendLine(CultureInfo.InvariantCulture, $"- {group.Key} ({group.Count()} copies):");
-                foreach (var entry in group)
+                _ = reportBuilder.AppendLine(CultureInfo.InvariantCulture, $"- {group.Key} ({group.Count()} copies):");
+                foreach (GameEntry? entry in group)
                 {
-                    reportBuilder.AppendLine(CultureInfo.InvariantCulture, $"  • [{entry.Category}] {entry.FolderPath}");
+                    _ = reportBuilder.AppendLine(CultureInfo.InvariantCulture, $"  • [{entry.Category}] {entry.FolderPath}");
                 }
-                reportBuilder.AppendLine();
+                _ = reportBuilder.AppendLine();
             }
 
-            reportBuilder.AppendLine("Cleanup Recommendation: Consider deleting the duplicate folders shown above to save disk space.");
+            _ = reportBuilder.AppendLine("Cleanup Recommendation: Consider deleting the duplicate folders shown above to save disk space.");
             return reportBuilder.ToString().TrimEnd();
         }
     }

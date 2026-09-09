@@ -113,7 +113,7 @@ namespace Easy_Copier.Interop
     /// Flags that control file operations performed by IFileOperation.
     /// </summary>
     [Flags]
-    public enum FILEOP_FLAGS
+    public enum FILEOP_FLAGS : uint
     {
         FOF_MULTIDESTFILES = 0x0001,
         FOF_CONFIRMMOUSE = 0x0002,
@@ -144,7 +144,8 @@ namespace Easy_Copier.Interop
         FOFX_DONTDISPLAYDESTPATH = 0x08000000,
         FOFX_RECYCLEONDELETE = 0x00080000,
         FOFX_REQUIREELEVATION = 0x10000000,
+        FOFX_RESERVED = 0x20000000,
         FOFX_COPYASDOWNLOAD = 0x40000000,
-        FOFX_DONTDISPLAYLOCATIONS = unchecked((int)0x80000000)
+        FOFX_DONTDISPLAYLOCATIONS = 0x80000000
     }
 }
