@@ -1,11 +1,10 @@
+using Easy_Copier.Interop;
 using Easy_Copier.Models;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Runtime.InteropServices;
-using System.Linq;
-using Easy_Copier.Interop;
 using System.Threading.Tasks;
 
 namespace Easy_Copier.Services
@@ -212,9 +211,10 @@ namespace Easy_Copier.Services
                         0,
                         DateTime.Now));
                 }
-            });
-
-            thread.IsBackground = true;
+            })
+            {
+                IsBackground = true
+            };
             thread.SetApartmentState(System.Threading.ApartmentState.STA);
             thread.Start();
 
@@ -264,29 +264,37 @@ namespace Easy_Copier.Services
 
         private void DeleteItemWithFileOperation(string targetPath)
         {
-            if (!Directory.Exists(targetPath) && !File.Exists(targetPath)) return;
+            if (!Directory.Exists(targetPath) && !File.Exists(targetPath))
+            {
+                return;
+            }
 
             object? fileOpObj = null;
-            IFileOperation? fileOp = null;
             IShellItem? targetItem = null;
 
             try
             {
                 Type? type = Type.GetTypeFromCLSID(new Guid(FileOperationInterop.CLSID_FileOperation));
-                if (type == null) throw new InvalidOperationException("Could not get type from CLSID");
+                if (type == null)
+                {
+                    throw new InvalidOperationException("Could not get type from CLSID");
+                }
 
                 fileOpObj = Activator.CreateInstance(type);
-                if (fileOpObj == null) throw new InvalidOperationException("Could not create IFileOperation instance");
+                if (fileOpObj == null)
+                {
+                    throw new InvalidOperationException("Could not create IFileOperation instance");
+                }
 
-                fileOp = (IFileOperation)fileOpObj;
+                IFileOperation? fileOp = (IFileOperation)fileOpObj;
 
                 FILEOP_FLAGS flags = FILEOP_FLAGS.FOF_NOCONFIRMATION | FILEOP_FLAGS.FOFX_SHOWELEVATIONPROMPT;
-                fileOp.SetOperationFlags(flags);
+                _ = fileOp.SetOperationFlags(flags);
 
                 FileOperationInterop.SHCreateItemFromParsingName(targetPath, IntPtr.Zero, typeof(IShellItem).GUID, out targetItem);
 
-                fileOp.DeleteItem(targetItem, null);
-                fileOp.PerformOperations();
+                _ = fileOp.DeleteItem(targetItem, null);
+                _ = fileOp.PerformOperations();
             }
             catch (Exception ex)
             {
@@ -294,8 +302,15 @@ namespace Easy_Copier.Services
             }
             finally
             {
-                if (targetItem != null) Marshal.ReleaseComObject(targetItem);
-                if (fileOpObj != null && Marshal.IsComObject(fileOpObj)) Marshal.ReleaseComObject(fileOpObj);
+                if (targetItem != null)
+                {
+                    _ = Marshal.ReleaseComObject(targetItem);
+                }
+
+                if (fileOpObj != null && Marshal.IsComObject(fileOpObj))
+                {
+                    _ = Marshal.ReleaseComObject(fileOpObj);
+                }
             }
         }
 
@@ -303,7 +318,6 @@ namespace Easy_Copier.Services
         {
             object? fileOpObj = null;
             IFileOperation? fileOp = null;
-            IFileOperationProgressSink? sink = null;
             IShellItem? sourceItem = null;
             IShellItem? destFolderItem = null;
             uint cookie = 0;
@@ -311,27 +325,33 @@ namespace Easy_Copier.Services
             try
             {
                 Type? type = Type.GetTypeFromCLSID(new Guid(FileOperationInterop.CLSID_FileOperation));
-                if (type == null) throw new InvalidOperationException("Could not get type from CLSID");
+                if (type == null)
+                {
+                    throw new InvalidOperationException("Could not get type from CLSID");
+                }
 
                 fileOpObj = Activator.CreateInstance(type);
-                if (fileOpObj == null) throw new InvalidOperationException("Could not create IFileOperation instance");
+                if (fileOpObj == null)
+                {
+                    throw new InvalidOperationException("Could not create IFileOperation instance");
+                }
 
                 fileOp = (IFileOperation)fileOpObj;
 
                 FILEOP_FLAGS flags = FILEOP_FLAGS.FOF_NOCONFIRMMKDIR | FILEOP_FLAGS.FOFX_SHOWELEVATIONPROMPT;
-                fileOp.SetOperationFlags(flags);
+                _ = fileOp.SetOperationFlags(flags);
 
-                sink = new FileOperationProgressSink(progress, totalBytes);
-                fileOp.Advise(sink, out cookie);
+                IFileOperationProgressSink? sink = new FileOperationProgressSink(progress, totalBytes);
+                _ = fileOp.Advise(sink, out cookie);
 
                 FileOperationInterop.SHCreateItemFromParsingName(sourcePath, IntPtr.Zero, typeof(IShellItem).GUID, out sourceItem);
                 FileOperationInterop.SHCreateItemFromParsingName(destFolder, IntPtr.Zero, typeof(IShellItem).GUID, out destFolderItem);
 
                 string destName = Path.GetFileName(destPath);
-                fileOp.CopyItem(sourceItem, destFolderItem, destName, null);
+                _ = fileOp.CopyItem(sourceItem, destFolderItem, destName, null);
 
-                fileOp.PerformOperations();
-                fileOp.GetAnyOperationsAborted(out bool aborted);
+                _ = fileOp.PerformOperations();
+                _ = fileOp.GetAnyOperationsAborted(out bool aborted);
 
                 return !aborted;
             }
@@ -342,10 +362,25 @@ namespace Easy_Copier.Services
             }
             finally
             {
-                if (fileOp != null && cookie != 0) fileOp.Unadvise(cookie);
-                if (sourceItem != null) Marshal.ReleaseComObject(sourceItem);
-                if (destFolderItem != null) Marshal.ReleaseComObject(destFolderItem);
-                if (fileOpObj != null && Marshal.IsComObject(fileOpObj)) Marshal.ReleaseComObject(fileOpObj);
+                if (fileOp != null && cookie != 0)
+                {
+                    _ = fileOp.Unadvise(cookie);
+                }
+
+                if (sourceItem != null)
+                {
+                    _ = Marshal.ReleaseComObject(sourceItem);
+                }
+
+                if (destFolderItem != null)
+                {
+                    _ = Marshal.ReleaseComObject(destFolderItem);
+                }
+
+                if (fileOpObj != null && Marshal.IsComObject(fileOpObj))
+                {
+                    _ = Marshal.ReleaseComObject(fileOpObj);
+                }
             }
         }
 

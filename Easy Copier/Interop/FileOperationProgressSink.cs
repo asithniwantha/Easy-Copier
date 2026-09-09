@@ -2,7 +2,6 @@ using Easy_Copier.Models;
 using System;
 using System.Diagnostics;
 using System.Globalization;
-using System.Runtime.InteropServices;
 
 namespace Easy_Copier.Interop
 {
@@ -29,32 +28,59 @@ namespace Easy_Copier.Interop
         public uint FinishOperations(uint hrResult)
         {
             _stopwatch.Stop();
-            if (_progress != null)
-            {
-                _progress.Report(new TransferProgress(100.0, "", "Completed"));
-            }
+            _progress?.Report(new TransferProgress(100.0, "", "Completed"));
             return 0;
         }
 
-        public uint PreRenameItem(uint dwFlags, IShellItem psiItem, string pszNewName) => 0;
+        public uint PreRenameItem(uint dwFlags, IShellItem psiItem, string pszNewName)
+        {
+            return 0;
+        }
 
-        public uint PostRenameItem(uint dwFlags, IShellItem psiItem, string pszNewName, uint hrRename, IShellItem psiNewlyCreated) => 0;
+        public uint PostRenameItem(uint dwFlags, IShellItem psiItem, string pszNewName, uint hrRename, IShellItem psiNewlyCreated)
+        {
+            return 0;
+        }
 
-        public uint PreMoveItem(uint dwFlags, IShellItem psiItem, IShellItem psiDestinationFolder, string pszNewName) => 0;
+        public uint PreMoveItem(uint dwFlags, IShellItem psiItem, IShellItem psiDestinationFolder, string pszNewName)
+        {
+            return 0;
+        }
 
-        public uint PostMoveItem(uint dwFlags, IShellItem psiItem, IShellItem psiDestinationFolder, string pszNewName, uint hrMove, IShellItem psiNewlyCreated) => 0;
+        public uint PostMoveItem(uint dwFlags, IShellItem psiItem, IShellItem psiDestinationFolder, string pszNewName, uint hrMove, IShellItem psiNewlyCreated)
+        {
+            return 0;
+        }
 
-        public uint PreCopyItem(uint dwFlags, IShellItem psiItem, IShellItem psiDestinationFolder, string pszNewName) => 0;
+        public uint PreCopyItem(uint dwFlags, IShellItem psiItem, IShellItem psiDestinationFolder, string pszNewName)
+        {
+            return 0;
+        }
 
-        public uint PostCopyItem(uint dwFlags, IShellItem psiItem, IShellItem psiDestinationFolder, string pszNewName, uint hrCopy, IShellItem psiNewlyCreated) => 0;
+        public uint PostCopyItem(uint dwFlags, IShellItem psiItem, IShellItem psiDestinationFolder, string pszNewName, uint hrCopy, IShellItem psiNewlyCreated)
+        {
+            return 0;
+        }
 
-        public uint PreDeleteItem(uint dwFlags, IShellItem psiItem) => 0;
+        public uint PreDeleteItem(uint dwFlags, IShellItem psiItem)
+        {
+            return 0;
+        }
 
-        public uint PostDeleteItem(uint dwFlags, IShellItem psiItem, uint hrDelete, IShellItem psiNewlyCreated) => 0;
+        public uint PostDeleteItem(uint dwFlags, IShellItem psiItem, uint hrDelete, IShellItem psiNewlyCreated)
+        {
+            return 0;
+        }
 
-        public uint PreNewItem(uint dwFlags, IShellItem psiDestinationFolder, string pszNewName) => 0;
+        public uint PreNewItem(uint dwFlags, IShellItem psiDestinationFolder, string pszNewName)
+        {
+            return 0;
+        }
 
-        public uint PostNewItem(uint dwFlags, IShellItem psiDestinationFolder, string pszNewName, string pszTemplateName, uint hrNew, IShellItem psiNewlyCreated) => 0;
+        public uint PostNewItem(uint dwFlags, IShellItem psiDestinationFolder, string pszNewName, string pszTemplateName, uint hrNew, IShellItem psiNewlyCreated)
+        {
+            return 0;
+        }
 
         public uint UpdateProgress(uint iWorkTotal, uint iWorkSoFar)
         {
@@ -89,10 +115,19 @@ namespace Easy_Copier.Interop
             return 0;
         }
 
-        public uint ResetTimer() => 0;
+        public uint ResetTimer()
+        {
+            return 0;
+        }
 
-        public uint PauseTimer() => 0;
+        public uint PauseTimer()
+        {
+            return 0;
+        }
 
-        public uint ResumeTimer() => 0;
+        public uint ResumeTimer()
+        {
+            return 0;
+        }
     }
 }
