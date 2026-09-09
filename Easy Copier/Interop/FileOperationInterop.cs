@@ -1,5 +1,4 @@
 using System;
-using System.Diagnostics.CodeAnalysis;
 using System.Runtime.InteropServices;
 
 namespace Easy_Copier.Interop
@@ -114,7 +113,6 @@ namespace Easy_Copier.Interop
     /// Flags that control file operations performed by IFileOperation.
     /// </summary>
     [Flags]
-    [SuppressMessage("Design", "CA2217:Do not mark enums with FlagsAttribute", Justification = "FILEOP_FLAGS is a native Windows Shell COM bitfield enum defined in ShObjIdl_core.h. Bit 0x20000000 is unassigned in the Windows SDK, causing a power-of-two gap that triggers CA2217.")]
     public enum FILEOP_FLAGS : uint
     {
         FOF_MULTIDESTFILES = 0x0001,
@@ -146,6 +144,7 @@ namespace Easy_Copier.Interop
         FOFX_DONTDISPLAYDESTPATH = 0x08000000,
         FOFX_RECYCLEONDELETE = 0x00080000,
         FOFX_REQUIREELEVATION = 0x10000000,
+        FOFX_RESERVED = 0x20000000,
         FOFX_COPYASDOWNLOAD = 0x40000000,
         FOFX_DONTDISPLAYLOCATIONS = 0x80000000
     }
