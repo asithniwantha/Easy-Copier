@@ -163,3 +163,4 @@ Distributed under the MIT License. See `LICENSE` for more information.
 * Updated Interop enum underlying types to `int` and P/Invoke method visibilities to `internal` for CA1028 and CA1401 compliance.
 * Consolidated and abstracted duplicated modal window creation logic into `NativeWindowHelper.InitializeModalWindow`.
 * Replaced legacy UWP `Windows.UI.Color` usages with modern `Microsoft.UI.ColorHelper` for WinUI 3 compatibility.
+* Resolved Roslyn static analysis warnings CA1028 and CA1700 in `FileOperationInterop.cs` by adding explicit `[SuppressMessage]` attributes to `FILEOP_FLAGS` for native COM interop.

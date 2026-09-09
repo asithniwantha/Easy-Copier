@@ -1,4 +1,5 @@
 using System;
+using System.Diagnostics.CodeAnalysis;
 using System.Runtime.InteropServices;
 
 namespace Easy_Copier.Interop
@@ -113,6 +114,8 @@ namespace Easy_Copier.Interop
     /// Flags that control file operations performed by IFileOperation.
     /// </summary>
     [Flags]
+    [SuppressMessage("Design", "CA1028:Enum Storage should be Int32", Justification = "FILEOP_FLAGS represents Win32 DWORD bitflags used in COM interop, including 0x80000000.")]
+    [SuppressMessage("Naming", "CA1700:Do not name enum values 'Reserved'", Justification = "FOFX_RESERVED matches the native Windows Shell API FILEOP_FLAGS definition in ShObjIdl_core.h.")]
     public enum FILEOP_FLAGS : uint
     {
         FOF_MULTIDESTFILES = 0x0001,

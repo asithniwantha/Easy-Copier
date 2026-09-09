@@ -37,6 +37,7 @@ Easy Copier was developed as a WinUI 3 desktop application targeting .NET 10 to 
 - Resolved Roslyn warning CA1062 in `NativeWindowHelper.cs` by adding explicit `ArgumentNullException.ThrowIfNull(...)` parameter validation to `EnableDynamicResizing`, `InitializeWindow`, and `ShowAsModal`.
 - Resolved Roslyn warnings CA1024 ("Use properties where appropriate") and CA1822 ("Member does not access instance data and can be marked as static") in `WindowService.cs` by refactoring `GetMainWindow()` into a static property `MainWindow => App.MainWindow`.
 - Resolved Roslyn warning CA1305 ("Specify IFormatProvider") in `LibraryScannerService.cs` by explicitly passing `CultureInfo.InvariantCulture` to `StringBuilder.AppendLine` interpolated string calls in duplicate report generation. Added unit test coverage in `LibraryScannerServiceTests.cs`.
+- Resolved Roslyn warnings CA1028 ("Enum Storage should be Int32") and CA1700 ("Do not name enum values 'Reserved'") in `FileOperationInterop.cs` by decorating the native COM `FILEOP_FLAGS` enum with explicit `[SuppressMessage]` attributes.
 
 ## Key Development Decisions
 - **Safety-first transfer pipeline**: run validation before copy; block operation on hard errors.
