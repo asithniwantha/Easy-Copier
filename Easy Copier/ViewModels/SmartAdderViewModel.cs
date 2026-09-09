@@ -16,7 +16,7 @@ namespace Easy_Copier.ViewModels
 {
     public sealed partial class SmartAdderViewModel : ObservableObject
     {
-        private readonly IHistoryDialogService _historyDialogService;
+        private readonly IWindowService _windowService;
         private readonly IDatabaseService _databaseService;
         private readonly ILogger<SmartAdderViewModel> _logger;
 
@@ -31,11 +31,11 @@ namespace Easy_Copier.ViewModels
         public ObservableCollection<NumberCell> Cells { get; } = [];
 
         public SmartAdderViewModel(
-            IHistoryDialogService historyDialogService,
+            IWindowService windowService,
             IDatabaseService databaseService,
             ILogger<SmartAdderViewModel> logger)
         {
-            _historyDialogService = historyDialogService;
+            _windowService = windowService;
             _databaseService = databaseService;
             _logger = logger;
 
@@ -117,9 +117,9 @@ namespace Easy_Copier.ViewModels
         }
 
         [RelayCommand]
-        private async Task OpenHistoryAsync()
+        private void OpenHistory()
         {
-            await _historyDialogService.ShowHistoryDialogAsync();
+            _windowService.ShowSmartAdderHistoryWindow();
         }
 
         [RelayCommand]

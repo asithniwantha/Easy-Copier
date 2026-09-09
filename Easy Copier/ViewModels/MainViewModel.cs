@@ -136,6 +136,8 @@ namespace Easy_Copier.ViewModels
 
         public event EventHandler? ItemQueued;
 
+        public SmartAdderViewModel SmartAdderViewModel { get; }
+
         public MainViewModel(
             ILogger<MainViewModel> logger,
             IUpdateService updateService,
@@ -150,7 +152,8 @@ namespace Easy_Copier.ViewModels
             IProcessService processService,
             IDispatcherService dispatcherService,
             ISourceLibraryService sourceLibraryService,
-            IDialogService dialogService)
+            IDialogService dialogService,
+            SmartAdderViewModel smartAdderViewModel)
         {
             _logger = logger;
             _settingsService = settingsService;
@@ -166,6 +169,7 @@ namespace Easy_Copier.ViewModels
             _updateService = updateService;
             _sourceLibraryService = sourceLibraryService;
             _dialogService = dialogService;
+            SmartAdderViewModel = smartAdderViewModel;
 
             _driveDiscoveryService.DrivesChanged += (s, e) =>
             {

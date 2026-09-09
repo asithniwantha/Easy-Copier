@@ -384,6 +384,7 @@
         </Border>
 
         <local:SmartAdderControl Grid.Column="0"
+                                  ViewModel="{x:Bind ViewModel.SmartAdderViewModel}"
                                   HorizontalAlignment="Right"
                                   VerticalAlignment="Top"
                                   Margin="0,0,8,0"/>
