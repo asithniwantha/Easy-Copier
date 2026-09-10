@@ -1,5 +1,4 @@
 using Easy_Copier.ViewModels;
-using Microsoft.Extensions.DependencyInjection;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using System.ComponentModel;
@@ -8,17 +7,39 @@ namespace Easy_Copier.Views
 {
     public sealed partial class SmartAdderControl : UserControl
     {
-        public SmartAdderViewModel ViewModel { get; }
+        public static readonly DependencyProperty ViewModelProperty =
+            DependencyProperty.Register(
+                nameof(ViewModel),
+                typeof(SmartAdderViewModel),
+                typeof(SmartAdderControl),
+                new PropertyMetadata(null, OnViewModelChanged));
+
+        public SmartAdderViewModel? ViewModel
+        {
+            get => (SmartAdderViewModel?)GetValue(ViewModelProperty);
+            set => SetValue(ViewModelProperty, value);
+        }
 
         public SmartAdderControl()
         {
             InitializeComponent();
+        }
 
-            ViewModel = ((App)Microsoft.UI.Xaml.Application.Current).Services.GetRequiredService<SmartAdderViewModel>();
-            DataContext = ViewModel;
-
-            ViewModel.PropertyChanged += ViewModel_PropertyChanged;
-            UpdateVisibility();
+        private static void OnViewModelChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            if (d is SmartAdderControl control)
+            {
+                if (e.OldValue is SmartAdderViewModel oldVm)
+                {
+                    oldVm.PropertyChanged -= control.ViewModel_PropertyChanged;
+                }
+                if (e.NewValue is SmartAdderViewModel newVm)
+                {
+                    newVm.PropertyChanged += control.ViewModel_PropertyChanged;
+                    control.DataContext = newVm;
+                    control.UpdateVisibility();
+                }
+            }
         }
 
         private void ViewModel_PropertyChanged(object? sender, PropertyChangedEventArgs e)
@@ -32,7 +53,10 @@ namespace Easy_Copier.Views
 
         private void UpdateVisibility()
         {
-            InputListPanel.Visibility = (ViewModel.IsHovering || ViewModel.IsListFocused) ? Visibility.Visible : Visibility.Collapsed;
+            if (ViewModel != null)
+            {
+                InputListPanel.Visibility = (ViewModel.IsHovering || ViewModel.IsListFocused) ? Visibility.Visible : Visibility.Collapsed;
+            }
         }
     }
 }

@@ -133,3 +133,4 @@
 ## Development Highlights
 - **Refactored Architecture**: Consolidated and abstracted duplicated modal window creation logic to reduce code duplication in Views.
 - **WinUI 3 Modernization**: Removed remaining legacy `Windows.UI` namespaces in favor of `Microsoft.UI`.
+- **Smart Adder Clean Up**: Removed code-behind generated dialog creation (e.g. `HistoryDialogService`) for SmartAdder in favor of clean MVVM patterns using `SmartAdderHistoryWindow` and `DependencyProperty` injection to eliminate service locator anti-patterns.
