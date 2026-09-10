@@ -53,6 +53,7 @@ namespace Easy_Copier.Infrastructure
             _ = services.AddSingleton<Services.IGameInfoDownloadService, Services.GameInfoDownloadService>();
             _ = services.AddSingleton<Services.IUpdateService, Services.UpdateService>();
             _ = services.AddSingleton<Services.IDatabaseService, Services.DatabaseService>();
+            _ = services.AddSingleton<Services.ISmartAdderHistoryService, Services.SmartAdderHistoryService>();
 
             return services;
         }
