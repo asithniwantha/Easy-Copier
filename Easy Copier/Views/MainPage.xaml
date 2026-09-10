@@ -195,7 +195,7 @@
             </Pivot>
         </Grid>
 
-        <Border Grid.Column="1" Style="{StaticResource ActionPanelStyle}" Width="440" MinWidth="400">
+        <Border Grid.Column="1" Style="{StaticResource ActionPanelStyle}" Width="460" MinWidth="400">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
