@@ -120,6 +120,8 @@
 - [ ] Add native drag-and-drop support from Windows File Explorer to the Copy Queue or Library.
 - [ ] Add a real-time transfer speed graph showing current MB/s in the active transfer view.
 - [ ] Add cloud backup functionality for the SQLite database to secure historical and financial records.
+- [ ] Play a sound and show a toast notification when a copy operation completes successfully or fails.
+- [ ] Add a tab to OS and Rufus drive creation tools for easy bootable media creation.
 
 
 ## New Architectural Updates
@@ -130,7 +132,6 @@
 * Resolved CA1305 Roslyn static analysis warnings in `LibraryScannerService.cs` and `FileOperationProgressSink.cs` by supplying `CultureInfo.InvariantCulture` to string formatting calls.
 * Un-nested COM interop interfaces (`IFileOperation`, `IFileOperationProgressSink`, `IShellItem`) to namespace level to satisfy CA1034 guidelines.
 * Updated Interop enum underlying types to `int` (CA1028) and P/Invoke method visibilities to `internal` (CA1401).
-* Resolved Roslyn CA2213 warnings in `MainViewModel` by ensuring direct cancellation token source (`_scanCancellationTokenSource` and `_validationCancellationTokenSource`) disposal during object `Dispose()` and token replacement.
 
 ## Development Highlights
 - **Refactored Architecture**: Consolidated and abstracted duplicated modal window creation logic to reduce code duplication in Views.
