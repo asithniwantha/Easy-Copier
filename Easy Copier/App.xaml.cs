@@ -97,6 +97,9 @@ namespace Easy_Copier
                 _serviceProvider = null;
                 disposable.Dispose();
             }
+
+            // Ensure Serilog flushes any pending logs and releases file handles
+            Serilog.Log.CloseAndFlush();
         }
     }
 }
