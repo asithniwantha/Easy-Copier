@@ -73,7 +73,7 @@ namespace Easy_Copier.Services
 
                 _ = command.Parameters.AddWithValue("$timestamp", record.Timestamp.ToString("O"));
                 _ = command.Parameters.AddWithValue("$entriesJson", record.EntriesJson);
-                _ = command.Parameters.AddWithValue("$total", record.Total);
+                _ = command.Parameters.AddWithValue("$total", record.TotalSum);
 
                 _ = await command.ExecuteNonQueryAsync();
             }

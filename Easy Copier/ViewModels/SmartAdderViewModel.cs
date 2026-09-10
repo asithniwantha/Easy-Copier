@@ -17,7 +17,7 @@ namespace Easy_Copier.ViewModels
     public sealed partial class SmartAdderViewModel : ObservableObject
     {
         private readonly IWindowService _windowService;
-        private readonly IDatabaseService _databaseService;
+        private readonly ISmartAdderHistoryService _smartAdderHistoryService;
         private readonly ILogger<SmartAdderViewModel> _logger;
 
         [ObservableProperty]
@@ -32,11 +32,11 @@ namespace Easy_Copier.ViewModels
 
         public SmartAdderViewModel(
             IWindowService windowService,
-            IDatabaseService databaseService,
+            ISmartAdderHistoryService smartAdderHistoryService,
             ILogger<SmartAdderViewModel> logger)
         {
             _windowService = windowService;
-            _databaseService = databaseService;
+            _smartAdderHistoryService = smartAdderHistoryService;
             _logger = logger;
 
             AddNewCell();
@@ -140,7 +140,7 @@ namespace Easy_Copier.ViewModels
                         EntriesJson = JsonSerializer.Serialize(values),
                         TotalSum = TotalSum
                     };
-                    await _databaseService.AddRecordAsync(record);
+                    await _smartAdderHistoryService.AddRecordAsync(record);
                 }
             }
             catch (Exception ex)
