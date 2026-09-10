@@ -30,6 +30,7 @@ namespace Easy_Copier.ViewModels
                 if (_scanCancellationTokenSource != null)
                 {
                     await _scanCancellationTokenSource.CancelAsync();
+                    _scanCancellationTokenSource.Dispose();
                 }
                 _scanCancellationTokenSource = new CancellationTokenSource();
 
@@ -411,21 +412,21 @@ namespace Easy_Copier.ViewModels
             _updateCheckTimer?.Dispose();
             _updateCheckTimer = null;
 
-            CancelAndDispose(ref _scanCancellationTokenSource);
-            CancelAndDispose(ref _validationCancellationTokenSource);
-            GC.SuppressFinalize(this);
-        }
-
-        private static void CancelAndDispose(ref CancellationTokenSource? cancellationTokenSource)
-        {
-            CancellationTokenSource? source = Interlocked.Exchange(ref cancellationTokenSource, null);
-            if (source == null)
+            if (_scanCancellationTokenSource != null)
             {
-                return;
+                _scanCancellationTokenSource.Cancel();
+                _scanCancellationTokenSource.Dispose();
+                _scanCancellationTokenSource = null;
             }
 
-            source.Cancel();
-            source.Dispose();
+            if (_validationCancellationTokenSource != null)
+            {
+                _validationCancellationTokenSource.Cancel();
+                _validationCancellationTokenSource.Dispose();
+                _validationCancellationTokenSource = null;
+            }
+
+            GC.SuppressFinalize(this);
         }
 
         private async Task CheckForUpdatesBackgroundAsync()

@@ -360,6 +360,7 @@ namespace Easy_Copier.ViewModels
                 if (_validationCancellationTokenSource != null)
                 {
                     await _validationCancellationTokenSource.CancelAsync();
+                    _validationCancellationTokenSource.Dispose();
                 }
                 _validationCancellationTokenSource = new CancellationTokenSource();
 
