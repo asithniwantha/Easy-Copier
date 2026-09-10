@@ -31,6 +31,24 @@ public class MainViewModelLifecycleTests
     }
 
     [Fact]
+    public void Dispose_CanBeCalledMultipleTimes_WithoutThrowing()
+    {
+        TestDriveDiscoveryService driveDiscoveryService = new();
+        TestDispatcherService dispatcherService = new();
+        TestTransferQueueService transferQueueService = new();
+
+        MainViewModel viewModel = CreateViewModel(driveDiscoveryService, dispatcherService, transferQueueService);
+
+        Exception? exception = Record.Exception(() =>
+        {
+            viewModel.Dispose();
+            viewModel.Dispose();
+        });
+
+        Assert.Null(exception);
+    }
+
+    [Fact]
     public void Dispose_IgnoresLateQueueCompletionCallbacks()
     {
         TestDriveDiscoveryService driveDiscoveryService = new();
