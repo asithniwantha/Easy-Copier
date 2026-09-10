@@ -135,3 +135,29 @@
 - **Refactored Architecture**: Consolidated and abstracted duplicated modal window creation logic to reduce code duplication in Views.
 - **WinUI 3 Modernization**: Removed remaining legacy `Windows.UI` namespaces in favor of `Microsoft.UI`.
 - **Smart Adder Clean Up**: Removed code-behind generated dialog creation (e.g. `HistoryDialogService`) for SmartAdder in favor of clean MVVM patterns using `SmartAdderHistoryWindow` and `DependencyProperty` injection to eliminate service locator anti-patterns.
+
+## 🗄️ Database Schema
+
+### `CopyHistory` Table
+Tracks detailed history of all copy operations.
+
+| Column Name | Type | Description |
+| :--- | :--- | :--- |
+| `Id` | `INTEGER` | Primary key, auto-incremented. |
+| `Timestamp` | `TEXT` | ISO 8601 formatted timestamp of the operation. |
+| `GameName` | `TEXT` | Name of the copied item (game, app, or media). |
+| `TargetDriveLetter` | `TEXT` | Drive letter of the destination. |
+| `TargetDriveLabel` | `TEXT` | Volume label of the destination drive. |
+| `BytesTransferred` | `INTEGER` | Total size of the item transferred in bytes. |
+| `IsSuccess` | `INTEGER` | Boolean representation (`1` = Success, `0` = Failure). |
+| `Amount` | `INTEGER` | Price or amount associated with the copied item. |
+
+### `SmartAdderHistory` Table
+Tracks records of calculations made using the Smart Adder tool.
+
+| Column Name | Type | Description |
+| :--- | :--- | :--- |
+| `Id` | `INTEGER` | Primary key, auto-incremented. |
+| `Timestamp` | `TEXT` | ISO 8601 formatted timestamp of the calculation record. |
+| `EntriesJson` | `TEXT` | JSON formatted string containing the individual calculation entries. |
+| `Total` | `REAL` | Total calculated sum of all entries. |
