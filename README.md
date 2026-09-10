@@ -27,6 +27,7 @@ Easy Copier helps shop environments prepare customer drives without guessing whi
 * **🔄 App Updates:** Automatic update checking and release notifications, with automatic background downloads and manual checking.
 * **📺 Media Support:** Easily browse, select, and copy TV shows and films in addition to games and apps.
 * **📜 Logging:** Integrated Serilog logging tracks events and errors with daily rolling files.
+* **🧯 Shutdown Stability:** Coordinated watcher and background-callback cleanup reduces close-time crashes during app teardown.
 
 ---
 

@@ -21,8 +21,12 @@ namespace Easy_Copier.Services
     public sealed class DriveDiscoveryService : IDriveDiscoveryService
     {
         private readonly ILogger<DriveDiscoveryService> _logger;
+        private readonly object _watcherLock = new();
+        private readonly ManualResetEventSlim _driveChangeCallbacksCompleted = new(initialState: true);
         private ManagementEventWatcher? _driveWatcher;
-        private bool _isWatching;
+        private int _activeDriveChangeCallbacks;
+        private int _isWatching;
+        private int _isDisposed;
 
         public event EventHandler? DrivesChanged;
 
@@ -185,61 +189,114 @@ namespace Easy_Copier.Services
 
         public void StartWatching()
         {
-            if (_isWatching)
+            lock (_watcherLock)
             {
-                return;
-            }
+                if (_isWatching != 0 || _isDisposed != 0)
+                {
+                    return;
+                }
 
-            try
-            {
-                WqlEventQuery query = new("SELECT * FROM Win32_VolumeChangeEvent WHERE EventType = 2 OR EventType = 3");
-                _driveWatcher = new ManagementEventWatcher(query);
-                _driveWatcher.EventArrived += OnDriveChanged;
-                _driveWatcher.Start();
-                _isWatching = true;
+                try
+                {
+                    WqlEventQuery query = new("SELECT * FROM Win32_VolumeChangeEvent WHERE EventType = 2 OR EventType = 3");
+                    _driveWatcher = new ManagementEventWatcher(query);
+                    _driveWatcher.EventArrived += OnDriveChanged;
+                    _driveWatcher.Start();
+                    _isWatching = 1;
 
-                _logger.LogInformation("Drive watcher started");
-            }
-            catch (Exception ex)
-            {
-                _logger.LogError(ex, "Failed to start drive watcher");
+                    _logger.LogInformation("Drive watcher started");
+                }
+                catch (Exception ex)
+                {
+                    _logger.LogError(ex, "Failed to start drive watcher");
+                }
             }
         }
 
         public void StopWatching()
         {
-            if (!_isWatching || _driveWatcher == null)
+            ManagementEventWatcher? watcherToDispose;
+
+            lock (_watcherLock)
             {
-                return;
+                if (_isWatching == 0 || _driveWatcher == null)
+                {
+                    return;
+                }
+
+                watcherToDispose = _driveWatcher;
+                _driveWatcher = null;
+                _isWatching = 0;
+                watcherToDispose.EventArrived -= OnDriveChanged;
             }
 
             try
             {
-                _driveWatcher.Stop();
-                _driveWatcher.EventArrived -= OnDriveChanged;
-                _driveWatcher.Dispose();
-                _driveWatcher = null;
-                _isWatching = false;
-
-                _logger.LogInformation("Drive watcher stopped");
+                watcherToDispose.Stop();
             }
             catch (Exception ex)
             {
                 _logger.LogError(ex, "Error stopping drive watcher");
             }
+            finally
+            {
+                WaitForPendingDriveNotifications();
+                watcherToDispose.Dispose();
+                _logger.LogInformation("Drive watcher stopped");
+            }
         }
 
         private void OnDriveChanged(object sender, EventArrivedEventArgs e)
         {
-            _logger.LogInformation("Drive change detected");
-            DrivesChanged?.Invoke(this, EventArgs.Empty);
+            if (Volatile.Read(ref _isWatching) == 0 || Volatile.Read(ref _isDisposed) != 0)
+            {
+                return;
+            }
+
+            if (Interlocked.Increment(ref _activeDriveChangeCallbacks) == 1)
+            {
+                _driveChangeCallbacksCompleted.Reset();
+            }
+
+            try
+            {
+                if (Volatile.Read(ref _isWatching) == 0 || Volatile.Read(ref _isDisposed) != 0)
+                {
+                    return;
+                }
+
+                _logger.LogInformation("Drive change detected");
+                DrivesChanged?.Invoke(this, EventArgs.Empty);
+            }
+            finally
+            {
+                if (Interlocked.Decrement(ref _activeDriveChangeCallbacks) == 0)
+                {
+                    _driveChangeCallbacksCompleted.Set();
+                }
+            }
+        }
+
+        private void WaitForPendingDriveNotifications()
+        {
+            // WMI can still deliver a callback that was already queued when Stop() ran.
+            // Waiting briefly avoids tearing down the watcher while that callback unwinds.
+            if (!_driveChangeCallbacksCompleted.Wait(TimeSpan.FromSeconds(2)))
+            {
+                _logger.LogWarning("Timed out waiting for pending drive watcher callbacks to finish.");
+            }
         }
 
         public void Dispose()
         {
-            // thread wait for a few seconds to ensure that the event handler has completed before disposing
-            Thread.Sleep(500);
+            if (Interlocked.Exchange(ref _isDisposed, 1) != 0)
+            {
+                return;
+            }
+
             StopWatching();
+            _driveChangeCallbacksCompleted.Dispose();
+            GC.SuppressFinalize(this);
         }
     }
 

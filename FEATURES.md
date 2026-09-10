@@ -91,6 +91,7 @@
 - CA and MVVM Toolkit analyzer compliant, leveraging modern C# preview features (`partial` properties) to resolve MVVMTK0045 warnings without project-level suppressions.
 - Strict MVVM architecture avoiding UI elements (like `Window`) in ViewModel interfaces and consolidating shared business logic (e.g. folder removals).
 - Comprehensive event logging utilizing Serilog to ensure troubleshooting is easy and traceable.
+- Shutdown-safe lifecycle cleanup prevents late drive-watcher and background update callbacks from targeting a closing UI thread.
 - **📐 Dynamic View Resizing:** The application cleanly abstracts responsive window resizing and UI teardowns (e.g., Settings, History) directly to a unified `NativeWindowHelper`.
 
 ## 🛠️ Technical Stack

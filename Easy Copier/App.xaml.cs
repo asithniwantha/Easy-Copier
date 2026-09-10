@@ -11,6 +11,7 @@ namespace Easy_Copier
     {
         private Window? _window;
         private IServiceProvider? _serviceProvider;
+        private bool _servicesDisposed;
 
         public IServiceProvider Services => _serviceProvider ?? throw new InvalidOperationException("Services not initialized");
 
@@ -83,8 +84,17 @@ namespace Easy_Copier
 
         public void DisposeServices()
         {
-            if (Services is IDisposable disposable)
+            if (_servicesDisposed)
             {
+                return;
+            }
+
+            _servicesDisposed = true;
+            MainWindow = null;
+
+            if (_serviceProvider is IDisposable disposable)
+            {
+                _serviceProvider = null;
                 disposable.Dispose();
             }
         }

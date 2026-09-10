@@ -83,6 +83,8 @@ public class LibraryCacheServiceTests : IDisposable
             0,
             new List<GameEntry>(),
             new List<GameEntry>(),
+            new List<GameEntry>(),
+            new List<string>(),
             new List<string>(),
             new List<string>(),
             DateTime.Now,
@@ -172,8 +174,10 @@ public class LibraryCacheServiceTests : IDisposable
             LibraryCacheSnapshot.CurrentSchemaVersion,
             games,
             apps,
+            new List<GameEntry>(),
             new List<string> { @"C:\Games" },
             new List<string> { @"C:\Apps" },
+            new List<string>(),
             DateTime.Now,
             fingerprints);
     }
@@ -218,7 +222,9 @@ public class CacheValidationIntegrationTests : IDisposable
                 new GameEntry("Game1", game1Folder, 100, null, DateTime.Now, false, LibraryCategory.Game)
             },
             new List<GameEntry>(),
+            new List<GameEntry>(),
             new List<string> { gameFolder },
+            new List<string>(),
             new List<string>(),
             DateTime.Now,
             new Dictionary<string, ItemFingerprint>
@@ -255,7 +261,9 @@ public class CacheValidationIntegrationTests : IDisposable
                 new GameEntry("Game1", game1Folder, 100, null, DateTime.Now, false, LibraryCategory.Game)
             },
             new List<GameEntry>(),
+            new List<GameEntry>(),
             new List<string> { gameFolder },
+            new List<string>(),
             new List<string>(),
             DateTime.Now,
             new Dictionary<string, ItemFingerprint>
@@ -297,7 +305,9 @@ public class CacheValidationIntegrationTests : IDisposable
                 new GameEntry("Game1", game1Folder, 100, null, DateTime.Now, false, LibraryCategory.Game)
             },
             new List<GameEntry>(),
+            new List<GameEntry>(),
             new List<string> { gameFolder },
+            new List<string>(),
             new List<string>(),
             DateTime.Now,
             new Dictionary<string, ItemFingerprint>
@@ -340,7 +350,9 @@ public class CacheValidationIntegrationTests : IDisposable
                 new GameEntry("Game2", game2Folder, 100, null, DateTime.Now, false, LibraryCategory.Game)
             },
             new List<GameEntry>(),
+            new List<GameEntry>(),
             new List<string> { gameFolder },
+            new List<string>(),
             new List<string>(),
             DateTime.Now,
             new Dictionary<string, ItemFingerprint>

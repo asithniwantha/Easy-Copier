@@ -32,6 +32,7 @@ namespace Easy_Copier.ViewModels
         private List<GameEntry> _selectedGames = [];
         private System.Threading.Timer? _updateCheckTimer;
         private bool _isCheckingForUpdates;
+        private int _isDisposed;
 
         [ObservableProperty]
         public partial bool IsLoading { get; set; }
@@ -171,28 +172,112 @@ namespace Easy_Copier.ViewModels
             _dialogService = dialogService;
             SmartAdderViewModel = smartAdderViewModel;
 
-            _driveDiscoveryService.DrivesChanged += (s, e) =>
-            {
-                if (!_dispatcherService.HasThreadAccess)
-                {
-                    _ = _dispatcherService.TryEnqueue(async () => await RefreshDrivesAsync());
-                }
-                else
-                {
-                    _ = RefreshDrivesAsync();
-                }
-            };
-
+            _driveDiscoveryService.DrivesChanged += OnDrivesChanged;
             _transferQueueService.ItemCompleted += OnQueueItemCompleted;
+        }
+
+        private bool IsDisposed => Volatile.Read(ref _isDisposed) != 0;
+
+        private void OnDrivesChanged(object? sender, EventArgs e)
+        {
+            if (IsDisposed)
+            {
+                return;
+            }
+
+            if (!_dispatcherService.HasThreadAccess)
+            {
+                if (!_dispatcherService.TryEnqueue(RefreshDrivesAfterDriveChangeAsync))
+                {
+                    _logger.LogDebug("Skipped drive refresh because the dispatcher is shutting down.");
+                }
+
+                return;
+            }
+
+            _ = RefreshDrivesAfterDriveChangeAsync();
+        }
+
+        private async Task RefreshDrivesAfterDriveChangeAsync()
+        {
+            if (IsDisposed)
+            {
+                return;
+            }
+
+            await RefreshDrivesAsync();
+        }
+
+        private void OnUpdateCheckTimerTick(object? state)
+        {
+            if (!TryEnqueueIfActive(CheckForUpdatesIfActiveAsync))
+            {
+                _logger.LogDebug("Skipped update check because the dispatcher is shutting down.");
+            }
+        }
+
+        private bool TryEnqueueIfActive(Action action)
+        {
+            ArgumentNullException.ThrowIfNull(action);
+
+            if (IsDisposed)
+            {
+                return false;
+            }
+
+            return _dispatcherService.TryEnqueue(() =>
+            {
+                if (IsDisposed)
+                {
+                    return;
+                }
+
+                action();
+            });
+        }
+
+        private bool TryEnqueueIfActive(Func<Task> action)
+        {
+            ArgumentNullException.ThrowIfNull(action);
+
+            if (IsDisposed)
+            {
+                return false;
+            }
+
+            return _dispatcherService.TryEnqueue(async () =>
+            {
+                if (IsDisposed)
+                {
+                    return;
+                }
+
+                await action();
+            });
+        }
+
+        private async Task CheckForUpdatesIfActiveAsync()
+        {
+            if (IsDisposed)
+            {
+                return;
+            }
+
+            await CheckForUpdatesBackgroundAsync();
         }
 
         public async Task InitializeAsync()
         {
+            if (IsDisposed)
+            {
+                return;
+            }
+
             _ = CheckForUpdatesBackgroundAsync();
 
-            // Start periodic update checks every 4 hours
-            _updateCheckTimer = new System.Threading.Timer(
-                _ => { _ = _dispatcherService.TryEnqueue(() => { _ = CheckForUpdatesBackgroundAsync(); }); },
+            // Start periodic update checks every 4 hours.
+            _updateCheckTimer ??= new System.Threading.Timer(
+                OnUpdateCheckTimerTick,
                 null,
                 TimeSpan.FromHours(4),
                 TimeSpan.FromHours(4));
@@ -283,24 +368,26 @@ namespace Easy_Copier.ViewModels
                     settings,
                     _validationCancellationTokenSource.Token);
 
-                if (validationResult.Result == CacheValidationResult.Valid)
+                if (IsDisposed)
                 {
-                    _ = _dispatcherService.TryEnqueue(() =>
-                        {
-                            StatusMessage = $"Library is up to date: {_allGames.Count} game(s), {_allApps.Count} app(s), {_allTvAndFilms.Count} film/TV(s)";
-                        });
                     return;
                 }
 
-                _ = _dispatcherService.TryEnqueue(() =>
-                    {
-                        StatusMessage = "Changes detected - Rescanning library...";
-                    });
-
-                await Task.Run(async () =>
+                if (validationResult.Result == CacheValidationResult.Valid)
                 {
-                    _ = _dispatcherService.TryEnqueue(async () => await ScanLibraryAsync());
+                    _ = TryEnqueueIfActive(() =>
+                    {
+                        StatusMessage = $"Library is up to date: {_allGames.Count} game(s), {_allApps.Count} app(s), {_allTvAndFilms.Count} film/TV(s)";
+                    });
+                    return;
+                }
+
+                _ = TryEnqueueIfActive(() =>
+                {
+                    StatusMessage = "Changes detected - Rescanning library...";
                 });
+
+                _ = TryEnqueueIfActive(ScanLibraryAsync);
             }
             catch (OperationCanceledException)
             {
@@ -308,10 +395,10 @@ namespace Easy_Copier.ViewModels
             }
             catch (Exception ex)
             {
-                _ = _dispatcherService.TryEnqueue(() =>
-                    {
-                        StatusMessage = $"Validation error: {ex.Message}";
-                    });
+                _ = TryEnqueueIfActive(() =>
+                {
+                    StatusMessage = $"Validation error: {ex.Message}";
+                });
             }
         }
 

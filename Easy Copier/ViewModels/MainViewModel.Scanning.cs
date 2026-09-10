@@ -297,6 +297,11 @@ namespace Easy_Copier.ViewModels
 
         private void OnQueueItemCompleted(object? sender, TransferQueueItem completedItem)
         {
+            if (IsDisposed)
+            {
+                return;
+            }
+
             IsTransferring = TransferQueue.Any(i => i.IsActive);
 
             if (completedItem.Status == TransferQueueItemStatus.Completed)
@@ -392,15 +397,40 @@ namespace Easy_Copier.ViewModels
 
         public void Dispose()
         {
-            _scanCancellationTokenSource?.Dispose();
-            _validationCancellationTokenSource?.Dispose();
+            if (Interlocked.Exchange(ref _isDisposed, 1) != 0)
+            {
+                return;
+            }
+
+            // Stop external notifications first so teardown does not race queued UI work.
+            _driveDiscoveryService.DrivesChanged -= OnDrivesChanged;
+            _transferQueueService.ItemCompleted -= OnQueueItemCompleted;
+            _driveDiscoveryService.StopWatching();
+
+            _updateCheckTimer?.Change(Timeout.Infinite, Timeout.Infinite);
             _updateCheckTimer?.Dispose();
+            _updateCheckTimer = null;
+
+            CancelAndDispose(ref _scanCancellationTokenSource);
+            CancelAndDispose(ref _validationCancellationTokenSource);
             GC.SuppressFinalize(this);
+        }
+
+        private static void CancelAndDispose(ref CancellationTokenSource? cancellationTokenSource)
+        {
+            CancellationTokenSource? source = Interlocked.Exchange(ref cancellationTokenSource, null);
+            if (source == null)
+            {
+                return;
+            }
+
+            source.Cancel();
+            source.Dispose();
         }
 
         private async Task CheckForUpdatesBackgroundAsync()
         {
-            if (_isCheckingForUpdates)
+            if (IsDisposed || _isCheckingForUpdates)
             {
                 return;
             }
@@ -417,7 +447,7 @@ namespace Easy_Copier.ViewModels
                     if (settings.AutoDownloadUpdates)
                     {
                         _logger.LogInformation("Automatic update download is enabled. Starting background download...");
-                        _ = _dispatcherService.TryEnqueue(() =>
+                        _ = TryEnqueueIfActive(() =>
                         {
                             IsUpdateAvailable = true;
                             UpdateMessage = "Downloading update in background...";
@@ -426,7 +456,7 @@ namespace Easy_Copier.ViewModels
                         await _updateService.DownloadUpdateAsync();
 
                         _logger.LogInformation("Background update download completed. Update is ready to install.");
-                        _ = _dispatcherService.TryEnqueue(() =>
+                        _ = TryEnqueueIfActive(() =>
                         {
                             IsUpdateAvailable = false;
                             IsUpdateReadyToInstall = true;
@@ -436,7 +466,7 @@ namespace Easy_Copier.ViewModels
                     else
                     {
                         _logger.LogInformation("Automatic update download is disabled. Notifying user.");
-                        _ = _dispatcherService.TryEnqueue(() =>
+                        _ = TryEnqueueIfActive(() =>
                         {
                             IsUpdateAvailable = true;
                             UpdateMessage = "A new update is available!";
