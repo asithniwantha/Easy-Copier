@@ -64,6 +64,8 @@
                                       IsOn="{x:Bind ViewModel.StartOnLogon, Mode=TwoWay}"/>
                         <ToggleSwitch Header="Automatically download updates in the background"
                                       IsOn="{x:Bind ViewModel.AutoDownloadUpdates, Mode=TwoWay}"/>
+                        <ToggleSwitch Header="Play sound notifications when transfers complete"
+                                      IsOn="{x:Bind ViewModel.PlayNotificationSounds, Mode=TwoWay}"/>
 
                         <StackPanel Orientation="Horizontal" Spacing="8" Margin="0,8,0,0">
                             <Button Content="Check for updates now"

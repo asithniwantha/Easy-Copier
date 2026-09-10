@@ -57,6 +57,9 @@ namespace Easy_Copier.ViewModels
         public partial bool AutoDownloadUpdates { get; set; } = true;
 
         [ObservableProperty]
+        public partial bool PlayNotificationSounds { get; set; } = true;
+
+        [ObservableProperty]
         public partial string PriceTier1 { get; set; } = "100";
 
         [ObservableProperty]
