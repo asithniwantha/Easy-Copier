@@ -60,6 +60,7 @@
 ## 📊 History and Reporting
 - View detailed history of all past copy operations.
 - Track success and failure states, including transfer times.
+- Play sound notifications (success/failure) when an entire drive's queue batch completes. Toggleable via settings.
 - Generate and export detailed reports (e.g., CSV) for completed and failed operations.
 - Automatically track transfer metrics like operation timestamps and destination details.
 

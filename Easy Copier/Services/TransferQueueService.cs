@@ -37,13 +37,15 @@ namespace Easy_Copier.Services
         public event EventHandler<TransferQueueItem>? ItemCompleted;
 
         private readonly ISettingsService _settingsService;
+        private readonly IAudioPlaybackService _audioPlaybackService;
 
-        public TransferQueueService(IFileTransferService fileTransferService, ILogger<TransferQueueService> logger, Infrastructure.IDispatcherService dispatcherService, ISettingsService settingsService)
+        public TransferQueueService(IFileTransferService fileTransferService, ILogger<TransferQueueService> logger, Infrastructure.IDispatcherService dispatcherService, ISettingsService settingsService, IAudioPlaybackService audioPlaybackService)
         {
             _fileTransferService = fileTransferService;
             _logger = logger;
             _dispatcherService = dispatcherService;
             _settingsService = settingsService;
+            _audioPlaybackService = audioPlaybackService;
 
             _ = Task.Run(ProcessQueueAsync);
         }
@@ -162,7 +164,41 @@ namespace Easy_Copier.Services
 
                 item.CompletedAt = DateTime.Now;
                 ItemCompleted?.Invoke(this, item);
+
+                CheckAndPlayCompletionSound(item.TargetDrive.DriveLetter);
             });
+        }
+
+        private void CheckAndPlayCompletionSound(string driveLetter)
+        {
+            AppSettings settings = _settingsService.LoadSettingsSync();
+            if (!settings.PlayNotificationSounds)
+            {
+                return;
+            }
+
+            // Check if there are any active items left for this specific drive
+            int activeItemsForDrive = QueueItems.Count(i =>
+                i.IsActive && string.Equals(i.TargetDrive.DriveLetter, driveLetter, StringComparison.OrdinalIgnoreCase));
+
+            if (activeItemsForDrive == 0)
+            {
+                // We consider it a "failure" if ANY item in the queue for this drive has a Failed or Cancelled status.
+                // NOTE: Once a user hits 'Clear Finished', those items are gone, so this evaluates only the currently visible batch.
+                bool anyFailedOrCancelled = QueueItems.Any(i =>
+                    !i.IsActive &&
+                    string.Equals(i.TargetDrive.DriveLetter, driveLetter, StringComparison.OrdinalIgnoreCase) &&
+                    (i.Status == TransferQueueItemStatus.Failed || i.Status == TransferQueueItemStatus.Cancelled));
+
+                if (anyFailedOrCancelled)
+                {
+                    _audioPlaybackService.PlayFailureSound();
+                }
+                else
+                {
+                    _audioPlaybackService.PlaySuccessSound();
+                }
+            }
         }
 
         private static string NormalizeDriveKey(string driveLetter)
