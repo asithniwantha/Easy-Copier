@@ -49,7 +49,10 @@
     <PackageReference Include="Microsoft.Xaml.Behaviors.WinUI.Managed" Version="3.0.1" />
     <PackageReference Include="SQLitePCLRaw.lib.e_sqlite3" Version="3.53.3" />
     <PackageReference Include="System.Management" Version="10.0.11" />
-  <PackageReference Include="Microsoft.Data.Sqlite" Version="10.0.11" /><PackageReference Include="CommunityToolkit.WinUI.UI.Controls.DataGrid" Version="7.1.2" /></ItemGroup>
+    <PackageReference Include="System.Windows.Extensions" Version="10.0.11" />
+    <PackageReference Include="Microsoft.Data.Sqlite" Version="10.0.11" />
+    <PackageReference Include="CommunityToolkit.WinUI.UI.Controls.DataGrid" Version="7.1.2" />
+  </ItemGroup>
 
   <ItemGroup>
     <Content Include="Assets\easy copier ico.ico">
