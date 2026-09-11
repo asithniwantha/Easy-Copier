@@ -109,6 +109,7 @@ namespace Easy_Copier.Models
         public bool StartOnLogon { get; set; }
         public bool AutoDownloadUpdates { get; set; } = true;
         public bool PlayNotificationSounds { get; set; } = true;
+        public bool ShowDesktopNotifications { get; set; } = true;
         public string LastSelectedDrive { get; set; } = string.Empty;
         public DateTime LastScanTime { get; set; } = DateTime.MinValue;
         public int PriceTier1 { get; set; } = 100;

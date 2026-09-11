@@ -121,6 +121,8 @@
 - [ ] Add native drag-and-drop support from Windows File Explorer to the Copy Queue or Library.
 - [ ] Add a real-time transfer speed graph showing current MB/s in the active transfer view.
 - [ ] Add cloud backup functionality for the SQLite database to secure historical and financial records.
+- [x] Show notifications for copy failures and successes batch completion.
+
 - [ ] Show notifications for copy failures and successes batch completion.
 - [ ] Add a OS images tab and instruct Rufus to open with a specific image file eg:"rufus.exe -i "C:\path\to\your\image.iso"
 

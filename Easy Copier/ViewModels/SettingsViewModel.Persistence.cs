@@ -31,6 +31,7 @@ namespace Easy_Copier.ViewModels
             StartOnLogon = settings.StartOnLogon;
             AutoDownloadUpdates = settings.AutoDownloadUpdates;
             PlayNotificationSounds = settings.PlayNotificationSounds;
+            ShowDesktopNotifications = settings.ShowDesktopNotifications;
             VideoFileExtensions = settings.VideoFileExtensions ?? ".mp4,.mkv,.avi";
             PriceTier1 = settings.PriceTier1.ToString(System.Globalization.CultureInfo.InvariantCulture);
             PriceTier2 = settings.PriceTier2.ToString(System.Globalization.CultureInfo.InvariantCulture);
@@ -50,6 +51,7 @@ namespace Easy_Copier.ViewModels
                 StartOnLogon = StartOnLogon,
                 AutoDownloadUpdates = AutoDownloadUpdates,
                 PlayNotificationSounds = PlayNotificationSounds,
+                ShowDesktopNotifications = ShowDesktopNotifications,
                 VideoFileExtensions = VideoFileExtensions,
                 PriceTier1 = int.TryParse(PriceTier1, out int p1) ? p1 : 100,
                 PriceTier2 = int.TryParse(PriceTier2, out int p2) ? p2 : 200,
