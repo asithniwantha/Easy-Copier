@@ -393,6 +393,7 @@ namespace Easy_Copier.ViewModels
             catch (OperationCanceledException)
             {
                 // Validation cancelled - cache remains displayed
+                _logger.LogInformation("Library cache validation was cancelled.");
             }
             catch (Exception ex)
             {
