@@ -7,6 +7,9 @@ namespace Easy_Copier
 {
     public static class Program
     {
+        [System.Runtime.InteropServices.DllImport("shell32.dll", SetLastError = true)]
+        private static extern int SetCurrentProcessExplicitAppUserModelID([System.Runtime.InteropServices.MarshalAs(System.Runtime.InteropServices.UnmanagedType.LPWStr)] string AppID);
+
         [STAThread]
         private static void Main(string[] args)
         {
@@ -14,6 +17,14 @@ namespace Easy_Copier
             VelopackApp.Build().Run();
 
             WinRT.ComWrappersSupport.InitializeComWrappers();
+
+            try
+            {
+                // Explicitly set the AppUserModelID for unpackaged execution (e.g. running from VS or direct exe).
+                // This is required for Windows Toast Notifications to display properly.
+                SetCurrentProcessExplicitAppUserModelID("EasyCopier.App");
+            }
+            catch { }
 
             bool isRedirect = false;
             try

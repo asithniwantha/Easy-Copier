@@ -242,7 +242,36 @@ namespace Easy_Copier.Services
                     .AddText(title)
                     .AddText(body);
 
-                AppNotificationManager.Default.Show(builder.BuildNotification());
+                _logger.LogInformation("Attempting to show desktop notification: {Title}", title);
+                var notification = builder.BuildNotification();
+
+                if (AppNotificationManager.Default.Setting == AppNotificationSetting.DisabledForApplication)
+                {
+                    _logger.LogWarning("Desktop notifications are disabled for this application by the user or system.");
+                }
+                else if (AppNotificationManager.Default.Setting == AppNotificationSetting.DisabledForUser)
+                {
+                    _logger.LogWarning("Desktop notifications are disabled globally for this user profile.");
+                }
+                else if (AppNotificationManager.Default.Setting == AppNotificationSetting.DisabledByGroupPolicy)
+                {
+                    _logger.LogWarning("Desktop notifications are disabled by Group Policy.");
+                }
+                else if (AppNotificationManager.Default.Setting == AppNotificationSetting.DisabledByManifest)
+                {
+                    _logger.LogWarning("Desktop notifications are disabled by the application manifest.");
+                }
+
+                AppNotificationManager.Default.Show(notification);
+
+                if (notification.Id != 0)
+                {
+                    _logger.LogInformation("Desktop notification shown successfully with ID: {Id}", notification.Id);
+                }
+                else
+                {
+                    _logger.LogWarning("AppNotificationManager.Default.Show returned without throwing, but the notification ID is 0 (it may have been silently dropped).");
+                }
             }
             catch (Exception ex)
             {
