@@ -4,6 +4,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Runtime.InteropServices;
 using System.Runtime.InteropServices.ComTypes;
+using Microsoft.Win32;
 
 namespace Easy_Copier.Infrastructure
 {
@@ -25,11 +26,36 @@ namespace Easy_Copier.Infrastructure
                 // If shortcut exists, we could check if it has the correct AUMI. For simplicity, we just recreate it if it doesn't exist,
                 // or we can recreate it every time to ensure it's up to date. Let's recreate it to be safe.
                 CreateShortcut(shortcutPath, exePath, AppId);
+
+                RegisterAppUserModelId(AppId, "Easy Copier");
             }
             catch (Exception ex)
             {
                 // We should not crash the app if shortcut creation fails
                 Debug.WriteLine($"Failed to create Start Menu shortcut: {ex.Message}");
+            }
+        }
+
+                private static void RegisterAppUserModelId(string appId, string displayName)
+        {
+            try
+            {
+                string keyPath = $@"Software\Classes\AppUserModelId\{appId}";
+                using RegistryKey? key = Registry.CurrentUser.CreateSubKey(keyPath);
+                if (key != null)
+                {
+                    key.SetValue("DisplayName", displayName);
+
+                    string exePath = Process.GetCurrentProcess().MainModule?.FileName ?? string.Empty;
+                    if (!string.IsNullOrEmpty(exePath))
+                    {
+                        key.SetValue("IconUri", exePath);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"Failed to register AppUserModelId in registry: {ex.Message}");
             }
         }
 
