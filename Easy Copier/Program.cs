@@ -8,6 +8,7 @@ namespace Easy_Copier
     public static class Program
     {
         [System.Runtime.InteropServices.DllImport("shell32.dll", SetLastError = true)]
+        [System.Runtime.InteropServices.DefaultDllImportSearchPaths(System.Runtime.InteropServices.DllImportSearchPath.System32)]
         private static extern int SetCurrentProcessExplicitAppUserModelID([System.Runtime.InteropServices.MarshalAs(System.Runtime.InteropServices.UnmanagedType.LPWStr)] string AppID);
 
         [STAThread]
@@ -22,7 +23,8 @@ namespace Easy_Copier
             {
                 // Explicitly set the AppUserModelID for unpackaged execution (e.g. running from VS or direct exe).
                 // This is required for Windows Toast Notifications to display properly.
-                SetCurrentProcessExplicitAppUserModelID("EasyCopier.App");
+                // Store the returned HRESULT to satisfy Roslyn rule CA1806.
+                int hresult = SetCurrentProcessExplicitAppUserModelID("EasyCopier.App");
             }
             catch { }
 

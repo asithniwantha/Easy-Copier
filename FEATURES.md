@@ -135,6 +135,7 @@
 * Un-nested COM interop interfaces (`IFileOperation`, `IFileOperationProgressSink`, `IShellItem`) to namespace level to satisfy CA1034 guidelines.
 * Updated Interop enum underlying types to `int` (CA1028) and P/Invoke method visibilities to `internal` (CA1401).
 * Resolved Roslyn CA2213 warnings in `MainViewModel` by ensuring direct cancellation token source (`_scanCancellationTokenSource` and `_validationCancellationTokenSource`) disposal during object `Dispose()` and token replacement.
+* Resolved Roslyn static analysis CA1806 warning in `Program.cs` by capturing the return value of `SetCurrentProcessExplicitAppUserModelID` and adding `DefaultDllImportSearchPaths`.
 
 ## Development Highlights
 - **Refactored Architecture**: Consolidated and abstracted duplicated modal window creation logic to reduce code duplication in Views.
