@@ -57,6 +57,7 @@ namespace Easy_Copier
 
         protected override async void OnLaunched(Microsoft.UI.Xaml.LaunchActivatedEventArgs args)
         {
+            NativeShortcutHelper.EnsureStartMenuShortcut();
             Microsoft.Windows.AppNotifications.AppNotificationManager.Default.Register();
 
             ILogger<App> logger = Services.GetRequiredService<ILogger<App>>();
