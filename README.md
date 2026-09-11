@@ -167,3 +167,4 @@ Distributed under the MIT License. See `LICENSE` for more information.
 * Replaced legacy UWP `Windows.UI.Color` usages with modern `Microsoft.UI.ColorHelper` for WinUI 3 compatibility.
 * Cleaned up UI dependencies in the SmartAdder feature by properly separating the code-behind using `DependencyProperty` and removing `HistoryDialogService` in favor of standard MVVM-compliant Windows.
 * Resolved Roslyn CA2213 warnings in `MainViewModel` by ensuring direct cancellation token source (`_scanCancellationTokenSource` and `_validationCancellationTokenSource`) disposal during object `Dispose()` and token replacement.
+* Resolved Roslyn static analysis CA1806 warning in `Program.cs` by handling the return value of `SetCurrentProcessExplicitAppUserModelID` and applying `DefaultDllImportSearchPaths`.
