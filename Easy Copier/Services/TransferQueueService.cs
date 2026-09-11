@@ -8,6 +8,8 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Channels;
 using System.Threading.Tasks;
+using Microsoft.Windows.AppNotifications;
+using Microsoft.Windows.AppNotifications.Builder;
 
 namespace Easy_Copier.Services
 {
@@ -165,17 +167,13 @@ namespace Easy_Copier.Services
                 item.CompletedAt = DateTime.Now;
                 ItemCompleted?.Invoke(this, item);
 
-                CheckAndPlayCompletionSound(item.TargetDrive.DriveLetter);
+                CheckAndNotifyBatchCompletion(item.TargetDrive.DriveLetter);
             });
         }
 
-        private void CheckAndPlayCompletionSound(string driveLetter)
+        private void CheckAndNotifyBatchCompletion(string driveLetter)
         {
             AppSettings settings = _settingsService.LoadSettingsSync();
-            if (!settings.PlayNotificationSounds)
-            {
-                return;
-            }
 
             // Check if there are any active items left for this specific drive
             int activeItemsForDrive = QueueItems.Count(i =>
@@ -183,21 +181,72 @@ namespace Easy_Copier.Services
 
             if (activeItemsForDrive == 0)
             {
+                var batchItems = QueueItems.Where(i =>
+                    !i.IsActive &&
+                    string.Equals(i.TargetDrive.DriveLetter, driveLetter, StringComparison.OrdinalIgnoreCase))
+                    .ToList();
+
+                if (batchItems.Count == 0)
+                    return;
+
                 // We consider it a "failure" if ANY item in the queue for this drive has a Failed or Cancelled status.
                 // NOTE: Once a user hits 'Clear Finished', those items are gone, so this evaluates only the currently visible batch.
-                bool anyFailedOrCancelled = QueueItems.Any(i =>
-                    !i.IsActive &&
-                    string.Equals(i.TargetDrive.DriveLetter, driveLetter, StringComparison.OrdinalIgnoreCase) &&
-                    (i.Status == TransferQueueItemStatus.Failed || i.Status == TransferQueueItemStatus.Cancelled));
+                bool anyFailedOrCancelled = batchItems.Any(i => i.Status == TransferQueueItemStatus.Failed || i.Status == TransferQueueItemStatus.Cancelled);
 
-                if (anyFailedOrCancelled)
+                if (settings.PlayNotificationSounds)
                 {
-                    _audioPlaybackService.PlayFailureSound();
+                    if (anyFailedOrCancelled)
+                    {
+                        _audioPlaybackService.PlayFailureSound();
+                    }
+                    else
+                    {
+                        _audioPlaybackService.PlaySuccessSound();
+                    }
+                }
+
+                if (settings.ShowDesktopNotifications)
+                {
+                    ShowDesktopNotification(driveLetter, batchItems, !anyFailedOrCancelled);
+                }
+            }
+        }
+
+        private void ShowDesktopNotification(string driveLetter, List<TransferQueueItem> batchItems, bool isSuccess)
+        {
+            try
+            {
+                var firstItem = batchItems.First();
+                long totalDriveCapacity = firstItem.TargetDrive.TotalBytes;
+                string statusText = isSuccess ? "Complete" : "Failed";
+                string title = $"{firstItem.TargetDrive.DriveLetter} - {Infrastructure.FormattingHelpers.FormatBytes(totalDriveCapacity)} Capacity - {statusText}";
+
+                long totalBytes = batchItems.Sum(x => x.TotalBytes);
+                int totalPrice = batchItems.Sum(x => x.TotalPrice);
+                var allGames = batchItems.SelectMany(x => x.Items).Select(x => x.Game.Name).ToList();
+                int totalItems = allGames.Count;
+
+                string namesText;
+                if (totalItems > 3)
+                {
+                    namesText = $"{totalItems} items: {string.Join(", ", allGames.Take(3))} and {totalItems - 3} more.";
                 }
                 else
                 {
-                    _audioPlaybackService.PlaySuccessSound();
+                    namesText = $"{totalItems} items: {string.Join(", ", allGames)}.";
                 }
+
+                string body = $"{namesText} Size: {Infrastructure.FormattingHelpers.FormatBytes(totalBytes)}. Price: Rs. {totalPrice}";
+
+                var builder = new AppNotificationBuilder()
+                    .AddText(title)
+                    .AddText(body);
+
+                AppNotificationManager.Default.Show(builder.BuildNotification());
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Failed to show desktop notification.");
             }
         }
 
