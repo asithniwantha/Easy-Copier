@@ -122,7 +122,7 @@
 - [ ] Add a real-time transfer speed graph showing current MB/s in the active transfer view.
 - [ ] Add cloud backup functionality for the SQLite database to secure historical and financial records.
 - [ ] Show notifications for copy failures and successes batch completion.
-
+- [ ] Add a OS images tab and instruct Rufus to open with a specific image file eg:"rufus.exe -i "C:\path\to\your\image.iso"
 
 ## New Architectural Updates
 * IAppWindowContext introduced for clean UI abstraction.
