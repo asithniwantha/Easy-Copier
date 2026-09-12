@@ -34,15 +34,15 @@ namespace Easy_Copier.Views
             await ViewModel.LoadSettingsAsync();
             if (openAction == SettingsOpenAction.AddAppFolder)
             {
-                await ViewModel.AddAppSourceFolderCommand.ExecuteAsync(null);
+                await ViewModel.AddSourceFolderCommand.ExecuteAsync("App");
             }
             else if (openAction == SettingsOpenAction.AddGameFolder)
             {
-                await ViewModel.AddGameSourceFolderCommand.ExecuteAsync(null);
+                await ViewModel.AddSourceFolderCommand.ExecuteAsync("Game");
             }
             else if (openAction == SettingsOpenAction.AddTvAndFilmFolder)
             {
-                await ViewModel.AddTvAndFilmSourceFolderCommand.ExecuteAsync(null);
+                await ViewModel.AddSourceFolderCommand.ExecuteAsync("TvAndFilm");
             }
         }
 
@@ -68,27 +68,11 @@ namespace Easy_Copier.Views
             }
         }
 
-        private async void RemoveGameFolder_Click(object sender, RoutedEventArgs e)
+        private async void RemoveFolder_Click(object sender, RoutedEventArgs e)
         {
             if (sender is FrameworkElement fe && fe.Tag is string folderPath)
             {
-                await ViewModel.RemoveGameSourceFolderCommand.ExecuteAsync(folderPath);
-            }
-        }
-
-        private async void RemoveAppFolder_Click(object sender, RoutedEventArgs e)
-        {
-            if (sender is FrameworkElement fe && fe.Tag is string folderPath)
-            {
-                await ViewModel.RemoveAppSourceFolderCommand.ExecuteAsync(folderPath);
-            }
-        }
-
-        private async void RemoveTvAndFilmFolder_Click(object sender, RoutedEventArgs e)
-        {
-            if (sender is FrameworkElement fe && fe.Tag is string folderPath)
-            {
-                await ViewModel.RemoveTvAndFilmSourceFolderCommand.ExecuteAsync(folderPath);
+                await ViewModel.RemoveSourceFolderCommand.ExecuteAsync(folderPath);
             }
         }
 

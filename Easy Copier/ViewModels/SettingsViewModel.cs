@@ -217,21 +217,20 @@ namespace Easy_Copier.ViewModels
         }
 
         [RelayCommand]
-        private async Task AddGameSourceFolderAsync()
+        private async Task AddSourceFolderCommandAsync(string folderType)
         {
-            await AddSourceFolderAsync(GameSourceFolders, "game");
-        }
-
-        [RelayCommand]
-        private async Task AddAppSourceFolderAsync()
-        {
-            await AddSourceFolderAsync(AppSourceFolders, "app");
-        }
-
-        [RelayCommand]
-        private async Task AddTvAndFilmSourceFolderAsync()
-        {
-            await AddSourceFolderAsync(TvAndFilmSourceFolders, "film/tv");
+            switch (folderType)
+            {
+                case "Game":
+                    await AddSourceFolderAsync(GameSourceFolders, "game");
+                    break;
+                case "App":
+                    await AddSourceFolderAsync(AppSourceFolders, "app");
+                    break;
+                case "TvAndFilm":
+                    await AddSourceFolderAsync(TvAndFilmSourceFolders, "film/tv");
+                    break;
+            }
         }
 
         private async Task AddSourceFolderAsync(ObservableCollection<string> targetFolders, string categoryLabel)
@@ -260,21 +259,22 @@ namespace Easy_Copier.ViewModels
         }
 
         [RelayCommand]
-        private async Task RemoveGameSourceFolderAsync(string folderPath)
+        private async Task RemoveSourceFolderCommandAsync(string folderPath)
         {
-            await RemoveSourceFolderInternalAsync(GameSourceFolders, folderPath);
-        }
+            if (GameSourceFolders.Contains(folderPath))
+            {
+                await RemoveSourceFolderInternalAsync(GameSourceFolders, folderPath);
+            }
 
-        [RelayCommand]
-        private async Task RemoveAppSourceFolderAsync(string folderPath)
-        {
-            await RemoveSourceFolderInternalAsync(AppSourceFolders, folderPath);
-        }
+            if (AppSourceFolders.Contains(folderPath))
+            {
+                await RemoveSourceFolderInternalAsync(AppSourceFolders, folderPath);
+            }
 
-        [RelayCommand]
-        private async Task RemoveTvAndFilmSourceFolderAsync(string folderPath)
-        {
-            await RemoveSourceFolderInternalAsync(TvAndFilmSourceFolders, folderPath);
+            if (TvAndFilmSourceFolders.Contains(folderPath))
+            {
+                await RemoveSourceFolderInternalAsync(TvAndFilmSourceFolders, folderPath);
+            }
         }
 
         private async Task RemoveSourceFolderInternalAsync(ObservableCollection<string> targetFolders, string folderPath)
