@@ -1,5 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
+    <SelfContained>false</SelfContained>
     <DefineConstants>DISABLE_XAML_GENERATED_MAIN</DefineConstants>
 
     <LangVersion>14.0</LangVersion>
@@ -67,6 +68,7 @@
   </ItemGroup>
 
   <PropertyGroup>
+    <SelfContained>false</SelfContained>
     <DefineConstants>DISABLE_XAML_GENERATED_MAIN</DefineConstants>
 
     <PublishReadyToRun>false</PublishReadyToRun>

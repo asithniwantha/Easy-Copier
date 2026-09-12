@@ -26,28 +26,28 @@ namespace Easy_Copier.Services
         public async Task<IReadOnlyList<SourceFolder>> ValidateSourceFoldersAsync(IEnumerable<string> folderPaths)
         {
             ArgumentNullException.ThrowIfNull(folderPaths);
-            List<SourceFolder> validatedFolders = [];
 
-            foreach (string path in folderPaths)
+            var tasks = folderPaths.Select(async path =>
             {
                 try
                 {
                     bool exists = await Task.Run(() => Directory.Exists(path));
                     SourceFolder folder = new(path, exists, DateTime.Now);
-                    validatedFolders.Add(folder);
 
                     if (!exists)
                     {
                         _logger.LogWarning("Source folder not accessible: {Path}", path);
                     }
+                    return folder;
                 }
                 catch (Exception ex)
                 {
                     _logger.LogError(ex, "Error validating source folder: {Path}", path);
-                    validatedFolders.Add(new SourceFolder(path, false, DateTime.Now));
+                    return new SourceFolder(path, false, DateTime.Now);
                 }
-            }
+            });
 
+            SourceFolder[] validatedFolders = await Task.WhenAll(tasks);
             return validatedFolders;
         }
 
