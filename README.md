@@ -168,3 +168,4 @@ Distributed under the MIT License. See `LICENSE` for more information.
 * Cleaned up UI dependencies in the SmartAdder feature by properly separating the code-behind using `DependencyProperty` and removing `HistoryDialogService` in favor of standard MVVM-compliant Windows.
 * Resolved Roslyn CA2213 warnings in `MainViewModel` by ensuring direct cancellation token source (`_scanCancellationTokenSource` and `_validationCancellationTokenSource`) disposal during object `Dispose()` and token replacement.
 * Resolved Roslyn static analysis CA1806 warning in `Program.cs` by handling the return value of `SetCurrentProcessExplicitAppUserModelID` and applying `DefaultDllImportSearchPaths`.
+* Refactored Settings window and view models to adhere to DRY principles by consolidating duplicated folder add/remove logic.
