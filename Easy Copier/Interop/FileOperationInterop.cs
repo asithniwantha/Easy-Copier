@@ -49,7 +49,7 @@ namespace Easy_Copier.Interop
         [PreserveSig] uint DeleteItems([In] IntPtr punkItems);
         [PreserveSig] uint NewItem(IShellItem psiDestinationFolder, [In] IntPtr dwFileAttributes, [MarshalAs(UnmanagedType.LPWStr)] string pszName, [MarshalAs(UnmanagedType.LPWStr)] string? pszTemplateName, IFileOperationProgressSink? pfopsItem);
         [PreserveSig] uint PerformOperations();
-        [PreserveSig] uint GetAnyOperationsAborted(out bool pfAnyOperationsAborted);
+        [PreserveSig] uint GetAnyOperationsAborted([MarshalAs(UnmanagedType.Bool)] out bool pfAnyOperationsAborted);
     }
 
     /// <summary>
