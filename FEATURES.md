@@ -127,6 +127,7 @@
 - [ ] Add a OS images tab and instruct Rufus to open with a specific image file eg:"rufus.exe -i "C:\path\to\your\image.iso"
 
 ## New Architectural Updates
+* Extracted dynamic UI generation (e.g., Game details flyout) from code-behind into dedicated XAML UserControls (GameDetailsFlyout), significantly reducing view-to-view coupling and enhancing MVVM separation.
 * IAppWindowContext introduced for clean UI abstraction.
 * File splits using C# partials applied to MainViewModel, SettingsViewModel, and GameInfoDownloadService.
 * Resolved CS8611 nullability reference mismatch warnings on `[ObservableProperty]` generated partial method signatures.
@@ -138,6 +139,7 @@
 * Resolved Roslyn static analysis CA1806 warning in `Program.cs` by capturing the return value of `SetCurrentProcessExplicitAppUserModelID` and adding `DefaultDllImportSearchPaths`.
 
 ## Development Highlights
+- **Refactored Smart Adder UI**: Migrated complex programmatic UI logic (Visibility manipulation) from code-behind into direct XAML data bindings utilizing MVVM view models, adhering strictly to clean code principles.
 - **Refactored Architecture**: Consolidated and abstracted duplicated modal window creation logic to reduce code duplication in Views.
 - **WinUI 3 Modernization**: Removed remaining legacy `Windows.UI` namespaces in favor of `Microsoft.UI`.
 - **Smart Adder Clean Up**: Removed code-behind generated dialog creation (e.g. `HistoryDialogService`) for SmartAdder in favor of clean MVVM patterns using `SmartAdderHistoryWindow` and `DependencyProperty` injection to eliminate service locator anti-patterns.
