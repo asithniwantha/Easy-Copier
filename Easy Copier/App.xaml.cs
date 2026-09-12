@@ -57,9 +57,9 @@ namespace Easy_Copier
 
         protected override async void OnLaunched(Microsoft.UI.Xaml.LaunchActivatedEventArgs args)
         {
-            NativeShortcutHelper.EnsureStartMenuShortcut();
             if (Microsoft.Windows.AppNotifications.AppNotificationManager.IsSupported())
             {
+                Microsoft.Windows.AppNotifications.AppNotificationManager.Default.NotificationInvoked += AppNotificationManager_NotificationInvoked;
                 Microsoft.Windows.AppNotifications.AppNotificationManager.Default.Register();
             }
 
@@ -76,6 +76,7 @@ namespace Easy_Copier
                 if (Microsoft.Windows.AppNotifications.AppNotificationManager.IsSupported())
                 {
                     Microsoft.Windows.AppNotifications.AppNotificationManager.Default.Unregister();
+                    Microsoft.Windows.AppNotifications.AppNotificationManager.Default.NotificationInvoked -= AppNotificationManager_NotificationInvoked;
                 }
                 DisposeServices();
             };
@@ -90,6 +91,15 @@ namespace Easy_Copier
 
             ISmartAdderHistoryService smartAdderHistoryService = Services.GetRequiredService<ISmartAdderHistoryService>();
             await smartAdderHistoryService.InitializeAsync();
+        }
+
+        private void AppNotificationManager_NotificationInvoked(Microsoft.Windows.AppNotifications.AppNotificationManager sender, Microsoft.Windows.AppNotifications.AppNotificationActivatedEventArgs args)
+        {
+            if (_serviceProvider != null)
+            {
+                ILogger<App> logger = _serviceProvider.GetRequiredService<ILogger<App>>();
+                logger.LogInformation("App notification invoked: {Arguments}", args.Argument);
+            }
         }
 
         public void DisposeServices()

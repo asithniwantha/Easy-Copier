@@ -7,9 +7,9 @@ namespace Easy_Copier
 {
     public static class Program
     {
-        [System.Runtime.InteropServices.DllImport("shell32.dll", SetLastError = true)]
-        [System.Runtime.InteropServices.DefaultDllImportSearchPaths(System.Runtime.InteropServices.DllImportSearchPath.System32)]
-        private static extern int SetCurrentProcessExplicitAppUserModelID([System.Runtime.InteropServices.MarshalAs(System.Runtime.InteropServices.UnmanagedType.LPWStr)] string AppID);
+        // [System.Runtime.InteropServices.DllImport("shell32.dll", SetLastError = true)]
+        // [System.Runtime.InteropServices.DefaultDllImportSearchPaths(System.Runtime.InteropServices.DllImportSearchPath.System32)]
+        // private static extern int SetCurrentProcessExplicitAppUserModelID([System.Runtime.InteropServices.MarshalAs(System.Runtime.InteropServices.UnmanagedType.LPWStr)] string AppID);
 
         [STAThread]
         private static void Main(string[] args)
@@ -19,14 +19,7 @@ namespace Easy_Copier
 
             WinRT.ComWrappersSupport.InitializeComWrappers();
 
-            try
-            {
-                // Explicitly set the AppUserModelID for unpackaged execution (e.g. running from VS or direct exe).
-                // This is required for Windows Toast Notifications to display properly.
-                // Store the returned HRESULT to satisfy Roslyn rule CA1806.
-                int hresult = SetCurrentProcessExplicitAppUserModelID("EasyCopier.App");
-            }
-            catch { }
+            // No longer explicitly setting AppUserModelID; relying on Windows App SDK bootstrapper and NotificationInvoked.
 
             bool isRedirect = false;
             try
