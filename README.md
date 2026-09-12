@@ -156,6 +156,7 @@ Distributed under the MIT License. See `LICENSE` for more information.
 ⭐️ **If you find this project helpful or interesting, please consider giving it a star!**
 
 ## Updated Architecture
+* Extracted dynamic UI generation (e.g., Game details flyout) from code-behind into dedicated XAML UserControls (GameDetailsFlyout), significantly reducing view-to-view coupling and enhancing MVVM separation.
 * Separated UI interactions in ViewModels using IAppWindowContext.
 * Split large ViewModels and Services into partial classes.
 * Resolved CS8611 nullability reference mismatch warnings on `[ObservableProperty]` generated partial method signatures.
