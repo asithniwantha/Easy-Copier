@@ -40,14 +40,18 @@ namespace Easy_Copier.Services
 
         private readonly ISettingsService _settingsService;
         private readonly IAudioPlaybackService _audioPlaybackService;
+        private readonly Infrastructure.IProcessService _processService;
+        private readonly Infrastructure.IDialogService _dialogService;
 
-        public TransferQueueService(IFileTransferService fileTransferService, ILogger<TransferQueueService> logger, Infrastructure.IDispatcherService dispatcherService, ISettingsService settingsService, IAudioPlaybackService audioPlaybackService)
+        public TransferQueueService(IFileTransferService fileTransferService, ILogger<TransferQueueService> logger, Infrastructure.IDispatcherService dispatcherService, ISettingsService settingsService, IAudioPlaybackService audioPlaybackService, Infrastructure.IProcessService processService, Infrastructure.IDialogService dialogService)
         {
             _fileTransferService = fileTransferService;
             _logger = logger;
             _dispatcherService = dispatcherService;
             _settingsService = settingsService;
             _audioPlaybackService = audioPlaybackService;
+            _processService = processService;
+            _dialogService = dialogService;
 
             _ = Task.Run(ProcessQueueAsync);
         }
@@ -247,6 +251,17 @@ namespace Easy_Copier.Services
                 if (!AppNotificationManager.IsSupported())
                 {
                     _logger.LogWarning("AppNotificationManager.IsSupported() returned false. Skipping toast display. Ensure the app is not running as Administrator (elevated) and the Windows App SDK runtime is fully installed.");
+
+                    if (_processService.IsRunningAsAdministrator())
+                    {
+                        RunOnUiThread(async () =>
+                        {
+                            await _dialogService.ShowMessageDialogAsync(
+                                "Notifications Disabled",
+                                "Toast notifications are not supported while running Easy Copier as Administrator. Please run the application normally to receive desktop notifications.");
+                        });
+                    }
+
                     return;
                 }
 
