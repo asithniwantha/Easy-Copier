@@ -76,13 +76,27 @@
     </Page.Resources>
 
     <Grid x:Name="RootGrid">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="Auto"/>
-        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
 
-        <Grid Grid.Column="0" Padding="16,16,8,16">
-            <Grid.RowDefinitions>
+        <InfoBar Grid.Row="0"
+                 IsOpen="{x:Bind ViewModel.IsGlobalNotificationVisible, Mode=TwoWay}"
+                 Title="{x:Bind ViewModel.GlobalNotificationTitle, Mode=OneWay}"
+                 Message="{x:Bind ViewModel.GlobalNotificationMessage, Mode=OneWay}"
+                 Severity="Success"
+                 IsClosable="True"
+                 Margin="0,0,0,0"/>
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Column="0" Padding="16,16,8,16">
+                <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
@@ -383,10 +397,11 @@
             </Grid>
         </Border>
 
-        <local:SmartAdderControl Grid.Column="0"
-                                  ViewModel="{x:Bind ViewModel.SmartAdderViewModel}"
-                                  HorizontalAlignment="Right"
-                                  VerticalAlignment="Top"
-                                  Margin="0,0,8,0"/>
+            <local:SmartAdderControl Grid.Column="0"
+                                      ViewModel="{x:Bind ViewModel.SmartAdderViewModel}"
+                                      HorizontalAlignment="Right"
+                                      VerticalAlignment="Top"
+                                      Margin="0,0,8,0"/>
+        </Grid>
     </Grid>
 </Page>

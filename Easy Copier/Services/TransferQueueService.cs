@@ -24,6 +24,7 @@ namespace Easy_Copier.Services
         void ClearFinished();
 
         event EventHandler<TransferQueueItem>? ItemCompleted;
+        event EventHandler<(string Title, string Message)>? BatchCompleted;
     }
 
     public class TransferQueueService : ITransferQueueService
@@ -37,6 +38,7 @@ namespace Easy_Copier.Services
         public ObservableCollection<TransferQueueItem> QueueItems { get; } = [];
 
         public event EventHandler<TransferQueueItem>? ItemCompleted;
+        public event EventHandler<(string Title, string Message)>? BatchCompleted;
 
         private readonly ISettingsService _settingsService;
         private readonly IAudioPlaybackService _audioPlaybackService;
@@ -242,6 +244,8 @@ namespace Easy_Copier.Services
 
                 string body = $"{namesText} Size: {Infrastructure.FormattingHelpers.FormatBytes(totalBytes)}. Price: Rs. {totalPrice}";
 
+                BatchCompleted?.Invoke(this, (title, body));
+
                 var builder = new AppNotificationBuilder()
                     .AddText(title)
                     .AddText(body);
@@ -255,12 +259,6 @@ namespace Easy_Copier.Services
                     if (_processService.IsRunningAsAdministrator())
                     {
                         _logger.LogWarning("Application is running as Administrator (elevated). Toast notifications are officially not supported by the Windows App SDK in elevated contexts.");
-                        RunOnUiThread(async () =>
-                        {
-                            await _dialogService.ShowMessageDialogAsync(
-                                "Notifications Disabled",
-                                "Toast notifications are not supported while running Easy Copier as Administrator. Please run the application normally to receive desktop notifications.");
-                        });
                     }
                     else
                     {
