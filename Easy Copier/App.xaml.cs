@@ -57,7 +57,12 @@ namespace Easy_Copier
 
         protected override async void OnLaunched(Microsoft.UI.Xaml.LaunchActivatedEventArgs args)
         {
-            Microsoft.Windows.AppNotifications.AppNotificationManager.Default.Register();
+            NativeShortcutHelper.EnsureStartMenuShortcut("EasyCopier.App");
+
+            if (Microsoft.Windows.AppNotifications.AppNotificationManager.IsSupported())
+            {
+                Microsoft.Windows.AppNotifications.AppNotificationManager.Default.Register();
+            }
 
             ILogger<App> logger = Services.GetRequiredService<ILogger<App>>();
             logger.LogInformation("Easy Copier application starting up.");
@@ -69,7 +74,10 @@ namespace Easy_Copier
             _window.Closed += (s, e) =>
             {
                 logger.LogInformation("Easy Copier application shutting down.");
-                Microsoft.Windows.AppNotifications.AppNotificationManager.Default.Unregister();
+                if (Microsoft.Windows.AppNotifications.AppNotificationManager.IsSupported())
+                {
+                    Microsoft.Windows.AppNotifications.AppNotificationManager.Default.Unregister();
+                }
                 DisposeServices();
             };
 
