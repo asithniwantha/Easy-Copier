@@ -57,9 +57,25 @@ namespace Easy_Copier
 
         protected override async void OnLaunched(Microsoft.UI.Xaml.LaunchActivatedEventArgs args)
         {
-            Microsoft.Windows.AppNotifications.AppNotificationManager.Default.Register();
-
             ILogger<App> logger = Services.GetRequiredService<ILogger<App>>();
+
+            if (Microsoft.Windows.AppNotifications.AppNotificationManager.IsSupported())
+            {
+                logger.LogInformation("AppNotificationManager is supported. Registering...");
+                try
+                {
+                    Microsoft.Windows.AppNotifications.AppNotificationManager.Default.NotificationInvoked += AppNotificationManager_NotificationInvoked;
+                    Microsoft.Windows.AppNotifications.AppNotificationManager.Default.Register();
+                }
+                catch (Exception ex)
+                {
+                    logger.LogWarning(ex, "Failed to register AppNotificationManager during startup.");
+                }
+            }
+            else
+            {
+                logger.LogWarning("AppNotificationManager.IsSupported() returned false. Toast notifications will not be displayed. This usually occurs if the application is running as Administrator (elevated) or the Windows App SDK runtime is missing components.");
+            }
             logger.LogInformation("Easy Copier application starting up.");
 
             ViewModels.MainViewModel mainViewModel = Services.GetRequiredService<ViewModels.MainViewModel>();
@@ -69,7 +85,11 @@ namespace Easy_Copier
             _window.Closed += (s, e) =>
             {
                 logger.LogInformation("Easy Copier application shutting down.");
-                Microsoft.Windows.AppNotifications.AppNotificationManager.Default.Unregister();
+                if (Microsoft.Windows.AppNotifications.AppNotificationManager.IsSupported())
+                {
+                    Microsoft.Windows.AppNotifications.AppNotificationManager.Default.Unregister();
+                    Microsoft.Windows.AppNotifications.AppNotificationManager.Default.NotificationInvoked -= AppNotificationManager_NotificationInvoked;
+                }
                 DisposeServices();
             };
 
@@ -83,6 +103,15 @@ namespace Easy_Copier
 
             ISmartAdderHistoryService smartAdderHistoryService = Services.GetRequiredService<ISmartAdderHistoryService>();
             await smartAdderHistoryService.InitializeAsync();
+        }
+
+        private void AppNotificationManager_NotificationInvoked(Microsoft.Windows.AppNotifications.AppNotificationManager sender, Microsoft.Windows.AppNotifications.AppNotificationActivatedEventArgs args)
+        {
+            if (_serviceProvider != null)
+            {
+                ILogger<App> logger = _serviceProvider.GetRequiredService<ILogger<App>>();
+                logger.LogInformation("App notification invoked: {Arguments}", args.Argument);
+            }
         }
 
         public void DisposeServices()
