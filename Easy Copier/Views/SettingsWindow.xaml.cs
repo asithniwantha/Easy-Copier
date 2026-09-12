@@ -34,15 +34,15 @@ namespace Easy_Copier.Views
             await ViewModel.LoadSettingsAsync();
             if (openAction == SettingsOpenAction.AddAppFolder)
             {
-                await ViewModel.AddSourceFolderCommand.ExecuteAsync("App");
+                await ViewModel.AddNewSourceFolderCommand.ExecuteAsync("App");
             }
             else if (openAction == SettingsOpenAction.AddGameFolder)
             {
-                await ViewModel.AddSourceFolderCommand.ExecuteAsync("Game");
+                await ViewModel.AddNewSourceFolderCommand.ExecuteAsync("Game");
             }
             else if (openAction == SettingsOpenAction.AddTvAndFilmFolder)
             {
-                await ViewModel.AddSourceFolderCommand.ExecuteAsync("TvAndFilm");
+                await ViewModel.AddNewSourceFolderCommand.ExecuteAsync("TvAndFilm");
             }
         }
 
@@ -72,7 +72,7 @@ namespace Easy_Copier.Views
         {
             if (sender is FrameworkElement fe && fe.Tag is string folderPath)
             {
-                await ViewModel.RemoveSourceFolderCommand.ExecuteAsync(folderPath);
+                await ViewModel.RemoveSourceFolderByPathCommand.ExecuteAsync(folderPath);
             }
         }
 

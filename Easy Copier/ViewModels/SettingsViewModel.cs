@@ -217,7 +217,7 @@ namespace Easy_Copier.ViewModels
         }
 
         [RelayCommand]
-        private async Task AddSourceFolderCommandAsync(string folderType)
+        private async Task AddNewSourceFolderAsync(string folderType)
         {
             switch (folderType)
             {
@@ -259,7 +259,7 @@ namespace Easy_Copier.ViewModels
         }
 
         [RelayCommand]
-        private async Task RemoveSourceFolderCommandAsync(string folderPath)
+        private async Task RemoveSourceFolderByPathAsync(string folderPath)
         {
             if (GameSourceFolders.Contains(folderPath))
             {
