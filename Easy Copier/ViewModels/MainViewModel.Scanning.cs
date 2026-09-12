@@ -296,6 +296,45 @@ namespace Easy_Copier.ViewModels
             }
         }
 
+        public void ShowGlobalNotification(string title, string message)
+        {
+            _dispatcherService.TryEnqueue(async () =>
+            {
+                GlobalNotificationTitle = title;
+                GlobalNotificationMessage = message;
+                IsGlobalNotificationVisible = true;
+
+                _notificationCancellationTokenSource?.Cancel();
+                _notificationCancellationTokenSource?.Dispose();
+                _notificationCancellationTokenSource = new CancellationTokenSource();
+
+                CancellationToken token = _notificationCancellationTokenSource.Token;
+
+                try
+                {
+                    await Task.Delay(TimeSpan.FromSeconds(10), token);
+                    if (!token.IsCancellationRequested)
+                    {
+                        IsGlobalNotificationVisible = false;
+                    }
+                }
+                catch (TaskCanceledException)
+                {
+                    // Ignore, another notification replaced this one
+                }
+            });
+        }
+
+        private void OnBatchCompleted(object? sender, (string Title, string Message) args)
+        {
+            if (IsDisposed)
+            {
+                return;
+            }
+
+            ShowGlobalNotification(args.Title, args.Message);
+        }
+
         private void OnQueueItemCompleted(object? sender, TransferQueueItem completedItem)
         {
             if (IsDisposed)
@@ -406,6 +445,7 @@ namespace Easy_Copier.ViewModels
             // Stop external notifications first so teardown does not race queued UI work.
             _driveDiscoveryService.DrivesChanged -= OnDrivesChanged;
             _transferQueueService.ItemCompleted -= OnQueueItemCompleted;
+            _transferQueueService.BatchCompleted -= OnBatchCompleted;
             _driveDiscoveryService.StopWatching();
 
             _updateCheckTimer?.Change(Timeout.Infinite, Timeout.Infinite);
@@ -424,6 +464,13 @@ namespace Easy_Copier.ViewModels
                 _validationCancellationTokenSource.Cancel();
                 _validationCancellationTokenSource.Dispose();
                 _validationCancellationTokenSource = null;
+            }
+
+            if (_notificationCancellationTokenSource != null)
+            {
+                _notificationCancellationTokenSource.Cancel();
+                _notificationCancellationTokenSource.Dispose();
+                _notificationCancellationTokenSource = null;
             }
 
             GC.SuppressFinalize(this);

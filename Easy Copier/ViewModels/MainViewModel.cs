@@ -29,10 +29,20 @@ namespace Easy_Copier.ViewModels
         private readonly IDialogService _dialogService;
         private CancellationTokenSource? _scanCancellationTokenSource;
         private CancellationTokenSource? _validationCancellationTokenSource;
+        private CancellationTokenSource? _notificationCancellationTokenSource;
         private List<GameEntry> _selectedGames = [];
         private System.Threading.Timer? _updateCheckTimer;
         private bool _isCheckingForUpdates;
         private int _isDisposed;
+
+        [ObservableProperty]
+        public partial bool IsGlobalNotificationVisible { get; set; }
+
+        [ObservableProperty]
+        public partial string GlobalNotificationTitle { get; set; } = string.Empty;
+
+        [ObservableProperty]
+        public partial string GlobalNotificationMessage { get; set; } = string.Empty;
 
         [ObservableProperty]
         public partial bool IsLoading { get; set; }
@@ -174,6 +184,7 @@ namespace Easy_Copier.ViewModels
 
             _driveDiscoveryService.DrivesChanged += OnDrivesChanged;
             _transferQueueService.ItemCompleted += OnQueueItemCompleted;
+            _transferQueueService.BatchCompleted += OnBatchCompleted;
         }
 
         private bool IsDisposed => Volatile.Read(ref _isDisposed) != 0;
