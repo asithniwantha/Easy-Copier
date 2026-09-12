@@ -19,8 +19,6 @@
 	<Nullable>enable</Nullable>
 	<AnalysisLevel>latest-all</AnalysisLevel>
 	<EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
-	<EnableMsixTooling>true</EnableMsixTooling>
-	<WindowsPackageType Condition="'$(WindowsPackageType)' == ''">None</WindowsPackageType>
   </PropertyGroup>
   <ItemGroup>
     <Content Remove="Assets\easy copier ico - Copy.ico" />
