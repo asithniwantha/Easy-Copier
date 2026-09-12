@@ -1,7 +1,5 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <SelfContained>false</SelfContained>
-    <DefineConstants>DISABLE_XAML_GENERATED_MAIN</DefineConstants>
 
     <LangVersion>14.0</LangVersion>
 	<LangVersion>preview</LangVersion>
@@ -64,14 +62,13 @@
   </ItemGroup>
 
   <PropertyGroup>
-    <SelfContained>false</SelfContained>
     <DefineConstants>DISABLE_XAML_GENERATED_MAIN</DefineConstants>
 
     <PublishReadyToRun>false</PublishReadyToRun>
     <PublishTrimmed>False</PublishTrimmed>
     <PublishSingleFile>false</PublishSingleFile>
-    <SelfContained>true</SelfContained>
-    <WindowsAppSDKSelfContained>true</WindowsAppSDKSelfContained>
+    <SelfContained>false</SelfContained>
+    <WindowsAppSDKSelfContained>false</WindowsAppSDKSelfContained>
     <ApplicationIcon>Assets\easy copier ico.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
