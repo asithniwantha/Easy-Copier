@@ -304,8 +304,11 @@ namespace Easy_Copier.ViewModels
                 GlobalNotificationMessage = message;
                 IsGlobalNotificationVisible = true;
 
-                _notificationCancellationTokenSource?.Cancel();
-                _notificationCancellationTokenSource?.Dispose();
+                if (_notificationCancellationTokenSource != null)
+                {
+                    await _notificationCancellationTokenSource.CancelAsync();
+                    _notificationCancellationTokenSource.Dispose();
+                }
                 _notificationCancellationTokenSource = new CancellationTokenSource();
 
                 CancellationToken token = _notificationCancellationTokenSource.Token;
