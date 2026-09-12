@@ -244,6 +244,11 @@ namespace Easy_Copier.Services
 
                 _logger.LogInformation("Attempting to show desktop notification: {Title}", title);
                 var notification = builder.BuildNotification();
+                if (!AppNotificationManager.IsSupported())
+                {
+                    _logger.LogWarning("AppNotificationManager is not supported on this OS configuration, skipping toast display.");
+                    return;
+                }
 
                 if (AppNotificationManager.Default.Setting == AppNotificationSetting.DisabledForApplication)
                 {
