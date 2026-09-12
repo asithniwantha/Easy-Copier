@@ -312,7 +312,7 @@ namespace Easy_Copier.ViewModels
 
                 try
                 {
-                    await Task.Delay(TimeSpan.FromSeconds(10), token);
+                    await Task.Delay(TimeSpan.FromSeconds(60), token);
                     if (!token.IsCancellationRequested)
                     {
                         IsGlobalNotificationVisible = false;
