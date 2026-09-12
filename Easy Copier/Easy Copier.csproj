@@ -1,7 +1,5 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <SelfContained>false</SelfContained>
-    <DefineConstants>DISABLE_XAML_GENERATED_MAIN</DefineConstants>
 
     <LangVersion>14.0</LangVersion>
 	<LangVersion>preview</LangVersion>
@@ -11,6 +9,7 @@
 	<TargetPlatformMinVersion>10.0.17763.0</TargetPlatformMinVersion>
 	<RootNamespace>Easy_Copier</RootNamespace>
 	<ApplicationManifest>app.manifest</ApplicationManifest>
+	<WindowsPackageType>None</WindowsPackageType>
 	<Platforms>x64</Platforms>
 	<PlatformTarget>x64</PlatformTarget>
 	<RuntimeIdentifiers>win-x64</RuntimeIdentifiers>
@@ -31,10 +30,6 @@
     <Content Include="Assets\Square44x44Logo.targetsize-24_altform-unplated.png" />
     <Content Include="Assets\StoreLogo.png" />
     <Content Include="Assets\Wide310x150Logo.scale-200.png" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Manifest Include="$(ApplicationManifest)" />
   </ItemGroup>
 
   <ItemGroup>
@@ -67,14 +62,13 @@
   </ItemGroup>
 
   <PropertyGroup>
-    <SelfContained>false</SelfContained>
     <DefineConstants>DISABLE_XAML_GENERATED_MAIN</DefineConstants>
 
     <PublishReadyToRun>false</PublishReadyToRun>
     <PublishTrimmed>False</PublishTrimmed>
     <PublishSingleFile>false</PublishSingleFile>
-    <SelfContained>true</SelfContained>
-    <WindowsAppSDKSelfContained>true</WindowsAppSDKSelfContained>
+    <SelfContained>false</SelfContained>
+    <WindowsAppSDKSelfContained>false</WindowsAppSDKSelfContained>
     <ApplicationIcon>Assets\easy copier ico.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
