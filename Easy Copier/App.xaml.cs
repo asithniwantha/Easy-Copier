@@ -57,13 +57,25 @@ namespace Easy_Copier
 
         protected override async void OnLaunched(Microsoft.UI.Xaml.LaunchActivatedEventArgs args)
         {
+            ILogger<App> logger = Services.GetRequiredService<ILogger<App>>();
+
             if (Microsoft.Windows.AppNotifications.AppNotificationManager.IsSupported())
             {
-                Microsoft.Windows.AppNotifications.AppNotificationManager.Default.NotificationInvoked += AppNotificationManager_NotificationInvoked;
-                Microsoft.Windows.AppNotifications.AppNotificationManager.Default.Register();
+                logger.LogInformation("AppNotificationManager is supported. Registering...");
+                try
+                {
+                    Microsoft.Windows.AppNotifications.AppNotificationManager.Default.NotificationInvoked += AppNotificationManager_NotificationInvoked;
+                    Microsoft.Windows.AppNotifications.AppNotificationManager.Default.Register();
+                }
+                catch (Exception ex)
+                {
+                    logger.LogWarning(ex, "Failed to register AppNotificationManager during startup.");
+                }
             }
-
-            ILogger<App> logger = Services.GetRequiredService<ILogger<App>>();
+            else
+            {
+                logger.LogWarning("AppNotificationManager.IsSupported() returned false. Toast notifications will not be displayed. This usually occurs if the application is running as Administrator (elevated) or the Windows App SDK runtime is missing components.");
+            }
             logger.LogInformation("Easy Copier application starting up.");
 
             ViewModels.MainViewModel mainViewModel = Services.GetRequiredService<ViewModels.MainViewModel>();

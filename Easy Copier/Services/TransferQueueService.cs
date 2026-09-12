@@ -246,7 +246,7 @@ namespace Easy_Copier.Services
                 var notification = builder.BuildNotification();
                 if (!AppNotificationManager.IsSupported())
                 {
-                    _logger.LogWarning("AppNotificationManager is not supported on this OS configuration, skipping toast display.");
+                    _logger.LogWarning("AppNotificationManager.IsSupported() returned false. Skipping toast display. Ensure the app is not running as Administrator (elevated) and the Windows App SDK runtime is fully installed.");
                     return;
                 }
 
