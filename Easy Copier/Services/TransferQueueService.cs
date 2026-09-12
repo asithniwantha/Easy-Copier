@@ -250,16 +250,21 @@ namespace Easy_Copier.Services
                 var notification = builder.BuildNotification();
                 if (!AppNotificationManager.IsSupported())
                 {
-                    _logger.LogWarning("AppNotificationManager.IsSupported() returned false. Skipping toast display. Ensure the app is not running as Administrator (elevated) and the Windows App SDK runtime is fully installed.");
+                    _logger.LogWarning("AppNotificationManager.IsSupported() returned false. Skipping toast display.");
 
                     if (_processService.IsRunningAsAdministrator())
                     {
+                        _logger.LogWarning("Application is running as Administrator (elevated). Toast notifications are officially not supported by the Windows App SDK in elevated unpackaged contexts.");
                         RunOnUiThread(async () =>
                         {
                             await _dialogService.ShowMessageDialogAsync(
                                 "Notifications Disabled",
                                 "Toast notifications are not supported while running Easy Copier as Administrator. Please run the application normally to receive desktop notifications.");
                         });
+                    }
+                    else
+                    {
+                        _logger.LogWarning("AppNotificationManager is not supported on this OS configuration, but the app is NOT elevated. This usually indicates a missing or corrupted Windows App SDK runtime (or missing Singleton package for self-contained/unpackaged apps).");
                     }
 
                     return;
