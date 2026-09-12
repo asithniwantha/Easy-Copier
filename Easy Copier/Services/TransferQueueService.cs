@@ -254,7 +254,7 @@ namespace Easy_Copier.Services
 
                     if (_processService.IsRunningAsAdministrator())
                     {
-                        _logger.LogWarning("Application is running as Administrator (elevated). Toast notifications are officially not supported by the Windows App SDK in elevated unpackaged contexts.");
+                        _logger.LogWarning("Application is running as Administrator (elevated). Toast notifications are officially not supported by the Windows App SDK in elevated contexts.");
                         RunOnUiThread(async () =>
                         {
                             await _dialogService.ShowMessageDialogAsync(
@@ -264,7 +264,7 @@ namespace Easy_Copier.Services
                     }
                     else
                     {
-                        _logger.LogWarning("AppNotificationManager is not supported on this OS configuration, but the app is NOT elevated. This usually indicates a missing or corrupted Windows App SDK runtime (or missing Singleton package for self-contained/unpackaged apps).");
+                        _logger.LogWarning("AppNotificationManager is not supported on this OS configuration, but the app is NOT elevated. This usually indicates the Windows App SDK Singleton package is missing or not registered for this self-contained deployment.");
                     }
 
                     return;
