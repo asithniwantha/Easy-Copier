@@ -138,6 +138,7 @@
 * Resolved Roslyn CA2213 warnings in `MainViewModel` by ensuring direct cancellation token source (`_scanCancellationTokenSource` and `_validationCancellationTokenSource`) disposal during object `Dispose()` and token replacement.
 * Resolved Roslyn static analysis CA1806 warning in `Program.cs` by capturing the return value of `SetCurrentProcessExplicitAppUserModelID` and adding `DefaultDllImportSearchPaths`.
 * Resolved Roslyn CA1849 code analysis warning in `MainViewModel.Scanning.cs` by replacing synchronous `Cancel()` calls on `CancellationTokenSource` with `CancelAsync()`.
+* Resolved Roslyn static analysis CA1823 warning in `MainPage.xaml.cs` by removing unused `LineSeparators` field.
 
 ## Development Highlights
 - **Refactored Smart Adder UI**: Migrated complex programmatic UI logic (Visibility manipulation) from code-behind into direct XAML data bindings utilizing MVVM view models, adhering strictly to clean code principles.

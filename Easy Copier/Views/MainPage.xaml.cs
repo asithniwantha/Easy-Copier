@@ -15,8 +15,6 @@ namespace Easy_Copier.Views
 {
     public sealed partial class MainPage : Page
     {
-        private static readonly string[] LineSeparators = ["\r\n", "\n"];
-
         public MainViewModel ViewModel { get; private set; } = null!;
 
         public MainPage()
