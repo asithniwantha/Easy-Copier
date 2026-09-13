@@ -127,7 +127,7 @@
 - [ ] Add a OS images tab and instruct Rufus to open with a specific image file eg:"rufus.exe -i "C:\path\to\your\image.iso"
 
 ## New Architectural Updates
-* Extracted dynamic UI generation (e.g., Game details flyout) from code-behind into dedicated XAML UserControls (GameDetailsFlyout), significantly reducing view-to-view coupling and enhancing MVVM separation.
+* Extracted dynamic UI generation (e.g., Game details flyout) from code-behind into dedicated XAML UserControls (`GameDetailsFlyout`) and `GameDetailsViewModel`, significantly reducing view-to-view coupling, eliminating manual UI instantiation in C#, and enhancing MVVM separation.
 * IAppWindowContext introduced for clean UI abstraction.
 * File splits using C# partials applied to MainViewModel, SettingsViewModel, and GameInfoDownloadService.
 * Resolved CS8611 nullability reference mismatch warnings on `[ObservableProperty]` generated partial method signatures.

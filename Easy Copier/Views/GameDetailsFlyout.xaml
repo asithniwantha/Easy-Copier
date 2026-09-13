@@ -7,6 +7,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:viewmodels="using:Easy_Copier.ViewModels"
+    xmlns:models="using:Easy_Copier.Models"
     mc:Ignorable="d">
 
     <Grid>
@@ -18,7 +19,32 @@
 
         <!-- Left Side: Folder Contents View -->
         <ScrollViewer Grid.Column="0" MaxHeight="400" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled" Padding="12">
-            <StackPanel x:Name="FolderContentsPanel" Spacing="4" />
+            <StackPanel Spacing="4">
+                <TextBlock Text="{x:Bind ViewModel.FolderStatusMessage, Mode=OneWay}"
+                           Visibility="{x:Bind ViewModel.IsFolderStatusVisible, Mode=OneWay}"
+                           Foreground="Red" Opacity="0.5" FontStyle="Italic" />
+                <ItemsControl ItemsSource="{x:Bind ViewModel.FolderContents, Mode=OneWay}">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate x:DataType="models:FileSystemItem">
+                            <Grid ColumnSpacing="8" Margin="0,0,0,4">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+
+                                <FontIcon Grid.Column="0" Glyph="{x:Bind IconGlyph}" FontSize="16" Foreground="Gold" />
+
+                                <TextBlock Grid.Column="1" Text="{x:Bind Name}"
+                                           TextTrimming="CharacterEllipsis" MaxWidth="250" VerticalAlignment="Center" />
+
+                                <TextBlock Grid.Column="2" Text="{x:Bind SizeFormatted, Mode=OneWay}"
+                                           VerticalAlignment="Center" Opacity="0.6" FontSize="12" />
+                            </Grid>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </StackPanel>
         </ScrollViewer>
 
         <!-- Separator -->

@@ -67,6 +67,7 @@ namespace Easy_Copier.Infrastructure
             _ = services.AddTransient<ViewModels.HistoryViewModel>();
             _ = services.AddTransient<ViewModels.SmartAdderHistoryViewModel>();
             _ = services.AddTransient<ViewModels.AboutViewModel>();
+            _ = services.AddTransient<ViewModels.GameDetailsViewModel>();
 
             return services;
         }

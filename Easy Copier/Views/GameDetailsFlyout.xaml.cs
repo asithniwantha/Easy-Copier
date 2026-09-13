@@ -11,15 +11,19 @@ namespace Easy_Copier.Views
 {
     public sealed partial class GameDetailsFlyout : UserControl
     {
-        public GameDetailsFlyout(string formattedSysReqText, string folderPath)
+        public ViewModels.GameDetailsViewModel ViewModel { get; }
+
+        public GameDetailsFlyout(ViewModels.GameDetailsViewModel viewModel, string formattedSysReqText, string folderPath)
         {
+            ViewModel = viewModel;
             InitializeComponent();
             PopulateSysReqs(formattedSysReqText);
-            PopulateFolderContents(folderPath);
+            _ = ViewModel.LoadFolderContentsAsync(folderPath);
         }
 
         private void PopulateSysReqs(string formattedText)
         {
+            SysReqTextBlock.Blocks.Clear();
             SysReqTextBlock.Blocks.Add(CreateColoredParagraph(formattedText));
         }
 
@@ -78,116 +82,6 @@ namespace Easy_Copier.Views
             }
 
             return paragraph;
-        }
-
-        private void PopulateFolderContents(string folderPath)
-        {
-            try
-            {
-                if (Directory.Exists(folderPath))
-                {
-                    IOrderedEnumerable<string> dirs = Directory.GetDirectories(folderPath).OrderBy(d => d);
-                    IOrderedEnumerable<string> files = Directory.GetFiles(folderPath).OrderBy(f => f);
-
-                    foreach (string dir in dirs)
-                    {
-                        FolderContentsPanel.Children.Add(CreateFileFolderItem(dir, true));
-                    }
-
-                    foreach (string file in files)
-                    {
-                        FolderContentsPanel.Children.Add(CreateFileFolderItem(file, false));
-                    }
-
-                    if (FolderContentsPanel.Children.Count == 0)
-                    {
-                        FolderContentsPanel.Children.Add(new TextBlock { Text = "Empty folder", Opacity = 0.5, FontStyle = Windows.UI.Text.FontStyle.Italic });
-                    }
-                }
-                else
-                {
-                    FolderContentsPanel.Children.Add(new TextBlock { Text = "Folder not found", Foreground = new SolidColorBrush(Microsoft.UI.Colors.Red) });
-                }
-            }
-            catch (Exception ex)
-            {
-                FolderContentsPanel.Children.Add(new TextBlock { Text = $"Error loading folder: {ex.Message}", Foreground = new SolidColorBrush(Microsoft.UI.Colors.Red) });
-            }
-        }
-
-        private Grid CreateFileFolderItem(string path, bool isFolder)
-        {
-            string name = Path.GetFileName(path);
-            Grid itemGrid = new() { ColumnSpacing = 8 };
-            itemGrid.ColumnDefinitions.Add(new ColumnDefinition { Width = GridLength.Auto });
-            itemGrid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) });
-            itemGrid.ColumnDefinitions.Add(new ColumnDefinition { Width = GridLength.Auto });
-
-            FontIcon icon = new()
-            {
-                Glyph = isFolder ? "\uE8D5" : "\uE7C3",
-                FontSize = 16,
-                Foreground = isFolder ? new SolidColorBrush(Microsoft.UI.Colors.Gold) : new SolidColorBrush(Microsoft.UI.Colors.Gray)
-            };
-            Grid.SetColumn(icon, 0);
-
-            TextBlock nameBlock = new()
-            {
-                Text = name,
-                TextTrimming = TextTrimming.CharacterEllipsis,
-                MaxWidth = 250,
-                VerticalAlignment = VerticalAlignment.Center
-            };
-            Grid.SetColumn(nameBlock, 1);
-
-            TextBlock sizeBlock = new()
-            {
-                VerticalAlignment = VerticalAlignment.Center,
-                Opacity = 0.6,
-                FontSize = 12
-            };
-            Grid.SetColumn(sizeBlock, 2);
-
-            itemGrid.Children.Add(icon);
-            itemGrid.Children.Add(nameBlock);
-            itemGrid.Children.Add(sizeBlock);
-
-            if (isFolder)
-            {
-                sizeBlock.Text = "Calculating...";
-                _ = System.Threading.Tasks.Task.Run(() =>
-                {
-                    try
-                    {
-                        long size = Easy_Copier.Infrastructure.FileSystemHelpers.CalculateDirectorySize(new DirectoryInfo(path));
-                        _ = DispatcherQueue.TryEnqueue(() =>
-                        {
-                            sizeBlock.Text = Easy_Copier.Infrastructure.FormattingHelpers.FormatBytes(size);
-                        });
-                    }
-                    catch
-                    {
-                        _ = DispatcherQueue.TryEnqueue(() =>
-                        {
-                            sizeBlock.Text = "Unknown";
-                        });
-                    }
-                });
-            }
-            else
-            {
-                try
-                {
-                    long size = new FileInfo(path).Length;
-                    sizeBlock.Text = Easy_Copier.Infrastructure.FormattingHelpers.FormatBytes(size);
-                }
-                catch
-                {
-                    sizeBlock.Text = "Unknown";
-                }
-            }
-
-            return itemGrid;
         }
     }
 }
