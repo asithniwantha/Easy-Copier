@@ -24,10 +24,14 @@ namespace Easy_Copier.ViewModels
         public partial double TotalSum { get; set; }
 
         [ObservableProperty]
+        [NotifyPropertyChangedFor(nameof(IsPanelVisible))]
         public partial bool IsHovering { get; set; }
 
         [ObservableProperty]
+        [NotifyPropertyChangedFor(nameof(IsPanelVisible))]
         public partial bool IsListFocused { get; set; }
+
+        public bool IsPanelVisible => IsHovering || IsListFocused;
         public ObservableCollection<NumberCell> Cells { get; } = [];
 
         public SmartAdderViewModel(
