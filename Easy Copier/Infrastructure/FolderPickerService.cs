@@ -10,10 +10,12 @@ namespace Easy_Copier.Infrastructure
     public class FolderPickerService : IFolderPickerService
     {
         private readonly IDispatcherService _dispatcherService;
+        private readonly IAppWindowContext _appWindowContext;
 
-        public FolderPickerService(IDispatcherService dispatcherService)
+        public FolderPickerService(IDispatcherService dispatcherService, IAppWindowContext appWindowContext)
         {
             _dispatcherService = dispatcherService ?? throw new ArgumentNullException(nameof(dispatcherService));
+            _appWindowContext = appWindowContext ?? throw new ArgumentNullException(nameof(appWindowContext));
         }
 
         public async Task<string?> PickFolderAsync()
@@ -33,6 +35,11 @@ namespace Easy_Copier.Infrastructure
                     folderPicker.FileTypeFilter.Add("*");
 
                     nint windowHandle = NativeWindowHelper.GetActiveWindowHandle();
+                    if (windowHandle == IntPtr.Zero && _appWindowContext.MainWindow is Microsoft.UI.Xaml.Window mainWindow)
+                    {
+                        windowHandle = WindowNative.GetWindowHandle(mainWindow);
+                    }
+
                     if (windowHandle == IntPtr.Zero)
                     {
                         tcs.SetResult(null);

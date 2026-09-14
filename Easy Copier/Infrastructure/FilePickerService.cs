@@ -14,10 +14,12 @@ namespace Easy_Copier.Infrastructure
     public class FilePickerService : IFilePickerService
     {
         private readonly IDispatcherService _dispatcherService;
+        private readonly IAppWindowContext _appWindowContext;
 
-        public FilePickerService(IDispatcherService dispatcherService)
+        public FilePickerService(IDispatcherService dispatcherService, IAppWindowContext appWindowContext)
         {
             _dispatcherService = dispatcherService ?? throw new ArgumentNullException(nameof(dispatcherService));
+            _appWindowContext = appWindowContext ?? throw new ArgumentNullException(nameof(appWindowContext));
         }
 
         public async Task<string?> PickSaveFileAsync(string suggestedFileName, IDictionary<string, IList<string>> fileTypeChoices)
@@ -42,6 +44,11 @@ namespace Easy_Copier.Infrastructure
                     }
 
                     nint windowHandle = NativeWindowHelper.GetActiveWindowHandle();
+                    if (windowHandle == IntPtr.Zero && _appWindowContext.MainWindow is Microsoft.UI.Xaml.Window mainWindow)
+                    {
+                        windowHandle = WinRT.Interop.WindowNative.GetWindowHandle(mainWindow);
+                    }
+
                     if (windowHandle == IntPtr.Zero)
                     {
                         tcs.SetResult(null);
