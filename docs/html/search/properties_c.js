@@ -1,0 +1,6 @@
+var searchData=
+[
+  ['mainwindow_0',['MainWindow',['../class_easy___copier_1_1_app.html#a718af7bc6f85416e7e53fdfaa8f44bf3',1,'Easy_Copier.App.MainWindow'],['../class_easy___copier_1_1_infrastructure_1_1_app_window_context.html#ae3fde20ab0766a1eaef380a2575d2bc6',1,'Easy_Copier.Infrastructure.AppWindowContext.MainWindow'],['../interface_easy___copier_1_1_infrastructure_1_1_i_app_window_context.html#adcb38602de501cf69f7530968ecffc72',1,'Easy_Copier.Infrastructure.IAppWindowContext.MainWindow'],['../class_easy___copier_1_1_infrastructure_1_1_window_service.html#a72836f21ed6de5ab16088b53f9be9485',1,'Easy_Copier.Infrastructure.WindowService.MainWindow']]],
+  ['mainxamlroot_1',['MainXamlRoot',['../class_easy___copier_1_1_infrastructure_1_1_app_window_context.html#a1484525de9c0dc3830d4a82d231faf10',1,'Easy_Copier.Infrastructure.AppWindowContext.MainXamlRoot'],['../interface_easy___copier_1_1_infrastructure_1_1_i_app_window_context.html#a935c57204ebae4815bf95ea30fbb151f',1,'Easy_Copier.Infrastructure.IAppWindowContext.MainXamlRoot']]],
+  ['monthstats_2',['MonthStats',['../class_easy___copier_1_1_view_models_1_1_history_view_model.html#af0bb21ff5a5cf59564bbe30ea7ef4d44',1,'Easy_Copier::ViewModels::HistoryViewModel']]]
+];

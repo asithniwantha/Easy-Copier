@@ -1,0 +1,13 @@
+<map id="Easy_Copier.Views.GameDetailsFlyout" name="Easy_Copier.Views.GameDetailsFlyout">
+<area shape="rect" id="Node000001" title=" " alt="" coords="253,11,469,54"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="8,11,202,54"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="170,54,241,57,312,54,307,55,241,62,171,59"/>
+<area shape="poly" id="edge3_Node000001_Node000002" title=" " alt="" coords="217,39,255,41,250,42,218,44"/>
+<area shape="poly" id="edge4_Node000001_Node000002" title=" " alt="" coords="217,21,255,23,250,25,218,26"/>
+<area shape="poly" id="edge6_Node000001_Node000002" title=" " alt="" coords="170,6,241,3,312,10,307,12,241,8,171,11"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="5,78,205,121"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="219,76,307,54,302,56,221,81"/>
+<area shape="poly" id="edge5_Node000001_Node000003" title=" " alt="" coords="174,70,255,51,250,53,176,75"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="59,145,151,171"/>
+<area shape="poly" id="edge7_Node000001_Node000004" title=" " alt="" coords="165,143,204,130,274,92,329,55,334,53,276,96,206,135,166,149"/>
+</map>

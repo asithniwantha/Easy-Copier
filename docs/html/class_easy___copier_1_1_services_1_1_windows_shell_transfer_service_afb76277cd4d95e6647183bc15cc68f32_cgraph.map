@@ -1,0 +1,19 @@
+<map id="Easy_Copier.Services.WindowsShellTransferService.CopyItemWithFileOperation" name="Easy_Copier.Services.WindowsShellTransferService.CopyItemWithFileOperation">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,247,236,305"/>
+<area shape="rect" id="Node000002" href="$interface_easy___copier_1_1_interop_1_1_i_file_operation.html#af894cdb796ba9f0276df7473497ad2d5" title=" " alt="" coords="317,5,486,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="134,245,157,203,190,152,232,101,282,58,305,47,301,51,285,62,236,105,194,156,161,206,138,248"/>
+<area shape="rect" id="Node000003" href="$interface_easy___copier_1_1_interop_1_1_i_file_operation.html#a326b541968b02b4e15e1bc6613b37d30" title=" " alt="" coords="317,72,486,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="144,245,203,184,241,152,282,124,305,116,301,119,285,129,244,156,207,188,148,248"/>
+<area shape="rect" id="Node000004" href="$class_easy___copier_1_1_interop_1_1_file_operation_progress_sink.html#a3435ba547667de14816bb1cd1fa6a6c1" title=" " alt="" coords="284,139,520,197"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="191,244,283,207,302,202,298,205,285,212,194,248"/>
+<area shape="rect" id="Node000005" href="$interface_easy___copier_1_1_interop_1_1_i_file_operation.html#a3780930077bd94182bd9424656fb20a0" title=" " alt="" coords="285,221,518,264"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="235,260,272,257,267,260,237,265"/>
+<area shape="rect" id="Node000006" href="$interface_easy___copier_1_1_interop_1_1_i_file_operation.html#aa31da71f71d95ccbe480448afcdbe295" title=" " alt="" coords="307,288,497,331"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="235,287,293,295,289,297,237,292"/>
+<area shape="rect" id="Node000007" href="$interface_easy___copier_1_1_interop_1_1_i_file_operation.html#a5da7eb05bf07a208ed0a69e26d83ae95" title=" " alt="" coords="307,355,496,397"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="190,303,285,340,307,349,302,350,283,345,190,309"/>
+<area shape="rect" id="Node000008" href="$class_easy___copier_1_1_interop_1_1_file_operation_interop.html#a46cbdab096a70f7230f376b081472bd4" title="Creates and initializes a Shell item object from a parsing name." alt="" coords="299,421,504,480"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="151,303,211,356,247,383,285,407,296,414,290,414,282,412,244,387,208,360,151,308"/>
+<area shape="rect" id="Node000009" href="$interface_easy___copier_1_1_interop_1_1_i_file_operation.html#a07cad60257aa8e5f2ad201afdd5c5cc4" title=" " alt="" coords="317,504,486,547"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="136,303,161,346,194,396,236,447,285,490,306,503,300,503,282,494,232,451,190,400,157,349,136,308"/>
+</map>

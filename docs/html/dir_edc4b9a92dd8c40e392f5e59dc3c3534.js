@@ -1,0 +1,23 @@
+var dir_edc4b9a92dd8c40e392f5e59dc3c3534 =
+[
+    [ "AudioPlaybackService.cs", "_audio_playback_service_8cs.html", "_audio_playback_service_8cs" ],
+    [ "CopyHistoryService.cs", "_copy_history_service_8cs.html", "_copy_history_service_8cs" ],
+    [ "DriveServices.cs", "_drive_services_8cs.html", "_drive_services_8cs" ],
+    [ "FileTransferService.cs", "_file_transfer_service_8cs.html", "_file_transfer_service_8cs" ],
+    [ "GameInfoDownloadService.Categories.cs", "_game_info_download_service_8_categories_8cs.html", "_game_info_download_service_8_categories_8cs" ],
+    [ "GameInfoDownloadService.Covers.cs", "_game_info_download_service_8_covers_8cs.html", "_game_info_download_service_8_covers_8cs" ],
+    [ "GameInfoDownloadService.cs", "_game_info_download_service_8cs.html", "_game_info_download_service_8cs" ],
+    [ "GameInfoDownloadService.Requirements.cs", "_game_info_download_service_8_requirements_8cs.html", "_game_info_download_service_8_requirements_8cs" ],
+    [ "GameScannerService.cs", "_game_scanner_service_8cs.html", "_game_scanner_service_8cs" ],
+    [ "ILibraryScannerService.cs", "_i_library_scanner_service_8cs.html", "_i_library_scanner_service_8cs" ],
+    [ "IUpdateService.cs", "_i_update_service_8cs.html", "_i_update_service_8cs" ],
+    [ "LibraryCacheService.cs", "_library_cache_service_8cs.html", "_library_cache_service_8cs" ],
+    [ "LibraryScannerService.cs", "_library_scanner_service_8cs.html", "_library_scanner_service_8cs" ],
+    [ "ReportService.cs", "_report_service_8cs.html", "_report_service_8cs" ],
+    [ "SettingsService.cs", "_settings_service_8cs.html", "_settings_service_8cs" ],
+    [ "SmartAdderHistoryService.cs", "_smart_adder_history_service_8cs.html", "_smart_adder_history_service_8cs" ],
+    [ "SourceLibraryService.cs", "_source_library_service_8cs.html", "_source_library_service_8cs" ],
+    [ "StartupService.cs", "_startup_service_8cs.html", "_startup_service_8cs" ],
+    [ "TransferQueueService.cs", "_transfer_queue_service_8cs.html", "_transfer_queue_service_8cs" ],
+    [ "UpdateService.cs", "_update_service_8cs.html", "_update_service_8cs" ]
+];

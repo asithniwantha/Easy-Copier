@@ -1,0 +1,12 @@
+<map id="Easy_Copier.Services.DriveValidationService.ValidateTransferAsync" name="Easy_Copier.Services.DriveValidationService.ValidateTransferAsync">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,104,262,147"/>
+<area shape="rect" id="Node000002" href="$namespace_easy___copier_1_1_models.html#ab9811c24c166bd7f4768ddafbcbaf75d" title=" " alt="" coords="310,29,522,56"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="197,101,309,65,341,59,336,61,310,71,199,106"/>
+<area shape="rect" id="Node000003" href="$namespace_easy___copier_1_1_models.html#af8f0175620d1cdd9a06d3e52ae12ba12" title=" " alt="" coords="310,104,522,147"/>
+<area shape="poly" id="edge3_Node000001_Node000003" title=" " alt="" coords="262,123,296,125,291,126,262,128"/>
+<area shape="rect" id="Node000004" href="$namespace_easy___copier_1_1_models.html#aa394743cccca298523ee415d124c3cbf" title="Represents the result of a validation operation, including whether it is valid, the severity of the v..." alt="" coords="315,195,517,237"/>
+<area shape="poly" id="edge5_Node000001_Node000004" title=" " alt="" coords="203,145,335,188,330,190,202,150"/>
+<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="368,29,360,21,366,11,385,5,416,3,450,5,469,15,464,15,449,11,416,8,386,10,369,15,366,20,374,29"/>
+<area shape="poly" id="edge4_Node000003_Node000003" title=" " alt="" coords="363,102,361,94,370,85,388,79,416,77,446,80,466,89,461,89,445,85,416,83,389,85,372,89,366,95,368,105"/>
+<area shape="poly" id="edge6_Node000004_Node000004" title=" " alt="" coords="363,193,361,185,370,176,388,170,416,168,446,170,466,180,461,179,445,176,416,173,389,175,372,180,366,186,368,196"/>
+</map>

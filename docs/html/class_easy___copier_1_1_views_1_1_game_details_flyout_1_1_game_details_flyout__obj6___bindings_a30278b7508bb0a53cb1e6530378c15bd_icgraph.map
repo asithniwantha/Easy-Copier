@@ -1,0 +1,11 @@
+<map id="Easy_Copier.Views.GameDetailsFlyout.GameDetailsFlyout_obj6_Bindings.SetDataRoot" name="Easy_Copier.Views.GameDetailsFlyout.GameDetailsFlyout_obj6_Bindings.SetDataRoot">
+<area shape="rect" id="Node000001" title=" " alt="" coords="602,49,818,108"/>
+<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_views_1_1_game_details_flyout_1_1_game_details_flyout__obj6___bindings.html#ad0e95de3b7fc13305e745577f2d42023" title=" " alt="" coords="270,49,554,108"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="584,79,555,81,554,76,589,78"/>
+<area shape="rect" id="Node000003" href="$class_easy___copier_1_1_views_1_1_game_details_flyout.html#a3a5871da53f68470f82e5a0b21970318" title="GetBindingConnector(int connectionId, object target)." alt="" coords="5,5,222,48"/>
+<area shape="poly" id="edge4_Node000001_Node000003" title=" " alt="" coords="593,45,554,40,467,31,379,26,222,25,222,20,379,20,467,25,554,35,599,45"/>
+<area shape="rect" id="Node000004" href="$class_easy___copier_1_1_views_1_1_game_details_flyout_1_1_game_details_flyout__obj6___bindings.html#a945af21e1d8b65f317605cb3db8f5ebf" title=" " alt="" coords="5,87,222,145"/>
+<area shape="poly" id="edge5_Node000001_Node000004" title=" " alt="" coords="600,112,554,123,467,131,379,133,222,128,222,123,379,128,467,125,554,117,595,112"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="252,52,222,48,222,43,257,51"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="252,99,222,105,222,100,257,98"/>
+</map>

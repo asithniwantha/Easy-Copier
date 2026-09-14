@@ -1,0 +1,10 @@
+<map id="Easy_Copier.ViewModels.MainViewModel.OnUpdateCheckTimerTick" name="Easy_Copier.ViewModels.MainViewModel.OnUpdateCheckTimerTick">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,35,250,77"/>
+<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_view_models_1_1_main_view_model.html#ac27b308761598a5de597ffda8cf5e63a" title=" " alt="" coords="298,5,575,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="250,42,285,41,279,42,251,47"/>
+<area shape="rect" id="Node000004" href="$class_easy___copier_1_1_view_models_1_1_main_view_model.html#aba772e9714e4c42652a4862d24618c25" title=" " alt="" coords="972,35,1177,77"/>
+<area shape="poly" id="edge4_Node000001_Node000004" title=" " alt="" coords="250,57,298,57,611,60,924,57,960,59,954,59,924,63,611,65,298,63,250,62"/>
+<area shape="rect" id="Node000003" href="$class_easy___copier_1_1_view_models_1_1_main_view_model.html#a6bd36630ee4a6685f9a6482ae4048e8f" title=" " alt="" coords="623,5,924,48"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="575,24,610,27,605,27,575,29"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="925,39,960,45,954,44,925,44"/>
+</map>

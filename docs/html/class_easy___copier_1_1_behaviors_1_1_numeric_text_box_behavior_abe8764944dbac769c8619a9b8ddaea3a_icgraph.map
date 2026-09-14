@@ -1,0 +1,14 @@
+<map id="Easy_Copier.Behaviors.NumericTextBoxBehavior.FocusTextBox" name="Easy_Copier.Behaviors.NumericTextBoxBehavior.FocusTextBox">
+<area shape="rect" id="Node000001" title=" " alt="" coords="835,43,1047,85"/>
+<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_behaviors_1_1_numeric_text_box_behavior.html#aa2b512d7bd8dff533afabf10c1226115" title=" " alt="" coords="558,5,769,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="817,48,770,44,770,38,823,48"/>
+<area shape="rect" id="Node000006" href="$class_easy___copier_1_1_behaviors_1_1_numeric_text_box_behavior.html#a3eb05cdac108ba7e61c8aff58e5ec9e7" title=" " alt="" coords="540,72,787,131"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="823,80,788,87,787,82,817,81"/>
+<area shape="rect" id="Node000003" href="$class_easy___copier_1_1_behaviors_1_1_numeric_text_box_behavior.html#a5f19def0f8c86199a8dddf0626b53e7b" title=" " alt="" coords="265,35,492,93"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="540,43,493,52,492,46,545,42"/>
+<area shape="rect" id="Node000004" href="$class_easy___copier_1_1_behaviors_1_1_numeric_text_box_behavior.html#a72b8302a484f6fb04a9c37bd0c187ba9" title=" " alt="" coords="5,9,217,52"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="247,48,217,47,217,41,252,47"/>
+<area shape="rect" id="Node000005" href="$class_easy___copier_1_1_behaviors_1_1_numeric_text_box_behavior.html#a9076beeea6f89ee00391d0f88d68c8f4" title=" " alt="" coords="5,76,217,119"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="247,81,218,87,217,81,252,80"/>
+<area shape="poly" id="edge6_Node000006_Node000003" title=" " alt="" coords="522,83,492,82,493,76,527,83"/>
+</map>

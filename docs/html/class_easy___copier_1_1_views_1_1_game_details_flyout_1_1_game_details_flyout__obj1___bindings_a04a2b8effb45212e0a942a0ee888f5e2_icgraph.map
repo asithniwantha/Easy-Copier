@@ -1,0 +1,5 @@
+<map id="Easy_Copier.Views.GameDetailsFlyout.GameDetailsFlyout_obj1_Bindings.SetDataRoot" name="Easy_Copier.Views.GameDetailsFlyout.GameDetailsFlyout_obj1_Bindings.SetDataRoot">
+<area shape="rect" id="Node000001" title=" " alt="" coords="270,5,486,64"/>
+<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_views_1_1_game_details_flyout.html#a3a5871da53f68470f82e5a0b21970318" title="GetBindingConnector(int connectionId, object target)." alt="" coords="5,13,222,56"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="252,35,222,37,222,32,257,34"/>
+</map>

@@ -1,0 +1,25 @@
+<map id="Easy_Copier.Views.GameDetailsFlyout.GameDetailsFlyout_obj1_Bindings" name="Easy_Copier.Views.GameDetailsFlyout.GameDetailsFlyout_obj1_Bindings">
+<area shape="rect" id="Node000001" title=" " alt="" coords="716,180,932,239"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="335,5,555,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="542,50,563,57,630,83,693,115,743,146,787,180,782,179,740,150,691,120,628,88,561,63,542,56"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="328,72,562,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="577,115,693,147,767,179,762,180,691,152,577,121"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="14,152,213,195"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="164,200,204,218,246,232,308,243,371,249,497,251,615,242,718,230,713,231,616,247,497,256,370,255,307,248,245,237,202,223,164,205"/>
+<area shape="rect" id="Node000006" href="$class_easy___copier_1_1_views_1_1_game_details_flyout.html" title=" " alt="" coords="337,139,553,181"/>
+<area shape="poly" id="edge7_Node000006_Node000004" title=" " alt="" coords="228,175,339,171,334,174,229,180"/>
+<area shape="poly" id="edge10_Node000006_Node000004" title=" " alt="" coords="228,158,339,154,334,157,229,163"/>
+<area shape="rect" id="Node000005" href="$interface_easy___copier_1_1_views_1_1_game_details_flyout_1_1_i_game_details_flyout___bindings.html" title=" " alt="" coords="5,249,222,308"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="237,280,336,280,451,277,572,267,691,249,739,240,744,239,693,255,572,272,451,282,336,286,238,286"/>
+<area shape="poly" id="edge13_Node000006_Node000005" title=" " alt="" coords="211,241,385,180,381,184,213,246"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="569,173,719,195,713,196,569,179"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="16,24,211,67"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="139,73,173,92,215,109,305,147,329,160,378,176,401,180,423,181,418,183,400,185,376,181,327,165,303,152,213,114,171,96,140,79"/>
+<area shape="poly" id="edge8_Node000006_Node000007" title=" " alt="" coords="170,70,305,123,329,136,339,142,334,143,327,141,303,128,170,75"/>
+<area shape="poly" id="edge9_Node000006_Node000007" title=" " alt="" coords="225,67,305,99,329,112,399,137,394,139,327,117,303,104,226,73"/>
+<area shape="poly" id="edge11_Node000006_Node000007" title=" " alt="" coords="225,44,305,75,329,88,388,110,415,122,436,138,431,138,413,127,386,115,327,93,303,80,226,50"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="68,101,159,128"/>
+<area shape="poly" id="edge12_Node000006_Node000008" title=" " alt="" coords="174,118,304,133,339,140,334,142,303,139,175,123"/>
+<area shape="rect" id="Node000009" href="$class_easy___copier_1_1_views_1_1_game_details_flyout_1_1_game_details_flyout__obj1___bindings_19d507df63b2a4e39c1531db504bbf67b.html" title=" " alt="" coords="332,339,558,413"/>
+<area shape="poly" id="edge14_Node000001_Node000009" title=" " alt="" coords="573,373,633,362,691,342,725,320,755,293,801,240,806,238,759,296,728,324,693,346,634,368,573,378"/>
+</map>

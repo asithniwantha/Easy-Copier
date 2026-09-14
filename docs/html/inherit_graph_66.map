@@ -1,0 +1,9 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="Node000000" title=" " alt="" coords="5,72,190,115"/>
+<area shape="rect" id="Node000001" href="$class_easy___copier_1_1_behaviors_1_1_focus_within_behavior.html" title="Toggles the bound IsFocusWithin dependency property while any descendant element of the associated el..." alt="" coords="244,5,442,48"/>
+<area shape="poly" id="edge167_Node000000_Node000001" title=" " alt="" coords="193,65,264,47,260,50,194,70"/>
+<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_behaviors_1_1_hover_behavior.html" title="Toggles the bound IsHovered dependency property while the pointer is over the associated element,..." alt="" coords="245,72,442,115"/>
+<area shape="poly" id="edge168_Node000000_Node000002" title=" " alt="" coords="205,91,247,93,242,94,206,96"/>
+<area shape="rect" id="Node000003" href="$class_easy___copier_1_1_behaviors_1_1_numeric_text_box_behavior.html" title=" " alt="" coords="238,139,449,181"/>
+<area shape="poly" id="edge169_Node000000_Node000003" title=" " alt="" coords="194,117,265,138,259,138,193,122"/>
+</map>

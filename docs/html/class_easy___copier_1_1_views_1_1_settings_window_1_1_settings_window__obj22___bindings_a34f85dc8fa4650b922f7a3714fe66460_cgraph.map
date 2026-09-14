@@ -1,0 +1,13 @@
+<map id="Easy_Copier.Views.SettingsWindow.SettingsWindow_obj22_Bindings.DataContextChangedHandler" name="Easy_Copier.Views.SettingsWindow.SettingsWindow_obj22_Bindings.DataContextChangedHandler">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,47,259,105"/>
+<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_views_1_1_settings_window_1_1_settings_window__obj22___bindings.html#ac62b4cdb6e20a5af19952ba3673cc43b" title=" " alt="" coords="307,5,511,64"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="258,54,294,51,289,53,260,60"/>
+<area shape="rect" id="Node000003" href="$class_easy___copier_1_1_views_1_1_settings_window_1_1_settings_window__obj22___bindings.html#a4e6651117599d1785c9b5679ed16bd57" title=" " alt="" coords="307,88,511,147"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="259,92,294,99,289,100,259,98"/>
+<area shape="rect" id="Node000004" href="$class_easy___copier_1_1_views_1_1_settings_window_1_1_settings_window__obj22___bindings.html#af138123fd3934f381afc41975c5776bb" title=" " alt="" coords="559,88,763,147"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="511,115,546,117,541,118,512,120"/>
+<area shape="rect" id="Node000005" href="$class_easy___copier_1_1_views_1_1_settings_window_1_1_xaml_binding_setters.html#a4333519c13e9fdbef213832a207388e0" title=" " alt="" coords="850,35,1061,109"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="763,99,832,91,837,90,764,104"/>
+<area shape="rect" id="Node000006" href="$class_easy___copier_1_1_views_1_1_settings_window_1_1_xaml_binding_setters.html#a378a6e59046b9af6eb33ff28a950fa0c" title=" " alt="" coords="811,133,1100,192"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="764,130,799,138,793,138,764,136"/>
+</map>

@@ -1,0 +1,17 @@
+<map id="Easy_Copier.ViewModels.SmartAdderViewModel.EnsureOneEmptyBottomCell" name="Easy_Copier.ViewModels.SmartAdderViewModel.EnsureOneEmptyBottomCell">
+<area shape="rect" id="Node000001" title=" " alt="" coords="870,72,1162,115"/>
+<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_view_models_1_1_smart_adder_view_model.html#aaf4aa6e4f4b74ea2a1eb3131f86483fe" title=" " alt="" coords="568,72,822,115"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="852,102,823,105,823,99,857,102"/>
+<area shape="rect" id="Node000006" href="$class_easy___copier_1_1_view_models_1_1_smart_adder_view_model.html#a841c157697c50b6d35391b3159979342" title=" " alt="" coords="310,131,520,173"/>
+<area shape="poly" id="edge9_Node000001_Node000006" title=" " alt="" coords="888,118,823,129,664,144,521,151,520,146,664,138,822,124,882,118"/>
+<area shape="poly" id="edge8_Node000002_Node000001" title=" " alt="" coords="838,82,873,84,867,85,838,87"/>
+<area shape="rect" id="Node000003" href="$class_easy___copier_1_1_view_models_1_1_smart_adder_view_model.html#ad94143845f947cd2998f77ae648b282e" title=" " alt="" coords="310,13,520,56"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="573,68,520,59,520,54,578,68"/>
+<area shape="rect" id="Node000004" href="$class_easy___copier_1_1_view_models_1_1_smart_adder_view_model.html#ad5ea0fe050eba3f0fff2e3505a394c07" title=" " alt="" coords="28,72,239,115"/>
+<area shape="poly" id="edge6_Node000002_Node000004" title=" " alt="" coords="552,96,239,96,239,91,554,91"/>
+<area shape="poly" id="edge7_Node000002_Node000006" title=" " alt="" coords="578,118,521,133,520,127,573,119"/>
+<area shape="poly" id="edge4_Node000003_Node000001" title=" " alt="" coords="536,36,674,44,823,57,903,71,897,71,822,63,673,49,536,41"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="292,61,240,74,239,69,297,59"/>
+<area shape="rect" id="Node000005" href="$class_easy___copier_1_1_view_models_1_1_smart_adder_view_model.html#a39d7cec1df46a4adcbb59860923acb73" title=" " alt="" coords="5,5,262,48"/>
+<area shape="poly" id="edge5_Node000003_Node000005" title=" " alt="" coords="292,32,262,33,261,28,297,31"/>
+</map>

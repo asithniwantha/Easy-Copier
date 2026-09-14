@@ -1,0 +1,14 @@
+<map id="Easy_Copier.Views.SmartAdderControl.SmartAdderControl_obj3_Bindings.Update_" name="Easy_Copier.Views.SmartAdderControl.SmartAdderControl_obj3_Bindings.Update_">
+<area shape="rect" id="Node000001" title=" " alt="" coords="854,39,1064,97"/>
+<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_views_1_1_smart_adder_control_1_1_smart_adder_control__obj3___bindings.html#a14f4da5427cf3b4b58311bdb7f3d2134" title=" " alt="" coords="5,5,217,64"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="836,62,806,63,217,41,217,35,806,57,842,61"/>
+<area shape="rect" id="Node000003" href="$class_easy___copier_1_1_views_1_1_smart_adder_control_1_1_smart_adder_control__obj3___bindings.html#adf0a468064bcf2f9553578ca8c6d8710" title=" " alt="" coords="597,72,806,131"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="836,84,807,90,806,85,841,83"/>
+<area shape="rect" id="Node000004" href="$class_easy___copier_1_1_views_1_1_smart_adder_control_1_1_smart_adder_control__obj3___bindings.html#a3a42bebbc25f82024dd0423b0eb08c73" title=" " alt="" coords="265,72,549,131"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="579,102,550,104,549,99,584,101"/>
+<area shape="rect" id="Node000006" href="$class_easy___copier_1_1_views_1_1_smart_adder_control_1_1_smart_adder_control__obj3___bindings.html#ae0637a0bbc18049fc28e8aa2a0418a26" title=" " alt="" coords="302,155,512,213"/>
+<area shape="poly" id="edge6_Node000003_Node000006" title=" " alt="" coords="585,134,513,157,512,152,580,135"/>
+<area shape="poly" id="edge5_Node000004_Node000002" title=" " alt="" coords="257,69,217,61,217,56,262,67"/>
+<area shape="rect" id="Node000005" href="$class_easy___copier_1_1_views_1_1_smart_adder_control.html#af93947bbc44990b022d3cbe76120c821" title="GetBindingConnector(int connectionId, object target)." alt="" coords="6,88,216,131"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="246,106,217,109,216,104,252,105"/>
+</map>

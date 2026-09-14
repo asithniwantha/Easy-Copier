@@ -1,0 +1,24 @@
+var class_easy___copier_1_1_views_1_1_game_details_flyout =
+[
+    [ "XamlBindingSetters", "class_easy___copier_1_1_views_1_1_game_details_flyout_1_1_xaml_binding_setters.html", "class_easy___copier_1_1_views_1_1_game_details_flyout_1_1_xaml_binding_setters" ],
+    [ "GameDetailsFlyout_obj6_Bindings", "class_easy___copier_1_1_views_1_1_game_details_flyout_1_1_game_details_flyout__obj6___bindings.html", "class_easy___copier_1_1_views_1_1_game_details_flyout_1_1_game_details_flyout__obj6___bindings" ],
+    [ "GameDetailsFlyout_obj1_Bindings", "class_easy___copier_1_1_views_1_1_game_details_flyout_1_1_game_details_flyout__obj1___bindings.html", "class_easy___copier_1_1_views_1_1_game_details_flyout_1_1_game_details_flyout__obj1___bindings" ],
+    [ "IGameDetailsFlyout_Bindings", "interface_easy___copier_1_1_views_1_1_game_details_flyout_1_1_i_game_details_flyout___bindings.html", "interface_easy___copier_1_1_views_1_1_game_details_flyout_1_1_i_game_details_flyout___bindings" ],
+    [ "IGameDetailsFlyout_BindingsScopeConnector", "interface_easy___copier_1_1_views_1_1_game_details_flyout_1_1_i_game_details_flyout___bindings_scope_connector.html", "interface_easy___copier_1_1_views_1_1_game_details_flyout_1_1_i_game_details_flyout___bindings_scope_connector" ],
+    [ "GameDetailsFlyout", "class_easy___copier_1_1_views_1_1_game_details_flyout.html#ac5b43b93f1b9316f0799d4cd0f060793", null ],
+    [ "Connect", "class_easy___copier_1_1_views_1_1_game_details_flyout.html#ab1d7d4b0729dadc4c9ba0e5a79a86a29", null ],
+    [ "Connect", "class_easy___copier_1_1_views_1_1_game_details_flyout.html#ab1d7d4b0729dadc4c9ba0e5a79a86a29", null ],
+    [ "CreateColoredParagraph", "class_easy___copier_1_1_views_1_1_game_details_flyout.html#ac80be7a32068240c7121d08d99627a7c", null ],
+    [ "GetBindingConnector", "class_easy___copier_1_1_views_1_1_game_details_flyout.html#a3a5871da53f68470f82e5a0b21970318", null ],
+    [ "GetBindingConnector", "class_easy___copier_1_1_views_1_1_game_details_flyout.html#a3a5871da53f68470f82e5a0b21970318", null ],
+    [ "InitializeComponent", "class_easy___copier_1_1_views_1_1_game_details_flyout.html#afdfc62c307aba4ee4aa7299eeac42673", null ],
+    [ "InitializeComponent", "class_easy___copier_1_1_views_1_1_game_details_flyout.html#afdfc62c307aba4ee4aa7299eeac42673", null ],
+    [ "PopulateSysReqs", "class_easy___copier_1_1_views_1_1_game_details_flyout.html#a635c70bcb297f8ea7de832bde6981826", null ],
+    [ "UnloadObject", "class_easy___copier_1_1_views_1_1_game_details_flyout.html#a2044e3645e5c07f96d46133d9fbcb9bb", null ],
+    [ "UnloadObject", "class_easy___copier_1_1_views_1_1_game_details_flyout.html#a2044e3645e5c07f96d46133d9fbcb9bb", null ],
+    [ "_contentLoaded", "class_easy___copier_1_1_views_1_1_game_details_flyout.html#a8262980a766b30a695cd381b8a9a356f", null ],
+    [ "Bindings", "class_easy___copier_1_1_views_1_1_game_details_flyout.html#af7174c410618599ad020678189c0ac14", null ],
+    [ "FolderContentsPanel", "class_easy___copier_1_1_views_1_1_game_details_flyout.html#aca927f2c3f152a0de31bd72de383fd80", null ],
+    [ "SysReqTextBlock", "class_easy___copier_1_1_views_1_1_game_details_flyout.html#ab133753bc2787038302d566feac20898", null ],
+    [ "ViewModel", "class_easy___copier_1_1_views_1_1_game_details_flyout.html#a5dc300a217f99fc932cc1753734368ad", null ]
+];

@@ -1,0 +1,14 @@
+<map id="Easy_Copier.Views.MainPage.MainPage_obj43_Bindings.Update_" name="Easy_Copier.Views.MainPage.MainPage_obj43_Bindings.Update_">
+<area shape="rect" id="Node000001" title=" " alt="" coords="848,47,1076,89"/>
+<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_views_1_1_main_page_1_1_main_page__obj43___bindings.html#a58516cbacd154ac4a140dbceb457f291" title=" " alt="" coords="5,5,232,64"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="832,66,232,42,232,36,833,60"/>
+<area shape="rect" id="Node000003" href="$class_easy___copier_1_1_views_1_1_main_page_1_1_main_page__obj43___bindings.html#a188984cd5afddd477b3935da1d486ed8" title=" " alt="" coords="580,80,800,123"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="830,84,801,90,800,85,835,84"/>
+<area shape="rect" id="Node000004" href="$class_easy___copier_1_1_views_1_1_main_page_1_1_main_page__obj43___bindings.html#a0f42e3d92531c42b3c401a8f6ddeab75" title=" " alt="" coords="280,72,532,131"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="562,102,533,104,532,99,567,101"/>
+<area shape="rect" id="Node000006" href="$class_easy___copier_1_1_views_1_1_main_page_1_1_main_page__obj43___bindings.html#a6f63f0b2f0c8d4e090e8c330b10043c5" title=" " alt="" coords="293,155,519,197"/>
+<area shape="poly" id="edge6_Node000003_Node000006" title=" " alt="" coords="594,127,491,157,490,151,589,128"/>
+<area shape="poly" id="edge5_Node000004_Node000002" title=" " alt="" coords="262,69,232,64,232,58,267,68"/>
+<area shape="rect" id="Node000005" href="$class_easy___copier_1_1_views_1_1_main_page.html#a7e6abe4297637894234516b8c3e9cc92" title="GetBindingConnector(int connectionId, object target)." alt="" coords="17,88,220,131"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="262,106,220,109,220,104,267,105"/>
+</map>

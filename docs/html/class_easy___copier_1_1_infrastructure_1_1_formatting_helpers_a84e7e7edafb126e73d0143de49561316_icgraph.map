@@ -1,0 +1,16 @@
+<map id="Easy_Copier.Infrastructure.FormattingHelpers.FormatBytes" name="Easy_Copier.Infrastructure.FormattingHelpers.FormatBytes">
+<area shape="rect" id="Node000001" title="Formats a byte size into a human&#45;readable string with units (e.g. KB, MB, GB)." alt="" coords="644,155,851,197"/>
+<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_view_models_1_1_game_details_view_model.html#a0e0947f8ec366fe0b42c22e8fc845abf" title=" " alt="" coords="356,5,578,64"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="704,145,654,112,595,78,570,67,570,62,597,74,657,107,709,146"/>
+<area shape="rect" id="Node000004" href="$class_easy___copier_1_1_converters_1_1_bytes_to_size_converter.html#afd881c96660a6d9a6f1e366e9d562bde" title=" " alt="" coords="366,88,568,131"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="637,151,560,134,560,129,643,150"/>
+<area shape="rect" id="Node000005" href="$class_easy___copier_1_1_models_1_1_file_system_item.html#ac1a889bf3df5731c41fb553725cd0226" title=" " alt="" coords="361,155,573,197"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="626,176,574,179,573,173,631,176"/>
+<area shape="rect" id="Node000006" href="$class_easy___copier_1_1_infrastructure_1_1_dialog_service.html#a2202989f8a7cc94da59a0b1c8bf4c229" title=" " alt="" coords="338,221,596,264"/>
+<area shape="poly" id="edge6_Node000001_Node000006" title=" " alt="" coords="643,201,560,223,559,218,637,202"/>
+<area shape="rect" id="Node000007" href="$class_easy___copier_1_1_interop_1_1_file_operation_progress_sink.html#ac0fca37cba9cef3d6d058af3b33f1f4a" title=" " alt="" coords="366,288,568,347"/>
+<area shape="poly" id="edge7_Node000001_Node000007" title=" " alt="" coords="709,206,657,245,597,278,569,291,567,285,595,274,654,240,704,208"/>
+<area shape="rect" id="Node000003" href="$class_easy___copier_1_1_view_models_1_1_game_details_view_model.html#a85b8fc7ff6d6a87de050cf7e5ea5ddd6" title=" " alt="" coords="5,84,290,127"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="339,64,248,86,246,81,343,61"/>
+<area shape="poly" id="edge5_Node000005_Node000003" title=" " alt="" coords="350,152,247,130,247,125,355,150"/>
+</map>

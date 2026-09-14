@@ -1,0 +1,12 @@
+var _debug_2net10_80_windows10_80_826100_80_2win_x64_2_views_2_main_page_8g_8cs =
+[
+    [ "Easy_Copier.Views.MainPage", "class_easy___copier_1_1_views_1_1_main_page.html", "class_easy___copier_1_1_views_1_1_main_page" ],
+    [ "Easy_Copier.Views.MainPage.XamlBindingSetters", "class_easy___copier_1_1_views_1_1_main_page_1_1_xaml_binding_setters.html", "class_easy___copier_1_1_views_1_1_main_page_1_1_xaml_binding_setters" ],
+    [ "Easy_Copier.Views.MainPage.MainPage_obj3_Bindings", "class_easy___copier_1_1_views_1_1_main_page_1_1_main_page__obj3___bindings.html", "class_easy___copier_1_1_views_1_1_main_page_1_1_main_page__obj3___bindings" ],
+    [ "Easy_Copier.Views.MainPage.MainPage_obj21_Bindings", "class_easy___copier_1_1_views_1_1_main_page_1_1_main_page__obj21___bindings.html", "class_easy___copier_1_1_views_1_1_main_page_1_1_main_page__obj21___bindings" ],
+    [ "Easy_Copier.Views.MainPage.MainPage_obj21_Bindings.MainPage_obj21_BindingsTracking", "class_easy___copier_1_1_views_1_1_main_page_1_1_main_page__obj21___bindings_1_1_main_page__obj21___bindings_tracking.html", "class_easy___copier_1_1_views_1_1_main_page_1_1_main_page__obj21___bindings_1_1_main_page__obj21___bindings_tracking" ],
+    [ "Easy_Copier.Views.MainPage.MainPage_obj34_Bindings", "class_easy___copier_1_1_views_1_1_main_page_1_1_main_page__obj34___bindings.html", "class_easy___copier_1_1_views_1_1_main_page_1_1_main_page__obj34___bindings" ],
+    [ "Easy_Copier.Views.MainPage.MainPage_obj43_Bindings", "class_easy___copier_1_1_views_1_1_main_page_1_1_main_page__obj43___bindings.html", "class_easy___copier_1_1_views_1_1_main_page_1_1_main_page__obj43___bindings" ],
+    [ "Easy_Copier.Views.MainPage.MainPage_obj1_Bindings", "class_easy___copier_1_1_views_1_1_main_page_1_1_main_page__obj1___bindings.html", "class_easy___copier_1_1_views_1_1_main_page_1_1_main_page__obj1___bindings" ],
+    [ "Easy_Copier.Views.MainPage.MainPage_obj1_Bindings.MainPage_obj1_BindingsTracking", "class_easy___copier_1_1_views_1_1_main_page_1_1_main_page__obj1___bindings_1_1_main_page__obj1___bindings_tracking.html", "class_easy___copier_1_1_views_1_1_main_page_1_1_main_page__obj1___bindings_1_1_main_page__obj1___bindings_tracking" ]
+];

@@ -1,0 +1,8 @@
+<map id="Easy_Copier.Services.CopyHistoryService.GetRecordsByMonthAsync" name="Easy_Copier.Services.CopyHistoryService.GetRecordsByMonthAsync">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,29,276,72"/>
+<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_services_1_1_copy_history_service.html#adb2b5883ce370a33757bd5764bc96228" title=" " alt="" coords="324,29,557,72"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="276,48,310,51,305,51,276,53"/>
+<area shape="rect" id="Node000003" href="$namespace_easy___copier_1_1_models.html#a22cad9581ea699aafef9d310c84f0836" title=" " alt="" coords="605,29,824,72"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="558,48,592,51,587,51,558,53"/>
+<area shape="poly" id="edge3_Node000003_Node000003" title=" " alt="" coords="664,27,661,19,670,10,688,5,715,3,744,5,763,14,758,14,743,10,715,8,689,10,672,15,666,21,668,30"/>
+</map>

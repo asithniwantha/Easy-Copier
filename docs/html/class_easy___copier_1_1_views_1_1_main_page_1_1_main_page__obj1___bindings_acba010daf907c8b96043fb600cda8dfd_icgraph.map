@@ -1,0 +1,9 @@
+<map id="Easy_Copier.Views.MainPage.MainPage_obj1_Bindings.Initialize" name="Easy_Copier.Views.MainPage.MainPage_obj1_Bindings.Initialize">
+<area shape="rect" id="Node000001" title=" " alt="" coords="530,39,749,81"/>
+<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_views_1_1_main_page_1_1_main_page__obj1___bindings.html#a0ccc5a75a8c5cdd3d606f7a978f6cce1" title=" " alt="" coords="256,5,482,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="512,45,482,43,483,38,517,45"/>
+<area shape="rect" id="Node000003" href="$class_easy___copier_1_1_views_1_1_main_page_1_1_main_page__obj1___bindings.html#a17075433af00cbf67f6dbc13e9d1c7a9" title=" " alt="" coords="261,72,477,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="517,75,478,83,477,77,512,76"/>
+<area shape="rect" id="Node000004" href="$class_easy___copier_1_1_views_1_1_main_page.html#a7e6abe4297637894234516b8c3e9cc92" title="GetBindingConnector(int connectionId, object target)." alt="" coords="5,72,208,115"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="242,94,208,96,208,91,248,93"/>
+</map>

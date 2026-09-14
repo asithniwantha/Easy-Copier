@@ -1,0 +1,13 @@
+<map id="Easy_Copier.Program.Main" name="Easy_Copier.Program.Main">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,113,187,140"/>
+<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_app.html#ac87772e615c45c04880b62d94507f70b" title=" " alt="" coords="235,113,385,140"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="186,124,221,126,216,128,187,129"/>
+<area shape="rect" id="Node000003" href="$class_easy___copier_1_1_app.html#ae71efec3121752e104971bb41f6e80a2" title=" " alt="" coords="466,5,616,48"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="332,110,377,84,432,58,453,52,448,54,434,62,380,89,335,115"/>
+<area shape="rect" id="Node000004" href="$class_easy___copier_1_1_app.html#a4190d363a2ee41844c16ca66e4d82c87" title=" " alt="" coords="449,72,632,115"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="385,113,436,108,431,109,386,118"/>
+<area shape="rect" id="Node000005" href="$class_easy___copier_1_1_app.html#a1b3677ab966f4883699e99f15da82a6a" title=" " alt="" coords="433,139,648,181"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="385,135,420,142,415,142,385,140"/>
+<area shape="rect" id="Node000006" href="$class_easy___copier_1_1_app.html#a13e643ace1dbd4dd00a745fcbc0f9e98" title="InitializeComponent()." alt="" coords="453,205,628,248"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="334,138,380,164,434,191,451,200,446,199,432,196,377,169,333,143"/>
+</map>

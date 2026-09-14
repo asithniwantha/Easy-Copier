@@ -1,0 +1,11 @@
+<map id="Easy_Copier.Views.MainPage.MainPage_obj35_Bindings.SetDataRoot" name="Easy_Copier.Views.MainPage.MainPage_obj35_Bindings.SetDataRoot">
+<area shape="rect" id="Node000001" title=" " alt="" coords="580,57,834,100"/>
+<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_views_1_1_main_page_1_1_main_page__obj35___bindings.html#ac084c3a7a2658ee8386e56d4ec5c9769" title=" " alt="" coords="280,49,532,108"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="562,79,533,81,532,76,567,78"/>
+<area shape="rect" id="Node000003" href="$class_easy___copier_1_1_views_1_1_main_page.html#a7e6abe4297637894234516b8c3e9cc92" title="GetBindingConnector(int connectionId, object target)." alt="" coords="17,5,220,48"/>
+<area shape="poly" id="edge4_Node000001_Node000003" title=" " alt="" coords="611,53,532,40,450,32,368,27,221,26,220,21,368,22,451,27,532,35,617,53"/>
+<area shape="rect" id="Node000004" href="$class_easy___copier_1_1_views_1_1_main_page_1_1_main_page__obj35___bindings.html#adde1c30f501b1e1c97f80fd9a94819de" title=" " alt="" coords="5,87,232,145"/>
+<area shape="poly" id="edge5_Node000001_Node000004" title=" " alt="" coords="618,104,532,123,454,129,375,131,232,127,232,122,375,126,454,124,532,117,613,105"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="262,54,220,48,220,42,267,53"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="261,98,233,104,232,99,267,97"/>
+</map>

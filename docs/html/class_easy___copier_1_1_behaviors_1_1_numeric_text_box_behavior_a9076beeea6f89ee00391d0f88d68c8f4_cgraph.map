@@ -1,0 +1,18 @@
+<map id="Easy_Copier.Behaviors.NumericTextBoxBehavior.OnDetaching" name="Easy_Copier.Behaviors.NumericTextBoxBehavior.OnDetaching">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,147,217,189"/>
+<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_behaviors_1_1_numeric_text_box_behavior.html#a5f19def0f8c86199a8dddf0626b53e7b" title=" " alt="" coords="265,81,492,140"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="213,144,252,137,247,139,214,149"/>
+<area shape="rect" id="Node000007" href="$class_easy___copier_1_1_behaviors_1_1_numeric_text_box_behavior.html#ae9fe940fad65983c75a4aad6f48f97a0" title=" " alt="" coords="265,180,492,239"/>
+<area shape="poly" id="edge7_Node000001_Node000007" title=" " alt="" coords="217,182,252,189,247,190,217,187"/>
+<area shape="rect" id="Node000003" href="$class_easy___copier_1_1_behaviors_1_1_numeric_text_box_behavior.html#a1f1a593c76a7f23e6c10a4c6e08d2908" title=" " alt="" coords="552,5,775,48"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="471,78,539,57,568,52,563,54,541,63,473,83"/>
+<area shape="rect" id="Node000004" href="$class_easy___copier_1_1_behaviors_1_1_numeric_text_box_behavior.html#aa2b512d7bd8dff533afabf10c1226115" title=" " alt="" coords="558,72,769,115"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="492,101,545,100,540,101,493,106"/>
+<area shape="rect" id="Node000006" href="$class_easy___copier_1_1_behaviors_1_1_numeric_text_box_behavior.html#a3eb05cdac108ba7e61c8aff58e5ec9e7" title=" " alt="" coords="540,139,787,197"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="493,131,527,140,522,140,493,136"/>
+<area shape="rect" id="Node000005" href="$class_easy___copier_1_1_behaviors_1_1_numeric_text_box_behavior.html#abe8764944dbac769c8619a9b8ddaea3a" title=" " alt="" coords="835,109,1047,152"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="770,105,822,114,817,114,770,110"/>
+<area shape="poly" id="edge6_Node000006_Node000005" title=" " alt="" coords="788,149,823,147,817,147,788,154"/>
+<area shape="rect" id="Node000008" href="$class_easy___copier_1_1_behaviors_1_1_numeric_text_box_behavior.html#a7898c7a4c36444b3e0888707793618ab" title=" " alt="" coords="558,221,769,264"/>
+<area shape="poly" id="edge8_Node000007_Node000008" title=" " alt="" coords="493,220,545,229,540,229,493,225"/>
+</map>

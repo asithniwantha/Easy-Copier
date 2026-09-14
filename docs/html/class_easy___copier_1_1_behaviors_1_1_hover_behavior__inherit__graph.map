@@ -1,0 +1,5 @@
+<map id="Easy_Copier.Behaviors.HoverBehavior" name="Easy_Copier.Behaviors.HoverBehavior">
+<area shape="rect" id="Node000001" title="Toggles the bound IsHovered dependency property while the pointer is over the associated element,..." alt="" coords="5,96,203,139"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="12,5,196,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="106,62,106,97,102,95,102,66"/>
+</map>

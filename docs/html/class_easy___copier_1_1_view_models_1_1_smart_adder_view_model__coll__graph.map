@@ -1,0 +1,9 @@
+<map id="Easy_Copier.ViewModels.SmartAdderViewModel" name="Easy_Copier.ViewModels.SmartAdderViewModel">
+<area shape="rect" id="Node000001" title=" " alt="" coords="416,56,626,99"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="40,5,165,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="180,21,281,31,392,45,433,55,428,56,391,51,281,36,181,27"/>
+<area shape="rect" id="Node000003" href="$interface_easy___copier_1_1_infrastructure_1_1_i_window_service.html" title=" " alt="" coords="12,56,193,99"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="209,75,417,75,413,79,209,80"/>
+<area shape="rect" id="Node000004" href="$interface_easy___copier_1_1_services_1_1_i_smart_adder_history_service.html" title=" " alt="" coords="5,123,200,165"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="215,129,391,104,426,100,431,99,392,109,216,135"/>
+</map>

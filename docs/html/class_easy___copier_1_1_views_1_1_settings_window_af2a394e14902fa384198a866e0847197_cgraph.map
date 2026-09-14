@@ -1,0 +1,9 @@
+<map id="Easy_Copier.Views.SettingsWindow.Connect" name="Easy_Copier.Views.SettingsWindow.Connect">
+<area shape="rect" id="Node000001" title="Connect()." alt="" coords="5,72,194,115"/>
+<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_views_1_1_settings_window.html#a8d9b86005c01368acd70ee7f54822a56" title=" " alt="" coords="272,5,468,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="188,69,268,51,263,53,190,74"/>
+<area shape="rect" id="Node000003" href="$class_easy___copier_1_1_views_1_1_settings_window.html#aeab97c2b6bd7d01a0fc7cd01bac4034c" title=" " alt="" coords="274,72,466,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="194,91,261,93,255,94,194,96"/>
+<area shape="rect" id="Node000004" href="$class_easy___copier_1_1_views_1_1_settings_window.html#a029e9c66f39bcf2a9ae2f5ad0ae3f1c4" title=" " alt="" coords="242,139,498,181"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="189,113,268,134,263,135,189,118"/>
+</map>

@@ -1,0 +1,17 @@
+<map id="Easy_Copier.Infrastructure.NativeWindowHelper.SetWindowLongPtr64" name="Easy_Copier.Infrastructure.NativeWindowHelper.SetWindowLongPtr64">
+<area shape="rect" id="Node000001" title=" " alt="" coords="1092,105,1366,148"/>
+<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_infrastructure_1_1_native_window_helper.html#a0fc9a1d529a9a4f81c43415a4cc755ae" title=" " alt="" coords="837,105,1044,148"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="1073,127,1044,129,1044,124,1079,126"/>
+<area shape="rect" id="Node000003" href="$class_easy___copier_1_1_infrastructure_1_1_native_window_helper.html#a81a0067167ce836e7bd56820fb7a867f" title=" " alt="" coords="557,105,789,148"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="819,127,790,129,790,124,824,126"/>
+<area shape="rect" id="Node000004" href="$class_easy___copier_1_1_infrastructure_1_1_native_window_helper.html#a3d287dd8cb064cde0c403d6692cb4a67" title=" " alt="" coords="278,97,509,156"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="539,127,510,129,509,124,544,126"/>
+<area shape="rect" id="Node000005" href="$class_easy___copier_1_1_views_1_1_about_window.html#a86b76c2eb0d7e9e24bc276a20207a95e" title=" " alt="" coords="5,5,230,48"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="307,92,229,63,196,51,195,46,231,57,312,90"/>
+<area shape="rect" id="Node000006" href="$class_easy___copier_1_1_views_1_1_history_window.html#a4665b9acd85137846e61b539bd7c0815" title=" " alt="" coords="26,72,209,115"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="260,112,210,107,209,102,265,110"/>
+<area shape="rect" id="Node000007" href="$class_easy___copier_1_1_views_1_1_settings_window.html#aa5c96a3985044d8ebabe043cd105e570" title=" " alt="" coords="23,139,212,181"/>
+<area shape="poly" id="edge6_Node000004_Node000007" title=" " alt="" coords="260,143,213,151,211,146,265,142"/>
+<area shape="rect" id="Node000008" href="$class_easy___copier_1_1_views_1_1_smart_adder_history_window.html#a79e38193ee6ab739bd498202f49a3bb1" title=" " alt="" coords="5,205,230,264"/>
+<area shape="poly" id="edge7_Node000004_Node000008" title=" " alt="" coords="309,161,231,196,201,207,199,202,229,191,304,163"/>
+</map>

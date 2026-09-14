@@ -1,0 +1,20 @@
+<map id="Easy_Copier.Services.TransferQueueService.ProcessDriveQueueAsync" name="Easy_Copier.Services.TransferQueueService.ProcessDriveQueueAsync">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,133,267,176"/>
+<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_services_1_1_transfer_queue_service.html#a533e1a35bdbcf9ff1fdd48462d021ff3" title=" " alt="" coords="315,133,533,176"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="266,152,301,154,296,155,268,157"/>
+<area shape="rect" id="Node000003" href="$class_easy___copier_1_1_services_1_1_transfer_queue_service.html#a32e2c5f600b609c21a22bf2d6437f4fb" title=" " alt="" coords="581,5,818,64"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="464,130,580,74,593,71,598,69,582,78,466,135"/>
+<area shape="rect" id="Node000005" href="$class_easy___copier_1_1_services_1_1_transfer_queue_service.html#a7c3c07a217ea001a005714d570176bd2" title=" " alt="" coords="598,88,801,131"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="533,134,585,128,580,129,534,139"/>
+<area shape="rect" id="Node000006" href="$namespace_easy___copier_1_1_models.html#a0f254e810a60e913105ca1898e396f4c" title=" " alt="" coords="602,179,797,221"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="533,170,590,181,585,182,534,175"/>
+<area shape="rect" id="Node000007" href="$namespace_easy___copier_1_1_models.html#a361f45ad4ad4f48588e380daa766a5fa" title=" " alt="" coords="602,269,797,312"/>
+<area shape="poly" id="edge7_Node000002_Node000007" title=" " alt="" coords="469,174,582,231,643,263,637,262,580,236,468,179"/>
+<area shape="rect" id="Node000004" href="$class_easy___copier_1_1_services_1_1_transfer_queue_service.html#a609a297676ded43e4cae11d0c7b0eb04" title=" " alt="" coords="866,13,1122,56"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="818,32,853,34,848,35,819,37"/>
+<area shape="poly" id="edge6_Node000006_Node000006" title=" " alt="" coords="648,177,646,169,654,160,672,154,700,152,729,154,749,163,743,163,728,160,700,157,673,159,657,164,651,170,653,179"/>
+<area shape="poly" id="edge10_Node000007_Node000007" title=" " alt="" coords="648,267,646,259,654,250,672,245,700,243,729,245,749,254,743,254,728,250,700,248,673,250,657,255,651,261,653,270"/>
+<area shape="rect" id="Node000008" href="$namespace_easy___copier_1_1_models.html#af8f0175620d1cdd9a06d3e52ae12ba12" title=" " alt="" coords="888,269,1100,312"/>
+<area shape="poly" id="edge8_Node000007_Node000008" title=" " alt="" coords="797,288,875,291,870,291,797,293"/>
+<area shape="poly" id="edge9_Node000008_Node000008" title=" " alt="" coords="939,267,937,259,946,250,965,245,994,243,1026,245,1046,254,1041,254,1024,250,994,248,966,250,949,255,942,261,944,270"/>
+</map>

@@ -1,0 +1,17 @@
+<map id="Easy_Copier.Views.SettingsWindow.SettingsWindow_obj22_Bindings.ProcessBindings" name="Easy_Copier.Views.SettingsWindow.SettingsWindow_obj22_Bindings.ProcessBindings">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,80,210,139"/>
+<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_views_1_1_settings_window_1_1_settings_window__obj22___bindings.html#a34f85dc8fa4650b922f7a3714fe66460" title=" " alt="" coords="258,80,511,139"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="210,107,245,109,240,110,211,112"/>
+<area shape="rect" id="Node000003" href="$class_easy___copier_1_1_views_1_1_settings_window_1_1_settings_window__obj22___bindings.html#ac62b4cdb6e20a5af19952ba3673cc43b" title=" " alt="" coords="559,5,763,64"/>
+<area shape="poly" id="edge7_Node000001_Node000003" title=" " alt="" coords="206,77,257,65,406,46,546,38,541,39,406,51,258,71,208,82"/>
+<area shape="rect" id="Node000005" href="$class_easy___copier_1_1_views_1_1_settings_window_1_1_settings_window__obj22___bindings.html#af138123fd3934f381afc41975c5776bb" title=" " alt="" coords="811,121,1016,180"/>
+<area shape="poly" id="edge8_Node000001_Node000005" title=" " alt="" coords="203,137,258,148,402,163,548,167,683,165,799,161,793,161,683,170,548,172,402,168,257,153,203,142"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="495,77,547,65,542,67,496,82"/>
+<area shape="rect" id="Node000004" href="$class_easy___copier_1_1_views_1_1_settings_window_1_1_settings_window__obj22___bindings.html#a4e6651117599d1785c9b5679ed16bd57" title=" " alt="" coords="559,88,763,147"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="511,110,546,114,541,114,512,116"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="764,128,798,135,793,135,764,134"/>
+<area shape="rect" id="Node000006" href="$class_easy___copier_1_1_views_1_1_settings_window_1_1_xaml_binding_setters.html#a4333519c13e9fdbef213832a207388e0" title=" " alt="" coords="1103,68,1313,143"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="1016,132,1084,124,1090,124,1016,138"/>
+<area shape="rect" id="Node000007" href="$class_easy___copier_1_1_views_1_1_settings_window_1_1_xaml_binding_setters.html#a378a6e59046b9af6eb33ff28a950fa0c" title=" " alt="" coords="1064,167,1352,225"/>
+<area shape="poly" id="edge6_Node000005_Node000007" title=" " alt="" coords="1016,164,1051,172,1046,171,1016,169"/>
+</map>

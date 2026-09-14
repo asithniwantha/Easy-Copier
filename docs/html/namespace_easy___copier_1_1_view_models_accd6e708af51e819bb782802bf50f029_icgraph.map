@@ -1,0 +1,10 @@
+<map id="Easy_Copier.ViewModels.WeekOption" name="Easy_Copier.ViewModels.WeekOption">
+<area shape="rect" id="Node000001" title=" " alt="" coords="526,39,734,81"/>
+<area shape="poly" id="edge4_Node000001_Node000001" title=" " alt="" coords="673,23,658,20,630,17,604,19,588,24,582,30,584,40,579,37,577,29,585,20,603,14,630,12,660,14,679,24"/>
+<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_view_models_1_1_history_view_model.html#ae6b79afced2e2ee68f5d8f7033c5e8c7" title=" " alt="" coords="248,5,466,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="508,45,466,43,466,37,513,45"/>
+<area shape="rect" id="Node000004" href="$class_easy___copier_1_1_view_models_1_1_history_view_model.html#a80e21f10de84c862aea543e30ef75b2e" title=" " alt="" coords="236,72,478,115"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="513,74,479,81,478,76,508,75"/>
+<area shape="rect" id="Node000003" href="$class_easy___copier_1_1_views_1_1_history_page.html#a503d16800bf36579a8b866bf6fb45725" title=" " alt="" coords="5,5,188,48"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="230,27,188,29,188,24,235,26"/>
+</map>

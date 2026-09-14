@@ -1,0 +1,8 @@
+<map id="Easy_Copier.ViewModels.GameDetailsViewModel.CalculateFolderSizeAsync" name="Easy_Copier.ViewModels.GameDetailsViewModel.CalculateFolderSizeAsync">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,55,227,113"/>
+<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_infrastructure_1_1_file_system_helpers.html#a179279ea5f1e52ea09d8923972b8892c" title=" " alt="" coords="275,29,545,72"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="227,69,262,67,257,68,227,74"/>
+<area shape="rect" id="Node000003" href="$class_easy___copier_1_1_infrastructure_1_1_formatting_helpers.html#a84e7e7edafb126e73d0143de49561316" title="Formats a byte size into a human&#45;readable string with units (e.g. KB, MB, GB)." alt="" coords="306,96,514,139"/>
+<area shape="poly" id="edge3_Node000001_Node000003" title=" " alt="" coords="227,94,293,104,288,104,227,99"/>
+<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="355,27,353,19,362,10,381,5,410,3,441,5,462,14,456,14,440,10,410,8,382,10,364,15,358,21,360,30"/>
+</map>

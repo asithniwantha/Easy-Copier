@@ -1,0 +1,21 @@
+<map id="Easy_Copier.Views.SettingsWindow" name="Easy_Copier.Views.SettingsWindow">
+<area shape="rect" id="Node000001" title=" " alt="" coords="311,47,499,90"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="22,47,188,90"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="124,98,152,113,186,122,226,128,267,129,308,125,344,117,374,105,394,92,398,89,377,110,346,122,309,130,267,134,225,133,185,128,150,118,125,103"/>
+<area shape="poly" id="edge3_Node000001_Node000002" title=" " alt="" coords="135,94,195,107,267,111,336,104,365,97,390,89,385,92,366,102,337,109,267,116,194,113,137,99"/>
+<area shape="poly" id="edge4_Node000001_Node000002" title=" " alt="" coords="178,90,264,93,348,89,343,92,264,98,180,95"/>
+<area shape="poly" id="edge6_Node000001_Node000002" title=" " alt="" coords="202,75,312,75,308,79,204,80"/>
+<area shape="poly" id="edge7_Node000001_Node000002" title=" " alt="" coords="202,58,312,59,308,62,204,63"/>
+<area shape="poly" id="edge9_Node000001_Node000002" title=" " alt="" coords="178,43,264,39,348,45,343,48,264,44,180,47"/>
+<area shape="poly" id="edge10_Node000001_Node000002" title=" " alt="" coords="134,38,194,24,267,21,337,28,366,35,390,46,385,47,365,40,336,33,267,26,195,30,137,42"/>
+<area shape="poly" id="edge12_Node000001_Node000002" title=" " alt="" coords="123,34,150,19,185,9,225,4,267,3,309,7,346,15,377,28,399,47,393,47,374,32,344,20,308,12,267,8,226,9,186,15,152,24,127,38"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="5,201,205,243"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="210,191,310,139,353,112,389,89,385,92,356,117,312,144,213,196"/>
+<area shape="poly" id="edge5_Node000001_Node000003" title=" " alt="" coords="175,191,373,88,371,93,178,196"/>
+<area shape="poly" id="edge8_Node000001_Node000003" title=" " alt="" coords="149,190,348,88,346,93,152,195"/>
+<area shape="poly" id="edge11_Node000001_Node000003" title=" " alt="" coords="133,189,214,137,314,89,310,92,217,142,136,193"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="71,278,139,305"/>
+<area shape="poly" id="edge13_Node000001_Node000004" title=" " alt="" coords="153,276,203,253,259,213,310,167,384,92,388,88,314,171,262,217,206,258,155,281"/>
+<area shape="rect" id="Node000005" href="$interface_easy___copier_1_1_views_1_1_settings_window_1_1_i_settings_window___bindings.html" title=" " alt="" coords="11,329,199,387"/>
+<area shape="poly" id="edge14_Node000001_Node000005" title=" " alt="" coords="207,319,248,296,285,267,322,222,353,173,393,92,397,88,358,175,326,225,289,270,251,301,209,324"/>
+</map>

@@ -1,0 +1,7 @@
+<map id="Easy_Copier.ViewModels.MainViewModel.OnBatchCompleted" name="Easy_Copier.ViewModels.MainViewModel.OnBatchCompleted">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,209,48"/>
+<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_view_models_1_1_main_view_model.html#ae4a022cc308b4bc6edfd608f979979b0" title=" " alt="" coords="257,5,482,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="209,24,244,27,238,27,209,29"/>
+<area shape="rect" id="Node000003" href="$interface_easy___copier_1_1_infrastructure_1_1_i_dispatcher_service.html#a610df3934d188d070dafefd96a3bc47a" title=" " alt="" coords="530,5,736,48"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="483,24,517,27,512,27,483,29"/>
+</map>

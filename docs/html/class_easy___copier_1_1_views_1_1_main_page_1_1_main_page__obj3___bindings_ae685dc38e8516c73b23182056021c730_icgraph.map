@@ -1,0 +1,16 @@
+<map id="Easy_Copier.Views.MainPage.MainPage_obj3_Bindings.Update_Name" name="Easy_Copier.Views.MainPage.MainPage_obj3_Bindings.Update_Name">
+<area shape="rect" id="Node000001" title=" " alt="" coords="1146,39,1401,81"/>
+<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_views_1_1_main_page_1_1_main_page__obj3___bindings.html#a59b5e00a44cdaf63ee435e4d91bc927b" title=" " alt="" coords="877,39,1098,81"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="1127,60,1098,63,1098,57,1133,60"/>
+<area shape="rect" id="Node000003" href="$class_easy___copier_1_1_views_1_1_main_page_1_1_main_page__obj3___bindings.html#aca07df4c6d9afe9af7ea3ffdf0cc8888" title=" " alt="" coords="5,5,275,48"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="861,58,275,35,275,29,862,53"/>
+<area shape="rect" id="Node000004" href="$class_easy___copier_1_1_views_1_1_main_page_1_1_main_page__obj3___bindings.html#afd5df4a7974570d3fd9cd29ef99236dd" title=" " alt="" coords="616,72,829,115"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="859,76,830,83,829,77,864,75"/>
+<area shape="rect" id="Node000005" href="$class_easy___copier_1_1_views_1_1_main_page_1_1_main_page__obj3___bindings.html#ade01d710461528e532977060aa12e789" title=" " alt="" coords="323,64,568,123"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="598,94,569,96,568,91,603,93"/>
+<area shape="rect" id="Node000007" href="$class_easy___copier_1_1_views_1_1_main_page_1_1_main_page__obj3___bindings.html#a597d3c2285f2f07ac739118ee3e56bed" title=" " alt="" coords="336,147,555,189"/>
+<area shape="poly" id="edge7_Node000004_Node000007" title=" " alt="" coords="629,119,528,149,527,143,623,120"/>
+<area shape="poly" id="edge6_Node000005_Node000003" title=" " alt="" coords="305,64,241,51,241,46,310,63"/>
+<area shape="rect" id="Node000006" href="$class_easy___copier_1_1_views_1_1_main_page.html#a7e6abe4297637894234516b8c3e9cc92" title="GetBindingConnector(int connectionId, object target)." alt="" coords="39,72,241,115"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="304,94,242,96,241,91,310,93"/>
+</map>

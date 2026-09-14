@@ -1,0 +1,25 @@
+var searchData=
+[
+  ['searchtext_0',['SearchText',['../class_easy___copier_1_1_view_models_1_1_main_view_model.html#a64a74599a56983dfe41cfa479a2bba49',1,'Easy_Copier::ViewModels::MainViewModel']]],
+  ['selectedcategory_1',['SelectedCategory',['../class_easy___copier_1_1_view_models_1_1_main_view_model.html#a0107aa27d3e3eb9b5e3398e00c1fe716',1,'Easy_Copier::ViewModels::MainViewModel']]],
+  ['selecteddrive_2',['SelectedDrive',['../class_easy___copier_1_1_view_models_1_1_main_view_model.html#a2b37a8f9f2080de61415278eee5b7d21',1,'Easy_Copier::ViewModels::MainViewModel']]],
+  ['selectedfiltername_3',['SelectedFilterName',['../class_easy___copier_1_1_view_models_1_1_history_view_model.html#ac55a8e18f76589fd51ee646258ca0767',1,'Easy_Copier::ViewModels::HistoryViewModel']]],
+  ['selectedfilterstats_4',['SelectedFilterStats',['../class_easy___copier_1_1_view_models_1_1_history_view_model.html#a263f96143d4a404e15efc5b14d5c498b',1,'Easy_Copier::ViewModels::HistoryViewModel']]],
+  ['selectedgamescount_5',['SelectedGamesCount',['../class_easy___copier_1_1_view_models_1_1_main_view_model.html#aeeea8f0f2b5f976857c5a7fd563e7ae6',1,'Easy_Copier::ViewModels::MainViewModel']]],
+  ['selectedgamestotalbytes_6',['SelectedGamesTotalBytes',['../class_easy___copier_1_1_view_models_1_1_main_view_model.html#a2500d1dd8ada916d1714084a3e6da7f5',1,'Easy_Copier::ViewModels::MainViewModel']]],
+  ['selectedgamestotalprice_7',['SelectedGamesTotalPrice',['../class_easy___copier_1_1_view_models_1_1_main_view_model.html#a52f396803aff491c2d67414e50c987f3',1,'Easy_Copier::ViewModels::MainViewModel']]],
+  ['selectedmonth_8',['SelectedMonth',['../class_easy___copier_1_1_view_models_1_1_history_view_model.html#adab933bdcca26ae3196288037746a309',1,'Easy_Copier::ViewModels::HistoryViewModel']]],
+  ['selectedweek_9',['SelectedWeek',['../class_easy___copier_1_1_view_models_1_1_history_view_model.html#ab5928394b31f5932be5acaf648563495',1,'Easy_Copier::ViewModels::HistoryViewModel']]],
+  ['selectionsummary_10',['SelectionSummary',['../class_easy___copier_1_1_view_models_1_1_main_view_model.html#aac8ccb7069a9969faaf10be61a2e99d4',1,'Easy_Copier::ViewModels::MainViewModel']]],
+  ['services_11',['Services',['../class_easy___copier_1_1_app.html#ac93333d06517853619911bd6aa7cf199',1,'Easy_Copier::App']]],
+  ['setter_12',['Setter',['../class_easy___copier_1_1_easy___copier___xaml_type_info_1_1_xaml_member.html#a3cacea2ebaa65eba7b13d11ff9310546',1,'Easy_Copier::Easy_Copier_XamlTypeInfo::XamlMember']]],
+  ['showdesktopnotifications_13',['ShowDesktopNotifications',['../class_easy___copier_1_1_models_1_1_app_settings.html#a4e34c7502d2471fe21e9304108d37d80',1,'Easy_Copier.Models.AppSettings.ShowDesktopNotifications'],['../class_easy___copier_1_1_view_models_1_1_settings_view_model.html#aeaf40807adf5d4e249474c3d8b2b1748',1,'Easy_Copier.ViewModels.SettingsViewModel.ShowDesktopNotifications']]],
+  ['sizeformatted_14',['SizeFormatted',['../class_easy___copier_1_1_models_1_1_file_system_item.html#a9314ba0f9870d927b2ee275106d4674c',1,'Easy_Copier::Models::FileSystemItem']]],
+  ['smartadderviewmodel_15',['SmartAdderViewModel',['../class_easy___copier_1_1_view_models_1_1_main_view_model.html#ad36c53b83dee7811b4ea02595aa99c5b',1,'Easy_Copier::ViewModels::MainViewModel']]],
+  ['speedtext_16',['SpeedText',['../class_easy___copier_1_1_models_1_1_transfer_queue_item.html#ac61cdd9969984032eb51940b2d25f9b4',1,'Easy_Copier::Models::TransferQueueItem']]],
+  ['startonlogon_17',['StartOnLogon',['../class_easy___copier_1_1_models_1_1_app_settings.html#a995882ba6e0b0e735eea68bd7fe25e47',1,'Easy_Copier.Models.AppSettings.StartOnLogon'],['../class_easy___copier_1_1_view_models_1_1_settings_view_model.html#a57221f0a267b53fbb5d3148f6a204d6b',1,'Easy_Copier.ViewModels.SettingsViewModel.StartOnLogon']]],
+  ['staticinitializer_18',['StaticInitializer',['../class_easy___copier_1_1_easy___copier___xaml_type_info_1_1_xaml_user_type.html#ab69d5ae757a2fb4de7a88e27406f20b7',1,'Easy_Copier::Easy_Copier_XamlTypeInfo::XamlUserType']]],
+  ['status_19',['Status',['../class_easy___copier_1_1_models_1_1_transfer_queue_item.html#a1de6634af1a766282785a87d10b9c157',1,'Easy_Copier::Models::TransferQueueItem']]],
+  ['statusglyph_20',['StatusGlyph',['../class_easy___copier_1_1_models_1_1_transfer_queue_item.html#a5bb1c34374cac24bee899adab5c97f61',1,'Easy_Copier::Models::TransferQueueItem']]],
+  ['statusmessage_21',['StatusMessage',['../class_easy___copier_1_1_models_1_1_transfer_queue_item.html#aa49fdd8a6c9add423b4886e91ab67605',1,'Easy_Copier.Models.TransferQueueItem.StatusMessage'],['../class_easy___copier_1_1_view_models_1_1_history_view_model.html#a607090308d0d94bdd4b4ff7130da34d3',1,'Easy_Copier.ViewModels.HistoryViewModel.StatusMessage'],['../class_easy___copier_1_1_view_models_1_1_main_view_model.html#a5c9a489b8936ac8f174c1a5a6110033f',1,'Easy_Copier.ViewModels.MainViewModel.StatusMessage'],['../class_easy___copier_1_1_view_models_1_1_settings_view_model.html#a540fd838b5613f41410ec40ec8244627',1,'Easy_Copier.ViewModels.SettingsViewModel.StatusMessage']]]
+];

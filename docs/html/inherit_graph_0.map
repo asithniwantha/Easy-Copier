@@ -1,0 +1,11 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="Node000000" title=" " alt="" coords="65,5,150,32"/>
+<area shape="rect" id="Node000001" href="$class_easy___copier_1_1_app.html" title=" " alt="" coords="320,64,443,91"/>
+<area shape="poly" id="edge1_Node000000_Node000001" title=" " alt="" coords="165,28,321,63,317,66,165,34"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="25,56,190,99"/>
+<area shape="poly" id="edge2_Node000002_Node000001" title=" " alt="" coords="206,75,322,76,317,78,206,80"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="5,123,210,165"/>
+<area shape="poly" id="edge3_Node000003_Node000001" title=" " alt="" coords="212,116,321,92,326,91,213,121"/>
+<area shape="rect" id="Node000004" href="$class_easy___copier_1_1_easy___copier___xaml_type_info_1_1_xaml_meta_data_provider.html" title="Main class for providing metadata for the app or library." alt="" coords="258,123,505,165"/>
+<area shape="poly" id="edge4_Node000003_Node000004" title=" " alt="" coords="225,141,260,144,255,144,226,147"/>
+</map>

@@ -1,0 +1,27 @@
+<map id="Easy_Copier.Services.GameInfoDownloadService.DownloadCoverAsync" name="Easy_Copier.Services.GameInfoDownloadService.DownloadCoverAsync">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,303,285,345"/>
+<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_services_1_1_game_info_download_service.html#aeea730db504e9ee979c0426e61115c3e" title=" " alt="" coords="352,5,572,64"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="154,301,180,254,219,193,270,129,299,100,331,74,340,70,336,74,334,78,303,104,274,133,223,196,184,257,159,303"/>
+<area shape="rect" id="Node000003" href="$class_easy___copier_1_1_services_1_1_game_info_download_service.html#a9cd6862f282d8d6d4612cb9c15eed770" title=" " alt="" coords="349,88,574,147"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="163,300,233,230,280,191,331,156,344,152,340,155,334,161,283,195,237,234,167,304"/>
+<area shape="rect" id="Node000005" href="$class_easy___copier_1_1_services_1_1_game_info_download_service.html#abe5fa26f5662b94eea1d946a43f7e0da" title=" " alt="" coords="351,171,573,229"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="191,300,332,239,352,233,348,237,334,244,194,304"/>
+<area shape="rect" id="Node000006" href="$class_easy___copier_1_1_services_1_1_game_info_download_service.html#a632ff81276844ba2cb1151e84710bd2a" title=" " alt="" coords="345,253,578,312"/>
+<area shape="poly" id="edge6_Node000001_Node000006" title=" " alt="" coords="284,303,332,299,327,301,286,308"/>
+<area shape="rect" id="Node000007" href="$class_easy___copier_1_1_services_1_1_game_info_download_service.html#a1a870cf4392f465f104385c6c15bc184" title=" " alt="" coords="346,336,578,395"/>
+<area shape="poly" id="edge8_Node000001_Node000007" title=" " alt="" coords="284,340,333,347,328,349,286,345"/>
+<area shape="rect" id="Node000008" href="$class_easy___copier_1_1_services_1_1_game_info_download_service.html#aa30670d8a3a368e70633c032acbed2c1" title=" " alt="" coords="345,419,579,477"/>
+<area shape="poly" id="edge10_Node000001_Node000008" title=" " alt="" coords="192,343,334,404,352,413,347,413,332,409,192,349"/>
+<area shape="rect" id="Node000009" href="$class_easy___copier_1_1_services_1_1_game_info_download_service.html#a16c133781b37ce62e5603baf2298f3bb" title=" " alt="" coords="342,501,582,560"/>
+<area shape="poly" id="edge12_Node000001_Node000009" title=" " alt="" coords="166,343,237,414,283,453,334,487,345,494,339,494,331,492,280,457,233,418,165,349"/>
+<area shape="rect" id="Node000010" href="$class_easy___copier_1_1_services_1_1_game_info_download_service.html#adae95494262fe3bfc1cedb49a21416a9" title=" " alt="" coords="333,584,591,643"/>
+<area shape="poly" id="edge14_Node000001_Node000010" title=" " alt="" coords="157,343,184,391,223,452,274,515,303,544,334,570,341,576,336,575,331,574,299,548,270,519,219,455,180,394,156,348"/>
+<area shape="rect" id="Node000004" href="$class_easy___copier_1_1_services_1_1_game_info_download_service.html#aa5082d34c94299e50e9b4ec7213d3638" title=" " alt="" coords="639,344,919,387"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="570,145,592,156,644,197,690,244,729,290,758,332,753,331,725,293,687,247,641,201,590,161,571,150"/>
+<area shape="poly" id="edge5_Node000005_Node000004" title=" " alt="" coords="564,227,592,239,673,285,741,334,735,334,670,290,590,244,565,233"/>
+<area shape="poly" id="edge7_Node000006_Node000004" title=" " alt="" coords="577,310,682,339,677,340,577,315"/>
+<area shape="poly" id="edge9_Node000007_Node000004" title=" " alt="" coords="578,363,626,365,621,366,579,368"/>
+<area shape="poly" id="edge11_Node000008_Node000004" title=" " alt="" coords="576,415,682,390,677,392,578,421"/>
+<area shape="poly" id="edge13_Node000009_Node000004" title=" " alt="" coords="564,498,590,487,670,441,736,397,741,395,673,446,592,492,566,503"/>
+<area shape="poly" id="edge15_Node000010_Node000004" title=" " alt="" coords="570,581,590,570,641,530,687,484,725,437,754,401,758,398,729,441,690,487,644,534,592,574,571,586"/>
+</map>

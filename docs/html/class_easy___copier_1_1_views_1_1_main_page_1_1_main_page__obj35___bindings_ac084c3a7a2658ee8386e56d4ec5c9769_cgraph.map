@@ -1,0 +1,17 @@
+<map id="Easy_Copier.Views.MainPage.MainPage_obj35_Bindings.DataContextChangedHandler" name="Easy_Copier.Views.MainPage.MainPage_obj35_Bindings.DataContextChangedHandler">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,31,258,89"/>
+<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_views_1_1_main_page_1_1_main_page__obj35___bindings.html#a327009d05d37d5c60b24dccad7becf1f" title=" " alt="" coords="306,5,560,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="258,43,293,42,287,43,259,49"/>
+<area shape="rect" id="Node000003" href="$class_easy___copier_1_1_views_1_1_main_page_1_1_main_page__obj35___bindings.html#ab6b390873e5b1b96cf4aa937e07049e2" title=" " alt="" coords="323,72,543,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="258,71,310,79,305,80,258,77"/>
+<area shape="rect" id="Node000004" href="$class_easy___copier_1_1_views_1_1_main_page_1_1_main_page__obj35___bindings.html#a2ad401ee2030759371f9d93c4e17d1b6" title=" " alt="" coords="608,72,835,115"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="543,91,595,93,590,94,544,96"/>
+<area shape="rect" id="Node000005" href="$class_easy___copier_1_1_views_1_1_main_page_1_1_main_page__obj35___bindings.html#aa50074f26eab9085a2a5fbe3650ec9cf" title=" " alt="" coords="883,23,1104,81"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="836,73,865,71,871,71,836,79"/>
+<area shape="rect" id="Node000007" href="$class_easy___copier_1_1_views_1_1_main_page_1_1_main_page__obj35___bindings.html#a4b9b1df5e4888ef6c95fe1ed9473edfb" title=" " alt="" coords="883,105,1104,164"/>
+<area shape="poly" id="edge6_Node000004_Node000007" title=" " alt="" coords="836,108,871,116,865,115,836,113"/>
+<area shape="rect" id="Node000006" href="$class_easy___copier_1_1_views_1_1_main_page_1_1_xaml_binding_setters.html#a66c53f8cecb8edb7e2d5964aee434aac" title=" " alt="" coords="1152,23,1396,81"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="1104,49,1139,52,1134,52,1104,55"/>
+<area shape="rect" id="Node000008" href="$class_easy___copier_1_1_views_1_1_main_page_1_1_xaml_binding_setters.html#ac081ac527a1387aa36162ebfc81b094d" title=" " alt="" coords="1154,105,1394,164"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="1104,132,1141,135,1136,135,1104,137"/>
+</map>

@@ -1,0 +1,25 @@
+<map id="Easy_Copier.Easy_Copier_XamlTypeInfo.XamlTypeInfoProvider.InitTypeTables" name="Easy_Copier.Easy_Copier_XamlTypeInfo.XamlTypeInfoProvider.InitTypeTables">
+<area shape="rect" id="Node000001" title=" " alt="" coords="1481,163,1725,221"/>
+<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_easy___copier___xaml_type_info_1_1_xaml_type_info_provider.html#a9a4aefcc3188764024576abc48397471" title=" " alt="" coords="1189,125,1433,184"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="1463,174,1433,173,1433,168,1468,175"/>
+<area shape="rect" id="Node000011" href="$class_easy___copier_1_1_easy___copier___xaml_type_info_1_1_xaml_type_info_provider.html#a55aa0ca60ada86f86fa64dade077f4c9" title=" " alt="" coords="896,204,1141,263"/>
+<area shape="poly" id="edge11_Node000001_Node000011" title=" " alt="" coords="1468,202,1141,227,1141,222,1463,202"/>
+<area shape="rect" id="Node000003" href="$class_easy___copier_1_1_easy___copier___xaml_type_info_1_1_xaml_type_info_provider.html#adf91714e0d9358aacd17362db123a17d" title=" " alt="" coords="896,88,1141,147"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="1171,137,1141,136,1141,130,1176,137"/>
+<area shape="rect" id="Node000004" href="$class_easy___copier_1_1_easy___copier___xaml_type_info_1_1_xaml_type_info_provider.html#aa10faefb672907a6573e3526cdfb8986" title=" " alt="" coords="600,5,845,64"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="894,83,830,67,831,62,899,83"/>
+<area shape="rect" id="Node000007" href="$class_easy___copier_1_1_easy___copier___xaml_type_info_1_1_xaml_type_info_provider.html#af241cb00bafd41db4478607497ff3919" title=" " alt="" coords="600,88,845,147"/>
+<area shape="poly" id="edge6_Node000003_Node000007" title=" " alt="" coords="878,127,845,129,845,124,883,126"/>
+<area shape="rect" id="Node000010" href="$class_easy___copier_1_1_easy___copier___xaml_type_info_1_1_xaml_meta_data_provider.html#a6b7ae0deb8f323d1c713611f0b6aa6ee" title="GetXamlType(String)." alt="" coords="597,171,848,229"/>
+<area shape="poly" id="edge10_Node000003_Node000010" title=" " alt="" coords="899,151,831,173,830,167,894,152"/>
+<area shape="rect" id="Node000005" href="$class_easy___copier_1_1_easy___copier___xaml_type_info_1_1_xaml_type_info_provider.html#a2b858010015947374925493f6b0f6ea4" title=" " alt="" coords="305,5,549,64"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="582,35,550,37,549,32,588,34"/>
+<area shape="rect" id="Node000006" href="$class_easy___copier_1_1_easy___copier___xaml_type_info_1_1_xaml_user_type.html#a4a0ab551c908783a36406adf98a075e8" title=" " alt="" coords="19,5,243,64"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="287,36,244,37,242,32,291,34"/>
+<area shape="poly" id="edge7_Node000007_Node000003" title=" " alt="" coords="860,106,898,108,893,109,860,111"/>
+<area shape="rect" id="Node000008" href="$class_easy___copier_1_1_easy___copier___xaml_type_info_1_1_xaml_type_info_provider.html#a218b7568be34ff7aca2ecc0a64f2cfdf" title=" " alt="" coords="305,163,549,221"/>
+<area shape="poly" id="edge8_Node000007_Node000008" title=" " alt="" coords="592,150,546,165,545,159,587,152"/>
+<area shape="rect" id="Node000009" href="$class_easy___copier_1_1_easy___copier___xaml_type_info_1_1_xaml_meta_data_provider.html#a77fba23bbb31148def0abf6631c1d0a7" title="GetXamlType(Type)." alt="" coords="5,163,257,221"/>
+<area shape="poly" id="edge9_Node000008_Node000009" title=" " alt="" coords="286,192,257,195,257,189,292,192"/>
+<area shape="poly" id="edge12_Node000011_Node000008" title=" " alt="" coords="884,247,743,254,669,251,597,244,513,225,513,219,597,239,670,246,743,249,878,247"/>
+</map>

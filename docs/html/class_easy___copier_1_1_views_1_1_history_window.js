@@ -1,0 +1,25 @@
+var class_easy___copier_1_1_views_1_1_history_window =
+[
+    [ "HistoryWindow", "class_easy___copier_1_1_views_1_1_history_window.html#a4665b9acd85137846e61b539bd7c0815", null ],
+    [ "Connect", "class_easy___copier_1_1_views_1_1_history_window.html#a352aec48b73ae49f1a11440e771a5489", null ],
+    [ "Connect", "class_easy___copier_1_1_views_1_1_history_window.html#a352aec48b73ae49f1a11440e771a5489", null ],
+    [ "Connect", "class_easy___copier_1_1_views_1_1_history_window.html#a352aec48b73ae49f1a11440e771a5489", null ],
+    [ "Connect", "class_easy___copier_1_1_views_1_1_history_window.html#a352aec48b73ae49f1a11440e771a5489", null ],
+    [ "GetBindingConnector", "class_easy___copier_1_1_views_1_1_history_window.html#a85fd0c566d279b0d9257e44eec6e3382", null ],
+    [ "GetBindingConnector", "class_easy___copier_1_1_views_1_1_history_window.html#a85fd0c566d279b0d9257e44eec6e3382", null ],
+    [ "GetBindingConnector", "class_easy___copier_1_1_views_1_1_history_window.html#a85fd0c566d279b0d9257e44eec6e3382", null ],
+    [ "GetBindingConnector", "class_easy___copier_1_1_views_1_1_history_window.html#a85fd0c566d279b0d9257e44eec6e3382", null ],
+    [ "InitializeComponent", "class_easy___copier_1_1_views_1_1_history_window.html#a3b87dcb9b8d701bbfbacb46b9c86618e", null ],
+    [ "InitializeComponent", "class_easy___copier_1_1_views_1_1_history_window.html#a3b87dcb9b8d701bbfbacb46b9c86618e", null ],
+    [ "InitializeComponent", "class_easy___copier_1_1_views_1_1_history_window.html#a3b87dcb9b8d701bbfbacb46b9c86618e", null ],
+    [ "InitializeComponent", "class_easy___copier_1_1_views_1_1_history_window.html#a3b87dcb9b8d701bbfbacb46b9c86618e", null ],
+    [ "UnloadObject", "class_easy___copier_1_1_views_1_1_history_window.html#afb260fa35ca698dfd446e3cdd2986d6a", null ],
+    [ "UnloadObject", "class_easy___copier_1_1_views_1_1_history_window.html#afb260fa35ca698dfd446e3cdd2986d6a", null ],
+    [ "UnloadObject", "class_easy___copier_1_1_views_1_1_history_window.html#afb260fa35ca698dfd446e3cdd2986d6a", null ],
+    [ "UnloadObject", "class_easy___copier_1_1_views_1_1_history_window.html#afb260fa35ca698dfd446e3cdd2986d6a", null ],
+    [ "_contentLoaded", "class_easy___copier_1_1_views_1_1_history_window.html#ada3e5141f9ea93bd7f466c4e0477f37a", null ],
+    [ "_owner", "class_easy___copier_1_1_views_1_1_history_window.html#ac582ec0eeeb2525f0adf27ec85e20b47", null ],
+    [ "RootFrame", "class_easy___copier_1_1_views_1_1_history_window.html#a7c1c4658f241b9b65d4b0ac39f388627", null ],
+    [ "ViewModel", "class_easy___copier_1_1_views_1_1_history_window.html#af3799d9d304f3ab93380010c1ac45a2e", null ],
+    [ "HistoryClosed", "class_easy___copier_1_1_views_1_1_history_window.html#aca931a6f83d2364b5565ecedd54d2cd7", null ]
+];

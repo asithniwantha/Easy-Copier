@@ -1,0 +1,11 @@
+<map id="Easy_Copier.ViewModels.SmartAdderViewModel.AddNewCell" name="Easy_Copier.ViewModels.SmartAdderViewModel.AddNewCell">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,216,48"/>
+<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_view_models_1_1_smart_adder_view_model.html#aaf4aa6e4f4b74ea2a1eb3131f86483fe" title=" " alt="" coords="264,35,518,77"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="216,35,251,41,245,41,216,40"/>
+<area shape="rect" id="Node000003" href="$class_easy___copier_1_1_view_models_1_1_smart_adder_view_model.html#a04ec15ad74285788948c2efe234c6587" title=" " alt="" coords="566,5,857,48"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="518,51,557,50,551,50,519,56"/>
+<area shape="rect" id="Node000004" href="$class_easy___copier_1_1_view_models_1_1_smart_adder_view_model.html#a38ec0b1f5d81921fc108806d7929f719" title=" " alt="" coords="602,72,822,115"/>
+<area shape="poly" id="edge5_Node000002_Node000004" title=" " alt="" coords="518,68,589,79,583,79,518,73"/>
+<area shape="poly" id="edge3_Node000003_Node000001" title=" " alt="" coords="563,24,518,25,264,25,231,26,231,21,264,20,518,20,568,23"/>
+<area shape="poly" id="edge4_Node000003_Node000002" title=" " alt="" coords="563,31,534,37,533,31,568,31"/>
+</map>

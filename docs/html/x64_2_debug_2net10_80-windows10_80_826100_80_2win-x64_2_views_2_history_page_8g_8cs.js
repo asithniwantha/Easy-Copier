@@ -1,0 +1,7 @@
+var x64_2_debug_2net10_80_windows10_80_826100_80_2win_x64_2_views_2_history_page_8g_8cs =
+[
+    [ "Easy_Copier.Views.HistoryPage", "class_easy___copier_1_1_views_1_1_history_page.html", "class_easy___copier_1_1_views_1_1_history_page" ],
+    [ "Easy_Copier.Views.HistoryPage.XamlBindingSetters", "class_easy___copier_1_1_views_1_1_history_page_1_1_xaml_binding_setters.html", "class_easy___copier_1_1_views_1_1_history_page_1_1_xaml_binding_setters" ],
+    [ "Easy_Copier.Views.HistoryPage.HistoryPage_obj1_Bindings", "class_easy___copier_1_1_views_1_1_history_page_1_1_history_page__obj1___bindings.html", "class_easy___copier_1_1_views_1_1_history_page_1_1_history_page__obj1___bindings" ],
+    [ "Easy_Copier.Views.HistoryPage.HistoryPage_obj1_Bindings.HistoryPage_obj1_BindingsTracking", "class_easy___copier_1_1_views_1_1_history_page_1_1_history_page__obj1___bindings_1_1_history_page__obj1___bindings_tracking.html", "class_easy___copier_1_1_views_1_1_history_page_1_1_history_page__obj1___bindings_1_1_history_page__obj1___bindings_tracking" ]
+];

@@ -1,0 +1,27 @@
+<map id="Easy_Copier.Views.SmartAdderControl.SmartAdderControl_obj3_Bindings.Update" name="Easy_Copier.Views.SmartAdderControl.SmartAdderControl_obj3_Bindings.Update">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,180,215,239"/>
+<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_views_1_1_smart_adder_control_1_1_smart_adder_control__obj3___bindings.html#ae11a111647306ad0bcec59da4a4a2383" title=" " alt="" coords="263,180,472,239"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="215,207,250,209,245,210,216,212"/>
+<area shape="rect" id="Node000003" href="$class_easy___copier_1_1_views_1_1_smart_adder_control_1_1_smart_adder_control__obj3___bindings.html#a0536bdbb443d95a501307ee846b035e8" title=" " alt="" coords="1213,255,1436,313"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="472,215,1198,272,1197,277,472,220"/>
+<area shape="rect" id="Node000005" href="$class_easy___copier_1_1_views_1_1_smart_adder_control_1_1_smart_adder_control__obj3___bindings_1f1dc52798f9d31bf5c5f4e57a7da4e9f.html#a3832538bd0011d14180f254699b328a0" title=" " alt="" coords="520,105,815,180"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="472,184,507,178,502,180,473,189"/>
+<area shape="rect" id="Node000004" href="$class_easy___copier_1_1_views_1_1_smart_adder_control_1_1_xaml_binding_setters.html#a0e8cbc330ef1016fe71c6470a3ae59e4" title=" " alt="" coords="1550,247,1759,321"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="1437,281,1538,284,1532,284,1437,287"/>
+<area shape="rect" id="Node000006" href="$class_easy___copier_1_1_views_1_1_smart_adder_control_1_1_smart_adder_control__obj3___bindings_1f1dc52798f9d31bf5c5f4e57a7da4e9f.html#a67cc2c93af2b83b32ad678fb5f57caa5" title=" " alt="" coords="863,105,1135,180"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="815,140,850,142,845,143,816,145"/>
+<area shape="rect" id="Node000007" href="$class_easy___copier_1_1_views_1_1_smart_adder_control_1_1_smart_adder_control__obj3___bindings.html#ae17537bbdc52b482c5c7f6ffa4daf105" title=" " alt="" coords="1542,129,1767,204"/>
+<area shape="poly" id="edge14_Node000005_Node000007" title=" " alt="" coords="800,178,864,189,953,198,1043,203,1224,202,1390,193,1524,183,1530,183,1390,198,1224,207,1043,208,952,203,863,195,800,183"/>
+<area shape="rect" id="Node000009" href="$class_easy___copier_1_1_views_1_1_smart_adder_control_1_1_smart_adder_control__obj3___bindings_1f1dc52798f9d31bf5c5f4e57a7da4e9f.html#af422156321b25cd7001a0bb41134af90" title=" " alt="" coords="1183,55,1467,129"/>
+<area shape="poly" id="edge15_Node000005_Node000009" title=" " alt="" coords="800,102,863,91,940,83,1019,80,1170,83,1165,83,1020,85,941,89,864,96,801,107"/>
+<area shape="poly" id="edge13_Node000006_Node000003" title=" " alt="" coords="1087,178,1244,248,1239,248,1086,183"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="1135,145,1529,162,1524,162,1135,150"/>
+<area shape="poly" id="edge9_Node000006_Node000009" title=" " alt="" coords="1135,119,1170,116,1164,117,1135,124"/>
+<area shape="rect" id="Node000008" href="$class_easy___copier_1_1_views_1_1_smart_adder_control_1_1_smart_adder_control__obj3___bindings_1f1dc52798f9d31bf5c5f4e57a7da4e9f.html#a04935a3818ab6cf3bdec3ca3f2b5c311" title=" " alt="" coords="1842,121,2117,212"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="1767,173,1829,176,1824,176,1767,178"/>
+<area shape="poly" id="edge8_Node000008_Node000007" title=" " alt="" coords="1839,158,1782,161,1782,155,1844,158"/>
+<area shape="poly" id="edge12_Node000009_Node000007" title=" " alt="" coords="1467,122,1530,138,1525,138,1467,127"/>
+<area shape="rect" id="Node000010" href="$class_easy___copier_1_1_views_1_1_smart_adder_control_1_1_smart_adder_control__obj3___bindings_1f1dc52798f9d31bf5c5f4e57a7da4e9f.html#a234e2f79e43c2e27024aa74b4ba75bc4" title=" " alt="" coords="1515,5,1794,80"/>
+<area shape="poly" id="edge10_Node000009_Node000010" title=" " alt="" coords="1467,68,1502,65,1497,66,1468,73"/>
+<area shape="poly" id="edge11_Node000010_Node000005" title=" " alt="" coords="1512,32,1377,29,1213,31,1037,44,949,55,864,72,769,102,767,97,863,67,949,50,1037,38,1213,26,1377,24,1517,32"/>
+</map>
