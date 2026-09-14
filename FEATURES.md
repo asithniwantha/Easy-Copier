@@ -130,6 +130,7 @@
 * Extracted dynamic UI generation (e.g., Game details flyout) from code-behind into dedicated XAML UserControls (`GameDetailsFlyout`) and `GameDetailsViewModel`, significantly reducing view-to-view coupling, eliminating manual UI instantiation in C#, and enhancing MVVM separation.
 * IAppWindowContext introduced for clean UI abstraction.
 * File splits using C# partials applied to MainViewModel, SettingsViewModel, and GameInfoDownloadService.
+* Verified and resolved MVVMTK0045 warnings in `FileSystemItem.cs` and `GameDetailsViewModel.cs` using C# 13+ partial properties with `[ObservableProperty]`.
 * Resolved CS8611 nullability reference mismatch warnings on `[ObservableProperty]` generated partial method signatures.
 * Resolved CA1308 and CA1307 Roslyn static analysis warnings in `GameInfoDownloadService.Categories.cs`.
 * Resolved CA1305 Roslyn static analysis warnings in `LibraryScannerService.cs` and `FileOperationProgressSink.cs` by supplying `CultureInfo.InvariantCulture` to string formatting calls.
