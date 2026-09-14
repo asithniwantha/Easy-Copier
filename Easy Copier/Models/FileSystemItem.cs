@@ -11,8 +11,9 @@ namespace Easy_Copier.Models
 
         public string IconGlyph => IsFolder ? "\uE8D5" : "\uE7C3";
 
+        // Partial property preferred over private field for [ObservableProperty] to ensure WinRT/AOT compatibility (MVVMTK0045)
         [ObservableProperty]
-        private string _sizeFormatted = "Calculating...";
+        public partial string SizeFormatted { get; set; } = "Calculating...";
 
         public FileSystemItem(string path, bool isFolder)
         {
@@ -25,11 +26,11 @@ namespace Easy_Copier.Models
                 try
                 {
                     long size = new FileInfo(path).Length;
-                    _sizeFormatted = Easy_Copier.Infrastructure.FormattingHelpers.FormatBytes(size);
+                    SizeFormatted = Easy_Copier.Infrastructure.FormattingHelpers.FormatBytes(size);
                 }
                 catch
                 {
-                    _sizeFormatted = "Unknown";
+                    SizeFormatted = "Unknown";
                 }
             }
         }

@@ -15,11 +15,12 @@ namespace Easy_Copier.ViewModels
 
         public ObservableCollection<FileSystemItem> FolderContents { get; } = [];
 
+        // Partial properties used for [ObservableProperty] to ensure CsWinRT/AOT compatibility (MVVMTK0045)
         [ObservableProperty]
-        private string _folderStatusMessage = string.Empty;
+        public partial string FolderStatusMessage { get; set; } = string.Empty;
 
         [ObservableProperty]
-        private bool _isFolderStatusVisible;
+        public partial bool IsFolderStatusVisible { get; set; }
 
         public GameDetailsViewModel(IDispatcherService dispatcherService)
         {
