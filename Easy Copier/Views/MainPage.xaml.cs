@@ -78,7 +78,12 @@ namespace Easy_Copier.Views
             {
                 string formattedText = await ViewModel.GetFormattedSystemRequirementsAsync(gameEntry.FolderPath);
 
-                GameDetailsFlyout detailsFlyout = new(formattedText, gameEntry.FolderPath);
+                // Assuming App.xaml.cs provides access to IServiceProvider or we use a factory pattern.
+                // However, since we're in View code-behind and doing quick instantiation for a Flyout:
+                // We'll create the view model using the current app's service provider.
+                var gameDetailsViewModel = Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService<GameDetailsViewModel>(((App)Application.Current).Services);
+
+                GameDetailsFlyout detailsFlyout = new(gameDetailsViewModel, formattedText, gameEntry.FolderPath);
 
                 Style flyoutStyle = new(typeof(FlyoutPresenter));
                 flyoutStyle.Setters.Add(new Setter(FrameworkElement.MaxWidthProperty, double.PositiveInfinity));
