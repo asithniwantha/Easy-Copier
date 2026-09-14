@@ -98,9 +98,6 @@ namespace Easy_Copier
             ICopyHistoryService copyHistoryService = Services.GetRequiredService<Services.ICopyHistoryService>();
             await copyHistoryService.InitializeAsync();
 
-            IDatabaseService databaseService = Services.GetRequiredService<IDatabaseService>();
-            await databaseService.InitializeAsync();
-
             ISmartAdderHistoryService smartAdderHistoryService = Services.GetRequiredService<ISmartAdderHistoryService>();
             await smartAdderHistoryService.InitializeAsync();
         }
