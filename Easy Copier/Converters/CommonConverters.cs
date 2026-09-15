@@ -143,4 +143,31 @@ namespace Easy_Copier.Converters
             throw new NotImplementedException();
         }
     }
+
+    public class SortDirectionGlyphConverter : IValueConverter
+    {
+        public object Convert(object value, Type targetType, object parameter, string language)
+        {
+            // UpArrow =  (Ascending), DownArrow =  (Descending)
+            return value is bool isAscending && isAscending ? "" : "";
+        }
+
+        public object ConvertBack(object value, Type targetType, object parameter, string language)
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    public class SortDirectionToolTipConverter : IValueConverter
+    {
+        public object Convert(object value, Type targetType, object parameter, string language)
+        {
+            return value is bool isAscending && isAscending ? "Ascending" : "Descending";
+        }
+
+        public object ConvertBack(object value, Type targetType, object parameter, string language)
+        {
+            throw new NotImplementedException();
+        }
+    }
 }

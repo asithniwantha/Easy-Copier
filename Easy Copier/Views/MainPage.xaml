@@ -5,11 +5,14 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:Easy_Copier.Views"
     xmlns:models="using:Easy_Copier.Models"
+    xmlns:converters="using:Easy_Copier.Converters"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
     <Page.Resources>
+        <converters:SortDirectionGlyphConverter x:Key="SortDirectionGlyphConverter"/>
+        <converters:SortDirectionToolTipConverter x:Key="SortDirectionToolTipConverter"/>
         <DataTemplate x:Key="LibraryItemTemplate" x:DataType="models:GameEntry">
             <Border Style="{StaticResource GameCardStyle}"
                     Width="{StaticResource GameCardWidth}"
@@ -209,21 +212,40 @@
 
                 <PivotItem Header="OS Images">
                     <Grid>
-                        <ProgressRing IsActive="{x:Bind ViewModel.IsScanning, Mode=OneWay}"
-                                      Width="48" Height="48"
-                                      HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
 
-                        <TextBlock Text="{x:Bind ViewModel.EmptyOsImagesMessage, Mode=OneWay}"
-                                   HorizontalAlignment="Center" VerticalAlignment="Center"
-                                   TextWrapping="Wrap" MaxWidth="400" Opacity="0.7"
-                                   Visibility="{x:Bind ViewModel.IsOsImagesEmpty, Mode=OneWay}"/>
+                        <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Right" Spacing="8" Margin="0,0,0,8">
+                            <TextBlock Text="Sort by:" VerticalAlignment="Center" Opacity="0.8" />
+                            <ComboBox ItemsSource="{x:Bind ViewModel.AvailableOsImageSortOptions}"
+                                      SelectedItem="{x:Bind ViewModel.SelectedOsImageSortOption, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                      Width="130" VerticalAlignment="Center"/>
+                            <Button Command="{x:Bind ViewModel.ToggleOsImageSortDirectionCommand}"
+                                    Padding="8" VerticalAlignment="Center"
+                                    ToolTipService.ToolTip="{x:Bind ViewModel.IsOsImageSortAscending, Mode=OneWay, Converter={StaticResource SortDirectionToolTipConverter}}">
+                                <FontIcon Glyph="{x:Bind ViewModel.IsOsImageSortAscending, Mode=OneWay, Converter={StaticResource SortDirectionGlyphConverter}}" FontSize="12"/>
+                            </Button>
+                        </StackPanel>
 
-                        <GridView x:Name="OsImagesGridView"
-                                  ItemsSource="{x:Bind ViewModel.OsImages, Mode=OneWay}"
-                                  ItemTemplate="{StaticResource LibraryItemTemplate}"
-                                  SelectionMode="Single"
-                                  SelectionChanged="OsImagesGridView_SelectionChanged"
-                                  IsItemClickEnabled="False"/>
+                        <Grid Grid.Row="1">
+                            <ProgressRing IsActive="{x:Bind ViewModel.IsScanning, Mode=OneWay}"
+                                          Width="48" Height="48"
+                                          HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
+                            <TextBlock Text="{x:Bind ViewModel.EmptyOsImagesMessage, Mode=OneWay}"
+                                       HorizontalAlignment="Center" VerticalAlignment="Center"
+                                       TextWrapping="Wrap" MaxWidth="400" Opacity="0.7"
+                                       Visibility="{x:Bind ViewModel.IsOsImagesEmpty, Mode=OneWay}"/>
+
+                            <GridView x:Name="OsImagesGridView"
+                                      ItemsSource="{x:Bind ViewModel.OsImages, Mode=OneWay}"
+                                      ItemTemplate="{StaticResource LibraryItemTemplate}"
+                                      SelectionMode="Single"
+                                      SelectionChanged="OsImagesGridView_SelectionChanged"
+                                      IsItemClickEnabled="False"/>
+                        </Grid>
                     </Grid>
                 </PivotItem>
             </Pivot>

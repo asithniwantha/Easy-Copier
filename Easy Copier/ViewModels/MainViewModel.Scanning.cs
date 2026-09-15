@@ -138,6 +138,26 @@ namespace Easy_Copier.ViewModels
 
         partial void OnSelectedCategoryChanged(GameCategory oldValue, GameCategory newValue) => ApplyFilter();
 
+        partial void OnSelectedOsImageSortOptionChanged(OsImageSortOption oldValue, OsImageSortOption newValue)
+        {
+            IsOsImageSortAscending = newValue switch
+            {
+                OsImageSortOption.Name => true,
+                OsImageSortOption.DateAdded => false,
+                OsImageSortOption.Size => true,
+                _ => true
+            };
+            ApplyFilter();
+        }
+
+        partial void OnIsOsImageSortAscendingChanged(bool oldValue, bool newValue) => ApplyFilter();
+
+        [RelayCommand]
+        private void ToggleOsImageSortDirection()
+        {
+            IsOsImageSortAscending = !IsOsImageSortAscending;
+        }
+
 
         private void ApplyFilter()
         {
@@ -158,10 +178,27 @@ namespace Easy_Copier.ViewModels
                 return filtered;
             }
 
+            IEnumerable<GameEntry> SortOsImages(IEnumerable<GameEntry> entries)
+            {
+                return SelectedOsImageSortOption switch
+                {
+                    OsImageSortOption.Name => IsOsImageSortAscending
+                        ? entries.OrderBy(e => e.Name, StringComparer.OrdinalIgnoreCase)
+                        : entries.OrderByDescending(e => e.Name, StringComparer.OrdinalIgnoreCase),
+                    OsImageSortOption.DateAdded => IsOsImageSortAscending
+                        ? entries.OrderBy(e => e.DateAdded)
+                        : entries.OrderByDescending(e => e.DateAdded),
+                    OsImageSortOption.Size => IsOsImageSortAscending
+                        ? entries.OrderBy(e => e.TotalBytes)
+                        : entries.OrderByDescending(e => e.TotalBytes),
+                    _ => entries
+                };
+            }
+
             Games.UpdateFrom(FilterEntries(_allGames));
             Apps.UpdateFrom(FilterEntries(_allApps));
             TvAndFilms.UpdateFrom(FilterEntries(_allTvAndFilms));
-            OsImages.UpdateFrom(FilterEntries(_allOsImages));
+            OsImages.UpdateFrom(SortOsImages(FilterEntries(_allOsImages)));
 
             OnPropertyChanged(nameof(IsGamesEmpty));
             OnPropertyChanged(nameof(IsAppsEmpty));
