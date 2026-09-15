@@ -68,6 +68,8 @@ namespace Easy_Copier.Infrastructure
             _ = services.AddTransient<ViewModels.AboutViewModel>();
             _ = services.AddTransient<ViewModels.GameDetailsViewModel>();
 
+            _ = services.AddSingleton<Func<ViewModels.GameDetailsViewModel>>(provider => () => provider.GetRequiredService<ViewModels.GameDetailsViewModel>());
+
             return services;
         }
     }

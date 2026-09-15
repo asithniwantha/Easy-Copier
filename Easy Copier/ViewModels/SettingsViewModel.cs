@@ -268,32 +268,17 @@ namespace Easy_Copier.ViewModels
         [RelayCommand]
         private async Task RemoveSourceFolderByPathAsync(string folderPath)
         {
-            if (GameSourceFolders.Contains(folderPath))
-            {
-                await RemoveSourceFolderInternalAsync(GameSourceFolders, folderPath);
-            }
+            ObservableCollection<string>[] allFolderCollections = [GameSourceFolders, AppSourceFolders, TvAndFilmSourceFolders, OsImageSourceFolders];
 
-            if (AppSourceFolders.Contains(folderPath))
+            foreach (var collection in allFolderCollections)
             {
-                await RemoveSourceFolderInternalAsync(AppSourceFolders, folderPath);
+                if (collection.Remove(folderPath))
+                {
+                    StatusMessage = $"Removed: {folderPath}";
+                    await SaveSettingsAsync();
+                    return; // Assuming a folder path is unique across all lists and we only need to remove it once
+                }
             }
-
-            if (TvAndFilmSourceFolders.Contains(folderPath))
-            {
-                await RemoveSourceFolderInternalAsync(TvAndFilmSourceFolders, folderPath);
-            }
-
-            if (OsImageSourceFolders.Contains(folderPath))
-            {
-                await RemoveSourceFolderInternalAsync(OsImageSourceFolders, folderPath);
-            }
-        }
-
-        private async Task RemoveSourceFolderInternalAsync(ObservableCollection<string> targetFolders, string folderPath)
-        {
-            _ = targetFolders.Remove(folderPath);
-            StatusMessage = $"Removed: {folderPath}";
-            await SaveSettingsAsync();
         }
 
         [RelayCommand]

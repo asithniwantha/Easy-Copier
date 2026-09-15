@@ -27,6 +27,7 @@ namespace Easy_Copier.ViewModels
         private readonly IUpdateService _updateService;
         private readonly ISourceLibraryService _sourceLibraryService;
         private readonly IDialogService _dialogService;
+        private readonly Func<GameDetailsViewModel> _gameDetailsViewModelFactory;
         private CancellationTokenSource? _scanCancellationTokenSource;
         private CancellationTokenSource? _validationCancellationTokenSource;
         private CancellationTokenSource? _notificationCancellationTokenSource;
@@ -178,7 +179,8 @@ namespace Easy_Copier.ViewModels
             IDispatcherService dispatcherService,
             ISourceLibraryService sourceLibraryService,
             IDialogService dialogService,
-            SmartAdderViewModel smartAdderViewModel)
+            SmartAdderViewModel smartAdderViewModel,
+            Func<GameDetailsViewModel> gameDetailsViewModelFactory)
         {
             _logger = logger;
             _settingsService = settingsService;
@@ -195,6 +197,7 @@ namespace Easy_Copier.ViewModels
             _sourceLibraryService = sourceLibraryService;
             _dialogService = dialogService;
             SmartAdderViewModel = smartAdderViewModel;
+            _gameDetailsViewModelFactory = gameDetailsViewModelFactory;
 
             _driveDiscoveryService.DrivesChanged += OnDrivesChanged;
             _transferQueueService.ItemCompleted += OnQueueItemCompleted;
@@ -289,6 +292,11 @@ namespace Easy_Copier.ViewModels
             }
 
             await CheckForUpdatesBackgroundAsync();
+        }
+
+        public GameDetailsViewModel CreateGameDetailsViewModel()
+        {
+            return _gameDetailsViewModelFactory();
         }
 
         public async Task InitializeAsync()

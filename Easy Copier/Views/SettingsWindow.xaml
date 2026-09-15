@@ -134,7 +134,8 @@
                                             <TextBlock Grid.Column="0" Text="{x:Bind}" VerticalAlignment="Center"
                                                        TextTrimming="CharacterEllipsis"/>
                                             <Button Grid.Column="1" Content="Remove"
-                                                    Click="RemoveFolder_Click" Tag="{x:Bind}"/>
+                                                    Command="{Binding ElementName=SettingsNav, Path=DataContext.RemoveSourceFolderByPathCommand}"
+                                                    CommandParameter="{x:Bind}"/>
                                         </Grid>
                                     </DataTemplate>
                                 </ListView.ItemTemplate>
@@ -172,7 +173,8 @@
                                             <TextBlock Grid.Column="0" Text="{x:Bind}" VerticalAlignment="Center"
                                                        TextTrimming="CharacterEllipsis"/>
                                             <Button Grid.Column="1" Content="Remove"
-                                                    Click="RemoveFolder_Click" Tag="{x:Bind}"/>
+                                                    Command="{Binding ElementName=SettingsNav, Path=DataContext.RemoveSourceFolderByPathCommand}"
+                                                    CommandParameter="{x:Bind}"/>
                                         </Grid>
                                     </DataTemplate>
                                 </ListView.ItemTemplate>
@@ -203,7 +205,8 @@
                                             <TextBlock Grid.Column="0" Text="{x:Bind}" VerticalAlignment="Center"
                                                        TextTrimming="CharacterEllipsis"/>
                                             <Button Grid.Column="1" Content="Remove"
-                                                    Click="RemoveFolder_Click" Tag="{x:Bind}"/>
+                                                    Command="{Binding ElementName=SettingsNav, Path=DataContext.RemoveSourceFolderByPathCommand}"
+                                                    CommandParameter="{x:Bind}"/>
                                         </Grid>
                                     </DataTemplate>
                                 </ListView.ItemTemplate>
@@ -240,7 +243,8 @@
                                             <TextBlock Grid.Column="0" Text="{x:Bind}" VerticalAlignment="Center"
                                                        TextTrimming="CharacterEllipsis"/>
                                             <Button Grid.Column="1" Content="Remove"
-                                                    Click="RemoveFolder_Click" Tag="{x:Bind}"/>
+                                                    Command="{Binding ElementName=SettingsNav, Path=DataContext.RemoveSourceFolderByPathCommand}"
+                                                    CommandParameter="{x:Bind}"/>
                                         </Grid>
                                     </DataTemplate>
                                 </ListView.ItemTemplate>

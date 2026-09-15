@@ -73,14 +73,6 @@ namespace Easy_Copier.Views
             }
         }
 
-        private async void RemoveFolder_Click(object sender, RoutedEventArgs e)
-        {
-            if (sender is FrameworkElement fe && fe.Tag is string folderPath)
-            {
-                await ViewModel.RemoveSourceFolderByPathCommand.ExecuteAsync(folderPath);
-            }
-        }
-
         private async void SaveAndClose_Click(object sender, RoutedEventArgs e)
         {
             await ViewModel.SaveSettingsCommand.ExecuteAsync(null);
