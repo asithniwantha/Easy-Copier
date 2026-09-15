@@ -108,7 +108,8 @@ namespace Easy_Copier.Services
                         List<string> extList = [];
                         if (category == LibraryCategory.TvAndFilm)
                         {
-                            extList = [.. videoExtensions!.Split(VideoExtensionSeparators, StringSplitOptions.RemoveEmptyEntries).Select(e => e.Trim().StartsWith('.') ? e.Trim() : "." + e.Trim())];
+                            ArgumentNullException.ThrowIfNull(videoExtensions);
+                            extList = [.. videoExtensions.Split(VideoExtensionSeparators, StringSplitOptions.RemoveEmptyEntries).Select(e => e.Trim().StartsWith('.') ? e.Trim() : "." + e.Trim())];
                         }
                         else
                         {
