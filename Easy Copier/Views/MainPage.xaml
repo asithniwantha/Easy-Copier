@@ -146,7 +146,7 @@
                           Width="150" />
             </Grid>
 
-            <Pivot x:Name="LibraryPivot" Grid.Row="5" SelectedIndex="{x:Bind ViewModel.CurrentTabIndex, Mode=TwoWay}">
+            <Pivot x:Name="LibraryPivot" Grid.Row="5" SelectedIndex="{x:Bind ViewModel.CurrentTabIndex, Mode=TwoWay}" SelectionChanged="LibraryPivot_SelectionChanged">
                 <PivotItem Header="Games">
                     <Grid>
                         <ProgressRing IsActive="{x:Bind ViewModel.IsScanning, Mode=OneWay}"
@@ -203,6 +203,26 @@
                                   ItemTemplate="{StaticResource LibraryItemTemplate}"
                                   SelectionMode="Multiple"
                                   SelectionChanged="TvAndFilmsGridView_SelectionChanged"
+                                  IsItemClickEnabled="False"/>
+                    </Grid>
+                </PivotItem>
+
+                <PivotItem Header="OS Images">
+                    <Grid>
+                        <ProgressRing IsActive="{x:Bind ViewModel.IsScanning, Mode=OneWay}"
+                                      Width="48" Height="48"
+                                      HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
+                        <TextBlock Text="{x:Bind ViewModel.EmptyOsImagesMessage, Mode=OneWay}"
+                                   HorizontalAlignment="Center" VerticalAlignment="Center"
+                                   TextWrapping="Wrap" MaxWidth="400" Opacity="0.7"
+                                   Visibility="{x:Bind ViewModel.IsOsImagesEmpty, Mode=OneWay}"/>
+
+                        <GridView x:Name="OsImagesGridView"
+                                  ItemsSource="{x:Bind ViewModel.OsImages, Mode=OneWay}"
+                                  ItemTemplate="{StaticResource LibraryItemTemplate}"
+                                  SelectionMode="Single"
+                                  SelectionChanged="OsImagesGridView_SelectionChanged"
                                   IsItemClickEnabled="False"/>
                     </Grid>
                 </PivotItem>
@@ -381,6 +401,12 @@
 
                 <Button Grid.Row="4" Content="Add to Copy Queue" Style="{StaticResource AccentButtonStyle}"
                         Command="{x:Bind ViewModel.CopySelectedGamesCommand}"
+                        Visibility="{x:Bind ViewModel.IsOsImagesTabActive, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}, ConverterParameter=Invert}"
+                        HorizontalAlignment="Stretch" Margin="0,0,0,8"/>
+
+                <Button Grid.Row="4" Content="Open in Rufus" Style="{StaticResource AccentButtonStyle}"
+                        Command="{x:Bind ViewModel.OpenInRufusCommand}"
+                        Visibility="{x:Bind ViewModel.IsOsImagesTabActive, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}"
                         HorizontalAlignment="Stretch" Margin="0,0,0,8"/>
 
                 <Grid Grid.Row="5">

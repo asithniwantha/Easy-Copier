@@ -17,7 +17,7 @@ namespace Easy_Copier.Services
             _gameScannerService = gameScannerService;
         }
 
-        public async Task<(IReadOnlyList<GameEntry> Games, IReadOnlyList<GameEntry> Apps, IReadOnlyList<GameEntry> TvAndFilms)> ScanAllLibrariesAsync(
+        public async Task<(IReadOnlyList<GameEntry> Games, IReadOnlyList<GameEntry> Apps, IReadOnlyList<GameEntry> TvAndFilms, IReadOnlyList<GameEntry> OsImages)> ScanAllLibrariesAsync(
             AppSettings settings,
             IProgress<string>? progress = null,
             CancellationToken cancellationToken = default)
@@ -27,6 +27,7 @@ namespace Easy_Copier.Services
             List<GameEntry> allGames = [];
             List<GameEntry> allApps = [];
             List<GameEntry> allTvAndFilms = [];
+            List<GameEntry> allOsImages = [];
 
             if (settings.GameSourceFolders != null && settings.GameSourceFolders.Count > 0)
             {
@@ -62,7 +63,18 @@ namespace Easy_Copier.Services
                 allTvAndFilms.AddRange(tvAndFilms);
             }
 
-            return (allGames, allApps, allTvAndFilms);
+            if (settings.OsImageSourceFolders != null && settings.OsImageSourceFolders.Count > 0)
+            {
+                IReadOnlyList<GameEntry> osImages = await _gameScannerService.ScanLibraryAsync(
+                    settings.OsImageSourceFolders,
+                    LibraryCategory.OsImage,
+                    progress,
+                    cancellationToken: cancellationToken);
+
+                allOsImages.AddRange(osImages);
+            }
+
+            return (allGames, allApps, allTvAndFilms, allOsImages);
         }
 
         public async Task<string> FindDuplicatesReportAsync(
@@ -70,12 +82,13 @@ namespace Easy_Copier.Services
             IProgress<string>? progress = null,
             CancellationToken cancellationToken = default)
         {
-            (IReadOnlyList<GameEntry>? games, IReadOnlyList<GameEntry>? apps, IReadOnlyList<GameEntry>? tvAndFilms) = await ScanAllLibrariesAsync(settings, progress, cancellationToken);
+            (IReadOnlyList<GameEntry>? games, IReadOnlyList<GameEntry>? apps, IReadOnlyList<GameEntry>? tvAndFilms, IReadOnlyList<GameEntry>? osImages) = await ScanAllLibrariesAsync(settings, progress, cancellationToken);
 
             List<GameEntry> allEntries = [];
             allEntries.AddRange(games);
             allEntries.AddRange(apps);
             allEntries.AddRange(tvAndFilms);
+            allEntries.AddRange(osImages);
 
             List<IGrouping<string, GameEntry>> duplicates = allEntries
                 .GroupBy(e => e.Name, StringComparer.OrdinalIgnoreCase)

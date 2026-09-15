@@ -79,6 +79,10 @@ namespace Easy_Copier.ViewModels
         public ObservableCollection<string> GameSourceFolders { get; } = [];
         public ObservableCollection<string> AppSourceFolders { get; } = [];
         public ObservableCollection<string> TvAndFilmSourceFolders { get; } = [];
+        public ObservableCollection<string> OsImageSourceFolders { get; } = [];
+
+        [ObservableProperty]
+        public partial string RufusExecutablePath { get; set; } = @"%USERPROFILE%\Downloads\Programs\rufus.exe";
 
         [ObservableProperty]
         public partial string VideoFileExtensions { get; set; } = ".mp4,.mkv,.avi";
@@ -230,6 +234,9 @@ namespace Easy_Copier.ViewModels
                 case "TvAndFilm":
                     await AddSourceFolderAsync(TvAndFilmSourceFolders, "film/tv");
                     break;
+                case "OsImage":
+                    await AddSourceFolderAsync(OsImageSourceFolders, "OS image");
+                    break;
             }
         }
 
@@ -274,6 +281,11 @@ namespace Easy_Copier.ViewModels
             if (TvAndFilmSourceFolders.Contains(folderPath))
             {
                 await RemoveSourceFolderInternalAsync(TvAndFilmSourceFolders, folderPath);
+            }
+
+            if (OsImageSourceFolders.Contains(folderPath))
+            {
+                await RemoveSourceFolderInternalAsync(OsImageSourceFolders, folderPath);
             }
         }
 
