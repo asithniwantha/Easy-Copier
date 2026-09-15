@@ -105,6 +105,14 @@ namespace Easy_Copier.ViewModels
 
         public IReadOnlyList<GameCategory> AvailableCategories { get; } = Enum.GetValues<GameCategory>();
 
+        [ObservableProperty]
+        public partial OsImageSortOption SelectedOsImageSortOption { get; set; } = OsImageSortOption.Name;
+
+        [ObservableProperty]
+        public partial bool IsOsImageSortAscending { get; set; } = true;
+
+        public IReadOnlyList<OsImageSortOption> AvailableOsImageSortOptions { get; } = Enum.GetValues<OsImageSortOption>();
+
 
         private readonly List<GameEntry> _allGames = [];
         private readonly List<GameEntry> _allApps = [];

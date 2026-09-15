@@ -30,6 +30,13 @@ namespace Easy_Copier.Models
         OsImage
     }
 
+    public enum OsImageSortOption
+    {
+        Name,
+        DateAdded,
+        Size
+    }
+
     public record GameEntry(
         string Name,
         string FolderPath,

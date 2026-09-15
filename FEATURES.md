@@ -4,7 +4,8 @@
 - Scan configured source folders for **Games**, **Apps**, and **Film & TV**.
 - Automatically expand folders ending in "collection" to scan their subdirectories.
 - Support automatic scanning at startup and on-demand rescanning.
-- Display library items in separate tabs (Games / Apps / Film & TV).
+- Display library items in separate tabs (Games / Apps / Film & TV / OS Images).
+- Sort OS Images by Name, Date Added, and Size with Ascending and Descending direction toggles.
 - Search and filter items by name.
 - **Game Categorization:** Extracts metadata from Steam with keyword fallbacks, displayed and filterable in the UI.
 
