@@ -63,7 +63,7 @@
     <PublishReadyToRun>false</PublishReadyToRun>
     <PublishTrimmed>False</PublishTrimmed>
     <PublishSingleFile>false</PublishSingleFile>
-    <SelfContained>false</SelfContained>
+    <SelfContained>true</SelfContained>
     <WindowsAppSDKSelfContained>true</WindowsAppSDKSelfContained>
     <ApplicationIcon>Assets\easy copier ico.ico</ApplicationIcon>
   </PropertyGroup>
