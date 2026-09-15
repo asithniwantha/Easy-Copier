@@ -60,6 +60,7 @@ namespace Easy_Copier.ViewModels
         [NotifyPropertyChangedFor(nameof(IsGamesEmpty))]
         [NotifyPropertyChangedFor(nameof(IsAppsEmpty))]
         [NotifyPropertyChangedFor(nameof(IsTvAndFilmsEmpty))]
+        [NotifyPropertyChangedFor(nameof(IsOsImagesEmpty))]
         public partial bool IsScanning { get; set; }
 
         [ObservableProperty]
@@ -91,12 +92,14 @@ namespace Easy_Copier.ViewModels
         [NotifyPropertyChangedFor(nameof(EmptyGamesMessage))]
         [NotifyPropertyChangedFor(nameof(EmptyAppsMessage))]
         [NotifyPropertyChangedFor(nameof(EmptyTvAndFilmsMessage))]
+        [NotifyPropertyChangedFor(nameof(EmptyOsImagesMessage))]
         public partial string SearchText { get; set; } = string.Empty;
 
         [ObservableProperty]
         [NotifyPropertyChangedFor(nameof(EmptyGamesMessage))]
         [NotifyPropertyChangedFor(nameof(EmptyAppsMessage))]
         [NotifyPropertyChangedFor(nameof(EmptyTvAndFilmsMessage))]
+        [NotifyPropertyChangedFor(nameof(EmptyOsImagesMessage))]
         public partial GameCategory SelectedCategory { get; set; } = GameCategory.All;
 
         public IReadOnlyList<GameCategory> AvailableCategories { get; } = Enum.GetValues<GameCategory>();
@@ -105,10 +108,12 @@ namespace Easy_Copier.ViewModels
         private readonly List<GameEntry> _allGames = [];
         private readonly List<GameEntry> _allApps = [];
         private readonly List<GameEntry> _allTvAndFilms = [];
+        private readonly List<GameEntry> _allOsImages = [];
 
         public bool IsGamesEmpty => !IsScanning && Games.Count == 0;
         public bool IsAppsEmpty => !IsScanning && Apps.Count == 0;
         public bool IsTvAndFilmsEmpty => !IsScanning && TvAndFilms.Count == 0;
+        public bool IsOsImagesEmpty => !IsScanning && OsImages.Count == 0;
 
         public string EmptyGamesMessage => string.IsNullOrWhiteSpace(SearchText)
             ? "No games found. Add a game folder in Settings and scan your library."
@@ -121,6 +126,10 @@ namespace Easy_Copier.ViewModels
         public string EmptyTvAndFilmsMessage => string.IsNullOrWhiteSpace(SearchText)
             ? "No films/TV series found. Add a folder in Settings and scan your library."
             : $"No films/TV series match \"{SearchText}\".";
+
+        public string EmptyOsImagesMessage => string.IsNullOrWhiteSpace(SearchText)
+            ? "No OS images found. Add an OS image folder in Settings and scan your library."
+            : $"No OS images match \"{SearchText}\".";
 
         public bool HasSelectedDrive => SelectedDrive != null;
 
@@ -136,11 +145,16 @@ namespace Easy_Copier.ViewModels
             ? "No items selected"
             : $"{SelectedGamesCount} item(s) selected \u2022 {FormattingHelpers.FormatBytes(SelectedGamesTotalBytes)} \u2022 Rs. {SelectedGamesTotalPrice}";
 
-        public int CurrentTabIndex { get; set; }
+        [ObservableProperty]
+        [NotifyPropertyChangedFor(nameof(IsOsImagesTabActive))]
+        public partial int CurrentTabIndex { get; set; }
+
+        public bool IsOsImagesTabActive => CurrentTabIndex == 3;
 
         public ObservableCollection<GameEntry> Games { get; } = [];
         public ObservableCollection<GameEntry> Apps { get; } = [];
         public ObservableCollection<GameEntry> TvAndFilms { get; } = [];
+        public ObservableCollection<GameEntry> OsImages { get; } = [];
         public ObservableCollection<RemovableDrive> AvailableDrives { get; } = [];
         public ObservableCollection<ValidationResult> ValidationMessages { get; } = [];
         public ObservableCollection<TransferQueueItem> TransferQueue => _transferQueueService.QueueItems;
@@ -303,7 +317,7 @@ namespace Easy_Copier.ViewModels
                 _driveDiscoveryService.StartWatching();
                 await RefreshDrivesAsync();
 
-                if (settings.GameSourceFolders.Count == 0 && settings.AppSourceFolders.Count == 0 && (settings.TvAndFilmSourceFolders == null || settings.TvAndFilmSourceFolders.Count == 0))
+                if (settings.GameSourceFolders.Count == 0 && settings.AppSourceFolders.Count == 0 && (settings.TvAndFilmSourceFolders == null || settings.TvAndFilmSourceFolders.Count == 0) && (settings.OsImageSourceFolders == null || settings.OsImageSourceFolders.Count == 0))
                 {
                     StatusMessage = "Ready - No source folders configured";
                     return;
@@ -322,6 +336,9 @@ namespace Easy_Copier.ViewModels
                     _allTvAndFilms.Clear();
                     _allTvAndFilms.AddRange(cache.TvAndFilms ?? []);
 
+                    _allOsImages.Clear();
+                    _allOsImages.AddRange(cache.OsImages ?? []);
+
                     ApplyFilter();
 
                     TimeSpan cacheAge = DateTime.Now - cache.CachedAt;
@@ -331,7 +348,7 @@ namespace Easy_Copier.ViewModels
                             ? $"{(int)cacheAge.TotalHours}h ago"
                             : $"{(int)cacheAge.TotalDays}d ago";
 
-                    StatusMessage = $"Loaded {_allGames.Count} game(s), {_allApps.Count} app(s), {_allTvAndFilms.Count} film/TV(s) from cache (scanned {ageText}) - Validating...";
+                    StatusMessage = $"Loaded {_allGames.Count} game(s), {_allApps.Count} app(s), {_allTvAndFilms.Count} film/TV(s), {_allOsImages.Count} OS image(s) from cache (scanned {ageText}) - Validating...";
 
                     if (settings.AutoScanOnStartup)
                     {
@@ -339,7 +356,7 @@ namespace Easy_Copier.ViewModels
                     }
                     else
                     {
-                        StatusMessage = $"Loaded {_allGames.Count} game(s), {_allApps.Count} app(s), {_allTvAndFilms.Count} film/TV(s) from cache (scanned {ageText})";
+                        StatusMessage = $"Loaded {_allGames.Count} game(s), {_allApps.Count} app(s), {_allTvAndFilms.Count} film/TV(s), {_allOsImages.Count} OS image(s) from cache (scanned {ageText})";
                     }
                 }
                 else
@@ -389,7 +406,7 @@ namespace Easy_Copier.ViewModels
                 {
                     _ = TryEnqueueIfActive(() =>
                     {
-                        StatusMessage = $"Library is up to date: {_allGames.Count} game(s), {_allApps.Count} app(s), {_allTvAndFilms.Count} film/TV(s)";
+                        StatusMessage = $"Library is up to date: {_allGames.Count} game(s), {_allApps.Count} app(s), {_allTvAndFilms.Count} film/TV(s), {_allOsImages.Count} OS image(s)";
                     });
                     return;
                 }

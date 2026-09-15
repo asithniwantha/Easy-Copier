@@ -46,6 +46,11 @@
                         <SymbolIcon Symbol="Video" />
                     </NavigationViewItem.Icon>
                 </NavigationViewItem>
+                <NavigationViewItem Tag="OsImages" Content="OS Images">
+                    <NavigationViewItem.Icon>
+                        <SymbolIcon Symbol="Save" />
+                    </NavigationViewItem.Icon>
+                </NavigationViewItem>
                 <NavigationViewItem Tag="Logs" Content="Logs &amp; Troubleshooting">
                     <NavigationViewItem.Icon>
                         <SymbolIcon Symbol="Document" />
@@ -213,6 +218,44 @@
                                      ToolTipService.ToolTip="Comma-separated extensions to identify standalone video files" />
                         </StackPanel>
                     </StackPanel>
+
+                    <!-- OS Images Panel -->
+                    <StackPanel x:Name="OsImagesPanel" Visibility="Collapsed" Spacing="16">
+                        <TextBlock Text="OS Images Settings" FontSize="20" FontWeight="SemiBold" />
+                        <StackPanel Spacing="8">
+                            <TextBlock Text="OS Image Folders" FontWeight="SemiBold"/>
+                            <ListView x:Name="OsImageSourceFoldersListView"
+                                      ItemsSource="{x:Bind ViewModel.OsImageSourceFolders, Mode=OneWay}"
+
+                                      BorderBrush="{ThemeResource SurfaceStrokeColorDefaultBrush}"
+                                      BorderThickness="1"
+                                      CornerRadius="4">
+                                <ListView.ItemTemplate>
+                                    <DataTemplate x:DataType="x:String">
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="Auto"/>
+                                            </Grid.ColumnDefinitions>
+                                            <TextBlock Grid.Column="0" Text="{x:Bind}" VerticalAlignment="Center"
+                                                       TextTrimming="CharacterEllipsis"/>
+                                            <Button Grid.Column="1" Content="Remove"
+                                                    Click="RemoveFolder_Click" Tag="{x:Bind}"/>
+                                        </Grid>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+                            <Button Content="Add OS Image Folder" Command="{x:Bind ViewModel.AddNewSourceFolderCommand}" CommandParameter="OsImage"
+                                    HorizontalAlignment="Left" Margin="0,8,0,0"/>
+
+                            <TextBox Header="Rufus Executable Path"
+                                     Text="{x:Bind ViewModel.RufusExecutablePath, Mode=TwoWay}"
+                                     PlaceholderText="%USERPROFILE%\Downloads\Programs\rufus.exe"
+                                     Margin="0,16,0,0"
+                                     ToolTipService.ToolTip="Path to rufus.exe for opening OS images" />
+                        </StackPanel>
+                    </StackPanel>
+
                     <!-- Logs Panel -->
                     <StackPanel x:Name="LogsPanel" Visibility="Collapsed" Spacing="16">
                         <TextBlock Text="Logs &amp; Troubleshooting" FontSize="20" FontWeight="SemiBold" />

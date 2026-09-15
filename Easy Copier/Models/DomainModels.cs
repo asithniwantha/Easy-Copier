@@ -26,7 +26,8 @@ namespace Easy_Copier.Models
     {
         Game,
         App,
-        TvAndFilm
+        TvAndFilm,
+        OsImage
     }
 
     public record GameEntry(
@@ -104,6 +105,8 @@ namespace Easy_Copier.Models
         public List<string> GameSourceFolders { get; set; } = [];
         public List<string> AppSourceFolders { get; set; } = [];
         public List<string> TvAndFilmSourceFolders { get; set; } = [];
+        public List<string> OsImageSourceFolders { get; set; } = [];
+        public string RufusExecutablePath { get; set; } = @"%USERPROFILE%\Downloads\Programs\rufus.exe";
         public string VideoFileExtensions { get; set; } = ".mp4,.mkv,.avi";
         public bool AutoScanOnStartup { get; set; } = true;
         public bool StartOnLogon { get; set; }
@@ -128,13 +131,15 @@ namespace Easy_Copier.Models
         List<GameEntry> Games,
         List<GameEntry> Apps,
         List<GameEntry> TvAndFilms,
+        List<GameEntry> OsImages,
         List<string> GameSourceFolders,
         List<string> AppSourceFolders,
         List<string> TvAndFilmSourceFolders,
+        List<string> OsImageSourceFolders,
         DateTime CachedAt,
         Dictionary<string, ItemFingerprint> ItemFingerprints)
     {
-        public const int CurrentSchemaVersion = 2;
+        public const int CurrentSchemaVersion = 3;
     }
 
     public enum CacheValidationResult

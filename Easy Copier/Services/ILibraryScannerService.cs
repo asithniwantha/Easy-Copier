@@ -8,7 +8,7 @@ namespace Easy_Copier.Services
 {
     public interface ILibraryScannerService
     {
-        Task<(IReadOnlyList<GameEntry> Games, IReadOnlyList<GameEntry> Apps, IReadOnlyList<GameEntry> TvAndFilms)> ScanAllLibrariesAsync(
+        Task<(IReadOnlyList<GameEntry> Games, IReadOnlyList<GameEntry> Apps, IReadOnlyList<GameEntry> TvAndFilms, IReadOnlyList<GameEntry> OsImages)> ScanAllLibrariesAsync(
             AppSettings settings,
             IProgress<string>? progress = null,
             CancellationToken cancellationToken = default);

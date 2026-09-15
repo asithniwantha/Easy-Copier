@@ -10,7 +10,8 @@ namespace Easy_Copier.Infrastructure
         None,
         AddGameFolder,
         AddAppFolder,
-        AddTvAndFilmFolder
+        AddTvAndFilmFolder,
+        AddOsImageFolder
     }
 
     public interface IWindowService

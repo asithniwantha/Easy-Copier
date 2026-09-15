@@ -32,6 +32,7 @@ namespace Easy_Copier.ViewModels
             AutoDownloadUpdates = settings.AutoDownloadUpdates;
             PlayNotificationSounds = settings.PlayNotificationSounds;
             ShowDesktopNotifications = settings.ShowDesktopNotifications;
+            RufusExecutablePath = settings.RufusExecutablePath ?? @"%USERPROFILE%\Downloads\Programs\rufus.exe";
             VideoFileExtensions = settings.VideoFileExtensions ?? ".mp4,.mkv,.avi";
             PriceTier1 = settings.PriceTier1.ToString(System.Globalization.CultureInfo.InvariantCulture);
             PriceTier2 = settings.PriceTier2.ToString(System.Globalization.CultureInfo.InvariantCulture);
@@ -41,6 +42,7 @@ namespace Easy_Copier.ViewModels
             GameSourceFolders.UpdateFrom(settings.GameSourceFolders);
             AppSourceFolders.UpdateFrom(settings.AppSourceFolders);
             TvAndFilmSourceFolders.UpdateFrom(settings.TvAndFilmSourceFolders ?? []);
+            OsImageSourceFolders.UpdateFrom(settings.OsImageSourceFolders ?? []);
         }
 
         public AppSettings GetSettings()
@@ -52,6 +54,7 @@ namespace Easy_Copier.ViewModels
                 AutoDownloadUpdates = AutoDownloadUpdates,
                 PlayNotificationSounds = PlayNotificationSounds,
                 ShowDesktopNotifications = ShowDesktopNotifications,
+                RufusExecutablePath = RufusExecutablePath,
                 VideoFileExtensions = VideoFileExtensions,
                 PriceTier1 = int.TryParse(PriceTier1, out int p1) ? p1 : 100,
                 PriceTier2 = int.TryParse(PriceTier2, out int p2) ? p2 : 200,
@@ -59,7 +62,8 @@ namespace Easy_Copier.ViewModels
                 PriceTier4 = int.TryParse(PriceTier4, out int p4) ? p4 : 400,
                 GameSourceFolders = [.. GameSourceFolders],
                 AppSourceFolders = [.. AppSourceFolders],
-                TvAndFilmSourceFolders = [.. TvAndFilmSourceFolders]
+                TvAndFilmSourceFolders = [.. TvAndFilmSourceFolders],
+                OsImageSourceFolders = [.. OsImageSourceFolders]
             };
         }
     }

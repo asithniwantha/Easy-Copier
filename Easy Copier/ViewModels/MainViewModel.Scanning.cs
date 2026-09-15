@@ -22,9 +22,11 @@ namespace Easy_Copier.ViewModels
                 _allGames.Clear();
                 _allApps.Clear();
                 _allTvAndFilms.Clear();
+                _allOsImages.Clear();
                 Games.Clear();
                 Apps.Clear();
                 TvAndFilms.Clear();
+                OsImages.Clear();
                 ValidationMessages.Clear();
 
                 if (_scanCancellationTokenSource != null)
@@ -36,7 +38,7 @@ namespace Easy_Copier.ViewModels
 
                 AppSettings settings = await _settingsService.LoadSettingsAsync();
 
-                if (settings.GameSourceFolders.Count == 0 && settings.AppSourceFolders.Count == 0 && (settings.TvAndFilmSourceFolders == null || settings.TvAndFilmSourceFolders.Count == 0))
+                if (settings.GameSourceFolders.Count == 0 && settings.AppSourceFolders.Count == 0 && (settings.TvAndFilmSourceFolders == null || settings.TvAndFilmSourceFolders.Count == 0) && (settings.OsImageSourceFolders == null || settings.OsImageSourceFolders.Count == 0))
                 {
                     await _libraryCacheService.InvalidateCacheAsync();
                     StatusMessage = "No source folders configured. Please add folders in Settings.";
@@ -48,7 +50,7 @@ namespace Easy_Copier.ViewModels
                     StatusMessage = message;
                 });
 
-                (IReadOnlyList<GameEntry> Games, IReadOnlyList<GameEntry> Apps, IReadOnlyList<GameEntry> TvAndFilms) scanResult = await _libraryScannerService.ScanAllLibrariesAsync(
+                (IReadOnlyList<GameEntry> Games, IReadOnlyList<GameEntry> Apps, IReadOnlyList<GameEntry> TvAndFilms, IReadOnlyList<GameEntry> OsImages) scanResult = await _libraryScannerService.ScanAllLibrariesAsync(
                     settings,
                     progress,
                     _scanCancellationTokenSource.Token);
@@ -56,12 +58,13 @@ namespace Easy_Copier.ViewModels
                 _allGames.AddRange(scanResult.Games);
                 _allApps.AddRange(scanResult.Apps);
                 _allTvAndFilms.AddRange(scanResult.TvAndFilms);
+                _allOsImages.AddRange(scanResult.OsImages);
 
                 ApplyFilter();
 
-                StatusMessage = _allGames.Count == 0 && _allApps.Count == 0 && _allTvAndFilms.Count == 0
+                StatusMessage = _allGames.Count == 0 && _allApps.Count == 0 && _allTvAndFilms.Count == 0 && _allOsImages.Count == 0
                     ? "No items found in configured folders"
-                    : $"Found {_allGames.Count} game(s), {_allApps.Count} app(s), {_allTvAndFilms.Count} film/TV(s)";
+                    : $"Found {_allGames.Count} game(s), {_allApps.Count} app(s), {_allTvAndFilms.Count} film/TV(s), {_allOsImages.Count} OS image(s)";
 
                 settings.LastScanTime = DateTime.Now;
                 await _settingsService.SaveSettingsAsync(settings);
@@ -88,7 +91,7 @@ namespace Easy_Copier.ViewModels
             {
                 Dictionary<string, ItemFingerprint> fingerprints = [];
 
-                List<GameEntry> allEntries = [.. _allGames, .. _allApps, .. _allTvAndFilms];
+                List<GameEntry> allEntries = [.. _allGames, .. _allApps, .. _allTvAndFilms, .. _allOsImages];
 
                 foreach (GameEntry? entry in allEntries)
                 {
@@ -110,9 +113,11 @@ namespace Easy_Copier.ViewModels
                     [.. _allGames],
                     [.. _allApps],
                     [.. _allTvAndFilms],
+                    [.. _allOsImages],
                     [.. settings.GameSourceFolders],
                     [.. settings.AppSourceFolders],
                     [.. settings.TvAndFilmSourceFolders ?? []],
+                    [.. settings.OsImageSourceFolders ?? []],
                     DateTime.Now,
                     fingerprints);
 
@@ -156,10 +161,12 @@ namespace Easy_Copier.ViewModels
             Games.UpdateFrom(FilterEntries(_allGames));
             Apps.UpdateFrom(FilterEntries(_allApps));
             TvAndFilms.UpdateFrom(FilterEntries(_allTvAndFilms));
+            OsImages.UpdateFrom(FilterEntries(_allOsImages));
 
             OnPropertyChanged(nameof(IsGamesEmpty));
             OnPropertyChanged(nameof(IsAppsEmpty));
             OnPropertyChanged(nameof(IsTvAndFilmsEmpty));
+            OnPropertyChanged(nameof(IsOsImagesEmpty));
         }
 
         [RelayCommand]
@@ -417,6 +424,51 @@ namespace Easy_Copier.ViewModels
             }
         }
 
+        [RelayCommand]
+        private async Task OpenInRufusAsync()
+        {
+            if (_selectedGames.Count != 1)
+            {
+                StatusMessage = "Please select exactly one OS image.";
+                return;
+            }
+
+            GameEntry selectedImage = _selectedGames[0];
+            string isoPath = selectedImage.FolderPath;
+
+            if (!System.IO.File.Exists(isoPath))
+            {
+                StatusMessage = $"ISO file not found: {isoPath}";
+                return;
+            }
+
+            try
+            {
+                AppSettings settings = await _settingsService.LoadSettingsAsync();
+                string rufusPath = Environment.ExpandEnvironmentVariables(settings.RufusExecutablePath);
+
+                if (!System.IO.File.Exists(rufusPath))
+                {
+                    StatusMessage = $"Rufus executable not found at: {rufusPath}";
+                    return;
+                }
+
+                System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo
+                {
+                    FileName = rufusPath,
+                    Arguments = $"-i \"{isoPath}\"",
+                    UseShellExecute = true
+                });
+
+                StatusMessage = $"Opened {selectedImage.Name} in Rufus.";
+            }
+            catch (Exception ex)
+            {
+                StatusMessage = $"Error opening Rufus: {ex.Message}";
+                _logger.LogError(ex, "Failed to open Rufus.");
+            }
+        }
+
         public async Task<string> GetFormattedSystemRequirementsAsync(string folderPath)
         {
             if (string.IsNullOrEmpty(folderPath))
@@ -433,7 +485,8 @@ namespace Easy_Copier.ViewModels
         {
             SettingsOpenAction openAction = CurrentTabIndex == 0 ? Infrastructure.SettingsOpenAction.AddGameFolder :
                                             CurrentTabIndex == 1 ? Infrastructure.SettingsOpenAction.AddAppFolder :
-                                            Infrastructure.SettingsOpenAction.AddTvAndFilmFolder;
+                                            CurrentTabIndex == 2 ? Infrastructure.SettingsOpenAction.AddTvAndFilmFolder :
+                                            Infrastructure.SettingsOpenAction.AddOsImageFolder;
 
             _windowService.ShowSettingsWindow(null, openAction);
         }

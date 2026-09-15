@@ -57,19 +57,39 @@ namespace Easy_Copier.Views
             UpdateCombinedSelection();
         }
 
+        private void OsImagesGridView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            UpdateCombinedSelection();
+        }
+
+        private void LibraryPivot_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            UpdateCombinedSelection();
+        }
+
         private void UpdateCombinedSelection()
         {
-            IEnumerable<GameEntry> tvItems = TvAndFilmsGridView?.SelectedItems.Cast<GameEntry>() ?? [];
-            IEnumerable<GameEntry> selectedItems = GamesGridView.SelectedItems.Cast<GameEntry>()
-                .Concat(AppsGridView.SelectedItems.Cast<GameEntry>())
-                .Concat(tvItems);
-            ViewModel.UpdateSelectionSummary(selectedItems);
+            if (ViewModel.CurrentTabIndex == 3)
+            {
+                IEnumerable<GameEntry> osImageItems = OsImagesGridView?.SelectedItems.Cast<GameEntry>() ?? [];
+                ViewModel.UpdateSelectionSummary(osImageItems);
+            }
+            else
+            {
+                IEnumerable<GameEntry> tvItems = TvAndFilmsGridView?.SelectedItems.Cast<GameEntry>() ?? [];
+                IEnumerable<GameEntry> selectedItems = GamesGridView.SelectedItems.Cast<GameEntry>()
+                    .Concat(AppsGridView.SelectedItems.Cast<GameEntry>())
+                    .Concat(tvItems);
+                ViewModel.UpdateSelectionSummary(selectedItems);
+            }
         }
 
         private void ClearGameSelection()
         {
             GamesGridView.SelectedItems.Clear();
             AppsGridView.SelectedItems.Clear();
+            TvAndFilmsGridView?.SelectedItems.Clear();
+            OsImagesGridView?.SelectedItems.Clear();
         }
 
         private async void GameCard_RightTapped(object sender, RightTappedRoutedEventArgs e)

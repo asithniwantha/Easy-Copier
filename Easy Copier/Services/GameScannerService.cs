@@ -78,7 +78,8 @@ namespace Easy_Copier.Services
             HashSet<string> processedPaths = [with(StringComparer.OrdinalIgnoreCase)];
 
             string categoryLabel = category == LibraryCategory.App ? "app" :
-                                   (category == LibraryCategory.TvAndFilm ? "film/tv" : "game");
+                                   (category == LibraryCategory.TvAndFilm ? "film/tv" :
+                                   (category == LibraryCategory.OsImage ? "OS image" : "game"));
 
             foreach (string sourceFolder in sourceFolders)
             {
@@ -102,9 +103,17 @@ namespace Easy_Copier.Services
                         Directory.GetDirectories(sourceFolder, "*", SearchOption.TopDirectoryOnly),
                         cancellationToken).ConfigureAwait(false);
 
-                    if (category == LibraryCategory.TvAndFilm && !string.IsNullOrWhiteSpace(videoExtensions))
+                    if ((category == LibraryCategory.TvAndFilm && !string.IsNullOrWhiteSpace(videoExtensions)) || category == LibraryCategory.OsImage)
                     {
-                        List<string> extList = [.. videoExtensions.Split(VideoExtensionSeparators, StringSplitOptions.RemoveEmptyEntries).Select(e => e.Trim().StartsWith('.') ? e.Trim() : "." + e.Trim())];
+                        List<string> extList = [];
+                        if (category == LibraryCategory.TvAndFilm)
+                        {
+                            extList = [.. videoExtensions!.Split(VideoExtensionSeparators, StringSplitOptions.RemoveEmptyEntries).Select(e => e.Trim().StartsWith('.') ? e.Trim() : "." + e.Trim())];
+                        }
+                        else
+                        {
+                            extList.Add(".iso");
+                        }
 
                         try
                         {
@@ -144,91 +153,94 @@ namespace Easy_Copier.Services
                         }
                     }
 
-                    List<string> foldersToProcess = [];
-                    foreach (string subdir in initialSubdirectories)
+                    if (category != LibraryCategory.OsImage)
                     {
-                        if (IsExcludedFolder(subdir))
+                        List<string> foldersToProcess = [];
+                        foreach (string subdir in initialSubdirectories)
                         {
-                            _logger.LogDebug("Excluded folder: {Path}", subdir);
-                            continue;
-                        }
-
-                        string folderName = Path.GetFileName(subdir).TrimEnd();
-                        if (folderName.EndsWith("collection", StringComparison.OrdinalIgnoreCase))
-                        {
-                            try
+                            if (IsExcludedFolder(subdir))
                             {
-                                string[] collectionSubdirectories = await Task.Run(() =>
-                                    Directory.GetDirectories(subdir, "*", SearchOption.TopDirectoryOnly),
-                                    cancellationToken).ConfigureAwait(false);
-                                foreach (string collSubdir in collectionSubdirectories)
+                                _logger.LogDebug("Excluded folder: {Path}", subdir);
+                                continue;
+                            }
+
+                            string folderName = Path.GetFileName(subdir).TrimEnd();
+                            if (folderName.EndsWith("collection", StringComparison.OrdinalIgnoreCase))
+                            {
+                                try
                                 {
-                                    if (!IsExcludedFolder(collSubdir))
+                                    string[] collectionSubdirectories = await Task.Run(() =>
+                                        Directory.GetDirectories(subdir, "*", SearchOption.TopDirectoryOnly),
+                                        cancellationToken).ConfigureAwait(false);
+                                    foreach (string collSubdir in collectionSubdirectories)
                                     {
-                                        foldersToProcess.Add(collSubdir);
-                                    }
-                                    else
-                                    {
-                                        _logger.LogDebug("Excluded collection subfolder: {Path}", collSubdir);
+                                        if (!IsExcludedFolder(collSubdir))
+                                        {
+                                            foldersToProcess.Add(collSubdir);
+                                        }
+                                        else
+                                        {
+                                            _logger.LogDebug("Excluded collection subfolder: {Path}", collSubdir);
+                                        }
                                     }
                                 }
+                                catch (Exception ex)
+                                {
+                                    _logger.LogWarning(ex, "Error reading collection folder: {Path}", subdir);
+                                }
+                            }
+                            else
+                            {
+                                foldersToProcess.Add(subdir);
+                            }
+                        }
+
+                        foreach (string gameFolder in foldersToProcess)
+                        {
+                            if (cancellationToken.IsCancellationRequested)
+                            {
+                                break;
+                            }
+
+                            if (processedPaths.Contains(gameFolder))
+                            {
+                                _logger.LogDebug("Duplicate {Category} folder ignored: {Path}", categoryLabel, gameFolder);
+                                continue;
+                            }
+
+                            try
+                            {
+                                string gameName = Path.GetFileName(gameFolder);
+                                progress?.Report($"Processing: {gameName}");
+
+                                (long TotalSize, bool HasLargeFiles) = await GetFolderStatsAsync(gameFolder, RemovableDrive.Fat32MaxFileSize, cancellationToken).ConfigureAwait(false);
+
+                                string? coverImage = FindCoverImage(gameFolder);
+                                IReadOnlyList<GameCategory> categoriesList = GetCategories(gameFolder);
+
+                                GameEntry game = new(
+                                    gameName,
+                                    gameFolder,
+                                    TotalSize,
+                                    coverImage,
+                                    DateTime.Now,
+                                    HasLargeFiles,
+                                    category,
+                                    categoriesList);
+
+                                games.Add(game);
+                                _ = processedPaths.Add(gameFolder);
+
+                                _logger.LogInformation("Scanned {Category}: {Name}, Size: {Size} bytes", categoryLabel, gameName, TotalSize);
+                            }
+                            catch (UnauthorizedAccessException ex)
+                            {
+                                _logger.LogWarning(ex, "Access denied to {Category} folder: {Path}", categoryLabel, gameFolder);
                             }
                             catch (Exception ex)
                             {
-                                _logger.LogWarning(ex, "Error reading collection folder: {Path}", subdir);
+                                _logger.LogError(ex, "Error scanning {Category} folder: {Path}", categoryLabel, gameFolder);
                             }
-                        }
-                        else
-                        {
-                            foldersToProcess.Add(subdir);
-                        }
-                    }
-
-                    foreach (string gameFolder in foldersToProcess)
-                    {
-                        if (cancellationToken.IsCancellationRequested)
-                        {
-                            break;
-                        }
-
-                        if (processedPaths.Contains(gameFolder))
-                        {
-                            _logger.LogDebug("Duplicate {Category} folder ignored: {Path}", categoryLabel, gameFolder);
-                            continue;
-                        }
-
-                        try
-                        {
-                            string gameName = Path.GetFileName(gameFolder);
-                            progress?.Report($"Processing: {gameName}");
-
-                            (long TotalSize, bool HasLargeFiles) = await GetFolderStatsAsync(gameFolder, RemovableDrive.Fat32MaxFileSize, cancellationToken).ConfigureAwait(false);
-
-                            string? coverImage = FindCoverImage(gameFolder);
-                            IReadOnlyList<GameCategory> categoriesList = GetCategories(gameFolder);
-
-                            GameEntry game = new(
-                                gameName,
-                                gameFolder,
-                                TotalSize,
-                                coverImage,
-                                DateTime.Now,
-                                HasLargeFiles,
-                                category,
-                                categoriesList);
-
-                            games.Add(game);
-                            _ = processedPaths.Add(gameFolder);
-
-                            _logger.LogInformation("Scanned {Category}: {Name}, Size: {Size} bytes", categoryLabel, gameName, TotalSize);
-                        }
-                        catch (UnauthorizedAccessException ex)
-                        {
-                            _logger.LogWarning(ex, "Access denied to {Category} folder: {Path}", categoryLabel, gameFolder);
-                        }
-                        catch (Exception ex)
-                        {
-                            _logger.LogError(ex, "Error scanning {Category} folder: {Path}", categoryLabel, gameFolder);
                         }
                     }
                 }
