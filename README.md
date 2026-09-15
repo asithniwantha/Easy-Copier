@@ -173,3 +173,5 @@ Distributed under the MIT License. See `LICENSE` for more information.
 * Resolved Roslyn CA1849 code analysis warning in `MainViewModel.Scanning.cs` by replacing synchronous `Cancel()` calls on `CancellationTokenSource` with `CancelAsync()`.
 * Refactored Settings window and view models to adhere to DRY principles by consolidating duplicated folder add/remove logic.
 * Resolved Roslyn static analysis CA1823 warning in `MainPage.xaml.cs` by removing unused `LineSeparators` field.
+* Eliminated view-to-view coupling and service locator anti-patterns in `MainPage.xaml.cs` when instantiating `GameDetailsFlyout` by utilizing `Func<GameDetailsViewModel>` factory injections.
+* Replaced manual code-behind events with direct `Command` and `CommandParameter` bindings in `SettingsWindow.xaml` for improved MVVM compliance.

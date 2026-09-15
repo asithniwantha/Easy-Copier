@@ -140,6 +140,8 @@
 * Resolved Roslyn static analysis CA1806 warning in `Program.cs` by capturing the return value of `SetCurrentProcessExplicitAppUserModelID` and adding `DefaultDllImportSearchPaths`.
 * Resolved Roslyn CA1849 code analysis warning in `MainViewModel.Scanning.cs` by replacing synchronous `Cancel()` calls on `CancellationTokenSource` with `CancelAsync()`.
 * Resolved Roslyn static analysis CA1823 warning in `MainPage.xaml.cs` by removing unused `LineSeparators` field.
+* Eliminated view-to-view coupling and service locator anti-patterns in `MainPage.xaml.cs` when instantiating `GameDetailsFlyout` by utilizing `Func<GameDetailsViewModel>` factory injections.
+* Replaced manual code-behind events with direct `Command` and `CommandParameter` bindings in `SettingsWindow.xaml` for improved MVVM compliance.
 
 ## Development Highlights
 - **Refactored Smart Adder UI**: Migrated complex programmatic UI logic (Visibility manipulation) from code-behind into direct XAML data bindings utilizing MVVM view models, adhering strictly to clean code principles.
