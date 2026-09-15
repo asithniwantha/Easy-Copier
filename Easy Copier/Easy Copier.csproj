@@ -7,6 +7,7 @@
     <RootNamespace>Easy_Copier</RootNamespace>
     <ApplicationManifest>app.manifest</ApplicationManifest>
     <WindowsPackageType>None</WindowsPackageType>
+    <EnableMsixTooling>true</EnableMsixTooling>
     <Platforms>x64</Platforms>
     <PlatformTarget>x64</PlatformTarget>
     <RuntimeIdentifiers>win-x64</RuntimeIdentifiers>
