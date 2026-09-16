@@ -13,11 +13,10 @@
         <MicaBackdrop />
     </Window.SystemBackdrop>
 
-    <Window.Resources>
-        <converters:BoolToVisibilityConverter xmlns:converters="using:Easy_Copier.Converters" x:Key="BoolToVisibilityConverter"/>
-    </Window.Resources>
-
     <Grid>
+        <Grid.Resources>
+            <converters:BoolToVisibilityConverter xmlns:converters="using:Easy_Copier.Converters" x:Key="BoolToVisibilityConverter"/>
+        </Grid.Resources>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="Auto"/>
