@@ -32,14 +32,10 @@ namespace Easy_Copier.Views
                 ViewModel = viewModel;
                 DataContext = ViewModel;
                 ViewModel.ItemQueued += (s, args) => ClearGameSelection();
+                ViewModel.ClearSelectionRequested += (s, args) => ClearGameSelection();
                 Bindings.Update();
                 _ = ViewModel.InitializeAsync();
             }
-        }
-
-        private void DeselectAll_Click(object sender, RoutedEventArgs e)
-        {
-            ClearGameSelection();
         }
 
         private void GamesGridView_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -98,7 +94,9 @@ namespace Easy_Copier.Views
             {
                 if (gameEntry.Category == LibraryCategory.OsImage)
                 {
-                    OsImageDetailsFlyout osImageFlyout = new(gameEntry.Name, gameEntry.FolderPath);
+                    OsImageDetailsViewModel osImageVm = new();
+                    osImageVm.Initialize(gameEntry.Name, gameEntry.FolderPath);
+                    OsImageDetailsFlyout osImageFlyout = new(osImageVm);
 
                     Flyout flyout = new()
                     {

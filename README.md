@@ -156,6 +156,9 @@ Distributed under the MIT License. See `LICENSE` for more information.
 ⭐️ **If you find this project helpful or interesting, please consider giving it a star!**
 
 ## Updated Architecture
+* Eliminated code-behind event handlers in Windows and Pages (e.g., `Click="Close_Click"`) and replaced them with strongly-typed `ICommand` bindings utilizing the `CommunityToolkit.Mvvm` framework. Event callbacks like `CloseRequested` decouple the ViewModel logic from direct UI window management, ensuring pure MVVM adherence and fully decoupled ViewModels. 🧹
+* Migrated hard-coded view-state visibility logic from XAML code-behind into ViewModel properties, utilizing standard WinUI DataBinding and Converters to natively manipulate view state. 🪄
+* Extracted file system operations from the `OsImageDetailsFlyout` view constructor into a dedicated, reusable `OsImageDetailsViewModel`. 🏗️
 * Extracted dynamic UI generation (e.g., Game details flyout) from code-behind into dedicated XAML UserControls (`GameDetailsFlyout`) and `GameDetailsViewModel`, significantly reducing view-to-view coupling, eliminating manual UI instantiation in C#, and enhancing MVVM separation.
 * Separated UI interactions in ViewModels using IAppWindowContext.
 * Split large ViewModels and Services into partial classes.

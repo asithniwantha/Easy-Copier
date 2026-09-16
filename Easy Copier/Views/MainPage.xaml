@@ -125,7 +125,7 @@
                         Margin="0,0,0,8">
                 <AppBarButton Icon="Add" Label="Add Folder" Command="{x:Bind ViewModel.AddSourceFolderCommand}"/>
                 <AppBarButton Icon="Refresh" Label="Scan Library" Command="{x:Bind ViewModel.ScanLibraryCommand}"/>
-                <AppBarButton Icon="ClearSelection" Label="Deselect All" Click="DeselectAll_Click"/>
+                <AppBarButton Icon="ClearSelection" Label="Deselect All" Command="{x:Bind ViewModel.ClearSelectionCommand}"/>
                 <AppBarSeparator/>
                 <AppBarButton Icon="Clock" Label="History" Command="{x:Bind ViewModel.OpenHistoryCommand}"/>
                 <AppBarButton Icon="Setting" Label="Settings" Command="{x:Bind ViewModel.OpenSettingsCommand}"/>

@@ -15,11 +15,8 @@ namespace Easy_Copier.Views
             _owner = owner;
             InitializeComponent();
             NativeWindowHelper.InitializeModalWindow(this, _owner, ViewModel, 500, 600);
-        }
 
-        private void Close_Click(object sender, RoutedEventArgs e)
-        {
-            Close();
+            ViewModel.CloseRequested += (s, e) => Close();
         }
     }
 }

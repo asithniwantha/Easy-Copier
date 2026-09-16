@@ -13,6 +13,10 @@
         <MicaBackdrop />
     </Window.SystemBackdrop>
 
+    <Window.Resources>
+        <converters:BoolToVisibilityConverter xmlns:converters="using:Easy_Copier.Converters" x:Key="BoolToVisibilityConverter"/>
+    </Window.Resources>
+
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
@@ -61,7 +65,7 @@
             <ScrollViewer Padding="24">
                 <Grid>
                     <!-- General Panel -->
-                    <StackPanel x:Name="GeneralPanel" Visibility="Visible" Spacing="16">
+                    <StackPanel x:Name="GeneralPanel" Visibility="{x:Bind ViewModel.IsGeneralPanelVisible, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" Spacing="16">
                         <TextBlock Text="General Settings" FontSize="20" FontWeight="SemiBold" />
                         <ToggleSwitch Header="Auto-scan library on startup"
                                       IsOn="{x:Bind ViewModel.AutoScanOnStartup, Mode=TwoWay}"/>
@@ -84,7 +88,7 @@
                     </StackPanel>
 
                     <!-- Games Panel -->
-                    <StackPanel x:Name="GamesPanel" Visibility="Collapsed" Spacing="16">
+                    <StackPanel x:Name="GamesPanel" Visibility="{x:Bind ViewModel.IsGamesPanelVisible, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" Spacing="16">
                         <TextBlock Text="Games Settings" FontSize="20" FontWeight="SemiBold" />
 
                         <StackPanel Spacing="8">
@@ -153,7 +157,7 @@
                     </StackPanel>
 
                     <!-- Apps Panel -->
-                    <StackPanel x:Name="AppsPanel" Visibility="Collapsed" Spacing="16">
+                    <StackPanel x:Name="AppsPanel" Visibility="{x:Bind ViewModel.IsAppsPanelVisible, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" Spacing="16">
                         <TextBlock Text="Apps Settings" FontSize="20" FontWeight="SemiBold" />
                         <StackPanel Spacing="8">
                             <TextBlock Text="App Folders" FontWeight="SemiBold"/>
@@ -185,7 +189,7 @@
                     </StackPanel>
 
                     <!-- Film & TV Panel -->
-                    <StackPanel x:Name="FilmAndTvPanel" Visibility="Collapsed" Spacing="16">
+                    <StackPanel x:Name="FilmAndTvPanel" Visibility="{x:Bind ViewModel.IsFilmAndTvPanelVisible, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" Spacing="16">
                         <TextBlock Text="Film &amp; TV Settings" FontSize="20" FontWeight="SemiBold" />
                         <StackPanel Spacing="8">
                             <TextBlock Text="Film &amp; TV Folders" FontWeight="SemiBold"/>
@@ -223,7 +227,7 @@
                     </StackPanel>
 
                     <!-- OS Images Panel -->
-                    <StackPanel x:Name="OsImagesPanel" Visibility="Collapsed" Spacing="16">
+                    <StackPanel x:Name="OsImagesPanel" Visibility="{x:Bind ViewModel.IsOsImagesPanelVisible, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" Spacing="16">
                         <TextBlock Text="OS Images Settings" FontSize="20" FontWeight="SemiBold" />
                         <StackPanel Spacing="8">
                             <TextBlock Text="OS Image Folders" FontWeight="SemiBold"/>
@@ -261,7 +265,7 @@
                     </StackPanel>
 
                     <!-- Logs Panel -->
-                    <StackPanel x:Name="LogsPanel" Visibility="Collapsed" Spacing="16">
+                    <StackPanel x:Name="LogsPanel" Visibility="{x:Bind ViewModel.IsLogsPanelVisible, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" Spacing="16">
                         <TextBlock Text="Logs &amp; Troubleshooting" FontSize="20" FontWeight="SemiBold" />
                         <TextBlock Text="Access diagnostic logs for troubleshooting and support." TextWrapping="Wrap" />
                         <Button Content="Open Logs Folder" Command="{x:Bind ViewModel.OpenLogsFolderCommand}" HorizontalAlignment="Left" />
@@ -277,7 +281,7 @@
             <StackPanel Orientation="Horizontal" Spacing="8" HorizontalAlignment="Right">
                 <TextBlock Text="{x:Bind ViewModel.StatusMessage, Mode=OneWay}" VerticalAlignment="Center" Opacity="0.7"/>
                 <Button Content="Open Data Folder" Command="{x:Bind ViewModel.OpenDataFolderCommand}"/>
-                <Button Content="Save and Close" Style="{StaticResource AccentButtonStyle}" Click="SaveAndClose_Click"/>
+                <Button Content="Save and Close" Style="{StaticResource AccentButtonStyle}" Command="{x:Bind ViewModel.SaveAndCloseCommand}"/>
             </StackPanel>
         </Border>
     </Grid>

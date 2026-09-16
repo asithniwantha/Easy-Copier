@@ -48,6 +48,6 @@
                     HorizontalAlignment="Stretch" HorizontalContentAlignment="Center"/>
         </StackPanel>
 
-        <Button Grid.Row="2" Content="Close" Click="Close_Click" HorizontalAlignment="Center" Margin="0,24,0,0" Style="{StaticResource AccentButtonStyle}" Width="120"/>
+        <Button Grid.Row="2" Content="Close" Command="{x:Bind ViewModel.CloseWindowCommand}" HorizontalAlignment="Center" Margin="0,24,0,0" Style="{StaticResource AccentButtonStyle}" Width="120"/>
     </Grid>
 </Window>
