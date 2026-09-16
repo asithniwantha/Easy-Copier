@@ -96,23 +96,38 @@ namespace Easy_Copier.Views
         {
             if (sender is FrameworkElement fe && fe.DataContext is GameEntry gameEntry)
             {
-                string formattedText = await ViewModel.GetFormattedSystemRequirementsAsync(gameEntry.FolderPath);
-
-                GameDetailsViewModel gameDetailsViewModel = ViewModel.CreateGameDetailsViewModel();
-
-                GameDetailsFlyout detailsFlyout = new(gameDetailsViewModel, formattedText, gameEntry.FolderPath);
-
-                Style flyoutStyle = new(typeof(FlyoutPresenter));
-                flyoutStyle.Setters.Add(new Setter(FrameworkElement.MaxWidthProperty, double.PositiveInfinity));
-
-                Flyout flyout = new()
+                if (gameEntry.Category == LibraryCategory.OsImage)
                 {
-                    Content = detailsFlyout,
-                    Placement = FlyoutPlacementMode.RightEdgeAlignedTop,
-                    FlyoutPresenterStyle = flyoutStyle
-                };
+                    OsImageDetailsFlyout osImageFlyout = new(gameEntry.Name, gameEntry.FolderPath);
 
-                flyout.ShowAt(fe, new FlyoutShowOptions { Position = e.GetPosition(fe) });
+                    Flyout flyout = new()
+                    {
+                        Content = osImageFlyout,
+                        Placement = FlyoutPlacementMode.RightEdgeAlignedTop
+                    };
+
+                    flyout.ShowAt(fe, new FlyoutShowOptions { Position = e.GetPosition(fe) });
+                }
+                else
+                {
+                    string formattedText = await ViewModel.GetFormattedSystemRequirementsAsync(gameEntry.FolderPath);
+
+                    GameDetailsViewModel gameDetailsViewModel = ViewModel.CreateGameDetailsViewModel();
+
+                    GameDetailsFlyout detailsFlyout = new(gameDetailsViewModel, formattedText, gameEntry.FolderPath);
+
+                    Style flyoutStyle = new(typeof(FlyoutPresenter));
+                    flyoutStyle.Setters.Add(new Setter(FrameworkElement.MaxWidthProperty, double.PositiveInfinity));
+
+                    Flyout flyout = new()
+                    {
+                        Content = detailsFlyout,
+                        Placement = FlyoutPlacementMode.RightEdgeAlignedTop,
+                        FlyoutPresenterStyle = flyoutStyle
+                    };
+
+                    flyout.ShowAt(fe, new FlyoutShowOptions { Position = e.GetPosition(fe) });
+                }
             }
         }
     }

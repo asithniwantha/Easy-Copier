@@ -6,6 +6,7 @@
 - Support automatic scanning at startup and on-demand rescanning.
 - Display library items in separate tabs (Games / Apps / Film & TV / OS Images).
 - Sort OS Images by Name, Date Added, and Size with Ascending and Descending direction toggles.
+- Display creation, modification, and access timestamps in a right-click flyout for OS image tiles.
 - Search and filter items by name.
 - **Game Categorization:** Extracts metadata from Steam with keyword fallbacks, displayed and filterable in the UI.
 
