@@ -88,7 +88,7 @@
                 BorderThickness="0,1,0,0"
                 Padding="16,12">
             <Button Content="Close"
-                    Click="Close_Click"
+                    Command="{x:Bind ViewModel.CloseWindowCommand}"
                     HorizontalAlignment="Right"
                     Style="{StaticResource AccentButtonStyle}"
                     MinWidth="100"/>

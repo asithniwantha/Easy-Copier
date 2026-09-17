@@ -87,6 +87,29 @@ namespace Easy_Copier.ViewModels
         [ObservableProperty]
         public partial string VideoFileExtensions { get; set; } = ".mp4,.mkv,.avi";
 
+        [ObservableProperty]
+        public partial string SelectedNavTag { get; set; } = "General";
+
+        [ObservableProperty]
+        public partial bool IsGeneralPanelVisible { get; set; } = true;
+
+        [ObservableProperty]
+        public partial bool IsGamesPanelVisible { get; set; }
+
+        [ObservableProperty]
+        public partial bool IsAppsPanelVisible { get; set; }
+
+        [ObservableProperty]
+        public partial bool IsFilmAndTvPanelVisible { get; set; }
+
+        [ObservableProperty]
+        public partial bool IsOsImagesPanelVisible { get; set; }
+
+        [ObservableProperty]
+        public partial bool IsLogsPanelVisible { get; set; }
+
+        public event EventHandler? CloseRequested;
+
         private readonly Infrastructure.IProcessService _processService;
 
         public SettingsViewModel(
@@ -316,5 +339,21 @@ namespace Easy_Copier.ViewModels
             StatusMessage = "Settings saved";
         }
 
+        [RelayCommand]
+        private async Task SaveAndCloseAsync()
+        {
+            await SaveSettingsAsync();
+            CloseRequested?.Invoke(this, EventArgs.Empty);
+        }
+
+        partial void OnSelectedNavTagChanged(string value)
+        {
+            IsGeneralPanelVisible = value == "General";
+            IsGamesPanelVisible = value == "Games";
+            IsAppsPanelVisible = value == "Apps";
+            IsFilmAndTvPanelVisible = value == "FilmAndTv";
+            IsOsImagesPanelVisible = value == "OsImages";
+            IsLogsPanelVisible = value == "Logs";
+        }
     }
 }

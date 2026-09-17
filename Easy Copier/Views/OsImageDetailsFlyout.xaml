@@ -7,9 +7,13 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
+    <UserControl.Resources>
+        <converters:BoolToVisibilityConverter xmlns:converters="using:Easy_Copier.Converters" x:Key="BoolToVisibilityConverter"/>
+    </UserControl.Resources>
+
     <Grid Padding="16" MinWidth="280">
         <StackPanel Spacing="12">
-            <TextBlock Text="{x:Bind ImageName, Mode=OneWay}"
+            <TextBlock Text="{x:Bind ViewModel.ImageName, Mode=OneWay}"
                        FontWeight="SemiBold"
                        FontSize="16"
                        TextTrimming="CharacterEllipsis"
@@ -29,17 +33,17 @@
                 </Grid.ColumnDefinitions>
 
                 <TextBlock Grid.Row="0" Grid.Column="0" Text="Created:" FontWeight="Medium" Opacity="0.8"/>
-                <TextBlock Grid.Row="0" Grid.Column="1" Text="{x:Bind DateCreatedFormatted, Mode=OneWay}"/>
+                <TextBlock Grid.Row="0" Grid.Column="1" Text="{x:Bind ViewModel.DateCreatedFormatted, Mode=OneWay}"/>
 
                 <TextBlock Grid.Row="1" Grid.Column="0" Text="Modified:" FontWeight="Medium" Opacity="0.8"/>
-                <TextBlock Grid.Row="1" Grid.Column="1" Text="{x:Bind DateModifiedFormatted, Mode=OneWay}"/>
+                <TextBlock Grid.Row="1" Grid.Column="1" Text="{x:Bind ViewModel.DateModifiedFormatted, Mode=OneWay}"/>
 
                 <TextBlock Grid.Row="2" Grid.Column="0" Text="Accessed:" FontWeight="Medium" Opacity="0.8"/>
-                <TextBlock Grid.Row="2" Grid.Column="1" Text="{x:Bind DateAccessedFormatted, Mode=OneWay}"/>
+                <TextBlock Grid.Row="2" Grid.Column="1" Text="{x:Bind ViewModel.DateAccessedFormatted, Mode=OneWay}"/>
             </Grid>
 
-            <TextBlock Text="{x:Bind StatusMessage, Mode=OneWay}"
-                       Visibility="{x:Bind IsStatusVisible, Mode=OneWay}"
+            <TextBlock Text="{x:Bind ViewModel.StatusMessage, Mode=OneWay}"
+                       Visibility="{x:Bind ViewModel.IsStatusVisible, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}"
                        Foreground="Red"
                        FontStyle="Italic"
                        FontSize="12"/>

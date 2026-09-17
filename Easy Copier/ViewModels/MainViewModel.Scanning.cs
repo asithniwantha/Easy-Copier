@@ -444,6 +444,12 @@ namespace Easy_Copier.ViewModels
         }
 
         [RelayCommand]
+        private void ClearSelection()
+        {
+            ClearSelectionRequested?.Invoke(this, EventArgs.Empty);
+        }
+
+        [RelayCommand]
         private void OpenDriveInExplorer()
         {
             if (SelectedDrive != null)

@@ -129,6 +129,9 @@
 - [ ] Add a OS images tab and instruct Rufus to open with a specific image file eg:"rufus.exe -i "C:\path\to\your\image.iso"
 
 ## New Architectural Updates
+* Eliminated code-behind event handlers in Windows and Pages (e.g., `Click="Close_Click"`) and replaced them with strongly-typed `ICommand` bindings utilizing the `CommunityToolkit.Mvvm` framework. Event callbacks like `CloseRequested` decouple the ViewModel logic from direct UI window management, ensuring pure MVVM adherence and fully decoupled ViewModels. 🧹
+* Migrated hard-coded view-state visibility logic from XAML code-behind into ViewModel properties, utilizing standard WinUI DataBinding and Converters to natively manipulate view state. 🪄
+* Extracted file system operations from the `OsImageDetailsFlyout` view constructor into a dedicated, reusable `OsImageDetailsViewModel`. 🏗️
 * Extracted dynamic UI generation (e.g., Game details flyout) from code-behind into dedicated XAML UserControls (`GameDetailsFlyout`) and `GameDetailsViewModel`, significantly reducing view-to-view coupling, eliminating manual UI instantiation in C#, and enhancing MVVM separation.
 * IAppWindowContext introduced for clean UI abstraction.
 * File splits using C# partials applied to MainViewModel, SettingsViewModel, and GameInfoDownloadService.

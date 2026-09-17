@@ -36,6 +36,8 @@ namespace Easy_Copier.ViewModels
         private bool _isCheckingForUpdates;
         private int _isDisposed;
 
+        public event EventHandler? ClearSelectionRequested;
+
         [ObservableProperty]
         public partial bool IsGlobalNotificationVisible { get; set; }
 

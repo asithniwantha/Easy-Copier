@@ -17,7 +17,14 @@ namespace Easy_Copier.Views
             ViewModel = viewModel;
             _owner = owner;
             InitializeComponent();
+            SettingsRoot.DataContext = ViewModel;
             NativeWindowHelper.InitializeModalWindow(this, _owner, ViewModel, 960, 720);
+
+            ViewModel.CloseRequested += (s, e) =>
+            {
+                SettingsClosed?.Invoke(this, EventArgs.Empty);
+                Close();
+            };
 
             _ = LoadAsync(openAction);
 
@@ -63,21 +70,8 @@ namespace Easy_Copier.Views
             if (args.SelectedItem is Microsoft.UI.Xaml.Controls.NavigationViewItem selectedItem)
             {
                 string tag = selectedItem.Tag?.ToString() ?? string.Empty;
-
-                GeneralPanel.Visibility = tag == "General" ? Visibility.Visible : Visibility.Collapsed;
-                GamesPanel.Visibility = tag == "Games" ? Visibility.Visible : Visibility.Collapsed;
-                AppsPanel.Visibility = tag == "Apps" ? Visibility.Visible : Visibility.Collapsed;
-                FilmAndTvPanel.Visibility = tag == "FilmAndTv" ? Visibility.Visible : Visibility.Collapsed;
-                OsImagesPanel.Visibility = tag == "OsImages" ? Visibility.Visible : Visibility.Collapsed;
-                LogsPanel.Visibility = tag == "Logs" ? Visibility.Visible : Visibility.Collapsed;
+                ViewModel.SelectedNavTag = tag;
             }
-        }
-
-        private async void SaveAndClose_Click(object sender, RoutedEventArgs e)
-        {
-            await ViewModel.SaveSettingsCommand.ExecuteAsync(null);
-            SettingsClosed?.Invoke(this, EventArgs.Empty);
-            Close();
         }
     }
 }

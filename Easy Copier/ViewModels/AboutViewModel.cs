@@ -16,6 +16,14 @@ namespace Easy_Copier.ViewModels
             _processService = processService;
         }
 
+        public event EventHandler? CloseRequested;
+
+        [RelayCommand]
+        private void CloseWindow()
+        {
+            CloseRequested?.Invoke(this, EventArgs.Empty);
+        }
+
         [SuppressMessage("Performance", "CA1822:Mark members as static", Justification = "ViewModel properties are bound by instance references in XAML.")]
         public string AppVersion
         {

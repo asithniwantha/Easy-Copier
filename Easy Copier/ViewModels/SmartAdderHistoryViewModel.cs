@@ -26,6 +26,14 @@ namespace Easy_Copier.ViewModels
             _smartAdderHistoryService = smartAdderHistoryService;
         }
 
+        public event System.EventHandler? CloseRequested;
+
+        [CommunityToolkit.Mvvm.Input.RelayCommand]
+        private void CloseWindow()
+        {
+            CloseRequested?.Invoke(this, System.EventArgs.Empty);
+        }
+
         public async Task InitializeAsync()
         {
             System.Collections.Generic.List<SmartAdderHistoryRecord> records = await _smartAdderHistoryService.GetRecentRecordsAsync(MaxRecords);
