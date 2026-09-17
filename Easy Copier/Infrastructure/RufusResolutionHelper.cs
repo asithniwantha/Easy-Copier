@@ -5,6 +5,9 @@ using System.Text.RegularExpressions;
 
 namespace Easy_Copier.Infrastructure
 {
+    /// <summary>
+    /// Provides utilities for discovering and resolving Rufus executable paths and version information.
+    /// </summary>
     public static partial class RufusResolutionHelper
     {
         // Regex matches filenames like rufus-4.7.exe, rufus-4.10.exe, rufus_4.8_arm64.exe, rufus-4.7p.exe, etc.
@@ -12,9 +15,10 @@ namespace Easy_Copier.Infrastructure
         private static partial Regex RufusVersionRegex();
 
         /// <summary>
-        /// Attempts to parse a Version object from a Rufus filename (e.g. rufus-4.7.exe => Version 4.7).
-        /// Returns null if no valid version number is present in the filename.
+        /// Attempts to parse a <see cref="Version"/> object from a Rufus filename (e.g., rufus-4.7.exe => Version 4.7).
         /// </summary>
+        /// <param name="fileName">The file name or path to parse.</param>
+        /// <returns>A parsed <see cref="Version"/> object if successful; otherwise, <c>null</c>.</returns>
         public static Version? TryParseVersionFromFileName(string fileName)
         {
             if (string.IsNullOrWhiteSpace(fileName))
@@ -41,6 +45,8 @@ namespace Easy_Copier.Infrastructure
         /// executable with the highest version. If no newer versioned file exists or directory is invalid, returns
         /// the expanded current path.
         /// </summary>
+        /// <param name="currentRufusPath">The initial path or environment string for Rufus.</param>
+        /// <returns>The resolved executable path for the latest Rufus version found, or empty string if input is invalid.</returns>
         public static string ResolveLatestRufusPath(string? currentRufusPath)
         {
             if (string.IsNullOrWhiteSpace(currentRufusPath))

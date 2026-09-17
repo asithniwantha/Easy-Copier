@@ -9,12 +9,22 @@ using WinRT.Interop;
 
 namespace Easy_Copier.Infrastructure
 {
+    /// <summary>
+    /// Implements folder selection operations using WinRT <see cref="FolderPicker"/>.
+    /// </summary>
     public class FolderPickerService : IFolderPickerService
     {
         private readonly IDispatcherService _dispatcherService;
         private readonly IAppWindowContext _appWindowContext;
         private readonly ILogger<FolderPickerService> _logger;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="FolderPickerService"/> class.
+        /// </summary>
+        /// <param name="dispatcherService">The UI thread dispatcher service.</param>
+        /// <param name="appWindowContext">The application window context provider.</param>
+        /// <param name="logger">Optional logger instance for diagnostics.</param>
+        /// <exception cref="ArgumentNullException">Thrown when <paramref name="dispatcherService"/> or <paramref name="appWindowContext"/> is null.</exception>
         public FolderPickerService(
             IDispatcherService dispatcherService,
             IAppWindowContext appWindowContext,
@@ -25,6 +35,10 @@ namespace Easy_Copier.Infrastructure
             _logger = logger ?? NullLogger<FolderPickerService>.Instance;
         }
 
+        /// <summary>
+        /// Displays a folder picker modal dialog allowing the user to select a target directory.
+        /// </summary>
+        /// <returns>The full path of the selected folder, or <c>null</c> if canceled.</returns>
         public async Task<string?> PickFolderAsync()
         {
             TaskCompletionSource<string?> tcs = new();

@@ -7,8 +7,16 @@ using System.IO;
 
 namespace Easy_Copier.Infrastructure
 {
+    /// <summary>
+    /// Extension methods for registering application services and ViewModels into the Dependency Injection container.
+    /// </summary>
     public static class ServiceCollectionExtensions
     {
+        /// <summary>
+        /// Registers core application infrastructure services, logging, and domain services into the <see cref="IServiceCollection"/>.
+        /// </summary>
+        /// <param name="services">The service collection to populate.</param>
+        /// <returns>The updated <see cref="IServiceCollection"/>.</returns>
         public static IServiceCollection AddApplicationServices(this IServiceCollection services)
         {
             string appDataFolder = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
@@ -58,6 +66,11 @@ namespace Easy_Copier.Infrastructure
             return services;
         }
 
+        /// <summary>
+        /// Registers ViewModels and ViewModel factories into the <see cref="IServiceCollection"/>.
+        /// </summary>
+        /// <param name="services">The service collection to populate.</param>
+        /// <returns>The updated <see cref="IServiceCollection"/>.</returns>
         public static IServiceCollection AddViewModels(this IServiceCollection services)
         {
             _ = services.AddSingleton<ViewModels.MainViewModel>();

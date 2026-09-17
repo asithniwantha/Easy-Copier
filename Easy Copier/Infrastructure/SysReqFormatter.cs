@@ -3,6 +3,9 @@ using System.Text.RegularExpressions;
 
 namespace Easy_Copier.Infrastructure
 {
+    /// <summary>
+    /// Provides text formatting and normalization methods for system requirement descriptions.
+    /// </summary>
     public static partial class SysReqFormatter
     {
         [GeneratedRegex(@"(?<!\n)\s*Processor:")]
@@ -47,6 +50,11 @@ namespace Easy_Copier.Infrastructure
         [GeneratedRegex(@"(?<!\n)\s*Recommended:")]
         private static partial Regex RecommendedRegex();
 
+        /// <summary>
+        /// Formats and standardizes raw system requirement strings by adding line breaks before key headers.
+        /// </summary>
+        /// <param name="text">The raw system requirements text to format.</param>
+        /// <returns>The formatted and normalized system requirements string.</returns>
         public static string FormatText(string text)
         {
             if (string.IsNullOrWhiteSpace(text))
