@@ -1,8 +1,9 @@
 <map id="Easy_Copier.Easy_Copier_XamlTypeInfo.XamlMember" name="Easy_Copier.Easy_Copier_XamlTypeInfo.XamlMember">
 <area shape="rect" id="Node000001" title=" " alt="" coords="10,96,200,139"/>
 <area shape="rect" id="Node000002" title=" " alt="" coords="5,5,205,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="80,61,84,96,79,95,77,65"/>
-<area shape="poly" id="edge2_Node000001_Node000002" title=" " alt="" coords="98,62,100,97,95,95,94,66"/>
-<area shape="poly" id="edge3_Node000001_Node000002" title=" " alt="" coords="116,62,115,97,110,95,112,66"/>
-<area shape="poly" id="edge4_Node000001_Node000002" title=" " alt="" coords="133,61,131,97,126,94,130,65"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="71,60,72,79,77,96,71,95,67,80,68,65"/>
+<area shape="poly" id="edge2_Node000001_Node000002" title=" " alt="" coords="89,62,92,96,87,95,86,66"/>
+<area shape="poly" id="edge3_Node000001_Node000002" title=" " alt="" coords="107,62,107,97,103,95,103,66"/>
+<area shape="poly" id="edge4_Node000001_Node000002" title=" " alt="" coords="125,62,123,97,118,95,121,65"/>
+<area shape="poly" id="edge5_Node000001_Node000002" title=" " alt="" coords="142,61,143,80,138,97,134,94,138,79,139,65"/>
 </map>

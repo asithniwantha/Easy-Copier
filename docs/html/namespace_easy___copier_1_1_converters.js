@@ -8,5 +8,7 @@ var namespace_easy___copier_1_1_converters =
     [ "NegativeToBackgroundConverter", "class_easy___copier_1_1_converters_1_1_negative_to_background_converter.html", "class_easy___copier_1_1_converters_1_1_negative_to_background_converter" ],
     [ "NegativeToForegroundConverter", "class_easy___copier_1_1_converters_1_1_negative_to_foreground_converter.html", "class_easy___copier_1_1_converters_1_1_negative_to_foreground_converter" ],
     [ "PathToImageSourceConverter", "class_easy___copier_1_1_converters_1_1_path_to_image_source_converter.html", "class_easy___copier_1_1_converters_1_1_path_to_image_source_converter" ],
-    [ "SeverityToInfoBarSeverityConverter", "class_easy___copier_1_1_converters_1_1_severity_to_info_bar_severity_converter.html", "class_easy___copier_1_1_converters_1_1_severity_to_info_bar_severity_converter" ]
+    [ "SeverityToInfoBarSeverityConverter", "class_easy___copier_1_1_converters_1_1_severity_to_info_bar_severity_converter.html", "class_easy___copier_1_1_converters_1_1_severity_to_info_bar_severity_converter" ],
+    [ "SortDirectionGlyphConverter", "class_easy___copier_1_1_converters_1_1_sort_direction_glyph_converter.html", "class_easy___copier_1_1_converters_1_1_sort_direction_glyph_converter" ],
+    [ "SortDirectionToolTipConverter", "class_easy___copier_1_1_converters_1_1_sort_direction_tool_tip_converter.html", "class_easy___copier_1_1_converters_1_1_sort_direction_tool_tip_converter" ]
 ];

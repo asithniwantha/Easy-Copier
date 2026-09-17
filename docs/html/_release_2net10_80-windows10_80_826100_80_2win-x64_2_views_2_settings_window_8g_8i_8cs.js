@@ -1,0 +1,6 @@
+var _release_2net10_80_windows10_80_826100_80_2win_x64_2_views_2_settings_window_8g_8i_8cs =
+[
+    [ "Easy_Copier.Views.SettingsWindow", "class_easy___copier_1_1_views_1_1_settings_window.html", "class_easy___copier_1_1_views_1_1_settings_window" ],
+    [ "Easy_Copier.Views.SettingsWindow.ISettingsWindow_Bindings", "interface_easy___copier_1_1_views_1_1_settings_window_1_1_i_settings_window___bindings.html", "interface_easy___copier_1_1_views_1_1_settings_window_1_1_i_settings_window___bindings" ],
+    [ "Easy_Copier.Views.SettingsWindow.ISettingsWindow_BindingsScopeConnector", "interface_easy___copier_1_1_views_1_1_settings_window_1_1_i_settings_window___bindings_scope_connector.html", "interface_easy___copier_1_1_views_1_1_settings_window_1_1_i_settings_window___bindings_scope_connector" ]
+];

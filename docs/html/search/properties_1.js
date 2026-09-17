@@ -9,5 +9,6 @@ var searchData=
   ['availablecategories_6',['AvailableCategories',['../class_easy___copier_1_1_view_models_1_1_main_view_model.html#adbaa92c25b5cc552a0f494f7f733815e',1,'Easy_Copier::ViewModels::MainViewModel']]],
   ['availabledrives_7',['AvailableDrives',['../class_easy___copier_1_1_view_models_1_1_main_view_model.html#aa582cf6585c9bbc1fdf7cb80751528a3',1,'Easy_Copier::ViewModels::MainViewModel']]],
   ['availablemonths_8',['AvailableMonths',['../class_easy___copier_1_1_view_models_1_1_history_view_model.html#ab0795c3645d39dcc1e4c51cf8d237c86',1,'Easy_Copier::ViewModels::HistoryViewModel']]],
-  ['availableweeks_9',['AvailableWeeks',['../class_easy___copier_1_1_view_models_1_1_history_view_model.html#a57f616895f38890349dbab2527680c6f',1,'Easy_Copier::ViewModels::HistoryViewModel']]]
+  ['availableosimagesortoptions_9',['AvailableOsImageSortOptions',['../class_easy___copier_1_1_view_models_1_1_main_view_model.html#a77609594405f9244b1a77f96e02f6399',1,'Easy_Copier::ViewModels::MainViewModel']]],
+  ['availableweeks_10',['AvailableWeeks',['../class_easy___copier_1_1_view_models_1_1_history_view_model.html#a57f616895f38890349dbab2527680c6f',1,'Easy_Copier::ViewModels::HistoryViewModel']]]
 ];

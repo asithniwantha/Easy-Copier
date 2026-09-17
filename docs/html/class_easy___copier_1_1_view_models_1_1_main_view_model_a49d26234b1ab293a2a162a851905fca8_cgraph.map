@@ -1,0 +1,18 @@
+<map id="Easy_Copier.ViewModels.MainViewModel.MainViewModel" name="Easy_Copier.ViewModels.MainViewModel.MainViewModel">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,80,209,123"/>
+<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_view_models_1_1_main_view_model.html#aa60e7b9b4c8fa06d820dee7b2776a9d1" title=" " alt="" coords="257,9,460,52"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="185,77,267,55,263,58,187,82"/>
+<area shape="rect" id="Node000005" href="$class_easy___copier_1_1_view_models_1_1_main_view_model.html#a4b180111c266b0bf482dc914e5ef7d79" title=" " alt="" coords="257,80,460,123"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="209,99,244,101,238,102,210,104"/>
+<area shape="rect" id="Node000008" href="$class_easy___copier_1_1_view_models_1_1_main_view_model.html#abef9a9a2e589ae5090b8105ddbb508c1" title=" " alt="" coords="508,155,741,197"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="199,121,257,132,378,149,495,165,490,165,377,155,256,137,199,126"/>
+<area shape="rect" id="Node000003" href="$class_easy___copier_1_1_view_models_1_1_main_view_model.html#ae4a022cc308b4bc6edfd608f979979b0" title=" " alt="" coords="512,5,737,48"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="460,27,499,28,494,29,461,32"/>
+<area shape="rect" id="Node000004" href="$interface_easy___copier_1_1_infrastructure_1_1_i_dispatcher_service.html#a610df3934d188d070dafefd96a3bc47a" title=" " alt="" coords="791,5,998,48"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="737,24,778,26,773,27,738,29"/>
+<area shape="rect" id="Node000006" href="$class_easy___copier_1_1_view_models_1_1_main_view_model.html#ab6d8a2ec8a4cb2058010ec1c4d4556f3" title=" " alt="" coords="508,72,741,131"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="460,99,495,101,490,102,461,104"/>
+<area shape="rect" id="Node000007" href="$class_easy___copier_1_1_view_models_1_1_main_view_model.html#a0a8ffb692e229ec60eb9a768920b42fc" title=" " alt="" coords="789,117,1000,160"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="741,115,776,122,771,122,741,120"/>
+<area shape="poly" id="edge8_Node000008_Node000007" title=" " alt="" coords="741,157,771,156,776,155,742,162"/>
+</map>

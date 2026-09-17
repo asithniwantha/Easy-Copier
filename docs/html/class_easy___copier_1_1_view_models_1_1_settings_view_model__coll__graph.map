@@ -1,11 +1,13 @@
 <map id="Easy_Copier.ViewModels.SettingsViewModel" name="Easy_Copier.ViewModels.SettingsViewModel">
-<area shape="rect" id="Node000001" title=" " alt="" coords="354,89,577,132"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="354,123,577,165"/>
 <area shape="rect" id="Node000002" title=" " alt="" coords="33,5,159,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="174,25,250,38,330,56,417,88,412,89,329,61,249,43,175,31"/>
-<area shape="rect" id="Node000003" href="$interface_easy___copier_1_1_infrastructure_1_1_i_dispatcher_service.html" title=" " alt="" coords="5,56,187,99"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="202,84,355,99,351,102,202,90"/>
-<area shape="rect" id="Node000004" href="$interface_easy___copier_1_1_infrastructure_1_1_i_dialog_service.html" title=" " alt="" coords="5,123,187,165"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="202,135,329,124,356,124,351,125,330,129,203,140"/>
-<area shape="rect" id="Node000005" href="$interface_easy___copier_1_1_infrastructure_1_1_i_process_service.html" title=" " alt="" coords="5,189,187,232"/>
-<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="201,192,265,179,329,163,414,133,420,132,330,168,266,185,202,197"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="174,25,251,39,331,63,387,90,436,122,431,122,385,95,329,68,250,44,175,30"/>
+<area shape="rect" id="Node000003" href="$interface_easy___copier_1_1_infrastructure_1_1_i_file_picker_service.html" title=" " alt="" coords="5,56,187,99"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="202,90,330,112,369,122,364,123,329,117,202,96"/>
+<area shape="rect" id="Node000004" href="$interface_easy___copier_1_1_infrastructure_1_1_i_dispatcher_service.html" title=" " alt="" coords="5,123,187,165"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="202,141,355,142,351,146,202,147"/>
+<area shape="rect" id="Node000005" href="$interface_easy___copier_1_1_infrastructure_1_1_i_dialog_service.html" title=" " alt="" coords="5,189,187,232"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="201,193,329,171,369,165,364,167,330,176,203,198"/>
+<area shape="rect" id="Node000006" href="$interface_easy___copier_1_1_infrastructure_1_1_i_process_service.html" title=" " alt="" coords="5,256,187,299"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="201,257,265,241,329,220,384,193,430,167,435,165,387,198,331,225,266,247,202,262"/>
 </map>

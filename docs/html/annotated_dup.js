@@ -15,7 +15,9 @@ var annotated_dup =
         [ "NegativeToBackgroundConverter", "class_easy___copier_1_1_converters_1_1_negative_to_background_converter.html", "class_easy___copier_1_1_converters_1_1_negative_to_background_converter" ],
         [ "NegativeToForegroundConverter", "class_easy___copier_1_1_converters_1_1_negative_to_foreground_converter.html", "class_easy___copier_1_1_converters_1_1_negative_to_foreground_converter" ],
         [ "PathToImageSourceConverter", "class_easy___copier_1_1_converters_1_1_path_to_image_source_converter.html", "class_easy___copier_1_1_converters_1_1_path_to_image_source_converter" ],
-        [ "SeverityToInfoBarSeverityConverter", "class_easy___copier_1_1_converters_1_1_severity_to_info_bar_severity_converter.html", "class_easy___copier_1_1_converters_1_1_severity_to_info_bar_severity_converter" ]
+        [ "SeverityToInfoBarSeverityConverter", "class_easy___copier_1_1_converters_1_1_severity_to_info_bar_severity_converter.html", "class_easy___copier_1_1_converters_1_1_severity_to_info_bar_severity_converter" ],
+        [ "SortDirectionGlyphConverter", "class_easy___copier_1_1_converters_1_1_sort_direction_glyph_converter.html", "class_easy___copier_1_1_converters_1_1_sort_direction_glyph_converter" ],
+        [ "SortDirectionToolTipConverter", "class_easy___copier_1_1_converters_1_1_sort_direction_tool_tip_converter.html", "class_easy___copier_1_1_converters_1_1_sort_direction_tool_tip_converter" ]
       ] ],
       [ "Easy_Copier_XamlTypeInfo", "namespace_easy___copier_1_1_easy___copier___xaml_type_info.html", [
         [ "XamlMetaDataProvider", "class_easy___copier_1_1_easy___copier___xaml_type_info_1_1_xaml_meta_data_provider.html", "class_easy___copier_1_1_easy___copier___xaml_type_info_1_1_xaml_meta_data_provider" ],
@@ -41,6 +43,7 @@ var annotated_dup =
         [ "NativeWindowHelper", "class_easy___copier_1_1_infrastructure_1_1_native_window_helper.html", "class_easy___copier_1_1_infrastructure_1_1_native_window_helper" ],
         [ "ObservableCollectionExtensions", "class_easy___copier_1_1_infrastructure_1_1_observable_collection_extensions.html", "class_easy___copier_1_1_infrastructure_1_1_observable_collection_extensions" ],
         [ "ProcessService", "class_easy___copier_1_1_infrastructure_1_1_process_service.html", "class_easy___copier_1_1_infrastructure_1_1_process_service" ],
+        [ "RufusResolutionHelper", "class_easy___copier_1_1_infrastructure_1_1_rufus_resolution_helper.html", "class_easy___copier_1_1_infrastructure_1_1_rufus_resolution_helper" ],
         [ "ServiceCollectionExtensions", "class_easy___copier_1_1_infrastructure_1_1_service_collection_extensions.html", "class_easy___copier_1_1_infrastructure_1_1_service_collection_extensions" ],
         [ "SysReqFormatter", "class_easy___copier_1_1_infrastructure_1_1_sys_req_formatter.html", "class_easy___copier_1_1_infrastructure_1_1_sys_req_formatter" ],
         [ "WindowService", "class_easy___copier_1_1_infrastructure_1_1_window_service.html", "class_easy___copier_1_1_infrastructure_1_1_window_service" ]
@@ -100,6 +103,7 @@ var annotated_dup =
         [ "GameDetailsViewModel", "class_easy___copier_1_1_view_models_1_1_game_details_view_model.html", "class_easy___copier_1_1_view_models_1_1_game_details_view_model" ],
         [ "HistoryViewModel", "class_easy___copier_1_1_view_models_1_1_history_view_model.html", "class_easy___copier_1_1_view_models_1_1_history_view_model" ],
         [ "MainViewModel", "class_easy___copier_1_1_view_models_1_1_main_view_model.html", "class_easy___copier_1_1_view_models_1_1_main_view_model" ],
+        [ "OsImageDetailsViewModel", "class_easy___copier_1_1_view_models_1_1_os_image_details_view_model.html", "class_easy___copier_1_1_view_models_1_1_os_image_details_view_model" ],
         [ "SettingsViewModel", "class_easy___copier_1_1_view_models_1_1_settings_view_model.html", "class_easy___copier_1_1_view_models_1_1_settings_view_model" ],
         [ "SmartAdderHistoryEntryViewModel", "class_easy___copier_1_1_view_models_1_1_smart_adder_history_entry_view_model.html", "class_easy___copier_1_1_view_models_1_1_smart_adder_history_entry_view_model" ],
         [ "SmartAdderHistoryViewModel", "class_easy___copier_1_1_view_models_1_1_smart_adder_history_view_model.html", "class_easy___copier_1_1_view_models_1_1_smart_adder_history_view_model" ],
@@ -111,6 +115,7 @@ var annotated_dup =
         [ "HistoryPage", "class_easy___copier_1_1_views_1_1_history_page.html", "class_easy___copier_1_1_views_1_1_history_page" ],
         [ "HistoryWindow", "class_easy___copier_1_1_views_1_1_history_window.html", "class_easy___copier_1_1_views_1_1_history_window" ],
         [ "MainPage", "class_easy___copier_1_1_views_1_1_main_page.html", "class_easy___copier_1_1_views_1_1_main_page" ],
+        [ "OsImageDetailsFlyout", "class_easy___copier_1_1_views_1_1_os_image_details_flyout.html", "class_easy___copier_1_1_views_1_1_os_image_details_flyout" ],
         [ "SettingsWindow", "class_easy___copier_1_1_views_1_1_settings_window.html", "class_easy___copier_1_1_views_1_1_settings_window" ],
         [ "SmartAdderControl", "class_easy___copier_1_1_views_1_1_smart_adder_control.html", "class_easy___copier_1_1_views_1_1_smart_adder_control" ],
         [ "SmartAdderHistoryWindow", "class_easy___copier_1_1_views_1_1_smart_adder_history_window.html", "class_easy___copier_1_1_views_1_1_smart_adder_history_window" ]

@@ -1,35 +1,3 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="Node000000" title=" " alt="" coords="57,80,148,107"/>
-<area shape="rect" id="Node000001" href="$class_easy___copier_1_1_services_1_1_game_info_download_service.html" title=" " alt="" coords="272,5,462,48"/>
-<area shape="poly" id="edge142_Node000000_Node000001" title=" " alt="" coords="161,76,281,47,278,51,165,80"/>
-<area shape="rect" id="Node000003" href="$interface_easy___copier_1_1_services_1_1_i_drive_discovery_service.html" title=" " alt="" coords="272,72,462,115"/>
-<area shape="poly" id="edge143_Node000000_Node000003" title=" " alt="" coords="162,91,273,92,269,95,165,96"/>
-<area shape="rect" id="Node000005" href="$class_easy___copier_1_1_view_models_1_1_main_view_model.html" title=" " alt="" coords="265,139,468,181"/>
-<area shape="poly" id="edge145_Node000000_Node000005" title=" " alt="" coords="162,106,282,137,277,140,164,111"/>
-<area shape="rect" id="Node000004" href="$class_easy___copier_1_1_services_1_1_drive_discovery_service.html" title=" " alt="" coords="534,72,720,115"/>
-<area shape="poly" id="edge144_Node000003_Node000004" title=" " alt="" coords="476,91,536,92,531,95,479,96"/>
-<area shape="rect" id="Node000002" href="$interface_easy___copier_1_1_services_1_1_i_game_info_download_service.html" title=" " alt="" coords="5,5,200,48"/>
-<area shape="poly" id="edge146_Node000002_Node000001" title=" " alt="" coords="214,24,273,25,269,28,216,29"/>
-<area shape="rect" id="Node000006" title=" " alt="" coords="40,448,165,475"/>
-<area shape="poly" id="edge154_Node000006_Node000005" title=" " alt="" coords="108,432,125,381,153,315,193,249,218,218,246,191,267,180,264,184,249,195,221,222,197,252,158,318,130,382,114,434"/>
-<area shape="rect" id="Node000007" href="$class_easy___copier_1_1_models_1_1_file_system_item.html" title=" " alt="" coords="248,205,486,232"/>
-<area shape="poly" id="edge147_Node000006_Node000007" title=" " alt="" coords="112,433,131,390,159,338,198,285,221,262,246,242,271,231,268,234,249,246,224,266,202,289,164,341,135,392,117,434"/>
-<area shape="rect" id="Node000008" href="$class_easy___copier_1_1_models_1_1_number_cell.html" title=" " alt="" coords="259,256,474,283"/>
-<area shape="poly" id="edge148_Node000006_Node000008" title=" " alt="" coords="117,434,138,400,168,362,204,324,246,292,274,281,271,285,249,297,208,328,172,365,143,403,121,436"/>
-<area shape="rect" id="Node000009" href="$class_easy___copier_1_1_models_1_1_smart_adder_entry.html" title="Represents a single dynamic number&#45;entry row within the SmartAdder overlay." alt="" coords="276,307,458,349"/>
-<area shape="poly" id="edge149_Node000006_Node000009" title=" " alt="" coords="129,436,182,397,246,359,278,348,274,352,249,364,185,401,134,440"/>
-<area shape="rect" id="Node000010" href="$class_easy___copier_1_1_models_1_1_transfer_queue_item.html" title=" " alt="" coords="270,373,464,416"/>
-<area shape="poly" id="edge150_Node000006_Node000010" title=" " alt="" coords="172,441,281,415,277,419,175,446"/>
-<area shape="rect" id="Node000011" href="$class_easy___copier_1_1_view_models_1_1_about_view_model.html" title=" " alt="" coords="262,440,472,483"/>
-<area shape="poly" id="edge151_Node000006_Node000011" title=" " alt="" coords="179,459,264,460,259,463,182,464"/>
-<area shape="rect" id="Node000012" href="$class_easy___copier_1_1_view_models_1_1_game_details_view_model.html" title=" " alt="" coords="262,507,472,549"/>
-<area shape="poly" id="edge152_Node000006_Node000012" title=" " alt="" coords="173,476,282,505,277,507,174,482"/>
-<area shape="rect" id="Node000013" href="$class_easy___copier_1_1_view_models_1_1_history_view_model.html" title=" " alt="" coords="258,573,476,616"/>
-<area shape="poly" id="edge153_Node000006_Node000013" title=" " alt="" coords="131,482,185,522,249,559,279,572,274,574,246,564,182,526,132,487"/>
-<area shape="rect" id="Node000014" href="$class_easy___copier_1_1_view_models_1_1_settings_view_model.html" title=" " alt="" coords="255,640,478,683"/>
-<area shape="poly" id="edge155_Node000006_Node000014" title=" " alt="" coords="120,485,173,556,208,594,249,626,272,639,267,640,246,630,205,598,169,560,119,491"/>
-<area shape="rect" id="Node000015" href="$class_easy___copier_1_1_view_models_1_1_smart_adder_history_view_model.html" title="Backs the SmartAdder Calculation History window, listing previously logged calculation sessions in re..." alt="" coords="262,707,472,749"/>
-<area shape="poly" id="edge156_Node000006_Node000015" title=" " alt="" coords="113,486,134,533,162,588,201,645,224,670,249,693,269,706,264,706,246,697,220,674,197,648,158,591,129,535,113,491"/>
-<area shape="rect" id="Node000016" href="$class_easy___copier_1_1_view_models_1_1_smart_adder_view_model.html" title=" " alt="" coords="262,773,472,816"/>
-<area shape="poly" id="edge157_Node000006_Node000016" title=" " alt="" coords="110,487,127,547,153,620,171,658,193,695,219,729,249,759,267,773,262,772,246,763,215,733,189,698,167,660,148,622,122,548,109,493"/>
+<area shape="rect" id="Node000000" href="$class_easy___copier_1_1_views_1_1_smart_adder_control_1_1_smart_adder_control__obj3___bindings_1f1dc52798f9d31bf5c5f4e57a7da4e9f.html" title=" " alt="" coords="5,5,230,80"/>
 </map>

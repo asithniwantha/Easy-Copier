@@ -1,0 +1,12 @@
+<map id="Easy_Copier.ViewModels.MainViewModel.OpenInRufusAsync" name="Easy_Copier.ViewModels.MainViewModel.OpenInRufusAsync">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,55,209,97"/>
+<area shape="rect" id="Node000002" href="$namespace_easy___copier_1_1_models.html#ab9811c24c166bd7f4768ddafbcbaf75d" title=" " alt="" coords="273,29,485,56"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="209,61,260,57,255,58,210,66"/>
+<area shape="rect" id="Node000003" href="$class_easy___copier_1_1_infrastructure_1_1_rufus_resolution_helper.html#a99c0f58c87b73206f2635dbc1e95a235" title="Given a configured Rufus path (with optional environment variables), expands environment variables,..." alt="" coords="257,80,501,139"/>
+<area shape="poly" id="edge3_Node000001_Node000003" title=" " alt="" coords="209,86,244,92,239,93,209,91"/>
+<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="333,28,325,21,331,11,349,5,379,3,412,5,430,15,425,14,410,11,379,8,350,10,334,15,331,20,338,29"/>
+<area shape="rect" id="Node000004" href="$class_easy___copier_1_1_infrastructure_1_1_rufus_resolution_helper.html#a86bc01b0f77e23145af9cac4b03c01a2" title="Attempts to parse a Version object from a Rufus filename (e.g. rufus&#45;4.7.exe =&gt; Version 4...." alt="" coords="549,80,805,139"/>
+<area shape="poly" id="edge4_Node000003_Node000004" title=" " alt="" coords="501,107,536,109,531,109,501,112"/>
+<area shape="rect" id="Node000005" href="$class_easy___copier_1_1_infrastructure_1_1_rufus_resolution_helper.html#aff74fa2f29453c47964c6d4e5ef6de2a" title=" " alt="" coords="853,88,1130,131"/>
+<area shape="poly" id="edge5_Node000004_Node000005" title=" " alt="" coords="806,107,840,109,835,109,806,112"/>
+</map>

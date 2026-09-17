@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['gamedetailsflyout_2eg_2ecs_0',['GameDetailsFlyout.g.cs',['../_views_2_game_details_flyout_8g_8cs.html',1,'(Global Namespace)'],['../win-x64_2_views_2_game_details_flyout_8g_8cs.html',1,'(Global Namespace)']]],
-  ['gamedetailsflyout_2eg_2ei_2ecs_1',['GameDetailsFlyout.g.i.cs',['../_views_2_game_details_flyout_8g_8i_8cs.html',1,'(Global Namespace)'],['../win-x64_2_views_2_game_details_flyout_8g_8i_8cs.html',1,'(Global Namespace)']]],
+  ['gamedetailsflyout_2eg_2ecs_0',['GameDetailsFlyout.g.cs',['../_release_2net10_80-windows10_80_826100_80_2win-x64_2_views_2_game_details_flyout_8g_8cs.html',1,'(Global Namespace)'],['../x64_2_debug_2net10_80-windows10_80_826100_80_2_views_2_game_details_flyout_8g_8cs.html',1,'(Global Namespace)'],['../x64_2_debug_2net10_80-windows10_80_826100_80_2win-x64_2_views_2_game_details_flyout_8g_8cs.html',1,'(Global Namespace)']]],
+  ['gamedetailsflyout_2eg_2ei_2ecs_1',['GameDetailsFlyout.g.i.cs',['../_release_2net10_80-windows10_80_826100_80_2win-x64_2_views_2_game_details_flyout_8g_8i_8cs.html',1,'(Global Namespace)'],['../x64_2_debug_2net10_80-windows10_80_826100_80_2_views_2_game_details_flyout_8g_8i_8cs.html',1,'(Global Namespace)'],['../x64_2_debug_2net10_80-windows10_80_826100_80_2win-x64_2_views_2_game_details_flyout_8g_8i_8cs.html',1,'(Global Namespace)']]],
   ['gamedetailsflyout_2examl_2ecs_2',['GameDetailsFlyout.xaml.cs',['../_game_details_flyout_8xaml_8cs.html',1,'']]],
   ['gamedetailsviewmodel_2ecs_3',['GameDetailsViewModel.cs',['../_game_details_view_model_8cs.html',1,'']]],
   ['gameinfodownloadservice_2ecategories_2ecs_4',['GameInfoDownloadService.Categories.cs',['../_game_info_download_service_8_categories_8cs.html',1,'']]],

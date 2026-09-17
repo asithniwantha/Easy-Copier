@@ -32,7 +32,13 @@ var _domain_models_8cs =
     [ "Easy_Copier.Models.LibraryCategory", "namespace_easy___copier_1_1_models.html#aa1c98543798d7f84e29b2e4deba8a58b", [
       [ "Easy_Copier.Models.LibraryCategory.Game", "namespace_easy___copier_1_1_models.html#aa1c98543798d7f84e29b2e4deba8a58ba63d72051e901c069f8aa1b32aa0c43bb", null ],
       [ "Easy_Copier.Models.LibraryCategory.App", "namespace_easy___copier_1_1_models.html#aa1c98543798d7f84e29b2e4deba8a58baac863f346e618f9a959b5c95d5d28941", null ],
-      [ "Easy_Copier.Models.LibraryCategory.TvAndFilm", "namespace_easy___copier_1_1_models.html#aa1c98543798d7f84e29b2e4deba8a58baef598706c6e8c60a8094961e43ecaaef", null ]
+      [ "Easy_Copier.Models.LibraryCategory.TvAndFilm", "namespace_easy___copier_1_1_models.html#aa1c98543798d7f84e29b2e4deba8a58baef598706c6e8c60a8094961e43ecaaef", null ],
+      [ "Easy_Copier.Models.LibraryCategory.OsImage", "namespace_easy___copier_1_1_models.html#aa1c98543798d7f84e29b2e4deba8a58bab19958e8f8f2f0afecec67d3d08c4a88", null ]
+    ] ],
+    [ "Easy_Copier.Models.OsImageSortOption", "namespace_easy___copier_1_1_models.html#a730e39ab051f5d5a6af5d61176138617", [
+      [ "Easy_Copier.Models.OsImageSortOption.Name", "namespace_easy___copier_1_1_models.html#a730e39ab051f5d5a6af5d61176138617a49ee3087348e8d44e1feda1917443987", null ],
+      [ "Easy_Copier.Models.OsImageSortOption.DateAdded", "namespace_easy___copier_1_1_models.html#a730e39ab051f5d5a6af5d61176138617a90ac28eefb33054bd901e4c90e98a65a", null ],
+      [ "Easy_Copier.Models.OsImageSortOption.Size", "namespace_easy___copier_1_1_models.html#a730e39ab051f5d5a6af5d61176138617a6f6cb72d544962fa333e2e34ce64f719", null ]
     ] ],
     [ "Easy_Copier.Models.ValidationSeverity", "namespace_easy___copier_1_1_models.html#ae4a6b01c2111b1eb1611b6970c615b8c", [
       [ "Easy_Copier.Models.ValidationSeverity.Info", "namespace_easy___copier_1_1_models.html#ae4a6b01c2111b1eb1611b6970c615b8ca4059b0251f66a18cb56f544728796875", null ],
@@ -43,7 +49,7 @@ var _domain_models_8cs =
     [ "Easy_Copier.Models.CopyHistoryRecord", "namespace_easy___copier_1_1_models.html#a22cad9581ea699aafef9d310c84f0836", null ],
     [ "Easy_Copier.Models.GameEntry", "namespace_easy___copier_1_1_models.html#ab9811c24c166bd7f4768ddafbcbaf75d", null ],
     [ "Easy_Copier.Models.ItemFingerprint", "namespace_easy___copier_1_1_models.html#aae2a352ac1ad9a55ae8b37e300153431", null ],
-    [ "Easy_Copier.Models.LibraryCacheSnapshot", "namespace_easy___copier_1_1_models.html#aa31330812b9fee139e0731f87cc18a1f", null ],
+    [ "Easy_Copier.Models.LibraryCacheSnapshot", "namespace_easy___copier_1_1_models.html#a6ce72bb145c4b6a2a691fff265751706", null ],
     [ "Easy_Copier.Models.RemovableDrive", "namespace_easy___copier_1_1_models.html#af8f0175620d1cdd9a06d3e52ae12ba12", null ],
     [ "Easy_Copier.Models.SourceFolder", "namespace_easy___copier_1_1_models.html#abf1613443f307029b23c31269e85160d", null ],
     [ "Easy_Copier.Models.TransferItem", "namespace_easy___copier_1_1_models.html#a36bba191a5fad0b0ca63ed787ae607d8", null ],

@@ -1,17 +1,21 @@
 <map id="Easy_Copier.ViewModels.MainViewModel.ApplyFilter" name="Easy_Copier.ViewModels.MainViewModel.ApplyFilter">
-<area shape="rect" id="Node000001" title=" " alt="" coords="1145,67,1348,110"/>
-<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_view_models_1_1_main_view_model.html#a7ec049730d16773f05f8c87da648d961" title=" " alt="" coords="256,109,459,151"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="1192,59,1147,41,1096,25,1000,11,902,9,803,16,709,31,620,49,539,71,416,111,414,106,538,65,618,44,708,25,803,11,901,4,1000,6,1097,19,1149,36,1197,60"/>
-<area shape="rect" id="Node000004" href="$class_easy___copier_1_1_view_models_1_1_main_view_model.html#a6aa00069324a15f76083c4ba3074d1c7" title="Handles changes to the SearchText property to re&#45;apply library filtering. Uses nullable string?..." alt="" coords="853,34,1078,77"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="1127,75,1078,71,1078,66,1132,75"/>
-<area shape="rect" id="Node000005" href="$class_easy___copier_1_1_view_models_1_1_main_view_model.html#a149fd926e7789c317272e74cbb2c0c20" title=" " alt="" coords="834,101,1097,143"/>
-<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="1132,102,1098,109,1097,104,1126,103"/>
-<area shape="rect" id="Node000006" href="$class_easy___copier_1_1_view_models_1_1_main_view_model.html#acd3c0e03514b0d481cb8e21f4eaec06e" title=" " alt="" coords="864,167,1067,210"/>
-<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="1191,116,1098,158,1061,169,1060,164,1096,153,1185,118"/>
-<area shape="rect" id="Node000003" href="$class_easy___copier_1_1_views_1_1_main_page.html#a1892f28feb0fd22b9cff5ebb690f1bea" title=" " alt="" coords="5,109,208,151"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="237,131,209,133,208,127,242,129"/>
-<area shape="poly" id="edge6_Node000006_Node000002" title=" " alt="" coords="846,165,786,158,614,142,460,135,460,130,614,137,787,153,851,165"/>
-<area shape="rect" id="Node000007" href="$class_easy___copier_1_1_view_models_1_1_main_view_model.html#ad071bc3d0e0120cfa4f180eca785ddd4" title=" " alt="" coords="507,167,786,210"/>
-<area shape="poly" id="edge7_Node000006_Node000007" title=" " alt="" coords="845,189,787,191,787,186,851,189"/>
-<area shape="poly" id="edge8_Node000007_Node000002" title=" " alt="" coords="521,164,459,153,460,148,526,164"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="1145,162,1348,205"/>
+<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_view_models_1_1_main_view_model.html#a7ec049730d16773f05f8c87da648d961" title=" " alt="" coords="256,286,459,329"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="1221,148,1199,121,1170,89,1135,59,1096,36,1025,13,996,9,968,8,908,17,835,36,764,59,695,89,628,123,566,160,459,232,386,288,383,283,456,228,563,155,626,119,693,84,763,54,834,31,907,12,967,3,996,4,1027,8,1098,31,1138,54,1173,85,1203,117,1226,150"/>
+<area shape="rect" id="Node000004" href="$class_easy___copier_1_1_view_models_1_1_main_view_model.html#a0ddddddefc20a6cb58ebebcd1fa2845b" title=" " alt="" coords="838,46,1093,105"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="1184,155,1096,119,1065,108,1065,103,1098,114,1189,155"/>
+<area shape="rect" id="Node000005" href="$class_easy___copier_1_1_view_models_1_1_main_view_model.html#a6aa00069324a15f76083c4ba3074d1c7" title="Handles changes to the SearchText property to re&#45;apply library filtering. Uses nullable string?..." alt="" coords="853,129,1078,171"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="1127,169,1078,166,1078,161,1132,169"/>
+<area shape="rect" id="Node000006" href="$class_easy___copier_1_1_view_models_1_1_main_view_model.html#a149fd926e7789c317272e74cbb2c0c20" title=" " alt="" coords="834,195,1097,238"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="1126,197,1098,204,1097,198,1132,197"/>
+<area shape="rect" id="Node000007" href="$class_easy___copier_1_1_view_models_1_1_main_view_model.html#a9f5f8be736636f84abe2ce843724d32c" title=" " alt="" coords="848,262,1083,321"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="1189,211,1098,252,1066,264,1064,259,1096,247,1184,212"/>
+<area shape="rect" id="Node000008" href="$class_easy___copier_1_1_view_models_1_1_main_view_model.html#acd3c0e03514b0d481cb8e21f4eaec06e" title=" " alt="" coords="864,345,1067,387"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="1223,216,1169,279,1135,309,1098,335,1068,348,1067,343,1095,330,1132,305,1166,275,1218,218"/>
+<area shape="rect" id="Node000003" href="$class_easy___copier_1_1_views_1_1_main_page.html#a1892f28feb0fd22b9cff5ebb690f1bea" title=" " alt="" coords="5,286,208,329"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="237,308,209,310,208,305,242,307"/>
+<area shape="poly" id="edge8_Node000008_Node000002" title=" " alt="" coords="846,342,786,335,614,320,460,312,460,307,614,314,787,330,851,342"/>
+<area shape="rect" id="Node000009" href="$class_easy___copier_1_1_view_models_1_1_main_view_model.html#ad071bc3d0e0120cfa4f180eca785ddd4" title=" " alt="" coords="507,345,786,387"/>
+<area shape="poly" id="edge9_Node000008_Node000009" title=" " alt="" coords="845,366,787,369,787,363,851,366"/>
+<area shape="poly" id="edge10_Node000009_Node000002" title=" " alt="" coords="521,341,459,330,460,325,526,341"/>
 </map>

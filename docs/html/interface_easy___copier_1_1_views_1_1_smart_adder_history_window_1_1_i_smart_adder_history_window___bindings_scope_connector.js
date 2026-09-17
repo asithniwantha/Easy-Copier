@@ -1,0 +1,6 @@
+var interface_easy___copier_1_1_views_1_1_smart_adder_history_window_1_1_i_smart_adder_history_window___bindings_scope_connector =
+[
+    [ "ContainsElement", "interface_easy___copier_1_1_views_1_1_smart_adder_history_window_1_1_i_smart_adder_history_window___bindings_scope_connector.html#a7d54b72991d58e16b54a8a1871c1af00", null ],
+    [ "RegisterForElementConnection", "interface_easy___copier_1_1_views_1_1_smart_adder_history_window_1_1_i_smart_adder_history_window___bindings_scope_connector.html#aaa50759990caff9ea3eed4b8c1771b59", null ],
+    [ "Parent", "interface_easy___copier_1_1_views_1_1_smart_adder_history_window_1_1_i_smart_adder_history_window___bindings_scope_connector.html#afc30cef8342834e3dd7596c35c3bcecc", null ]
+];

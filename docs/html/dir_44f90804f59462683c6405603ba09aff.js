@@ -13,6 +13,7 @@ var dir_44f90804f59462683c6405603ba09aff =
     [ "NativeWindowHelper.cs", "_native_window_helper_8cs.html", "_native_window_helper_8cs" ],
     [ "ObservableCollectionExtensions.cs", "_observable_collection_extensions_8cs.html", "_observable_collection_extensions_8cs" ],
     [ "ProcessService.cs", "_process_service_8cs.html", "_process_service_8cs" ],
+    [ "RufusResolutionHelper.cs", "_rufus_resolution_helper_8cs.html", "_rufus_resolution_helper_8cs" ],
     [ "ServiceCollectionExtensions.cs", "_service_collection_extensions_8cs.html", "_service_collection_extensions_8cs" ],
     [ "SysReqFormatter.cs", "_sys_req_formatter_8cs.html", "_sys_req_formatter_8cs" ],
     [ "WindowService.cs", "_window_service_8cs.html", "_window_service_8cs" ]
