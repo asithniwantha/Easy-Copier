@@ -10,74 +10,6 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Page.Resources>
-        <converters:SortDirectionGlyphConverter x:Key="SortDirectionGlyphConverter"/>
-        <converters:SortDirectionToolTipConverter x:Key="SortDirectionToolTipConverter"/>
-        <DataTemplate x:Key="LibraryItemTemplate" x:DataType="models:GameEntry">
-            <Border Style="{StaticResource GameCardStyle}"
-                    Width="{StaticResource GameCardWidth}"
-                    Height="{StaticResource GameCardHeight}"
-                    RightTapped="GameCard_RightTapped">
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="*"/>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
-                    </Grid.RowDefinitions>
-
-                    <Grid Grid.Row="0" Background="{ThemeResource CardStrokeColorDefaultBrush}"
-                          CornerRadius="4">
-                        <Image Source="{x:Bind CoverImagePath, Converter={StaticResource PathToImageSourceConverter}}" Stretch="UniformToFill"
-                               Visibility="{x:Bind HasCover, Converter={StaticResource BoolToVisibilityConverter}}"/>
-                        <FontIcon Glyph="&#xE7FC;" FontSize="48" Opacity="0.4"
-                                  HorizontalAlignment="Center" VerticalAlignment="Center"
-                                  Visibility="{x:Bind HasNoCover, Converter={StaticResource BoolToVisibilityConverter}}"/>
-                        <InfoBadge Style="{ThemeResource CautionIconInfoBadgeStyle}"
-                                   HorizontalAlignment="Right" VerticalAlignment="Top"
-                                   Margin="4,4,36,4"
-                                   Visibility="{x:Bind HasLargeFiles, Converter={StaticResource BoolToVisibilityConverter}}"
-                                   ToolTipService.ToolTip="Contains files larger than 4GB (FAT32 incompatible)"/>
-                        <Button HorizontalAlignment="Right"
-                                VerticalAlignment="Top"
-                                Margin="4"
-                                Padding="4"
-                                MinWidth="0"
-                                Command="{Binding DataContext.OpenItemFolderCommand, ElementName=RootGrid}"
-                                CommandParameter="{x:Bind FolderPath}"
-                                ToolTipService.ToolTip="Open folder in File Explorer">
-                            <FontIcon Glyph="&#xE838;" FontSize="12"/>
-                        </Button>
-                    </Grid>
-
-                    <TextBlock Grid.Row="1" Text="{x:Bind Name}"
-                               FontWeight="SemiBold" TextTrimming="CharacterEllipsis"
-                               Margin="0,8,0,2"/>
-                    <TextBlock Grid.Row="2" Text="{x:Bind Categories, Converter={StaticResource CategoryFormatConverter}}"
-                               FontSize="12" Foreground="{ThemeResource TextFillColorSecondaryBrush}"
-                               TextTrimming="CharacterEllipsis" Margin="0,0,0,2" />
-
-                    <Grid Grid.Row="3">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="Auto"/>
-                        </Grid.ColumnDefinitions>
-
-                        <TextBlock Grid.Column="0"
-                                   Text="{x:Bind TotalBytes, Converter={StaticResource BytesToSizeConverter}}"
-                                   Opacity="0.7" FontSize="12" VerticalAlignment="Bottom"/>
-
-                        <TextBlock Grid.Column="1"
-                                   Text="{x:Bind TotalBytes, Converter={StaticResource GameSizeToPriceConverter}}"
-                                   FontWeight="Bold" FontSize="14" VerticalAlignment="Bottom"
-                                   HorizontalAlignment="Right"
-                                   Visibility="{x:Bind Category, Converter={StaticResource GameCategoryToVisibilityConverter}}"/>
-                    </Grid>
-                </Grid>
-            </Border>
-        </DataTemplate>
-    </Page.Resources>
-
     <Grid x:Name="RootGrid">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -100,350 +32,267 @@
 
             <Grid Grid.Column="0" Padding="16,16,8,16">
                 <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
-
-            <InfoBar Grid.Row="0" IsOpen="{x:Bind ViewModel.IsUpdateAvailable, Mode=OneWay}" Severity="Success" Message="{x:Bind ViewModel.UpdateMessage, Mode=OneWay}" Margin="0,0,0,8">
-                <InfoBar.ActionButton>
-                    <Button Content="Download" Command="{x:Bind ViewModel.DownloadUpdateCommand}"/>
-                </InfoBar.ActionButton>
-            </InfoBar>
-            <InfoBar Grid.Row="1" IsOpen="{x:Bind ViewModel.IsUpdateReadyToInstall, Mode=OneWay}" Severity="Success" Message="{x:Bind ViewModel.UpdateMessage, Mode=OneWay}" Margin="0,0,0,8">
-                <InfoBar.ActionButton>
-                    <Button Content="Restart &amp; Apply" Command="{x:Bind ViewModel.RestartAndApplyUpdateCommand}"/>
-                </InfoBar.ActionButton>
-            </InfoBar>
-            <TextBlock Grid.Row="2" Text="Library" Style="{StaticResource SectionHeaderStyle}" Margin="0,10,0,0"/>
-
-            <CommandBar Grid.Row="3" DefaultLabelPosition="Right"
-                        Background="Transparent" HorizontalAlignment="Left"
-                        Margin="0,0,0,8">
-                <AppBarButton Icon="Add" Label="Add Folder" Command="{x:Bind ViewModel.AddSourceFolderCommand}"/>
-                <AppBarButton Icon="Refresh" Label="Scan Library" Command="{x:Bind ViewModel.ScanLibraryCommand}"/>
-                <AppBarButton Icon="ClearSelection" Label="Deselect All" Command="{x:Bind ViewModel.ClearSelectionCommand}"/>
-                <AppBarSeparator/>
-                <AppBarButton Icon="Clock" Label="History" Command="{x:Bind ViewModel.OpenHistoryCommand}"/>
-                <AppBarButton Icon="Setting" Label="Settings" Command="{x:Bind ViewModel.OpenSettingsCommand}"/>
-                <AppBarButton Icon="Help" Label="About" Command="{x:Bind ViewModel.OpenAboutCommand}"/>
-            </CommandBar>
-
-            <Grid Grid.Row="4" Margin="0,0,0,8" ColumnSpacing="8">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="Auto" />
-                </Grid.ColumnDefinitions>
-                <AutoSuggestBox x:Name="SearchBox" Grid.Column="0"
-                                PlaceholderText="Search games and apps..."
-                                QueryIcon="Find"
-                                Text="{x:Bind ViewModel.SearchText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                                HorizontalAlignment="Stretch" />
-
-                <ComboBox Grid.Column="1"
-                          ItemsSource="{x:Bind ViewModel.AvailableCategories}"
-                          SelectedItem="{x:Bind ViewModel.SelectedCategory, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                          Width="150" />
-            </Grid>
-
-            <Pivot x:Name="LibraryPivot" Grid.Row="5" SelectedIndex="{x:Bind ViewModel.CurrentTabIndex, Mode=TwoWay}" SelectionChanged="LibraryPivot_SelectionChanged">
-                <PivotItem Header="Games">
-                    <Grid>
-                        <ProgressRing IsActive="{x:Bind ViewModel.IsScanning, Mode=OneWay}"
-                                      Width="48" Height="48"
-                                      HorizontalAlignment="Center" VerticalAlignment="Center"/>
-
-                        <TextBlock Text="{x:Bind ViewModel.EmptyGamesMessage, Mode=OneWay}"
-                                   HorizontalAlignment="Center" VerticalAlignment="Center"
-                                   TextWrapping="Wrap" MaxWidth="400" Opacity="0.7"
-                                   Visibility="{x:Bind ViewModel.IsGamesEmpty, Mode=OneWay}"/>
-
-                        <GridView x:Name="GamesGridView"
-                                  ItemsSource="{x:Bind ViewModel.Games, Mode=OneWay}"
-                                  ItemTemplate="{StaticResource LibraryItemTemplate}"
-                                  SelectionMode="Multiple"
-                                  SelectionChanged="GamesGridView_SelectionChanged"
-                                  IsItemClickEnabled="False"/>
-                    </Grid>
-                </PivotItem>
-
-                <PivotItem Header="Apps">
-                    <Grid>
-                        <ProgressRing IsActive="{x:Bind ViewModel.IsScanning, Mode=OneWay}"
-                                      Width="48" Height="48"
-                                      HorizontalAlignment="Center" VerticalAlignment="Center"/>
-
-                        <TextBlock Text="{x:Bind ViewModel.EmptyAppsMessage, Mode=OneWay}"
-                                   HorizontalAlignment="Center" VerticalAlignment="Center"
-                                   TextWrapping="Wrap" MaxWidth="400" Opacity="0.7"
-                                   Visibility="{x:Bind ViewModel.IsAppsEmpty, Mode=OneWay}"/>
-
-                        <GridView x:Name="AppsGridView"
-                                  ItemsSource="{x:Bind ViewModel.Apps, Mode=OneWay}"
-                                  ItemTemplate="{StaticResource LibraryItemTemplate}"
-                                  SelectionMode="Multiple"
-                                  SelectionChanged="AppsGridView_SelectionChanged"
-                                  IsItemClickEnabled="False"/>
-                    </Grid>
-                </PivotItem>
-
-                <PivotItem Header="Films &amp; TV series">
-                    <Grid>
-                        <ProgressRing IsActive="{x:Bind ViewModel.IsScanning, Mode=OneWay}"
-                                      Width="48" Height="48"
-                                      HorizontalAlignment="Center" VerticalAlignment="Center"/>
-
-                        <TextBlock Text="{x:Bind ViewModel.EmptyTvAndFilmsMessage, Mode=OneWay}"
-                                   HorizontalAlignment="Center" VerticalAlignment="Center"
-                                   TextWrapping="Wrap" MaxWidth="400" Opacity="0.7"
-                                   Visibility="{x:Bind ViewModel.IsTvAndFilmsEmpty, Mode=OneWay}"/>
-
-                        <GridView x:Name="TvAndFilmsGridView"
-                                  ItemsSource="{x:Bind ViewModel.TvAndFilms, Mode=OneWay}"
-                                  ItemTemplate="{StaticResource LibraryItemTemplate}"
-                                  SelectionMode="Multiple"
-                                  SelectionChanged="TvAndFilmsGridView_SelectionChanged"
-                                  IsItemClickEnabled="False"/>
-                    </Grid>
-                </PivotItem>
-
-                <PivotItem Header="OS Images">
-                    <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="*"/>
-                        </Grid.RowDefinitions>
-
-                        <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Right" Spacing="8" Margin="0,0,0,8">
-                            <TextBlock Text="Sort by:" VerticalAlignment="Center" Opacity="0.8" />
-                            <ComboBox ItemsSource="{x:Bind ViewModel.AvailableOsImageSortOptions}"
-                                      SelectedItem="{x:Bind ViewModel.SelectedOsImageSortOption, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                                      Width="130" VerticalAlignment="Center"/>
-                            <Button Command="{x:Bind ViewModel.ToggleOsImageSortDirectionCommand}"
-                                    Padding="8" VerticalAlignment="Center"
-                                    ToolTipService.ToolTip="{x:Bind ViewModel.IsOsImageSortAscending, Mode=OneWay, Converter={StaticResource SortDirectionToolTipConverter}}">
-                                <FontIcon Glyph="{x:Bind ViewModel.IsOsImageSortAscending, Mode=OneWay, Converter={StaticResource SortDirectionGlyphConverter}}" FontSize="12"/>
-                            </Button>
-                        </StackPanel>
-
-                        <Grid Grid.Row="1">
-                            <ProgressRing IsActive="{x:Bind ViewModel.IsScanning, Mode=OneWay}"
-                                          Width="48" Height="48"
-                                          HorizontalAlignment="Center" VerticalAlignment="Center"/>
-
-                            <TextBlock Text="{x:Bind ViewModel.EmptyOsImagesMessage, Mode=OneWay}"
-                                       HorizontalAlignment="Center" VerticalAlignment="Center"
-                                       TextWrapping="Wrap" MaxWidth="400" Opacity="0.7"
-                                       Visibility="{x:Bind ViewModel.IsOsImagesEmpty, Mode=OneWay}"/>
-
-                            <GridView x:Name="OsImagesGridView"
-                                      ItemsSource="{x:Bind ViewModel.OsImages, Mode=OneWay}"
-                                      ItemTemplate="{StaticResource LibraryItemTemplate}"
-                                      SelectionMode="Single"
-                                      SelectionChanged="OsImagesGridView_SelectionChanged"
-                                      IsItemClickEnabled="False"/>
-                        </Grid>
-                    </Grid>
-                </PivotItem>
-            </Pivot>
-        </Grid>
-
-        <Border Grid.Column="1" Style="{StaticResource ActionPanelStyle}" Width="460" MinWidth="400">
-            <Grid>
-                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="*"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
 
-                <TextBlock Grid.Row="0" Text="Action Center" Style="{StaticResource SectionHeaderStyle}"/>
+                <InfoBar Grid.Row="0" IsOpen="{x:Bind ViewModel.IsUpdateAvailable, Mode=OneWay}" Severity="Success" Message="{x:Bind ViewModel.UpdateMessage, Mode=OneWay}" Margin="0,0,0,8">
+                    <InfoBar.ActionButton>
+                        <Button Content="Download" Command="{x:Bind ViewModel.DownloadUpdateCommand}"/>
+                    </InfoBar.ActionButton>
+                </InfoBar>
+                <InfoBar Grid.Row="1" IsOpen="{x:Bind ViewModel.IsUpdateReadyToInstall, Mode=OneWay}" Severity="Success" Message="{x:Bind ViewModel.UpdateMessage, Mode=OneWay}" Margin="0,0,0,8">
+                    <InfoBar.ActionButton>
+                        <Button Content="Restart &amp; Apply" Command="{x:Bind ViewModel.RestartAndApplyUpdateCommand}"/>
+                    </InfoBar.ActionButton>
+                </InfoBar>
+                <TextBlock Grid.Row="2" Text="Library" Style="{StaticResource SectionHeaderStyle}" Margin="0,10,0,0"/>
 
-                <StackPanel Grid.Row="1" Spacing="8" Margin="0,0,0,16">
-                    <TextBlock Text="Target Drive" FontWeight="SemiBold"/>
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="Auto"/>
-                        </Grid.ColumnDefinitions>
+                <CommandBar Grid.Row="3" DefaultLabelPosition="Right"
+                            Background="Transparent" HorizontalAlignment="Left"
+                            Margin="0,0,0,8">
+                    <AppBarButton Icon="Add" Label="Add Folder" Command="{x:Bind ViewModel.AddSourceFolderCommand}"/>
+                    <AppBarButton Icon="Refresh" Label="Scan Library" Command="{x:Bind ViewModel.ScanLibraryCommand}"/>
+                    <AppBarButton Icon="ClearSelection" Label="Deselect All" Command="{x:Bind ViewModel.ClearSelectionCommand}"/>
+                    <AppBarSeparator/>
+                    <AppBarButton Icon="Clock" Label="History" Command="{x:Bind ViewModel.OpenHistoryCommand}"/>
+                    <AppBarButton Icon="Setting" Label="Settings" Command="{x:Bind ViewModel.OpenSettingsCommand}"/>
+                    <AppBarButton Icon="Help" Label="About" Command="{x:Bind ViewModel.OpenAboutCommand}"/>
+                </CommandBar>
 
-                        <ComboBox Grid.Column="0"
-                                  ItemsSource="{x:Bind ViewModel.AvailableDrives, Mode=OneWay}"
-                                  SelectedItem="{x:Bind ViewModel.SelectedDrive, Mode=TwoWay}"
-                                  HorizontalAlignment="Stretch"
-                                  PlaceholderText="No removable drives found">
-                            <ComboBox.ItemTemplate>
-                                <DataTemplate x:DataType="models:RemovableDrive">
-                                    <Grid Margin="0,4,0,4">
-                                        <Grid.ColumnDefinitions>
-                                            <ColumnDefinition Width="*"/>
-                                            <ColumnDefinition Width="Auto"/>
-                                        </Grid.ColumnDefinitions>
+                <Grid Grid.Row="4" Margin="0,0,0,8" ColumnSpacing="8">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <AutoSuggestBox x:Name="SearchBox" Grid.Column="0"
+                                    PlaceholderText="Search games and apps..."
+                                    QueryIcon="Find"
+                                    Text="{x:Bind ViewModel.SearchText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                    HorizontalAlignment="Stretch" />
 
-                                        <StackPanel Grid.Column="0" VerticalAlignment="Center">
-                                            <TextBlock FontWeight="SemiBold">
-                                                <Run Text="{x:Bind DriveLetter}"/>
-                                                <Run Text="{x:Bind DriveLabel}"/>
-                                            </TextBlock>
-                                            <TextBlock Opacity="0.7" FontSize="12">
-                                                <Run Text="{x:Bind Brand}"/>
-                                                <Run Text="•"/>
-                                                <Run Text="{x:Bind FileSystem}"/>
-                                            </TextBlock>
-                                            <TextBlock Opacity="0.7" FontSize="12"
-                                                       Text="{x:Bind FreeBytes, Converter={StaticResource BytesToSizeConverter}}"/>
-                                        </StackPanel>
+                    <ComboBox Grid.Column="1"
+                              ItemsSource="{x:Bind ViewModel.AvailableCategories}"
+                              SelectedItem="{x:Bind ViewModel.SelectedCategory, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                              Width="150" />
+                </Grid>
 
-                                        <Border Grid.Column="1" VerticalAlignment="Center"
-                                                Background="{ThemeResource AccentFillColorDefaultBrush}"
-                                                CornerRadius="4" Padding="8,4" Margin="8,0,0,0">
-                                            <TextBlock Text="{x:Bind TotalBytes, Converter={StaticResource BytesToSizeConverter}}"
-                                                       FontWeight="Bold" FontSize="14"
-                                                       Foreground="White"/>
-                                        </Border>
-                                    </Grid>
-                                </DataTemplate>
-                            </ComboBox.ItemTemplate>
-                        </ComboBox>
+                <Pivot x:Name="LibraryPivot" Grid.Row="5" SelectedIndex="{x:Bind ViewModel.CurrentTabIndex, Mode=TwoWay}" SelectionChanged="LibraryPivot_SelectionChanged">
+                    <PivotItem Header="Games">
+                        <local:GamesTabView x:Name="GamesTab" ViewModel="{x:Bind ViewModel.GamesTabViewModel, Mode=OneWay}" SelectionChanged="GamesTab_SelectionChanged"/>
+                    </PivotItem>
 
-                        <Button Grid.Column="1" Margin="4,0,0,0"
-                                Padding="8"
-                                VerticalAlignment="Stretch"
-                                IsEnabled="{x:Bind ViewModel.HasSelectedDrive, Mode=OneWay}"
-                                Command="{x:Bind ViewModel.OpenDriveInExplorerCommand}"
-                                ToolTipService.ToolTip="Open drive in File Explorer">
-                            <FontIcon Glyph="&#xE838;" FontSize="14"/>
-                        </Button>
-                    </Grid>
+                    <PivotItem Header="Apps">
+                        <local:AppsTabView x:Name="AppsTab" ViewModel="{x:Bind ViewModel.AppsTabViewModel, Mode=OneWay}" SelectionChanged="AppsTab_SelectionChanged"/>
+                    </PivotItem>
 
-                    <Button Content="Refresh Drives" Command="{x:Bind ViewModel.RefreshDrivesCommand}"
-                            HorizontalAlignment="Stretch"/>
+                    <PivotItem Header="Films &amp; TV series">
+                        <local:TvAndFilmsTabView x:Name="TvAndFilmsTab" ViewModel="{x:Bind ViewModel.TvAndFilmsTabViewModel, Mode=OneWay}" SelectionChanged="TvAndFilmsTab_SelectionChanged"/>
+                    </PivotItem>
 
-                    <Grid Visibility="{x:Bind ViewModel.HasSelectedDrive, Mode=OneWay}">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="Auto"/>
-                        </Grid.RowDefinitions>
-                        <ProgressBar Grid.Row="0"
-                                     Value="{x:Bind ViewModel.SelectedDrive.UsedPercentage, Mode=OneWay}"
-                                     Maximum="100" Margin="0,4,0,4"/>
-                        <TextBlock Grid.Row="1" FontSize="12" Opacity="0.7"
-                                   Text="{x:Bind ViewModel.DriveSpaceSummary, Mode=OneWay}"/>
-                        <TextBlock Grid.Row="2" FontSize="12" Opacity="0.7"
-                                   Text="{x:Bind ViewModel.DriveDetailsSummary, Mode=OneWay}"/>
-                    </Grid>
-                </StackPanel>
+                    <PivotItem Header="OS Images">
+                        <local:OsImagesTabView x:Name="OsImagesTab" ViewModel="{x:Bind ViewModel.OsImagesTabViewModel, Mode=OneWay}" SelectionChanged="OsImagesTab_SelectionChanged"/>
+                    </PivotItem>
+                </Pivot>
+            </Grid>
 
-                <Grid Grid.Row="2">
+            <Border Grid.Column="1" Style="{StaticResource ActionPanelStyle}" Width="460" MinWidth="400">
+                <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto"/>
                         <RowDefinition Height="Auto"/>
                         <RowDefinition Height="*"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
                     </Grid.RowDefinitions>
 
-                    <ItemsControl Grid.Row="0" ItemsSource="{x:Bind ViewModel.ValidationMessages, Mode=OneWay}">
-                        <ItemsControl.ItemTemplate>
-                            <DataTemplate x:DataType="models:ValidationResult">
-                                <InfoBar IsOpen="True" Message="{x:Bind Message}" Margin="0,0,0,4"
-                                         Severity="{x:Bind Severity, Converter={StaticResource SeverityConverter}}"/>
-                            </DataTemplate>
-                        </ItemsControl.ItemTemplate>
-                    </ItemsControl>
+                    <TextBlock Grid.Row="0" Text="Action Center" Style="{StaticResource SectionHeaderStyle}"/>
 
-                    <Grid Grid.Row="1" Margin="0,8,0,4">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="Auto"/>
-                        </Grid.ColumnDefinitions>
-                        <TextBlock Grid.Column="0" Text="Transfer Queue" FontWeight="SemiBold"/>
-                        <Button Grid.Column="1" Content="Clear Finished"
-                                Command="{x:Bind ViewModel.ClearFinishedQueueItemsCommand}"
-                                FontSize="12" Padding="8,4"/>
-                    </Grid>
+                    <StackPanel Grid.Row="1" Spacing="8" Margin="0,0,0,16">
+                        <TextBlock Text="Target Drive" FontWeight="SemiBold"/>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
 
-                    <ScrollViewer Grid.Row="2">
-                        <ItemsControl ItemsSource="{x:Bind ViewModel.TransferQueue, Mode=OneWay}">
-                            <ItemsControl.ItemTemplate>
-                                <DataTemplate x:DataType="models:TransferQueueItem">
-                                    <Border Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
-                                            BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
-                                            BorderThickness="1"
-                                            CornerRadius="4" Padding="8" Margin="0,0,20,8">
-                                        <Grid>
+                            <ComboBox Grid.Column="0"
+                                      ItemsSource="{x:Bind ViewModel.AvailableDrives, Mode=OneWay}"
+                                      SelectedItem="{x:Bind ViewModel.SelectedDrive, Mode=TwoWay}"
+                                      HorizontalAlignment="Stretch"
+                                      PlaceholderText="No removable drives found">
+                                <ComboBox.ItemTemplate>
+                                    <DataTemplate x:DataType="models:RemovableDrive">
+                                        <Grid Margin="0,4,0,4">
                                             <Grid.ColumnDefinitions>
-                                                <ColumnDefinition Width="Auto"/>
                                                 <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="Auto"/>
                                             </Grid.ColumnDefinitions>
 
-                                            <FontIcon Grid.Column="0" Glyph="{x:Bind StatusGlyph, Mode=OneWay}"
-                                                      FontSize="16" Margin="0,2,8,0" VerticalAlignment="Top"/>
-
-                                            <StackPanel Grid.Column="1" Spacing="2">
-                                                <TextBlock Text="{x:Bind ItemsSummary}" FontWeight="SemiBold"
-                                                           TextTrimming="CharacterEllipsis"/>
-                                                <TextBlock FontSize="12" Opacity="0.7">
-                                                    <Run Text="{x:Bind TargetDrive.DriveLetter}"/>
-                                                    <Run Text="•"/>
-                                                    <Run Text="{x:Bind TotalBytes, Converter={StaticResource BytesToSizeConverter}}"/>
-                                                    <Run Text="•"/>
-                                                    <Run Text="Rs."/>
-                                                    <Run Text="{x:Bind TotalPrice}"/>
+                                            <StackPanel Grid.Column="0" VerticalAlignment="Center">
+                                                <TextBlock FontWeight="SemiBold">
+                                                    <Run Text="{x:Bind DriveLetter}"/>
+                                                    <Run Text="{x:Bind DriveLabel}"/>
                                                 </TextBlock>
-                                                <TextBlock Text="{x:Bind StatusMessage, Mode=OneWay}"
-                                                           FontSize="12" Opacity="0.7" TextWrapping="Wrap"/>
-
-                                                <Grid Visibility="{x:Bind IsActive, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}">
-                                                    <Grid.ColumnDefinitions>
-                                                        <ColumnDefinition Width="*"/>
-                                                        <ColumnDefinition Width="Auto"/>
-                                                        <ColumnDefinition Width="Auto"/>
-                                                    </Grid.ColumnDefinitions>
-                                                    <ProgressBar Grid.Column="0" Minimum="0" Maximum="100" Value="{x:Bind ProgressPercentage, Mode=OneWay}" VerticalAlignment="Center" Margin="0,0,8,0" />
-                                                    <TextBlock Grid.Column="1" Text="{x:Bind SpeedText, Mode=OneWay}" FontSize="11" Opacity="0.6" Margin="0,0,8,0" VerticalAlignment="Center" />
-                                                    <TextBlock Grid.Column="2" Text="{x:Bind RemainingTimeText, Mode=OneWay}" FontSize="11" Opacity="0.6" VerticalAlignment="Center" />
-                                                </Grid>
+                                                <TextBlock Opacity="0.7" FontSize="12">
+                                                    <Run Text="{x:Bind Brand}"/>
+                                                    <Run Text="•"/>
+                                                    <Run Text="{x:Bind FileSystem}"/>
+                                                </TextBlock>
+                                                <TextBlock Opacity="0.7" FontSize="12"
+                                                           Text="{x:Bind FreeBytes, Converter={StaticResource BytesToSizeConverter}}"/>
                                             </StackPanel>
+
+                                            <Border Grid.Column="1" VerticalAlignment="Center"
+                                                    Background="{ThemeResource AccentFillColorDefaultBrush}"
+                                                    CornerRadius="4" Padding="8,4" Margin="8,0,0,0">
+                                                <TextBlock Text="{x:Bind TotalBytes, Converter={StaticResource BytesToSizeConverter}}"
+                                                           FontWeight="Bold" FontSize="14"
+                                                           Foreground="White"/>
+                                            </Border>
                                         </Grid>
-                                    </Border>
+                                    </DataTemplate>
+                                </ComboBox.ItemTemplate>
+                            </ComboBox>
+
+                            <Button Grid.Column="1" Margin="4,0,0,0"
+                                    Padding="8"
+                                    VerticalAlignment="Stretch"
+                                    IsEnabled="{x:Bind ViewModel.HasSelectedDrive, Mode=OneWay}"
+                                    Command="{x:Bind ViewModel.OpenDriveInExplorerCommand}"
+                                    ToolTipService.ToolTip="Open drive in File Explorer">
+                                <FontIcon Glyph="&#xE838;" FontSize="14"/>
+                            </Button>
+                        </Grid>
+
+                        <Button Content="Refresh Drives" Command="{x:Bind ViewModel.RefreshDrivesCommand}"
+                                HorizontalAlignment="Stretch"/>
+
+                        <Grid Visibility="{x:Bind ViewModel.HasSelectedDrive, Mode=OneWay}">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <ProgressBar Grid.Row="0"
+                                         Value="{x:Bind ViewModel.SelectedDrive.UsedPercentage, Mode=OneWay}"
+                                         Maximum="100" Margin="0,4,0,4"/>
+                            <TextBlock Grid.Row="1" FontSize="12" Opacity="0.7"
+                                       Text="{x:Bind ViewModel.DriveSpaceSummary, Mode=OneWay}"/>
+                            <TextBlock Grid.Row="2" FontSize="12" Opacity="0.7"
+                                       Text="{x:Bind ViewModel.DriveDetailsSummary, Mode=OneWay}"/>
+                        </Grid>
+                    </StackPanel>
+
+                    <Grid Grid.Row="2">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+
+                        <ItemsControl Grid.Row="0" ItemsSource="{x:Bind ViewModel.ValidationMessages, Mode=OneWay}">
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate x:DataType="models:ValidationResult">
+                                    <InfoBar IsOpen="True" Message="{x:Bind Message}" Margin="0,0,0,4"
+                                             Severity="{x:Bind Severity, Converter={StaticResource SeverityConverter}}"/>
                                 </DataTemplate>
                             </ItemsControl.ItemTemplate>
                         </ItemsControl>
-                    </ScrollViewer>
+
+                        <Grid Grid.Row="1" Margin="0,8,0,4">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Column="0" Text="Transfer Queue" FontWeight="SemiBold"/>
+                            <Button Grid.Column="1" Content="Clear Finished"
+                                    Command="{x:Bind ViewModel.ClearFinishedQueueItemsCommand}"
+                                    FontSize="12" Padding="8,4"/>
+                        </Grid>
+
+                        <ScrollViewer Grid.Row="2">
+                            <ItemsControl ItemsSource="{x:Bind ViewModel.TransferQueue, Mode=OneWay}">
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate x:DataType="models:TransferQueueItem">
+                                        <Border Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
+                                                BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
+                                                BorderThickness="1"
+                                                CornerRadius="4" Padding="8" Margin="0,0,20,8">
+                                            <Grid>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="Auto"/>
+                                                    <ColumnDefinition Width="*"/>
+                                                </Grid.ColumnDefinitions>
+
+                                                <FontIcon Grid.Column="0" Glyph="{x:Bind StatusGlyph, Mode=OneWay}"
+                                                          FontSize="16" Margin="0,2,8,0" VerticalAlignment="Top"/>
+
+                                                <StackPanel Grid.Column="1" Spacing="2">
+                                                    <TextBlock Text="{x:Bind ItemsSummary}" FontWeight="SemiBold"
+                                                               TextTrimming="CharacterEllipsis"/>
+                                                    <TextBlock FontSize="12" Opacity="0.7">
+                                                        <Run Text="{x:Bind TargetDrive.DriveLetter}"/>
+                                                        <Run Text="•"/>
+                                                        <Run Text="{x:Bind TotalBytes, Converter={StaticResource BytesToSizeConverter}}"/>
+                                                        <Run Text="•"/>
+                                                        <Run Text="Rs."/>
+                                                        <Run Text="{x:Bind TotalPrice}"/>
+                                                    </TextBlock>
+                                                    <TextBlock Text="{x:Bind StatusMessage, Mode=OneWay}"
+                                                               FontSize="12" Opacity="0.7" TextWrapping="Wrap"/>
+
+                                                    <Grid Visibility="{x:Bind IsActive, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}">
+                                                        <Grid.ColumnDefinitions>
+                                                            <ColumnDefinition Width="*"/>
+                                                            <ColumnDefinition Width="Auto"/>
+                                                            <ColumnDefinition Width="Auto"/>
+                                                        </Grid.ColumnDefinitions>
+                                                        <ProgressBar Grid.Column="0" Minimum="0" Maximum="100" Value="{x:Bind ProgressPercentage, Mode=OneWay}" VerticalAlignment="Center" Margin="0,0,8,0" />
+                                                        <TextBlock Grid.Column="1" Text="{x:Bind SpeedText, Mode=OneWay}" FontSize="11" Opacity="0.6" Margin="0,0,8,0" VerticalAlignment="Center" />
+                                                        <TextBlock Grid.Column="2" Text="{x:Bind RemainingTimeText, Mode=OneWay}" FontSize="11" Opacity="0.6" VerticalAlignment="Center" />
+                                                    </Grid>
+                                                </StackPanel>
+                                            </Grid>
+                                        </Border>
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
+                        </ScrollViewer>
+                    </Grid>
+
+                    <StackPanel Grid.Row="3" Spacing="4" Margin="0,8,0,8">
+                        <TextBlock Text="{x:Bind ViewModel.SelectionSummary, Mode=OneWay}" FontWeight="SemiBold"/>
+                    </StackPanel>
+
+                    <Button Grid.Row="4" Content="Add to Copy Queue" Style="{StaticResource AccentButtonStyle}"
+                            Command="{x:Bind ViewModel.CopySelectedGamesCommand}"
+                            Visibility="{x:Bind ViewModel.IsOsImagesTabActive, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}, ConverterParameter=Invert}"
+                            HorizontalAlignment="Stretch" Margin="0,0,0,8"/>
+
+                    <Button Grid.Row="4" Content="Open in Rufus" Style="{StaticResource AccentButtonStyle}"
+                            Command="{x:Bind ViewModel.OpenInRufusCommand}"
+                            Visibility="{x:Bind ViewModel.IsOsImagesTabActive, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}"
+                            HorizontalAlignment="Stretch" Margin="0,0,0,8"/>
+
+                    <Grid Grid.Row="5">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <ProgressBar Grid.Row="0" IsIndeterminate="True"
+                                     Visibility="{x:Bind ViewModel.IsTransferring, Mode=OneWay}"
+                                     Margin="0,0,0,4"/>
+                        <TextBlock Grid.Row="1" Text="{x:Bind ViewModel.StatusMessage, Mode=OneWay}"
+                                   TextWrapping="Wrap" FontSize="12" Opacity="0.8"/>
+                    </Grid>
                 </Grid>
-
-                <StackPanel Grid.Row="3" Spacing="4" Margin="0,8,0,8">
-                    <TextBlock Text="{x:Bind ViewModel.SelectionSummary, Mode=OneWay}" FontWeight="SemiBold"/>
-                </StackPanel>
-
-                <Button Grid.Row="4" Content="Add to Copy Queue" Style="{StaticResource AccentButtonStyle}"
-                        Command="{x:Bind ViewModel.CopySelectedGamesCommand}"
-                        Visibility="{x:Bind ViewModel.IsOsImagesTabActive, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}, ConverterParameter=Invert}"
-                        HorizontalAlignment="Stretch" Margin="0,0,0,8"/>
-
-                <Button Grid.Row="4" Content="Open in Rufus" Style="{StaticResource AccentButtonStyle}"
-                        Command="{x:Bind ViewModel.OpenInRufusCommand}"
-                        Visibility="{x:Bind ViewModel.IsOsImagesTabActive, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}"
-                        HorizontalAlignment="Stretch" Margin="0,0,0,8"/>
-
-                <Grid Grid.Row="5">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
-                    </Grid.RowDefinitions>
-                    <ProgressBar Grid.Row="0" IsIndeterminate="True"
-                                 Visibility="{x:Bind ViewModel.IsTransferring, Mode=OneWay}"
-                                 Margin="0,0,0,4"/>
-                    <TextBlock Grid.Row="1" Text="{x:Bind ViewModel.StatusMessage, Mode=OneWay}"
-                               TextWrapping="Wrap" FontSize="12" Opacity="0.8"/>
-                </Grid>
-            </Grid>
-        </Border>
+            </Border>
 
             <local:SmartAdderControl Grid.Column="0"
                                       ViewModel="{x:Bind ViewModel.SmartAdderViewModel}"

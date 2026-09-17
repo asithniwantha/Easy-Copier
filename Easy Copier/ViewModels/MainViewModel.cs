@@ -173,6 +173,10 @@ namespace Easy_Copier.ViewModels
         public event EventHandler? ItemQueued;
 
         public SmartAdderViewModel SmartAdderViewModel { get; }
+        public GamesTabViewModel GamesTabViewModel { get; }
+        public AppsTabViewModel AppsTabViewModel { get; }
+        public TvAndFilmsTabViewModel TvAndFilmsTabViewModel { get; }
+        public OsImagesTabViewModel OsImagesTabViewModel { get; }
 
         public MainViewModel(
             ILogger<MainViewModel> logger,
@@ -208,6 +212,10 @@ namespace Easy_Copier.ViewModels
             _dialogService = dialogService;
             SmartAdderViewModel = smartAdderViewModel;
             _gameDetailsViewModelFactory = gameDetailsViewModelFactory;
+            GamesTabViewModel = new GamesTabViewModel(this);
+            AppsTabViewModel = new AppsTabViewModel(this);
+            TvAndFilmsTabViewModel = new TvAndFilmsTabViewModel(this);
+            OsImagesTabViewModel = new OsImagesTabViewModel(this);
 
             _driveDiscoveryService.DrivesChanged += OnDrivesChanged;
             _transferQueueService.ItemCompleted += OnQueueItemCompleted;

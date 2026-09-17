@@ -1,22 +1,25 @@
 using Easy_Copier.Models;
 using Easy_Copier.ViewModels;
-using Microsoft.UI.Text;
-using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
-using Microsoft.UI.Xaml.Controls.Primitives;
-using Microsoft.UI.Xaml.Documents;
-using Microsoft.UI.Xaml.Input;
-using Microsoft.UI.Xaml.Media;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace Easy_Copier.Views
 {
+    /// <summary>
+    /// Represents the main page view housing library tabs and transfer action center.
+    /// </summary>
     public sealed partial class MainPage : Page
     {
+        /// <summary>
+        /// Gets the <see cref="MainViewModel"/> bound to this page.
+        /// </summary>
         public MainViewModel ViewModel { get; private set; } = null!;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="MainPage"/> class.
+        /// </summary>
         public MainPage()
         {
             InitializeComponent();
@@ -38,22 +41,22 @@ namespace Easy_Copier.Views
             }
         }
 
-        private void GamesGridView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void GamesTab_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             UpdateCombinedSelection();
         }
 
-        private void AppsGridView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void AppsTab_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             UpdateCombinedSelection();
         }
 
-        private void TvAndFilmsGridView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void TvAndFilmsTab_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             UpdateCombinedSelection();
         }
 
-        private void OsImagesGridView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void OsImagesTab_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             UpdateCombinedSelection();
         }
@@ -67,14 +70,16 @@ namespace Easy_Copier.Views
         {
             if (ViewModel.CurrentTabIndex == 3)
             {
-                IEnumerable<GameEntry> osImageItems = OsImagesGridView?.SelectedItems.Cast<GameEntry>() ?? [];
+                IEnumerable<GameEntry> osImageItems = OsImagesTab?.SelectedItems.Cast<GameEntry>() ?? [];
                 ViewModel.UpdateSelectionSummary(osImageItems);
             }
             else
             {
-                IEnumerable<GameEntry> tvItems = TvAndFilmsGridView?.SelectedItems.Cast<GameEntry>() ?? [];
-                IEnumerable<GameEntry> selectedItems = GamesGridView.SelectedItems.Cast<GameEntry>()
-                    .Concat(AppsGridView.SelectedItems.Cast<GameEntry>())
+                IEnumerable<GameEntry> tvItems = TvAndFilmsTab?.SelectedItems.Cast<GameEntry>() ?? [];
+                IEnumerable<GameEntry> gamesItems = GamesTab?.SelectedItems.Cast<GameEntry>() ?? [];
+                IEnumerable<GameEntry> appsItems = AppsTab?.SelectedItems.Cast<GameEntry>() ?? [];
+                IEnumerable<GameEntry> selectedItems = gamesItems
+                    .Concat(appsItems)
                     .Concat(tvItems);
                 ViewModel.UpdateSelectionSummary(selectedItems);
             }
@@ -82,51 +87,10 @@ namespace Easy_Copier.Views
 
         private void ClearGameSelection()
         {
-            GamesGridView.SelectedItems.Clear();
-            AppsGridView.SelectedItems.Clear();
-            TvAndFilmsGridView?.SelectedItems.Clear();
-            OsImagesGridView?.SelectedItems.Clear();
-        }
-
-        private async void GameCard_RightTapped(object sender, RightTappedRoutedEventArgs e)
-        {
-            if (sender is FrameworkElement fe && fe.DataContext is GameEntry gameEntry)
-            {
-                if (gameEntry.Category == LibraryCategory.OsImage)
-                {
-                    OsImageDetailsViewModel osImageVm = new();
-                    osImageVm.Initialize(gameEntry.Name, gameEntry.FolderPath);
-                    OsImageDetailsFlyout osImageFlyout = new(osImageVm);
-
-                    Flyout flyout = new()
-                    {
-                        Content = osImageFlyout,
-                        Placement = FlyoutPlacementMode.RightEdgeAlignedTop
-                    };
-
-                    flyout.ShowAt(fe, new FlyoutShowOptions { Position = e.GetPosition(fe) });
-                }
-                else
-                {
-                    string formattedText = await ViewModel.GetFormattedSystemRequirementsAsync(gameEntry.FolderPath);
-
-                    GameDetailsViewModel gameDetailsViewModel = ViewModel.CreateGameDetailsViewModel();
-
-                    GameDetailsFlyout detailsFlyout = new(gameDetailsViewModel, formattedText, gameEntry.FolderPath);
-
-                    Style flyoutStyle = new(typeof(FlyoutPresenter));
-                    flyoutStyle.Setters.Add(new Setter(FrameworkElement.MaxWidthProperty, double.PositiveInfinity));
-
-                    Flyout flyout = new()
-                    {
-                        Content = detailsFlyout,
-                        Placement = FlyoutPlacementMode.RightEdgeAlignedTop,
-                        FlyoutPresenterStyle = flyoutStyle
-                    };
-
-                    flyout.ShowAt(fe, new FlyoutShowOptions { Position = e.GetPosition(fe) });
-                }
-            }
+            GamesTab?.ClearSelection();
+            AppsTab?.ClearSelection();
+            TvAndFilmsTab?.ClearSelection();
+            OsImagesTab?.ClearSelection();
         }
     }
 }
