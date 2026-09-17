@@ -186,11 +186,11 @@ namespace Easy_Copier.ViewModels
                         ? entries.OrderBy(e => e.Name, StringComparer.OrdinalIgnoreCase)
                         : entries.OrderByDescending(e => e.Name, StringComparer.OrdinalIgnoreCase),
                     OsImageSortOption.DateCreated => IsOsImageSortAscending
-                        ? entries.OrderBy(e => e.DateCreated)
-                        : entries.OrderByDescending(e => e.DateCreated),
+                        ? entries.OrderBy(e => e.DateCreated).ThenBy(e => e.Name, StringComparer.OrdinalIgnoreCase)
+                        : entries.OrderByDescending(e => e.DateCreated).ThenByDescending(e => e.Name, StringComparer.OrdinalIgnoreCase),
                     OsImageSortOption.Size => IsOsImageSortAscending
-                        ? entries.OrderBy(e => e.TotalBytes)
-                        : entries.OrderByDescending(e => e.TotalBytes),
+                        ? entries.OrderBy(e => e.TotalBytes).ThenBy(e => e.Name, StringComparer.OrdinalIgnoreCase)
+                        : entries.OrderByDescending(e => e.TotalBytes).ThenByDescending(e => e.Name, StringComparer.OrdinalIgnoreCase),
                     _ => entries
                 };
             }

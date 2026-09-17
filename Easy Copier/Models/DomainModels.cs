@@ -146,7 +146,7 @@ namespace Easy_Copier.Models
         DateTime CachedAt,
         Dictionary<string, ItemFingerprint> ItemFingerprints)
     {
-        public const int CurrentSchemaVersion = 3;
+        public const int CurrentSchemaVersion = 4;
     }
 
     public enum CacheValidationResult
