@@ -5,6 +5,7 @@ using Easy_Copier.Models;
 using Easy_Copier.Services;
 using Microsoft.Extensions.Logging;
 using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Threading;
 using System.Threading.Tasks;
@@ -38,6 +39,7 @@ namespace Easy_Copier.ViewModels
 
         private readonly ISettingsService _settingsService;
         private readonly IFolderPickerService _folderPickerService;
+        private readonly IFilePickerService _filePickerService;
         private readonly ISourceLibraryService _sourceLibraryService;
         private readonly IGameInfoDownloadService _gameInfoDownloadService;
         private readonly IStartupService _startupService;
@@ -116,6 +118,7 @@ namespace Easy_Copier.ViewModels
             ILogger<SettingsViewModel> logger,
             ISettingsService settingsService,
             IFolderPickerService folderPickerService,
+            IFilePickerService filePickerService,
             ISourceLibraryService sourceLibraryService,
             Infrastructure.IProcessService processService,
             IGameInfoDownloadService gameInfoDownloadService,
@@ -127,6 +130,7 @@ namespace Easy_Copier.ViewModels
         {
             _settingsService = settingsService;
             _folderPickerService = folderPickerService;
+            _filePickerService = filePickerService;
             _sourceLibraryService = sourceLibraryService;
             _processService = processService;
             _gameInfoDownloadService = gameInfoDownloadService;
@@ -136,6 +140,27 @@ namespace Easy_Copier.ViewModels
             _updateService = updateService;
             _dialogService = dialogService;
             _libraryScannerService = libraryScannerService;
+        }
+
+        [RelayCommand]
+        private async Task BrowseRufusExecutableAsync()
+        {
+            StatusMessage = "Opening file picker...";
+
+            string? selectedFile = await _filePickerService.PickOpenFileAsync([".exe"]);
+
+            if (!string.IsNullOrEmpty(selectedFile))
+            {
+                // Resolve latest version in that same folder if one exists
+                string resolvedPath = RufusResolutionHelper.ResolveLatestRufusPath(selectedFile);
+                RufusExecutablePath = resolvedPath;
+                StatusMessage = $"Selected Rufus executable: {System.IO.Path.GetFileName(resolvedPath)}";
+                await SaveSettingsAsync();
+            }
+            else
+            {
+                StatusMessage = "No file selected";
+            }
         }
 
         [RelayCommand]
