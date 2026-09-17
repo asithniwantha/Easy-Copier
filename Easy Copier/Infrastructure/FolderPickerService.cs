@@ -37,6 +37,7 @@ namespace Easy_Copier.Infrastructure
 
         /// <summary>
         /// Displays a folder picker modal dialog allowing the user to select a target directory.
+        /// also handles if the application is running in elevated mode or if the active window handle cannot be retrieved.
         /// </summary>
         /// <returns>The full path of the selected folder, or <c>null</c> if canceled.</returns>
         public async Task<string?> PickFolderAsync()
