@@ -8,15 +8,37 @@ using System.Threading.Tasks;
 
 namespace Easy_Copier.Services
 {
+    /// <summary>
+    /// Defines operations for exporting operation history and reporting data to external formats such as CSV.
+    /// </summary>
     public interface IReportService
     {
+        /// <summary>
+        /// Asynchronously exports copy history records to a CSV file at the specified file path.
+        /// </summary>
+        /// <param name="filePath">The target file path where CSV data will be saved.</param>
+        /// <param name="records">The collection of <see cref="CopyHistoryRecord"/> items to export.</param>
+        /// <returns>A task returning <c>true</c> if export succeeded; otherwise, <c>false</c>.</returns>
         Task<bool> ExportHistoryToCsvAsync(string filePath, IEnumerable<CopyHistoryRecord> records);
     }
 
+    /// <summary>
+    /// Provides reporting and CSV export services for operation records.
+    /// </summary>
+    /// <param name="logger">The logger instance for operational output.</param>
     public class ReportService(ILogger<ReportService> logger) : IReportService
     {
+        /// <summary>
+        /// Logger instance used for diagnostic logging.
+        /// </summary>
         private readonly ILogger<ReportService> _logger = logger;
 
+        /// <summary>
+        /// Asynchronously exports copy history records to a UTF-8 encoded CSV file.
+        /// </summary>
+        /// <param name="filePath">Destination file path.</param>
+        /// <param name="records">Collection of history records to write.</param>
+        /// <returns>A task returning <c>true</c> if successful; otherwise, <c>false</c>.</returns>
         public async Task<bool> ExportHistoryToCsvAsync(string filePath, IEnumerable<CopyHistoryRecord> records)
         {
             ArgumentNullException.ThrowIfNull(records);
@@ -49,6 +71,11 @@ namespace Easy_Copier.Services
             }
         }
 
+        /// <summary>
+        /// Escapes a CSV field value according to RFC 4180 rules if it contains commas, quotes, or newlines.
+        /// </summary>
+        /// <param name="value">The raw string value.</param>
+        /// <returns>An escaped CSV column string value.</returns>
         private static string EscapeCsv(string value)
         {
             return string.IsNullOrEmpty(value)

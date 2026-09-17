@@ -10,31 +10,96 @@ using System.Threading.Tasks;
 
 namespace Easy_Copier.Services
 {
+    /// <summary>
+    /// Defines operations for detecting, enumerating, and monitoring removable and USB drives.
+    /// </summary>
     public interface IDriveDiscoveryService : IDisposable
     {
+        /// <summary>
+        /// Asynchronously queries and returns a list of connected removable and USB drives.
+        /// </summary>
+        /// <returns>A task returning a read-only list of <see cref="RemovableDrive"/> objects.</returns>
         Task<IReadOnlyList<RemovableDrive>> GetRemovableDrivesAsync();
+
+        /// <summary>
+        /// Occurs when a volume change event is detected (e.g., drive insertion or removal).
+        /// </summary>
         event EventHandler? DrivesChanged;
+
+        /// <summary>
+        /// Starts watching for hardware volume change events via WMI.
+        /// </summary>
         void StartWatching();
+
+        /// <summary>
+        /// Stops watching for hardware volume change events.
+        /// </summary>
         void StopWatching();
     }
 
+    /// <summary>
+    /// Provides physical and logical drive detection and real-time drive insertion/removal monitoring via WMI.
+    /// </summary>
     public sealed class DriveDiscoveryService : IDriveDiscoveryService
     {
+        /// <summary>
+        /// Logger instance used for recording drive discovery and monitoring events.
+        /// </summary>
         private readonly ILogger<DriveDiscoveryService> _logger;
+
+        /// <summary>
+        /// Lock object ensuring thread-safe access to WMI watcher instantiation and teardown.
+        /// </summary>
         private readonly object _watcherLock = new();
+
+        /// <summary>
+        /// Signal used to ensure in-flight WMI callback events finish prior to stopping or disposing.
+        /// </summary>
         private readonly ManualResetEventSlim _driveChangeCallbacksCompleted = new(initialState: true);
+
+        /// <summary>
+        /// WMI event watcher monitoring <c>Win32_VolumeChangeEvent</c> events.
+        /// </summary>
         private ManagementEventWatcher? _driveWatcher;
+
+        /// <summary>
+        /// Count of active, concurrently executing drive change callback handlers.
+        /// </summary>
         private int _activeDriveChangeCallbacks;
+
+        /// <summary>
+        /// Atomic flag indicating whether active WMI event monitoring is enabled (1) or disabled (0).
+        /// </summary>
         private int _isWatching;
+
+        /// <summary>
+        /// Atomic flag indicating whether this service instance has been disposed (1) or not (0).
+        /// </summary>
         private int _isDisposed;
 
+        /// <summary>
+        /// Event raised when a system volume insertion or removal is detected.
+        /// </summary>
         public event EventHandler? DrivesChanged;
 
+        /// <summary>
+        /// Constant value representing BusType 7 (USB) according to MSFT_PhysicalDisk documentation.
+        /// </summary>
+        private const ushort UsbBusType = 7;
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="DriveDiscoveryService"/> class.
+        /// </summary>
+        /// <param name="logger">The logger instance used for recording drive service events.</param>
         public DriveDiscoveryService(ILogger<DriveDiscoveryService> logger)
         {
             _logger = logger;
         }
 
+        /// <summary>
+        /// Asynchronously retrieves all connected drives that are classified as removable or USB-connected storage.
+        /// </summary>
+        /// <returns>A task that returns a list of <see cref="RemovableDrive"/> instances.</returns>
         public async Task<IReadOnlyList<RemovableDrive>> GetRemovableDrivesAsync()
         {
             return await Task.Run(() =>
@@ -106,6 +171,11 @@ namespace Easy_Copier.Services
             });
         }
 
+        /// <summary>
+        /// Queries WMI to retrieve physical disk model information and determine if the drive is connected via USB.
+        /// </summary>
+        /// <param name="driveLetterWithColon">The drive letter identifier (e.g., "E:").</param>
+        /// <returns>A tuple containing the hardware model name (if found) and a boolean indicating whether it is connected via USB.</returns>
         private (string? Model, bool IsUsb) GetPhysicalDiskInfo(string driveLetterWithColon)
         {
             try
@@ -154,9 +224,11 @@ namespace Easy_Copier.Services
             return (null, false);
         }
 
-        // BusType 7 = USB per MSFT_PhysicalDisk documentation.
-        private const ushort UsbBusType = 7;
-
+        /// <summary>
+        /// Queries the MSFT_PhysicalDisk WMI class in the root\Microsoft\Windows\Storage namespace to verify BusType.
+        /// </summary>
+        /// <param name="diskIndex">The physical disk device index string.</param>
+        /// <returns><c>true</c> if the physical disk BusType is 7 (USB); otherwise, <c>false</c>.</returns>
         private bool IsUsbBusType(string? diskIndex)
         {
             if (string.IsNullOrEmpty(diskIndex))
@@ -187,6 +259,9 @@ namespace Easy_Copier.Services
             return false;
         }
 
+        /// <summary>
+        /// Starts the WMI event listener for Windows volume change events.
+        /// </summary>
         public void StartWatching()
         {
             lock (_watcherLock)
@@ -213,6 +288,9 @@ namespace Easy_Copier.Services
             }
         }
 
+        /// <summary>
+        /// Stops the WMI event listener and cleans up watcher instances safely.
+        /// </summary>
         public void StopWatching()
         {
             ManagementEventWatcher? watcherToDispose;
@@ -246,6 +324,11 @@ namespace Easy_Copier.Services
             }
         }
 
+        /// <summary>
+        /// Callback handler triggered when WMI delivers a volume change event.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">Event details containing WMI event parameters.</param>
         private void OnDriveChanged(object sender, EventArrivedEventArgs e)
         {
             if (Volatile.Read(ref _isWatching) == 0 || Volatile.Read(ref _isDisposed) != 0)
@@ -277,6 +360,9 @@ namespace Easy_Copier.Services
             }
         }
 
+        /// <summary>
+        /// Blocks until all currently running WMI event arrival callbacks have completed or until a timeout occurs.
+        /// </summary>
         private void WaitForPendingDriveNotifications()
         {
             // WMI can still deliver a callback that was already queued when Stop() ran.
@@ -287,6 +373,9 @@ namespace Easy_Copier.Services
             }
         }
 
+        /// <summary>
+        /// Disposes unmanaged WMI resources and terminates drive monitoring handlers.
+        /// </summary>
         public void Dispose()
         {
             if (Interlocked.Exchange(ref _isDisposed, 1) != 0)
@@ -300,23 +389,50 @@ namespace Easy_Copier.Services
         }
     }
 
+    /// <summary>
+    /// Defines operations for validating file transfer operations prior to execution.
+    /// </summary>
     public interface IDriveValidationService
     {
+        /// <summary>
+        /// Validates whether the selected games can be safely copied to the specified target drive and path.
+        /// </summary>
+        /// <param name="games">The collection of game entries to copy.</param>
+        /// <param name="targetDrive">The target drive information.</param>
+        /// <param name="destinationBasePath">The destination root directory path.</param>
+        /// <returns>A task returning a read-only list of <see cref="ValidationResult"/> objects.</returns>
         Task<IReadOnlyList<ValidationResult>> ValidateTransferAsync(
             IEnumerable<GameEntry> games,
             RemovableDrive targetDrive,
             string destinationBasePath);
     }
 
+    /// <summary>
+    /// Validates transfer requirements such as available drive space, FAT32 4GB file limitations, source directory availability, and existing destination folders.
+    /// </summary>
     public class DriveValidationService : IDriveValidationService
     {
+        /// <summary>
+        /// Logger instance used for recording validation operations.
+        /// </summary>
         private readonly ILogger<DriveValidationService> _logger;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="DriveValidationService"/> class.
+        /// </summary>
+        /// <param name="logger">The logger instance for validation logs.</param>
         public DriveValidationService(ILogger<DriveValidationService> logger)
         {
             _logger = logger;
         }
 
+        /// <summary>
+        /// Asynchronously validates selected games against target drive storage capacity, file system limitations, and path accessibility.
+        /// </summary>
+        /// <param name="games">The games selected for copy.</param>
+        /// <param name="targetDrive">The target removable drive.</param>
+        /// <param name="destinationBasePath">The destination base folder path on the drive.</param>
+        /// <returns>A list of <see cref="ValidationResult"/> entries describing warnings, errors, or success status.</returns>
         public async Task<IReadOnlyList<ValidationResult>> ValidateTransferAsync(
             IEnumerable<GameEntry> games,
             RemovableDrive targetDrive,

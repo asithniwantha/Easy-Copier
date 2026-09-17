@@ -9,8 +9,20 @@ using System.Threading.Tasks;
 
 namespace Easy_Copier.Services
 {
+    /// <summary>
+    /// Defines operations for scanning game and content directories, computing folder sizes, and locating metadata assets.
+    /// </summary>
     public interface IGameScannerService
     {
+        /// <summary>
+        /// Asynchronously scans specified source folders for items belonging to the given library category.
+        /// </summary>
+        /// <param name="sourceFolders">Collection of source folder directory paths.</param>
+        /// <param name="category">The content library category being scanned.</param>
+        /// <param name="progress">Optional progress reporter for status updates.</param>
+        /// <param name="videoExtensions">Optional video file extension filter string (e.g., ".mp4, .mkv") for video libraries.</param>
+        /// <param name="cancellationToken">Cancellation token to observe while scanning.</param>
+        /// <returns>A task returning a read-only list of discovered <see cref="GameEntry"/> objects.</returns>
         Task<IReadOnlyList<GameEntry>> ScanLibraryAsync(
             IEnumerable<string> sourceFolders,
             LibraryCategory category,
@@ -18,22 +30,64 @@ namespace Easy_Copier.Services
             string? videoExtensions = null,
             CancellationToken cancellationToken = default);
 
+        /// <summary>
+        /// Calculates the total byte size and determines if any contained file exceeds the specified size limit.
+        /// </summary>
+        /// <param name="folderPath">The file or directory path to inspect.</param>
+        /// <param name="sizeLimit">The maximum single file size threshold (e.g., 4GB for FAT32).</param>
+        /// <param name="cancellationToken">Cancellation token.</param>
+        /// <returns>A task returning a tuple with total byte size and a boolean flag indicating whether large files exist.</returns>
         Task<(long TotalSize, bool HasLargeFiles)> GetFolderStatsAsync(string folderPath, long sizeLimit, CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Locates a cover image file within a game folder if available.
+        /// </summary>
+        /// <param name="gameFolderPath">The local game folder path.</param>
+        /// <returns>The full path to the cover image file if found; otherwise, <c>null</c>.</returns>
         string? FindCoverImage(string gameFolderPath);
+
+        /// <summary>
+        /// Reads genre categories for a game from its local <c>categories.txt</c> file.
+        /// </summary>
+        /// <param name="gameFolderPath">The game folder path.</param>
+        /// <returns>A read-only list of parsed <see cref="GameCategory"/> values.</returns>
         IReadOnlyList<GameCategory> GetCategories(string gameFolderPath);
     }
 
+    /// <summary>
+    /// Service that scans local drives and network shares for games, media files, and application directories.
+    /// </summary>
     public class GameScannerService : IGameScannerService
     {
+        /// <summary>
+        /// Logger instance used for recording library scanning operations.
+        /// </summary>
         private readonly ILogger<GameScannerService> _logger;
+
+        /// <summary>
+        /// Array of standard cover image file names checked when locating artwork.
+        /// </summary>
         private static readonly string[] CoverImageFileNames = { "cover.jpg", "cover.png", "cover.jpeg", "folder.jpg", "folder.png" };
+
+        /// <summary>
+        /// Separators used to split video file extension configuration strings.
+        /// </summary>
         private static readonly char[] VideoExtensionSeparators = [',', ';', ' '];
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="GameScannerService"/> class.
+        /// </summary>
+        /// <param name="logger">Logger instance for diagnostic logging.</param>
         public GameScannerService(ILogger<GameScannerService> logger)
         {
             _logger = logger;
         }
 
+        /// <summary>
+        /// Determines whether a folder should be excluded from scanning (e.g., system directories, Recycle Bin, hidden folders).
+        /// </summary>
+        /// <param name="folderPath">The folder path to evaluate.</param>
+        /// <returns><c>true</c> if the folder should be skipped; otherwise, <c>false</c>.</returns>
         private static bool IsExcludedFolder(string folderPath)
         {
             try
@@ -65,6 +119,15 @@ namespace Easy_Copier.Services
             }
         }
 
+        /// <summary>
+        /// Asynchronously scans the specified source directories for game, application, video, or OS image entries.
+        /// </summary>
+        /// <param name="sourceFolders">Root folder paths to scan.</param>
+        /// <param name="category">The content category expected in the source folders.</param>
+        /// <param name="progress">Optional progress reporter for status updates.</param>
+        /// <param name="videoExtensions">Optional delimiter-separated string of video file extensions.</param>
+        /// <param name="cancellationToken">Cancellation token to stop scanning.</param>
+        /// <returns>A task returning a read-only list of discovered <see cref="GameEntry"/> objects.</returns>
         public async Task<IReadOnlyList<GameEntry>> ScanLibraryAsync(
             IEnumerable<string> sourceFolders,
             LibraryCategory category,
@@ -261,6 +324,13 @@ namespace Easy_Copier.Services
             return games;
         }
 
+        /// <summary>
+        /// Asynchronously calculates file size statistics for a folder or file path.
+        /// </summary>
+        /// <param name="folderPath">The directory or file path.</param>
+        /// <param name="sizeLimit">The single-file byte limit to check against.</param>
+        /// <param name="cancellationToken">Cancellation token.</param>
+        /// <returns>A task returning total bytes and whether any file exceeds the size threshold.</returns>
         public async Task<(long TotalSize, bool HasLargeFiles)> GetFolderStatsAsync(string folderPath, long sizeLimit, CancellationToken cancellationToken = default)
         {
             return await Task.Run(() =>
@@ -302,7 +372,11 @@ namespace Easy_Copier.Services
             }, cancellationToken);
         }
 
-
+        /// <summary>
+        /// Parses genre category information from <c>categories.txt</c> inside a game directory.
+        /// </summary>
+        /// <param name="gameFolderPath">The local game folder path.</param>
+        /// <returns>A read-only list of parsed categories, defaulting to <see cref="GameCategory.Uncategorized"/> if absent.</returns>
         public IReadOnlyList<GameCategory> GetCategories(string gameFolderPath)
         {
             if (File.Exists(gameFolderPath))
@@ -336,6 +410,11 @@ namespace Easy_Copier.Services
             return [GameCategory.Uncategorized];
         }
 
+        /// <summary>
+        /// Searches a game folder for standard cover image files (<c>cover.jpg</c>, <c>cover.png</c>, etc.).
+        /// </summary>
+        /// <param name="gameFolderPath">The local game folder path.</param>
+        /// <returns>The full file path to the cover image if found; otherwise, <c>null</c>.</returns>
         public string? FindCoverImage(string gameFolderPath)
         {
             if (File.Exists(gameFolderPath))
