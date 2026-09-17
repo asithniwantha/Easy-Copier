@@ -1,8 +1,7 @@
-using Easy_Copier.Models;
+using Easy_Copier.Infrastructure;
 using Easy_Copier.ViewModels;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
-using Microsoft.UI.Xaml.Controls.Primitives;
 using Microsoft.UI.Xaml.Input;
 
 namespace Easy_Copier.Views
@@ -64,28 +63,12 @@ namespace Easy_Copier.Views
 
         private void OpenFolderButton_Click(object sender, RoutedEventArgs e)
         {
-            if (sender is Button button && button.DataContext is GameEntry gameEntry && ViewModel?.MainViewModel != null)
-            {
-                ViewModel.MainViewModel.OpenItemFolderCommand.Execute(gameEntry.FolderPath);
-            }
+            FlyoutHelper.HandleOpenFolderClick(sender, ViewModel?.MainViewModel);
         }
 
         private void GameCard_RightTapped(object sender, RightTappedRoutedEventArgs e)
         {
-            if (sender is FrameworkElement fe && fe.DataContext is GameEntry gameEntry)
-            {
-                OsImageDetailsViewModel osImageVm = new();
-                osImageVm.Initialize(gameEntry.Name, gameEntry.FolderPath);
-                OsImageDetailsFlyout osImageFlyout = new(osImageVm);
-
-                Flyout flyout = new()
-                {
-                    Content = osImageFlyout,
-                    Placement = FlyoutPlacementMode.RightEdgeAlignedTop
-                };
-
-                flyout.ShowAt(fe, new FlyoutShowOptions { Position = e.GetPosition(fe) });
-            }
+            FlyoutHelper.ShowOsImageDetailsFlyout(sender, e);
         }
     }
 }
