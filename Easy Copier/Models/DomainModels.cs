@@ -33,7 +33,7 @@ namespace Easy_Copier.Models
     public enum OsImageSortOption
     {
         Name,
-        DateAdded,
+        DateCreated,
         Size
     }
 
@@ -42,7 +42,7 @@ namespace Easy_Copier.Models
         string FolderPath,
         long TotalBytes,
         string? CoverImagePath,
-        DateTime DateAdded,
+        DateTime DateCreated,
         bool HasLargeFiles,
         LibraryCategory Category = LibraryCategory.Game,
         IReadOnlyList<GameCategory>? Categories = null)
@@ -146,7 +146,7 @@ namespace Easy_Copier.Models
         DateTime CachedAt,
         Dictionary<string, ItemFingerprint> ItemFingerprints)
     {
-        public const int CurrentSchemaVersion = 3;
+        public const int CurrentSchemaVersion = 4;
     }
 
     public enum CacheValidationResult

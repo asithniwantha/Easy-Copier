@@ -139,7 +139,7 @@ namespace Easy_Copier.Services
                                         file,
                                         totalSize,
                                         null, // Standalone files covers to be implemented later
-                                        DateTime.Now,
+                                        fi.LastWriteTime < fi.CreationTime && fi.LastWriteTime != DateTime.MinValue ? fi.LastWriteTime : fi.CreationTime,
                                         hasLargeFiles,
                                         category);
 
@@ -224,7 +224,7 @@ namespace Easy_Copier.Services
                                     gameFolder,
                                     TotalSize,
                                     coverImage,
-                                    DateTime.Now,
+                                    new DirectoryInfo(gameFolder).LastWriteTime < new DirectoryInfo(gameFolder).CreationTime && new DirectoryInfo(gameFolder).LastWriteTime != DateTime.MinValue ? new DirectoryInfo(gameFolder).LastWriteTime : new DirectoryInfo(gameFolder).CreationTime,
                                     HasLargeFiles,
                                     category,
                                     categoriesList);
