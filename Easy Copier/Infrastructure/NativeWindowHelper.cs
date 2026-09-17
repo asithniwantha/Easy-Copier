@@ -61,17 +61,29 @@ namespace Easy_Copier.Infrastructure
 
         public static IntPtr GetActiveWindowHandle()
         {
-            IntPtr foregroundWindow = GetForegroundWindow();
-            if (foregroundWindow != IntPtr.Zero)
+            if (!OperatingSystem.IsWindows())
             {
-                _ = GetWindowThreadProcessId(foregroundWindow, out uint processId);
-                if (processId == Environment.ProcessId)
-                {
-                    return foregroundWindow;
-                }
+                return IntPtr.Zero;
             }
 
-            return GetActiveWindow();
+            try
+            {
+                IntPtr foregroundWindow = GetForegroundWindow();
+                if (foregroundWindow != IntPtr.Zero)
+                {
+                    _ = GetWindowThreadProcessId(foregroundWindow, out uint processId);
+                    if (processId == Environment.ProcessId)
+                    {
+                        return foregroundWindow;
+                    }
+                }
+
+                return GetActiveWindow();
+            }
+            catch (Exception)
+            {
+                return IntPtr.Zero;
+            }
         }
 
         public static void SetOwner(IntPtr childHwnd, IntPtr ownerHwnd)
