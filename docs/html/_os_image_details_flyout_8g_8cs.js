@@ -1,0 +1,7 @@
+var _os_image_details_flyout_8g_8cs =
+[
+    [ "Easy_Copier.Views.OsImageDetailsFlyout", "class_easy___copier_1_1_views_1_1_os_image_details_flyout.html", "class_easy___copier_1_1_views_1_1_os_image_details_flyout" ],
+    [ "Easy_Copier.Views.OsImageDetailsFlyout.XamlBindingSetters", "class_easy___copier_1_1_views_1_1_os_image_details_flyout_1_1_xaml_binding_setters.html", "class_easy___copier_1_1_views_1_1_os_image_details_flyout_1_1_xaml_binding_setters" ],
+    [ "Easy_Copier.Views.OsImageDetailsFlyout.OsImageDetailsFlyout_obj1_Bindings", "class_easy___copier_1_1_views_1_1_os_image_details_flyout_1_1_os_image_details_flyout__obj1___bindings.html", "class_easy___copier_1_1_views_1_1_os_image_details_flyout_1_1_os_image_details_flyout__obj1___bindings" ],
+    [ "Easy_Copier.Views.OsImageDetailsFlyout.OsImageDetailsFlyout_obj1_Bindings.OsImageDetailsFlyout_obj1_BindingsTracking", "class_easy___copier_1_1_views_1_1_os_image_details_flyout_1_1_os_image_details_flyout__obj1___bi1429e4e636e7219308f9c4918a7a68fc.html", "class_easy___copier_1_1_views_1_1_os_image_details_flyout_1_1_os_image_details_flyout__obj1___bi1429e4e636e7219308f9c4918a7a68fc" ]
+];

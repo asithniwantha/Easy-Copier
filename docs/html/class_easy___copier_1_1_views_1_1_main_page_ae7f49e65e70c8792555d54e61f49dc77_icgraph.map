@@ -1,13 +1,19 @@
 <map id="Easy_Copier.Views.MainPage.UpdateCombinedSelection" name="Easy_Copier.Views.MainPage.UpdateCombinedSelection">
-<area shape="rect" id="Node000001" title=" " alt="" coords="561,72,763,115"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="561,139,763,181"/>
 <area shape="rect" id="Node000002" href="$class_easy___copier_1_1_views_1_1_main_page.html#a6f679289acc14ecaf712d3524e672868" title=" " alt="" coords="276,5,493,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="553,68,476,51,476,46,558,68"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="620,129,571,95,512,62,484,51,483,46,514,58,574,91,625,129"/>
 <area shape="rect" id="Node000004" href="$class_easy___copier_1_1_views_1_1_main_page.html#aed6a35909822327719417fd5a6c23f28" title=" " alt="" coords="270,72,499,115"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="543,94,499,96,499,91,548,93"/>
-<area shape="rect" id="Node000005" href="$class_easy___copier_1_1_views_1_1_main_page.html#a6c9c20f100c150149d13f638f8626f83" title=" " alt="" coords="256,139,513,181"/>
-<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="558,118,477,141,476,135,553,119"/>
-<area shape="rect" id="Node000003" href="$class_easy___copier_1_1_views_1_1_main_page.html#ae8c8697ec0b54f454eb9cf3d3c0fe5df" title="Connect()." alt="" coords="5,72,208,115"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="275,53,199,74,198,69,280,51"/>
-<area shape="poly" id="edge4_Node000004_Node000003" title=" " alt="" coords="251,94,208,96,208,91,256,93"/>
-<area shape="poly" id="edge6_Node000005_Node000003" title=" " alt="" coords="275,135,198,118,199,113,280,134"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="553,135,476,118,476,113,558,134"/>
+<area shape="rect" id="Node000005" href="$class_easy___copier_1_1_views_1_1_main_page.html#a2dbe84b7d1e17f9f94bb931b389c7b0c" title=" " alt="" coords="283,139,486,181"/>
+<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="543,160,487,163,486,157,548,160"/>
+<area shape="rect" id="Node000006" href="$class_easy___copier_1_1_views_1_1_main_page.html#af414cd4435ccfcdb7ebf5057dde489ae" title=" " alt="" coords="261,205,508,248"/>
+<area shape="poly" id="edge7_Node000001_Node000006" title=" " alt="" coords="558,185,477,207,476,202,553,186"/>
+<area shape="rect" id="Node000007" href="$class_easy___copier_1_1_views_1_1_main_page.html#a6c9c20f100c150149d13f638f8626f83" title=" " alt="" coords="256,272,513,315"/>
+<area shape="poly" id="edge9_Node000001_Node000007" title=" " alt="" coords="625,190,574,229,514,262,484,274,483,269,512,258,571,225,620,192"/>
+<area shape="rect" id="Node000003" href="$class_easy___copier_1_1_views_1_1_main_page.html#ae8c8697ec0b54f454eb9cf3d3c0fe5df" title="Connect()." alt="" coords="5,139,208,181"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="269,55,257,62,190,101,136,140,132,136,187,96,254,58,273,52"/>
+<area shape="poly" id="edge4_Node000004_Node000003" title=" " alt="" coords="276,120,199,141,197,136,280,117"/>
+<area shape="poly" id="edge6_Node000005_Node000003" title=" " alt="" coords="265,161,209,163,208,157,270,159"/>
+<area shape="poly" id="edge8_Node000006_Node000003" title=" " alt="" coords="275,202,198,185,198,179,280,200"/>
+<area shape="poly" id="edge10_Node000007_Node000003" title=" " alt="" coords="268,266,254,262,187,224,133,184,135,179,190,219,257,258,274,267"/>
 </map>

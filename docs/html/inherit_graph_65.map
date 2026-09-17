@@ -1,21 +1,3 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="Node000000" title=" " alt="" coords="5,280,120,307"/>
-<area shape="rect" id="Node000001" href="$class_easy___copier_1_1_converters_1_1_bool_to_visibility_converter.html" title=" " alt="" coords="181,5,376,48"/>
-<area shape="poly" id="edge158_Node000000_Node000001" title=" " alt="" coords="66,264,77,219,96,164,125,107,144,81,166,58,185,46,182,51,169,62,148,84,129,110,101,166,82,221,71,265"/>
-<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_converters_1_1_bytes_to_size_converter.html" title=" " alt="" coords="177,72,380,115"/>
-<area shape="poly" id="edge159_Node000000_Node000002" title=" " alt="" coords="72,264,106,194,133,157,166,125,188,113,184,117,169,129,137,160,111,197,76,266"/>
-<area shape="rect" id="Node000003" href="$class_easy___copier_1_1_converters_1_1_category_format_converter.html" title=" " alt="" coords="168,139,389,181"/>
-<area shape="poly" id="edge160_Node000000_Node000003" title=" " alt="" coords="82,267,119,228,166,191,193,180,189,184,169,196,122,232,86,270"/>
-<area shape="rect" id="Node000004" href="$class_easy___copier_1_1_converters_1_1_game_category_to_visibility_converter.html" title=" " alt="" coords="177,205,380,248"/>
-<area shape="poly" id="edge161_Node000000_Node000004" title=" " alt="" coords="120,273,167,257,207,247,203,250,168,263,123,277"/>
-<area shape="rect" id="Node000005" href="$class_easy___copier_1_1_converters_1_1_game_size_to_price_converter.html" title=" " alt="" coords="177,272,380,315"/>
-<area shape="poly" id="edge162_Node000000_Node000005" title=" " alt="" coords="134,291,178,292,174,295,136,296"/>
-<area shape="rect" id="Node000006" href="$class_easy___copier_1_1_converters_1_1_negative_to_background_converter.html" title=" " alt="" coords="168,339,388,381"/>
-<area shape="poly" id="edge163_Node000000_Node000006" title=" " alt="" coords="121,309,168,324,207,337,202,339,167,329,122,315"/>
-<area shape="rect" id="Node000007" href="$class_easy___copier_1_1_converters_1_1_negative_to_foreground_converter.html" title=" " alt="" coords="168,405,388,448"/>
-<area shape="poly" id="edge164_Node000000_Node000007" title=" " alt="" coords="84,316,122,355,169,391,194,404,189,405,166,396,119,359,84,321"/>
-<area shape="rect" id="Node000008" href="$class_easy___copier_1_1_converters_1_1_path_to_image_source_converter.html" title=" " alt="" coords="181,472,376,515"/>
-<area shape="poly" id="edge165_Node000000_Node000008" title=" " alt="" coords="75,319,111,390,137,426,169,458,189,471,183,472,166,462,133,430,106,392,73,324"/>
-<area shape="rect" id="Node000009" href="$class_easy___copier_1_1_converters_1_1_severity_to_info_bar_severity_converter.html" title=" " alt="" coords="170,539,386,581"/>
-<area shape="poly" id="edge166_Node000000_Node000009" title=" " alt="" coords="69,319,82,366,101,421,129,477,148,502,169,525,186,538,181,538,166,529,144,506,125,480,96,423,77,367,68,324"/>
+<area shape="rect" id="Node000000" href="$class_easy___copier_1_1_views_1_1_smart_adder_control_1_1_xaml_binding_setters.html" title=" " alt="" coords="5,5,215,48"/>
 </map>

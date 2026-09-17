@@ -1,0 +1,21 @@
+<map id="Easy_Copier.Views.SmartAdderHistoryWindow.GetBindingConnector" name="Easy_Copier.Views.SmartAdderHistoryWindow.GetBindingConnector">
+<area shape="rect" id="Node000001" title="GetBindingConnector(int connectionId, object target)." alt="" coords="5,104,243,147"/>
+<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_views_1_1_smart_adder_history_window_1_1_smart_adder_history_window__obj1___bindings.html#ace8d88e8c1fb3a8937d0bdf2aa7316a6" title=" " alt="" coords="314,13,538,72"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="204,101,304,75,300,78,206,106"/>
+<area shape="rect" id="Node000009" href="$class_easy___copier_1_1_views_1_1_smart_adder_history_window_1_1_smart_adder_history_window__obj1___bindings.html#a33427560784f28653c45d969a4111094" title=" " alt="" coords="308,96,544,155"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="242,123,295,125,290,126,243,128"/>
+<area shape="rect" id="Node000010" href="$class_easy___copier_1_1_views_1_1_smart_adder_history_window_1_1_smart_adder_history_window__obj1___bindings.html#a830059e807baa63139075e878cb23b8e" title=" " alt="" coords="291,179,562,253"/>
+<area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="198,145,288,173,283,175,198,150"/>
+<area shape="rect" id="Node000003" href="$class_easy___copier_1_1_views_1_1_smart_adder_history_window_1_1_smart_adder_history_window__obj1___bindings.html#afcabd94e578954dea6efdd05f8386a52" title=" " alt="" coords="610,13,834,72"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="538,40,597,42,592,43,539,45"/>
+<area shape="rect" id="Node000004" href="$class_easy___copier_1_1_views_1_1_smart_adder_history_window_1_1_smart_adder_history_window__obj1___bindings.html#a480b302482e5195dece63a1685552104" title=" " alt="" coords="882,13,1107,72"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="834,40,869,42,864,43,835,45"/>
+<area shape="rect" id="Node000005" href="$class_easy___copier_1_1_views_1_1_smart_adder_history_window_1_1_smart_adder_history_window__obj1___bindings.html#a9a151d3fa05a6ed3ea143ee732e8a207" title=" " alt="" coords="1155,13,1379,72"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="1107,40,1142,42,1136,43,1107,45"/>
+<area shape="rect" id="Node000006" href="$class_easy___copier_1_1_views_1_1_smart_adder_history_window_1_1_smart_adder_history_window__obj1___bindings.html#a80e725cdc05cec92386eb95674a7e95d" title=" " alt="" coords="1427,5,1651,80"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="1379,40,1414,42,1409,43,1380,45"/>
+<area shape="rect" id="Node000007" href="$class_easy___copier_1_1_views_1_1_smart_adder_history_window_1_1_smart_adder_history_window__obj1___bindings.html#ac35904bd11f040f5eec400ebc6318712" title=" " alt="" coords="1699,5,1940,80"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="1652,40,1687,42,1681,43,1652,45"/>
+<area shape="rect" id="Node000008" href="$class_easy___copier_1_1_views_1_1_smart_adder_history_window_1_1_xaml_binding_setters.html#a1625db47682ff5103b86c8e81a3c6408" title=" " alt="" coords="1988,5,2220,80"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="1940,40,1975,43,1970,43,1940,45"/>
+</map>

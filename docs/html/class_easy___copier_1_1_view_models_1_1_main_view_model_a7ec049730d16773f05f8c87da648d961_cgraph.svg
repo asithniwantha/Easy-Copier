@@ -47,7 +47,7 @@
   </g>
 </defs>
 <script type="application/ecmascript" xlink:href="svg.min.js"/>
-<svg id="graph" class="graph" data-view-width="1123" data-view-height="466" data-section-id="dynsection-13">
+<svg id="graph" class="graph" data-view-width="1123" data-view-height="466" data-section-id="dynsection-14">
 <g id="viewport">
 <title>Easy_Copier.ViewModels.MainViewModel.InitializeAsync</title>
 <!-- Node1 -->
@@ -101,7 +101,7 @@
 <!-- Node5 -->
 <g id="Node000005" class="node">
 <title>Node5</title>
-<g id="a_Node000005"><a xlink:href="namespace_easy___copier_1_1_models.html#aa31330812b9fee139e0731f87cc18a1f" target="_top" xlink:title=" ">
+<g id="a_Node000005"><a xlink:href="namespace_easy___copier_1_1_models.html#a6ce72bb145c4b6a2a691fff265751706" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="#666666" points="1097,-328 958,-328 958,-296 1097,-296 1097,-328"/>
 <text xml:space="preserve" text-anchor="start" x="966" y="-314.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Models.Library</text>
 <text xml:space="preserve" text-anchor="middle" x="1027.5" y="-302.5" font-family="Helvetica,sans-Serif" font-size="10.00">CacheSnapshot</text>

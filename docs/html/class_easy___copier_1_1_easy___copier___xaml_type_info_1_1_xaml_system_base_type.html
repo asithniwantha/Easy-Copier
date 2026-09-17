@@ -155,6 +155,13 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:adbd833117021041a54c87992b8883e32" id="r_adbd833117021041a54c87992b8883e32"><td class="memItemLeft">virtual void&#160;</td><td class="memItemRight"><a class="el" href="#adbd833117021041a54c87992b8883e32">AddToVector</a> (object instance, object item)</td></tr>
 <tr class="memitem:a68df8547656743bd61c45b2122b30512" id="r_a68df8547656743bd61c45b2122b30512"><td class="memItemLeft">virtual void&#160;</td><td class="memItemRight"><a class="el" href="#a68df8547656743bd61c45b2122b30512">RunInitializer</a> ()</td></tr>
 <tr class="memitem:a1475d552761df2f32a28ff4917d1e5e6" id="r_a1475d552761df2f32a28ff4917d1e5e6"><td class="memItemLeft">virtual object&#160;</td><td class="memItemRight"><a class="el" href="#a1475d552761df2f32a28ff4917d1e5e6">CreateFromString</a> (string input)</td></tr>
+<tr class="memitem:aa29d33bb7154049b7442e1608e2c101e" id="r_aa29d33bb7154049b7442e1608e2c101e"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#aa29d33bb7154049b7442e1608e2c101e">XamlSystemBaseType</a> (string fullName, global::System.Type underlyingType)</td></tr>
+<tr class="memitem:ae7ec3efc03a0273038703980d4fe8891" id="r_ae7ec3efc03a0273038703980d4fe8891"><td class="memItemLeft">virtual global::Microsoft.UI.Xaml.Markup.IXamlMember&#160;</td><td class="memItemRight"><a class="el" href="#ae7ec3efc03a0273038703980d4fe8891">GetMember</a> (string name)</td></tr>
+<tr class="memitem:a7a43c821b7615c50878cb1d6ee357a5b" id="r_a7a43c821b7615c50878cb1d6ee357a5b"><td class="memItemLeft">virtual object&#160;</td><td class="memItemRight"><a class="el" href="#a7a43c821b7615c50878cb1d6ee357a5b">ActivateInstance</a> ()</td></tr>
+<tr class="memitem:ab0f5c68b67a8363f14daf7cabd52e87c" id="r_ab0f5c68b67a8363f14daf7cabd52e87c"><td class="memItemLeft">virtual void&#160;</td><td class="memItemRight"><a class="el" href="#ab0f5c68b67a8363f14daf7cabd52e87c">AddToMap</a> (object instance, object key, object item)</td></tr>
+<tr class="memitem:adbd833117021041a54c87992b8883e32" id="r_adbd833117021041a54c87992b8883e32"><td class="memItemLeft">virtual void&#160;</td><td class="memItemRight"><a class="el" href="#adbd833117021041a54c87992b8883e32">AddToVector</a> (object instance, object item)</td></tr>
+<tr class="memitem:a68df8547656743bd61c45b2122b30512" id="r_a68df8547656743bd61c45b2122b30512"><td class="memItemLeft">virtual void&#160;</td><td class="memItemRight"><a class="el" href="#a68df8547656743bd61c45b2122b30512">RunInitializer</a> ()</td></tr>
+<tr class="memitem:a1475d552761df2f32a28ff4917d1e5e6" id="r_a1475d552761df2f32a28ff4917d1e5e6"><td class="memItemLeft">virtual object&#160;</td><td class="memItemRight"><a class="el" href="#a1475d552761df2f32a28ff4917d1e5e6">CreateFromString</a> (string input)</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-properties" class="groupheader"><a id="properties" name="properties"></a>
 Properties</h2></td></tr>
@@ -184,7 +191,7 @@ Private Attributes</h2></td></tr>
 <p class="definition">Definition at line <a class="el" href="_debug_2net10_80-windows10_80_826100_80_2win-x64_2_xaml_type_info_8g_8cs_source.html#l04432">4432</a> of file <a class="el" href="_debug_2net10_80-windows10_80_826100_80_2win-x64_2_xaml_type_info_8g_8cs_source.html">XamlTypeInfo.g.cs</a>.</p>
 </div><a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="aa29d33bb7154049b7442e1608e2c101e" name="aa29d33bb7154049b7442e1608e2c101e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa29d33bb7154049b7442e1608e2c101e">&#9670;&#160;</a></span>XamlSystemBaseType() <span class="overload">[1/4]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#aa29d33bb7154049b7442e1608e2c101e">&#9670;&#160;</a></span>XamlSystemBaseType() <span class="overload">[1/5]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -209,7 +216,7 @@ Private Attributes</h2></td></tr>
 </div>
 </div>
 <a id="aa29d33bb7154049b7442e1608e2c101e" name="aa29d33bb7154049b7442e1608e2c101e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa29d33bb7154049b7442e1608e2c101e">&#9670;&#160;</a></span>XamlSystemBaseType() <span class="overload">[2/4]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#aa29d33bb7154049b7442e1608e2c101e">&#9670;&#160;</a></span>XamlSystemBaseType() <span class="overload">[2/5]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -227,14 +234,39 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="x64_2_debug_2net10_80-windows10_80_826100_80_2win-x64_2_xaml_type_info_8g_8cs_source.html#l04447">4447</a> of file <a class="el" href="x64_2_debug_2net10_80-windows10_80_826100_80_2win-x64_2_xaml_type_info_8g_8cs_source.html">XamlTypeInfo.g.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_release_2net10_80-windows10_80_826100_80_2win-x64_2_xaml_type_info_8g_8cs_source.html#l04470">4470</a> of file <a class="el" href="_release_2net10_80-windows10_80_826100_80_2win-x64_2_xaml_type_info_8g_8cs_source.html">XamlTypeInfo.g.cs</a>.</p>
 
 <p class="reference">References <a class="el" href="_debug_2net10_80-windows10_80_826100_80_2win-x64_2_xaml_type_info_8g_8cs_source.html#l04434">_fullName</a>, and <a class="el" href="_debug_2net10_80-windows10_80_826100_80_2win-x64_2_xaml_type_info_8g_8cs_source.html#l04435">_underlyingType</a>.</p>
 
 </div>
 </div>
 <a id="aa29d33bb7154049b7442e1608e2c101e" name="aa29d33bb7154049b7442e1608e2c101e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa29d33bb7154049b7442e1608e2c101e">&#9670;&#160;</a></span>XamlSystemBaseType() <span class="overload">[3/4]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#aa29d33bb7154049b7442e1608e2c101e">&#9670;&#160;</a></span>XamlSystemBaseType() <span class="overload">[3/5]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Easy_Copier.Easy_Copier_XamlTypeInfo.XamlSystemBaseType.XamlSystemBaseType </td>
+          <td>(</td>
+          <td class="paramtype">string</td>          <td class="paramname"><span class="paramname"><em>fullName</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">global.System.Type</td>          <td class="paramname"><span class="paramname"><em>underlyingType</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="x64_2_debug_2net10_80-windows10_80_826100_80_2win-x64_2_xaml_type_info_8g_8cs_source.html#l04528">4528</a> of file <a class="el" href="x64_2_debug_2net10_80-windows10_80_826100_80_2win-x64_2_xaml_type_info_8g_8cs_source.html">XamlTypeInfo.g.cs</a>.</p>
+
+<p class="reference">References <a class="el" href="_debug_2net10_80-windows10_80_826100_80_2win-x64_2_xaml_type_info_8g_8cs_source.html#l04434">_fullName</a>, and <a class="el" href="_debug_2net10_80-windows10_80_826100_80_2win-x64_2_xaml_type_info_8g_8cs_source.html#l04435">_underlyingType</a>.</p>
+
+</div>
+</div>
+<a id="aa29d33bb7154049b7442e1608e2c101e" name="aa29d33bb7154049b7442e1608e2c101e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa29d33bb7154049b7442e1608e2c101e">&#9670;&#160;</a></span>XamlSystemBaseType() <span class="overload">[4/5]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -259,7 +291,7 @@ Private Attributes</h2></td></tr>
 </div>
 </div>
 <a id="aa29d33bb7154049b7442e1608e2c101e" name="aa29d33bb7154049b7442e1608e2c101e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa29d33bb7154049b7442e1608e2c101e">&#9670;&#160;</a></span>XamlSystemBaseType() <span class="overload">[4/4]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#aa29d33bb7154049b7442e1608e2c101e">&#9670;&#160;</a></span>XamlSystemBaseType() <span class="overload">[5/5]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -285,7 +317,7 @@ Private Attributes</h2></td></tr>
 </div>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
 <a id="a7a43c821b7615c50878cb1d6ee357a5b" name="a7a43c821b7615c50878cb1d6ee357a5b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7a43c821b7615c50878cb1d6ee357a5b">&#9670;&#160;</a></span>ActivateInstance() <span class="overload">[1/4]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a7a43c821b7615c50878cb1d6ee357a5b">&#9670;&#160;</a></span>ActivateInstance() <span class="overload">[1/5]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -312,7 +344,7 @@ Private Attributes</h2></td></tr>
 </div>
 </div>
 <a id="a7a43c821b7615c50878cb1d6ee357a5b" name="a7a43c821b7615c50878cb1d6ee357a5b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7a43c821b7615c50878cb1d6ee357a5b">&#9670;&#160;</a></span>ActivateInstance() <span class="overload">[2/4]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a7a43c821b7615c50878cb1d6ee357a5b">&#9670;&#160;</a></span>ActivateInstance() <span class="overload">[2/5]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -334,12 +366,39 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="x64_2_debug_2net10_80-windows10_80_826100_80_2win-x64_2_xaml_type_info_8g_8cs_source.html#l04478">4478</a> of file <a class="el" href="x64_2_debug_2net10_80-windows10_80_826100_80_2win-x64_2_xaml_type_info_8g_8cs_source.html">XamlTypeInfo.g.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_release_2net10_80-windows10_80_826100_80_2win-x64_2_xaml_type_info_8g_8cs_source.html#l04501">4501</a> of file <a class="el" href="_release_2net10_80-windows10_80_826100_80_2win-x64_2_xaml_type_info_8g_8cs_source.html">XamlTypeInfo.g.cs</a>.</p>
 
 </div>
 </div>
 <a id="a7a43c821b7615c50878cb1d6ee357a5b" name="a7a43c821b7615c50878cb1d6ee357a5b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7a43c821b7615c50878cb1d6ee357a5b">&#9670;&#160;</a></span>ActivateInstance() <span class="overload">[3/4]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a7a43c821b7615c50878cb1d6ee357a5b">&#9670;&#160;</a></span>ActivateInstance() <span class="overload">[3/5]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual object Easy_Copier.Easy_Copier_XamlTypeInfo.XamlSystemBaseType.ActivateInstance </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="x64_2_debug_2net10_80-windows10_80_826100_80_2win-x64_2_xaml_type_info_8g_8cs_source.html#l04559">4559</a> of file <a class="el" href="x64_2_debug_2net10_80-windows10_80_826100_80_2win-x64_2_xaml_type_info_8g_8cs_source.html">XamlTypeInfo.g.cs</a>.</p>
+
+</div>
+</div>
+<a id="a7a43c821b7615c50878cb1d6ee357a5b" name="a7a43c821b7615c50878cb1d6ee357a5b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7a43c821b7615c50878cb1d6ee357a5b">&#9670;&#160;</a></span>ActivateInstance() <span class="overload">[4/5]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -366,7 +425,7 @@ Private Attributes</h2></td></tr>
 </div>
 </div>
 <a id="a7a43c821b7615c50878cb1d6ee357a5b" name="a7a43c821b7615c50878cb1d6ee357a5b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7a43c821b7615c50878cb1d6ee357a5b">&#9670;&#160;</a></span>ActivateInstance() <span class="overload">[4/4]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a7a43c821b7615c50878cb1d6ee357a5b">&#9670;&#160;</a></span>ActivateInstance() <span class="overload">[5/5]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -393,7 +452,7 @@ Private Attributes</h2></td></tr>
 </div>
 </div>
 <a id="ab0f5c68b67a8363f14daf7cabd52e87c" name="ab0f5c68b67a8363f14daf7cabd52e87c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab0f5c68b67a8363f14daf7cabd52e87c">&#9670;&#160;</a></span>AddToMap() <span class="overload">[1/4]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ab0f5c68b67a8363f14daf7cabd52e87c">&#9670;&#160;</a></span>AddToMap() <span class="overload">[1/5]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -429,7 +488,7 @@ Private Attributes</h2></td></tr>
 </div>
 </div>
 <a id="ab0f5c68b67a8363f14daf7cabd52e87c" name="ab0f5c68b67a8363f14daf7cabd52e87c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab0f5c68b67a8363f14daf7cabd52e87c">&#9670;&#160;</a></span>AddToMap() <span class="overload">[2/4]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ab0f5c68b67a8363f14daf7cabd52e87c">&#9670;&#160;</a></span>AddToMap() <span class="overload">[2/5]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -460,12 +519,48 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="x64_2_debug_2net10_80-windows10_80_826100_80_2win-x64_2_xaml_type_info_8g_8cs_source.html#l04479">4479</a> of file <a class="el" href="x64_2_debug_2net10_80-windows10_80_826100_80_2win-x64_2_xaml_type_info_8g_8cs_source.html">XamlTypeInfo.g.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_release_2net10_80-windows10_80_826100_80_2win-x64_2_xaml_type_info_8g_8cs_source.html#l04502">4502</a> of file <a class="el" href="_release_2net10_80-windows10_80_826100_80_2win-x64_2_xaml_type_info_8g_8cs_source.html">XamlTypeInfo.g.cs</a>.</p>
 
 </div>
 </div>
 <a id="ab0f5c68b67a8363f14daf7cabd52e87c" name="ab0f5c68b67a8363f14daf7cabd52e87c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab0f5c68b67a8363f14daf7cabd52e87c">&#9670;&#160;</a></span>AddToMap() <span class="overload">[3/4]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ab0f5c68b67a8363f14daf7cabd52e87c">&#9670;&#160;</a></span>AddToMap() <span class="overload">[3/5]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void Easy_Copier.Easy_Copier_XamlTypeInfo.XamlSystemBaseType.AddToMap </td>
+          <td>(</td>
+          <td class="paramtype">object</td>          <td class="paramname"><span class="paramname"><em>instance</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">object</td>          <td class="paramname"><span class="paramname"><em>key</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">object</td>          <td class="paramname"><span class="paramname"><em>item</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="x64_2_debug_2net10_80-windows10_80_826100_80_2win-x64_2_xaml_type_info_8g_8cs_source.html#l04560">4560</a> of file <a class="el" href="x64_2_debug_2net10_80-windows10_80_826100_80_2win-x64_2_xaml_type_info_8g_8cs_source.html">XamlTypeInfo.g.cs</a>.</p>
+
+</div>
+</div>
+<a id="ab0f5c68b67a8363f14daf7cabd52e87c" name="ab0f5c68b67a8363f14daf7cabd52e87c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab0f5c68b67a8363f14daf7cabd52e87c">&#9670;&#160;</a></span>AddToMap() <span class="overload">[4/5]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -501,7 +596,7 @@ Private Attributes</h2></td></tr>
 </div>
 </div>
 <a id="ab0f5c68b67a8363f14daf7cabd52e87c" name="ab0f5c68b67a8363f14daf7cabd52e87c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab0f5c68b67a8363f14daf7cabd52e87c">&#9670;&#160;</a></span>AddToMap() <span class="overload">[4/4]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ab0f5c68b67a8363f14daf7cabd52e87c">&#9670;&#160;</a></span>AddToMap() <span class="overload">[5/5]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -537,7 +632,7 @@ Private Attributes</h2></td></tr>
 </div>
 </div>
 <a id="adbd833117021041a54c87992b8883e32" name="adbd833117021041a54c87992b8883e32"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adbd833117021041a54c87992b8883e32">&#9670;&#160;</a></span>AddToVector() <span class="overload">[1/4]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#adbd833117021041a54c87992b8883e32">&#9670;&#160;</a></span>AddToVector() <span class="overload">[1/5]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -568,7 +663,7 @@ Private Attributes</h2></td></tr>
 </div>
 </div>
 <a id="adbd833117021041a54c87992b8883e32" name="adbd833117021041a54c87992b8883e32"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adbd833117021041a54c87992b8883e32">&#9670;&#160;</a></span>AddToVector() <span class="overload">[2/4]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#adbd833117021041a54c87992b8883e32">&#9670;&#160;</a></span>AddToVector() <span class="overload">[2/5]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -594,12 +689,43 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="x64_2_debug_2net10_80-windows10_80_826100_80_2win-x64_2_xaml_type_info_8g_8cs_source.html#l04480">4480</a> of file <a class="el" href="x64_2_debug_2net10_80-windows10_80_826100_80_2win-x64_2_xaml_type_info_8g_8cs_source.html">XamlTypeInfo.g.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_release_2net10_80-windows10_80_826100_80_2win-x64_2_xaml_type_info_8g_8cs_source.html#l04503">4503</a> of file <a class="el" href="_release_2net10_80-windows10_80_826100_80_2win-x64_2_xaml_type_info_8g_8cs_source.html">XamlTypeInfo.g.cs</a>.</p>
 
 </div>
 </div>
 <a id="adbd833117021041a54c87992b8883e32" name="adbd833117021041a54c87992b8883e32"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adbd833117021041a54c87992b8883e32">&#9670;&#160;</a></span>AddToVector() <span class="overload">[3/4]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#adbd833117021041a54c87992b8883e32">&#9670;&#160;</a></span>AddToVector() <span class="overload">[3/5]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void Easy_Copier.Easy_Copier_XamlTypeInfo.XamlSystemBaseType.AddToVector </td>
+          <td>(</td>
+          <td class="paramtype">object</td>          <td class="paramname"><span class="paramname"><em>instance</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">object</td>          <td class="paramname"><span class="paramname"><em>item</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="x64_2_debug_2net10_80-windows10_80_826100_80_2win-x64_2_xaml_type_info_8g_8cs_source.html#l04561">4561</a> of file <a class="el" href="x64_2_debug_2net10_80-windows10_80_826100_80_2win-x64_2_xaml_type_info_8g_8cs_source.html">XamlTypeInfo.g.cs</a>.</p>
+
+</div>
+</div>
+<a id="adbd833117021041a54c87992b8883e32" name="adbd833117021041a54c87992b8883e32"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adbd833117021041a54c87992b8883e32">&#9670;&#160;</a></span>AddToVector() <span class="overload">[4/5]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -630,7 +756,7 @@ Private Attributes</h2></td></tr>
 </div>
 </div>
 <a id="adbd833117021041a54c87992b8883e32" name="adbd833117021041a54c87992b8883e32"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adbd833117021041a54c87992b8883e32">&#9670;&#160;</a></span>AddToVector() <span class="overload">[4/4]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#adbd833117021041a54c87992b8883e32">&#9670;&#160;</a></span>AddToVector() <span class="overload">[5/5]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -661,7 +787,7 @@ Private Attributes</h2></td></tr>
 </div>
 </div>
 <a id="a1475d552761df2f32a28ff4917d1e5e6" name="a1475d552761df2f32a28ff4917d1e5e6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1475d552761df2f32a28ff4917d1e5e6">&#9670;&#160;</a></span>CreateFromString() <span class="overload">[1/4]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a1475d552761df2f32a28ff4917d1e5e6">&#9670;&#160;</a></span>CreateFromString() <span class="overload">[1/5]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -688,7 +814,7 @@ Private Attributes</h2></td></tr>
 </div>
 </div>
 <a id="a1475d552761df2f32a28ff4917d1e5e6" name="a1475d552761df2f32a28ff4917d1e5e6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1475d552761df2f32a28ff4917d1e5e6">&#9670;&#160;</a></span>CreateFromString() <span class="overload">[2/4]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a1475d552761df2f32a28ff4917d1e5e6">&#9670;&#160;</a></span>CreateFromString() <span class="overload">[2/5]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -710,12 +836,39 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="x64_2_debug_2net10_80-windows10_80_826100_80_2win-x64_2_xaml_type_info_8g_8cs_source.html#l04482">4482</a> of file <a class="el" href="x64_2_debug_2net10_80-windows10_80_826100_80_2win-x64_2_xaml_type_info_8g_8cs_source.html">XamlTypeInfo.g.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_release_2net10_80-windows10_80_826100_80_2win-x64_2_xaml_type_info_8g_8cs_source.html#l04505">4505</a> of file <a class="el" href="_release_2net10_80-windows10_80_826100_80_2win-x64_2_xaml_type_info_8g_8cs_source.html">XamlTypeInfo.g.cs</a>.</p>
 
 </div>
 </div>
 <a id="a1475d552761df2f32a28ff4917d1e5e6" name="a1475d552761df2f32a28ff4917d1e5e6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1475d552761df2f32a28ff4917d1e5e6">&#9670;&#160;</a></span>CreateFromString() <span class="overload">[3/4]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a1475d552761df2f32a28ff4917d1e5e6">&#9670;&#160;</a></span>CreateFromString() <span class="overload">[3/5]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual object Easy_Copier.Easy_Copier_XamlTypeInfo.XamlSystemBaseType.CreateFromString </td>
+          <td>(</td>
+          <td class="paramtype">string</td>          <td class="paramname"><span class="paramname"><em>input</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="x64_2_debug_2net10_80-windows10_80_826100_80_2win-x64_2_xaml_type_info_8g_8cs_source.html#l04563">4563</a> of file <a class="el" href="x64_2_debug_2net10_80-windows10_80_826100_80_2win-x64_2_xaml_type_info_8g_8cs_source.html">XamlTypeInfo.g.cs</a>.</p>
+
+</div>
+</div>
+<a id="a1475d552761df2f32a28ff4917d1e5e6" name="a1475d552761df2f32a28ff4917d1e5e6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1475d552761df2f32a28ff4917d1e5e6">&#9670;&#160;</a></span>CreateFromString() <span class="overload">[4/5]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -742,7 +895,7 @@ Private Attributes</h2></td></tr>
 </div>
 </div>
 <a id="a1475d552761df2f32a28ff4917d1e5e6" name="a1475d552761df2f32a28ff4917d1e5e6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1475d552761df2f32a28ff4917d1e5e6">&#9670;&#160;</a></span>CreateFromString() <span class="overload">[4/4]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a1475d552761df2f32a28ff4917d1e5e6">&#9670;&#160;</a></span>CreateFromString() <span class="overload">[5/5]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -769,7 +922,7 @@ Private Attributes</h2></td></tr>
 </div>
 </div>
 <a id="ae7ec3efc03a0273038703980d4fe8891" name="ae7ec3efc03a0273038703980d4fe8891"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae7ec3efc03a0273038703980d4fe8891">&#9670;&#160;</a></span>GetMember() <span class="overload">[1/4]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ae7ec3efc03a0273038703980d4fe8891">&#9670;&#160;</a></span>GetMember() <span class="overload">[1/5]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -796,7 +949,7 @@ Private Attributes</h2></td></tr>
 </div>
 </div>
 <a id="ae7ec3efc03a0273038703980d4fe8891" name="ae7ec3efc03a0273038703980d4fe8891"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae7ec3efc03a0273038703980d4fe8891">&#9670;&#160;</a></span>GetMember() <span class="overload">[2/4]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ae7ec3efc03a0273038703980d4fe8891">&#9670;&#160;</a></span>GetMember() <span class="overload">[2/5]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -818,12 +971,39 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="x64_2_debug_2net10_80-windows10_80_826100_80_2win-x64_2_xaml_type_info_8g_8cs_source.html#l04466">4466</a> of file <a class="el" href="x64_2_debug_2net10_80-windows10_80_826100_80_2win-x64_2_xaml_type_info_8g_8cs_source.html">XamlTypeInfo.g.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_release_2net10_80-windows10_80_826100_80_2win-x64_2_xaml_type_info_8g_8cs_source.html#l04489">4489</a> of file <a class="el" href="_release_2net10_80-windows10_80_826100_80_2win-x64_2_xaml_type_info_8g_8cs_source.html">XamlTypeInfo.g.cs</a>.</p>
 
 </div>
 </div>
 <a id="ae7ec3efc03a0273038703980d4fe8891" name="ae7ec3efc03a0273038703980d4fe8891"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae7ec3efc03a0273038703980d4fe8891">&#9670;&#160;</a></span>GetMember() <span class="overload">[3/4]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ae7ec3efc03a0273038703980d4fe8891">&#9670;&#160;</a></span>GetMember() <span class="overload">[3/5]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual global.Microsoft.UI.Xaml.Markup.IXamlMember Easy_Copier.Easy_Copier_XamlTypeInfo.XamlSystemBaseType.GetMember </td>
+          <td>(</td>
+          <td class="paramtype">string</td>          <td class="paramname"><span class="paramname"><em>name</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="x64_2_debug_2net10_80-windows10_80_826100_80_2win-x64_2_xaml_type_info_8g_8cs_source.html#l04547">4547</a> of file <a class="el" href="x64_2_debug_2net10_80-windows10_80_826100_80_2win-x64_2_xaml_type_info_8g_8cs_source.html">XamlTypeInfo.g.cs</a>.</p>
+
+</div>
+</div>
+<a id="ae7ec3efc03a0273038703980d4fe8891" name="ae7ec3efc03a0273038703980d4fe8891"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae7ec3efc03a0273038703980d4fe8891">&#9670;&#160;</a></span>GetMember() <span class="overload">[4/5]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -850,7 +1030,7 @@ Private Attributes</h2></td></tr>
 </div>
 </div>
 <a id="ae7ec3efc03a0273038703980d4fe8891" name="ae7ec3efc03a0273038703980d4fe8891"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae7ec3efc03a0273038703980d4fe8891">&#9670;&#160;</a></span>GetMember() <span class="overload">[4/4]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ae7ec3efc03a0273038703980d4fe8891">&#9670;&#160;</a></span>GetMember() <span class="overload">[5/5]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -877,7 +1057,7 @@ Private Attributes</h2></td></tr>
 </div>
 </div>
 <a id="a68df8547656743bd61c45b2122b30512" name="a68df8547656743bd61c45b2122b30512"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a68df8547656743bd61c45b2122b30512">&#9670;&#160;</a></span>RunInitializer() <span class="overload">[1/4]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a68df8547656743bd61c45b2122b30512">&#9670;&#160;</a></span>RunInitializer() <span class="overload">[1/5]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -904,7 +1084,7 @@ Private Attributes</h2></td></tr>
 </div>
 </div>
 <a id="a68df8547656743bd61c45b2122b30512" name="a68df8547656743bd61c45b2122b30512"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a68df8547656743bd61c45b2122b30512">&#9670;&#160;</a></span>RunInitializer() <span class="overload">[2/4]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a68df8547656743bd61c45b2122b30512">&#9670;&#160;</a></span>RunInitializer() <span class="overload">[2/5]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -926,12 +1106,39 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="x64_2_debug_2net10_80-windows10_80_826100_80_2win-x64_2_xaml_type_info_8g_8cs_source.html#l04481">4481</a> of file <a class="el" href="x64_2_debug_2net10_80-windows10_80_826100_80_2win-x64_2_xaml_type_info_8g_8cs_source.html">XamlTypeInfo.g.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_release_2net10_80-windows10_80_826100_80_2win-x64_2_xaml_type_info_8g_8cs_source.html#l04504">4504</a> of file <a class="el" href="_release_2net10_80-windows10_80_826100_80_2win-x64_2_xaml_type_info_8g_8cs_source.html">XamlTypeInfo.g.cs</a>.</p>
 
 </div>
 </div>
 <a id="a68df8547656743bd61c45b2122b30512" name="a68df8547656743bd61c45b2122b30512"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a68df8547656743bd61c45b2122b30512">&#9670;&#160;</a></span>RunInitializer() <span class="overload">[3/4]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a68df8547656743bd61c45b2122b30512">&#9670;&#160;</a></span>RunInitializer() <span class="overload">[3/5]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void Easy_Copier.Easy_Copier_XamlTypeInfo.XamlSystemBaseType.RunInitializer </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="x64_2_debug_2net10_80-windows10_80_826100_80_2win-x64_2_xaml_type_info_8g_8cs_source.html#l04562">4562</a> of file <a class="el" href="x64_2_debug_2net10_80-windows10_80_826100_80_2win-x64_2_xaml_type_info_8g_8cs_source.html">XamlTypeInfo.g.cs</a>.</p>
+
+</div>
+</div>
+<a id="a68df8547656743bd61c45b2122b30512" name="a68df8547656743bd61c45b2122b30512"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a68df8547656743bd61c45b2122b30512">&#9670;&#160;</a></span>RunInitializer() <span class="overload">[4/5]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -958,7 +1165,7 @@ Private Attributes</h2></td></tr>
 </div>
 </div>
 <a id="a68df8547656743bd61c45b2122b30512" name="a68df8547656743bd61c45b2122b30512"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a68df8547656743bd61c45b2122b30512">&#9670;&#160;</a></span>RunInitializer() <span class="overload">[4/4]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a68df8547656743bd61c45b2122b30512">&#9670;&#160;</a></span>RunInitializer() <span class="overload">[5/5]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1400,6 +1607,7 @@ Private Attributes</h2></td></tr>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>Easy Copier/obj/Debug/net10.0-windows10.0.26100.0/win-x64/<a class="el" href="_debug_2net10_80-windows10_80_826100_80_2win-x64_2_xaml_type_info_8g_8cs_source.html">XamlTypeInfo.g.cs</a></li>
+<li>Easy Copier/obj/Release/net10.0-windows10.0.26100.0/win-x64/<a class="el" href="_release_2net10_80-windows10_80_826100_80_2win-x64_2_xaml_type_info_8g_8cs_source.html">XamlTypeInfo.g.cs</a></li>
 <li>Easy Copier/obj/x64/Debug/net10.0-windows10.0.26100.0/win-x64/<a class="el" href="x64_2_debug_2net10_80-windows10_80_826100_80_2win-x64_2_xaml_type_info_8g_8cs_source.html">XamlTypeInfo.g.cs</a></li>
 <li>Easy Copier/obj/x64/Debug/net10.0-windows10.0.26100.0/<a class="el" href="x64_2_debug_2net10_80-windows10_80_826100_80_2_xaml_type_info_8g_8cs_source.html">XamlTypeInfo.g.cs</a></li>
 <li>Easy Copier/obj/x64/Release/net10.0-windows10.0.26100.0/win-x64/<a class="el" href="x64_2_release_2net10_80-windows10_80_826100_80_2win-x64_2_xaml_type_info_8g_8cs_source.html">XamlTypeInfo.g.cs</a></li>

@@ -1,7 +1,17 @@
 <map id="Easy_Copier.Views.SettingsWindow.LoadAsync" name="Easy_Copier.Views.SettingsWindow.LoadAsync">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,194,48"/>
-<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_view_models_1_1_settings_view_model.html#a6348434751494a82036ccfef6961f24c" title=" " alt="" coords="242,5,465,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="194,24,229,26,223,27,194,29"/>
-<area shape="rect" id="Node000003" href="$class_easy___copier_1_1_view_models_1_1_settings_view_model.html#a16be136196686750451c7d2ff1a56c78" title=" " alt="" coords="513,5,736,48"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="465,24,500,27,495,27,466,29"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,80,194,123"/>
+<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_view_models_1_1_settings_view_model.html#a6348434751494a82036ccfef6961f24c" title=" " alt="" coords="242,80,465,123"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="194,99,229,101,223,102,194,104"/>
+<area shape="rect" id="Node000003" href="$class_easy___copier_1_1_view_models_1_1_settings_view_model.html#a16be136196686750451c7d2ff1a56c78" title=" " alt="" coords="524,5,747,48"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="436,77,540,52,534,53,438,82"/>
+<area shape="rect" id="Node000004" href="$class_easy___copier_1_1_infrastructure_1_1_rufus_resolution_helper.html#a99c0f58c87b73206f2635dbc1e95a235" title="Given a configured Rufus path (with optional environment variables), expands environment variables,..." alt="" coords="513,72,757,131"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="465,99,500,101,495,102,466,104"/>
+<area shape="rect" id="Node000007" href="$class_easy___copier_1_1_view_models_1_1_settings_view_model.html#a99de34ff44c72df0891d3a3ac74790d5" title=" " alt="" coords="524,155,747,197"/>
+<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="437,121,540,150,534,150,437,126"/>
+<area shape="rect" id="Node000005" href="$class_easy___copier_1_1_infrastructure_1_1_rufus_resolution_helper.html#a86bc01b0f77e23145af9cac4b03c01a2" title="Attempts to parse a Version object from a Rufus filename (e.g. rufus&#45;4.7.exe =&gt; Version 4...." alt="" coords="805,72,1062,131"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="757,99,792,101,787,102,758,104"/>
+<area shape="rect" id="Node000006" href="$class_easy___copier_1_1_infrastructure_1_1_rufus_resolution_helper.html#aff74fa2f29453c47964c6d4e5ef6de2a" title=" " alt="" coords="1110,80,1386,123"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="1062,99,1097,101,1091,101,1062,104"/>
+<area shape="rect" id="Node000008" href="$class_easy___copier_1_1_view_models_1_1_settings_view_model.html#a88a193f32fd7eb4b8ea344419992d14d" title=" " alt="" coords="822,155,1045,197"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="747,173,809,176,804,176,747,179"/>
 </map>

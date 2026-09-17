@@ -1,0 +1,13 @@
+<map id="Easy_Copier.Views.MainPage.LibraryPivot_SelectionChanged" name="Easy_Copier.Views.MainPage.LibraryPivot_SelectionChanged">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,51,209,93"/>
+<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_views_1_1_main_page.html#ae7f49e65e70c8792555d54e61f49dc77" title=" " alt="" coords="257,51,459,93"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="209,69,243,72,238,72,210,75"/>
+<area shape="rect" id="Node000003" href="$namespace_easy___copier_1_1_models.html#ab9811c24c166bd7f4768ddafbcbaf75d" title=" " alt="" coords="799,29,1011,56"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="459,64,786,49,780,50,459,69"/>
+<area shape="rect" id="Node000004" href="$class_easy___copier_1_1_view_models_1_1_main_view_model.html#ac6ff8ed6c0a7a8d2998d5dd4c97b49f3" title=" " alt="" coords="507,80,748,123"/>
+<area shape="poly" id="edge4_Node000002_Node000004" title=" " alt="" coords="459,80,494,87,489,87,459,86"/>
+<area shape="poly" id="edge3_Node000003_Node000003" title=" " alt="" coords="858,28,850,21,856,11,875,5,905,3,939,5,958,15,952,15,938,11,905,8,876,10,859,15,856,20,863,30"/>
+<area shape="poly" id="edge6_Node000004_Node000003" title=" " alt="" coords="731,77,820,60,826,60,732,82"/>
+<area shape="rect" id="Node000005" href="$class_easy___copier_1_1_infrastructure_1_1_formatting_helpers.html#afa356a97196bfd4bed7acd3c1a83bcea" title="Calculates the price tier based on size in gigabytes and configured pricing tiers." alt="" coords="796,80,1014,123"/>
+<area shape="poly" id="edge5_Node000004_Node000005" title=" " alt="" coords="749,99,784,101,778,101,749,104"/>
+</map>

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['warning_0',['Warning',['../namespace_easy___copier_1_1_models.html#ae4a6b01c2111b1eb1611b6970c615b8ca0eaadb4fcb48a0a0ed7bc9868be9fbaa',1,'Easy_Copier::Models']]]
+  ['valid_0',['Valid',['../namespace_easy___copier_1_1_models.html#aa57b35a6509e5f7d276f3e36c2fa467fa3ac705f2acd51a4613f9188c05c91d0d',1,'Easy_Copier::Models']]]
 ];

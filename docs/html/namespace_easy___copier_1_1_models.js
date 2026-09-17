@@ -37,7 +37,13 @@ var namespace_easy___copier_1_1_models =
     [ "LibraryCategory", "namespace_easy___copier_1_1_models.html#aa1c98543798d7f84e29b2e4deba8a58b", [
       [ "Game", "namespace_easy___copier_1_1_models.html#aa1c98543798d7f84e29b2e4deba8a58ba63d72051e901c069f8aa1b32aa0c43bb", null ],
       [ "App", "namespace_easy___copier_1_1_models.html#aa1c98543798d7f84e29b2e4deba8a58baac863f346e618f9a959b5c95d5d28941", null ],
-      [ "TvAndFilm", "namespace_easy___copier_1_1_models.html#aa1c98543798d7f84e29b2e4deba8a58baef598706c6e8c60a8094961e43ecaaef", null ]
+      [ "TvAndFilm", "namespace_easy___copier_1_1_models.html#aa1c98543798d7f84e29b2e4deba8a58baef598706c6e8c60a8094961e43ecaaef", null ],
+      [ "OsImage", "namespace_easy___copier_1_1_models.html#aa1c98543798d7f84e29b2e4deba8a58bab19958e8f8f2f0afecec67d3d08c4a88", null ]
+    ] ],
+    [ "OsImageSortOption", "namespace_easy___copier_1_1_models.html#a730e39ab051f5d5a6af5d61176138617", [
+      [ "Name", "namespace_easy___copier_1_1_models.html#a730e39ab051f5d5a6af5d61176138617a49ee3087348e8d44e1feda1917443987", null ],
+      [ "DateAdded", "namespace_easy___copier_1_1_models.html#a730e39ab051f5d5a6af5d61176138617a90ac28eefb33054bd901e4c90e98a65a", null ],
+      [ "Size", "namespace_easy___copier_1_1_models.html#a730e39ab051f5d5a6af5d61176138617a6f6cb72d544962fa333e2e34ce64f719", null ]
     ] ],
     [ "TransferQueueItemStatus", "namespace_easy___copier_1_1_models.html#a547068732d5055bc88341585bcf7e092", [
       [ "Queued", "namespace_easy___copier_1_1_models.html#a547068732d5055bc88341585bcf7e092a7b2f31b90fe1c2cc33a52233c1925df3", null ],
@@ -55,7 +61,7 @@ var namespace_easy___copier_1_1_models =
     [ "CopyHistoryRecord", "namespace_easy___copier_1_1_models.html#a22cad9581ea699aafef9d310c84f0836", null ],
     [ "GameEntry", "namespace_easy___copier_1_1_models.html#ab9811c24c166bd7f4768ddafbcbaf75d", null ],
     [ "ItemFingerprint", "namespace_easy___copier_1_1_models.html#aae2a352ac1ad9a55ae8b37e300153431", null ],
-    [ "LibraryCacheSnapshot", "namespace_easy___copier_1_1_models.html#aa31330812b9fee139e0731f87cc18a1f", null ],
+    [ "LibraryCacheSnapshot", "namespace_easy___copier_1_1_models.html#a6ce72bb145c4b6a2a691fff265751706", null ],
     [ "RemovableDrive", "namespace_easy___copier_1_1_models.html#af8f0175620d1cdd9a06d3e52ae12ba12", null ],
     [ "SourceFolder", "namespace_easy___copier_1_1_models.html#abf1613443f307029b23c31269e85160d", null ],
     [ "TransferItem", "namespace_easy___copier_1_1_models.html#a36bba191a5fad0b0ca63ed787ae607d8", null ],

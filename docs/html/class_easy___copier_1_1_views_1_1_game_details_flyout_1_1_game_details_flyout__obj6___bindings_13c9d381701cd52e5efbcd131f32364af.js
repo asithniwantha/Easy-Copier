@@ -1,9 +1,19 @@
 var class_easy___copier_1_1_views_1_1_game_details_flyout_1_1_game_details_flyout__obj6___bindings_13c9d381701cd52e5efbcd131f32364af =
 [
     [ "GameDetailsFlyout_obj6_BindingsTracking", "class_easy___copier_1_1_views_1_1_game_details_flyout_1_1_game_details_flyout__obj6___bindings_13c9d381701cd52e5efbcd131f32364af.html#aa90ded4b527f656145289341571b10ac", null ],
+    [ "GameDetailsFlyout_obj6_BindingsTracking", "class_easy___copier_1_1_views_1_1_game_details_flyout_1_1_game_details_flyout__obj6___bindings_13c9d381701cd52e5efbcd131f32364af.html#aa90ded4b527f656145289341571b10ac", null ],
+    [ "GameDetailsFlyout_obj6_BindingsTracking", "class_easy___copier_1_1_views_1_1_game_details_flyout_1_1_game_details_flyout__obj6___bindings_13c9d381701cd52e5efbcd131f32364af.html#aa90ded4b527f656145289341571b10ac", null ],
+    [ "PropertyChanged_", "class_easy___copier_1_1_views_1_1_game_details_flyout_1_1_game_details_flyout__obj6___bindings_13c9d381701cd52e5efbcd131f32364af.html#a813be53b60139ea3fd58d89b2a8c38b3", null ],
+    [ "PropertyChanged_", "class_easy___copier_1_1_views_1_1_game_details_flyout_1_1_game_details_flyout__obj6___bindings_13c9d381701cd52e5efbcd131f32364af.html#a813be53b60139ea3fd58d89b2a8c38b3", null ],
     [ "PropertyChanged_", "class_easy___copier_1_1_views_1_1_game_details_flyout_1_1_game_details_flyout__obj6___bindings_13c9d381701cd52e5efbcd131f32364af.html#a813be53b60139ea3fd58d89b2a8c38b3", null ],
     [ "ReleaseAllListeners", "class_easy___copier_1_1_views_1_1_game_details_flyout_1_1_game_details_flyout__obj6___bindings_13c9d381701cd52e5efbcd131f32364af.html#a54b0d30cd2ff4e9780ab518aecaa74fc", null ],
+    [ "ReleaseAllListeners", "class_easy___copier_1_1_views_1_1_game_details_flyout_1_1_game_details_flyout__obj6___bindings_13c9d381701cd52e5efbcd131f32364af.html#a54b0d30cd2ff4e9780ab518aecaa74fc", null ],
+    [ "ReleaseAllListeners", "class_easy___copier_1_1_views_1_1_game_details_flyout_1_1_game_details_flyout__obj6___bindings_13c9d381701cd52e5efbcd131f32364af.html#a54b0d30cd2ff4e9780ab518aecaa74fc", null ],
+    [ "TryGetBindingObject", "class_easy___copier_1_1_views_1_1_game_details_flyout_1_1_game_details_flyout__obj6___bindings_13c9d381701cd52e5efbcd131f32364af.html#a698c485c52abf84c01352b21656c84e7", null ],
+    [ "TryGetBindingObject", "class_easy___copier_1_1_views_1_1_game_details_flyout_1_1_game_details_flyout__obj6___bindings_13c9d381701cd52e5efbcd131f32364af.html#a698c485c52abf84c01352b21656c84e7", null ],
     [ "TryGetBindingObject", "class_easy___copier_1_1_views_1_1_game_details_flyout_1_1_game_details_flyout__obj6___bindings_13c9d381701cd52e5efbcd131f32364af.html#a698c485c52abf84c01352b21656c84e7", null ],
     [ "UpdateChildListeners_", "class_easy___copier_1_1_views_1_1_game_details_flyout_1_1_game_details_flyout__obj6___bindings_13c9d381701cd52e5efbcd131f32364af.html#a8314b51ff7bab8b48a69fba3d6be82dd", null ],
-    [ "weakRefToBindingObj", "class_easy___copier_1_1_views_1_1_game_details_flyout_1_1_game_details_flyout__obj6___bindings_13c9d381701cd52e5efbcd131f32364af.html#a2d660d8064d7ae10faec8f22dedb0cca", null ]
+    [ "UpdateChildListeners_", "class_easy___copier_1_1_views_1_1_game_details_flyout_1_1_game_details_flyout__obj6___bindings_13c9d381701cd52e5efbcd131f32364af.html#a8314b51ff7bab8b48a69fba3d6be82dd", null ],
+    [ "UpdateChildListeners_", "class_easy___copier_1_1_views_1_1_game_details_flyout_1_1_game_details_flyout__obj6___bindings_13c9d381701cd52e5efbcd131f32364af.html#a8314b51ff7bab8b48a69fba3d6be82dd", null ],
+    [ "weakRefToBindingObj", "class_easy___copier_1_1_views_1_1_game_details_flyout_1_1_game_details_flyout__obj6___bindings_13c9d381701cd52e5efbcd131f32364af.html#aec98506d72da988fff5f177437c4c579", null ]
 ];

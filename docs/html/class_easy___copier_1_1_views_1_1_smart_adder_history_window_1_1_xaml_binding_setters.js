@@ -1,0 +1,4 @@
+var class_easy___copier_1_1_views_1_1_smart_adder_history_window_1_1_xaml_binding_setters =
+[
+    [ "Set_Microsoft_UI_Xaml_Controls_Primitives_ButtonBase_Command", "class_easy___copier_1_1_views_1_1_smart_adder_history_window_1_1_xaml_binding_setters.html#a1625db47682ff5103b86c8e81a3c6408", null ]
+];

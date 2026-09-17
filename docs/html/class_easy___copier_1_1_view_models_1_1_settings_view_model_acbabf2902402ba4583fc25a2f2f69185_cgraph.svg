@@ -47,7 +47,7 @@
   </g>
 </defs>
 <script type="application/ecmascript" xlink:href="svg.min.js"/>
-<svg id="graph" class="graph" data-view-width="894" data-view-height="40" data-section-id="dynsection-11">
+<svg id="graph" class="graph" data-view-width="637" data-view-height="40" data-section-id="dynsection-12">
 <g id="viewport">
 <title>Easy_Copier.ViewModels.SettingsViewModel.RemoveSourceFolderByPathAsync</title>
 <!-- Node1 -->
@@ -63,10 +63,10 @@
 <!-- Node2 -->
 <g id="Node000002" class="node">
 <title>Node2</title>
-<g id="a_Node000002"><a xlink:href="class_easy___copier_1_1_view_models_1_1_settings_view_model.html#a2f29374503f223a2a521c535f93c69c1" target="_top" xlink:title=" ">
-<polygon fill="white" stroke="#666666" points="479,-32 257.5,-32 257.5,0 479,0 479,-32"/>
+<g id="a_Node000002"><a xlink:href="class_easy___copier_1_1_view_models_1_1_settings_view_model.html#a99de34ff44c72df0891d3a3ac74790d5" target="_top" xlink:title=" ">
+<polygon fill="white" stroke="#666666" points="425,-32 257.5,-32 257.5,0 425,0 425,-32"/>
 <text xml:space="preserve" text-anchor="start" x="265.5" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.ViewModels.Settings</text>
-<text xml:space="preserve" text-anchor="middle" x="368.25" y="-6.5" font-family="Helvetica,sans-Serif" font-size="10.00">ViewModel.RemoveSourceFolderInternalAsync</text>
+<text xml:space="preserve" text-anchor="middle" x="341.25" y="-6.5" font-family="Helvetica,sans-Serif" font-size="10.00">ViewModel.SaveSettingsAsync</text>
 </a>
 </g>
 </g>
@@ -74,18 +74,18 @@
 <g id="edge1_Node000001_Node000002" class="edge">
 <title>Node1&#45;&gt;Node2</title>
 <g id="a_edge1_Node000001_Node000002"><a xlink:title=" ">
-<path fill="none" stroke="#63b8ff" d="M221.96,-16C229.76,-16 237.66,-16 245.52,-16"/>
-<polygon fill="#63b8ff" stroke="#63b8ff" points="245.49,-19.5 255.49,-16 245.49,-12.5 245.49,-19.5"/>
+<path fill="none" stroke="#63b8ff" d="M221.98,-16C229.96,-16 237.96,-16 245.83,-16"/>
+<polygon fill="#63b8ff" stroke="#63b8ff" points="245.74,-19.5 255.74,-16 245.74,-12.5 245.74,-19.5"/>
 </a>
 </g>
 </g>
 <!-- Node3 -->
 <g id="Node000003" class="node">
 <title>Node3</title>
-<g id="a_Node000003"><a xlink:href="class_easy___copier_1_1_view_models_1_1_settings_view_model.html#a99de34ff44c72df0891d3a3ac74790d5" target="_top" xlink:title=" ">
-<polygon fill="white" stroke="#666666" points="682.5,-32 515,-32 515,0 682.5,0 682.5,-32"/>
-<text xml:space="preserve" text-anchor="start" x="523" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.ViewModels.Settings</text>
-<text xml:space="preserve" text-anchor="middle" x="598.75" y="-6.5" font-family="Helvetica,sans-Serif" font-size="10.00">ViewModel.SaveSettingsAsync</text>
+<g id="a_Node000003"><a xlink:href="class_easy___copier_1_1_view_models_1_1_settings_view_model.html#a88a193f32fd7eb4b8ea344419992d14d" target="_top" xlink:title=" ">
+<polygon fill="white" stroke="#666666" points="628.5,-32 461,-32 461,0 628.5,0 628.5,-32"/>
+<text xml:space="preserve" text-anchor="start" x="469" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.ViewModels.Settings</text>
+<text xml:space="preserve" text-anchor="middle" x="544.75" y="-6.5" font-family="Helvetica,sans-Serif" font-size="10.00">ViewModel.GetSettings</text>
 </a>
 </g>
 </g>
@@ -93,27 +93,8 @@
 <g id="edge2_Node000002_Node000003" class="edge">
 <title>Node2&#45;&gt;Node3</title>
 <g id="a_edge2_Node000002_Node000003"><a xlink:title=" ">
-<path fill="none" stroke="#63b8ff" d="M479.48,-16C487.46,-16 495.46,-16 503.33,-16"/>
-<polygon fill="#63b8ff" stroke="#63b8ff" points="503.24,-19.5 513.24,-16 503.24,-12.5 503.24,-19.5"/>
-</a>
-</g>
-</g>
-<!-- Node4 -->
-<g id="Node000004" class="node">
-<title>Node4</title>
-<g id="a_Node000004"><a xlink:href="class_easy___copier_1_1_view_models_1_1_settings_view_model.html#a88a193f32fd7eb4b8ea344419992d14d" target="_top" xlink:title=" ">
-<polygon fill="white" stroke="#666666" points="886,-32 718.5,-32 718.5,0 886,0 886,-32"/>
-<text xml:space="preserve" text-anchor="start" x="726.5" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.ViewModels.Settings</text>
-<text xml:space="preserve" text-anchor="middle" x="802.25" y="-6.5" font-family="Helvetica,sans-Serif" font-size="10.00">ViewModel.GetSettings</text>
-</a>
-</g>
-</g>
-<!-- Node3&#45;&gt;Node4 -->
-<g id="edge3_Node000003_Node000004" class="edge">
-<title>Node3&#45;&gt;Node4</title>
-<g id="a_edge3_Node000003_Node000004"><a xlink:title=" ">
-<path fill="none" stroke="#63b8ff" d="M682.87,-16C690.83,-16 698.94,-16 706.99,-16"/>
-<polygon fill="#63b8ff" stroke="#63b8ff" points="706.81,-19.5 716.81,-16 706.81,-12.5 706.81,-19.5"/>
+<path fill="none" stroke="#63b8ff" d="M425.37,-16C433.33,-16 441.44,-16 449.49,-16"/>
+<polygon fill="#63b8ff" stroke="#63b8ff" points="449.31,-19.5 459.31,-16 449.31,-12.5 449.31,-19.5"/>
 </a>
 </g>
 </g>

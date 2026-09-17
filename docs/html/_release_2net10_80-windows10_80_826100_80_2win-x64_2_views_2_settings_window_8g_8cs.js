@@ -1,0 +1,11 @@
+var _release_2net10_80_windows10_80_826100_80_2win_x64_2_views_2_settings_window_8g_8cs =
+[
+    [ "Easy_Copier.Views.SettingsWindow", "class_easy___copier_1_1_views_1_1_settings_window.html", "class_easy___copier_1_1_views_1_1_settings_window" ],
+    [ "Easy_Copier.Views.SettingsWindow.XamlBindingSetters", "class_easy___copier_1_1_views_1_1_settings_window_1_1_xaml_binding_setters.html", "class_easy___copier_1_1_views_1_1_settings_window_1_1_xaml_binding_setters" ],
+    [ "Easy_Copier.Views.SettingsWindow.SettingsWindow_obj17_Bindings", "class_easy___copier_1_1_views_1_1_settings_window_1_1_settings_window__obj17___bindings.html", "class_easy___copier_1_1_views_1_1_settings_window_1_1_settings_window__obj17___bindings" ],
+    [ "Easy_Copier.Views.SettingsWindow.SettingsWindow_obj24_Bindings", "class_easy___copier_1_1_views_1_1_settings_window_1_1_settings_window__obj24___bindings.html", "class_easy___copier_1_1_views_1_1_settings_window_1_1_settings_window__obj24___bindings" ],
+    [ "Easy_Copier.Views.SettingsWindow.SettingsWindow_obj30_Bindings", "class_easy___copier_1_1_views_1_1_settings_window_1_1_settings_window__obj30___bindings.html", "class_easy___copier_1_1_views_1_1_settings_window_1_1_settings_window__obj30___bindings" ],
+    [ "Easy_Copier.Views.SettingsWindow.SettingsWindow_obj37_Bindings", "class_easy___copier_1_1_views_1_1_settings_window_1_1_settings_window__obj37___bindings.html", "class_easy___copier_1_1_views_1_1_settings_window_1_1_settings_window__obj37___bindings" ],
+    [ "Easy_Copier.Views.SettingsWindow.SettingsWindow_obj1_Bindings", "class_easy___copier_1_1_views_1_1_settings_window_1_1_settings_window__obj1___bindings.html", "class_easy___copier_1_1_views_1_1_settings_window_1_1_settings_window__obj1___bindings" ],
+    [ "Easy_Copier.Views.SettingsWindow.SettingsWindow_obj1_Bindings.SettingsWindow_obj1_BindingsTracking", "class_easy___copier_1_1_views_1_1_settings_window_1_1_settings_window__obj1___bindings_1_1_settic9048b87f6260df5270ef20d5033daba.html", "class_easy___copier_1_1_views_1_1_settings_window_1_1_settings_window__obj1___bindings_1_1_settic9048b87f6260df5270ef20d5033daba" ]
+];
