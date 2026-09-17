@@ -143,7 +143,7 @@ namespace Easy_Copier.ViewModels
             IsOsImageSortAscending = newValue switch
             {
                 OsImageSortOption.Name => true,
-                OsImageSortOption.DateAdded => false,
+                OsImageSortOption.DateCreated => true,
                 OsImageSortOption.Size => true,
                 _ => true
             };
@@ -185,9 +185,9 @@ namespace Easy_Copier.ViewModels
                     OsImageSortOption.Name => IsOsImageSortAscending
                         ? entries.OrderBy(e => e.Name, StringComparer.OrdinalIgnoreCase)
                         : entries.OrderByDescending(e => e.Name, StringComparer.OrdinalIgnoreCase),
-                    OsImageSortOption.DateAdded => IsOsImageSortAscending
-                        ? entries.OrderBy(e => e.DateAdded)
-                        : entries.OrderByDescending(e => e.DateAdded),
+                    OsImageSortOption.DateCreated => IsOsImageSortAscending
+                        ? entries.OrderBy(e => e.DateCreated)
+                        : entries.OrderByDescending(e => e.DateCreated),
                     OsImageSortOption.Size => IsOsImageSortAscending
                         ? entries.OrderBy(e => e.TotalBytes)
                         : entries.OrderByDescending(e => e.TotalBytes),

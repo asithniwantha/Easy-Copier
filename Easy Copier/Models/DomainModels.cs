@@ -33,7 +33,7 @@ namespace Easy_Copier.Models
     public enum OsImageSortOption
     {
         Name,
-        DateAdded,
+        DateCreated,
         Size
     }
 
@@ -42,7 +42,7 @@ namespace Easy_Copier.Models
         string FolderPath,
         long TotalBytes,
         string? CoverImagePath,
-        DateTime DateAdded,
+        DateTime DateCreated,
         bool HasLargeFiles,
         LibraryCategory Category = LibraryCategory.Game,
         IReadOnlyList<GameCategory>? Categories = null)
