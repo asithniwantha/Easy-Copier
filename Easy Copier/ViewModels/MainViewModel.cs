@@ -111,7 +111,7 @@ namespace Easy_Copier.ViewModels
         public partial OsImageSortOption SelectedOsImageSortOption { get; set; } = OsImageSortOption.DateCreated;
 
         [ObservableProperty]
-        public partial bool IsOsImageSortAscending { get; set; } = true;
+        public partial bool IsOsImageSortAscending { get; set; } = false;
 
         public IReadOnlyList<OsImageSortOption> AvailableOsImageSortOptions { get; } = Enum.GetValues<OsImageSortOption>();
 
