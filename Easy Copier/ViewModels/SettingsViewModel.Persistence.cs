@@ -14,6 +14,14 @@ namespace Easy_Copier.ViewModels
             AppSettings settings = await _settingsService.LoadSettingsAsync();
             LoadSettings(settings);
 
+            // Auto-resolve Rufus executable path to the latest update in the same folder if available
+            string latestRufusPath = RufusResolutionHelper.ResolveLatestRufusPath(RufusExecutablePath);
+            if (!string.Equals(latestRufusPath, RufusExecutablePath, StringComparison.OrdinalIgnoreCase))
+            {
+                RufusExecutablePath = latestRufusPath;
+                await SaveSettingsAsync();
+            }
+
             IReadOnlyList<SourceFolder> validatedGameFolders = await _sourceLibraryService.ValidateSourceFoldersAsync(settings.GameSourceFolders);
             IReadOnlyList<SourceFolder> validatedAppFolders = await _sourceLibraryService.ValidateSourceFoldersAsync(settings.AppSourceFolders);
             int invalidCount = validatedGameFolders.Count(f => !f.IsValid) + validatedAppFolders.Count(f => !f.IsValid);

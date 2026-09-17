@@ -488,17 +488,23 @@ namespace Easy_Copier.ViewModels
             try
             {
                 AppSettings settings = await _settingsService.LoadSettingsAsync();
-                string rufusPath = Environment.ExpandEnvironmentVariables(settings.RufusExecutablePath);
+                string latestRufusPath = RufusResolutionHelper.ResolveLatestRufusPath(settings.RufusExecutablePath);
 
-                if (!System.IO.File.Exists(rufusPath))
+                if (!string.Equals(latestRufusPath, settings.RufusExecutablePath, StringComparison.OrdinalIgnoreCase))
                 {
-                    StatusMessage = $"Rufus executable not found at: {rufusPath}";
+                    settings.RufusExecutablePath = latestRufusPath;
+                    await _settingsService.SaveSettingsAsync(settings);
+                }
+
+                if (!System.IO.File.Exists(latestRufusPath))
+                {
+                    StatusMessage = $"Rufus executable not found at: {latestRufusPath}";
                     return;
                 }
 
                 System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo
                 {
-                    FileName = rufusPath,
+                    FileName = latestRufusPath,
                     Arguments = $"-i \"{isoPath}\"",
                     UseShellExecute = true
                 });

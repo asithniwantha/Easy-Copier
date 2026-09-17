@@ -255,11 +255,23 @@
                             <Button Content="Add OS Image Folder" Command="{x:Bind ViewModel.AddNewSourceFolderCommand}" CommandParameter="OsImage"
                                     HorizontalAlignment="Left" Margin="0,8,0,0"/>
 
-                            <TextBox Header="Rufus Executable Path"
-                                     Text="{x:Bind ViewModel.RufusExecutablePath, Mode=TwoWay}"
-                                     PlaceholderText="%USERPROFILE%\Downloads\Programs\rufus.exe"
-                                     Margin="0,16,0,0"
-                                     ToolTipService.ToolTip="Path to rufus.exe for opening OS images" />
+                            <StackPanel Spacing="4" Margin="0,16,0,0">
+                                <TextBlock Text="Rufus Executable Path" Foreground="{ThemeResource TextControlHeaderForeground}"/>
+                                <Grid ColumnSpacing="8">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                    </Grid.ColumnDefinitions>
+                                    <TextBox Grid.Column="0"
+                                             Text="{x:Bind ViewModel.RufusExecutablePath, Mode=TwoWay}"
+                                             PlaceholderText="%USERPROFILE%\Downloads\Programs\rufus.exe"
+                                             ToolTipService.ToolTip="Path to rufus.exe for opening OS images" />
+                                    <Button Grid.Column="1"
+                                            Content="Browse..."
+                                            Command="{x:Bind ViewModel.BrowseRufusExecutableCommand}"
+                                            ToolTipService.ToolTip="Browse for rufus.exe" />
+                                </Grid>
+                            </StackPanel>
                         </StackPanel>
                     </StackPanel>
 

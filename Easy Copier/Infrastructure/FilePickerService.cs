@@ -9,6 +9,7 @@ namespace Easy_Copier.Infrastructure
     public interface IFilePickerService
     {
         Task<string?> PickSaveFileAsync(string suggestedFileName, IDictionary<string, IList<string>> fileTypeChoices);
+        Task<string?> PickOpenFileAsync(IList<string> fileTypeFilters);
     }
 
     public class FilePickerService : IFilePickerService
@@ -20,6 +21,58 @@ namespace Easy_Copier.Infrastructure
         {
             _dispatcherService = dispatcherService ?? throw new ArgumentNullException(nameof(dispatcherService));
             _appWindowContext = appWindowContext ?? throw new ArgumentNullException(nameof(appWindowContext));
+        }
+
+        public async Task<string?> PickOpenFileAsync(IList<string> fileTypeFilters)
+        {
+            ArgumentNullException.ThrowIfNull(fileTypeFilters);
+
+            TaskCompletionSource<string?> tcs = new();
+
+            bool enqueued = _dispatcherService.TryEnqueue(async () =>
+            {
+                try
+                {
+                    FileOpenPicker openPicker = new()
+                    {
+                        SuggestedStartLocation = PickerLocationId.ComputerFolder,
+                        ViewMode = PickerViewMode.List
+                    };
+
+                    foreach (string filter in fileTypeFilters)
+                    {
+                        openPicker.FileTypeFilter.Add(filter);
+                    }
+
+                    nint windowHandle = NativeWindowHelper.GetActiveWindowHandle();
+                    if (windowHandle == IntPtr.Zero && _appWindowContext.MainWindow is Microsoft.UI.Xaml.Window mainWindow)
+                    {
+                        windowHandle = WinRT.Interop.WindowNative.GetWindowHandle(mainWindow);
+                    }
+
+                    if (windowHandle == IntPtr.Zero)
+                    {
+                        tcs.SetResult(null);
+                        return;
+                    }
+
+                    WinRT.Interop.InitializeWithWindow.Initialize(openPicker, windowHandle);
+
+                    StorageFile file = await openPicker.PickSingleFileAsync();
+                    tcs.SetResult(file?.Path);
+                }
+                catch (Exception ex)
+                {
+                    tcs.SetException(ex);
+                }
+            });
+
+            if (!enqueued)
+            {
+                tcs.SetResult(null);
+            }
+
+            return await tcs.Task;
         }
 
         public async Task<string?> PickSaveFileAsync(string suggestedFileName, IDictionary<string, IList<string>> fileTypeChoices)
