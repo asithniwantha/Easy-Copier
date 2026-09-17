@@ -190,6 +190,7 @@ Distributed under the MIT License. See `LICENSE` for more information.
 ⭐️ **If you find this project helpful or interesting, please consider giving it a star!**
 
 ## Updated Architecture
+* Extracted `MainPage` PivotItems into separate modular `UserControl` views (`GamesTabView`, `AppsTabView`, `TvAndFilmsTabView`, and `OsImagesTabView`) paired with dedicated child ViewModels (`GamesTabViewModel`, `AppsTabViewModel`, `TvAndFilmsTabViewModel`, and `OsImagesTabViewModel`) for improved maintainability and future extensibility. 🧩
 * Eliminated code-behind event handlers in Windows and Pages (e.g., `Click="Close_Click"`) and replaced them with strongly-typed `ICommand` bindings utilizing the `CommunityToolkit.Mvvm` framework. Event callbacks like `CloseRequested` decouple the ViewModel logic from direct UI window management, ensuring pure MVVM adherence and fully decoupled ViewModels. 🧹
 * Migrated hard-coded view-state visibility logic from XAML code-behind into ViewModel properties, utilizing standard WinUI DataBinding and Converters to natively manipulate view state. 🪄
 * Extracted file system operations from the `OsImageDetailsFlyout` view constructor into a dedicated, reusable `OsImageDetailsViewModel`. 🏗️
