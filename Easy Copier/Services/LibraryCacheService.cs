@@ -183,6 +183,10 @@ namespace Easy_Copier.Services
                     .Select(NormalizePath)
                     .OrderBy(p => p)];
 
+                List<string> normalizedCacheOsImageFolders = [.. (cache.OsImageSourceFolders ?? [])
+                    .Select(NormalizePath)
+                    .OrderBy(p => p)];
+
                 List<string> normalizedCurrentGameFolders = [.. currentSettings.GameSourceFolders
                     .Select(NormalizePath)
                     .OrderBy(p => p)];
@@ -195,15 +199,20 @@ namespace Easy_Copier.Services
                     .Select(NormalizePath)
                     .OrderBy(p => p)];
 
+                List<string> normalizedCurrentOsImageFolders = [.. (currentSettings.OsImageSourceFolders ?? [])
+                    .Select(NormalizePath)
+                    .OrderBy(p => p)];
+
                 if (!normalizedCacheGameFolders.SequenceEqual(normalizedCurrentGameFolders) ||
                     !normalizedCacheAppFolders.SequenceEqual(normalizedCurrentAppFolders) ||
-                    !normalizedCacheTvAndFilmFolders.SequenceEqual(normalizedCurrentTvAndFilmFolders))
+                    !normalizedCacheTvAndFilmFolders.SequenceEqual(normalizedCurrentTvAndFilmFolders) ||
+                    !normalizedCacheOsImageFolders.SequenceEqual(normalizedCurrentOsImageFolders))
                 {
                     _logger.LogInformation("Cache configuration mismatch: source folders have changed");
                     return new CacheValidationOutcome(CacheValidationResult.ConfigurationMismatch, []);
                 }
 
-                List<string> allSourceFolders = normalizedCurrentGameFolders.Concat(normalizedCurrentAppFolders).Concat(normalizedCurrentTvAndFilmFolders).Distinct().ToList();
+                List<string> allSourceFolders = normalizedCurrentGameFolders.Concat(normalizedCurrentAppFolders).Concat(normalizedCurrentTvAndFilmFolders).Concat(normalizedCurrentOsImageFolders).Distinct().ToList();
                 foreach (string? sourceFolder in allSourceFolders)
                 {
                     if (!Directory.Exists(sourceFolder))
@@ -215,7 +224,7 @@ namespace Easy_Copier.Services
 
                 List<string> changedItems = [];
 
-                List<GameEntry> allCachedItems = cache.Games.Concat(cache.Apps).Concat(cache.TvAndFilms ?? []).ToList();
+                List<GameEntry> allCachedItems = cache.Games.Concat(cache.Apps).Concat(cache.TvAndFilms ?? []).Concat(cache.OsImages ?? []).ToList();
 
                 foreach (GameEntry? item in allCachedItems)
                 {

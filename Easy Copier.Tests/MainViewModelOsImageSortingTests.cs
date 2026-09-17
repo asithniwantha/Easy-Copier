@@ -33,7 +33,7 @@ public class MainViewModelOsImageSortingTests
     }
 
     [Fact]
-    public void OsImages_SortsByDateAdded_DefaultsToDescending()
+    public void OsImages_SortsByDateCreated_DefaultsToAscending()
     {
         GameEntry imageOld = new("Old OS", @"C:\OS\old.iso", 2_000_000_000L, null, new DateTime(2020, 1, 1), false, LibraryCategory.OsImage);
         GameEntry imageNew = new("New OS", @"C:\OS\new.iso", 2_000_000_000L, null, new DateTime(2025, 1, 1), false, LibraryCategory.OsImage);
@@ -41,15 +41,15 @@ public class MainViewModelOsImageSortingTests
 
         MainViewModel viewModel = CreateViewModelWithOsImages([imageOld, imageNew, imageMid]);
 
-        // Selecting DateAdded defaults IsOsImageSortAscending to false (Newest First)
-        viewModel.SelectedOsImageSortOption = OsImageSortOption.DateAdded;
-        Assert.False(viewModel.IsOsImageSortAscending);
-        Assert.Equal(["New OS", "Mid OS", "Old OS"], viewModel.OsImages.Select(i => i.Name));
-
-        // Toggle direction to Ascending (Oldest First)
-        viewModel.ToggleOsImageSortDirectionCommand.Execute(null);
+        // Selecting DateCreated defaults IsOsImageSortAscending to true (Oldest First)
+        viewModel.SelectedOsImageSortOption = OsImageSortOption.DateCreated;
         Assert.True(viewModel.IsOsImageSortAscending);
         Assert.Equal(["Old OS", "Mid OS", "New OS"], viewModel.OsImages.Select(i => i.Name));
+
+        // Toggle direction to Descending (Newest First)
+        viewModel.ToggleOsImageSortDirectionCommand.Execute(null);
+        Assert.False(viewModel.IsOsImageSortAscending);
+        Assert.Equal(["New OS", "Mid OS", "Old OS"], viewModel.OsImages.Select(i => i.Name));
     }
 
     [Fact]
