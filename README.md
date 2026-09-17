@@ -120,6 +120,40 @@ The selected-drive panel also shows a usage bar, free space, total capacity, and
 | **CI/CD** | GitHub Actions |
 | **Target Platform** | x64 |
 
+## Development Environment
+    ### What each folder is for
+        •	ViewModels/
+        UI behavior/state and commands (example: SettingsViewModel, SmartAdderViewModel).
+        •	Views/
+        Windows/pages and code-behind (example: AboutWindow.xaml.cs).
+        •	Services/
+        Business/application logic and service contracts (copying, scanning, queueing, settings, etc.; example: TransferQueueService).
+        •	Infrastructure/
+        Platform/framework glue: picker wrappers, dispatcher, window helpers, DI registration (example: FolderPickerService, ServiceCollectionExtensions).
+        •	Models/
+        Domain/data types shared across app layers (example: GameEntry, RemovableDrive, AppSettings).
+        •	Easy Copier.Tests/
+        Unit/integration tests for services/viewmodels/helpers (example: PickerServicesTests).
+        •	docs/
+        Generated/static documentation assets, not core runtime app logic.
+
+    ### How to decide where to add something
+        Use this rule:
+        1.	Is it UI layout/window? → Views/
+        2.	Is it UI state/command handling? → ViewModels/
+        3.	Is it reusable app logic or external interaction? → Services/
+        4.	Is it app plumbing (WinUI interop, DI, thread/window abstractions)? → Infrastructure/
+        5.	Is it a pure data shape/enum/record? → Models/
+        6.	Is it verification for behavior? → Easy Copier.Tests/
+
+    ### Practical pattern for new features
+        •	Add/extend model in Models/ if new data is needed.
+        •	Add service interface + implementation in Services/ (or Infrastructure/ if it is platform glue).
+        •	Register it in Infrastructure/ServiceCollectionExtensions.cs.
+        •	Inject and call it from the relevant ViewModel.
+        •	Bind/update UI in Views.
+        •	Add tests in Easy Copier.Tests/.
+
 ## 💻 Requirements
 
 - Windows 11, version 24H2 or later
