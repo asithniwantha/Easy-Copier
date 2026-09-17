@@ -153,6 +153,7 @@
 - **Refactored Architecture**: Consolidated and abstracted duplicated modal window creation logic to reduce code duplication in Views.
 - **WinUI 3 Modernization**: Removed remaining legacy `Windows.UI` namespaces in favor of `Microsoft.UI`.
 - **Smart Adder Clean Up**: Removed code-behind generated dialog creation (e.g. `HistoryDialogService`) for SmartAdder in favor of clean MVVM patterns using `SmartAdderHistoryWindow` and `DependencyProperty` injection to eliminate service locator anti-patterns.
+- **Elevated Mode Picker Support**: Ensured folder and file pickers function correctly in elevated (Administrator) mode by providing automated window handle fallbacks via `IAppWindowContext.MainWindow` and logging warnings when foreground window handle resolution is constrained by process elevation.
 
 ## 🗄️ Database Schema
 
