@@ -17,6 +17,7 @@ namespace Easy_Copier.Views
             ViewModel = viewModel;
             _owner = owner;
             InitializeComponent();
+            SettingsRoot.DataContext = ViewModel;
             NativeWindowHelper.InitializeModalWindow(this, _owner, ViewModel, 960, 720);
 
             ViewModel.CloseRequested += (s, e) =>
