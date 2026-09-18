@@ -6,8 +6,12 @@ using System;
 
 namespace Easy_Copier.Converters
 {
+    /// <summary>
+    /// Converts a boolean indicating negative value status to a red text foreground brush.
+    /// </summary>
     public class NegativeToForegroundConverter : IValueConverter
     {
+        /// <inheritdoc />
         public object Convert(object value, Type targetType, object parameter, string language)
         {
             if (value is bool isNegative && isNegative)
@@ -18,14 +22,19 @@ namespace Easy_Copier.Converters
             return DependencyProperty.UnsetValue;
         }
 
+        /// <inheritdoc />
         public object ConvertBack(object value, Type targetType, object parameter, string language)
         {
             throw new NotImplementedException();
         }
     }
 
+    /// <summary>
+    /// Converts a boolean indicating negative value status to a subtle red background brush adapted to light/dark theme.
+    /// </summary>
     public class NegativeToBackgroundConverter : IValueConverter
     {
+        /// <inheritdoc />
         public object Convert(object value, Type targetType, object parameter, string language)
         {
             if (value is bool isNegative && isNegative)
@@ -45,6 +54,7 @@ namespace Easy_Copier.Converters
             return DependencyProperty.UnsetValue;
         }
 
+        /// <inheritdoc />
         public object ConvertBack(object value, Type targetType, object parameter, string language)
         {
             throw new NotImplementedException();
