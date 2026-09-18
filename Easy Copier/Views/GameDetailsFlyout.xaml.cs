@@ -32,7 +32,7 @@ namespace Easy_Copier.Views
             Paragraph paragraph = new();
             if (string.IsNullOrWhiteSpace(text))
             {
-                paragraph.Inlines.Add(new Run { Text = "System requirements not available.\n", FontStyle = Microsoft.UI.Text.FontStyle.Italic, Foreground = new SolidColorBrush(Microsoft.UI.Colors.Gray) });
+                paragraph.Inlines.Add(new Run { Text = "System requirements not available.\n", FontStyle = Windows.UI.Text.FontStyle.Italic, Foreground = new SolidColorBrush(Microsoft.UI.Colors.Gray) });
                 return paragraph;
             }
 
