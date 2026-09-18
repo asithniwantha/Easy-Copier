@@ -25,6 +25,12 @@ namespace Easy_Copier.Views
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Gets the light yellow/amber brush (~23.5% opacity) used to highlight the SearchBox when search text is present.
+        /// </summary>
+        private static readonly Microsoft.UI.Xaml.Media.SolidColorBrush SearchHighlightBrush = new(Microsoft.UI.ColorHelper.FromArgb(0x3C, 0xFF, 0xC1, 0x07));
+
+        /// <inheritdoc />
         protected override void OnNavigatedTo(Microsoft.UI.Xaml.Navigation.NavigationEventArgs e)
         {
             ArgumentNullException.ThrowIfNull(e);
@@ -37,7 +43,45 @@ namespace Easy_Copier.Views
                 ViewModel.ItemQueued += (s, args) => ClearGameSelection();
                 ViewModel.ClearSelectionRequested += (s, args) => ClearGameSelection();
                 Bindings.Update();
+                UpdateSearchBoxBackground(ViewModel.SearchText);
                 _ = ViewModel.InitializeAsync();
+            }
+        }
+
+        /// <summary>
+        /// Handles text change events in the search box to dynamically update its background color.
+        /// </summary>
+        /// <param name="sender">The AutoSuggestBox control.</param>
+        /// <param name="args">Event arguments.</param>
+        private void SearchBox_TextChanged(AutoSuggestBox sender, AutoSuggestBoxTextChangedEventArgs args)
+        {
+            UpdateSearchBoxBackground(sender?.Text);
+        }
+
+        /// <summary>
+        /// Updates the SearchBox background and resource dictionaries based on whether search text is present.
+        /// </summary>
+        /// <param name="text">The current search text.</param>
+        private void UpdateSearchBoxBackground(string? text)
+        {
+            if (SearchBox == null)
+            {
+                return;
+            }
+
+            if (!string.IsNullOrEmpty(text))
+            {
+                SearchBox.Resources["TextControlBackground"] = SearchHighlightBrush;
+                SearchBox.Resources["TextControlBackgroundPointerOver"] = SearchHighlightBrush;
+                SearchBox.Resources["TextControlBackgroundFocused"] = SearchHighlightBrush;
+                SearchBox.Background = SearchHighlightBrush;
+            }
+            else
+            {
+                SearchBox.Resources.Remove("TextControlBackground");
+                SearchBox.Resources.Remove("TextControlBackgroundPointerOver");
+                SearchBox.Resources.Remove("TextControlBackgroundFocused");
+                SearchBox.ClearValue(Control.BackgroundProperty);
             }
         }
 

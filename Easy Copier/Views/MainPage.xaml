@@ -69,7 +69,22 @@
                                 QueryIcon="Find"
                                 FontSize="24" MinHeight="40"
                                 Text="{x:Bind ViewModel.SearchText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                                HorizontalAlignment="Stretch" />
+                                TextChanged="SearchBox_TextChanged"
+                                HorizontalAlignment="Stretch">
+                    <AutoSuggestBox.Resources>
+                        <x:Double x:Key="AutoSuggestBoxDeleteButtonFontSize">24</x:Double>
+                        <x:Double x:Key="AutoSuggestBoxDeleteButtonMinWidth">40</x:Double>
+                        <x:Double x:Key="AutoSuggestBoxDeleteButtonMinHeight">40</x:Double>
+                        <x:Double x:Key="TextBoxDeleteButtonFontSize">24</x:Double>
+                        <x:Double x:Key="TextBoxDeleteButtonMinWidth">40</x:Double>
+                        <x:Double x:Key="TextBoxDeleteButtonMinHeight">40</x:Double>
+                        <Style TargetType="Button">
+                            <Setter Property="FontSize" Value="24" />
+                            <Setter Property="MinWidth" Value="40" />
+                            <Setter Property="MinHeight" Value="40" />
+                        </Style>
+                    </AutoSuggestBox.Resources>
+                </AutoSuggestBox>
 
                 <Pivot x:Name="LibraryPivot" Grid.Row="5" SelectedIndex="{x:Bind ViewModel.CurrentTabIndex, Mode=TwoWay}" SelectionChanged="TabOrPivot_SelectionChanged">
                     <PivotItem Header="Games">
