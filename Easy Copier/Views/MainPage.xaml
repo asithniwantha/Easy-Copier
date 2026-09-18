@@ -10,6 +10,11 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
+        <Page.Resources>
+        <converters:SearchTextToBackgroundConverter x:Key="SearchTextToBackgroundConverter"/>
+        <converters:SearchTextToForegroundConverter x:Key="SearchTextToForegroundConverter"/>
+    </Page.Resources>
+
     <Grid x:Name="RootGrid">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -69,7 +74,13 @@
                                 QueryIcon="Find"
                                 FontSize="24" MinHeight="40"
                                 Text="{x:Bind ViewModel.SearchText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                                HorizontalAlignment="Stretch" />
+                                Background="{x:Bind ViewModel.SearchText, Mode=OneWay, Converter={StaticResource SearchTextToBackgroundConverter}}"
+                                Foreground="{x:Bind ViewModel.SearchText, Mode=OneWay, Converter={StaticResource SearchTextToForegroundConverter}}"
+                                HorizontalAlignment="Stretch">
+                    <AutoSuggestBox.Resources>
+                        <x:Double x:Key="AutoSuggestBoxDeleteButtonFontSize">20</x:Double>
+                    </AutoSuggestBox.Resources>
+                </AutoSuggestBox>
 
                 <Pivot x:Name="LibraryPivot" Grid.Row="5" SelectedIndex="{x:Bind ViewModel.CurrentTabIndex, Mode=TwoWay}" SelectionChanged="TabOrPivot_SelectionChanged">
                     <PivotItem Header="Games">

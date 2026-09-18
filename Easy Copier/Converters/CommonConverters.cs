@@ -170,4 +170,42 @@ namespace Easy_Copier.Converters
             throw new NotImplementedException();
         }
     }
+
+    public class SearchTextToBackgroundConverter : IValueConverter
+    {
+        private static readonly Microsoft.UI.Xaml.Media.SolidColorBrush LightYellowBrush = new(Microsoft.UI.ColorHelper.FromArgb(255, 255, 249, 196)); // #FFF9C4
+
+        public object? Convert(object value, Type targetType, object parameter, string language)
+        {
+            if (value is string text && !string.IsNullOrWhiteSpace(text))
+            {
+                return LightYellowBrush;
+            }
+            return null;
+        }
+
+        public object ConvertBack(object value, Type targetType, object parameter, string language)
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    public class SearchTextToForegroundConverter : IValueConverter
+    {
+        private static readonly Microsoft.UI.Xaml.Media.SolidColorBrush DarkTextBrush = new(Microsoft.UI.ColorHelper.FromArgb(255, 20, 20, 20));
+
+        public object? Convert(object value, Type targetType, object parameter, string language)
+        {
+            if (value is string text && !string.IsNullOrWhiteSpace(text))
+            {
+                return DarkTextBrush;
+            }
+            return null;
+        }
+
+        public object ConvertBack(object value, Type targetType, object parameter, string language)
+        {
+            throw new NotImplementedException();
+        }
+    }
 }

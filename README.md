@@ -216,4 +216,4 @@ Distributed under the MIT License. See `LICENSE` for more information.
 * Introduced `LibraryTabViewModelBase` abstract base class for child library tab ViewModels (`GamesTabViewModel`, `AppsTabViewModel`, `TvAndFilmsTabViewModel`, `OsImagesTabViewModel`) to eliminate duplicated property change synchronization boilerplate. 🧩
 * Extracted view-layer flyout generation and folder opening interactions into a unified `FlyoutHelper` static abstraction in `Easy_Copier.Infrastructure`. 🛠️
 * Consolidated tab and pivot selection change handlers in `MainPage.xaml.cs` into a single `TabOrPivot_SelectionChanged` event handler. 🧹
-* Enhanced the search bar (`AutoSuggestBox`) UI on `MainPage` with larger font size (`16px`) and increased height (`40px`) for improved readability and accessibility. 🔍
+* Enhanced the search bar (`AutoSuggestBox`) UI on `MainPage` with dynamic light yellow/amber background highlighting when active, dark text contrast, and an enlarged clear button for improved readability and accessibility. 🔍
