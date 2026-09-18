@@ -10,12 +10,26 @@ namespace Easy_Copier.Services
 {
     public sealed partial class GameInfoDownloadService
     {
+        /// <summary>
+        /// Attempts to download vertical library cover art from Steam CDN using the given Steam App ID.
+        /// </summary>
+        /// <param name="appId">The Steam App ID.</param>
+        /// <param name="coverPath">The local destination file path for the cover image.</param>
+        /// <param name="cancellationToken">Cancellation token.</param>
+        /// <returns>A task returning <c>true</c> if successfully downloaded; otherwise, <c>false</c>.</returns>
         private async Task<bool> TryFetchSteamCoverAsync(string appId, string coverPath, CancellationToken cancellationToken)
         {
             string url = $"https://steamcdn-a.akamaihd.net/steam/apps/{appId}/library_600x900.jpg";
             return await DownloadImageAsync(url, coverPath, cancellationToken);
         }
 
+        /// <summary>
+        /// Attempts to download vertical cover art from GOG catalog API for the given game title.
+        /// </summary>
+        /// <param name="gameName">The game title.</param>
+        /// <param name="coverPath">The local destination file path for the cover image.</param>
+        /// <param name="cancellationToken">Cancellation token.</param>
+        /// <returns>A task returning <c>true</c> if successfully downloaded; otherwise, <c>false</c>.</returns>
         private async Task<bool> TryFetchGogCoverAsync(string gameName, string coverPath, CancellationToken cancellationToken)
         {
             Uri url = new($"https://catalog.gog.com/v1/catalog?query=like:{Uri.EscapeDataString(gameName)}&limit=1");
@@ -45,6 +59,13 @@ namespace Easy_Copier.Services
             return false;
         }
 
+        /// <summary>
+        /// Attempts to download cover art from GameSystemRequirements website by searching the game title.
+        /// </summary>
+        /// <param name="gameName">The game title.</param>
+        /// <param name="coverPath">The local destination file path for the cover image.</param>
+        /// <param name="cancellationToken">Cancellation token.</param>
+        /// <returns>A task returning <c>true</c> if successfully downloaded; otherwise, <c>false</c>.</returns>
         private async Task<bool> TryFetchGsrCoverAsync(string gameName, string coverPath, CancellationToken cancellationToken)
         {
             Uri url = new($"https://gamesystemrequirements.com/games.php?req={Uri.EscapeDataString(gameName)}");
@@ -71,6 +92,13 @@ namespace Easy_Copier.Services
             return false;
         }
 
+        /// <summary>
+        /// Attempts to download cover art from Wikipedia infobox for the specified game title.
+        /// </summary>
+        /// <param name="gameName">The game title.</param>
+        /// <param name="coverPath">The local destination file path for the cover image.</param>
+        /// <param name="cancellationToken">Cancellation token.</param>
+        /// <returns>A task returning <c>true</c> if successfully downloaded; otherwise, <c>false</c>.</returns>
         private async Task<bool> TryFetchWikipediaCoverAsync(string gameName, string coverPath, CancellationToken cancellationToken)
         {
             Uri url = new($"https://en.wikipedia.org/wiki/Special:Search?search={Uri.EscapeDataString(gameName)}");
@@ -102,6 +130,13 @@ namespace Easy_Copier.Services
             return false;
         }
 
+        /// <summary>
+        /// Attempts to download cover art thumbnail from PCGamingWiki API for the specified game title.
+        /// </summary>
+        /// <param name="gameName">The game title.</param>
+        /// <param name="coverPath">The local destination file path for the cover image.</param>
+        /// <param name="cancellationToken">Cancellation token.</param>
+        /// <returns>A task returning <c>true</c> if successfully downloaded; otherwise, <c>false</c>.</returns>
         private async Task<bool> TryFetchPcgwCoverAsync(string gameName, string coverPath, CancellationToken cancellationToken)
         {
             Uri url = new($"https://www.pcgamingwiki.com/w/api.php?action=query&prop=pageimages&titles={Uri.EscapeDataString(gameName)}&format=json&pithumbsize=800");
@@ -131,6 +166,13 @@ namespace Easy_Copier.Services
             return false;
         }
 
+        /// <summary>
+        /// Attempts to download box art or banner cover from OpenCritic API for the specified game title.
+        /// </summary>
+        /// <param name="gameName">The game title.</param>
+        /// <param name="coverPath">The local destination file path for the cover image.</param>
+        /// <param name="cancellationToken">Cancellation token.</param>
+        /// <returns>A task returning <c>true</c> if successfully downloaded; otherwise, <c>false</c>.</returns>
         private async Task<bool> TryFetchOpenCriticCoverAsync(string gameName, string coverPath, CancellationToken cancellationToken)
         {
             Uri url = new($"https://api.opencritic.com/api/game/search?criteria={Uri.EscapeDataString(gameName)}");
@@ -178,6 +220,13 @@ namespace Easy_Copier.Services
             return false;
         }
 
+        /// <summary>
+        /// Attempts to download cover image from Lutris game search page for the specified game title.
+        /// </summary>
+        /// <param name="gameName">The game title.</param>
+        /// <param name="coverPath">The local destination file path for the cover image.</param>
+        /// <param name="cancellationToken">Cancellation token.</param>
+        /// <returns>A task returning <c>true</c> if successfully downloaded; otherwise, <c>false</c>.</returns>
         private async Task<bool> TryFetchLutrisCoverAsync(string gameName, string coverPath, CancellationToken cancellationToken)
         {
             Uri url = new($"https://lutris.net/games/?q={Uri.EscapeDataString(gameName)}");

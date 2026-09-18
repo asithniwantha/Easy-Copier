@@ -12,6 +12,12 @@ namespace Easy_Copier.Services
 {
     public sealed partial class GameInfoDownloadService
     {
+        /// <summary>
+        /// Fetches minimum and recommended PC system requirements for a game from the Steam Store API.
+        /// </summary>
+        /// <param name="gameName">The title of the game to query.</param>
+        /// <param name="cancellationToken">Cancellation token.</param>
+        /// <returns>A task returning a nested dictionary of requirements (minimum and recommended), or <c>null</c> if not found.</returns>
         private async Task<Dictionary<string, Dictionary<string, string>>?> FetchSteamRequirementsAsync(string gameName, CancellationToken cancellationToken)
         {
             string? appId = await FetchSteamAppIdAsync(gameName, cancellationToken);
@@ -60,6 +66,11 @@ namespace Easy_Copier.Services
             return requirements.Count > 0 ? requirements : null;
         }
 
+        /// <summary>
+        /// Parses HTML string returned by Steam requirement properties to extract spec categories (CPU, GPU, RAM, Storage).
+        /// </summary>
+        /// <param name="html">The raw HTML system requirements string.</param>
+        /// <returns>A dictionary containing spec component names and values.</returns>
         private static Dictionary<string, string> ParseSteamRequirements(string? html)
         {
             Dictionary<string, string> specs = [];
@@ -100,6 +111,12 @@ namespace Easy_Copier.Services
             return specs;
         }
 
+        /// <summary>
+        /// Formats parsed requirements into a clean, human-readable text document format.
+        /// </summary>
+        /// <param name="gameName">The title of the game.</param>
+        /// <param name="requirements">The parsed dictionary of requirements.</param>
+        /// <returns>A formatted string containing system requirements.</returns>
         private static string FormatRequirements(string gameName, Dictionary<string, Dictionary<string, string>> requirements)
         {
             StringBuilder sb = new();
@@ -138,8 +155,12 @@ namespace Easy_Copier.Services
             return sb.ToString();
         }
 
-        // --- Cover Methods ---
-
+        /// <summary>
+        /// Queries the Steam community app search endpoint to find the Steam App ID for a game title.
+        /// </summary>
+        /// <param name="gameName">The title of the game.</param>
+        /// <param name="cancellationToken">Cancellation token.</param>
+        /// <returns>A task returning the Steam App ID string if found; otherwise, <c>null</c>.</returns>
         private async Task<string?> FetchSteamAppIdAsync(string gameName, CancellationToken cancellationToken)
         {
             Uri url = new($"https://steamcommunity.com/actions/SearchApps/{Uri.EscapeDataString(gameName)}");

@@ -10,31 +10,86 @@ using System.Threading.Tasks;
 
 namespace Easy_Copier.Services
 {
+    /// <summary>
+    /// Defines operations for managing persistent JSON library caching and checking cache validity against directory fingerprints.
+    /// </summary>
     public interface ILibraryCacheService
     {
+        /// <summary>
+        /// Asynchronously loads the cached library snapshot from local disk storage if available and schema compatible.
+        /// </summary>
+        /// <returns>A task returning the loaded <see cref="LibraryCacheSnapshot"/>, or <c>null</c> if not found or invalid.</returns>
         Task<LibraryCacheSnapshot?> LoadCacheAsync();
+
+        /// <summary>
+        /// Asynchronously saves the library cache snapshot to local disk storage using atomic write patterns.
+        /// </summary>
+        /// <param name="snapshot">The snapshot object containing scanned library state and fingerprints.</param>
+        /// <returns>A task representing the save operation.</returns>
         Task SaveCacheAsync(LibraryCacheSnapshot snapshot);
+
+        /// <summary>
+        /// Asynchronously deletes the local library cache file from disk.
+        /// </summary>
+        /// <returns>A task representing the deletion operation.</returns>
         Task InvalidateCacheAsync();
+
+        /// <summary>
+        /// Validates whether the cached snapshot matches current application settings source folders and directory fingerprints.
+        /// </summary>
+        /// <param name="cache">The cached snapshot to validate.</param>
+        /// <param name="currentSettings">Current application settings containing source folder lists.</param>
+        /// <param name="cancellationToken">Cancellation token to cancel operation.</param>
+        /// <returns>A task returning a <see cref="CacheValidationOutcome"/> indicating validation results and changed items.</returns>
         Task<CacheValidationOutcome> ValidateCacheAsync(
             LibraryCacheSnapshot cache,
             AppSettings currentSettings,
             CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Computes a lightweight size and modification fingerprint for a given file or folder path.
+        /// </summary>
+        /// <param name="folderPath">The folder path to inspect.</param>
+        /// <param name="cancellationToken">Cancellation token.</param>
+        /// <returns>A task returning the computed <see cref="ItemFingerprint"/>.</returns>
         Task<ItemFingerprint> ComputeItemFingerprintAsync(
             string folderPath,
             CancellationToken cancellationToken = default);
     }
 
+    /// <summary>
+    /// Service for serializing, deserializing, and validating library scan results stored in <c>library_cache.json</c>.
+    /// </summary>
     public class LibraryCacheService : ILibraryCacheService
     {
+        /// <summary>
+        /// Indented JSON serializer options for formatting cached files.
+        /// </summary>
         private static readonly JsonSerializerOptions _jsonOptions = new() { WriteIndented = true };
+
+        /// <summary>
+        /// Logger instance used for diagnostic logging.
+        /// </summary>
         private readonly ILogger<LibraryCacheService> _logger;
+
+        /// <summary>
+        /// Name of the cache file stored in AppData.
+        /// </summary>
         private const string CacheFileName = "library_cache.json";
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="LibraryCacheService"/> class.
+        /// </summary>
+        /// <param name="logger">Logger instance.</param>
         public LibraryCacheService(ILogger<LibraryCacheService> logger)
         {
             _logger = logger;
         }
 
+        /// <summary>
+        /// Resolves the absolute path to the local library cache file in AppData.
+        /// </summary>
+        /// <returns>The full string path to the cache file.</returns>
         private static string GetCacheFilePath()
         {
             string appDataFolder = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
@@ -43,6 +98,10 @@ namespace Easy_Copier.Services
             return Path.Combine(appFolder, CacheFileName);
         }
 
+        /// <summary>
+        /// Asynchronously deserializes and verifies the cached library snapshot file.
+        /// </summary>
+        /// <returns>The cached snapshot if valid and matching schema version; otherwise, <c>null</c>.</returns>
         public async Task<LibraryCacheSnapshot?> LoadCacheAsync()
         {
             string cachePath = GetCacheFilePath();
@@ -99,6 +158,11 @@ namespace Easy_Copier.Services
             }
         }
 
+        /// <summary>
+        /// Asynchronously writes the library cache snapshot to disk using a temporary file and atomic swap.
+        /// </summary>
+        /// <param name="snapshot">The snapshot instance to write.</param>
+        /// <returns>A task representing the save operation.</returns>
         public async Task SaveCacheAsync(LibraryCacheSnapshot snapshot)
         {
             ArgumentNullException.ThrowIfNull(snapshot);
@@ -143,6 +207,10 @@ namespace Easy_Copier.Services
             }
         }
 
+        /// <summary>
+        /// Deletes the cached snapshot file if present on disk.
+        /// </summary>
+        /// <returns>A task representing the asynchronous operation.</returns>
         public async Task InvalidateCacheAsync()
         {
             string cachePath = GetCacheFilePath();
@@ -161,6 +229,13 @@ namespace Easy_Copier.Services
             }
         }
 
+        /// <summary>
+        /// Compares the cached snapshot against active source folder settings and inspects modified files to evaluate cache validity.
+        /// </summary>
+        /// <param name="cache">The cached snapshot to evaluate.</param>
+        /// <param name="currentSettings">The active application settings.</param>
+        /// <param name="cancellationToken">Cancellation token.</param>
+        /// <returns>A task returning a <see cref="CacheValidationOutcome"/>.</returns>
         public async Task<CacheValidationOutcome> ValidateCacheAsync(
             LibraryCacheSnapshot cache,
             AppSettings currentSettings,
@@ -339,6 +414,12 @@ namespace Easy_Copier.Services
             }
         }
 
+        /// <summary>
+        /// Calculates total size and latest modified timestamp for a directory or file.
+        /// </summary>
+        /// <param name="folderPath">The path to inspect.</param>
+        /// <param name="cancellationToken">Cancellation token.</param>
+        /// <returns>A task returning the calculated <see cref="ItemFingerprint"/>.</returns>
         public async Task<ItemFingerprint> ComputeItemFingerprintAsync(
             string folderPath,
             CancellationToken cancellationToken = default)
@@ -382,12 +463,23 @@ namespace Easy_Copier.Services
             }, cancellationToken);
         }
 
+        /// <summary>
+        /// Compares two fingerprints to check if total byte size and write timestamp match.
+        /// </summary>
+        /// <param name="cached">The original cached fingerprint.</param>
+        /// <param name="current">The newly computed fingerprint.</param>
+        /// <returns><c>true</c> if both fingerprints match; otherwise, <c>false</c>.</returns>
         private static bool FingerprintsMatch(ItemFingerprint cached, ItemFingerprint current)
         {
             return cached.TotalBytes == current.TotalBytes &&
                    cached.LastWriteTimeUtc == current.LastWriteTimeUtc;
         }
 
+        /// <summary>
+        /// Normalizes file and directory paths by resolving full paths and trimming trailing directory separators.
+        /// </summary>
+        /// <param name="path">The input path string.</param>
+        /// <returns>The normalized path string.</returns>
         private string NormalizePath(string path)
         {
             return Path.GetFullPath(path).TrimEnd(Path.DirectorySeparatorChar, Path.AltDirectorySeparatorChar);

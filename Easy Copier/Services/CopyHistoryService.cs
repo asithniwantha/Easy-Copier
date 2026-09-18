@@ -9,23 +9,85 @@ using System.Threading.Tasks;
 
 namespace Easy_Copier.Services
 {
+    /// <summary>
+    /// Service interface for recording and querying copy operation history in a local SQLite database.
+    /// </summary>
     public interface ICopyHistoryService
     {
+        /// <summary>
+        /// Initializes the underlying SQLite database schema and applies any pending migrations.
+        /// </summary>
+        /// <returns>A task representing the asynchronous operation.</returns>
         Task InitializeAsync();
+
+        /// <summary>
+        /// Inserts a new copy operation history record into the database.
+        /// </summary>
+        /// <param name="record">The <see cref="CopyHistoryRecord"/> containing execution details to store.</param>
+        /// <returns>A task representing the asynchronous operation.</returns>
         Task AddRecordAsync(CopyHistoryRecord record);
+
+        /// <summary>
+        /// Retrieves all copy history records that occurred within a specific week range.
+        /// </summary>
+        /// <param name="startOfWeek">The start boundary of the week (inclusive).</param>
+        /// <param name="endOfWeek">The end boundary of the week.</param>
+        /// <returns>A task that returns a list of matching <see cref="CopyHistoryRecord"/> instances ordered descending by timestamp.</returns>
         Task<List<CopyHistoryRecord>> GetRecordsByWeekAsync(DateTime startOfWeek, DateTime endOfWeek);
+
+        /// <summary>
+        /// Retrieves distinct start dates of weeks for which history records exist.
+        /// </summary>
+        /// <returns>A task that returns a list of Sunday start dates ordered descending.</returns>
         Task<List<DateTime>> GetAvailableWeeksAsync();
+
+        /// <summary>
+        /// Retrieves all copy history records for a specified year and month.
+        /// </summary>
+        /// <param name="year">The 4-digit year to filter by.</param>
+        /// <param name="month">The month (1–12) to filter by.</param>
+        /// <returns>A task that returns a list of matching <see cref="CopyHistoryRecord"/> instances ordered descending by timestamp.</returns>
         Task<List<CopyHistoryRecord>> GetRecordsByMonthAsync(int year, int month);
+
+        /// <summary>
+        /// Retrieves distinct year and month pairs for which history records exist.
+        /// </summary>
+        /// <returns>A task that returns a list of tuples containing (Year, Month) ordered descending.</returns>
         Task<List<(int Year, int Month)>> GetAvailableMonthsAsync();
+
+        /// <summary>
+        /// Calculates aggregated statistics for history records within a specified date range.
+        /// </summary>
+        /// <param name="startDate">The start boundary of the date range (inclusive).</param>
+        /// <param name="endDate">The end boundary of the date range (exclusive).</param>
+        /// <returns>A task that returns a tuple containing total items, successful items, total bytes, and total monetary amount.</returns>
         Task<(int TotalItems, int SuccessfulItems, long TotalBytes, int TotalAmount)> GetStatsAsync(DateTime startDate, DateTime endDate);
     }
 
+    /// <summary>
+    /// Provides functionality for persisting and querying file copy operation history stored in a local SQLite database file.
+    /// </summary>
     public class CopyHistoryService : ICopyHistoryService
     {
+        /// <summary>
+        /// Logger instance used for recording operational logs and errors.
+        /// </summary>
         private readonly ILogger<CopyHistoryService> _logger;
+
+        /// <summary>
+        /// Full file path to the local SQLite database file (`history.db`).
+        /// </summary>
         private readonly string _dbPath;
+
+        /// <summary>
+        /// SQLite connection string used for establishing database connections.
+        /// </summary>
         private readonly string _connectionString;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="CopyHistoryService"/> class and configures database storage paths.
+        /// </summary>
+        /// <param name="logger">The logger instance for operational diagnostic output.</param>
         public CopyHistoryService(ILogger<CopyHistoryService> logger)
         {
             _logger = logger;
@@ -36,6 +98,10 @@ namespace Easy_Copier.Services
             _connectionString = $"Data Source={_dbPath}";
         }
 
+        /// <summary>
+        /// Asynchronously initializes the database schema for copy history and executes any required schema migrations.
+        /// </summary>
+        /// <returns>A task representing the asynchronous operation.</returns>
         public async Task InitializeAsync()
         {
             try
@@ -88,6 +154,12 @@ namespace Easy_Copier.Services
             }
         }
 
+        /// <summary>
+        /// Asynchronously inserts a new copy operation record into the SQLite database.
+        /// </summary>
+        /// <param name="record">The record detailing the outcome and parameters of a copy operation.</param>
+        /// <returns>A task representing the asynchronous operation.</returns>
+        /// <exception cref="ArgumentNullException">Thrown when <paramref name="record"/> is <c>null</c>.</exception>
         public async Task AddRecordAsync(CopyHistoryRecord record)
         {
             ArgumentNullException.ThrowIfNull(record);
@@ -118,6 +190,10 @@ namespace Easy_Copier.Services
             }
         }
 
+        /// <summary>
+        /// Helper method that reads all history records stored in the database.
+        /// </summary>
+        /// <returns>A task that returns a list of all <see cref="CopyHistoryRecord"/> items.</returns>
         private async Task<List<CopyHistoryRecord>> GetAllRecordsAsync()
         {
             List<CopyHistoryRecord> records = [];
@@ -159,6 +235,12 @@ namespace Easy_Copier.Services
             return records;
         }
 
+        /// <summary>
+        /// Retrieves records matching the designated week date range, sorted by timestamp descending.
+        /// </summary>
+        /// <param name="startOfWeek">The start date of the week.</param>
+        /// <param name="endOfWeek">The end date of the week.</param>
+        /// <returns>A task that returns a list of matching <see cref="CopyHistoryRecord"/> items.</returns>
         public async Task<List<CopyHistoryRecord>> GetRecordsByWeekAsync(DateTime startOfWeek, DateTime endOfWeek)
         {
             List<CopyHistoryRecord> allRecords = await GetAllRecordsAsync();
@@ -175,6 +257,10 @@ namespace Easy_Copier.Services
                 .ToList();
         }
 
+        /// <summary>
+        /// Asynchronously determines all distinct week start dates present in the history database.
+        /// </summary>
+        /// <returns>A task that returns a list of week start dates ordered descending.</returns>
         public async Task<List<DateTime>> GetAvailableWeeksAsync()
         {
             List<CopyHistoryRecord> allRecords = await GetAllRecordsAsync();
@@ -193,6 +279,12 @@ namespace Easy_Copier.Services
             return sortedWeeks;
         }
 
+        /// <summary>
+        /// Retrieves history records matching the specified year and month.
+        /// </summary>
+        /// <param name="year">The target year.</param>
+        /// <param name="month">The target month (1–12).</param>
+        /// <returns>A task that returns a list of matching <see cref="CopyHistoryRecord"/> items.</returns>
         public async Task<List<CopyHistoryRecord>> GetRecordsByMonthAsync(int year, int month)
         {
             List<CopyHistoryRecord> allRecords = await GetAllRecordsAsync();
@@ -202,6 +294,10 @@ namespace Easy_Copier.Services
                 .ToList();
         }
 
+        /// <summary>
+        /// Asynchronously determines all distinct year/month combinations present in the history database.
+        /// </summary>
+        /// <returns>A task that returns a list of (Year, Month) tuples ordered descending.</returns>
         public async Task<List<(int Year, int Month)>> GetAvailableMonthsAsync()
         {
             List<CopyHistoryRecord> allRecords = await GetAllRecordsAsync();
@@ -217,6 +313,20 @@ namespace Easy_Copier.Services
             return sortedMonths;
         }
 
+        /// <summary>
+        /// Asynchronously computes summary statistics for copy operations within the specified date range.
+        /// </summary>
+        /// <param name="startDate">Start boundary date (inclusive).</param>
+        /// <param name="endDate">End boundary date (exclusive).</param>
+        /// <returns>
+        /// A tuple containing:
+        /// <list type="bullet">
+        ///   <item><description><c>TotalItems</c>: Total number of recorded copy operations.</description></item>
+        ///   <item><description><c>SuccessfulItems</c>: Count of operations that completed successfully.</description></item>
+        ///   <item><description><c>TotalBytes</c>: Total number of bytes transferred across all operations.</description></item>
+        ///   <item><description><c>TotalAmount</c>: Total monetary value calculated across all operations.</description></item>
+        /// </list>
+        /// </returns>
         public async Task<(int TotalItems, int SuccessfulItems, long TotalBytes, int TotalAmount)> GetStatsAsync(DateTime startDate, DateTime endDate)
         {
             List<CopyHistoryRecord> allRecords = await GetAllRecordsAsync();

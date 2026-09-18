@@ -9,19 +9,56 @@ using System.Threading.Tasks;
 
 namespace Easy_Copier.Services
 {
+    /// <summary>
+    /// Defines operations for persisting and retrieving Smart Adder calculations in SQLite storage.
+    /// </summary>
     public interface ISmartAdderHistoryService
     {
+        /// <summary>
+        /// Asynchronously initializes the SmartAdderHistory table in SQLite database.
+        /// </summary>
+        /// <returns>A task representing the asynchronous operation.</returns>
         Task InitializeAsync();
+
+        /// <summary>
+        /// Asynchronously inserts a Smart Adder calculation record into SQLite database.
+        /// </summary>
+        /// <param name="record">The <see cref="SmartAdderHistoryRecord"/> to insert.</param>
+        /// <returns>A task representing the asynchronous operation.</returns>
         Task AddRecordAsync(SmartAdderHistoryRecord record);
+
+        /// <summary>
+        /// Asynchronously retrieves the most recent Smart Adder calculation history records.
+        /// </summary>
+        /// <param name="count">The maximum number of recent records to retrieve.</param>
+        /// <returns>A task returning a list of recent <see cref="SmartAdderHistoryRecord"/> items.</returns>
         Task<List<SmartAdderHistoryRecord>> GetRecentRecordsAsync(int count);
     }
 
+    /// <summary>
+    /// Service for persisting Smart Adder calculator history to the local SQLite database (`SmartAdderHistory` table).
+    /// </summary>
     public class SmartAdderHistoryService : ISmartAdderHistoryService
     {
+        /// <summary>
+        /// Logger instance used for logging operations and errors.
+        /// </summary>
         private readonly ILogger<SmartAdderHistoryService> _logger;
+
+        /// <summary>
+        /// Local database file path.
+        /// </summary>
         private readonly string _dbPath;
+
+        /// <summary>
+        /// SQLite connection string.
+        /// </summary>
         private readonly string _connectionString;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="SmartAdderHistoryService"/> class and sets up database connection properties.
+        /// </summary>
+        /// <param name="logger">Logger instance.</param>
         public SmartAdderHistoryService(ILogger<SmartAdderHistoryService> logger)
         {
             _logger = logger;
@@ -32,6 +69,10 @@ namespace Easy_Copier.Services
             _connectionString = $"Data Source={_dbPath}";
         }
 
+        /// <summary>
+        /// Asynchronously creates the <c>SmartAdderHistory</c> table in SQLite if it does not exist.
+        /// </summary>
+        /// <returns>A task representing the asynchronous operation.</returns>
         public async Task InitializeAsync()
         {
             try
@@ -58,6 +99,11 @@ namespace Easy_Copier.Services
             }
         }
 
+        /// <summary>
+        /// Asynchronously inserts a new calculation record into the <c>SmartAdderHistory</c> table.
+        /// </summary>
+        /// <param name="record">The record containing Smart Adder calculation entries and total sum.</param>
+        /// <returns>A task representing the asynchronous operation.</returns>
         public async Task AddRecordAsync(SmartAdderHistoryRecord record)
         {
             ArgumentNullException.ThrowIfNull(record);
@@ -83,6 +129,11 @@ namespace Easy_Copier.Services
             }
         }
 
+        /// <summary>
+        /// Asynchronously retrieves recent calculation history records, sorted by ID descending.
+        /// </summary>
+        /// <param name="count">Maximum number of records to return.</param>
+        /// <returns>A task returning a list of <see cref="SmartAdderHistoryRecord"/> instances.</returns>
         public async Task<List<SmartAdderHistoryRecord>> GetRecentRecordsAsync(int count)
         {
             List<SmartAdderHistoryRecord> records = [];

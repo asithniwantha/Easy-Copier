@@ -13,6 +13,9 @@ namespace Easy_Copier.Services
 {
     public sealed partial class GameInfoDownloadService
     {
+        /// <summary>
+        /// Mapping dictionary that associates common text keywords with <see cref="GameCategory"/> enum values.
+        /// </summary>
         private static readonly Dictionary<string, GameCategory> KeywordCategoryMapping = new(StringComparer.OrdinalIgnoreCase)
         {
             { "shoot", GameCategory.Shooter },
@@ -45,6 +48,13 @@ namespace Easy_Copier.Services
             { "jump", GameCategory.Platformer }
         };
 
+        /// <summary>
+        /// Downloads category information for a game and writes it to a <c>categories.txt</c> file within the game folder.
+        /// </summary>
+        /// <param name="gameName">The title of the game.</param>
+        /// <param name="gameFolder">The local folder path for the game.</param>
+        /// <param name="cancellationToken">Cancellation token to cancel operation.</param>
+        /// <returns>A task representing the asynchronous operation.</returns>
         private async Task DownloadCategoriesAsync(string gameName, string gameFolder, CancellationToken cancellationToken)
         {
             string catFile = Path.Combine(gameFolder, "categories.txt");
@@ -82,6 +92,12 @@ namespace Easy_Copier.Services
             }
         }
 
+        /// <summary>
+        /// Fetches game genres from the Steam Web API for the specified app ID and maps them to <see cref="GameCategory"/> enum values.
+        /// </summary>
+        /// <param name="appId">The Steam App ID.</param>
+        /// <param name="cancellationToken">Cancellation token.</param>
+        /// <returns>A task returning a list of matched <see cref="GameCategory"/> values.</returns>
         private async Task<List<GameCategory>> FetchSteamCategoriesAsync(string appId, CancellationToken cancellationToken)
         {
             List<GameCategory> categories = [];
@@ -121,6 +137,11 @@ namespace Easy_Copier.Services
             return categories;
         }
 
+        /// <summary>
+        /// Maps a Steam genre description string to a corresponding <see cref="GameCategory"/>.
+        /// </summary>
+        /// <param name="steamGenre">The genre string retrieved from Steam API.</param>
+        /// <returns>The mapped <see cref="GameCategory"/> value.</returns>
         private static GameCategory MapSteamGenreToCore(string steamGenre)
         {
             return steamGenre.ToUpperInvariant() switch
@@ -140,6 +161,12 @@ namespace Easy_Copier.Services
             };
         }
 
+        /// <summary>
+        /// Extracts categories from the game name or folder name using keyword matching as a fallback when online APIs return no categories.
+        /// </summary>
+        /// <param name="gameName">The title of the game.</param>
+        /// <param name="gameFolder">The local game folder path.</param>
+        /// <returns>A list of inferred <see cref="GameCategory"/> values.</returns>
         private static List<GameCategory> FallbackExtractCategories(string gameName, string gameFolder)
         {
             List<GameCategory> categories = [];
