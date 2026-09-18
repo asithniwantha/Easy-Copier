@@ -81,21 +81,21 @@
                               Width="150" />
                 </Grid>
 
-                <Pivot x:Name="LibraryPivot" Grid.Row="5" SelectedIndex="{x:Bind ViewModel.CurrentTabIndex, Mode=TwoWay}" SelectionChanged="LibraryPivot_SelectionChanged">
+                <Pivot x:Name="LibraryPivot" Grid.Row="5" SelectedIndex="{x:Bind ViewModel.CurrentTabIndex, Mode=TwoWay}" SelectionChanged="TabOrPivot_SelectionChanged">
                     <PivotItem Header="Games">
-                        <local:GamesTabView x:Name="GamesTab" ViewModel="{x:Bind ViewModel.GamesTabViewModel, Mode=OneWay}" SelectionChanged="GamesTab_SelectionChanged"/>
+                        <local:GamesTabView x:Name="GamesTab" ViewModel="{x:Bind ViewModel.GamesTabViewModel, Mode=OneWay}" SelectionChanged="TabOrPivot_SelectionChanged"/>
                     </PivotItem>
 
                     <PivotItem Header="Apps">
-                        <local:AppsTabView x:Name="AppsTab" ViewModel="{x:Bind ViewModel.AppsTabViewModel, Mode=OneWay}" SelectionChanged="AppsTab_SelectionChanged"/>
+                        <local:AppsTabView x:Name="AppsTab" ViewModel="{x:Bind ViewModel.AppsTabViewModel, Mode=OneWay}" SelectionChanged="TabOrPivot_SelectionChanged"/>
                     </PivotItem>
 
                     <PivotItem Header="Films &amp; TV series">
-                        <local:TvAndFilmsTabView x:Name="TvAndFilmsTab" ViewModel="{x:Bind ViewModel.TvAndFilmsTabViewModel, Mode=OneWay}" SelectionChanged="TvAndFilmsTab_SelectionChanged"/>
+                        <local:TvAndFilmsTabView x:Name="TvAndFilmsTab" ViewModel="{x:Bind ViewModel.TvAndFilmsTabViewModel, Mode=OneWay}" SelectionChanged="TabOrPivot_SelectionChanged"/>
                     </PivotItem>
 
                     <PivotItem Header="OS Images">
-                        <local:OsImagesTabView x:Name="OsImagesTab" ViewModel="{x:Bind ViewModel.OsImagesTabViewModel, Mode=OneWay}" SelectionChanged="OsImagesTab_SelectionChanged"/>
+                        <local:OsImagesTabView x:Name="OsImagesTab" ViewModel="{x:Bind ViewModel.OsImagesTabViewModel, Mode=OneWay}" SelectionChanged="TabOrPivot_SelectionChanged"/>
                     </PivotItem>
                 </Pivot>
             </Grid>

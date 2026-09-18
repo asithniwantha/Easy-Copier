@@ -1,6 +1,4 @@
-using CommunityToolkit.Mvvm.ComponentModel;
 using Easy_Copier.Models;
-using System;
 using System.Collections.ObjectModel;
 
 namespace Easy_Copier.ViewModels
@@ -9,22 +7,12 @@ namespace Easy_Copier.ViewModels
     /// ViewModel for managing the Films &amp; TV series library tab view.
     /// Acts as a dedicated child ViewModel that delegates to and synchronizes with <see cref="MainViewModel"/>.
     /// </summary>
-    public sealed partial class TvAndFilmsTabViewModel : ObservableObject
+    public sealed partial class TvAndFilmsTabViewModel : LibraryTabViewModelBase
     {
-        /// <summary>
-        /// Gets the parent <see cref="MainViewModel"/> instance.
-        /// </summary>
-        public MainViewModel MainViewModel { get; }
-
         /// <summary>
         /// Gets the list of filtered film and TV series entries.
         /// </summary>
         public ObservableCollection<GameEntry> TvAndFilms => MainViewModel.TvAndFilms;
-
-        /// <summary>
-        /// Gets a value indicating whether library scanning is in progress.
-        /// </summary>
-        public bool IsScanning => MainViewModel.IsScanning;
 
         /// <summary>
         /// Gets the message displayed when no films/TV series are present or match search criteria.
@@ -41,23 +29,21 @@ namespace Easy_Copier.ViewModels
         /// </summary>
         /// <param name="mainViewModel">The main application ViewModel.</param>
         public TvAndFilmsTabViewModel(MainViewModel mainViewModel)
+            : base(mainViewModel)
         {
-            MainViewModel = mainViewModel ?? throw new ArgumentNullException(nameof(mainViewModel));
+        }
 
-            // Subscribe to parent ViewModel property changes to notify UI of tab-specific state updates.
-            MainViewModel.PropertyChanged += (s, e) =>
+        /// <inheritdoc />
+        protected override void OnParentPropertyChanged(string? propertyName)
+        {
+            if (propertyName == nameof(MainViewModel.IsTvAndFilmsEmpty))
             {
-                if (e.PropertyName == nameof(MainViewModel.IsScanning) ||
-                    e.PropertyName == nameof(MainViewModel.IsTvAndFilmsEmpty))
-                {
-                    OnPropertyChanged(nameof(IsScanning));
-                    OnPropertyChanged(nameof(IsTvAndFilmsEmpty));
-                }
-                if (e.PropertyName == nameof(MainViewModel.EmptyTvAndFilmsMessage))
-                {
-                    OnPropertyChanged(nameof(EmptyTvAndFilmsMessage));
-                }
-            };
+                OnPropertyChanged(nameof(IsTvAndFilmsEmpty));
+            }
+            else if (propertyName == nameof(MainViewModel.EmptyTvAndFilmsMessage))
+            {
+                OnPropertyChanged(nameof(EmptyTvAndFilmsMessage));
+            }
         }
     }
 }

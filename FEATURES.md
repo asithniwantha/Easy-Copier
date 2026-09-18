@@ -148,6 +148,9 @@
 * Resolved Roslyn static analysis CA1823 warning in `MainPage.xaml.cs` by removing unused `LineSeparators` field.
 * Eliminated view-to-view coupling and service locator anti-patterns in `MainPage.xaml.cs` when instantiating `GameDetailsFlyout` by utilizing `Func<GameDetailsViewModel>` factory injections.
 * Replaced manual code-behind events with direct `Command` and `CommandParameter` bindings in `SettingsWindow.xaml` for improved MVVM compliance.
+* Introduced `LibraryTabViewModelBase` abstract base class for child library tab ViewModels (`GamesTabViewModel`, `AppsTabViewModel`, `TvAndFilmsTabViewModel`, `OsImagesTabViewModel`) to eliminate duplicated property change synchronization boilerplate. 🧩
+* Extracted view-layer flyout generation and folder opening interactions into a unified `FlyoutHelper` static abstraction in `Easy_Copier.Infrastructure`. 🛠️
+* Consolidated tab and pivot selection change handlers in `MainPage.xaml.cs` into a single `TabOrPivot_SelectionChanged` event handler. 🧹
 
 ## Development Highlights
 - **Refactored Smart Adder UI**: Migrated complex programmatic UI logic (Visibility manipulation) from code-behind into direct XAML data bindings utilizing MVVM view models, adhering strictly to clean code principles.

@@ -41,27 +41,7 @@ namespace Easy_Copier.Views
             }
         }
 
-        private void GamesTab_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            UpdateCombinedSelection();
-        }
-
-        private void AppsTab_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            UpdateCombinedSelection();
-        }
-
-        private void TvAndFilmsTab_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            UpdateCombinedSelection();
-        }
-
-        private void OsImagesTab_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            UpdateCombinedSelection();
-        }
-
-        private void LibraryPivot_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void TabOrPivot_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             UpdateCombinedSelection();
         }
