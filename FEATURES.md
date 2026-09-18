@@ -7,7 +7,7 @@
 - Display library items in separate tabs (Games / Apps / Film & TV / OS Images).
 - Sort OS Images by Name, Date Added, and Size with Ascending and Descending direction toggles.
 - Display creation, modification, and access timestamps in a right-click flyout for OS image tiles.
-- Search and filter items by name with dynamic light yellow/amber background highlight feedback when search text is active, and an enlarged clear button.
+- Search and filter items by name with dynamic light yellow/amber background highlight feedback when search text is active, and an enlarged clear button (22px font size with 36x36px touch/hover target).
 - **Game Categorization:** Extracts metadata from Steam with keyword fallbacks, displayed and filterable directly within the Games tab.
 
 - Multi-select items and show combined selection size.

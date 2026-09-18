@@ -72,7 +72,9 @@
                                 TextChanged="SearchBox_TextChanged"
                                 HorizontalAlignment="Stretch">
                     <AutoSuggestBox.Resources>
-                        <x:Double x:Key="AutoSuggestBoxDeleteButtonFontSize">18</x:Double>
+                        <x:Double x:Key="AutoSuggestBoxDeleteButtonFontSize">22</x:Double>
+                        <x:Double x:Key="AutoSuggestBoxDeleteButtonMinWidth">36</x:Double>
+                        <x:Double x:Key="AutoSuggestBoxDeleteButtonMinHeight">36</x:Double>
                     </AutoSuggestBox.Resources>
                 </AutoSuggestBox>
 
