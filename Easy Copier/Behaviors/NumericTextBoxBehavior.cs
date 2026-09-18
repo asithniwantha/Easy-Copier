@@ -12,8 +12,12 @@ using Windows.System;
 
 namespace Easy_Copier.Behaviors
 {
+    /// <summary>
+    /// Provides numeric keyboard navigation, sanitization, and focus management behaviors for <see cref="TextBox"/> controls in the SmartAdder grid.
+    /// </summary>
     public sealed class NumericTextBoxBehavior : Behavior<TextBox>
     {
+        /// <inheritdoc />
         protected override void OnAttached()
         {
             base.OnAttached();
@@ -21,6 +25,7 @@ namespace Easy_Copier.Behaviors
             AssociatedObject.TextChanging += AssociatedObject_TextChanging;
         }
 
+        /// <inheritdoc />
         protected override void OnDetaching()
         {
             AssociatedObject.PreviewKeyDown -= AssociatedObject_PreviewKeyDown;
