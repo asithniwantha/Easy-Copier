@@ -64,22 +64,11 @@
                     <AppBarButton Icon="Help" Label="About" Command="{x:Bind ViewModel.OpenAboutCommand}"/>
                 </CommandBar>
 
-                <Grid Grid.Row="4" Margin="0,0,0,8" ColumnSpacing="8">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="Auto" />
-                    </Grid.ColumnDefinitions>
-                    <AutoSuggestBox x:Name="SearchBox" Grid.Column="0"
-                                    PlaceholderText="Search games and apps..."
-                                    QueryIcon="Find"
-                                    Text="{x:Bind ViewModel.SearchText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                                    HorizontalAlignment="Stretch" />
-
-                    <ComboBox Grid.Column="1"
-                              ItemsSource="{x:Bind ViewModel.AvailableCategories}"
-                              SelectedItem="{x:Bind ViewModel.SelectedCategory, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                              Width="150" />
-                </Grid>
+                <AutoSuggestBox x:Name="SearchBox" Grid.Row="4" Margin="0,0,0,8"
+                                PlaceholderText="Search games and apps..."
+                                QueryIcon="Find"
+                                Text="{x:Bind ViewModel.SearchText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                HorizontalAlignment="Stretch" />
 
                 <Pivot x:Name="LibraryPivot" Grid.Row="5" SelectedIndex="{x:Bind ViewModel.CurrentTabIndex, Mode=TwoWay}" SelectionChanged="TabOrPivot_SelectionChanged">
                     <PivotItem Header="Games">

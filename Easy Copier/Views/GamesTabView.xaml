@@ -75,20 +75,34 @@
     </UserControl.Resources>
 
     <Grid>
-        <ProgressRing IsActive="{x:Bind ViewModel.IsScanning, Mode=OneWay}"
-                      Width="48" Height="48"
-                      HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
 
-        <TextBlock Text="{x:Bind ViewModel.EmptyGamesMessage, Mode=OneWay}"
-                   HorizontalAlignment="Center" VerticalAlignment="Center"
-                   TextWrapping="Wrap" MaxWidth="400" Opacity="0.7"
-                   Visibility="{x:Bind ViewModel.IsGamesEmpty, Mode=OneWay}"/>
+        <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,0,8" Spacing="8">
+            <TextBlock Text="Category:" VerticalAlignment="Center" Style="{StaticResource BodyTextBlockStyle}"/>
+            <ComboBox ItemsSource="{x:Bind ViewModel.AvailableCategories, Mode=OneWay}"
+                      SelectedItem="{x:Bind ViewModel.SelectedCategory, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                      Width="150"/>
+        </StackPanel>
 
-        <GridView x:Name="GamesGridView"
-                  ItemsSource="{x:Bind ViewModel.Games, Mode=OneWay}"
-                  ItemTemplate="{StaticResource LibraryItemTemplate}"
-                  SelectionMode="Multiple"
-                  SelectionChanged="GamesGridView_SelectionChanged"
-                  IsItemClickEnabled="False"/>
+        <Grid Grid.Row="1">
+            <ProgressRing IsActive="{x:Bind ViewModel.IsScanning, Mode=OneWay}"
+                          Width="48" Height="48"
+                          HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
+            <TextBlock Text="{x:Bind ViewModel.EmptyGamesMessage, Mode=OneWay}"
+                       HorizontalAlignment="Center" VerticalAlignment="Center"
+                       TextWrapping="Wrap" MaxWidth="400" Opacity="0.7"
+                       Visibility="{x:Bind ViewModel.IsGamesEmpty, Mode=OneWay}"/>
+
+            <GridView x:Name="GamesGridView"
+                      ItemsSource="{x:Bind ViewModel.Games, Mode=OneWay}"
+                      ItemTemplate="{StaticResource LibraryItemTemplate}"
+                      SelectionMode="Multiple"
+                      SelectionChanged="GamesGridView_SelectionChanged"
+                      IsItemClickEnabled="False"/>
+        </Grid>
     </Grid>
 </UserControl>

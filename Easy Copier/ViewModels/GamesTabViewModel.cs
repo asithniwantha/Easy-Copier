@@ -1,4 +1,5 @@
 using Easy_Copier.Models;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 
 namespace Easy_Copier.ViewModels
@@ -25,6 +26,20 @@ namespace Easy_Copier.ViewModels
         public bool IsGamesEmpty => MainViewModel.IsGamesEmpty;
 
         /// <summary>
+        /// Gets the list of available game categories for filtering.
+        /// </summary>
+        public IReadOnlyList<GameCategory> AvailableCategories => MainViewModel.AvailableCategories;
+
+        /// <summary>
+        /// Gets or sets the currently selected game category filter.
+        /// </summary>
+        public GameCategory SelectedCategory
+        {
+            get => MainViewModel.SelectedCategory;
+            set => MainViewModel.SelectedCategory = value;
+        }
+
+        /// <summary>
         /// Initializes a new instance of the <see cref="GamesTabViewModel"/> class.
         /// </summary>
         /// <param name="mainViewModel">The main application ViewModel.</param>
@@ -43,6 +58,10 @@ namespace Easy_Copier.ViewModels
             else if (propertyName == nameof(MainViewModel.EmptyGamesMessage))
             {
                 OnPropertyChanged(nameof(EmptyGamesMessage));
+            }
+            else if (propertyName == nameof(MainViewModel.SelectedCategory))
+            {
+                OnPropertyChanged(nameof(SelectedCategory));
             }
         }
     }

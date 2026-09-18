@@ -8,7 +8,7 @@
 - Sort OS Images by Name, Date Added, and Size with Ascending and Descending direction toggles.
 - Display creation, modification, and access timestamps in a right-click flyout for OS image tiles.
 - Search and filter items by name.
-- **Game Categorization:** Extracts metadata from Steam with keyword fallbacks, displayed and filterable in the UI.
+- **Game Categorization:** Extracts metadata from Steam with keyword fallbacks, displayed and filterable directly within the Games tab.
 
 - Multi-select items and show combined selection size.
 - Exclude folders starting with `$`, `recyclebin`, and `System Volume Information` from scanning.
