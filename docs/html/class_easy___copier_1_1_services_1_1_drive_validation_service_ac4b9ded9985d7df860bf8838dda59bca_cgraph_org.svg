@@ -11,7 +11,7 @@
 <!-- Node1 -->
 <g id="Node000001" class="node">
 <title>Node1</title>
-<g id="a_Node000001"><a xlink:title=" ">
+<g id="a_Node000001"><a xlink:title="Asynchronously validates selected games against target drive storage capacity, file system limitation...">
 <polygon fill="#999999" stroke="#666666" points="192.25,-100 0,-100 0,-68 192.25,-68 192.25,-100"/>
 <text xml:space="preserve" text-anchor="start" x="8" y="-86.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Services.Drive</text>
 <text xml:space="preserve" text-anchor="middle" x="96.12" y="-74.5" font-family="Helvetica,sans-Serif" font-size="10.00">ValidationService.ValidateTransferAsync</text>
@@ -21,7 +21,7 @@
 <!-- Node2 -->
 <g id="Node000002" class="node">
 <title>Node2</title>
-<g id="a_Node000002"><a xlink:href="namespace_easy___copier_1_1_models.html#ab9811c24c166bd7f4768ddafbcbaf75d" target="_top" xlink:title=" ">
+<g id="a_Node000002"><a xlink:href="namespace_easy___copier_1_1_models.html#a9c2abd1d64352c07d3085ba499cf2aae" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="#666666" points="387.5,-156 228.25,-156 228.25,-136 387.5,-136 387.5,-156"/>
 <text xml:space="preserve" text-anchor="middle" x="307.88" y="-142.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Models.GameEntry</text>
 </a>

@@ -1,0 +1,8 @@
+var _games_tab_view_8g_8cs =
+[
+    [ "Easy_Copier.Views.GamesTabView", "class_easy___copier_1_1_views_1_1_games_tab_view.html", "class_easy___copier_1_1_views_1_1_games_tab_view" ],
+    [ "Easy_Copier.Views.GamesTabView.XamlBindingSetters", "class_easy___copier_1_1_views_1_1_games_tab_view_1_1_xaml_binding_setters.html", "class_easy___copier_1_1_views_1_1_games_tab_view_1_1_xaml_binding_setters" ],
+    [ "Easy_Copier.Views.GamesTabView.GamesTabView_obj3_Bindings", "class_easy___copier_1_1_views_1_1_games_tab_view_1_1_games_tab_view__obj3___bindings.html", "class_easy___copier_1_1_views_1_1_games_tab_view_1_1_games_tab_view__obj3___bindings" ],
+    [ "Easy_Copier.Views.GamesTabView.GamesTabView_obj1_Bindings", "class_easy___copier_1_1_views_1_1_games_tab_view_1_1_games_tab_view__obj1___bindings.html", "class_easy___copier_1_1_views_1_1_games_tab_view_1_1_games_tab_view__obj1___bindings" ],
+    [ "Easy_Copier.Views.GamesTabView.GamesTabView_obj1_Bindings.GamesTabView_obj1_BindingsTracking", "class_easy___copier_1_1_views_1_1_games_tab_view_1_1_games_tab_view__obj1___bindings_1_1_games_ta772194b92f36762b8aa404da4ab9ab1.html", "class_easy___copier_1_1_views_1_1_games_tab_view_1_1_games_tab_view__obj1___bindings_1_1_games_ta772194b92f36762b8aa404da4ab9ab1" ]
+];

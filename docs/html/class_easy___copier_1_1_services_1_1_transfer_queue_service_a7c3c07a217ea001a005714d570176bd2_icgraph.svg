@@ -53,7 +53,7 @@
 <!-- Node1 -->
 <g id="Node000001" class="node">
 <title>Node1</title>
-<g id="a_Node000001"><a xlink:title=" ">
+<g id="a_Node000001"><a xlink:title="Executes an action on the UI thread using Infrastructure.IDispatcherService.">
 <polygon fill="#999999" stroke="#666666" points="1007,-32 854.5,-32 854.5,0 1007,0 1007,-32"/>
 <text xml:space="preserve" text-anchor="start" x="862.5" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Services.Transfer</text>
 <text xml:space="preserve" text-anchor="middle" x="930.75" y="-6.5" font-family="Helvetica,sans-Serif" font-size="10.00">QueueService.RunOnUiThread</text>
@@ -63,7 +63,7 @@
 <!-- Node2 -->
 <g id="Node000002" class="node">
 <title>Node2</title>
-<g id="a_Node000002"><a xlink:href="class_easy___copier_1_1_services_1_1_transfer_queue_service.html#a533e1a35bdbcf9ff1fdd48462d021ff3" target="_top" xlink:title=" ">
+<g id="a_Node000002"><a xlink:href="class_easy___copier_1_1_services_1_1_transfer_queue_service.html#a533e1a35bdbcf9ff1fdd48462d021ff3" target="_top" xlink:title="Executes an individual transfer item and updates its status and progress properties on the UI thread.">
 <polygon fill="white" stroke="#666666" points="818.5,-32 654.75,-32 654.75,0 818.5,0 818.5,-32"/>
 <text xml:space="preserve" text-anchor="start" x="662.75" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Services.Transfer</text>
 <text xml:space="preserve" text-anchor="middle" x="736.62" y="-6.5" font-family="Helvetica,sans-Serif" font-size="10.00">QueueService.ProcessItemAsync</text>
@@ -82,7 +82,7 @@
 <!-- Node3 -->
 <g id="Node000003" class="node">
 <title>Node3</title>
-<g id="a_Node000003"><a xlink:href="class_easy___copier_1_1_services_1_1_transfer_queue_service.html#a78c880327c9c88ec2a8691920afd3593" target="_top" xlink:title=" ">
+<g id="a_Node000003"><a xlink:href="class_easy___copier_1_1_services_1_1_transfer_queue_service.html#a78c880327c9c88ec2a8691920afd3593" target="_top" xlink:title="Per&#45;drive loop processing queued transfers sequentially for a single drive letter.">
 <polygon fill="white" stroke="#666666" points="618.75,-32 422.75,-32 422.75,0 618.75,0 618.75,-32"/>
 <text xml:space="preserve" text-anchor="start" x="430.75" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Services.Transfer</text>
 <text xml:space="preserve" text-anchor="middle" x="520.75" y="-6.5" font-family="Helvetica,sans-Serif" font-size="10.00">QueueService.ProcessDriveQueueAsync</text>
@@ -101,7 +101,7 @@
 <!-- Node4 -->
 <g id="Node000004" class="node">
 <title>Node4</title>
-<g id="a_Node000004"><a xlink:href="class_easy___copier_1_1_services_1_1_transfer_queue_service.html#ad3adb01ff5efc729bccd3060144e6f34" target="_top" xlink:title=" ">
+<g id="a_Node000004"><a xlink:href="class_easy___copier_1_1_services_1_1_transfer_queue_service.html#ad3adb01ff5efc729bccd3060144e6f34" target="_top" xlink:title="Main background loop reading items from the primary channel and routing them to per&#45;drive execution c...">
 <polygon fill="white" stroke="#666666" points="386.75,-32 214,-32 214,0 386.75,0 386.75,-32"/>
 <text xml:space="preserve" text-anchor="start" x="222" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Services.Transfer</text>
 <text xml:space="preserve" text-anchor="middle" x="300.38" y="-6.5" font-family="Helvetica,sans-Serif" font-size="10.00">QueueService.ProcessQueueAsync</text>
@@ -120,7 +120,7 @@
 <!-- Node5 -->
 <g id="Node000005" class="node">
 <title>Node5</title>
-<g id="a_Node000005"><a xlink:href="class_easy___copier_1_1_services_1_1_transfer_queue_service.html#a31960a3b7a1549213ab478448f6c15c2" target="_top" xlink:title=" ">
+<g id="a_Node000005"><a xlink:href="class_easy___copier_1_1_services_1_1_transfer_queue_service.html#a31960a3b7a1549213ab478448f6c15c2" target="_top" xlink:title="Initializes a new instance of the TransferQueueService class and starts background consumer tasks.">
 <polygon fill="white" stroke="#666666" points="178,-32 0,-32 0,0 178,0 178,-32"/>
 <text xml:space="preserve" text-anchor="start" x="8" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Services.Transfer</text>
 <text xml:space="preserve" text-anchor="middle" x="89" y="-6.5" font-family="Helvetica,sans-Serif" font-size="10.00">QueueService.TransferQueueService</text>

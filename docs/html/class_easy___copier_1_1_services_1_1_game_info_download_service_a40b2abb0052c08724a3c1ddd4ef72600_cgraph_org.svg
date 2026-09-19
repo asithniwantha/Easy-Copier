@@ -11,7 +11,7 @@
 <!-- Node1 -->
 <g id="Node000001" class="node">
 <title>Node1</title>
-<g id="a_Node000001"><a xlink:title=" ">
+<g id="a_Node000001"><a xlink:title="Downloads category information for a game and writes it to a categories.txt file within the game fold...">
 <polygon fill="#999999" stroke="#666666" points="230.5,-100 0,-100 0,-68 230.5,-68 230.5,-100"/>
 <text xml:space="preserve" text-anchor="start" x="8" y="-86.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Services.Game</text>
 <text xml:space="preserve" text-anchor="middle" x="115.25" y="-74.5" font-family="Helvetica,sans-Serif" font-size="10.00">InfoDownloadService.DownloadCategoriesAsync</text>
@@ -21,7 +21,7 @@
 <!-- Node2 -->
 <g id="Node000002" class="node">
 <title>Node2</title>
-<g id="a_Node000002"><a xlink:href="class_easy___copier_1_1_services_1_1_game_info_download_service.html#a52925745092a234ad2ca782842d9b75d" target="_top" xlink:title=" ">
+<g id="a_Node000002"><a xlink:href="class_easy___copier_1_1_services_1_1_game_info_download_service.html#a52925745092a234ad2ca782842d9b75d" target="_top" xlink:title="Extracts categories from the game name or folder name using keyword matching as a fallback when onlin...">
 <polygon fill="white" stroke="#666666" points="446.75,-168 266.5,-168 266.5,-124 446.75,-124 446.75,-168"/>
 <text xml:space="preserve" text-anchor="start" x="274.5" y="-154.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Services.Game</text>
 <text xml:space="preserve" text-anchor="start" x="274.5" y="-142.5" font-family="Helvetica,sans-Serif" font-size="10.00">InfoDownloadService.FallbackExtract</text>
@@ -41,7 +41,7 @@
 <!-- Node3 -->
 <g id="Node000003" class="node">
 <title>Node3</title>
-<g id="a_Node000003"><a xlink:href="class_easy___copier_1_1_services_1_1_game_info_download_service.html#aeea730db504e9ee979c0426e61115c3e" target="_top" xlink:title=" ">
+<g id="a_Node000003"><a xlink:href="class_easy___copier_1_1_services_1_1_game_info_download_service.html#aeea730db504e9ee979c0426e61115c3e" target="_top" xlink:title="Queries the Steam community app search endpoint to find the Steam App ID for a game title.">
 <polygon fill="white" stroke="#666666" points="439.25,-106 274,-106 274,-62 439.25,-62 439.25,-106"/>
 <text xml:space="preserve" text-anchor="start" x="282" y="-92.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Services.Game</text>
 <text xml:space="preserve" text-anchor="start" x="282" y="-80.5" font-family="Helvetica,sans-Serif" font-size="10.00">InfoDownloadService.FetchSteam</text>
@@ -61,7 +61,7 @@
 <!-- Node4 -->
 <g id="Node000004" class="node">
 <title>Node4</title>
-<g id="a_Node000004"><a xlink:href="class_easy___copier_1_1_services_1_1_game_info_download_service.html#a96fb38b012fb0f9237e24791c6c46eec" target="_top" xlink:title=" ">
+<g id="a_Node000004"><a xlink:href="class_easy___copier_1_1_services_1_1_game_info_download_service.html#a96fb38b012fb0f9237e24791c6c46eec" target="_top" xlink:title="Fetches game genres from the Steam Web API for the specified app ID and maps them to GameCategory enu...">
 <polygon fill="white" stroke="#666666" points="439.25,-44 274,-44 274,0 439.25,0 439.25,-44"/>
 <text xml:space="preserve" text-anchor="start" x="282" y="-30.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Services.Game</text>
 <text xml:space="preserve" text-anchor="start" x="282" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">InfoDownloadService.FetchSteam</text>
@@ -81,7 +81,7 @@
 <!-- Node5 -->
 <g id="Node000005" class="node">
 <title>Node5</title>
-<g id="a_Node000005"><a xlink:href="class_easy___copier_1_1_services_1_1_game_info_download_service.html#a5e8dd0f68d5c823f9b58034ae798e912" target="_top" xlink:title=" ">
+<g id="a_Node000005"><a xlink:href="class_easy___copier_1_1_services_1_1_game_info_download_service.html#a5e8dd0f68d5c823f9b58034ae798e912" target="_top" xlink:title="Maps a Steam genre description string to a corresponding GameCategory.">
 <polygon fill="white" stroke="#666666" points="668.25,-44 482.75,-44 482.75,0 668.25,0 668.25,-44"/>
 <text xml:space="preserve" text-anchor="start" x="490.75" y="-30.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Services.Game</text>
 <text xml:space="preserve" text-anchor="start" x="490.75" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">InfoDownloadService.MapSteamGenre</text>

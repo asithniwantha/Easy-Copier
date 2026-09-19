@@ -11,7 +11,7 @@
 <!-- Node1 -->
 <g id="Node000001" class="node">
 <title>Node1</title>
-<g id="a_Node000001"><a xlink:title=" ">
+<g id="a_Node000001"><a xlink:title="Asynchronously downloads the latest update package files.">
 <polygon fill="#999999" stroke="#666666" points="154.75,-107 0,-107 0,-75 154.75,-75 154.75,-107"/>
 <text xml:space="preserve" text-anchor="start" x="8" y="-93.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Services.Update</text>
 <text xml:space="preserve" text-anchor="middle" x="77.38" y="-81.5" font-family="Helvetica,sans-Serif" font-size="10.00">Service.DownloadUpdateAsync</text>
@@ -21,7 +21,7 @@
 <!-- Node2 -->
 <g id="Node000002" class="node">
 <title>Node2</title>
-<g id="a_Node000002"><a xlink:href="class_easy___copier_1_1_services_1_1_update_service.html#a05be55038507a9decc8dea00f4842d4d" target="_top" xlink:title=" ">
+<g id="a_Node000002"><a xlink:href="class_easy___copier_1_1_services_1_1_update_service.html#a05be55038507a9decc8dea00f4842d4d" target="_top" xlink:title="Logger message when update download fails.">
 <polygon fill="white" stroke="#666666" points="339.5,-182 191.5,-182 191.5,-150 339.5,-150 339.5,-182"/>
 <text xml:space="preserve" text-anchor="start" x="199.5" y="-168.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Services.Update</text>
 <text xml:space="preserve" text-anchor="middle" x="265.5" y="-156.5" font-family="Helvetica,sans-Serif" font-size="10.00">Service.LogDownloadError</text>
@@ -40,7 +40,7 @@
 <!-- Node3 -->
 <g id="Node000003" class="node">
 <title>Node3</title>
-<g id="a_Node000003"><a xlink:href="class_easy___copier_1_1_services_1_1_update_service.html#aac877ab8477cf3fc25bc2e1430b75d55" target="_top" xlink:title=" ">
+<g id="a_Node000003"><a xlink:href="class_easy___copier_1_1_services_1_1_update_service.html#aac877ab8477cf3fc25bc2e1430b75d55" target="_top" xlink:title="Logger message when download is skipped.">
 <polygon fill="white" stroke="#666666" points="339.5,-132 191.5,-132 191.5,-100 339.5,-100 339.5,-132"/>
 <text xml:space="preserve" text-anchor="start" x="199.5" y="-118.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Services.Update</text>
 <text xml:space="preserve" text-anchor="middle" x="265.5" y="-106.5" font-family="Helvetica,sans-Serif" font-size="10.00">Service.LogDownloadSkipped</text>
@@ -59,7 +59,7 @@
 <!-- Node4 -->
 <g id="Node000004" class="node">
 <title>Node4</title>
-<g id="a_Node000004"><a xlink:href="class_easy___copier_1_1_services_1_1_update_service.html#a12f18eb02f8ebaeb2e30eb3bb36601fb" target="_top" xlink:title=" ">
+<g id="a_Node000004"><a xlink:href="class_easy___copier_1_1_services_1_1_update_service.html#a12f18eb02f8ebaeb2e30eb3bb36601fb" target="_top" xlink:title="Logger message when update download starts.">
 <polygon fill="white" stroke="#666666" points="339.5,-82 191.5,-82 191.5,-50 339.5,-50 339.5,-82"/>
 <text xml:space="preserve" text-anchor="start" x="199.5" y="-68.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Services.Update</text>
 <text xml:space="preserve" text-anchor="middle" x="265.5" y="-56.5" font-family="Helvetica,sans-Serif" font-size="10.00">Service.LogDownloadStart</text>
@@ -78,7 +78,7 @@
 <!-- Node5 -->
 <g id="Node000005" class="node">
 <title>Node5</title>
-<g id="a_Node000005"><a xlink:href="class_easy___copier_1_1_services_1_1_update_service.html#a4e860e022ee273a556cbb4d92ba9b536" target="_top" xlink:title=" ">
+<g id="a_Node000005"><a xlink:href="class_easy___copier_1_1_services_1_1_update_service.html#a4e860e022ee273a556cbb4d92ba9b536" target="_top" xlink:title="Logger message when update download succeeds.">
 <polygon fill="white" stroke="#666666" points="340.25,-32 190.75,-32 190.75,0 340.25,0 340.25,-32"/>
 <text xml:space="preserve" text-anchor="start" x="198.75" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Services.Update</text>
 <text xml:space="preserve" text-anchor="middle" x="265.5" y="-6.5" font-family="Helvetica,sans-Serif" font-size="10.00">Service.LogDownloadSuccess</text>

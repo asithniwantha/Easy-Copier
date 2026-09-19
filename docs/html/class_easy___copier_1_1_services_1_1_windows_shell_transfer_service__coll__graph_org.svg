@@ -11,7 +11,7 @@
 <!-- Node1 -->
 <g id="Node000001" class="node">
 <title>Node1</title>
-<g id="a_Node000001"><a xlink:title=" ">
+<g id="a_Node000001"><a xlink:title="Implements file transfer operations utilizing the Windows Shell COM API (IFileOperation) on STA backg...">
 <polygon fill="#999999" stroke="#666666" points="445.25,-82 288.25,-82 288.25,-50 445.25,-50 445.25,-82"/>
 <text xml:space="preserve" text-anchor="start" x="296.25" y="-68.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Services.Windows</text>
 <text xml:space="preserve" text-anchor="middle" x="366.75" y="-56.5" font-family="Helvetica,sans-Serif" font-size="10.00">ShellTransferService</text>
@@ -21,7 +21,7 @@
 <!-- Node2 -->
 <g id="Node000002" class="node">
 <title>Node2</title>
-<g id="a_Node000002"><a xlink:href="interface_easy___copier_1_1_services_1_1_i_file_transfer_service.html" target="_top" xlink:title=" ">
+<g id="a_Node000002"><a xlink:href="interface_easy___copier_1_1_services_1_1_i_file_transfer_service.html" target="_top" xlink:title="Defines operations for executing file transfer requests and querying directory file size statistics.">
 <polygon fill="white" stroke="#666666" points="145.38,-132 10.12,-132 10.12,-100 145.38,-100 145.38,-132"/>
 <text xml:space="preserve" text-anchor="start" x="18.12" y="-118.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Services.IFile</text>
 <text xml:space="preserve" text-anchor="middle" x="77.75" y="-106.5" font-family="Helvetica,sans-Serif" font-size="10.00">TransferService</text>
@@ -40,7 +40,7 @@
 <!-- Node3 -->
 <g id="Node000003" class="node">
 <title>Node3</title>
-<g id="a_Node000003"><a xlink:href="interface_easy___copier_1_1_services_1_1_i_copy_history_service.html" target="_top" xlink:title=" ">
+<g id="a_Node000003"><a xlink:href="interface_easy___copier_1_1_services_1_1_i_copy_history_service.html" target="_top" xlink:title="Service interface for recording and querying copy operation history in a local SQLite database.">
 <polygon fill="white" stroke="#666666" points="149.12,-82 6.38,-82 6.38,-50 149.12,-50 149.12,-82"/>
 <text xml:space="preserve" text-anchor="start" x="14.38" y="-68.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Services.ICopy</text>
 <text xml:space="preserve" text-anchor="middle" x="77.75" y="-56.5" font-family="Helvetica,sans-Serif" font-size="10.00">HistoryService</text>
@@ -60,7 +60,7 @@
 <!-- Node4 -->
 <g id="Node000004" class="node">
 <title>Node4</title>
-<g id="a_Node000004"><a xlink:href="interface_easy___copier_1_1_services_1_1_i_settings_service.html" target="_top" xlink:title=" ">
+<g id="a_Node000004"><a xlink:href="interface_easy___copier_1_1_services_1_1_i_settings_service.html" target="_top" xlink:title="Defines operations for loading, saving, and retrieving application configuration settings.">
 <polygon fill="white" stroke="#666666" points="155.5,-32 0,-32 0,0 155.5,0 155.5,-32"/>
 <text xml:space="preserve" text-anchor="start" x="8" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Services.ISettings</text>
 <text xml:space="preserve" text-anchor="middle" x="77.75" y="-6.5" font-family="Helvetica,sans-Serif" font-size="10.00">Service</text>

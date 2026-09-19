@@ -11,7 +11,7 @@
 <!-- Node1 -->
 <g id="Node000001" class="node">
 <title>Node1</title>
-<g id="a_Node000001"><a xlink:title=" ">
+<g id="a_Node000001"><a xlink:title="Resolves the absolute path to the local library cache file in AppData.">
 <polygon fill="#999999" stroke="#666666" points="375.5,-82 214.75,-82 214.75,-50 375.5,-50 375.5,-82"/>
 <text xml:space="preserve" text-anchor="start" x="222.75" y="-68.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Services.Library</text>
 <text xml:space="preserve" text-anchor="middle" x="295.12" y="-56.5" font-family="Helvetica,sans-Serif" font-size="10.00">CacheService.GetCacheFilePath</text>
@@ -21,7 +21,7 @@
 <!-- Node2 -->
 <g id="Node000002" class="node">
 <title>Node2</title>
-<g id="a_Node000002"><a xlink:href="class_easy___copier_1_1_services_1_1_library_cache_service.html#a28508b1cd4dc6e586b314f7cbae10ace" target="_top" xlink:title=" ">
+<g id="a_Node000002"><a xlink:href="class_easy___copier_1_1_services_1_1_library_cache_service.html#a28508b1cd4dc6e586b314f7cbae10ace" target="_top" xlink:title="Deletes the cached snapshot file if present on disk.">
 <polygon fill="white" stroke="#666666" points="178.75,-132 0,-132 0,-100 178.75,-100 178.75,-132"/>
 <text xml:space="preserve" text-anchor="start" x="8" y="-118.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Services.Library</text>
 <text xml:space="preserve" text-anchor="middle" x="89.38" y="-106.5" font-family="Helvetica,sans-Serif" font-size="10.00">CacheService.InvalidateCacheAsync</text>
@@ -40,7 +40,7 @@
 <!-- Node3 -->
 <g id="Node000003" class="node">
 <title>Node3</title>
-<g id="a_Node000003"><a xlink:href="class_easy___copier_1_1_services_1_1_library_cache_service.html#a0803da77cac9887ad4dd36e5a47b0ee8" target="_top" xlink:title=" ">
+<g id="a_Node000003"><a xlink:href="class_easy___copier_1_1_services_1_1_library_cache_service.html#a0803da77cac9887ad4dd36e5a47b0ee8" target="_top" xlink:title="Asynchronously deserializes and verifies the cached library snapshot file.">
 <polygon fill="white" stroke="#666666" points="168.25,-82 10.5,-82 10.5,-50 168.25,-50 168.25,-82"/>
 <text xml:space="preserve" text-anchor="start" x="18.5" y="-68.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Services.Library</text>
 <text xml:space="preserve" text-anchor="middle" x="89.38" y="-56.5" font-family="Helvetica,sans-Serif" font-size="10.00">CacheService.LoadCacheAsync</text>
@@ -59,7 +59,7 @@
 <!-- Node4 -->
 <g id="Node000004" class="node">
 <title>Node4</title>
-<g id="a_Node000004"><a xlink:href="class_easy___copier_1_1_services_1_1_library_cache_service.html#a85c47e1fe8510bcb82b48e83a7796cd1" target="_top" xlink:title=" ">
+<g id="a_Node000004"><a xlink:href="class_easy___copier_1_1_services_1_1_library_cache_service.html#a85c47e1fe8510bcb82b48e83a7796cd1" target="_top" xlink:title="Asynchronously writes the library cache snapshot to disk using a temporary file and atomic swap.">
 <polygon fill="white" stroke="#666666" points="169,-32 9.75,-32 9.75,0 169,0 169,-32"/>
 <text xml:space="preserve" text-anchor="start" x="17.75" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Services.Library</text>
 <text xml:space="preserve" text-anchor="middle" x="89.38" y="-6.5" font-family="Helvetica,sans-Serif" font-size="10.00">CacheService.SaveCacheAsync</text>

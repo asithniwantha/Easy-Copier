@@ -1,0 +1,5 @@
+var class_easy___copier_1_1_views_1_1_conflict_dialog_content_1_1_xaml_binding_setters =
+[
+    [ "Set_Microsoft_UI_Xaml_Controls_Primitives_ToggleButton_IsChecked", "class_easy___copier_1_1_views_1_1_conflict_dialog_content_1_1_xaml_binding_setters.html#aa35816f9982319d284a73541f4ecefb3", null ],
+    [ "Set_Microsoft_UI_Xaml_Controls_TextBlock_Text", "class_easy___copier_1_1_views_1_1_conflict_dialog_content_1_1_xaml_binding_setters.html#a4508e2818f3a2287e9156c3bd6e88a1b", null ]
+];

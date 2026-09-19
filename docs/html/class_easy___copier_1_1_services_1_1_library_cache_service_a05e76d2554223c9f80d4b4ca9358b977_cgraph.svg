@@ -53,7 +53,7 @@
 <!-- Node1 -->
 <g id="Node000001" class="node">
 <title>Node1</title>
-<g id="a_Node000001"><a xlink:title=" ">
+<g id="a_Node000001"><a xlink:title="Compares the cached snapshot against active source folder settings and inspects modified files to eva...">
 <polygon fill="#999999" stroke="#666666" points="171.25,-194 0,-194 0,-162 171.25,-162 171.25,-194"/>
 <text xml:space="preserve" text-anchor="start" x="8" y="-180.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Services.Library</text>
 <text xml:space="preserve" text-anchor="middle" x="85.62" y="-168.5" font-family="Helvetica,sans-Serif" font-size="10.00">CacheService.ValidateCacheAsync</text>
@@ -82,7 +82,7 @@
 <!-- Node3 -->
 <g id="Node000003" class="node">
 <title>Node3</title>
-<g id="a_Node000003"><a xlink:href="class_easy___copier_1_1_services_1_1_library_cache_service.html#a2abaf39099e322db7d5f78d9c2ff8363" target="_top" xlink:title=" ">
+<g id="a_Node000003"><a xlink:href="class_easy___copier_1_1_services_1_1_library_cache_service.html#a2abaf39099e322db7d5f78d9c2ff8363" target="_top" xlink:title="Calculates total size and latest modified timestamp for a directory or file.">
 <polygon fill="white" stroke="#666666" points="420.5,-194 207.25,-194 207.25,-162 420.5,-162 420.5,-194"/>
 <text xml:space="preserve" text-anchor="start" x="215.25" y="-180.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Services.Library</text>
 <text xml:space="preserve" text-anchor="middle" x="313.88" y="-168.5" font-family="Helvetica,sans-Serif" font-size="10.00">CacheService.ComputeItemFingerprintAsync</text>
@@ -119,7 +119,7 @@
 <!-- Node5 -->
 <g id="Node000005" class="node">
 <title>Node5</title>
-<g id="a_Node000005"><a xlink:href="class_easy___copier_1_1_services_1_1_library_cache_service.html#aaf6b234dce07569f9f44378ce18cef7a" target="_top" xlink:title=" ">
+<g id="a_Node000005"><a xlink:href="class_easy___copier_1_1_services_1_1_library_cache_service.html#aaf6b234dce07569f9f44378ce18cef7a" target="_top" xlink:title="Normalizes file and directory paths by resolving full paths and trimming trailing directory separator...">
 <polygon fill="white" stroke="#666666" points="616.88,-172 471.12,-172 471.12,-140 616.88,-140 616.88,-172"/>
 <text xml:space="preserve" text-anchor="start" x="479.12" y="-158.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Services.Library</text>
 <text xml:space="preserve" text-anchor="middle" x="544" y="-146.5" font-family="Helvetica,sans-Serif" font-size="10.00">CacheService.NormalizePath</text>
@@ -138,7 +138,7 @@
 <!-- Node6 -->
 <g id="Node000006" class="node">
 <title>Node6</title>
-<g id="a_Node000006"><a xlink:href="class_easy___copier_1_1_services_1_1_library_cache_service.html#a104e5be4abc7061e4a3d5bca37655bff" target="_top" xlink:title=" ">
+<g id="a_Node000006"><a xlink:href="class_easy___copier_1_1_services_1_1_library_cache_service.html#a104e5be4abc7061e4a3d5bca37655bff" target="_top" xlink:title="Compares two fingerprints to check if total byte size and write timestamp match.">
 <polygon fill="white" stroke="#666666" points="393.12,-244 234.62,-244 234.62,-212 393.12,-212 393.12,-244"/>
 <text xml:space="preserve" text-anchor="start" x="242.62" y="-230.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Services.Library</text>
 <text xml:space="preserve" text-anchor="middle" x="313.88" y="-218.5" font-family="Helvetica,sans-Serif" font-size="10.00">CacheService.FingerprintsMatch</text>
@@ -157,7 +157,7 @@
 <!-- Node7 -->
 <g id="Node000007" class="node">
 <title>Node7</title>
-<g id="a_Node000007"><a xlink:href="namespace_easy___copier_1_1_models.html#ab9811c24c166bd7f4768ddafbcbaf75d" target="_top" xlink:title=" ">
+<g id="a_Node000007"><a xlink:href="namespace_easy___copier_1_1_models.html#a9c2abd1d64352c07d3085ba499cf2aae" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="#666666" points="393.5,-88 234.25,-88 234.25,-68 393.5,-68 393.5,-88"/>
 <text xml:space="preserve" text-anchor="middle" x="313.88" y="-74.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Models.GameEntry</text>
 </a>

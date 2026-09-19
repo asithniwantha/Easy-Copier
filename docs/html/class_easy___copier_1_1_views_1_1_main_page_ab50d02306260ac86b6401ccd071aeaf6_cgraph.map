@@ -1,0 +1,5 @@
+<map id="Easy_Copier.Views.MainPage.SearchBox_TextChanged" name="Easy_Copier.Views.MainPage.SearchBox_TextChanged">
+<area shape="rect" id="Node000001" title="Handles text change events in the search box to dynamically update its background color." alt="" coords="5,5,208,48"/>
+<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_views_1_1_main_page.html#aaa1ec34f5c001fd2cc41db711ffcf63c" title="Updates the SearchBox background and resource dictionaries based on whether search text is present." alt="" coords="256,5,458,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="208,24,243,27,238,27,208,29"/>
+</map>

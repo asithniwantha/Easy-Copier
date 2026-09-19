@@ -11,7 +11,7 @@
 <!-- Node1 -->
 <g id="Node000001" class="node">
 <title>Node1</title>
-<g id="a_Node000001"><a xlink:title=" ">
+<g id="a_Node000001"><a xlink:title="Attempts to download cover art thumbnail from PCGamingWiki API for the specified game title.">
 <polygon fill="#999999" stroke="#666666" points="175.75,-44 0,-44 0,0 175.75,0 175.75,-44"/>
 <text xml:space="preserve" text-anchor="start" x="8" y="-30.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Services.Game</text>
 <text xml:space="preserve" text-anchor="start" x="8" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">InfoDownloadService.TryFetchPcgw</text>
@@ -22,7 +22,7 @@
 <!-- Node2 -->
 <g id="Node000002" class="node">
 <title>Node2</title>
-<g id="a_Node000002"><a xlink:href="class_easy___copier_1_1_services_1_1_game_info_download_service.html#aa5082d34c94299e50e9b4ec7213d3638" target="_top" xlink:title=" ">
+<g id="a_Node000002"><a xlink:href="class_easy___copier_1_1_services_1_1_game_info_download_service.html#aa5082d34c94299e50e9b4ec7213d3638" target="_top" xlink:title="Downloads an image from the specified URL and saves it to a local file path.">
 <polygon fill="white" stroke="#666666" points="422,-38 211.75,-38 211.75,-6 422,-6 422,-38"/>
 <text xml:space="preserve" text-anchor="start" x="219.75" y="-24.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Services.Game</text>
 <text xml:space="preserve" text-anchor="middle" x="316.88" y="-12.5" font-family="Helvetica,sans-Serif" font-size="10.00">InfoDownloadService.DownloadImageAsync</text>

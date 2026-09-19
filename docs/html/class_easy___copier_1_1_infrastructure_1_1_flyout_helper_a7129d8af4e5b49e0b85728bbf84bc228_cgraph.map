@@ -1,0 +1,10 @@
+<map id="Easy_Copier.Infrastructure.FlyoutHelper.ShowOsImageDetailsFlyout" name="Easy_Copier.Infrastructure.FlyoutHelper.ShowOsImageDetailsFlyout">
+<area shape="rect" id="Node000001" title="Displays the OS image details flyout when right&#45;tapping an OS image card." alt="" coords="5,72,232,131"/>
+<area shape="rect" id="Node000002" href="$namespace_easy___copier_1_1_models.html#a9c2abd1d64352c07d3085ba499cf2aae" title=" " alt="" coords="281,29,493,56"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="231,74,310,59,305,61,233,79"/>
+<area shape="rect" id="Node000003" href="$class_easy___copier_1_1_view_models_1_1_os_image_details_view_model.html#a4da5a2ff8f4938af03fe4c9322dd53f5" title=" " alt="" coords="280,80,494,123"/>
+<area shape="poly" id="edge3_Node000001_Node000003" title=" " alt="" coords="232,99,267,101,262,102,233,104"/>
+<area shape="rect" id="Node000004" href="$class_easy___copier_1_1_infrastructure_1_1_flyout_helper.html#aa507f17416e85f5f75287778e50b473b" title=" " alt="" coords="296,147,478,189"/>
+<area shape="poly" id="edge4_Node000001_Node000004" title=" " alt="" coords="232,127,286,142,281,143,232,132"/>
+<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="342,28,334,21,340,11,357,5,387,3,419,5,437,14,432,15,418,11,387,8,358,10,343,15,339,20,347,29"/>
+</map>

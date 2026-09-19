@@ -1,0 +1,6 @@
+<map id="Easy_Copier.Views.GamesTabView.GetSelectedEntries" name="Easy_Copier.Views.GamesTabView.GetSelectedEntries">
+<area shape="rect" id="Node000001" title="Retrieves the collection of currently selected GameEntry items in this view.An enumerable of selected..." alt="" coords="5,21,209,64"/>
+<area shape="rect" id="Node000002" href="$namespace_easy___copier_1_1_models.html#a9c2abd1d64352c07d3085ba499cf2aae" title=" " alt="" coords="257,29,469,56"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="209,40,244,43,238,43,209,45"/>
+<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="320,28,312,21,318,11,335,5,363,3,394,5,411,15,406,14,392,10,363,8,336,10,321,15,318,20,325,30"/>
+</map>

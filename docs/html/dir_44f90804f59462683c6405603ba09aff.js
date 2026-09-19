@@ -5,6 +5,7 @@ var dir_44f90804f59462683c6405603ba09aff =
     [ "DispatcherService.cs", "_dispatcher_service_8cs.html", "_dispatcher_service_8cs" ],
     [ "FilePickerService.cs", "_file_picker_service_8cs.html", "_file_picker_service_8cs" ],
     [ "FileSystemHelpers.cs", "_file_system_helpers_8cs.html", "_file_system_helpers_8cs" ],
+    [ "FlyoutHelper.cs", "_flyout_helper_8cs.html", "_flyout_helper_8cs" ],
     [ "FolderPickerService.cs", "_folder_picker_service_8cs.html", "_folder_picker_service_8cs" ],
     [ "FormattingHelpers.cs", "_formatting_helpers_8cs.html", "_formatting_helpers_8cs" ],
     [ "IAppWindowContext.cs", "_i_app_window_context_8cs.html", "_i_app_window_context_8cs" ],

@@ -11,7 +11,7 @@
 <!-- Node1 -->
 <g id="Node000001" class="node">
 <title>Node1</title>
-<g id="a_Node000001"><a xlink:title=" ">
+<g id="a_Node000001"><a xlink:title="Checks if all queued items targeting a drive have finished and triggers completion sounds and toast n...">
 <polygon fill="#999999" stroke="#666666" points="178,-44 0,-44 0,0 178,0 178,-44"/>
 <text xml:space="preserve" text-anchor="start" x="8" y="-30.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Services.Transfer</text>
 <text xml:space="preserve" text-anchor="start" x="8" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">QueueService.CheckAndNotifyBatch</text>
@@ -22,7 +22,7 @@
 <!-- Node2 -->
 <g id="Node000002" class="node">
 <title>Node2</title>
-<g id="a_Node000002"><a xlink:href="class_easy___copier_1_1_services_1_1_transfer_queue_service.html#a609a297676ded43e4cae11d0c7b0eb04" target="_top" xlink:title=" ">
+<g id="a_Node000002"><a xlink:href="class_easy___copier_1_1_services_1_1_transfer_queue_service.html#a609a297676ded43e4cae11d0c7b0eb04" target="_top" xlink:title="Builds and displays a Windows AppNotification toast message summarizing batch transfer completion.">
 <polygon fill="white" stroke="#666666" points="405.5,-38 214,-38 214,-6 405.5,-6 405.5,-38"/>
 <text xml:space="preserve" text-anchor="start" x="222" y="-24.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Services.Transfer</text>
 <text xml:space="preserve" text-anchor="middle" x="309.75" y="-12.5" font-family="Helvetica,sans-Serif" font-size="10.00">QueueService.ShowDesktopNotification</text>

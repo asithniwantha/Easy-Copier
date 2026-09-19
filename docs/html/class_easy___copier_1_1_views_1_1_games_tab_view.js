@@ -1,0 +1,25 @@
+var class_easy___copier_1_1_views_1_1_games_tab_view =
+[
+    [ "XamlBindingSetters", "class_easy___copier_1_1_views_1_1_games_tab_view_1_1_xaml_binding_setters.html", "class_easy___copier_1_1_views_1_1_games_tab_view_1_1_xaml_binding_setters" ],
+    [ "GamesTabView_obj3_Bindings", "class_easy___copier_1_1_views_1_1_games_tab_view_1_1_games_tab_view__obj3___bindings.html", "class_easy___copier_1_1_views_1_1_games_tab_view_1_1_games_tab_view__obj3___bindings" ],
+    [ "GamesTabView_obj1_Bindings", "class_easy___copier_1_1_views_1_1_games_tab_view_1_1_games_tab_view__obj1___bindings.html", "class_easy___copier_1_1_views_1_1_games_tab_view_1_1_games_tab_view__obj1___bindings" ],
+    [ "IGamesTabView_Bindings", "interface_easy___copier_1_1_views_1_1_games_tab_view_1_1_i_games_tab_view___bindings.html", "interface_easy___copier_1_1_views_1_1_games_tab_view_1_1_i_games_tab_view___bindings" ],
+    [ "IGamesTabView_BindingsScopeConnector", "interface_easy___copier_1_1_views_1_1_games_tab_view_1_1_i_games_tab_view___bindings_scope_connector.html", "interface_easy___copier_1_1_views_1_1_games_tab_view_1_1_i_games_tab_view___bindings_scope_connector" ],
+    [ "GamesTabView", "class_easy___copier_1_1_views_1_1_games_tab_view.html#a3d4ae51fce80169316dc885af750d458", null ],
+    [ "ClearSelection", "class_easy___copier_1_1_views_1_1_games_tab_view.html#a6eab030c8f0d6ea9d68cbf261dc501d6", null ],
+    [ "Connect", "class_easy___copier_1_1_views_1_1_games_tab_view.html#a7308db31f7bf54663baf056bce1215ad", null ],
+    [ "GameCard_RightTapped", "class_easy___copier_1_1_views_1_1_games_tab_view.html#a79a278bf50c18d8b24fe87d8c2f33f38", null ],
+    [ "GamesGridView_SelectionChanged", "class_easy___copier_1_1_views_1_1_games_tab_view.html#a5ff68e0cfaa5b9419e6c340a6a1ad97a", null ],
+    [ "GetBindingConnector", "class_easy___copier_1_1_views_1_1_games_tab_view.html#a08102174b7b319e7b1041acd5dbd3bc7", null ],
+    [ "GetSelectedEntries", "class_easy___copier_1_1_views_1_1_games_tab_view.html#a8165eb4f0971ce6753f2e5cb6f01fd15", null ],
+    [ "InitializeComponent", "class_easy___copier_1_1_views_1_1_games_tab_view.html#a6861528a9b80a78a26cfe99e80c91d06", null ],
+    [ "OpenFolderButton_Click", "class_easy___copier_1_1_views_1_1_games_tab_view.html#aaa23f7199b14b9214c1094e5e71c3063", null ],
+    [ "UnloadObject", "class_easy___copier_1_1_views_1_1_games_tab_view.html#a4ee5e227a14d21a425a62a3c2b079595", null ],
+    [ "_contentLoaded", "class_easy___copier_1_1_views_1_1_games_tab_view.html#a43616b56eb378513bd93df89ea502873", null ],
+    [ "Bindings", "class_easy___copier_1_1_views_1_1_games_tab_view.html#ae93e2cac674a0a1c09e1463a595acc88", null ],
+    [ "GamesGridView", "class_easy___copier_1_1_views_1_1_games_tab_view.html#a33cde2941c41acd46ca43f3345517a4b", null ],
+    [ "ViewModelProperty", "class_easy___copier_1_1_views_1_1_games_tab_view.html#a8d42add71aa75252e8c41dbe989f127c", null ],
+    [ "SelectedItems", "class_easy___copier_1_1_views_1_1_games_tab_view.html#a28f2f34087dd084bc4c7106af6a297db", null ],
+    [ "ViewModel", "class_easy___copier_1_1_views_1_1_games_tab_view.html#aae98f3fa5c46039c98b47b3cb0f2a2b3", null ],
+    [ "SelectionChanged", "class_easy___copier_1_1_views_1_1_games_tab_view.html#ab231dd1fa7721511a48351fce9675844", null ]
+];

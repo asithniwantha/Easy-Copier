@@ -112,6 +112,9 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('interface_easy
   <div class="headertitle"><div class="title">Easy_Copier.Services.IUpdateService Interface Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Defines operations for checking, downloading, and applying application updates via Velopack.  
+ <a href="#details">More...</a></p>
 <div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Inheritance diagram for Easy_Copier.Services.IUpdateService:</div>
 <div id="dynsection-0-summary" class="dynsummary">
 </div>
@@ -122,12 +125,16 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('interface_easy
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a38e7cccdfa9eeefbb1f579ae3c625562" id="r_a38e7cccdfa9eeefbb1f579ae3c625562"><td class="memItemLeft">Task&lt; bool &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a38e7cccdfa9eeefbb1f579ae3c625562">CheckForUpdatesAsync</a> ()</td></tr>
+<tr class="memdesc:a38e7cccdfa9eeefbb1f579ae3c625562"><td class="mdescLeft">&#160;</td><td class="mdescRight">Asynchronously checks if a newer version of the application is available from the update server or release releases feed.  <br /></td></tr>
 <tr class="memitem:a038e18dbbad7c4990d14a686a297c4cb" id="r_a038e18dbbad7c4990d14a686a297c4cb"><td class="memItemLeft">Task&#160;</td><td class="memItemRight"><a class="el" href="#a038e18dbbad7c4990d14a686a297c4cb">DownloadUpdateAsync</a> ()</td></tr>
+<tr class="memdesc:a038e18dbbad7c4990d14a686a297c4cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Asynchronously downloads the latest available application update package.  <br /></td></tr>
 <tr class="memitem:a8f6fa4fc5355660b86e2db1b1f925d42" id="r_a8f6fa4fc5355660b86e2db1b1f925d42"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a8f6fa4fc5355660b86e2db1b1f925d42">RestartAndApplyUpdate</a> ()</td></tr>
+<tr class="memdesc:a8f6fa4fc5355660b86e2db1b1f925d42"><td class="mdescLeft">&#160;</td><td class="mdescRight">Restarts the application and applies the downloaded update package.  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="_i_update_service_8cs_source.html#l00005">5</a> of file <a class="el" href="_i_update_service_8cs_source.html">IUpdateService.cs</a>.</p>
+<div class="textblock"><p>Defines operations for checking, downloading, and applying application updates via Velopack. </p>
+
+<p class="definition">Definition at line <a class="el" href="_i_update_service_8cs_source.html#l00008">8</a> of file <a class="el" href="_i_update_service_8cs_source.html">IUpdateService.cs</a>.</p>
 </div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
 <a id="a38e7cccdfa9eeefbb1f579ae3c625562" name="a38e7cccdfa9eeefbb1f579ae3c625562"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a38e7cccdfa9eeefbb1f579ae3c625562">&#9670;&#160;</a></span>CheckForUpdatesAsync()</h2>
@@ -143,6 +150,9 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Asynchronously checks if a newer version of the application is available from the update server or release releases feed. </p>
+<dl class="section return"><dt>Returns</dt><dd>A task returning <code>true</code> if an update is available; otherwise, <code>false</code>.</dd></dl>
 
 <p>Implemented in <a class="el" href="class_easy___copier_1_1_services_1_1_update_service.html#a55cbb64f356109e29dcb0929e953507c">Easy_Copier.Services.UpdateService</a>.</p>
 
@@ -163,6 +173,9 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Asynchronously downloads the latest available application update package. </p>
+<dl class="section return"><dt>Returns</dt><dd>A task representing the download operation.</dd></dl>
+
 <p>Implemented in <a class="el" href="class_easy___copier_1_1_services_1_1_update_service.html#a42115342f12a72887fd604b1b1351761">Easy_Copier.Services.UpdateService</a>.</p>
 
 </div>
@@ -181,6 +194,8 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Restarts the application and applies the downloaded update package. </p>
 
 <p>Implemented in <a class="el" href="class_easy___copier_1_1_services_1_1_update_service.html#ae0bd3d393585ef2eec47a1282056bb79">Easy_Copier.Services.UpdateService</a>.</p>
 

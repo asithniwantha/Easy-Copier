@@ -1,0 +1,49 @@
+<map id="Easy_Copier.Views.TvAndFilmsTabView.TvAndFilmsTabView_obj1_Bindings.TvAndFilmsTabView_obj1_BindingsTracking.ReleaseAllListeners" name="Easy_Copier.Views.TvAndFilmsTabView.TvAndFilmsTabView_obj1_Bindings.TvAndFilmsTabView_obj1_BindingsTracking.ReleaseAllListeners">
+<area shape="rect" id="Node000001" title=" " alt="" coords="4161,178,4440,253"/>
+<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_views_1_1_tv_and_films_tab_view_1_1_tv_and_films_tab_view__obj1___bindings.html#ab68487befb808f015496b4bb77a1334a" title=" " alt="" coords="3210,585,3420,644"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="4291,266,4270,340,4236,423,4212,464,4185,504,4152,539,4114,569,4073,592,4029,613,3938,642,3843,660,3747,668,3654,668,3567,662,3420,641,3421,635,3567,657,3655,662,3747,663,3842,655,3937,637,4028,608,4071,588,4112,564,4148,535,4180,500,4208,462,4231,420,4265,338,4286,270"/>
+<area shape="rect" id="Node000004" href="$class_easy___copier_1_1_views_1_1_tv_and_films_tab_view_1_1_tv_and_films_tab_view__obj1___bindings.html#ac3e289ed69b87dc47602777bf227bb31" title=" " alt="" coords="3866,61,4076,120"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="4195,172,4112,141,4063,123,4063,118,4114,136,4200,172"/>
+<area shape="rect" id="Node000005" href="$class_easy___copier_1_1_views_1_1_tv_and_films_tab_view_1_1_tv_and_films_tab_view__obj1___bindin48050c52f26d15bb73a491fa5a0e2521.html#a21674e086ccc16d3be4fe8f47a5380ae" title=" " alt="" coords="3829,229,4113,304"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="4148,239,4114,247,4113,242,4143,240"/>
+<area shape="rect" id="Node000003" href="$class_easy___copier_1_1_views_1_1_tv_and_films_tab_view.html#ab74d75d453d1f18ce7744ccc0818b1b2" title="GetBindingConnector(int connectionId, object target)." alt="" coords="5,552,216,594"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="3192,612,2718,609,626,609,406,601,216,586,216,581,407,596,626,604,2718,604,3197,612"/>
+<area shape="rect" id="Node000006" href="$class_easy___copier_1_1_views_1_1_tv_and_films_tab_view_1_1_tv_and_films_tab_view__obj1___bindin48050c52f26d15bb73a491fa5a0e2521.html#ac16622d76e89f1842f57ed5d466fe6cb" title=" " alt="" coords="3507,369,3781,460"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="3882,310,3782,359,3756,371,3754,366,3780,355,3877,311"/>
+<area shape="rect" id="Node000009" href="$class_easy___copier_1_1_views_1_1_tv_and_films_tab_view_1_1_tv_and_films_tab_view__obj1___bindin48050c52f26d15bb73a491fa5a0e2521.html#a73ca08e7f1a459718e4ba4233b1eeedc" title=" " alt="" coords="2584,398,2849,489"/>
+<area shape="poly" id="edge25_Node000005_Node000009" title=" " alt="" coords="3943,315,3914,359,3877,403,3833,443,3782,474,3747,486,3704,496,3601,507,3479,510,3346,507,3075,488,2849,464,2849,458,3076,483,3346,502,3479,505,3601,502,3703,490,3745,481,3780,469,3830,439,3874,399,3910,356,3938,318"/>
+<area shape="rect" id="Node000012" href="$class_easy___copier_1_1_views_1_1_tv_and_films_tab_view_1_1_tv_and_films_tab_view__obj1___bindin48050c52f26d15bb73a491fa5a0e2521.html#a35545fc6af551c4738714121ba0377bd" title=" " alt="" coords="1640,204,1926,294"/>
+<area shape="poly" id="edge24_Node000005_Node000012" title=" " alt="" coords="3811,246,3780,245,3549,225,3316,220,2391,220,2145,226,1926,240,1925,235,2144,221,2391,214,3317,214,3549,220,3781,240,3816,246"/>
+<area shape="rect" id="Node000013" href="$class_easy___copier_1_1_views_1_1_tv_and_films_tab_view_1_1_tv_and_films_tab_view__obj1___bindin48050c52f26d15bb73a491fa5a0e2521.html#a17a9bf371010764c8793fc5c0d22b7d8" title=" " alt="" coords="1297,170,1592,245"/>
+<area shape="poly" id="edge28_Node000005_Node000013" title=" " alt="" coords="3830,224,3780,216,3651,192,3550,178,3448,171,3316,169,2086,169,1955,171,1824,178,1593,195,1592,190,1824,172,1955,166,2085,164,3317,164,3448,166,3550,173,3652,187,3781,210,3835,225"/>
+<area shape="rect" id="Node000019" href="$class_easy___copier_1_1_views_1_1_tv_and_films_tab_view_1_1_tv_and_films_tab_view__obj1___bindin48050c52f26d15bb73a491fa5a0e2521.html#ab4f1c1aec98766276470a6d890c06a35" title=" " alt="" coords="3512,254,3776,345"/>
+<area shape="poly" id="edge26_Node000005_Node000019" title=" " alt="" coords="3816,282,3777,289,3776,284,3811,283"/>
+<area shape="rect" id="Node000007" href="$class_easy___copier_1_1_views_1_1_tv_and_films_tab_view_1_1_tv_and_films_tab_view__obj1___bindin48050c52f26d15bb73a491fa5a0e2521.html#a640fbcf117255bcf399e840a7d447085" title=" " alt="" coords="3171,274,3459,365"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="3489,370,3459,364,3460,359,3495,371"/>
+<area shape="poly" id="edge7_Node000007_Node000001" title=" " alt="" coords="3427,266,3507,240,3593,222,3681,210,3858,197,4023,196,4163,204,4158,204,4022,201,3858,202,3682,215,3594,228,3508,245,3428,271"/>
+<area shape="rect" id="Node000008" href="$class_easy___copier_1_1_views_1_1_tv_and_films_tab_view_1_1_tv_and_films_tab_view__obj1___bindings.html#aec0e2816980aa6a8e50422cf33ea3511" title=" " alt="" coords="2897,302,3123,377"/>
+<area shape="poly" id="edge8_Node000007_Node000008" title=" " alt="" coords="3153,330,3124,335,3123,330,3158,330"/>
+<area shape="poly" id="edge9_Node000008_Node000009" title=" " alt="" coords="2891,382,2847,400,2845,395,2885,383"/>
+<area shape="rect" id="Node000011" href="$class_easy___copier_1_1_views_1_1_tv_and_films_tab_view_1_1_tv_and_films_tab_view__obj1___bindings.html#aa2255ae0ff79a3350d8c8f354230dc2f" title=" " alt="" coords="1974,310,2200,369"/>
+<area shape="poly" id="edge23_Node000008_Node000011" title=" " alt="" coords="2879,340,2201,342,2201,337,2884,339"/>
+<area shape="rect" id="Node000010" href="$class_easy___copier_1_1_views_1_1_tv_and_films_tab_view_1_1_tv_and_films_tab_view__obj1___bindin48050c52f26d15bb73a491fa5a0e2521.html#a00fa49bf2777784ee9aa471cb737d15d" title=" " alt="" coords="2248,398,2536,489"/>
+<area shape="poly" id="edge10_Node000009_Node000010" title=" " alt="" coords="2566,444,2537,446,2537,441,2571,444"/>
+<area shape="poly" id="edge11_Node000010_Node000001" title=" " alt="" coords="2551,491,2585,498,2703,522,2795,536,2888,543,3009,545,3645,545,3693,543,3741,536,3835,511,3926,475,4011,431,4088,383,4157,334,4257,254,4261,252,4160,338,4091,387,4014,435,3928,480,3837,516,3742,541,3694,548,3645,550,3008,550,2888,548,2795,541,2702,527,2584,504,2551,496"/>
+<area shape="poly" id="edge12_Node000010_Node000011" title=" " alt="" coords="2240,393,2175,372,2176,367,2246,393"/>
+<area shape="poly" id="edge13_Node000011_Node000012" title=" " alt="" coords="1969,305,1926,294,1926,289,1974,305"/>
+<area shape="rect" id="Node000014" href="$class_easy___copier_1_1_views_1_1_tv_and_films_tab_view_1_1_tv_and_films_tab_view__obj1___bindings.html#acfde1cdbac80d04ba036998f4d3b4bbb" title=" " alt="" coords="1039,310,1249,369"/>
+<area shape="poly" id="edge22_Node000011_Node000014" title=" " alt="" coords="1956,340,1250,342,1249,337,1961,339"/>
+<area shape="poly" id="edge14_Node000012_Node000013" title=" " alt="" coords="1622,230,1593,228,1593,223,1627,229"/>
+<area shape="poly" id="edge15_Node000013_Node000001" title=" " alt="" coords="1537,161,1646,116,1781,71,1855,51,1932,35,2009,25,2085,21,3645,21,3717,19,3779,14,3885,4,3935,3,3988,9,4047,23,4114,47,4162,73,4206,107,4243,143,4273,179,4268,177,4239,146,4202,111,4159,77,4112,51,4045,28,3988,14,3935,9,3885,9,3779,19,3717,24,3645,26,2086,26,2009,30,1932,41,1856,56,1783,76,1648,121,1539,166"/>
+<area shape="poly" id="edge16_Node000013_Node000014" title=" " alt="" coords="1347,251,1214,312,1212,307,1342,252"/>
+<area shape="rect" id="Node000015" href="$class_easy___copier_1_1_views_1_1_tv_and_films_tab_view_1_1_tv_and_films_tab_view__obj1___bindings.html#ad7cf3adb933d942f279dfa29b9692a95" title=" " alt="" coords="780,341,991,400"/>
+<area shape="poly" id="edge17_Node000014_Node000015" title=" " alt="" coords="1021,355,992,360,991,355,1026,353"/>
+<area shape="rect" id="Node000016" href="$class_easy___copier_1_1_views_1_1_tv_and_films_tab_view_1_1_tv_and_films_tab_view__obj1___bindings.html#a08fdefda86f1892934ddec219587dc22" title=" " alt="" coords="522,349,732,408"/>
+<area shape="poly" id="edge18_Node000015_Node000016" title=" " alt="" coords="762,375,733,378,732,372,767,374"/>
+<area shape="rect" id="Node000017" href="$class_easy___copier_1_1_views_1_1_tv_and_films_tab_view_1_1_tv_and_films_tab_view__obj1___bindings.html#a7e6d627aec1b4476d69794bf3fc07ae3" title=" " alt="" coords="264,349,474,408"/>
+<area shape="poly" id="edge19_Node000016_Node000017" title=" " alt="" coords="504,379,475,381,474,376,509,378"/>
+<area shape="rect" id="Node000018" href="$class_easy___copier_1_1_views_1_1_tv_and_films_tab_view_1_1_tv_and_films_tab_view__obj1___bindings.html#aa08c7769bb42f14fc9f273f75028968b" title=" " alt="" coords="264,448,474,506"/>
+<area shape="poly" id="edge20_Node000016_Node000018" title=" " alt="" coords="532,415,449,450,447,445,537,413"/>
+<area shape="poly" id="edge21_Node000018_Node000003" title=" " alt="" coords="271,514,171,553,169,549,276,511"/>
+<area shape="poly" id="edge27_Node000019_Node000007" title=" " alt="" coords="3494,309,3460,314,3460,308,3499,308"/>
+</map>

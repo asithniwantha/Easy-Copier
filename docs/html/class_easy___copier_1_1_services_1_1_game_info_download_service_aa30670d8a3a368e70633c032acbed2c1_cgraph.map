@@ -1,5 +1,5 @@
 <map id="Easy_Copier.Services.GameInfoDownloadService.TryFetchPcgwCoverAsync" name="Easy_Copier.Services.GameInfoDownloadService.TryFetchPcgwCoverAsync">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,240,64"/>
-<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_services_1_1_game_info_download_service.html#aa5082d34c94299e50e9b4ec7213d3638" title=" " alt="" coords="288,13,568,56"/>
+<area shape="rect" id="Node000001" title="Attempts to download cover art thumbnail from PCGamingWiki API for the specified game title." alt="" coords="5,5,240,64"/>
+<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_services_1_1_game_info_download_service.html#aa5082d34c94299e50e9b4ec7213d3638" title="Downloads an image from the specified URL and saves it to a local file path." alt="" coords="288,13,568,56"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="240,32,275,34,269,35,240,37"/>
 </map>

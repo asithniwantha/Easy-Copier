@@ -1,0 +1,15 @@
+<map id="Easy_Copier.Views.ConflictDialogContent.ConflictDialogContent_obj1_Bindings.Update_SourceFilesText" name="Easy_Copier.Views.ConflictDialogContent.ConflictDialogContent_obj1_Bindings.Update_SourceFilesText">
+<area shape="rect" id="Node000001" title=" " alt="" coords="1423,47,1679,105"/>
+<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_views_1_1_conflict_dialog_content_1_1_conflict_dialog_content__obj1___bindings.html#a9d1077ac0f63691a6a8047b10e3d545e" title=" " alt="" coords="1139,47,1375,105"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="1405,76,1376,79,1376,73,1410,76"/>
+<area shape="rect" id="Node000003" href="$class_easy___copier_1_1_views_1_1_conflict_dialog_content_1_1_conflict_dialog_content__obj1___bindings.html#abe31e3806c34f665d7923a0a5caf491a" title=" " alt="" coords="854,47,1091,105"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="1120,76,1091,79,1091,73,1126,76"/>
+<area shape="rect" id="Node000004" href="$class_easy___copier_1_1_views_1_1_conflict_dialog_content_1_1_conflict_dialog_content__obj1___bindings.html#a748996d25510c56b0b8ea03e4acb4879" title=" " alt="" coords="570,47,806,105"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="836,76,807,79,807,73,841,76"/>
+<area shape="rect" id="Node000005" href="$class_easy___copier_1_1_views_1_1_conflict_dialog_content_1_1_conflict_dialog_content__obj1___bindings.html#a7693a98646a614e4d657c95e6392eadd" title=" " alt="" coords="286,5,522,64"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="552,57,522,55,522,49,557,56"/>
+<area shape="rect" id="Node000006" href="$class_easy___copier_1_1_views_1_1_conflict_dialog_content_1_1_conflict_dialog_content__obj1___bindings.html#a801d15a288918867829d0fb39b45ff17" title=" " alt="" coords="286,88,522,147"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="557,95,523,103,522,97,552,96"/>
+<area shape="rect" id="Node000007" href="$class_easy___copier_1_1_views_1_1_conflict_dialog_content.html#a8f29dd9009edf5439e9c9a6d03f986e8" title="GetBindingConnector(int connectionId, object target)." alt="" coords="5,96,238,139"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="267,118,238,120,238,115,273,117"/>
+</map>

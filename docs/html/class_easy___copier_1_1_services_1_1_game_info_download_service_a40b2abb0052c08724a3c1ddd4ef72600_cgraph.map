@@ -1,11 +1,11 @@
 <map id="Easy_Copier.Services.GameInfoDownloadService.DownloadCategoriesAsync" name="Easy_Copier.Services.GameInfoDownloadService.DownloadCategoriesAsync">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,96,313,139"/>
-<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_services_1_1_game_info_download_service.html#a52925745092a234ad2ca782842d9b75d" title=" " alt="" coords="361,5,601,64"/>
+<area shape="rect" id="Node000001" title="Downloads category information for a game and writes it to a categories.txt file within the game fold..." alt="" coords="5,96,313,139"/>
+<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_services_1_1_game_info_download_service.html#a52925745092a234ad2ca782842d9b75d" title="Extracts categories from the game name or folder name using keyword matching as a fallback when onlin..." alt="" coords="361,5,601,64"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="244,93,352,67,347,70,246,98"/>
-<area shape="rect" id="Node000003" href="$class_easy___copier_1_1_services_1_1_game_info_download_service.html#aeea730db504e9ee979c0426e61115c3e" title=" " alt="" coords="371,88,591,147"/>
+<area shape="rect" id="Node000003" href="$class_easy___copier_1_1_services_1_1_game_info_download_service.html#aeea730db504e9ee979c0426e61115c3e" title="Queries the Steam community app search endpoint to find the Steam App ID for a game title." alt="" coords="371,88,591,147"/>
 <area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="313,115,358,117,353,118,313,120"/>
-<area shape="rect" id="Node000004" href="$class_easy___copier_1_1_services_1_1_game_info_download_service.html#a96fb38b012fb0f9237e24791c6c46eec" title=" " alt="" coords="371,171,591,229"/>
+<area shape="rect" id="Node000004" href="$class_easy___copier_1_1_services_1_1_game_info_download_service.html#a96fb38b012fb0f9237e24791c6c46eec" title="Fetches game genres from the Steam Web API for the specified app ID and maps them to GameCategory enu..." alt="" coords="371,171,591,229"/>
 <area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="245,137,358,167,353,169,245,142"/>
-<area shape="rect" id="Node000005" href="$class_easy___copier_1_1_services_1_1_game_info_download_service.html#a5e8dd0f68d5c823f9b58034ae798e912" title=" " alt="" coords="649,171,896,229"/>
+<area shape="rect" id="Node000005" href="$class_easy___copier_1_1_services_1_1_game_info_download_service.html#a5e8dd0f68d5c823f9b58034ae798e912" title="Maps a Steam genre description string to a corresponding GameCategory." alt="" coords="649,171,896,229"/>
 <area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="591,197,636,200,631,200,592,203"/>
 </map>

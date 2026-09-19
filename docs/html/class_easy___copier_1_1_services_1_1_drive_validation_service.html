@@ -112,6 +112,9 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('class_easy___c
   <div class="headertitle"><div class="title">Easy_Copier.Services.DriveValidationService Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Validates transfer requirements such as available drive space, FAT32 4GB file limitations, source directory availability, and existing destination folders.  
+ <a href="#details">More...</a></p>
 <div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Inheritance diagram for Easy_Copier.Services.DriveValidationService:</div>
 <div id="dynsection-0-summary" class="dynsummary">
 </div>
@@ -128,15 +131,19 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('class_easy___c
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a9138bd55f12be8903ccc29ba8da48e70" id="r_a9138bd55f12be8903ccc29ba8da48e70"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a9138bd55f12be8903ccc29ba8da48e70">DriveValidationService</a> (ILogger&lt; DriveValidationService &gt; logger)</td></tr>
-<tr class="memitem:ac4b9ded9985d7df860bf8838dda59bca" id="r_ac4b9ded9985d7df860bf8838dda59bca"><td class="memItemLeft">async Task&lt; IReadOnlyList&lt; <a class="el" href="namespace_easy___copier_1_1_models.html#aa394743cccca298523ee415d124c3cbf">ValidationResult</a> &gt; &gt;&#160;</td><td class="memItemRight"><a class="el" href="#ac4b9ded9985d7df860bf8838dda59bca">ValidateTransferAsync</a> (IEnumerable&lt; <a class="el" href="namespace_easy___copier_1_1_models.html#ab9811c24c166bd7f4768ddafbcbaf75d">GameEntry</a> &gt; games, <a class="el" href="namespace_easy___copier_1_1_models.html#af8f0175620d1cdd9a06d3e52ae12ba12">RemovableDrive</a> targetDrive, string destinationBasePath)</td></tr>
+<tr class="memdesc:a9138bd55f12be8903ccc29ba8da48e70"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes a new instance of the DriveValidationService class.  <br /></td></tr>
+<tr class="memitem:ac4b9ded9985d7df860bf8838dda59bca" id="r_ac4b9ded9985d7df860bf8838dda59bca"><td class="memItemLeft">async Task&lt; IReadOnlyList&lt; <a class="el" href="namespace_easy___copier_1_1_models.html#aa394743cccca298523ee415d124c3cbf">ValidationResult</a> &gt; &gt;&#160;</td><td class="memItemRight"><a class="el" href="#ac4b9ded9985d7df860bf8838dda59bca">ValidateTransferAsync</a> (IEnumerable&lt; <a class="el" href="namespace_easy___copier_1_1_models.html#a9c2abd1d64352c07d3085ba499cf2aae">GameEntry</a> &gt; games, <a class="el" href="namespace_easy___copier_1_1_models.html#af8f0175620d1cdd9a06d3e52ae12ba12">RemovableDrive</a> targetDrive, string destinationBasePath)</td></tr>
+<tr class="memdesc:ac4b9ded9985d7df860bf8838dda59bca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Asynchronously validates selected games against target drive storage capacity, file system limitations, and path accessibility.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pri-attribs" class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
 <tr class="memitem:a9cabfbba7e09436723fb2b8699f23002" id="r_a9cabfbba7e09436723fb2b8699f23002"><td class="memItemLeft">readonly ILogger&lt; <a class="el" href="#a9138bd55f12be8903ccc29ba8da48e70">DriveValidationService</a> &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a9cabfbba7e09436723fb2b8699f23002">_logger</a></td></tr>
+<tr class="memdesc:a9cabfbba7e09436723fb2b8699f23002"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logger instance used for recording validation operations.  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="_drive_services_8cs_source.html#l00311">311</a> of file <a class="el" href="_drive_services_8cs_source.html">DriveServices.cs</a>.</p>
+<div class="textblock"><p>Validates transfer requirements such as available drive space, FAT32 4GB file limitations, source directory availability, and existing destination folders. </p>
+
+<p class="definition">Definition at line <a class="el" href="_drive_services_8cs_source.html#l00413">413</a> of file <a class="el" href="_drive_services_8cs_source.html">DriveServices.cs</a>.</p>
 </div><a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a9138bd55f12be8903ccc29ba8da48e70" name="a9138bd55f12be8903ccc29ba8da48e70"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a9138bd55f12be8903ccc29ba8da48e70">&#9670;&#160;</a></span>DriveValidationService()</h2>
@@ -153,9 +160,17 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_drive_services_8cs_source.html#l00315">315</a> of file <a class="el" href="_drive_services_8cs_source.html">DriveServices.cs</a>.</p>
+<p>Initializes a new instance of the DriveValidationService class. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">logger</td><td>The logger instance for validation logs.</td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p class="reference">References <a class="el" href="_drive_services_8cs_source.html#l00313">_logger</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_drive_services_8cs_source.html#l00424">424</a> of file <a class="el" href="_drive_services_8cs_source.html">DriveServices.cs</a>.</p>
+
+<p class="reference">References <a class="el" href="_drive_services_8cs_source.html#l00418">_logger</a>.</p>
 
 </div>
 </div>
@@ -169,7 +184,7 @@ Private Attributes</h2></td></tr>
         <tr>
           <td class="memname">async Task&lt; IReadOnlyList&lt; <a class="el" href="namespace_easy___copier_1_1_models.html#aa394743cccca298523ee415d124c3cbf">ValidationResult</a> &gt; &gt; Easy_Copier.Services.DriveValidationService.ValidateTransferAsync </td>
           <td>(</td>
-          <td class="paramtype">IEnumerable&lt; <a class="el" href="namespace_easy___copier_1_1_models.html#ab9811c24c166bd7f4768ddafbcbaf75d">GameEntry</a> &gt;</td>          <td class="paramname"><span class="paramname"><em>games</em></span>, </td>
+          <td class="paramtype">IEnumerable&lt; <a class="el" href="namespace_easy___copier_1_1_models.html#a9c2abd1d64352c07d3085ba499cf2aae">GameEntry</a> &gt;</td>          <td class="paramname"><span class="paramname"><em>games</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -184,9 +199,20 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Asynchronously validates selected games against target drive storage capacity, file system limitations, and path accessibility. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">games</td><td>The games selected for copy.</td></tr>
+    <tr><td class="paramname">targetDrive</td><td>The target removable drive.</td></tr>
+    <tr><td class="paramname">destinationBasePath</td><td>The destination base folder path on the drive.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A list of ValidationResult entries describing warnings, errors, or success status.</dd></dl>
+
 <p>Implements <a class="el" href="interface_easy___copier_1_1_services_1_1_i_drive_validation_service.html#abf7e21510548c621bef8344a9700f630">Easy_Copier.Services.IDriveValidationService</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_drive_services_8cs_source.html#l00320">320</a> of file <a class="el" href="_drive_services_8cs_source.html">DriveServices.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_drive_services_8cs_source.html#l00436">436</a> of file <a class="el" href="_drive_services_8cs_source.html">DriveServices.cs</a>.</p>
 
 <p class="reference">References <a class="el" href="_domain_models_8cs_source.html#l00040">Easy_Copier.Models.GameEntry()</a>, <a class="el" href="_domain_models_8cs_source.html#l00054">Easy_Copier.Models.RemovableDrive()</a>, and <a class="el" href="namespace_easy___copier_1_1_models.html#aa394743cccca298523ee415d124c3cbf">Easy_Copier.Models.ValidationResult()</a>.</p>
 <div id="dynsection-2" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
@@ -219,9 +245,11 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_drive_services_8cs_source.html#l00313">313</a> of file <a class="el" href="_drive_services_8cs_source.html">DriveServices.cs</a>.</p>
+<p>Logger instance used for recording validation operations. </p>
 
-<p class="reference">Referenced by <a class="el" href="_drive_services_8cs_source.html#l00315">DriveValidationService()</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_drive_services_8cs_source.html#l00418">418</a> of file <a class="el" href="_drive_services_8cs_source.html">DriveServices.cs</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_drive_services_8cs_source.html#l00424">DriveValidationService()</a>.</p>
 
 </div>
 </div>

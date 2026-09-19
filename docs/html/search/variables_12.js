@@ -1,5 +1,5 @@
 var searchData=
 [
   ['videoextensionseparators_0',['VideoExtensionSeparators',['../class_easy___copier_1_1_services_1_1_game_scanner_service.html#a8ea672f01a102493f1f1a5ab8093dd5d',1,'Easy_Copier::Services::GameScannerService']]],
-  ['viewmodelproperty_1',['ViewModelProperty',['../class_easy___copier_1_1_views_1_1_smart_adder_control.html#a9349d96a8eac651140944ccb6b52b65e',1,'Easy_Copier::Views::SmartAdderControl']]]
+  ['viewmodelproperty_1',['ViewModelProperty',['../class_easy___copier_1_1_views_1_1_apps_tab_view.html#a4f36f921b6a9faa9e74c1b3a9c50e6bf',1,'Easy_Copier.Views.AppsTabView.ViewModelProperty'],['../class_easy___copier_1_1_views_1_1_games_tab_view.html#a8d42add71aa75252e8c41dbe989f127c',1,'Easy_Copier.Views.GamesTabView.ViewModelProperty'],['../class_easy___copier_1_1_views_1_1_os_images_tab_view.html#a15575d778acb388f5cf431cf5b5ae354',1,'Easy_Copier.Views.OsImagesTabView.ViewModelProperty'],['../class_easy___copier_1_1_views_1_1_smart_adder_control.html#a9349d96a8eac651140944ccb6b52b65e',1,'Easy_Copier.Views.SmartAdderControl.ViewModelProperty'],['../class_easy___copier_1_1_views_1_1_tv_and_films_tab_view.html#ab8b19776b9aba13362ad3b31db727891',1,'Easy_Copier.Views.TvAndFilmsTabView.ViewModelProperty']]]
 ];

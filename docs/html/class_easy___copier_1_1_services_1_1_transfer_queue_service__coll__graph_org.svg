@@ -11,7 +11,7 @@
 <!-- Node1 -->
 <g id="Node000001" class="node">
 <title>Node1</title>
-<g id="a_Node000001"><a xlink:title=" ">
+<g id="a_Node000001"><a xlink:title="Service managing background asynchronous file transfer queues with per&#45;drive channels,...">
 <polygon fill="#999999" stroke="#666666" points="452,-107 299.5,-107 299.5,-75 452,-75 452,-107"/>
 <text xml:space="preserve" text-anchor="start" x="307.5" y="-93.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Services.Transfer</text>
 <text xml:space="preserve" text-anchor="middle" x="375.75" y="-81.5" font-family="Helvetica,sans-Serif" font-size="10.00">QueueService</text>
@@ -21,7 +21,7 @@
 <!-- Node2 -->
 <g id="Node000002" class="node">
 <title>Node2</title>
-<g id="a_Node000002"><a xlink:href="interface_easy___copier_1_1_services_1_1_i_transfer_queue_service.html" target="_top" xlink:title=" ">
+<g id="a_Node000002"><a xlink:href="interface_easy___copier_1_1_services_1_1_i_transfer_queue_service.html" target="_top" xlink:title="Defines operations for managing the background transfer queue, enqueuing transfer items,...">
 <polygon fill="white" stroke="#666666" points="155.5,-182 0,-182 0,-150 155.5,-150 155.5,-182"/>
 <text xml:space="preserve" text-anchor="start" x="8" y="-168.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Services.ITransfer</text>
 <text xml:space="preserve" text-anchor="middle" x="77.75" y="-156.5" font-family="Helvetica,sans-Serif" font-size="10.00">QueueService</text>
@@ -40,7 +40,7 @@
 <!-- Node3 -->
 <g id="Node000003" class="node">
 <title>Node3</title>
-<g id="a_Node000003"><a xlink:href="interface_easy___copier_1_1_services_1_1_i_file_transfer_service.html" target="_top" xlink:title=" ">
+<g id="a_Node000003"><a xlink:href="interface_easy___copier_1_1_services_1_1_i_file_transfer_service.html" target="_top" xlink:title="Defines operations for executing file transfer requests and querying directory file size statistics.">
 <polygon fill="white" stroke="#666666" points="145.38,-132 10.12,-132 10.12,-100 145.38,-100 145.38,-132"/>
 <text xml:space="preserve" text-anchor="start" x="18.12" y="-118.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Services.IFile</text>
 <text xml:space="preserve" text-anchor="middle" x="77.75" y="-106.5" font-family="Helvetica,sans-Serif" font-size="10.00">TransferService</text>
@@ -60,7 +60,7 @@
 <!-- Node4 -->
 <g id="Node000004" class="node">
 <title>Node4</title>
-<g id="a_Node000004"><a xlink:href="interface_easy___copier_1_1_services_1_1_i_settings_service.html" target="_top" xlink:title=" ">
+<g id="a_Node000004"><a xlink:href="interface_easy___copier_1_1_services_1_1_i_settings_service.html" target="_top" xlink:title="Defines operations for loading, saving, and retrieving application configuration settings.">
 <polygon fill="white" stroke="#666666" points="155.5,-82 0,-82 0,-50 155.5,-50 155.5,-82"/>
 <text xml:space="preserve" text-anchor="start" x="8" y="-68.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Services.ISettings</text>
 <text xml:space="preserve" text-anchor="middle" x="77.75" y="-56.5" font-family="Helvetica,sans-Serif" font-size="10.00">Service</text>
@@ -80,7 +80,7 @@
 <!-- Node5 -->
 <g id="Node000005" class="node">
 <title>Node5</title>
-<g id="a_Node000005"><a xlink:href="interface_easy___copier_1_1_services_1_1_i_audio_playback_service.html" target="_top" xlink:title=" ">
+<g id="a_Node000005"><a xlink:href="interface_easy___copier_1_1_services_1_1_i_audio_playback_service.html" target="_top" xlink:title="Defines operations for playing audio feedback notifications within the application.">
 <polygon fill="white" stroke="#666666" points="149.88,-32 5.62,-32 5.62,0 149.88,0 149.88,-32"/>
 <text xml:space="preserve" text-anchor="start" x="13.62" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Services.IAudio</text>
 <text xml:space="preserve" text-anchor="middle" x="77.75" y="-6.5" font-family="Helvetica,sans-Serif" font-size="10.00">PlaybackService</text>

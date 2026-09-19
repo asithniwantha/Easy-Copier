@@ -1,5 +1,5 @@
 <map id="Easy_Copier.Services.IFileTransferService.TransferGamesAsync" name="Easy_Copier.Services.IFileTransferService.TransferGamesAsync">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,29,250,72"/>
+<area shape="rect" id="Node000001" title="Asynchronously transfers game files according to the provided transfer request configuration." alt="" coords="5,29,250,72"/>
 <area shape="rect" id="Node000002" href="$namespace_easy___copier_1_1_models.html#a361f45ad4ad4f48588e380daa766a5fa" title=" " alt="" coords="298,29,492,72"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="250,48,285,51,279,51,250,53"/>
 <area shape="poly" id="edge4_Node000002_Node000002" title=" " alt="" coords="348,27,345,19,353,10,370,5,395,3,422,5,439,14,434,13,420,10,395,8,371,10,356,15,351,21,352,30"/>

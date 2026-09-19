@@ -1,5 +1,5 @@
 <map id="Easy_Copier.Services.ISourceLibraryService" name="Easy_Copier.Services.ISourceLibraryService">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,206,48"/>
-<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_services_1_1_source_library_service.html" title=" " alt="" coords="7,96,204,139"/>
+<area shape="rect" id="Node000001" title="Defines operations for validating source folder paths and reading game system requirements documents." alt="" coords="5,5,206,48"/>
+<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_services_1_1_source_library_service.html" title="Service for validating source folder paths and reading local game metadata files." alt="" coords="7,96,204,139"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="107,62,108,97,103,95,104,66"/>
 </map>

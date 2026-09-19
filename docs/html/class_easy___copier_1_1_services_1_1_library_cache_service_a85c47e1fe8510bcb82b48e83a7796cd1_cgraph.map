@@ -1,6 +1,6 @@
 <map id="Easy_Copier.Services.LibraryCacheService.SaveCacheAsync" name="Easy_Copier.Services.LibraryCacheService.SaveCacheAsync">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,51,218,93"/>
-<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_services_1_1_library_cache_service.html#a270f99d033d4a205c8617caf505db28a" title=" " alt="" coords="266,5,480,48"/>
+<area shape="rect" id="Node000001" title="Asynchronously writes the library cache snapshot to disk using a temporary file and atomic swap." alt="" coords="5,51,218,93"/>
+<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_services_1_1_library_cache_service.html#a270f99d033d4a205c8617caf505db28a" title="Resolves the absolute path to the local library cache file in AppData." alt="" coords="266,5,480,48"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="217,51,253,47,248,49,219,56"/>
 <area shape="rect" id="Node000003" href="$namespace_easy___copier_1_1_models.html#a6ce72bb145c4b6a2a691fff265751706" title=" " alt="" coords="280,96,466,139"/>
 <area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="218,88,268,98,262,99,218,93"/>

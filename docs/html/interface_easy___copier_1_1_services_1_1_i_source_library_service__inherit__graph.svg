@@ -22,7 +22,7 @@
 <!-- Node1 -->
 <g id="Node000001" class="node">
 <title>Node1</title>
-<g id="a_Node000001"><a xlink:title=" ">
+<g id="a_Node000001"><a xlink:title="Defines operations for validating source folder paths and reading game system requirements documents.">
 <polygon fill="#999999" stroke="#666666" points="150.25,-100 0,-100 0,-68 150.25,-68 150.25,-100"/>
 <text xml:space="preserve" text-anchor="start" x="8" y="-86.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Services.ISource</text>
 <text xml:space="preserve" text-anchor="middle" x="75.12" y="-74.5" font-family="Helvetica,sans-Serif" font-size="10.00">LibraryService</text>
@@ -32,7 +32,7 @@
 <!-- Node2 -->
 <g id="Node000002" class="node">
 <title>Node2</title>
-<g id="a_Node000002"><a xlink:href="class_easy___copier_1_1_services_1_1_source_library_service.html" target="_top" xlink:title=" ">
+<g id="a_Node000002"><a xlink:href="class_easy___copier_1_1_services_1_1_source_library_service.html" target="_top" xlink:title="Service for validating source folder paths and reading local game metadata files.">
 <polygon fill="white" stroke="#666666" points="148.75,-32 1.5,-32 1.5,0 148.75,0 148.75,-32"/>
 <text xml:space="preserve" text-anchor="start" x="9.5" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Services.Source</text>
 <text xml:space="preserve" text-anchor="middle" x="75.12" y="-6.5" font-family="Helvetica,sans-Serif" font-size="10.00">LibraryService</text>

@@ -1,11 +1,11 @@
 <map id="Easy_Copier.Services.TransferQueueService.CheckAndNotifyBatchCompletion" name="Easy_Copier.Services.TransferQueueService.CheckAndNotifyBatchCompletion">
-<area shape="rect" id="Node000001" title=" " alt="" coords="1145,5,1382,64"/>
-<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_services_1_1_transfer_queue_service.html#a533e1a35bdbcf9ff1fdd48462d021ff3" title=" " alt="" coords="878,13,1097,56"/>
+<area shape="rect" id="Node000001" title="Checks if all queued items targeting a drive have finished and triggers completion sounds and toast n..." alt="" coords="1145,5,1382,64"/>
+<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_services_1_1_transfer_queue_service.html#a533e1a35bdbcf9ff1fdd48462d021ff3" title="Executes an individual transfer item and updates its status and progress properties on the UI thread." alt="" coords="878,13,1097,56"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="1126,35,1097,37,1097,32,1132,35"/>
-<area shape="rect" id="Node000003" href="$class_easy___copier_1_1_services_1_1_transfer_queue_service.html#a78c880327c9c88ec2a8691920afd3593" title=" " alt="" coords="569,13,830,56"/>
+<area shape="rect" id="Node000003" href="$class_easy___copier_1_1_services_1_1_transfer_queue_service.html#a78c880327c9c88ec2a8691920afd3593" title="Per&#45;drive loop processing queued transfers sequentially for a single drive letter." alt="" coords="569,13,830,56"/>
 <area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="860,35,831,37,831,32,866,35"/>
-<area shape="rect" id="Node000004" href="$class_easy___copier_1_1_services_1_1_transfer_queue_service.html#ad3adb01ff5efc729bccd3060144e6f34" title=" " alt="" coords="291,13,521,56"/>
+<area shape="rect" id="Node000004" href="$class_easy___copier_1_1_services_1_1_transfer_queue_service.html#ad3adb01ff5efc729bccd3060144e6f34" title="Main background loop reading items from the primary channel and routing them to per&#45;drive execution c..." alt="" coords="291,13,521,56"/>
 <area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="551,35,522,37,522,32,556,35"/>
-<area shape="rect" id="Node000005" href="$class_easy___copier_1_1_services_1_1_transfer_queue_service.html#a31960a3b7a1549213ab478448f6c15c2" title=" " alt="" coords="5,13,243,56"/>
+<area shape="rect" id="Node000005" href="$class_easy___copier_1_1_services_1_1_transfer_queue_service.html#a31960a3b7a1549213ab478448f6c15c2" title="Initializes a new instance of the TransferQueueService class and starts background consumer tasks." alt="" coords="5,13,243,56"/>
 <area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="272,35,243,37,243,32,278,34"/>
 </map>

@@ -1,9 +1,9 @@
 <map id="Easy_Copier.Views.GameDetailsFlyout.GameDetailsFlyout_obj6_Bindings" name="Easy_Copier.Views.GameDetailsFlyout.GameDetailsFlyout_obj6_Bindings">
 <area shape="rect" id="Node000001" title=" " alt="" coords="394,160,610,219"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="17,5,228,48"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="40,5,205,48"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="172,51,266,79,319,97,371,119,437,159,432,160,368,124,318,102,265,85,173,56"/>
-<area shape="poly" id="edge5_Node000001_Node000002" title=" " alt="" coords="242,50,308,69,371,95,423,125,468,159,463,160,420,129,368,100,306,74,243,55"/>
-<area shape="poly" id="edge10_Node000001_Node000002" title=" " alt="" coords="243,27,308,46,371,71,405,90,437,112,487,159,482,159,433,116,402,94,369,76,306,51,244,32"/>
+<area shape="poly" id="edge5_Node000001_Node000002" title=" " alt="" coords="220,44,296,65,371,95,423,125,468,159,463,160,420,129,369,100,294,70,221,49"/>
+<area shape="poly" id="edge10_Node000001_Node000002" title=" " alt="" coords="219,22,296,42,371,71,405,90,437,112,487,159,482,159,433,116,402,94,369,76,294,47,221,27"/>
 <area shape="rect" id="Node000003" title=" " alt="" coords="12,87,233,129"/>
 <area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="176,131,370,172,396,180,391,181,369,177,177,137"/>
 <area shape="poly" id="edge6_Node000001_Node000003" title=" " alt="" coords="248,124,370,148,406,159,401,160,369,153,249,129"/>

@@ -1,0 +1,23 @@
+<map id="Easy_Copier.Infrastructure.FlyoutHelper.PresentFlyout" name="Easy_Copier.Infrastructure.FlyoutHelper.PresentFlyout">
+<area shape="rect" id="Node000001" title=" " alt="" coords="858,139,1040,181"/>
+<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_infrastructure_1_1_flyout_helper.html#a8243f8640163b04ac57cc937f104f349" title="Displays the game details flyout when right&#45;tapping a game card." alt="" coords="529,87,810,129"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="840,140,787,133,788,127,846,140"/>
+<area shape="rect" id="Node000009" href="$class_easy___copier_1_1_infrastructure_1_1_flyout_helper.html#a7129d8af4e5b49e0b85728bbf84bc228" title="Displays the OS image details flyout when right&#45;tapping an OS image card." alt="" coords="556,168,783,227"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="846,174,783,185,783,180,840,174"/>
+<area shape="rect" id="Node000003" href="$class_easy___copier_1_1_views_1_1_apps_tab_view.html#a057b8ac37c5266f376bc1376173ce782" title=" " alt="" coords="274,5,470,48"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="572,83,453,51,453,46,577,82"/>
+<area shape="rect" id="Node000005" href="$class_easy___copier_1_1_views_1_1_games_tab_view.html#a79a278bf50c18d8b24fe87d8c2f33f38" title=" " alt="" coords="271,72,474,115"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="510,101,475,101,474,96,516,100"/>
+<area shape="rect" id="Node000007" href="$class_easy___copier_1_1_views_1_1_tv_and_films_tab_view.html#a6ae4cfc2dbc9ba8a4fbf48a476d6bd02" title=" " alt="" coords="264,139,481,181"/>
+<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="527,133,482,144,481,138,532,132"/>
+<area shape="rect" id="Node000004" href="$class_easy___copier_1_1_views_1_1_apps_tab_view.html#a87d18c1cf1d01a43e41cc29e9ad583f2" title="Connect()." alt="" coords="15,5,206,48"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="256,28,207,29,206,24,261,25"/>
+<area shape="rect" id="Node000006" href="$class_easy___copier_1_1_views_1_1_games_tab_view.html#a7308db31f7bf54663baf056bce1215ad" title="Connect()." alt="" coords="9,72,212,115"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="252,94,213,96,212,91,257,92"/>
+<area shape="rect" id="Node000008" href="$class_easy___copier_1_1_views_1_1_tv_and_films_tab_view.html#a6aea0d345958634c0faa92277586c1fe" title="Connect()." alt="" coords="5,139,216,181"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="246,161,217,163,216,157,251,159"/>
+<area shape="rect" id="Node000010" href="$class_easy___copier_1_1_views_1_1_os_images_tab_view.html#adf0ba063d48705c3526daa00139ade60" title=" " alt="" coords="264,205,481,248"/>
+<area shape="poly" id="edge9_Node000009_Node000010" title=" " alt="" coords="544,210,481,219,481,213,538,210"/>
+<area shape="rect" id="Node000011" href="$class_easy___copier_1_1_views_1_1_os_images_tab_view.html#a290c98c7e3c9583b4583c219ebd40bfc" title="Connect()." alt="" coords="10,205,211,248"/>
+<area shape="poly" id="edge10_Node000010_Node000011" title=" " alt="" coords="246,227,211,229,211,224,251,226"/>
+</map>

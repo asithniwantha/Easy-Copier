@@ -1,5 +1,5 @@
 <map id="Easy_Copier.Services.WindowsShellTransferService.DeleteItemWithFileOperation" name="Easy_Copier.Services.WindowsShellTransferService.DeleteItemWithFileOperation">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,97,216,156"/>
+<area shape="rect" id="Node000001" title="Deletes a file or folder using native Windows Shell IFileOperation COM interface." alt="" coords="5,97,216,156"/>
 <area shape="rect" id="Node000002" href="$interface_easy___copier_1_1_interop_1_1_i_file_operation.html#a7b640b8d4a7b2ae7092803fff4dfe759" title=" " alt="" coords="282,5,451,48"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="175,94,263,58,284,52,279,55,265,62,178,99"/>
 <area shape="rect" id="Node000003" href="$interface_easy___copier_1_1_interop_1_1_i_file_operation.html#aa31da71f71d95ccbe480448afcdbe295" title=" " alt="" coords="271,72,462,115"/>

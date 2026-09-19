@@ -2,6 +2,6 @@
 <area shape="rect" id="Node000001" title="Backs the SmartAdder Calculation History window, listing previously logged calculation sessions in re..." alt="" coords="55,120,265,163"/>
 <area shape="rect" id="Node000002" title=" " alt="" coords="5,13,131,40"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="89,50,146,119,141,120,87,55"/>
-<area shape="rect" id="Node000003" href="$interface_easy___copier_1_1_services_1_1_i_smart_adder_history_service.html" title=" " alt="" coords="155,5,349,48"/>
+<area shape="rect" id="Node000003" href="$interface_easy___copier_1_1_services_1_1_i_smart_adder_history_service.html" title="Defines operations for persisting and retrieving Smart Adder calculations in SQLite storage." alt="" coords="155,5,349,48"/>
 <area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="228,59,179,122,175,118,223,61"/>
 </map>

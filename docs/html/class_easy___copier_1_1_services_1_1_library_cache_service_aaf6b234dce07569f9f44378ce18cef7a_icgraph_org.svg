@@ -11,7 +11,7 @@
 <!-- Node1 -->
 <g id="Node000001" class="node">
 <title>Node1</title>
-<g id="a_Node000001"><a xlink:title=" ">
+<g id="a_Node000001"><a xlink:title="Normalizes file and directory paths by resolving full paths and trimming trailing directory separator...">
 <polygon fill="#999999" stroke="#666666" points="602.25,-32 456.5,-32 456.5,0 602.25,0 602.25,-32"/>
 <text xml:space="preserve" text-anchor="start" x="464.5" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Services.Library</text>
 <text xml:space="preserve" text-anchor="middle" x="529.38" y="-6.5" font-family="Helvetica,sans-Serif" font-size="10.00">CacheService.NormalizePath</text>
@@ -21,7 +21,7 @@
 <!-- Node2 -->
 <g id="Node000002" class="node">
 <title>Node2</title>
-<g id="a_Node000002"><a xlink:href="class_easy___copier_1_1_services_1_1_library_cache_service.html#a2abaf39099e322db7d5f78d9c2ff8363" target="_top" xlink:title=" ">
+<g id="a_Node000002"><a xlink:href="class_easy___copier_1_1_services_1_1_library_cache_service.html#a2abaf39099e322db7d5f78d9c2ff8363" target="_top" xlink:title="Calculates total size and latest modified timestamp for a directory or file.">
 <polygon fill="white" stroke="#666666" points="420.5,-54 207.25,-54 207.25,-22 420.5,-22 420.5,-54"/>
 <text xml:space="preserve" text-anchor="start" x="215.25" y="-40.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Services.Library</text>
 <text xml:space="preserve" text-anchor="middle" x="313.88" y="-28.5" font-family="Helvetica,sans-Serif" font-size="10.00">CacheService.ComputeItemFingerprintAsync</text>
@@ -40,7 +40,7 @@
 <!-- Node3 -->
 <g id="Node000003" class="node">
 <title>Node3</title>
-<g id="a_Node000003"><a xlink:href="class_easy___copier_1_1_services_1_1_library_cache_service.html#a05e76d2554223c9f80d4b4ca9358b977" target="_top" xlink:title=" ">
+<g id="a_Node000003"><a xlink:href="class_easy___copier_1_1_services_1_1_library_cache_service.html#a05e76d2554223c9f80d4b4ca9358b977" target="_top" xlink:title="Compares the cached snapshot against active source folder settings and inspects modified files to eva...">
 <polygon fill="white" stroke="#666666" points="171.25,-32 0,-32 0,0 171.25,0 171.25,-32"/>
 <text xml:space="preserve" text-anchor="start" x="8" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Services.Library</text>
 <text xml:space="preserve" text-anchor="middle" x="85.62" y="-6.5" font-family="Helvetica,sans-Serif" font-size="10.00">CacheService.ValidateCacheAsync</text>

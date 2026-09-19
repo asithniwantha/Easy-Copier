@@ -11,7 +11,7 @@
 <!-- Node1 -->
 <g id="Node000001" class="node">
 <title>Node1</title>
-<g id="a_Node000001"><a xlink:title=" ">
+<g id="a_Node000001"><a xlink:title="ViewModel managing application settings, source folder configurations, price tiers,...">
 <polygon fill="#999999" stroke="#666666" points="428.75,-132 261.25,-132 261.25,-100 428.75,-100 428.75,-132"/>
 <text xml:space="preserve" text-anchor="start" x="269.25" y="-118.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.ViewModels.Settings</text>
 <text xml:space="preserve" text-anchor="middle" x="345" y="-106.5" font-family="Helvetica,sans-Serif" font-size="10.00">ViewModel</text>
@@ -39,7 +39,7 @@
 <!-- Node3 -->
 <g id="Node000003" class="node">
 <title>Node3</title>
-<g id="a_Node000003"><a xlink:href="interface_easy___copier_1_1_infrastructure_1_1_i_file_picker_service.html" target="_top" xlink:title=" ">
+<g id="a_Node000003"><a xlink:href="interface_easy___copier_1_1_infrastructure_1_1_i_file_picker_service.html" target="_top" xlink:title="Provides file picker dialog functionality for selecting files to open or save.">
 <polygon fill="white" stroke="#666666" points="136,-182 0,-182 0,-150 136,-150 136,-182"/>
 <text xml:space="preserve" text-anchor="start" x="8" y="-168.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Infrastructure.</text>
 <text xml:space="preserve" text-anchor="middle" x="68" y="-156.5" font-family="Helvetica,sans-Serif" font-size="10.00">IFilePickerService</text>
@@ -59,7 +59,7 @@
 <!-- Node4 -->
 <g id="Node000004" class="node">
 <title>Node4</title>
-<g id="a_Node000004"><a xlink:href="interface_easy___copier_1_1_infrastructure_1_1_i_dispatcher_service.html" target="_top" xlink:title=" ">
+<g id="a_Node000004"><a xlink:href="interface_easy___copier_1_1_infrastructure_1_1_i_dispatcher_service.html" target="_top" xlink:title="Abstracts dispatcher operations for executing code on the UI thread.">
 <polygon fill="white" stroke="#666666" points="136,-132 0,-132 0,-100 136,-100 136,-132"/>
 <text xml:space="preserve" text-anchor="start" x="8" y="-118.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Infrastructure.</text>
 <text xml:space="preserve" text-anchor="middle" x="68" y="-106.5" font-family="Helvetica,sans-Serif" font-size="10.00">IDispatcherService</text>
@@ -79,7 +79,7 @@
 <!-- Node5 -->
 <g id="Node000005" class="node">
 <title>Node5</title>
-<g id="a_Node000005"><a xlink:href="interface_easy___copier_1_1_infrastructure_1_1_i_dialog_service.html" target="_top" xlink:title=" ">
+<g id="a_Node000005"><a xlink:href="interface_easy___copier_1_1_infrastructure_1_1_i_dialog_service.html" target="_top" xlink:title="Provides an abstraction for displaying UI dialogs and prompts from ViewModels.">
 <polygon fill="white" stroke="#666666" points="136,-82 0,-82 0,-50 136,-50 136,-82"/>
 <text xml:space="preserve" text-anchor="start" x="8" y="-68.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Infrastructure.</text>
 <text xml:space="preserve" text-anchor="middle" x="68" y="-56.5" font-family="Helvetica,sans-Serif" font-size="10.00">IDialogService</text>
@@ -99,7 +99,7 @@
 <!-- Node6 -->
 <g id="Node000006" class="node">
 <title>Node6</title>
-<g id="a_Node000006"><a xlink:href="interface_easy___copier_1_1_infrastructure_1_1_i_process_service.html" target="_top" xlink:title=" ">
+<g id="a_Node000006"><a xlink:href="interface_easy___copier_1_1_infrastructure_1_1_i_process_service.html" target="_top" xlink:title="Provides services for external process execution and environment security checks.">
 <polygon fill="white" stroke="#666666" points="136,-32 0,-32 0,0 136,0 136,-32"/>
 <text xml:space="preserve" text-anchor="start" x="8" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Infrastructure.</text>
 <text xml:space="preserve" text-anchor="middle" x="68" y="-6.5" font-family="Helvetica,sans-Serif" font-size="10.00">IProcessService</text>

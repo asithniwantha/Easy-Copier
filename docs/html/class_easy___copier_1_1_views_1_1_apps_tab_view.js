@@ -1,0 +1,25 @@
+var class_easy___copier_1_1_views_1_1_apps_tab_view =
+[
+    [ "XamlBindingSetters", "class_easy___copier_1_1_views_1_1_apps_tab_view_1_1_xaml_binding_setters.html", "class_easy___copier_1_1_views_1_1_apps_tab_view_1_1_xaml_binding_setters" ],
+    [ "AppsTabView_obj3_Bindings", "class_easy___copier_1_1_views_1_1_apps_tab_view_1_1_apps_tab_view__obj3___bindings.html", "class_easy___copier_1_1_views_1_1_apps_tab_view_1_1_apps_tab_view__obj3___bindings" ],
+    [ "AppsTabView_obj1_Bindings", "class_easy___copier_1_1_views_1_1_apps_tab_view_1_1_apps_tab_view__obj1___bindings.html", "class_easy___copier_1_1_views_1_1_apps_tab_view_1_1_apps_tab_view__obj1___bindings" ],
+    [ "IAppsTabView_Bindings", "interface_easy___copier_1_1_views_1_1_apps_tab_view_1_1_i_apps_tab_view___bindings.html", "interface_easy___copier_1_1_views_1_1_apps_tab_view_1_1_i_apps_tab_view___bindings" ],
+    [ "IAppsTabView_BindingsScopeConnector", "interface_easy___copier_1_1_views_1_1_apps_tab_view_1_1_i_apps_tab_view___bindings_scope_connector.html", "interface_easy___copier_1_1_views_1_1_apps_tab_view_1_1_i_apps_tab_view___bindings_scope_connector" ],
+    [ "AppsTabView", "class_easy___copier_1_1_views_1_1_apps_tab_view.html#af1e1a8cad24483ba63ef03a13bff8022", null ],
+    [ "AppsGridView_SelectionChanged", "class_easy___copier_1_1_views_1_1_apps_tab_view.html#a53e02d138f53ca7e22f77fc6bc2097df", null ],
+    [ "ClearSelection", "class_easy___copier_1_1_views_1_1_apps_tab_view.html#a2d9dddf98aad1dded815469511cc8b4d", null ],
+    [ "Connect", "class_easy___copier_1_1_views_1_1_apps_tab_view.html#a87d18c1cf1d01a43e41cc29e9ad583f2", null ],
+    [ "GameCard_RightTapped", "class_easy___copier_1_1_views_1_1_apps_tab_view.html#a057b8ac37c5266f376bc1376173ce782", null ],
+    [ "GetBindingConnector", "class_easy___copier_1_1_views_1_1_apps_tab_view.html#a3b4b17cdb0b5a5818d5598590bc25b61", null ],
+    [ "GetSelectedEntries", "class_easy___copier_1_1_views_1_1_apps_tab_view.html#a7fa26cd0e609353af5b64762a81e9257", null ],
+    [ "InitializeComponent", "class_easy___copier_1_1_views_1_1_apps_tab_view.html#a684c186cea803c46d0506e7adaaded28", null ],
+    [ "OpenFolderButton_Click", "class_easy___copier_1_1_views_1_1_apps_tab_view.html#a321706f961d10d74744c6506953b30fc", null ],
+    [ "UnloadObject", "class_easy___copier_1_1_views_1_1_apps_tab_view.html#acfed611ae460a073fa24e1c932d30006", null ],
+    [ "_contentLoaded", "class_easy___copier_1_1_views_1_1_apps_tab_view.html#a8674684efb1d7c1bf0ad7c52f40ca4ce", null ],
+    [ "AppsGridView", "class_easy___copier_1_1_views_1_1_apps_tab_view.html#aa7ab1ecb014fd0a9316f391c6811aa61", null ],
+    [ "Bindings", "class_easy___copier_1_1_views_1_1_apps_tab_view.html#af92d0b7a3b4be3153a57f87f4d475acc", null ],
+    [ "ViewModelProperty", "class_easy___copier_1_1_views_1_1_apps_tab_view.html#a4f36f921b6a9faa9e74c1b3a9c50e6bf", null ],
+    [ "SelectedItems", "class_easy___copier_1_1_views_1_1_apps_tab_view.html#a3d0b929287f60db5ef27c6923926e35e", null ],
+    [ "ViewModel", "class_easy___copier_1_1_views_1_1_apps_tab_view.html#a2b210ef78d53212d1622cdd6a72e49ee", null ],
+    [ "SelectionChanged", "class_easy___copier_1_1_views_1_1_apps_tab_view.html#a46ea4bf6bd5e0fd02dbaf94992a92f0c", null ]
+];

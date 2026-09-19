@@ -1,5 +1,5 @@
 <map id="Easy_Copier.Services.SettingsService.LoadSettingsSync" name="Easy_Copier.Services.SettingsService.LoadSettingsSync">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,209,48"/>
-<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_services_1_1_settings_service.html#aaa03456304f68a371f4de8b43b96ff62" title=" " alt="" coords="257,5,460,48"/>
+<area shape="rect" id="Node000001" title="Synchronously loads settings from disk, returning cached values if available or defaults if missing." alt="" coords="5,5,209,48"/>
+<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_services_1_1_settings_service.html#aaa03456304f68a371f4de8b43b96ff62" title="Gets the absolute file path to the local appsettings.json file in AppData." alt="" coords="257,5,460,48"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="209,24,244,27,238,27,209,29"/>
 </map>

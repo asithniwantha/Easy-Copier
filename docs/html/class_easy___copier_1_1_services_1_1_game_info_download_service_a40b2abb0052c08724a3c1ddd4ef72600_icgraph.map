@@ -1,7 +1,7 @@
 <map id="Easy_Copier.Services.GameInfoDownloadService.DownloadCategoriesAsync" name="Easy_Copier.Services.GameInfoDownloadService.DownloadCategoriesAsync">
-<area shape="rect" id="Node000001" title=" " alt="" coords="613,13,920,56"/>
-<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_services_1_1_game_info_download_service.html#afd2968475c5e82f9f3f3317df4159411" title=" " alt="" coords="296,13,565,56"/>
+<area shape="rect" id="Node000001" title="Downloads category information for a game and writes it to a categories.txt file within the game fold..." alt="" coords="613,13,920,56"/>
+<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_services_1_1_game_info_download_service.html#afd2968475c5e82f9f3f3317df4159411" title="Processes an individual game directory by fetching its requirements, cover image, and categories." alt="" coords="296,13,565,56"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="595,35,565,37,565,32,600,35"/>
-<area shape="rect" id="Node000003" href="$class_easy___copier_1_1_services_1_1_game_info_download_service.html#ac477ae8ebd5151e39a13ea8a66aafafc" title=" " alt="" coords="5,5,248,64"/>
+<area shape="rect" id="Node000003" href="$class_easy___copier_1_1_services_1_1_game_info_download_service.html#ac477ae8ebd5151e39a13ea8a66aafafc" title="Asynchronously scans the specified source folders and downloads system requirements,..." alt="" coords="5,5,248,64"/>
 <area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="277,35,248,37,248,32,283,34"/>
 </map>

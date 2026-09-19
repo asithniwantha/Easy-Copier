@@ -112,6 +112,9 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('class_easy___c
   <div class="headertitle"><div class="title">Easy_Copier.Services.WindowsShellTransferService Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Implements file transfer operations utilizing the Windows Shell COM API (IFileOperation) on STA background threads.  
+ <a href="#details">More...</a></p>
 <div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Inheritance diagram for Easy_Copier.Services.WindowsShellTransferService:</div>
 <div id="dynsection-0-summary" class="dynsummary">
 </div>
@@ -128,29 +131,41 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('class_easy___c
 <tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:NativeMethods" id="r_NativeMethods"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="class_easy___copier_1_1_services_1_1_windows_shell_transfer_service_1_1_native_methods.html">NativeMethods</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">P/Invoke definitions for native Windows COM library functions.  <a href="class_easy___copier_1_1_services_1_1_windows_shell_transfer_service_1_1_native_methods.html#details">More...</a><br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:aedba975837c68bd4edbc2410672ef29c" id="r_aedba975837c68bd4edbc2410672ef29c"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#aedba975837c68bd4edbc2410672ef29c">WindowsShellTransferService</a> (ILogger&lt; WindowsShellTransferService &gt; logger, <a class="el" href="interface_easy___copier_1_1_services_1_1_i_copy_history_service.html">ICopyHistoryService</a> copyHistoryService, <a class="el" href="interface_easy___copier_1_1_services_1_1_i_settings_service.html">ISettingsService</a> settingsService)</td></tr>
+<tr class="memdesc:aedba975837c68bd4edbc2410672ef29c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes a new instance of the WindowsShellTransferService class.  <br /></td></tr>
 <tr class="memitem:a9d36cdb7ac43125cba114405cfcc19fa" id="r_a9d36cdb7ac43125cba114405cfcc19fa"><td class="memItemLeft">async Task&lt;(long Size, int Count)&gt;&#160;</td><td class="memItemRight"><a class="el" href="#a9d36cdb7ac43125cba114405cfcc19fa">GetFolderStatsAsync</a> (string path)</td></tr>
+<tr class="memdesc:a9d36cdb7ac43125cba114405cfcc19fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Asynchronously enumerates files and calculates total byte size and file count for a given file or folder path.  <br /></td></tr>
 <tr class="memitem:a9055d728deea07bb02f90815f235d6c6" id="r_a9055d728deea07bb02f90815f235d6c6"><td class="memItemLeft">Task&lt; <a class="el" href="namespace_easy___copier_1_1_models.html#a0f254e810a60e913105ca1898e396f4c">TransferOutcome</a> &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a9055d728deea07bb02f90815f235d6c6">TransferGamesAsync</a> (<a class="el" href="namespace_easy___copier_1_1_models.html#a361f45ad4ad4f48588e380daa766a5fa">TransferRequest</a> request, IProgress&lt; <a class="el" href="namespace_easy___copier_1_1_models.html#a5bc746b080509d1e3821a7f7fd82aa9f">TransferProgress</a> &gt;? progress=null)</td></tr>
+<tr class="memdesc:a9055d728deea07bb02f90815f235d6c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes a transfer request asynchronously on a dedicated STA background thread using Windows Shell COM interop.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pri-methods" class="groupheader"><a id="pri-methods" name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
 <tr class="memitem:a315061c1ab2c8cfa09b31d5d54b7cc27" id="r_a315061c1ab2c8cfa09b31d5d54b7cc27"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="#a315061c1ab2c8cfa09b31d5d54b7cc27">CalculateAmount</a> (long bytes)</td></tr>
+<tr class="memdesc:a315061c1ab2c8cfa09b31d5d54b7cc27"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the monetary price for transferring a specific byte volume based on current settings.  <br /></td></tr>
 <tr class="memitem:ae9408b15a80f4ebfe0683c79ee8cd5da" id="r_ae9408b15a80f4ebfe0683c79ee8cd5da"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#ae9408b15a80f4ebfe0683c79ee8cd5da">MergeDirectory</a> (string sourceDir, string destDir)</td></tr>
+<tr class="memdesc:ae9408b15a80f4ebfe0683c79ee8cd5da"><td class="mdescLeft">&#160;</td><td class="mdescRight">Merges a source directory into a target destination directory without overwriting existing target files.  <br /></td></tr>
 <tr class="memitem:ab2a27fa82dcd964d45d832b0afcf8065" id="r_ab2a27fa82dcd964d45d832b0afcf8065"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ab2a27fa82dcd964d45d832b0afcf8065">DeleteItemWithFileOperation</a> (string targetPath)</td></tr>
+<tr class="memdesc:ab2a27fa82dcd964d45d832b0afcf8065"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deletes a file or folder using native Windows Shell IFileOperation COM interface.  <br /></td></tr>
 <tr class="memitem:afb76277cd4d95e6647183bc15cc68f32" id="r_afb76277cd4d95e6647183bc15cc68f32"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#afb76277cd4d95e6647183bc15cc68f32">CopyItemWithFileOperation</a> (string sourcePath, string destFolder, string destPath, IProgress&lt; <a class="el" href="namespace_easy___copier_1_1_models.html#a5bc746b080509d1e3821a7f7fd82aa9f">TransferProgress</a> &gt;? progress, long totalBytes)</td></tr>
+<tr class="memdesc:afb76277cd4d95e6647183bc15cc68f32"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copies a source file or directory to a destination folder using Windows Shell IFileOperation COM interface.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pri-attribs" class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
 <tr class="memitem:a14df6d632a2817612d7c8e08bff53e85" id="r_a14df6d632a2817612d7c8e08bff53e85"><td class="memItemLeft">readonly ILogger&lt; <a class="el" href="#aedba975837c68bd4edbc2410672ef29c">WindowsShellTransferService</a> &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a14df6d632a2817612d7c8e08bff53e85">_logger</a></td></tr>
+<tr class="memdesc:a14df6d632a2817612d7c8e08bff53e85"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logger instance used for diagnostic logging of transfer operations.  <br /></td></tr>
 <tr class="memitem:aa8dbae8cb23278b3ad5caa98f1c1b625" id="r_aa8dbae8cb23278b3ad5caa98f1c1b625"><td class="memItemLeft">readonly <a class="el" href="interface_easy___copier_1_1_services_1_1_i_copy_history_service.html">ICopyHistoryService</a>&#160;</td><td class="memItemRight"><a class="el" href="#aa8dbae8cb23278b3ad5caa98f1c1b625">_copyHistoryService</a></td></tr>
+<tr class="memdesc:aa8dbae8cb23278b3ad5caa98f1c1b625"><td class="mdescLeft">&#160;</td><td class="mdescRight">Service for persisting history records of performed copy operations.  <br /></td></tr>
 <tr class="memitem:aab68ef96ac4d4dab1a70b091bf28e2ae" id="r_aab68ef96ac4d4dab1a70b091bf28e2ae"><td class="memItemLeft">readonly <a class="el" href="interface_easy___copier_1_1_services_1_1_i_settings_service.html">ISettingsService</a>&#160;</td><td class="memItemRight"><a class="el" href="#aab68ef96ac4d4dab1a70b091bf28e2ae">_settingsService</a></td></tr>
+<tr class="memdesc:aab68ef96ac4d4dab1a70b091bf28e2ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Service for loading pricing and transfer configurations.  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="_file_transfer_service_8cs_source.html#l00018">18</a> of file <a class="el" href="_file_transfer_service_8cs_source.html">FileTransferService.cs</a>.</p>
+<div class="textblock"><p>Implements file transfer operations utilizing the Windows Shell COM API (IFileOperation) on STA background threads. </p>
+
+<p class="definition">Definition at line <a class="el" href="_file_transfer_service_8cs_source.html#l00036">36</a> of file <a class="el" href="_file_transfer_service_8cs_source.html">FileTransferService.cs</a>.</p>
 </div><a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="aedba975837c68bd4edbc2410672ef29c" name="aedba975837c68bd4edbc2410672ef29c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aedba975837c68bd4edbc2410672ef29c">&#9670;&#160;</a></span>WindowsShellTransferService()</h2>
@@ -176,9 +191,19 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_file_transfer_service_8cs_source.html#l00024">24</a> of file <a class="el" href="_file_transfer_service_8cs_source.html">FileTransferService.cs</a>.</p>
+<p>Initializes a new instance of the WindowsShellTransferService class. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">logger</td><td>The logger instance for logging operations.</td></tr>
+    <tr><td class="paramname">copyHistoryService</td><td>The copy history service for logging copy outcomes.</td></tr>
+    <tr><td class="paramname">settingsService</td><td>The settings service for fetching application settings and pricing rules.</td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p class="reference">References <a class="el" href="_file_transfer_service_8cs_source.html#l00021">_copyHistoryService</a>, <a class="el" href="_file_transfer_service_8cs_source.html#l00020">_logger</a>, and <a class="el" href="_file_transfer_service_8cs_source.html#l00022">_settingsService</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_file_transfer_service_8cs_source.html#l00059">59</a> of file <a class="el" href="_file_transfer_service_8cs_source.html">FileTransferService.cs</a>.</p>
+
+<p class="reference">References <a class="el" href="_file_transfer_service_8cs_source.html#l00046">_copyHistoryService</a>, <a class="el" href="_file_transfer_service_8cs_source.html#l00041">_logger</a>, and <a class="el" href="_file_transfer_service_8cs_source.html#l00051">_settingsService</a>.</p>
 
 </div>
 </div>
@@ -206,11 +231,20 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_file_transfer_service_8cs_source.html#l00034">34</a> of file <a class="el" href="_file_transfer_service_8cs_source.html">FileTransferService.cs</a>.</p>
+<p>Calculates the monetary price for transferring a specific byte volume based on current settings. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">bytes</td><td>The total bytes transferred.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The calculated monetary amount.</dd></dl>
 
-<p class="reference">References <a class="el" href="_file_transfer_service_8cs_source.html#l00022">_settingsService</a>, and <a class="el" href="_formatting_helpers_8cs_source.html#l00035">Easy_Copier.Infrastructure.FormattingHelpers.CalculatePrice()</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_file_transfer_service_8cs_source.html#l00074">74</a> of file <a class="el" href="_file_transfer_service_8cs_source.html">FileTransferService.cs</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_file_transfer_service_8cs_source.html#l00080">TransferGamesAsync()</a>.</p>
+<p class="reference">References <a class="el" href="_file_transfer_service_8cs_source.html#l00051">_settingsService</a>, and <a class="el" href="_formatting_helpers_8cs_source.html#l00035">Easy_Copier.Infrastructure.FormattingHelpers.CalculatePrice()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_file_transfer_service_8cs_source.html#l00131">TransferGamesAsync()</a>.</p>
 <div id="dynsection-2" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-2-summary" class="dynsummary">
 </div>
@@ -268,11 +302,24 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_file_transfer_service_8cs_source.html#l00317">317</a> of file <a class="el" href="_file_transfer_service_8cs_source.html">FileTransferService.cs</a>.</p>
+<p>Copies a source file or directory to a destination folder using Windows Shell IFileOperation COM interface. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sourcePath</td><td>The path of the source item.</td></tr>
+    <tr><td class="paramname">destFolder</td><td>The destination directory path.</td></tr>
+    <tr><td class="paramname">destPath</td><td>The complete path expected for the item at destination.</td></tr>
+    <tr><td class="paramname">progress</td><td>An optional progress sink reporter.</td></tr>
+    <tr><td class="paramname">totalBytes</td><td>The total size in bytes of the item being transferred.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><code>true</code> if the copy completed successfully without cancellation or failure; otherwise, <code>false</code>.</dd></dl>
 
-<p class="reference">References <a class="el" href="_file_transfer_service_8cs_source.html#l00020">_logger</a>, <a class="el" href="interface_easy___copier_1_1_interop_1_1_i_file_operation.html#af894cdb796ba9f0276df7473497ad2d5">Easy_Copier.Interop.IFileOperation.Advise()</a>, <a class="el" href="_file_operation_interop_8cs_source.html#l00012">Easy_Copier.Interop.FileOperationInterop.CLSID_FileOperation</a>, <a class="el" href="interface_easy___copier_1_1_interop_1_1_i_file_operation.html#a326b541968b02b4e15e1bc6613b37d30">Easy_Copier.Interop.IFileOperation.CopyItem()</a>, <a class="el" href="_file_operation_progress_sink_8cs_source.html#l00015">Easy_Copier.Interop.FileOperationProgressSink.FileOperationProgressSink()</a>, <a class="el" href="_file_operation_interop_8cs_source.html#l00129">Easy_Copier.Interop.FOF_NOCONFIRMMKDIR</a>, <a class="el" href="interface_easy___copier_1_1_interop_1_1_i_file_operation.html#a3780930077bd94182bd9424656fb20a0">Easy_Copier.Interop.IFileOperation.GetAnyOperationsAborted()</a>, <a class="el" href="interface_easy___copier_1_1_interop_1_1_i_file_operation.html#aa31da71f71d95ccbe480448afcdbe295">Easy_Copier.Interop.IFileOperation.PerformOperations()</a>, <a class="el" href="interface_easy___copier_1_1_interop_1_1_i_file_operation.html#a5da7eb05bf07a208ed0a69e26d83ae95">Easy_Copier.Interop.IFileOperation.SetOperationFlags()</a>, <a class="el" href="class_easy___copier_1_1_interop_1_1_file_operation_interop.html#a46cbdab096a70f7230f376b081472bd4">Easy_Copier.Interop.FileOperationInterop.SHCreateItemFromParsingName()</a>, and <a class="el" href="interface_easy___copier_1_1_interop_1_1_i_file_operation.html#a07cad60257aa8e5f2ad201afdd5c5cc4">Easy_Copier.Interop.IFileOperation.Unadvise()</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_file_transfer_service_8cs_source.html#l00387">387</a> of file <a class="el" href="_file_transfer_service_8cs_source.html">FileTransferService.cs</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_file_transfer_service_8cs_source.html#l00080">TransferGamesAsync()</a>.</p>
+<p class="reference">References <a class="el" href="_file_transfer_service_8cs_source.html#l00041">_logger</a>, <a class="el" href="interface_easy___copier_1_1_interop_1_1_i_file_operation.html#af894cdb796ba9f0276df7473497ad2d5">Easy_Copier.Interop.IFileOperation.Advise()</a>, <a class="el" href="_file_operation_interop_8cs_source.html#l00012">Easy_Copier.Interop.FileOperationInterop.CLSID_FileOperation</a>, <a class="el" href="interface_easy___copier_1_1_interop_1_1_i_file_operation.html#a326b541968b02b4e15e1bc6613b37d30">Easy_Copier.Interop.IFileOperation.CopyItem()</a>, <a class="el" href="_file_operation_progress_sink_8cs_source.html#l00015">Easy_Copier.Interop.FileOperationProgressSink.FileOperationProgressSink()</a>, <a class="el" href="_file_operation_interop_8cs_source.html#l00129">Easy_Copier.Interop.FOF_NOCONFIRMMKDIR</a>, <a class="el" href="interface_easy___copier_1_1_interop_1_1_i_file_operation.html#a3780930077bd94182bd9424656fb20a0">Easy_Copier.Interop.IFileOperation.GetAnyOperationsAborted()</a>, <a class="el" href="interface_easy___copier_1_1_interop_1_1_i_file_operation.html#aa31da71f71d95ccbe480448afcdbe295">Easy_Copier.Interop.IFileOperation.PerformOperations()</a>, <a class="el" href="interface_easy___copier_1_1_interop_1_1_i_file_operation.html#a5da7eb05bf07a208ed0a69e26d83ae95">Easy_Copier.Interop.IFileOperation.SetOperationFlags()</a>, <a class="el" href="class_easy___copier_1_1_interop_1_1_file_operation_interop.html#a46cbdab096a70f7230f376b081472bd4">Easy_Copier.Interop.FileOperationInterop.SHCreateItemFromParsingName()</a>, and <a class="el" href="interface_easy___copier_1_1_interop_1_1_i_file_operation.html#a07cad60257aa8e5f2ad201afdd5c5cc4">Easy_Copier.Interop.IFileOperation.Unadvise()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_file_transfer_service_8cs_source.html#l00131">TransferGamesAsync()</a>.</p>
 <div id="dynsection-4" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-4-summary" class="dynsummary">
 </div>
@@ -311,11 +358,19 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_file_transfer_service_8cs_source.html#l00265">265</a> of file <a class="el" href="_file_transfer_service_8cs_source.html">FileTransferService.cs</a>.</p>
+<p>Deletes a file or folder using native Windows Shell IFileOperation COM interface. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">targetPath</td><td>The full path of the target file or directory to delete.</td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p class="reference">References <a class="el" href="_file_transfer_service_8cs_source.html#l00020">_logger</a>, <a class="el" href="_file_operation_interop_8cs_source.html#l00012">Easy_Copier.Interop.FileOperationInterop.CLSID_FileOperation</a>, <a class="el" href="interface_easy___copier_1_1_interop_1_1_i_file_operation.html#a7b640b8d4a7b2ae7092803fff4dfe759">Easy_Copier.Interop.IFileOperation.DeleteItem()</a>, <a class="el" href="_file_operation_interop_8cs_source.html#l00124">Easy_Copier.Interop.FOF_NOCONFIRMATION</a>, <a class="el" href="interface_easy___copier_1_1_interop_1_1_i_file_operation.html#aa31da71f71d95ccbe480448afcdbe295">Easy_Copier.Interop.IFileOperation.PerformOperations()</a>, <a class="el" href="interface_easy___copier_1_1_interop_1_1_i_file_operation.html#a5da7eb05bf07a208ed0a69e26d83ae95">Easy_Copier.Interop.IFileOperation.SetOperationFlags()</a>, and <a class="el" href="class_easy___copier_1_1_interop_1_1_file_operation_interop.html#a46cbdab096a70f7230f376b081472bd4">Easy_Copier.Interop.FileOperationInterop.SHCreateItemFromParsingName()</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_file_transfer_service_8cs_source.html#l00326">326</a> of file <a class="el" href="_file_transfer_service_8cs_source.html">FileTransferService.cs</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_file_transfer_service_8cs_source.html#l00080">TransferGamesAsync()</a>.</p>
+<p class="reference">References <a class="el" href="_file_transfer_service_8cs_source.html#l00041">_logger</a>, <a class="el" href="_file_operation_interop_8cs_source.html#l00012">Easy_Copier.Interop.FileOperationInterop.CLSID_FileOperation</a>, <a class="el" href="interface_easy___copier_1_1_interop_1_1_i_file_operation.html#a7b640b8d4a7b2ae7092803fff4dfe759">Easy_Copier.Interop.IFileOperation.DeleteItem()</a>, <a class="el" href="_file_operation_interop_8cs_source.html#l00124">Easy_Copier.Interop.FOF_NOCONFIRMATION</a>, <a class="el" href="interface_easy___copier_1_1_interop_1_1_i_file_operation.html#aa31da71f71d95ccbe480448afcdbe295">Easy_Copier.Interop.IFileOperation.PerformOperations()</a>, <a class="el" href="interface_easy___copier_1_1_interop_1_1_i_file_operation.html#a5da7eb05bf07a208ed0a69e26d83ae95">Easy_Copier.Interop.IFileOperation.SetOperationFlags()</a>, and <a class="el" href="class_easy___copier_1_1_interop_1_1_file_operation_interop.html#a46cbdab096a70f7230f376b081472bd4">Easy_Copier.Interop.FileOperationInterop.SHCreateItemFromParsingName()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_file_transfer_service_8cs_source.html#l00131">TransferGamesAsync()</a>.</p>
 <div id="dynsection-6" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-6-summary" class="dynsummary">
 </div>
@@ -346,11 +401,20 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Asynchronously enumerates files and calculates total byte size and file count for a given file or folder path. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">path</td><td>The file or directory path to inspect.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A task returning a tuple containing total size in bytes and file count.</dd></dl>
+
 <p>Implements <a class="el" href="interface_easy___copier_1_1_services_1_1_i_file_transfer_service.html#aa564d454ce591b0181195259a26656a9">Easy_Copier.Services.IFileTransferService</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_file_transfer_service_8cs_source.html#l00040">40</a> of file <a class="el" href="_file_transfer_service_8cs_source.html">FileTransferService.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_file_transfer_service_8cs_source.html#l00085">85</a> of file <a class="el" href="_file_transfer_service_8cs_source.html">FileTransferService.cs</a>.</p>
 
-<p class="reference">References <a class="el" href="_file_transfer_service_8cs_source.html#l00020">_logger</a>, and <a class="el" href="_domain_models_8cs_source.html#l00037">Easy_Copier.Models.Size</a>.</p>
+<p class="reference">References <a class="el" href="_file_transfer_service_8cs_source.html#l00041">_logger</a>, and <a class="el" href="_domain_models_8cs_source.html#l00037">Easy_Copier.Models.Size</a>.</p>
 
 </div>
 </div>
@@ -381,11 +445,21 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_file_transfer_service_8cs_source.html#l00224">224</a> of file <a class="el" href="_file_transfer_service_8cs_source.html">FileTransferService.cs</a>.</p>
+<p>Merges a source directory into a target destination directory without overwriting existing target files. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sourceDir</td><td>The path of the source directory.</td></tr>
+    <tr><td class="paramname">destDir</td><td>The path of the destination directory.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><code>true</code> if the merge completed successfully; otherwise, <code>false</code>.</dd></dl>
 
-<p class="reference">References <a class="el" href="_file_transfer_service_8cs_source.html#l00020">_logger</a>, and <a class="el" href="_file_transfer_service_8cs_source.html#l00224">MergeDirectory()</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_file_transfer_service_8cs_source.html#l00281">281</a> of file <a class="el" href="_file_transfer_service_8cs_source.html">FileTransferService.cs</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_file_transfer_service_8cs_source.html#l00224">MergeDirectory()</a>, and <a class="el" href="_file_transfer_service_8cs_source.html#l00080">TransferGamesAsync()</a>.</p>
+<p class="reference">References <a class="el" href="_file_transfer_service_8cs_source.html#l00041">_logger</a>, and <a class="el" href="_file_transfer_service_8cs_source.html#l00281">MergeDirectory()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_file_transfer_service_8cs_source.html#l00281">MergeDirectory()</a>, and <a class="el" href="_file_transfer_service_8cs_source.html#l00131">TransferGamesAsync()</a>.</p>
 <div id="dynsection-8" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-8-summary" class="dynsummary">
 </div>
@@ -420,11 +494,21 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Executes a transfer request asynchronously on a dedicated STA background thread using Windows Shell COM interop. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">request</td><td>The transfer request specifying items and target drive destination.</td></tr>
+    <tr><td class="paramname">progress</td><td>Optional progress reporter for granular transfer progress updates.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A task returning a TransferOutcome containing the result summary.</dd></dl>
+
 <p>Implements <a class="el" href="interface_easy___copier_1_1_services_1_1_i_file_transfer_service.html#ae4cb14860a42a462aab955a6e77a90d5">Easy_Copier.Services.IFileTransferService</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_file_transfer_service_8cs_source.html#l00080">80</a> of file <a class="el" href="_file_transfer_service_8cs_source.html">FileTransferService.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_file_transfer_service_8cs_source.html#l00131">131</a> of file <a class="el" href="_file_transfer_service_8cs_source.html">FileTransferService.cs</a>.</p>
 
-<p class="reference">References <a class="el" href="_file_transfer_service_8cs_source.html#l00021">_copyHistoryService</a>, <a class="el" href="_file_transfer_service_8cs_source.html#l00020">_logger</a>, <a class="el" href="_file_transfer_service_8cs_source.html#l00034">CalculateAmount()</a>, <a class="el" href="_file_transfer_service_8cs_source.html#l00397">Easy_Copier.Services.WindowsShellTransferService.NativeMethods.COINIT_APARTMENTTHREADED</a>, <a class="el" href="class_easy___copier_1_1_services_1_1_windows_shell_transfer_service_1_1_native_methods.html#ac87a73c8e9532551f592f16182ed083e">Easy_Copier.Services.WindowsShellTransferService.NativeMethods.CoInitializeEx()</a>, <a class="el" href="_domain_models_8cs_source.html#l00166">Easy_Copier.Models.CopyHistoryRecord()</a>, <a class="el" href="_file_transfer_service_8cs_source.html#l00317">CopyItemWithFileOperation()</a>, <a class="el" href="_file_transfer_service_8cs_source.html#l00265">DeleteItemWithFileOperation()</a>, <a class="el" href="_domain_models_8cs_source.html#l00040">Easy_Copier.Models.GameEntry()</a>, <a class="el" href="_domain_models_8cs_source.html#l00088">Easy_Copier.Models.Merge</a>, <a class="el" href="_file_transfer_service_8cs_source.html#l00224">MergeDirectory()</a>, <a class="el" href="namespace_easy___copier_1_1_models.html#a36bba191a5fad0b0ca63ed787ae607d8">Easy_Copier.Models.TransferItem()</a>, <a class="el" href="namespace_easy___copier_1_1_models.html#a0f254e810a60e913105ca1898e396f4c">Easy_Copier.Models.TransferOutcome()</a>, and <a class="el" href="namespace_easy___copier_1_1_models.html#a361f45ad4ad4f48588e380daa766a5fa">Easy_Copier.Models.TransferRequest()</a>.</p>
+<p class="reference">References <a class="el" href="_file_transfer_service_8cs_source.html#l00046">_copyHistoryService</a>, <a class="el" href="_file_transfer_service_8cs_source.html#l00041">_logger</a>, <a class="el" href="_file_transfer_service_8cs_source.html#l00074">CalculateAmount()</a>, <a class="el" href="_file_transfer_service_8cs_source.html#l00479">Easy_Copier.Services.WindowsShellTransferService.NativeMethods.COINIT_APARTMENTTHREADED</a>, <a class="el" href="class_easy___copier_1_1_services_1_1_windows_shell_transfer_service_1_1_native_methods.html#ac87a73c8e9532551f592f16182ed083e">Easy_Copier.Services.WindowsShellTransferService.NativeMethods.CoInitializeEx()</a>, <a class="el" href="_domain_models_8cs_source.html#l00166">Easy_Copier.Models.CopyHistoryRecord()</a>, <a class="el" href="_file_transfer_service_8cs_source.html#l00387">CopyItemWithFileOperation()</a>, <a class="el" href="_file_transfer_service_8cs_source.html#l00326">DeleteItemWithFileOperation()</a>, <a class="el" href="_domain_models_8cs_source.html#l00040">Easy_Copier.Models.GameEntry()</a>, <a class="el" href="_domain_models_8cs_source.html#l00088">Easy_Copier.Models.Merge</a>, <a class="el" href="_file_transfer_service_8cs_source.html#l00281">MergeDirectory()</a>, <a class="el" href="namespace_easy___copier_1_1_models.html#a36bba191a5fad0b0ca63ed787ae607d8">Easy_Copier.Models.TransferItem()</a>, <a class="el" href="namespace_easy___copier_1_1_models.html#a0f254e810a60e913105ca1898e396f4c">Easy_Copier.Models.TransferOutcome()</a>, and <a class="el" href="namespace_easy___copier_1_1_models.html#a361f45ad4ad4f48588e380daa766a5fa">Easy_Copier.Models.TransferRequest()</a>.</p>
 <div id="dynsection-10" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-10-summary" class="dynsummary">
 </div>
@@ -455,9 +539,11 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_file_transfer_service_8cs_source.html#l00021">21</a> of file <a class="el" href="_file_transfer_service_8cs_source.html">FileTransferService.cs</a>.</p>
+<p>Service for persisting history records of performed copy operations. </p>
 
-<p class="reference">Referenced by <a class="el" href="_file_transfer_service_8cs_source.html#l00080">TransferGamesAsync()</a>, and <a class="el" href="_file_transfer_service_8cs_source.html#l00024">WindowsShellTransferService()</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_file_transfer_service_8cs_source.html#l00046">46</a> of file <a class="el" href="_file_transfer_service_8cs_source.html">FileTransferService.cs</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_file_transfer_service_8cs_source.html#l00131">TransferGamesAsync()</a>, and <a class="el" href="_file_transfer_service_8cs_source.html#l00059">WindowsShellTransferService()</a>.</p>
 
 </div>
 </div>
@@ -481,9 +567,11 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_file_transfer_service_8cs_source.html#l00020">20</a> of file <a class="el" href="_file_transfer_service_8cs_source.html">FileTransferService.cs</a>.</p>
+<p>Logger instance used for diagnostic logging of transfer operations. </p>
 
-<p class="reference">Referenced by <a class="el" href="_file_transfer_service_8cs_source.html#l00317">CopyItemWithFileOperation()</a>, <a class="el" href="_file_transfer_service_8cs_source.html#l00265">DeleteItemWithFileOperation()</a>, <a class="el" href="_file_transfer_service_8cs_source.html#l00040">GetFolderStatsAsync()</a>, <a class="el" href="_file_transfer_service_8cs_source.html#l00224">MergeDirectory()</a>, <a class="el" href="_file_transfer_service_8cs_source.html#l00080">TransferGamesAsync()</a>, and <a class="el" href="_file_transfer_service_8cs_source.html#l00024">WindowsShellTransferService()</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_file_transfer_service_8cs_source.html#l00041">41</a> of file <a class="el" href="_file_transfer_service_8cs_source.html">FileTransferService.cs</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_file_transfer_service_8cs_source.html#l00387">CopyItemWithFileOperation()</a>, <a class="el" href="_file_transfer_service_8cs_source.html#l00326">DeleteItemWithFileOperation()</a>, <a class="el" href="_file_transfer_service_8cs_source.html#l00085">GetFolderStatsAsync()</a>, <a class="el" href="_file_transfer_service_8cs_source.html#l00281">MergeDirectory()</a>, <a class="el" href="_file_transfer_service_8cs_source.html#l00131">TransferGamesAsync()</a>, and <a class="el" href="_file_transfer_service_8cs_source.html#l00059">WindowsShellTransferService()</a>.</p>
 
 </div>
 </div>
@@ -507,9 +595,11 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_file_transfer_service_8cs_source.html#l00022">22</a> of file <a class="el" href="_file_transfer_service_8cs_source.html">FileTransferService.cs</a>.</p>
+<p>Service for loading pricing and transfer configurations. </p>
 
-<p class="reference">Referenced by <a class="el" href="_file_transfer_service_8cs_source.html#l00034">CalculateAmount()</a>, and <a class="el" href="_file_transfer_service_8cs_source.html#l00024">WindowsShellTransferService()</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_file_transfer_service_8cs_source.html#l00051">51</a> of file <a class="el" href="_file_transfer_service_8cs_source.html">FileTransferService.cs</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_file_transfer_service_8cs_source.html#l00074">CalculateAmount()</a>, and <a class="el" href="_file_transfer_service_8cs_source.html#l00059">WindowsShellTransferService()</a>.</p>
 
 </div>
 </div>

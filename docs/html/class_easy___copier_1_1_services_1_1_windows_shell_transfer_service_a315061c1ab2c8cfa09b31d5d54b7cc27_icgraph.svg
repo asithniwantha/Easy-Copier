@@ -22,7 +22,7 @@
 <!-- Node1 -->
 <g id="Node000001" class="node">
 <title>Node1</title>
-<g id="a_Node000001"><a xlink:title=" ">
+<g id="a_Node000001"><a xlink:title="Calculates the monetary price for transferring a specific byte volume based on current settings.">
 <polygon fill="#999999" stroke="#666666" points="425.75,-32 241,-32 241,0 425.75,0 425.75,-32"/>
 <text xml:space="preserve" text-anchor="start" x="249" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Services.Windows</text>
 <text xml:space="preserve" text-anchor="middle" x="333.38" y="-6.5" font-family="Helvetica,sans-Serif" font-size="10.00">ShellTransferService.CalculateAmount</text>
@@ -32,7 +32,7 @@
 <!-- Node2 -->
 <g id="Node000002" class="node">
 <title>Node2</title>
-<g id="a_Node000002"><a xlink:href="class_easy___copier_1_1_services_1_1_windows_shell_transfer_service.html#a9055d728deea07bb02f90815f235d6c6" target="_top" xlink:title=" ">
+<g id="a_Node000002"><a xlink:href="class_easy___copier_1_1_services_1_1_windows_shell_transfer_service.html#a9055d728deea07bb02f90815f235d6c6" target="_top" xlink:title="Executes a transfer request asynchronously on a dedicated STA background thread using Windows Shell C...">
 <polygon fill="white" stroke="#666666" points="205,-32 0,-32 0,0 205,0 205,-32"/>
 <text xml:space="preserve" text-anchor="start" x="8" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Services.Windows</text>
 <text xml:space="preserve" text-anchor="middle" x="102.5" y="-6.5" font-family="Helvetica,sans-Serif" font-size="10.00">ShellTransferService.TransferGamesAsync</text>

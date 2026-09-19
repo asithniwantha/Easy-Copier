@@ -1,5 +1,5 @@
 <map id="Easy_Copier.Views.MainPage" name="Easy_Copier.Views.MainPage">
-<area shape="rect" id="Node000001" title=" " alt="" coords="253,73,451,100"/>
+<area shape="rect" id="Node000001" title="Represents the main page view housing library tabs and transfer action center." alt="" coords="253,73,451,100"/>
 <area shape="rect" id="Node000002" title=" " alt="" coords="22,65,188,108"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="117,119,140,142,170,156,206,164,243,165,279,158,311,145,334,126,347,102,351,99,338,129,313,150,281,164,243,170,205,169,168,161,137,146,116,125"/>
 <area shape="poly" id="edge3_Node000001_Node000002" title=" " alt="" coords="122,117,147,132,176,142,210,146,246,146,280,142,310,132,333,118,346,102,350,99,336,122,312,137,281,147,246,152,210,152,175,147,144,137,122,122"/>

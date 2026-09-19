@@ -112,6 +112,9 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('interface_easy
   <div class="headertitle"><div class="title">Easy_Copier.Infrastructure.IWindowService Interface Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Provides abstract methods for creating and displaying secondary windows in the application.  
+ <a href="#details">More...</a></p>
 <div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Inheritance diagram for Easy_Copier.Infrastructure.IWindowService:</div>
 <div id="dynsection-0-summary" class="dynsummary">
 </div>
@@ -122,13 +125,18 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('interface_easy
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a1784a86189366de487edd428b3a021fe" id="r_a1784a86189366de487edd428b3a021fe"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a1784a86189366de487edd428b3a021fe">ShowSettingsWindow</a> (Action? onClosed=null, <a class="el" href="namespace_easy___copier_1_1_infrastructure.html#acdb98b1b8cd21f93959d5bcd4f0db357">SettingsOpenAction</a> openAction=<a class="el" href="namespace_easy___copier_1_1_infrastructure.html#acdb98b1b8cd21f93959d5bcd4f0db357a6adf97f83acf6453d4a6a4b1070f3754">SettingsOpenAction.None</a>)</td></tr>
+<tr class="memdesc:a1784a86189366de487edd428b3a021fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Opens the Settings window with optional completion callback and tab action.  <br /></td></tr>
 <tr class="memitem:a168aadbd529e5b9ae3c199df6a39f490" id="r_a168aadbd529e5b9ae3c199df6a39f490"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a168aadbd529e5b9ae3c199df6a39f490">ShowHistoryWindow</a> ()</td></tr>
+<tr class="memdesc:a168aadbd529e5b9ae3c199df6a39f490"><td class="mdescLeft">&#160;</td><td class="mdescRight">Opens the Copy History window.  <br /></td></tr>
 <tr class="memitem:a7338da93ff56584aebce552dcd9f9c63" id="r_a7338da93ff56584aebce552dcd9f9c63"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a7338da93ff56584aebce552dcd9f9c63">ShowSmartAdderHistoryWindow</a> ()</td></tr>
+<tr class="memdesc:a7338da93ff56584aebce552dcd9f9c63"><td class="mdescLeft">&#160;</td><td class="mdescRight">Opens the Smart Adder History window.  <br /></td></tr>
 <tr class="memitem:a4907dd96f2df83c717bd548f40e25755" id="r_a4907dd96f2df83c717bd548f40e25755"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a4907dd96f2df83c717bd548f40e25755">ShowAboutWindow</a> ()</td></tr>
+<tr class="memdesc:a4907dd96f2df83c717bd548f40e25755"><td class="mdescLeft">&#160;</td><td class="mdescRight">Opens the About application information window.  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="_window_service_8cs_source.html#l00017">17</a> of file <a class="el" href="_window_service_8cs_source.html">WindowService.cs</a>.</p>
+<div class="textblock"><p>Provides abstract methods for creating and displaying secondary windows in the application. </p>
+
+<p class="definition">Definition at line <a class="el" href="_window_service_8cs_source.html#l00042">42</a> of file <a class="el" href="_window_service_8cs_source.html">WindowService.cs</a>.</p>
 </div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
 <a id="a4907dd96f2df83c717bd548f40e25755" name="a4907dd96f2df83c717bd548f40e25755"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a4907dd96f2df83c717bd548f40e25755">&#9670;&#160;</a></span>ShowAboutWindow()</h2>
@@ -144,6 +152,8 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Opens the About application information window. </p>
 
 <p>Implemented in <a class="el" href="class_easy___copier_1_1_infrastructure_1_1_window_service.html#ab590e747e2877dc60db27560e92c5f24">Easy_Copier.Infrastructure.WindowService</a>.</p>
 
@@ -171,6 +181,8 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Opens the Copy History window. </p>
 
 <p>Implemented in <a class="el" href="class_easy___copier_1_1_infrastructure_1_1_window_service.html#ace87e69860128b9bd0eda9d31e78460f">Easy_Copier.Infrastructure.WindowService</a>.</p>
 
@@ -203,6 +215,15 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Opens the Settings window with optional completion callback and tab action. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">onClosed</td><td>Optional action invoked when the Settings window is closed.</td></tr>
+    <tr><td class="paramname">openAction</td><td>The initial action to perform upon opening Settings.</td></tr>
+  </table>
+  </dd>
+</dl>
+
 <p>Implemented in <a class="el" href="class_easy___copier_1_1_infrastructure_1_1_window_service.html#a2b67a64f54ac554cfc57dcaed5485792">Easy_Copier.Infrastructure.WindowService</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="_main_view_model_8_scanning_8cs_source.html#l00533">Easy_Copier.ViewModels.MainViewModel.AddSourceFolder()</a>, and <a class="el" href="_main_view_model_8_scanning_8cs_source.html#l00429">Easy_Copier.ViewModels.MainViewModel.OpenSettings()</a>.</p>
@@ -229,6 +250,8 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Opens the Smart Adder History window. </p>
 
 <p>Implemented in <a class="el" href="class_easy___copier_1_1_infrastructure_1_1_window_service.html#a7245ca444fb5be6a58a0cd986a2cbd01">Easy_Copier.Infrastructure.WindowService</a>.</p>
 

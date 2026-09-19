@@ -11,7 +11,7 @@
 <!-- Node1 -->
 <g id="Node000001" class="node">
 <title>Node1</title>
-<g id="a_Node000001"><a xlink:title=" ">
+<g id="a_Node000001"><a xlink:title="Gets the handle (HWND) of the currently active window belonging to the running application process.">
 <polygon fill="#999999" stroke="#666666" points="407.75,-88 217.75,-88 217.75,-44 407.75,-44 407.75,-88"/>
 <text xml:space="preserve" text-anchor="start" x="225.75" y="-74.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Infrastructure.</text>
 <text xml:space="preserve" text-anchor="start" x="225.75" y="-62.5" font-family="Helvetica,sans-Serif" font-size="10.00">NativeWindowHelper.GetActiveWindow</text>
@@ -22,7 +22,7 @@
 <!-- Node2 -->
 <g id="Node000002" class="node">
 <title>Node2</title>
-<g id="a_Node000002"><a xlink:href="class_easy___copier_1_1_infrastructure_1_1_folder_picker_service.html#aa6db7f795c3874ad7c69a7f9dc7183aa" target="_top" xlink:title=" ">
+<g id="a_Node000002"><a xlink:href="class_easy___copier_1_1_infrastructure_1_1_folder_picker_service.html#aa6db7f795c3874ad7c69a7f9dc7183aa" target="_top" xlink:title="Displays a folder picker modal dialog allowing the user to select a target directory....">
 <polygon fill="white" stroke="#666666" points="181.38,-132 0.38,-132 0.38,-100 181.38,-100 181.38,-132"/>
 <text xml:space="preserve" text-anchor="start" x="8.38" y="-118.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Infrastructure.</text>
 <text xml:space="preserve" text-anchor="middle" x="90.88" y="-106.5" font-family="Helvetica,sans-Serif" font-size="10.00">FolderPickerService.PickFolderAsync</text>
@@ -41,7 +41,7 @@
 <!-- Node3 -->
 <g id="Node000003" class="node">
 <title>Node3</title>
-<g id="a_Node000003"><a xlink:href="class_easy___copier_1_1_infrastructure_1_1_file_picker_service.html#aed9837483c22b053f1bb23260924ac62" target="_top" xlink:title=" ">
+<g id="a_Node000003"><a xlink:href="class_easy___copier_1_1_infrastructure_1_1_file_picker_service.html#aed9837483c22b053f1bb23260924ac62" target="_top" xlink:title="Displays a file open picker modal dialog allowing the user to select an existing file.">
 <polygon fill="white" stroke="#666666" points="181.75,-82 0,-82 0,-50 181.75,-50 181.75,-82"/>
 <text xml:space="preserve" text-anchor="start" x="8" y="-68.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Infrastructure.</text>
 <text xml:space="preserve" text-anchor="middle" x="90.88" y="-56.5" font-family="Helvetica,sans-Serif" font-size="10.00">FilePickerService.PickOpenFileAsync</text>
@@ -60,7 +60,7 @@
 <!-- Node4 -->
 <g id="Node000004" class="node">
 <title>Node4</title>
-<g id="a_Node000004"><a xlink:href="class_easy___copier_1_1_infrastructure_1_1_file_picker_service.html#a07914252c4aa1b84163fe0127df006a5" target="_top" xlink:title=" ">
+<g id="a_Node000004"><a xlink:href="class_easy___copier_1_1_infrastructure_1_1_file_picker_service.html#a07914252c4aa1b84163fe0127df006a5" target="_top" xlink:title="Displays a file save picker modal dialog allowing the user to select a destination path.">
 <polygon fill="white" stroke="#666666" points="181.38,-32 0.38,-32 0.38,0 181.38,0 181.38,-32"/>
 <text xml:space="preserve" text-anchor="start" x="8.38" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Infrastructure.</text>
 <text xml:space="preserve" text-anchor="middle" x="90.88" y="-6.5" font-family="Helvetica,sans-Serif" font-size="10.00">FilePickerService.PickSaveFileAsync</text>

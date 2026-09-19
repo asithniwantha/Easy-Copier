@@ -22,7 +22,7 @@
 <!-- Node1 -->
 <g id="Node000001" class="node">
 <title>Node1</title>
-<g id="a_Node000001"><a xlink:title=" ">
+<g id="a_Node000001"><a xlink:title="Main background loop reading items from the primary channel and routing them to per&#45;drive execution c...">
 <polygon fill="#999999" stroke="#666666" points="386.75,-32 214,-32 214,0 386.75,0 386.75,-32"/>
 <text xml:space="preserve" text-anchor="start" x="222" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Services.Transfer</text>
 <text xml:space="preserve" text-anchor="middle" x="300.38" y="-6.5" font-family="Helvetica,sans-Serif" font-size="10.00">QueueService.ProcessQueueAsync</text>
@@ -32,7 +32,7 @@
 <!-- Node2 -->
 <g id="Node000002" class="node">
 <title>Node2</title>
-<g id="a_Node000002"><a xlink:href="class_easy___copier_1_1_services_1_1_transfer_queue_service.html#a31960a3b7a1549213ab478448f6c15c2" target="_top" xlink:title=" ">
+<g id="a_Node000002"><a xlink:href="class_easy___copier_1_1_services_1_1_transfer_queue_service.html#a31960a3b7a1549213ab478448f6c15c2" target="_top" xlink:title="Initializes a new instance of the TransferQueueService class and starts background consumer tasks.">
 <polygon fill="white" stroke="#666666" points="178,-32 0,-32 0,0 178,0 178,-32"/>
 <text xml:space="preserve" text-anchor="start" x="8" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Services.Transfer</text>
 <text xml:space="preserve" text-anchor="middle" x="89" y="-6.5" font-family="Helvetica,sans-Serif" font-size="10.00">QueueService.TransferQueueService</text>

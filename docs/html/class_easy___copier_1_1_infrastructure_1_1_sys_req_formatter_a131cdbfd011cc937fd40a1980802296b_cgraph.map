@@ -1,5 +1,5 @@
 <map id="Easy_Copier.Infrastructure.SysReqFormatter.FormatText" name="Easy_Copier.Infrastructure.SysReqFormatter.FormatText">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,439,200,481"/>
+<area shape="rect" id="Node000001" title="Formats and standardizes raw system requirement strings by adding line breaks before key headers." alt="" coords="5,439,200,481"/>
 <area shape="rect" id="Node000002" href="$class_easy___copier_1_1_infrastructure_1_1_sys_req_formatter.html#a9c6566e268aa2ce9bd6c9eb65adcf89e" title=" " alt="" coords="258,5,516,48"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="102,438,110,365,131,263,150,207,174,153,206,102,246,58,253,55,250,59,250,62,210,105,179,155,155,209,137,264,115,366,107,439"/>
 <area shape="rect" id="Node000003" href="$class_easy___copier_1_1_infrastructure_1_1_sys_req_formatter.html#af62de86aad0cef5e7fe4c2252a50ffdf" title=" " alt="" coords="265,72,508,115"/>

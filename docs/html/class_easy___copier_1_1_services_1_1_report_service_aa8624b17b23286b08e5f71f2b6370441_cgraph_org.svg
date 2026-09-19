@@ -11,7 +11,7 @@
 <!-- Node1 -->
 <g id="Node000001" class="node">
 <title>Node1</title>
-<g id="a_Node000001"><a xlink:title=" ">
+<g id="a_Node000001"><a xlink:title="Asynchronously exports copy history records to a UTF&#45;8 encoded CSV file.">
 <polygon fill="#999999" stroke="#666666" points="168.25,-57 0,-57 0,-25 168.25,-25 168.25,-57"/>
 <text xml:space="preserve" text-anchor="start" x="8" y="-43.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Services.Report</text>
 <text xml:space="preserve" text-anchor="middle" x="84.12" y="-31.5" font-family="Helvetica,sans-Serif" font-size="10.00">Service.ExportHistoryToCsvAsync</text>
@@ -40,7 +40,7 @@
 <!-- Node3 -->
 <g id="Node000003" class="node">
 <title>Node3</title>
-<g id="a_Node000003"><a xlink:href="class_easy___copier_1_1_services_1_1_report_service.html#a654899ea6c0c5e4fc3432a34b021c5c7" target="_top" xlink:title=" ">
+<g id="a_Node000003"><a xlink:href="class_easy___copier_1_1_services_1_1_report_service.html#a654899ea6c0c5e4fc3432a34b021c5c7" target="_top" xlink:title="Escapes a CSV field value according to RFC 4180 rules if it contains commas, quotes,...">
 <polygon fill="white" stroke="#666666" points="359.38,-32 213.62,-32 213.62,0 359.38,0 359.38,-32"/>
 <text xml:space="preserve" text-anchor="start" x="221.62" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Services.Report</text>
 <text xml:space="preserve" text-anchor="middle" x="286.5" y="-6.5" font-family="Helvetica,sans-Serif" font-size="10.00">Service.EscapeCsv</text>

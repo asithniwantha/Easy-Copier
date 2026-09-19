@@ -1,5 +1,5 @@
 <map id="Easy_Copier.Infrastructure.RufusResolutionHelper.TryParseVersionFromFileName" name="Easy_Copier.Infrastructure.RufusResolutionHelper.TryParseVersionFromFileName">
-<area shape="rect" id="Node000001" title="Attempts to parse a Version object from a Rufus filename (e.g. rufus&#45;4.7.exe =&gt; Version 4...." alt="" coords="5,5,262,64"/>
+<area shape="rect" id="Node000001" title="Attempts to parse a Version object from a Rufus filename (e.g., rufus&#45;4.7.exe =&gt; Version 4...." alt="" coords="5,5,262,64"/>
 <area shape="rect" id="Node000002" href="$class_easy___copier_1_1_infrastructure_1_1_rufus_resolution_helper.html#aff74fa2f29453c47964c6d4e5ef6de2a" title=" " alt="" coords="310,13,586,56"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="262,32,297,34,291,35,262,37"/>
 </map>

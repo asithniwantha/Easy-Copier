@@ -1,0 +1,16 @@
+<map id="Easy_Copier.Views.TvAndFilmsTabView.TvAndFilmsTabView_obj3_Bindings.Update_HasLargeFiles" name="Easy_Copier.Views.TvAndFilmsTabView.TvAndFilmsTabView_obj3_Bindings.Update_HasLargeFiles">
+<area shape="rect" id="Node000001" title=" " alt="" coords="1114,39,1360,97"/>
+<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_views_1_1_tv_and_films_tab_view_1_1_tv_and_films_tab_view__obj3___bindings.html#afec4184c38f15b0895135c33b46b6588" title=" " alt="" coords="855,39,1066,97"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="1095,68,1066,71,1066,65,1101,68"/>
+<area shape="rect" id="Node000003" href="$class_easy___copier_1_1_views_1_1_tv_and_films_tab_view_1_1_tv_and_films_tab_view__obj3___bindings.html#a36ad7550b103ab91373725f69ba2f00c" title=" " alt="" coords="5,5,217,64"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="837,62,807,63,217,41,217,35,807,57,843,61"/>
+<area shape="rect" id="Node000004" href="$class_easy___copier_1_1_views_1_1_tv_and_films_tab_view_1_1_tv_and_films_tab_view__obj3___bindings.html#ac069274f74875c4b4df55362eb421e36" title=" " alt="" coords="597,72,807,131"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="837,84,808,90,808,85,842,83"/>
+<area shape="rect" id="Node000005" href="$class_easy___copier_1_1_views_1_1_tv_and_films_tab_view_1_1_tv_and_films_tab_view__obj3___bindings.html#afba9c2aa9cdb486ac5d5890443ae0af1" title=" " alt="" coords="265,72,549,131"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="579,102,550,104,549,99,584,101"/>
+<area shape="rect" id="Node000007" href="$class_easy___copier_1_1_views_1_1_tv_and_films_tab_view_1_1_tv_and_films_tab_view__obj3___bindings.html#a299e429534a6b1789dd9e36555963dbd" title=" " alt="" coords="302,155,512,213"/>
+<area shape="poly" id="edge7_Node000004_Node000007" title=" " alt="" coords="585,134,513,157,512,152,580,135"/>
+<area shape="poly" id="edge6_Node000005_Node000003" title=" " alt="" coords="257,69,217,61,217,56,262,67"/>
+<area shape="rect" id="Node000006" href="$class_easy___copier_1_1_views_1_1_tv_and_films_tab_view.html#ab74d75d453d1f18ce7744ccc0818b1b2" title="GetBindingConnector(int connectionId, object target)." alt="" coords="6,88,216,131"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="246,106,217,109,216,104,251,105"/>
+</map>

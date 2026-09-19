@@ -1,5 +1,5 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="Node000000" href="$interface_easy___copier_1_1_services_1_1_i_transfer_queue_service.html" title=" " alt="" coords="5,5,213,48"/>
-<area shape="rect" id="Node000001" href="$class_easy___copier_1_1_services_1_1_transfer_queue_service.html" title=" " alt="" coords="261,5,464,48"/>
-<area shape="poly" id="edge25_Node000000_Node000001" title=" " alt="" coords="228,24,263,27,257,27,228,29"/>
+<area shape="rect" id="Node000000" href="$interface_easy___copier_1_1_services_1_1_i_startup_service.html" title="Defines operations for configuring Windows startup behavior on user logon." alt="" coords="5,5,207,48"/>
+<area shape="rect" id="Node000001" href="$class_easy___copier_1_1_services_1_1_startup_service.html" title="Service for adding or removing the application&#39;s executable path in the Windows CurrentUser Run regis..." alt="" coords="255,5,452,48"/>
+<area shape="poly" id="edge24_Node000000_Node000001" title=" " alt="" coords="222,24,257,27,251,27,223,29"/>
 </map>

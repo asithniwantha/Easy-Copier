@@ -112,6 +112,9 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('interface_easy
   <div class="headertitle"><div class="title">Easy_Copier.Infrastructure.IDialogService Interface Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Provides an abstraction for displaying UI dialogs and prompts from <a class="el" href="namespace_easy___copier_1_1_view_models.html">ViewModels</a>.  
+ <a href="#details">More...</a></p>
 <div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Inheritance diagram for Easy_Copier.Infrastructure.IDialogService:</div>
 <div id="dynsection-0-summary" class="dynsummary">
 </div>
@@ -122,11 +125,14 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('interface_easy
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a9bd95aa4bbb692442c72bf8dac7dc84c" id="r_a9bd95aa4bbb692442c72bf8dac7dc84c"><td class="memItemLeft">Task&lt;(<a class="el" href="namespace_easy___copier_1_1_models.html#a68a2590a03f2da096e940aad813f4053">CopyAction</a> Action, bool ApplyToAll)&gt;&#160;</td><td class="memItemRight"><a class="el" href="#a9bd95aa4bbb692442c72bf8dac7dc84c">ShowConflictDialogAsync</a> (string itemName, long srcSize, int srcCount, long destSize, int destCount)</td></tr>
+<tr class="memdesc:a9bd95aa4bbb692442c72bf8dac7dc84c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Displays a folder conflict resolution dialog allowing the user to select how to handle duplicate items.  <br /></td></tr>
 <tr class="memitem:a1b2862a271339e6cd1a4aecd86631812" id="r_a1b2862a271339e6cd1a4aecd86631812"><td class="memItemLeft">Task&#160;</td><td class="memItemRight"><a class="el" href="#a1b2862a271339e6cd1a4aecd86631812">ShowMessageDialogAsync</a> (string title, string message, string closeButtonText=&quot;OK&quot;)</td></tr>
+<tr class="memdesc:a1b2862a271339e6cd1a4aecd86631812"><td class="mdescLeft">&#160;</td><td class="mdescRight">Displays a standard modal message dialog with a title, message body, and close button text.  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="_i_dialog_service_8cs_source.html#l00006">6</a> of file <a class="el" href="_i_dialog_service_8cs_source.html">IDialogService.cs</a>.</p>
+<div class="textblock"><p>Provides an abstraction for displaying UI dialogs and prompts from <a class="el" href="namespace_easy___copier_1_1_view_models.html">ViewModels</a>. </p>
+
+<p class="definition">Definition at line <a class="el" href="_i_dialog_service_8cs_source.html#l00009">9</a> of file <a class="el" href="_i_dialog_service_8cs_source.html">IDialogService.cs</a>.</p>
 </div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
 <a id="a9bd95aa4bbb692442c72bf8dac7dc84c" name="a9bd95aa4bbb692442c72bf8dac7dc84c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a9bd95aa4bbb692442c72bf8dac7dc84c">&#9670;&#160;</a></span>ShowConflictDialogAsync()</h2>
@@ -161,6 +167,19 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Displays a folder conflict resolution dialog allowing the user to select how to handle duplicate items. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">itemName</td><td>The name of the conflicting item.</td></tr>
+    <tr><td class="paramname">srcSize</td><td>The total byte size of the source item.</td></tr>
+    <tr><td class="paramname">srcCount</td><td>The total file count in the source item.</td></tr>
+    <tr><td class="paramname">destSize</td><td>The total byte size of the existing destination item.</td></tr>
+    <tr><td class="paramname">destCount</td><td>The total file count in the existing destination item.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A tuple containing the selected CopyAction and a boolean indicating if the action applies to all subsequent conflicts.</dd></dl>
 
 <p>Implemented in <a class="el" href="class_easy___copier_1_1_infrastructure_1_1_dialog_service.html#a2202989f8a7cc94da59a0b1c8bf4c229">Easy_Copier.Infrastructure.DialogService</a>.</p>
 
@@ -197,6 +216,17 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Displays a standard modal message dialog with a title, message body, and close button text. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">title</td><td>The dialog title.</td></tr>
+    <tr><td class="paramname">message</td><td>The body text of the message.</td></tr>
+    <tr><td class="paramname">closeButtonText</td><td>The text displayed on the close button. Defaults to "OK".</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A task representing the asynchronous operation.</dd></dl>
 
 <p>Implemented in <a class="el" href="class_easy___copier_1_1_infrastructure_1_1_dialog_service.html#af01de2fae2e081274fe47ce17271912c">Easy_Copier.Infrastructure.DialogService</a>.</p>
 

@@ -131,6 +131,7 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('class_easy___c
 <tr class="heading"><td colspan="2"><h2 id="header-pub-static-attribs" class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
 <tr class="memitem:abf1c5da33b49b9825950ca5a069e49e8" id="r_abf1c5da33b49b9825950ca5a069e49e8"><td class="memItemLeft">static readonly DependencyProperty&#160;</td><td class="memItemRight"><a class="el" href="#abf1c5da33b49b9825950ca5a069e49e8">IsFocusWithinProperty</a></td></tr>
+<tr class="memdesc:abf1c5da33b49b9825950ca5a069e49e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Identifies the IsFocusWithin dependency property.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pro-methods" class="groupheader"><a id="pro-methods" name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
@@ -140,6 +141,7 @@ Protected Member Functions</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 id="header-properties" class="groupheader"><a id="properties" name="properties"></a>
 Properties</h2></td></tr>
 <tr class="memitem:adb041f007e04f7b87e1fad482df00c19" id="r_adb041f007e04f7b87e1fad482df00c19"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#adb041f007e04f7b87e1fad482df00c19">IsFocusWithin</a><code> [get, set]</code></td></tr>
+<tr class="memdesc:adb041f007e04f7b87e1fad482df00c19"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets or sets a value indicating whether keyboard focus is currently within the associated control or any of its descendants.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pri-methods" class="groupheader"><a id="pri-methods" name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
@@ -178,11 +180,11 @@ Private Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_focus_within_behavior_8cs_source.html#l00035">35</a> of file <a class="el" href="_focus_within_behavior_8cs_source.html">FocusWithinBehavior.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_focus_within_behavior_8cs_source.html#l00043">43</a> of file <a class="el" href="_focus_within_behavior_8cs_source.html">FocusWithinBehavior.cs</a>.</p>
 
-<p class="reference">References <a class="el" href="_focus_within_behavior_8cs_source.html#l00016">IsFocusWithin</a>.</p>
+<p class="reference">References <a class="el" href="_focus_within_behavior_8cs_source.html#l00022">IsFocusWithin</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_focus_within_behavior_8cs_source.html#l00021">OnAttached()</a>, and <a class="el" href="_focus_within_behavior_8cs_source.html#l00028">OnDetaching()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_focus_within_behavior_8cs_source.html#l00028">OnAttached()</a>, and <a class="el" href="_focus_within_behavior_8cs_source.html#l00036">OnDetaching()</a>.</p>
 <div id="dynsection-2" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
 <div id="dynsection-2-summary" class="dynsummary">
 </div>
@@ -219,11 +221,11 @@ Private Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_focus_within_behavior_8cs_source.html#l00040">40</a> of file <a class="el" href="_focus_within_behavior_8cs_source.html">FocusWithinBehavior.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_focus_within_behavior_8cs_source.html#l00048">48</a> of file <a class="el" href="_focus_within_behavior_8cs_source.html">FocusWithinBehavior.cs</a>.</p>
 
-<p class="reference">References <a class="el" href="_focus_within_behavior_8cs_source.html#l00016">IsFocusWithin</a>.</p>
+<p class="reference">References <a class="el" href="_focus_within_behavior_8cs_source.html#l00022">IsFocusWithin</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_focus_within_behavior_8cs_source.html#l00021">OnAttached()</a>, and <a class="el" href="_focus_within_behavior_8cs_source.html#l00028">OnDetaching()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_focus_within_behavior_8cs_source.html#l00028">OnAttached()</a>, and <a class="el" href="_focus_within_behavior_8cs_source.html#l00036">OnDetaching()</a>.</p>
 <div id="dynsection-3" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
 <div id="dynsection-3-summary" class="dynsummary">
 </div>
@@ -256,9 +258,11 @@ Private Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_focus_within_behavior_8cs_source.html#l00021">21</a> of file <a class="el" href="_focus_within_behavior_8cs_source.html">FocusWithinBehavior.cs</a>.</p>
+<p></p>
 
-<p class="reference">References <a class="el" href="_focus_within_behavior_8cs_source.html#l00035">AssociatedObject_GotFocus()</a>, and <a class="el" href="_focus_within_behavior_8cs_source.html#l00040">AssociatedObject_LostFocus()</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_focus_within_behavior_8cs_source.html#l00028">28</a> of file <a class="el" href="_focus_within_behavior_8cs_source.html">FocusWithinBehavior.cs</a>.</p>
+
+<p class="reference">References <a class="el" href="_focus_within_behavior_8cs_source.html#l00043">AssociatedObject_GotFocus()</a>, and <a class="el" href="_focus_within_behavior_8cs_source.html#l00048">AssociatedObject_LostFocus()</a>.</p>
 <div id="dynsection-4" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-4-summary" class="dynsummary">
 </div>
@@ -291,9 +295,11 @@ Private Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_focus_within_behavior_8cs_source.html#l00028">28</a> of file <a class="el" href="_focus_within_behavior_8cs_source.html">FocusWithinBehavior.cs</a>.</p>
+<p></p>
 
-<p class="reference">References <a class="el" href="_focus_within_behavior_8cs_source.html#l00035">AssociatedObject_GotFocus()</a>, and <a class="el" href="_focus_within_behavior_8cs_source.html#l00040">AssociatedObject_LostFocus()</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_focus_within_behavior_8cs_source.html#l00036">36</a> of file <a class="el" href="_focus_within_behavior_8cs_source.html">FocusWithinBehavior.cs</a>.</p>
+
+<p class="reference">References <a class="el" href="_focus_within_behavior_8cs_source.html#l00043">AssociatedObject_GotFocus()</a>, and <a class="el" href="_focus_within_behavior_8cs_source.html#l00048">AssociatedObject_LostFocus()</a>.</p>
 <div id="dynsection-5" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-5-summary" class="dynsummary">
 </div>
@@ -326,9 +332,11 @@ Private Member Functions</h2></td></tr>
 <b>Initial value:</b><div class="fragment"><div class="line">                                                            =</div>
 <div class="line">DependencyProperty.Register(nameof(<a class="code hl_property" href="#adb041f007e04f7b87e1fad482df00c19">IsFocusWithin</a>), typeof(<span class="keywordtype">bool</span>), typeof(<a class="code hl_class" href="class_easy___copier_1_1_behaviors_1_1_focus_within_behavior.html">FocusWithinBehavior</a>), <span class="keyword">new</span> PropertyMetadata(<span class="keyword">false</span>))</div>
 <div class="ttc" id="aclass_easy___copier_1_1_behaviors_1_1_focus_within_behavior_html"><div class="ttname"><a href="class_easy___copier_1_1_behaviors_1_1_focus_within_behavior.html">Easy_Copier.Behaviors.FocusWithinBehavior</a></div><div class="ttdoc">Toggles the bound IsFocusWithin dependency property while any descendant element of the associated el...</div><div class="ttdef"><b>Definition</b> <a href="_focus_within_behavior_8cs_source.html#l00010">FocusWithinBehavior.cs:11</a></div></div>
-<div class="ttc" id="aclass_easy___copier_1_1_behaviors_1_1_focus_within_behavior_html_adb041f007e04f7b87e1fad482df00c19"><div class="ttname"><a href="#adb041f007e04f7b87e1fad482df00c19">Easy_Copier.Behaviors.FocusWithinBehavior.IsFocusWithin</a></div><div class="ttdeci">bool IsFocusWithin</div><div class="ttdef"><b>Definition</b> <a href="_focus_within_behavior_8cs_source.html#l00015">FocusWithinBehavior.cs:16</a></div></div>
+<div class="ttc" id="aclass_easy___copier_1_1_behaviors_1_1_focus_within_behavior_html_adb041f007e04f7b87e1fad482df00c19"><div class="ttname"><a href="#adb041f007e04f7b87e1fad482df00c19">Easy_Copier.Behaviors.FocusWithinBehavior.IsFocusWithin</a></div><div class="ttdeci">bool IsFocusWithin</div><div class="ttdoc">Gets or sets a value indicating whether keyboard focus is currently within the associated control or ...</div><div class="ttdef"><b>Definition</b> <a href="_focus_within_behavior_8cs_source.html#l00021">FocusWithinBehavior.cs:22</a></div></div>
 </div><!-- fragment -->
-<p class="definition">Definition at line <a class="el" href="_focus_within_behavior_8cs_source.html#l00012">12</a> of file <a class="el" href="_focus_within_behavior_8cs_source.html">FocusWithinBehavior.cs</a>.</p>
+<p>Identifies the IsFocusWithin dependency property. </p>
+
+<p class="definition">Definition at line <a class="el" href="_focus_within_behavior_8cs_source.html#l00015">15</a> of file <a class="el" href="_focus_within_behavior_8cs_source.html">FocusWithinBehavior.cs</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="_debug_2net10_80-windows10_80_826100_80_2win-x64_2_views_2_smart_adder_control_8g_8cs_source.html#l00830">Easy_Copier.Views.SmartAdderControl.SmartAdderControl_obj1_Bindings.SmartAdderControl_obj1_BindingsTracking.RegisterTwoWayListener_6()</a>.</p>
 
@@ -355,9 +363,11 @@ Private Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_focus_within_behavior_8cs_source.html#l00015">15</a> of file <a class="el" href="_focus_within_behavior_8cs_source.html">FocusWithinBehavior.cs</a>.</p>
+<p>Gets or sets a value indicating whether keyboard focus is currently within the associated control or any of its descendants. </p>
 
-<p class="reference">Referenced by <a class="el" href="_focus_within_behavior_8cs_source.html#l00035">AssociatedObject_GotFocus()</a>, and <a class="el" href="_focus_within_behavior_8cs_source.html#l00040">AssociatedObject_LostFocus()</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_focus_within_behavior_8cs_source.html#l00021">21</a> of file <a class="el" href="_focus_within_behavior_8cs_source.html">FocusWithinBehavior.cs</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_focus_within_behavior_8cs_source.html#l00043">AssociatedObject_GotFocus()</a>, and <a class="el" href="_focus_within_behavior_8cs_source.html#l00048">AssociatedObject_LostFocus()</a>.</p>
 
 </div>
 </div>

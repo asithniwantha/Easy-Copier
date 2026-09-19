@@ -11,7 +11,7 @@
 <!-- Node1 -->
 <g id="Node000001" class="node">
 <title>Node1</title>
-<g id="a_Node000001"><a xlink:title=" ">
+<g id="a_Node000001"><a xlink:title="Service interface for recording and querying copy operation history in a local SQLite database.">
 <polygon fill="#999999" stroke="#666666" points="142.75,-100 0,-100 0,-68 142.75,-68 142.75,-100"/>
 <text xml:space="preserve" text-anchor="start" x="8" y="-86.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Services.ICopy</text>
 <text xml:space="preserve" text-anchor="middle" x="71.38" y="-74.5" font-family="Helvetica,sans-Serif" font-size="10.00">HistoryService</text>
@@ -21,7 +21,7 @@
 <!-- Node2 -->
 <g id="Node000002" class="node">
 <title>Node2</title>
-<g id="a_Node000002"><a xlink:href="class_easy___copier_1_1_services_1_1_copy_history_service.html" target="_top" xlink:title=" ">
+<g id="a_Node000002"><a xlink:href="class_easy___copier_1_1_services_1_1_copy_history_service.html" target="_top" xlink:title="Provides functionality for persisting and querying file copy operation history stored in a local SQLi...">
 <polygon fill="white" stroke="#666666" points="141.25,-32 1.5,-32 1.5,0 141.25,0 141.25,-32"/>
 <text xml:space="preserve" text-anchor="start" x="9.5" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Services.Copy</text>
 <text xml:space="preserve" text-anchor="middle" x="71.38" y="-6.5" font-family="Helvetica,sans-Serif" font-size="10.00">HistoryService</text>

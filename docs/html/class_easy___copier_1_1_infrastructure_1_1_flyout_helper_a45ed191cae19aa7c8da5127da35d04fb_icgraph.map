@@ -1,0 +1,19 @@
+<map id="Easy_Copier.Infrastructure.FlyoutHelper.HandleOpenFolderClick" name="Easy_Copier.Infrastructure.FlyoutHelper.HandleOpenFolderClick">
+<area shape="rect" id="Node000001" title="Handles the click event for opening an item&#39;s folder in File Explorer." alt="" coords="528,105,765,148"/>
+<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_views_1_1_apps_tab_view.html#a321706f961d10d74744c6506953b30fc" title=" " alt="" coords="274,5,470,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="577,99,479,63,446,51,446,46,481,57,583,99"/>
+<area shape="rect" id="Node000004" href="$class_easy___copier_1_1_views_1_1_games_tab_view.html#aaa23f7199b14b9214c1094e5e71c3063" title=" " alt="" coords="270,72,474,115"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="510,111,474,108,474,103,515,110"/>
+<area shape="rect" id="Node000006" href="$class_easy___copier_1_1_views_1_1_os_images_tab_view.html#a466fd73bd468914db6b030292b718bc1" title=" " alt="" coords="264,139,480,181"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="510,143,481,149,480,144,515,142"/>
+<area shape="rect" id="Node000008" href="$class_easy___copier_1_1_views_1_1_tv_and_films_tab_view.html#a545cec72208622ab7a85fcd809165120" title=" " alt="" coords="264,205,480,248"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="583,154,481,196,447,207,446,202,479,191,578,155"/>
+<area shape="rect" id="Node000003" href="$class_easy___copier_1_1_views_1_1_apps_tab_view.html#a87d18c1cf1d01a43e41cc29e9ad583f2" title="Connect()." alt="" coords="15,5,206,48"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="256,28,208,29,206,24,261,25"/>
+<area shape="rect" id="Node000005" href="$class_easy___copier_1_1_views_1_1_games_tab_view.html#a7308db31f7bf54663baf056bce1215ad" title="Connect()." alt="" coords="9,72,212,115"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="252,94,213,96,212,91,257,92"/>
+<area shape="rect" id="Node000007" href="$class_easy___copier_1_1_views_1_1_os_images_tab_view.html#a290c98c7e3c9583b4583c219ebd40bfc" title="Connect()." alt="" coords="10,139,211,181"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="245,161,211,163,211,157,251,159"/>
+<area shape="rect" id="Node000009" href="$class_easy___copier_1_1_views_1_1_tv_and_films_tab_view.html#a6aea0d345958634c0faa92277586c1fe" title="Connect()." alt="" coords="5,205,216,248"/>
+<area shape="poly" id="edge8_Node000008_Node000009" title=" " alt="" coords="245,227,216,229,216,224,251,227"/>
+</map>

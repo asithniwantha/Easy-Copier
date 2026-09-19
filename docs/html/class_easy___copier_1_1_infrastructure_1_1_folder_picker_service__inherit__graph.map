@@ -1,5 +1,5 @@
 <map id="Easy_Copier.Infrastructure.FolderPickerService" name="Easy_Copier.Infrastructure.FolderPickerService">
-<area shape="rect" id="Node000001" title=" " alt="" coords="12,96,194,139"/>
-<area shape="rect" id="Node000002" href="$interface_easy___copier_1_1_services_1_1_i_folder_picker_service.html" title=" " alt="" coords="5,5,201,48"/>
+<area shape="rect" id="Node000001" title="Implements folder selection operations using WinRT FolderPicker." alt="" coords="12,96,194,139"/>
+<area shape="rect" id="Node000002" href="$interface_easy___copier_1_1_services_1_1_i_folder_picker_service.html" title="Defines operations for interacting with UI folder selection picker dialogs." alt="" coords="5,5,201,48"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="105,62,105,97,101,95,101,66"/>
 </map>

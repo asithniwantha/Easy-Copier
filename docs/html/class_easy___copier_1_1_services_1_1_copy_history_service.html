@@ -112,6 +112,9 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('class_easy___c
   <div class="headertitle"><div class="title">Easy_Copier.Services.CopyHistoryService Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Provides functionality for persisting and querying file copy operation history stored in a local SQLite database file.  
+ <a href="#details">More...</a></p>
 <div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Inheritance diagram for Easy_Copier.Services.CopyHistoryService:</div>
 <div id="dynsection-0-summary" class="dynsummary">
 </div>
@@ -128,27 +131,40 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('class_easy___c
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a01b5244845120a76ed427934076646b3" id="r_a01b5244845120a76ed427934076646b3"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a01b5244845120a76ed427934076646b3">CopyHistoryService</a> (ILogger&lt; CopyHistoryService &gt; logger)</td></tr>
+<tr class="memdesc:a01b5244845120a76ed427934076646b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes a new instance of the CopyHistoryService class and configures database storage paths.  <br /></td></tr>
 <tr class="memitem:aba29ee86567fbcfc77433959c46c65c2" id="r_aba29ee86567fbcfc77433959c46c65c2"><td class="memItemLeft">async Task&#160;</td><td class="memItemRight"><a class="el" href="#aba29ee86567fbcfc77433959c46c65c2">InitializeAsync</a> ()</td></tr>
+<tr class="memdesc:aba29ee86567fbcfc77433959c46c65c2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Asynchronously initializes the database schema for copy history and executes any required schema migrations.  <br /></td></tr>
 <tr class="memitem:aecc6eeb77ecd42fa94e25a0c2a8fa664" id="r_aecc6eeb77ecd42fa94e25a0c2a8fa664"><td class="memItemLeft">async Task&#160;</td><td class="memItemRight"><a class="el" href="#aecc6eeb77ecd42fa94e25a0c2a8fa664">AddRecordAsync</a> (<a class="el" href="namespace_easy___copier_1_1_models.html#a22cad9581ea699aafef9d310c84f0836">CopyHistoryRecord</a> record)</td></tr>
+<tr class="memdesc:aecc6eeb77ecd42fa94e25a0c2a8fa664"><td class="mdescLeft">&#160;</td><td class="mdescRight">Asynchronously inserts a new copy operation record into the SQLite database.  <br /></td></tr>
 <tr class="memitem:ad84f30371f01b9187c29a15b65e6e181" id="r_ad84f30371f01b9187c29a15b65e6e181"><td class="memItemLeft">async Task&lt; List&lt; <a class="el" href="namespace_easy___copier_1_1_models.html#a22cad9581ea699aafef9d310c84f0836">CopyHistoryRecord</a> &gt; &gt;&#160;</td><td class="memItemRight"><a class="el" href="#ad84f30371f01b9187c29a15b65e6e181">GetRecordsByWeekAsync</a> (DateTime startOfWeek, DateTime endOfWeek)</td></tr>
+<tr class="memdesc:ad84f30371f01b9187c29a15b65e6e181"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves records matching the designated week date range, sorted by timestamp descending.  <br /></td></tr>
 <tr class="memitem:a2e4145003b9ce0b022847861cbc13cc8" id="r_a2e4145003b9ce0b022847861cbc13cc8"><td class="memItemLeft">async Task&lt; List&lt; DateTime &gt; &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a2e4145003b9ce0b022847861cbc13cc8">GetAvailableWeeksAsync</a> ()</td></tr>
+<tr class="memdesc:a2e4145003b9ce0b022847861cbc13cc8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Asynchronously determines all distinct week start dates present in the history database.  <br /></td></tr>
 <tr class="memitem:a977fc855e31450a0f4e8bb945c376d46" id="r_a977fc855e31450a0f4e8bb945c376d46"><td class="memItemLeft">async Task&lt; List&lt; <a class="el" href="namespace_easy___copier_1_1_models.html#a22cad9581ea699aafef9d310c84f0836">CopyHistoryRecord</a> &gt; &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a977fc855e31450a0f4e8bb945c376d46">GetRecordsByMonthAsync</a> (int year, int month)</td></tr>
+<tr class="memdesc:a977fc855e31450a0f4e8bb945c376d46"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves history records matching the specified year and month.  <br /></td></tr>
 <tr class="memitem:adbef4e4fdcec262e40f3efb1b18ca2e5" id="r_adbef4e4fdcec262e40f3efb1b18ca2e5"><td class="memItemLeft">async Task&lt; List&lt;(int Year, int Month)&gt; &gt;&#160;</td><td class="memItemRight"><a class="el" href="#adbef4e4fdcec262e40f3efb1b18ca2e5">GetAvailableMonthsAsync</a> ()</td></tr>
+<tr class="memdesc:adbef4e4fdcec262e40f3efb1b18ca2e5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Asynchronously determines all distinct year/month combinations present in the history database.  <br /></td></tr>
 <tr class="memitem:a81662fae72f6e44dd0978e950b57341b" id="r_a81662fae72f6e44dd0978e950b57341b"><td class="memItemLeft">async Task&lt;(int TotalItems, int SuccessfulItems, long TotalBytes, int TotalAmount)&gt;&#160;</td><td class="memItemRight"><a class="el" href="#a81662fae72f6e44dd0978e950b57341b">GetStatsAsync</a> (DateTime startDate, DateTime endDate)</td></tr>
+<tr class="memdesc:a81662fae72f6e44dd0978e950b57341b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Asynchronously computes summary statistics for copy operations within the specified date range.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pri-methods" class="groupheader"><a id="pri-methods" name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
 <tr class="memitem:adb2b5883ce370a33757bd5764bc96228" id="r_adb2b5883ce370a33757bd5764bc96228"><td class="memItemLeft">async Task&lt; List&lt; <a class="el" href="namespace_easy___copier_1_1_models.html#a22cad9581ea699aafef9d310c84f0836">CopyHistoryRecord</a> &gt; &gt;&#160;</td><td class="memItemRight"><a class="el" href="#adb2b5883ce370a33757bd5764bc96228">GetAllRecordsAsync</a> ()</td></tr>
+<tr class="memdesc:adb2b5883ce370a33757bd5764bc96228"><td class="mdescLeft">&#160;</td><td class="mdescRight">Helper method that reads all history records stored in the database.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pri-attribs" class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
 <tr class="memitem:ab10329e788a048ed3971e73d211f718f" id="r_ab10329e788a048ed3971e73d211f718f"><td class="memItemLeft">readonly ILogger&lt; <a class="el" href="#a01b5244845120a76ed427934076646b3">CopyHistoryService</a> &gt;&#160;</td><td class="memItemRight"><a class="el" href="#ab10329e788a048ed3971e73d211f718f">_logger</a></td></tr>
+<tr class="memdesc:ab10329e788a048ed3971e73d211f718f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logger instance used for recording operational logs and errors.  <br /></td></tr>
 <tr class="memitem:a471672fc032448a04ac873d3d7e197d7" id="r_a471672fc032448a04ac873d3d7e197d7"><td class="memItemLeft">readonly string&#160;</td><td class="memItemRight"><a class="el" href="#a471672fc032448a04ac873d3d7e197d7">_dbPath</a></td></tr>
+<tr class="memdesc:a471672fc032448a04ac873d3d7e197d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Full file path to the local SQLite database file (<span class="tt">history.db</span>).  <br /></td></tr>
 <tr class="memitem:acc3869e01af9fc34650afe17ce8657e3" id="r_acc3869e01af9fc34650afe17ce8657e3"><td class="memItemLeft">readonly string&#160;</td><td class="memItemRight"><a class="el" href="#acc3869e01af9fc34650afe17ce8657e3">_connectionString</a></td></tr>
+<tr class="memdesc:acc3869e01af9fc34650afe17ce8657e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">SQLite connection string used for establishing database connections.  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="_copy_history_service_8cs_source.html#l00023">23</a> of file <a class="el" href="_copy_history_service_8cs_source.html">CopyHistoryService.cs</a>.</p>
+<div class="textblock"><p>Provides functionality for persisting and querying file copy operation history stored in a local SQLite database file. </p>
+
+<p class="definition">Definition at line <a class="el" href="_copy_history_service_8cs_source.html#l00070">70</a> of file <a class="el" href="_copy_history_service_8cs_source.html">CopyHistoryService.cs</a>.</p>
 </div><a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a01b5244845120a76ed427934076646b3" name="a01b5244845120a76ed427934076646b3"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a01b5244845120a76ed427934076646b3">&#9670;&#160;</a></span>CopyHistoryService()</h2>
@@ -165,9 +181,17 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_copy_history_service_8cs_source.html#l00029">29</a> of file <a class="el" href="_copy_history_service_8cs_source.html">CopyHistoryService.cs</a>.</p>
+<p>Initializes a new instance of the CopyHistoryService class and configures database storage paths. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">logger</td><td>The logger instance for operational diagnostic output.</td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p class="reference">References <a class="el" href="_copy_history_service_8cs_source.html#l00027">_connectionString</a>, <a class="el" href="_copy_history_service_8cs_source.html#l00026">_dbPath</a>, and <a class="el" href="_copy_history_service_8cs_source.html#l00025">_logger</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_copy_history_service_8cs_source.html#l00091">91</a> of file <a class="el" href="_copy_history_service_8cs_source.html">CopyHistoryService.cs</a>.</p>
+
+<p class="reference">References <a class="el" href="_copy_history_service_8cs_source.html#l00085">_connectionString</a>, <a class="el" href="_copy_history_service_8cs_source.html#l00080">_dbPath</a>, and <a class="el" href="_copy_history_service_8cs_source.html#l00075">_logger</a>.</p>
 
 </div>
 </div>
@@ -187,11 +211,26 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Asynchronously inserts a new copy operation record into the SQLite database. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">record</td><td>The record detailing the outcome and parameters of a copy operation.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A task representing the asynchronous operation.</dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">ArgumentNullException</td><td>Thrown when <em>record</em>  is <code>null</code>.</td></tr>
+  </table>
+  </dd>
+</dl>
+
 <p>Implements <a class="el" href="interface_easy___copier_1_1_services_1_1_i_copy_history_service.html#a0a03e9cfcfc3ecbb06861795b25de91b">Easy_Copier.Services.ICopyHistoryService</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_copy_history_service_8cs_source.html#l00091">91</a> of file <a class="el" href="_copy_history_service_8cs_source.html">CopyHistoryService.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_copy_history_service_8cs_source.html#l00163">163</a> of file <a class="el" href="_copy_history_service_8cs_source.html">CopyHistoryService.cs</a>.</p>
 
-<p class="reference">References <a class="el" href="_copy_history_service_8cs_source.html#l00027">_connectionString</a>, <a class="el" href="_copy_history_service_8cs_source.html#l00025">_logger</a>, and <a class="el" href="_domain_models_8cs_source.html#l00166">Easy_Copier.Models.CopyHistoryRecord()</a>.</p>
+<p class="reference">References <a class="el" href="_copy_history_service_8cs_source.html#l00085">_connectionString</a>, <a class="el" href="_copy_history_service_8cs_source.html#l00075">_logger</a>, and <a class="el" href="_domain_models_8cs_source.html#l00166">Easy_Copier.Models.CopyHistoryRecord()</a>.</p>
 <div id="dynsection-2" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-2-summary" class="dynsummary">
 </div>
@@ -224,11 +263,14 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_copy_history_service_8cs_source.html#l00121">121</a> of file <a class="el" href="_copy_history_service_8cs_source.html">CopyHistoryService.cs</a>.</p>
+<p>Helper method that reads all history records stored in the database. </p>
+<dl class="section return"><dt>Returns</dt><dd>A task that returns a list of all CopyHistoryRecord items.</dd></dl>
 
-<p class="reference">References <a class="el" href="_copy_history_service_8cs_source.html#l00027">_connectionString</a>, <a class="el" href="_copy_history_service_8cs_source.html#l00025">_logger</a>, and <a class="el" href="_domain_models_8cs_source.html#l00166">Easy_Copier.Models.CopyHistoryRecord()</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_copy_history_service_8cs_source.html#l00197">197</a> of file <a class="el" href="_copy_history_service_8cs_source.html">CopyHistoryService.cs</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_copy_history_service_8cs_source.html#l00205">GetAvailableMonthsAsync()</a>, <a class="el" href="_copy_history_service_8cs_source.html#l00178">GetAvailableWeeksAsync()</a>, <a class="el" href="_copy_history_service_8cs_source.html#l00196">GetRecordsByMonthAsync()</a>, <a class="el" href="_copy_history_service_8cs_source.html#l00162">GetRecordsByWeekAsync()</a>, and <a class="el" href="_copy_history_service_8cs_source.html#l00220">GetStatsAsync()</a>.</p>
+<p class="reference">References <a class="el" href="_copy_history_service_8cs_source.html#l00085">_connectionString</a>, <a class="el" href="_copy_history_service_8cs_source.html#l00075">_logger</a>, and <a class="el" href="_domain_models_8cs_source.html#l00166">Easy_Copier.Models.CopyHistoryRecord()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_copy_history_service_8cs_source.html#l00301">GetAvailableMonthsAsync()</a>, <a class="el" href="_copy_history_service_8cs_source.html#l00264">GetAvailableWeeksAsync()</a>, <a class="el" href="_copy_history_service_8cs_source.html#l00288">GetRecordsByMonthAsync()</a>, <a class="el" href="_copy_history_service_8cs_source.html#l00244">GetRecordsByWeekAsync()</a>, and <a class="el" href="_copy_history_service_8cs_source.html#l00330">GetStatsAsync()</a>.</p>
 <div id="dynsection-3" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-3-summary" class="dynsummary">
 </div>
@@ -259,11 +301,14 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Asynchronously determines all distinct year/month combinations present in the history database. </p>
+<dl class="section return"><dt>Returns</dt><dd>A task that returns a list of (Year, Month) tuples ordered descending.</dd></dl>
+
 <p>Implements <a class="el" href="interface_easy___copier_1_1_services_1_1_i_copy_history_service.html#a249df9233162193ce84fe3d570d8a75c">Easy_Copier.Services.ICopyHistoryService</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_copy_history_service_8cs_source.html#l00205">205</a> of file <a class="el" href="_copy_history_service_8cs_source.html">CopyHistoryService.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_copy_history_service_8cs_source.html#l00301">301</a> of file <a class="el" href="_copy_history_service_8cs_source.html">CopyHistoryService.cs</a>.</p>
 
-<p class="reference">References <a class="el" href="_domain_models_8cs_source.html#l00166">Easy_Copier.Models.CopyHistoryRecord()</a>, and <a class="el" href="_copy_history_service_8cs_source.html#l00121">GetAllRecordsAsync()</a>.</p>
+<p class="reference">References <a class="el" href="_domain_models_8cs_source.html#l00166">Easy_Copier.Models.CopyHistoryRecord()</a>, and <a class="el" href="_copy_history_service_8cs_source.html#l00197">GetAllRecordsAsync()</a>.</p>
 <div id="dynsection-5" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-5-summary" class="dynsummary">
 </div>
@@ -288,11 +333,14 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Asynchronously determines all distinct week start dates present in the history database. </p>
+<dl class="section return"><dt>Returns</dt><dd>A task that returns a list of week start dates ordered descending.</dd></dl>
+
 <p>Implements <a class="el" href="interface_easy___copier_1_1_services_1_1_i_copy_history_service.html#a195a7023c70384f14250e21a5e0e9428">Easy_Copier.Services.ICopyHistoryService</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_copy_history_service_8cs_source.html#l00178">178</a> of file <a class="el" href="_copy_history_service_8cs_source.html">CopyHistoryService.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_copy_history_service_8cs_source.html#l00264">264</a> of file <a class="el" href="_copy_history_service_8cs_source.html">CopyHistoryService.cs</a>.</p>
 
-<p class="reference">References <a class="el" href="_domain_models_8cs_source.html#l00166">Easy_Copier.Models.CopyHistoryRecord()</a>, and <a class="el" href="_copy_history_service_8cs_source.html#l00121">GetAllRecordsAsync()</a>.</p>
+<p class="reference">References <a class="el" href="_domain_models_8cs_source.html#l00166">Easy_Copier.Models.CopyHistoryRecord()</a>, and <a class="el" href="_copy_history_service_8cs_source.html#l00197">GetAllRecordsAsync()</a>.</p>
 <div id="dynsection-6" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-6-summary" class="dynsummary">
 </div>
@@ -321,11 +369,21 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Retrieves history records matching the specified year and month. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">year</td><td>The target year.</td></tr>
+    <tr><td class="paramname">month</td><td>The target month (1–12).</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A task that returns a list of matching CopyHistoryRecord items.</dd></dl>
+
 <p>Implements <a class="el" href="interface_easy___copier_1_1_services_1_1_i_copy_history_service.html#ac458a0686bf378a3225ca09ad649b252">Easy_Copier.Services.ICopyHistoryService</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_copy_history_service_8cs_source.html#l00196">196</a> of file <a class="el" href="_copy_history_service_8cs_source.html">CopyHistoryService.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_copy_history_service_8cs_source.html#l00288">288</a> of file <a class="el" href="_copy_history_service_8cs_source.html">CopyHistoryService.cs</a>.</p>
 
-<p class="reference">References <a class="el" href="_copy_history_service_8cs_source.html#l00121">GetAllRecordsAsync()</a>.</p>
+<p class="reference">References <a class="el" href="_copy_history_service_8cs_source.html#l00197">GetAllRecordsAsync()</a>.</p>
 <div id="dynsection-7" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-7-summary" class="dynsummary">
 </div>
@@ -354,11 +412,21 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Retrieves records matching the designated week date range, sorted by timestamp descending. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">startOfWeek</td><td>The start date of the week.</td></tr>
+    <tr><td class="paramname">endOfWeek</td><td>The end date of the week.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A task that returns a list of matching CopyHistoryRecord items.</dd></dl>
+
 <p>Implements <a class="el" href="interface_easy___copier_1_1_services_1_1_i_copy_history_service.html#a009edbc0ed4f2cd14fc3ba99bcaac75f">Easy_Copier.Services.ICopyHistoryService</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_copy_history_service_8cs_source.html#l00162">162</a> of file <a class="el" href="_copy_history_service_8cs_source.html">CopyHistoryService.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_copy_history_service_8cs_source.html#l00244">244</a> of file <a class="el" href="_copy_history_service_8cs_source.html">CopyHistoryService.cs</a>.</p>
 
-<p class="reference">References <a class="el" href="_copy_history_service_8cs_source.html#l00121">GetAllRecordsAsync()</a>.</p>
+<p class="reference">References <a class="el" href="_copy_history_service_8cs_source.html#l00197">GetAllRecordsAsync()</a>.</p>
 <div id="dynsection-8" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-8-summary" class="dynsummary">
 </div>
@@ -387,11 +455,31 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Asynchronously computes summary statistics for copy operations within the specified date range. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">startDate</td><td>Start boundary date (inclusive).</td></tr>
+    <tr><td class="paramname">endDate</td><td>End boundary date (exclusive).</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A tuple containing: <ul>
+<li>
+<code>TotalItems</code>: Total number of recorded copy operations. </li>
+<li>
+<code>SuccessfulItems</code>: Count of operations that completed successfully. </li>
+<li>
+<code>TotalBytes</code>: Total number of bytes transferred across all operations. </li>
+<li>
+<code>TotalAmount</code>: Total monetary value calculated across all operations. </li>
+</ul>
+</dd></dl>
+
 <p>Implements <a class="el" href="interface_easy___copier_1_1_services_1_1_i_copy_history_service.html#a36a6ca49a55cf6414180eec27992a416">Easy_Copier.Services.ICopyHistoryService</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_copy_history_service_8cs_source.html#l00220">220</a> of file <a class="el" href="_copy_history_service_8cs_source.html">CopyHistoryService.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_copy_history_service_8cs_source.html#l00330">330</a> of file <a class="el" href="_copy_history_service_8cs_source.html">CopyHistoryService.cs</a>.</p>
 
-<p class="reference">References <a class="el" href="_copy_history_service_8cs_source.html#l00121">GetAllRecordsAsync()</a>.</p>
+<p class="reference">References <a class="el" href="_copy_history_service_8cs_source.html#l00197">GetAllRecordsAsync()</a>.</p>
 <div id="dynsection-9" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-9-summary" class="dynsummary">
 </div>
@@ -416,11 +504,14 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Asynchronously initializes the database schema for copy history and executes any required schema migrations. </p>
+<dl class="section return"><dt>Returns</dt><dd>A task representing the asynchronous operation.</dd></dl>
+
 <p>Implements <a class="el" href="interface_easy___copier_1_1_services_1_1_i_copy_history_service.html#a6867d761ff9d16ab2e8df2da66d293df">Easy_Copier.Services.ICopyHistoryService</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_copy_history_service_8cs_source.html#l00039">39</a> of file <a class="el" href="_copy_history_service_8cs_source.html">CopyHistoryService.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_copy_history_service_8cs_source.html#l00105">105</a> of file <a class="el" href="_copy_history_service_8cs_source.html">CopyHistoryService.cs</a>.</p>
 
-<p class="reference">References <a class="el" href="_copy_history_service_8cs_source.html#l00027">_connectionString</a>, <a class="el" href="_copy_history_service_8cs_source.html#l00026">_dbPath</a>, and <a class="el" href="_copy_history_service_8cs_source.html#l00025">_logger</a>.</p>
+<p class="reference">References <a class="el" href="_copy_history_service_8cs_source.html#l00085">_connectionString</a>, <a class="el" href="_copy_history_service_8cs_source.html#l00080">_dbPath</a>, and <a class="el" href="_copy_history_service_8cs_source.html#l00075">_logger</a>.</p>
 
 </div>
 </div>
@@ -445,9 +536,11 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_copy_history_service_8cs_source.html#l00027">27</a> of file <a class="el" href="_copy_history_service_8cs_source.html">CopyHistoryService.cs</a>.</p>
+<p>SQLite connection string used for establishing database connections. </p>
 
-<p class="reference">Referenced by <a class="el" href="_copy_history_service_8cs_source.html#l00091">AddRecordAsync()</a>, <a class="el" href="_copy_history_service_8cs_source.html#l00029">CopyHistoryService()</a>, <a class="el" href="_copy_history_service_8cs_source.html#l00121">GetAllRecordsAsync()</a>, and <a class="el" href="_copy_history_service_8cs_source.html#l00039">InitializeAsync()</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_copy_history_service_8cs_source.html#l00085">85</a> of file <a class="el" href="_copy_history_service_8cs_source.html">CopyHistoryService.cs</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_copy_history_service_8cs_source.html#l00163">AddRecordAsync()</a>, <a class="el" href="_copy_history_service_8cs_source.html#l00091">CopyHistoryService()</a>, <a class="el" href="_copy_history_service_8cs_source.html#l00197">GetAllRecordsAsync()</a>, and <a class="el" href="_copy_history_service_8cs_source.html#l00105">InitializeAsync()</a>.</p>
 
 </div>
 </div>
@@ -471,9 +564,11 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_copy_history_service_8cs_source.html#l00026">26</a> of file <a class="el" href="_copy_history_service_8cs_source.html">CopyHistoryService.cs</a>.</p>
+<p>Full file path to the local SQLite database file (<span class="tt">history.db</span>). </p>
 
-<p class="reference">Referenced by <a class="el" href="_copy_history_service_8cs_source.html#l00029">CopyHistoryService()</a>, and <a class="el" href="_copy_history_service_8cs_source.html#l00039">InitializeAsync()</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_copy_history_service_8cs_source.html#l00080">80</a> of file <a class="el" href="_copy_history_service_8cs_source.html">CopyHistoryService.cs</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_copy_history_service_8cs_source.html#l00091">CopyHistoryService()</a>, and <a class="el" href="_copy_history_service_8cs_source.html#l00105">InitializeAsync()</a>.</p>
 
 </div>
 </div>
@@ -497,9 +592,11 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_copy_history_service_8cs_source.html#l00025">25</a> of file <a class="el" href="_copy_history_service_8cs_source.html">CopyHistoryService.cs</a>.</p>
+<p>Logger instance used for recording operational logs and errors. </p>
 
-<p class="reference">Referenced by <a class="el" href="_copy_history_service_8cs_source.html#l00091">AddRecordAsync()</a>, <a class="el" href="_copy_history_service_8cs_source.html#l00029">CopyHistoryService()</a>, <a class="el" href="_copy_history_service_8cs_source.html#l00121">GetAllRecordsAsync()</a>, and <a class="el" href="_copy_history_service_8cs_source.html#l00039">InitializeAsync()</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_copy_history_service_8cs_source.html#l00075">75</a> of file <a class="el" href="_copy_history_service_8cs_source.html">CopyHistoryService.cs</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_copy_history_service_8cs_source.html#l00163">AddRecordAsync()</a>, <a class="el" href="_copy_history_service_8cs_source.html#l00091">CopyHistoryService()</a>, <a class="el" href="_copy_history_service_8cs_source.html#l00197">GetAllRecordsAsync()</a>, and <a class="el" href="_copy_history_service_8cs_source.html#l00105">InitializeAsync()</a>.</p>
 
 </div>
 </div>

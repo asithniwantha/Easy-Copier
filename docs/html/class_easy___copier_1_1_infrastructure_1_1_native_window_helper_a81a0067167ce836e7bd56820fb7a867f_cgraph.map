@@ -1,10 +1,10 @@
 <map id="Easy_Copier.Infrastructure.NativeWindowHelper.ShowAsModal" name="Easy_Copier.Infrastructure.NativeWindowHelper.ShowAsModal">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,139,238,181"/>
-<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_infrastructure_1_1_native_window_helper.html#a57095da941364586505beed6d503f5f8" title=" " alt="" coords="301,72,535,115"/>
+<area shape="rect" id="Node000001" title="Configures and shows a child window modally with respect to an owner window." alt="" coords="5,139,238,181"/>
+<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_infrastructure_1_1_native_window_helper.html#a57095da941364586505beed6d503f5f8" title="Centers a child window over its owner window on screen." alt="" coords="301,72,535,115"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="218,136,308,117,303,120,220,141"/>
-<area shape="rect" id="Node000005" href="$class_easy___copier_1_1_infrastructure_1_1_native_window_helper.html#ac6f330703159fa50a1108ba3f4051bd7" title=" " alt="" coords="286,139,550,181"/>
+<area shape="rect" id="Node000005" href="$class_easy___copier_1_1_infrastructure_1_1_native_window_helper.html#ac6f330703159fa50a1108ba3f4051bd7" title="Enables or disables input interaction for the specified window handle." alt="" coords="286,139,550,181"/>
 <area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="237,157,272,159,267,161,239,163"/>
-<area shape="rect" id="Node000007" href="$class_easy___copier_1_1_infrastructure_1_1_native_window_helper.html#a0fc9a1d529a9a4f81c43415a4cc755ae" title=" " alt="" coords="315,205,521,248"/>
+<area shape="rect" id="Node000007" href="$class_easy___copier_1_1_infrastructure_1_1_native_window_helper.html#a0fc9a1d529a9a4f81c43415a4cc755ae" title="Sets the parent/owner window for a child window handle using Win32 SetWindowLongPtr." alt="" coords="315,205,521,248"/>
 <area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="219,179,308,201,303,202,219,185"/>
 <area shape="rect" id="Node000003" href="$class_easy___copier_1_1_infrastructure_1_1_native_window_helper.html#a4362cdd56869526572895640e2bbed50" title=" " alt="" coords="613,5,857,48"/>
 <area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="522,69,618,51,613,53,523,74"/>

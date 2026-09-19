@@ -6,7 +6,7 @@
 <area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="229,99,264,101,259,102,229,104"/>
 <area shape="rect" id="Node000006" href="$class_easy___copier_1_1_view_models_1_1_settings_view_model.html#a99de34ff44c72df0891d3a3ac74790d5" title=" " alt="" coords="287,155,510,197"/>
 <area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="201,121,303,149,298,151,200,126"/>
-<area shape="rect" id="Node000004" href="$class_easy___copier_1_1_infrastructure_1_1_rufus_resolution_helper.html#a86bc01b0f77e23145af9cac4b03c01a2" title="Attempts to parse a Version object from a Rufus filename (e.g. rufus&#45;4.7.exe =&gt; Version 4...." alt="" coords="569,72,825,131"/>
+<area shape="rect" id="Node000004" href="$class_easy___copier_1_1_infrastructure_1_1_rufus_resolution_helper.html#a86bc01b0f77e23145af9cac4b03c01a2" title="Attempts to parse a Version object from a Rufus filename (e.g., rufus&#45;4.7.exe =&gt; Version 4...." alt="" coords="569,72,825,131"/>
 <area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="521,99,556,101,551,102,521,104"/>
 <area shape="rect" id="Node000005" href="$class_easy___copier_1_1_infrastructure_1_1_rufus_resolution_helper.html#aff74fa2f29453c47964c6d4e5ef6de2a" title=" " alt="" coords="873,80,1150,123"/>
 <area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="826,99,860,101,855,101,826,104"/>

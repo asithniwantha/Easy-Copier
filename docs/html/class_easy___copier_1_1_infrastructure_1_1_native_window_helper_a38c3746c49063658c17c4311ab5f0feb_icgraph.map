@@ -1,5 +1,5 @@
 <map id="Easy_Copier.Infrastructure.NativeWindowHelper.EnableDynamicResizing" name="Easy_Copier.Infrastructure.NativeWindowHelper.EnableDynamicResizing">
-<area shape="rect" id="Node000001" title=" " alt="" coords="242,5,482,64"/>
+<area shape="rect" id="Node000001" title="Hooks into the size changed events of a root element to dynamically resize the WinUI 3 application wi..." alt="" coords="242,5,482,64"/>
 <area shape="rect" id="Node000002" href="$class_easy___copier_1_1_views_1_1_settings_window.html#aa5c96a3985044d8ebabe043cd105e570" title=" " alt="" coords="5,13,194,56"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="223,35,194,37,194,32,229,34"/>
 </map>

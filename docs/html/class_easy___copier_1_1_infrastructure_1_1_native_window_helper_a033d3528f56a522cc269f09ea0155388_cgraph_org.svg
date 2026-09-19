@@ -11,7 +11,7 @@
 <!-- Node1 -->
 <g id="Node000001" class="node">
 <title>Node1</title>
-<g id="a_Node000001"><a xlink:title=" ">
+<g id="a_Node000001"><a xlink:title="Gets the handle (HWND) of the currently active window belonging to the running application process.">
 <polygon fill="#999999" stroke="#666666" points="190,-106 0,-106 0,-62 190,-62 190,-106"/>
 <text xml:space="preserve" text-anchor="start" x="8" y="-92.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Infrastructure.</text>
 <text xml:space="preserve" text-anchor="start" x="8" y="-80.5" font-family="Helvetica,sans-Serif" font-size="10.00">NativeWindowHelper.GetActiveWindow</text>

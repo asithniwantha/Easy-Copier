@@ -30,7 +30,7 @@
 <!-- Node2 -->
 <g id="Node000002" class="node">
 <title>Node2</title>
-<g id="a_Node000002"><a xlink:href="class_easy___copier_1_1_services_1_1_source_library_service.html#ab93e3c963440246db83a2ed9ce3955cc" target="_top" xlink:title=" ">
+<g id="a_Node000002"><a xlink:href="class_easy___copier_1_1_services_1_1_source_library_service.html#ab93e3c963440246db83a2ed9ce3955cc" target="_top" xlink:title="Asynchronously checks a collection of folder paths for accessibility and existence.">
 <polygon fill="white" stroke="#666666" points="206.5,-32 0,-32 0,0 206.5,0 206.5,-32"/>
 <text xml:space="preserve" text-anchor="start" x="8" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Services.Source</text>
 <text xml:space="preserve" text-anchor="middle" x="103.25" y="-6.5" font-family="Helvetica,sans-Serif" font-size="10.00">LibraryService.ValidateSourceFoldersAsync</text>

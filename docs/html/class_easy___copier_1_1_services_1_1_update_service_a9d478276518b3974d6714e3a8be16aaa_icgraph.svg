@@ -22,7 +22,7 @@
 <!-- Node1 -->
 <g id="Node000001" class="node">
 <title>Node1</title>
-<g id="a_Node000001"><a xlink:title=" ">
+<g id="a_Node000001"><a xlink:title="Logger message when no update is available.">
 <polygon fill="#999999" stroke="#666666" points="347,-32 195.25,-32 195.25,0 347,0 347,-32"/>
 <text xml:space="preserve" text-anchor="start" x="203.25" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Services.Update</text>
 <text xml:space="preserve" text-anchor="middle" x="271.12" y="-6.5" font-family="Helvetica,sans-Serif" font-size="10.00">Service.LogNoUpdateAvailable</text>
@@ -32,7 +32,7 @@
 <!-- Node2 -->
 <g id="Node000002" class="node">
 <title>Node2</title>
-<g id="a_Node000002"><a xlink:href="class_easy___copier_1_1_services_1_1_update_service.html#a55cbb64f356109e29dcb0929e953507c" target="_top" xlink:title=" ">
+<g id="a_Node000002"><a xlink:href="class_easy___copier_1_1_services_1_1_update_service.html#a55cbb64f356109e29dcb0929e953507c" target="_top" xlink:title="Asynchronously checks if a new version release is available on GitHub via Velopack.">
 <polygon fill="white" stroke="#666666" points="159.25,-32 0,-32 0,0 159.25,0 159.25,-32"/>
 <text xml:space="preserve" text-anchor="start" x="8" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Services.Update</text>
 <text xml:space="preserve" text-anchor="middle" x="79.62" y="-6.5" font-family="Helvetica,sans-Serif" font-size="10.00">Service.CheckForUpdatesAsync</text>

@@ -112,6 +112,9 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('interface_easy
   <div class="headertitle"><div class="title">Easy_Copier.Infrastructure.IFilePickerService Interface Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Provides file picker dialog functionality for selecting files to open or save.  
+ <a href="#details">More...</a></p>
 <div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Inheritance diagram for Easy_Copier.Infrastructure.IFilePickerService:</div>
 <div id="dynsection-0-summary" class="dynsummary">
 </div>
@@ -122,11 +125,14 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('interface_easy
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a42321faef4dd285323291705b41d159e" id="r_a42321faef4dd285323291705b41d159e"><td class="memItemLeft">Task&lt; string?&gt;&#160;</td><td class="memItemRight"><a class="el" href="#a42321faef4dd285323291705b41d159e">PickSaveFileAsync</a> (string suggestedFileName, IDictionary&lt; string, IList&lt; string &gt; &gt; fileTypeChoices)</td></tr>
+<tr class="memdesc:a42321faef4dd285323291705b41d159e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Displays a file save picker modal dialog allowing the user to select a destination path.  <br /></td></tr>
 <tr class="memitem:a927e11476680c377126a771db36ee470" id="r_a927e11476680c377126a771db36ee470"><td class="memItemLeft">Task&lt; string?&gt;&#160;</td><td class="memItemRight"><a class="el" href="#a927e11476680c377126a771db36ee470">PickOpenFileAsync</a> (IList&lt; string &gt; fileTypeFilters)</td></tr>
+<tr class="memdesc:a927e11476680c377126a771db36ee470"><td class="mdescLeft">&#160;</td><td class="mdescRight">Displays a file open picker modal dialog allowing the user to select an existing file.  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="_file_picker_service_8cs_source.html#l00009">9</a> of file <a class="el" href="_file_picker_service_8cs_source.html">FilePickerService.cs</a>.</p>
+<div class="textblock"><p>Provides file picker dialog functionality for selecting files to open or save. </p>
+
+<p class="definition">Definition at line <a class="el" href="_file_picker_service_8cs_source.html#l00015">15</a> of file <a class="el" href="_file_picker_service_8cs_source.html">FilePickerService.cs</a>.</p>
 </div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
 <a id="a927e11476680c377126a771db36ee470" name="a927e11476680c377126a771db36ee470"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a927e11476680c377126a771db36ee470">&#9670;&#160;</a></span>PickOpenFileAsync()</h2>
@@ -142,6 +148,15 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Displays a file open picker modal dialog allowing the user to select an existing file. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">fileTypeFilters</td><td>A list of file extension filters (e.g., ".txt", ".iso") to allow.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The full file path selected by the user, or <code>null</code> if canceled.</dd></dl>
 
 <p>Implemented in <a class="el" href="class_easy___copier_1_1_infrastructure_1_1_file_picker_service.html#aed9837483c22b053f1bb23260924ac62">Easy_Copier.Infrastructure.FilePickerService</a>.</p>
 
@@ -165,6 +180,16 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Displays a file save picker modal dialog allowing the user to select a destination path. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">suggestedFileName</td><td>The initial default file name suggested to the user.</td></tr>
+    <tr><td class="paramname">fileTypeChoices</td><td>A dictionary mapping file type names to lists of supported extension patterns.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The full file path selected by the user, or <code>null</code> if canceled.</dd></dl>
 
 <p>Implemented in <a class="el" href="class_easy___copier_1_1_infrastructure_1_1_file_picker_service.html#a07914252c4aa1b84163fe0127df006a5">Easy_Copier.Infrastructure.FilePickerService</a>.</p>
 

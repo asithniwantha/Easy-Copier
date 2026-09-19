@@ -1,0 +1,13 @@
+<map id="Easy_Copier.ViewModels.LibraryTabViewModelBase" name="Easy_Copier.ViewModels.LibraryTabViewModelBase">
+<area shape="rect" id="Node000001" title="Abstract base ViewModel for tab&#45;specific child ViewModels that synchronize state with MainViewModel." alt="" coords="179,105,393,148"/>
+<area shape="rect" id="Node000003" href="$class_easy___copier_1_1_view_models_1_1_apps_tab_view_model.html" title="ViewModel for managing the Applications library tab view. Acts as a dedicated child ViewModel that de..." alt="" coords="447,5,652,48"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="347,96,440,58,477,48,472,50,442,62,349,101"/>
+<area shape="rect" id="Node000004" href="$class_easy___copier_1_1_view_models_1_1_games_tab_view_model.html" title="ViewModel for managing the Games library tab view. Acts as a dedicated child ViewModel that delegates..." alt="" coords="441,72,658,115"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="408,109,443,106,438,108,409,114"/>
+<area shape="rect" id="Node000005" href="$class_easy___copier_1_1_view_models_1_1_os_images_tab_view_model.html" title="ViewModel for managing the OS Images library tab view. Acts as a dedicated child ViewModel that deleg..." alt="" coords="454,139,646,181"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="408,139,456,148,450,148,408,145"/>
+<area shape="rect" id="Node000006" href="$class_easy___copier_1_1_view_models_1_1_tv_and_films_tab_view_model.html" title="ViewModel for managing the Films &amp; TV series library tab view. Acts as a dedicated child ViewModel th..." alt="" coords="454,205,645,248"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="348,152,442,191,477,205,471,205,440,196,347,157"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,113,131,140"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="146,124,181,126,176,128,147,129"/>
+</map>

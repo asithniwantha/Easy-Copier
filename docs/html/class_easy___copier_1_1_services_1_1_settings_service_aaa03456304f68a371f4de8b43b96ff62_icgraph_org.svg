@@ -11,7 +11,7 @@
 <!-- Node1 -->
 <g id="Node000001" class="node">
 <title>Node1</title>
-<g id="a_Node000001"><a xlink:title=" ">
+<g id="a_Node000001"><a xlink:title="Gets the absolute file path to the local appsettings.json file in AppData.">
 <polygon fill="#999999" stroke="#666666" points="529.5,-82 377,-82 377,-50 529.5,-50 529.5,-82"/>
 <text xml:space="preserve" text-anchor="start" x="385" y="-68.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Services.Settings</text>
 <text xml:space="preserve" text-anchor="middle" x="453.25" y="-56.5" font-family="Helvetica,sans-Serif" font-size="10.00">Service.GetSettingsFilePath</text>
@@ -21,7 +21,7 @@
 <!-- Node2 -->
 <g id="Node000002" class="node">
 <title>Node2</title>
-<g id="a_Node000002"><a xlink:href="class_easy___copier_1_1_services_1_1_settings_service.html#a1e92290b6dec8bd2f69b026b3060c13d" target="_top" xlink:title=" ">
+<g id="a_Node000002"><a xlink:href="class_easy___copier_1_1_services_1_1_settings_service.html#a1e92290b6dec8bd2f69b026b3060c13d" target="_top" xlink:title="Asynchronously loads settings from disk, creating default settings if the file does not exist.">
 <polygon fill="white" stroke="#666666" points="152.5,-79 0,-79 0,-47 152.5,-47 152.5,-79"/>
 <text xml:space="preserve" text-anchor="start" x="8" y="-65.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Services.Settings</text>
 <text xml:space="preserve" text-anchor="middle" x="76.25" y="-53.5" font-family="Helvetica,sans-Serif" font-size="10.00">Service.LoadSettingsAsync</text>
@@ -40,7 +40,7 @@
 <!-- Node3 -->
 <g id="Node000003" class="node">
 <title>Node3</title>
-<g id="a_Node000003"><a xlink:href="class_easy___copier_1_1_services_1_1_settings_service.html#adbb56e2452d9bf0ac9f56f9274d231fb" target="_top" xlink:title=" ">
+<g id="a_Node000003"><a xlink:href="class_easy___copier_1_1_services_1_1_settings_service.html#adbb56e2452d9bf0ac9f56f9274d231fb" target="_top" xlink:title="Synchronously loads settings from disk, returning cached values if available or defaults if missing.">
 <polygon fill="white" stroke="#666666" points="341,-82 188.5,-82 188.5,-50 341,-50 341,-82"/>
 <text xml:space="preserve" text-anchor="start" x="196.5" y="-68.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Services.Settings</text>
 <text xml:space="preserve" text-anchor="middle" x="264.75" y="-56.5" font-family="Helvetica,sans-Serif" font-size="10.00">Service.LoadSettingsSync</text>
@@ -59,7 +59,7 @@
 <!-- Node4 -->
 <g id="Node000004" class="node">
 <title>Node4</title>
-<g id="a_Node000004"><a xlink:href="class_easy___copier_1_1_services_1_1_settings_service.html#a20cce7df87c9ef67b52952469f52fdbd" target="_top" xlink:title=" ">
+<g id="a_Node000004"><a xlink:href="class_easy___copier_1_1_services_1_1_settings_service.html#a20cce7df87c9ef67b52952469f52fdbd" target="_top" xlink:title="Asynchronously writes settings to disk and updates the memory cache.">
 <polygon fill="white" stroke="#666666" points="341,-32 188.5,-32 188.5,0 341,0 341,-32"/>
 <text xml:space="preserve" text-anchor="start" x="196.5" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Services.Settings</text>
 <text xml:space="preserve" text-anchor="middle" x="264.75" y="-6.5" font-family="Helvetica,sans-Serif" font-size="10.00">Service.SaveSettingsAsync</text>

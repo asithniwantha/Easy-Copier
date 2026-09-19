@@ -1,0 +1,15 @@
+<map id="Easy_Copier.Views.MainPage.MainPage_obj26_Bindings.Initialize" name="Easy_Copier.Views.MainPage.MainPage_obj26_Bindings.Initialize">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,55,232,97"/>
+<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_views_1_1_main_page_1_1_main_page__obj26___bindings.html#a246584b0feec99330b9358152e02b349" title=" " alt="" coords="280,55,500,97"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="232,73,266,76,261,76,233,79"/>
+<area shape="rect" id="Node000003" href="$class_easy___copier_1_1_views_1_1_main_page_1_1_main_page__obj26___bindings.html#ac2b6a8d363efb6f9621d8c8c1f18f09f" title=" " alt="" coords="548,55,775,97"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="500,73,535,76,529,76,501,79"/>
+<area shape="rect" id="Node000004" href="$class_easy___copier_1_1_views_1_1_main_page_1_1_main_page__obj26___bindings.html#aa913d399983f2942e390bf2b14e50311" title=" " alt="" coords="823,5,1044,64"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="776,56,805,54,811,53,776,61"/>
+<area shape="rect" id="Node000006" href="$class_easy___copier_1_1_views_1_1_main_page_1_1_main_page__obj26___bindings.html#a195e60f7fa854f3a86460fa17de4b91e" title=" " alt="" coords="823,88,1044,147"/>
+<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="776,91,811,98,805,98,776,96"/>
+<area shape="rect" id="Node000005" href="$class_easy___copier_1_1_views_1_1_main_page_1_1_xaml_binding_setters.html#a66c53f8cecb8edb7e2d5964aee434aac" title=" " alt="" coords="1092,5,1336,64"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="1044,32,1079,35,1074,35,1044,37"/>
+<area shape="rect" id="Node000007" href="$class_easy___copier_1_1_views_1_1_main_page_1_1_xaml_binding_setters.html#ac081ac527a1387aa36162ebfc81b094d" title=" " alt="" coords="1094,88,1334,147"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="1044,115,1081,117,1076,117,1044,120"/>
+</map>

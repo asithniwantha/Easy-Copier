@@ -1,6 +1,6 @@
 <map id="Easy_Copier.Models.SourceFolder" name="Easy_Copier.Models.SourceFolder">
 <area shape="rect" id="Node000001" title=" " alt="" coords="329,29,516,72"/>
 <area shape="poly" id="edge1_Node000001_Node000001" title=" " alt="" coords="467,14,451,10,422,8,396,10,379,15,373,21,375,30,370,27,368,19,377,10,395,5,422,3,452,5,472,14"/>
-<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_services_1_1_source_library_service.html#ab93e3c963440246db83a2ed9ce3955cc" title=" " alt="" coords="5,29,281,72"/>
+<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_services_1_1_source_library_service.html#ab93e3c963440246db83a2ed9ce3955cc" title="Asynchronously checks a collection of folder paths for accessibility and existence." alt="" coords="5,29,281,72"/>
 <area shape="poly" id="edge2_Node000001_Node000002" title=" " alt="" coords="310,51,281,53,281,48,316,51"/>
 </map>

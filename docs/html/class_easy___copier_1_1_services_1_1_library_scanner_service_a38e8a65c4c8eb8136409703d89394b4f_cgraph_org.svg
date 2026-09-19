@@ -11,7 +11,7 @@
 <!-- Node1 -->
 <g id="Node000001" class="node">
 <title>Node1</title>
-<g id="a_Node000001"><a xlink:title=" ">
+<g id="a_Node000001"><a xlink:title="Asynchronously scans all libraries and formats a duplicate items report.">
 <polygon fill="#999999" stroke="#666666" points="210.25,-54 0,-54 0,-22 210.25,-22 210.25,-54"/>
 <text xml:space="preserve" text-anchor="start" x="8" y="-40.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Services.Library</text>
 <text xml:space="preserve" text-anchor="middle" x="105.12" y="-28.5" font-family="Helvetica,sans-Serif" font-size="10.00">ScannerService.FindDuplicatesReportAsync</text>
@@ -21,7 +21,7 @@
 <!-- Node2 -->
 <g id="Node000002" class="node">
 <title>Node2</title>
-<g id="a_Node000002"><a xlink:href="namespace_easy___copier_1_1_models.html#ab9811c24c166bd7f4768ddafbcbaf75d" target="_top" xlink:title=" ">
+<g id="a_Node000002"><a xlink:href="namespace_easy___copier_1_1_models.html#a9c2abd1d64352c07d3085ba499cf2aae" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="#666666" points="419,-70 259.75,-70 259.75,-50 419,-50 419,-70"/>
 <text xml:space="preserve" text-anchor="middle" x="339.38" y="-56.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Models.GameEntry</text>
 </a>
@@ -39,7 +39,7 @@
 <!-- Node3 -->
 <g id="Node000003" class="node">
 <title>Node3</title>
-<g id="a_Node000003"><a xlink:href="class_easy___copier_1_1_services_1_1_library_scanner_service.html#abe28a90a228cf60d04ec99e09213d621" target="_top" xlink:title=" ">
+<g id="a_Node000003"><a xlink:href="class_easy___copier_1_1_services_1_1_library_scanner_service.html#abe28a90a228cf60d04ec99e09213d621" target="_top" xlink:title="Asynchronously scans all configured library directories specified in settings .">
 <polygon fill="white" stroke="#666666" points="432.5,-32 246.25,-32 246.25,0 432.5,0 432.5,-32"/>
 <text xml:space="preserve" text-anchor="start" x="254.25" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Services.Library</text>
 <text xml:space="preserve" text-anchor="middle" x="339.38" y="-6.5" font-family="Helvetica,sans-Serif" font-size="10.00">ScannerService.ScanAllLibrariesAsync</text>

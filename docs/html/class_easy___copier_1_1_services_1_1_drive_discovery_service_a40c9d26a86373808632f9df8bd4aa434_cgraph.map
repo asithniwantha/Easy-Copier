@@ -1,5 +1,5 @@
 <map id="Easy_Copier.Services.DriveDiscoveryService.GetPhysicalDiskInfo" name="Easy_Copier.Services.DriveDiscoveryService.GetPhysicalDiskInfo">
 <area shape="rect" id="Node000001" title=" " alt="" coords="5,5,254,48"/>
-<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_services_1_1_drive_discovery_service.html#a93558750a3717c2c2abbb645a07b9291" title=" " alt="" coords="302,5,516,48"/>
+<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_services_1_1_drive_discovery_service.html#a93558750a3717c2c2abbb645a07b9291" title="Queries the MSFT_PhysicalDisk WMI class in the root\Microsoft\Windows\Storage namespace to verify Bus..." alt="" coords="302,5,516,48"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="254,24,289,27,283,27,254,29"/>
 </map>

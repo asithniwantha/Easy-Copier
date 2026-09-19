@@ -2,8 +2,14 @@ var dir_6c1e3910496c2ed9415451dc0d33395b =
 [
     [ "AboutWindow.g.cs", "x64_2_debug_2net10_80-windows10_80_826100_80_2win-x64_2_views_2_about_window_8g_8cs.html", "x64_2_debug_2net10_80-windows10_80_826100_80_2win-x64_2_views_2_about_window_8g_8cs" ],
     [ "AboutWindow.g.i.cs", "x64_2_debug_2net10_80-windows10_80_826100_80_2win-x64_2_views_2_about_window_8g_8i_8cs.html", "x64_2_debug_2net10_80-windows10_80_826100_80_2win-x64_2_views_2_about_window_8g_8i_8cs" ],
+    [ "AppsTabView.g.cs", "_apps_tab_view_8g_8cs.html", "_apps_tab_view_8g_8cs" ],
+    [ "AppsTabView.g.i.cs", "_apps_tab_view_8g_8i_8cs.html", "_apps_tab_view_8g_8i_8cs" ],
+    [ "ConflictDialogContent.g.cs", "_conflict_dialog_content_8g_8cs.html", "_conflict_dialog_content_8g_8cs" ],
+    [ "ConflictDialogContent.g.i.cs", "_conflict_dialog_content_8g_8i_8cs.html", "_conflict_dialog_content_8g_8i_8cs" ],
     [ "GameDetailsFlyout.g.cs", "x64_2_debug_2net10_80-windows10_80_826100_80_2win-x64_2_views_2_game_details_flyout_8g_8cs.html", "x64_2_debug_2net10_80-windows10_80_826100_80_2win-x64_2_views_2_game_details_flyout_8g_8cs" ],
     [ "GameDetailsFlyout.g.i.cs", "x64_2_debug_2net10_80-windows10_80_826100_80_2win-x64_2_views_2_game_details_flyout_8g_8i_8cs.html", "x64_2_debug_2net10_80-windows10_80_826100_80_2win-x64_2_views_2_game_details_flyout_8g_8i_8cs" ],
+    [ "GamesTabView.g.cs", "_games_tab_view_8g_8cs.html", "_games_tab_view_8g_8cs" ],
+    [ "GamesTabView.g.i.cs", "_games_tab_view_8g_8i_8cs.html", "_games_tab_view_8g_8i_8cs" ],
     [ "HistoryPage.g.cs", "x64_2_debug_2net10_80-windows10_80_826100_80_2win-x64_2_views_2_history_page_8g_8cs.html", "x64_2_debug_2net10_80-windows10_80_826100_80_2win-x64_2_views_2_history_page_8g_8cs" ],
     [ "HistoryPage.g.i.cs", "x64_2_debug_2net10_80-windows10_80_826100_80_2win-x64_2_views_2_history_page_8g_8i_8cs.html", "x64_2_debug_2net10_80-windows10_80_826100_80_2win-x64_2_views_2_history_page_8g_8i_8cs" ],
     [ "HistoryWindow.g.cs", "x64_2_debug_2net10_80-windows10_80_826100_80_2win-x64_2_views_2_history_window_8g_8cs.html", "x64_2_debug_2net10_80-windows10_80_826100_80_2win-x64_2_views_2_history_window_8g_8cs" ],
@@ -12,10 +18,14 @@ var dir_6c1e3910496c2ed9415451dc0d33395b =
     [ "MainPage.g.i.cs", "x64_2_debug_2net10_80-windows10_80_826100_80_2win-x64_2_views_2_main_page_8g_8i_8cs.html", "x64_2_debug_2net10_80-windows10_80_826100_80_2win-x64_2_views_2_main_page_8g_8i_8cs" ],
     [ "OsImageDetailsFlyout.g.cs", "_os_image_details_flyout_8g_8cs.html", "_os_image_details_flyout_8g_8cs" ],
     [ "OsImageDetailsFlyout.g.i.cs", "_os_image_details_flyout_8g_8i_8cs.html", "_os_image_details_flyout_8g_8i_8cs" ],
+    [ "OsImagesTabView.g.cs", "_os_images_tab_view_8g_8cs.html", "_os_images_tab_view_8g_8cs" ],
+    [ "OsImagesTabView.g.i.cs", "_os_images_tab_view_8g_8i_8cs.html", "_os_images_tab_view_8g_8i_8cs" ],
     [ "SettingsWindow.g.cs", "x64_2_debug_2net10_80-windows10_80_826100_80_2win-x64_2_views_2_settings_window_8g_8cs.html", "x64_2_debug_2net10_80-windows10_80_826100_80_2win-x64_2_views_2_settings_window_8g_8cs" ],
     [ "SettingsWindow.g.i.cs", "x64_2_debug_2net10_80-windows10_80_826100_80_2win-x64_2_views_2_settings_window_8g_8i_8cs.html", "x64_2_debug_2net10_80-windows10_80_826100_80_2win-x64_2_views_2_settings_window_8g_8i_8cs" ],
     [ "SmartAdderControl.g.cs", "x64_2_debug_2net10_80-windows10_80_826100_80_2win-x64_2_views_2_smart_adder_control_8g_8cs.html", "x64_2_debug_2net10_80-windows10_80_826100_80_2win-x64_2_views_2_smart_adder_control_8g_8cs" ],
     [ "SmartAdderControl.g.i.cs", "x64_2_debug_2net10_80-windows10_80_826100_80_2win-x64_2_views_2_smart_adder_control_8g_8i_8cs.html", "x64_2_debug_2net10_80-windows10_80_826100_80_2win-x64_2_views_2_smart_adder_control_8g_8i_8cs" ],
     [ "SmartAdderHistoryWindow.g.cs", "x64_2_debug_2net10_80-windows10_80_826100_80_2win-x64_2_views_2_smart_adder_history_window_8g_8cs.html", "x64_2_debug_2net10_80-windows10_80_826100_80_2win-x64_2_views_2_smart_adder_history_window_8g_8cs" ],
-    [ "SmartAdderHistoryWindow.g.i.cs", "x64_2_debug_2net10_80-windows10_80_826100_80_2win-x64_2_views_2_smart_adder_history_window_8g_8i_8cs.html", "x64_2_debug_2net10_80-windows10_80_826100_80_2win-x64_2_views_2_smart_adder_history_window_8g_8i_8cs" ]
+    [ "SmartAdderHistoryWindow.g.i.cs", "x64_2_debug_2net10_80-windows10_80_826100_80_2win-x64_2_views_2_smart_adder_history_window_8g_8i_8cs.html", "x64_2_debug_2net10_80-windows10_80_826100_80_2win-x64_2_views_2_smart_adder_history_window_8g_8i_8cs" ],
+    [ "TvAndFilmsTabView.g.cs", "_tv_and_films_tab_view_8g_8cs.html", "_tv_and_films_tab_view_8g_8cs" ],
+    [ "TvAndFilmsTabView.g.i.cs", "_tv_and_films_tab_view_8g_8i_8cs.html", "_tv_and_films_tab_view_8g_8i_8cs" ]
 ];

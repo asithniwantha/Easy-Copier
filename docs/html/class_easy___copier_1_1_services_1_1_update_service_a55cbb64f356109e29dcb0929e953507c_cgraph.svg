@@ -22,7 +22,7 @@
 <!-- Node1 -->
 <g id="Node000001" class="node">
 <title>Node1</title>
-<g id="a_Node000001"><a xlink:title=" ">
+<g id="a_Node000001"><a xlink:title="Asynchronously checks if a new version release is available on GitHub via Velopack.">
 <polygon fill="#999999" stroke="#666666" points="159.25,-169 0,-169 0,-137 159.25,-137 159.25,-169"/>
 <text xml:space="preserve" text-anchor="start" x="8" y="-155.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Services.Update</text>
 <text xml:space="preserve" text-anchor="middle" x="79.62" y="-143.5" font-family="Helvetica,sans-Serif" font-size="10.00">Service.CheckForUpdatesAsync</text>
@@ -32,7 +32,7 @@
 <!-- Node2 -->
 <g id="Node000002" class="node">
 <title>Node2</title>
-<g id="a_Node000002"><a xlink:href="class_easy___copier_1_1_services_1_1_update_service.html#a4871437eda816d30469eb5d0cf932511" target="_top" xlink:title=" ">
+<g id="a_Node000002"><a xlink:href="class_easy___copier_1_1_services_1_1_update_service.html#a4871437eda816d30469eb5d0cf932511" target="_top" xlink:title="Gets the current installed version string from Velopack or assembly reflection.">
 <polygon fill="white" stroke="#666666" points="358.62,-294 210.62,-294 210.62,-262 358.62,-262 358.62,-294"/>
 <text xml:space="preserve" text-anchor="start" x="218.62" y="-280.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Services.Update</text>
 <text xml:space="preserve" text-anchor="middle" x="284.62" y="-268.5" font-family="Helvetica,sans-Serif" font-size="10.00">Service.GetCurrentVersion</text>
@@ -51,7 +51,7 @@
 <!-- Node3 -->
 <g id="Node000003" class="node">
 <title>Node3</title>
-<g id="a_Node000003"><a xlink:href="class_easy___copier_1_1_services_1_1_update_service.html#aa5dadffec21c2380d4fb16d31d105fcc" target="_top" xlink:title=" ">
+<g id="a_Node000003"><a xlink:href="class_easy___copier_1_1_services_1_1_update_service.html#aa5dadffec21c2380d4fb16d31d105fcc" target="_top" xlink:title="Logger message when error occurs during update check.">
 <polygon fill="white" stroke="#666666" points="368.75,-244 200.5,-244 200.5,-212 368.75,-212 368.75,-244"/>
 <text xml:space="preserve" text-anchor="start" x="208.5" y="-230.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Services.Update</text>
 <text xml:space="preserve" text-anchor="middle" x="284.62" y="-218.5" font-family="Helvetica,sans-Serif" font-size="10.00">Service.LogCheckForUpdatesError</text>
@@ -70,7 +70,7 @@
 <!-- Node4 -->
 <g id="Node000004" class="node">
 <title>Node4</title>
-<g id="a_Node000004"><a xlink:href="class_easy___copier_1_1_services_1_1_update_service.html#a569f88aebfb77227b40e692d42b4d40e" target="_top" xlink:title=" ">
+<g id="a_Node000004"><a xlink:href="class_easy___copier_1_1_services_1_1_update_service.html#a569f88aebfb77227b40e692d42b4d40e" target="_top" xlink:title="Logger message when starting update check.">
 <polygon fill="white" stroke="#666666" points="364.62,-194 204.62,-194 204.62,-162 364.62,-162 364.62,-194"/>
 <text xml:space="preserve" text-anchor="start" x="212.62" y="-180.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Services.Update</text>
 <text xml:space="preserve" text-anchor="middle" x="284.62" y="-168.5" font-family="Helvetica,sans-Serif" font-size="10.00">Service.LogCheckingForUpdates</text>
@@ -89,7 +89,7 @@
 <!-- Node5 -->
 <g id="Node000005" class="node">
 <title>Node5</title>
-<g id="a_Node000005"><a xlink:href="class_easy___copier_1_1_services_1_1_update_service.html#a9d478276518b3974d6714e3a8be16aaa" target="_top" xlink:title=" ">
+<g id="a_Node000005"><a xlink:href="class_easy___copier_1_1_services_1_1_update_service.html#a9d478276518b3974d6714e3a8be16aaa" target="_top" xlink:title="Logger message when no update is available.">
 <polygon fill="white" stroke="#666666" points="360.5,-144 208.75,-144 208.75,-112 360.5,-112 360.5,-144"/>
 <text xml:space="preserve" text-anchor="start" x="216.75" y="-130.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Services.Update</text>
 <text xml:space="preserve" text-anchor="middle" x="284.62" y="-118.5" font-family="Helvetica,sans-Serif" font-size="10.00">Service.LogNoUpdateAvailable</text>
@@ -108,7 +108,7 @@
 <!-- Node6 -->
 <g id="Node000006" class="node">
 <title>Node6</title>
-<g id="a_Node000006"><a xlink:href="class_easy___copier_1_1_services_1_1_update_service.html#a0de99f466aed81cd65c3c31eae046e22" target="_top" xlink:title=" ">
+<g id="a_Node000006"><a xlink:href="class_easy___copier_1_1_services_1_1_update_service.html#a0de99f466aed81cd65c3c31eae046e22" target="_top" xlink:title="Logger message when update check is skipped because app is not installed via Velopack.">
 <polygon fill="white" stroke="#666666" points="374,-94 195.25,-94 195.25,-50 374,-50 374,-94"/>
 <text xml:space="preserve" text-anchor="start" x="203.25" y="-80.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Services.Update</text>
 <text xml:space="preserve" text-anchor="start" x="203.25" y="-68.5" font-family="Helvetica,sans-Serif" font-size="10.00">Service.LogUpdateCheckSkippedNot</text>
@@ -128,7 +128,7 @@
 <!-- Node7 -->
 <g id="Node000007" class="node">
 <title>Node7</title>
-<g id="a_Node000007"><a xlink:href="class_easy___copier_1_1_services_1_1_update_service.html#ab3c076e02cfa9838a23f7621b60d48cb" target="_top" xlink:title=" ">
+<g id="a_Node000007"><a xlink:href="class_easy___copier_1_1_services_1_1_update_service.html#ab3c076e02cfa9838a23f7621b60d48cb" target="_top" xlink:title="Logger message when a new update is found.">
 <polygon fill="white" stroke="#666666" points="358.62,-32 210.62,-32 210.62,0 358.62,0 358.62,-32"/>
 <text xml:space="preserve" text-anchor="start" x="218.62" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Services.Update</text>
 <text xml:space="preserve" text-anchor="middle" x="284.62" y="-6.5" font-family="Helvetica,sans-Serif" font-size="10.00">Service.LogUpdateFound</text>

@@ -29,7 +29,7 @@
 <!-- Node2 -->
 <g id="Node000002" class="node">
 <title>Node2</title>
-<g id="a_Node000002"><a xlink:href="class_easy___copier_1_1_services_1_1_library_cache_service.html#a2abaf39099e322db7d5f78d9c2ff8363" target="_top" xlink:title=" ">
+<g id="a_Node000002"><a xlink:href="class_easy___copier_1_1_services_1_1_library_cache_service.html#a2abaf39099e322db7d5f78d9c2ff8363" target="_top" xlink:title="Calculates total size and latest modified timestamp for a directory or file.">
 <polygon fill="white" stroke="#666666" points="1042.25,-192 829,-192 829,-160 1042.25,-160 1042.25,-192"/>
 <text xml:space="preserve" text-anchor="start" x="837" y="-178.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Services.Library</text>
 <text xml:space="preserve" text-anchor="middle" x="935.62" y="-166.5" font-family="Helvetica,sans-Serif" font-size="10.00">CacheService.ComputeItemFingerprintAsync</text>
@@ -48,7 +48,7 @@
 <!-- Node3 -->
 <g id="Node000003" class="node">
 <title>Node3</title>
-<g id="a_Node000003"><a xlink:href="class_easy___copier_1_1_services_1_1_library_cache_service.html#a05e76d2554223c9f80d4b4ca9358b977" target="_top" xlink:title=" ">
+<g id="a_Node000003"><a xlink:href="class_easy___copier_1_1_services_1_1_library_cache_service.html#a05e76d2554223c9f80d4b4ca9358b977" target="_top" xlink:title="Compares the cached snapshot against active source folder settings and inspects modified files to eva...">
 <polygon fill="white" stroke="#666666" points="793,-148 621.75,-148 621.75,-116 793,-116 793,-148"/>
 <text xml:space="preserve" text-anchor="start" x="629.75" y="-134.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Services.Library</text>
 <text xml:space="preserve" text-anchor="middle" x="707.38" y="-122.5" font-family="Helvetica,sans-Serif" font-size="10.00">CacheService.ValidateCacheAsync</text>
@@ -67,7 +67,7 @@
 <!-- Node4 -->
 <g id="Node000004" class="node">
 <title>Node4</title>
-<g id="a_Node000004"><a xlink:href="class_easy___copier_1_1_services_1_1_library_cache_service.html#a104e5be4abc7061e4a3d5bca37655bff" target="_top" xlink:title=" ">
+<g id="a_Node000004"><a xlink:href="class_easy___copier_1_1_services_1_1_library_cache_service.html#a104e5be4abc7061e4a3d5bca37655bff" target="_top" xlink:title="Compares two fingerprints to check if total byte size and write timestamp match.">
 <polygon fill="white" stroke="#666666" points="1014.88,-104 856.38,-104 856.38,-72 1014.88,-72 1014.88,-104"/>
 <text xml:space="preserve" text-anchor="start" x="864.38" y="-90.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Services.Library</text>
 <text xml:space="preserve" text-anchor="middle" x="935.62" y="-78.5" font-family="Helvetica,sans-Serif" font-size="10.00">CacheService.FingerprintsMatch</text>

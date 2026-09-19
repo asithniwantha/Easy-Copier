@@ -53,7 +53,7 @@
 <!-- Node1 -->
 <g id="Node000001" class="node">
 <title>Node1</title>
-<g id="a_Node000001"><a xlink:title=" ">
+<g id="a_Node000001"><a xlink:title="Formats parsed requirements into a clean, human&#45;readable text document format.">
 <polygon fill="#999999" stroke="#666666" points="939.25,-38 735.75,-38 735.75,-6 939.25,-6 939.25,-38"/>
 <text xml:space="preserve" text-anchor="start" x="743.75" y="-24.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Services.Game</text>
 <text xml:space="preserve" text-anchor="middle" x="837.5" y="-12.5" font-family="Helvetica,sans-Serif" font-size="10.00">InfoDownloadService.FormatRequirements</text>
@@ -63,7 +63,7 @@
 <!-- Node2 -->
 <g id="Node000002" class="node">
 <title>Node2</title>
-<g id="a_Node000002"><a xlink:href="class_easy___copier_1_1_services_1_1_game_info_download_service.html#ae4954ebc673dc477713190cddf334372" target="_top" xlink:title=" ">
+<g id="a_Node000002"><a xlink:href="class_easy___copier_1_1_services_1_1_game_info_download_service.html#ae4954ebc673dc477713190cddf334372" target="_top" xlink:title="Downloads system requirements for a game from Steam Web API and saves them to system_requirements....">
 <polygon fill="white" stroke="#666666" points="699.75,-38 455.75,-38 455.75,-6 699.75,-6 699.75,-38"/>
 <text xml:space="preserve" text-anchor="start" x="463.75" y="-24.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Services.Game</text>
 <text xml:space="preserve" text-anchor="middle" x="577.75" y="-12.5" font-family="Helvetica,sans-Serif" font-size="10.00">InfoDownloadService.DownloadRequirementsAsync</text>
@@ -82,7 +82,7 @@
 <!-- Node3 -->
 <g id="Node000003" class="node">
 <title>Node3</title>
-<g id="a_Node000003"><a xlink:href="class_easy___copier_1_1_services_1_1_game_info_download_service.html#afd2968475c5e82f9f3f3317df4159411" target="_top" xlink:title=" ">
+<g id="a_Node000003"><a xlink:href="class_easy___copier_1_1_services_1_1_game_info_download_service.html#afd2968475c5e82f9f3f3317df4159411" target="_top" xlink:title="Processes an individual game directory by fetching its requirements, cover image, and categories.">
 <polygon fill="white" stroke="#666666" points="419.75,-38 217.75,-38 217.75,-6 419.75,-6 419.75,-38"/>
 <text xml:space="preserve" text-anchor="start" x="225.75" y="-24.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Services.Game</text>
 <text xml:space="preserve" text-anchor="middle" x="318.75" y="-12.5" font-family="Helvetica,sans-Serif" font-size="10.00">InfoDownloadService.ProcessGameAsync</text>
@@ -101,7 +101,7 @@
 <!-- Node4 -->
 <g id="Node000004" class="node">
 <title>Node4</title>
-<g id="a_Node000004"><a xlink:href="class_easy___copier_1_1_services_1_1_game_info_download_service.html#ac477ae8ebd5151e39a13ea8a66aafafc" target="_top" xlink:title=" ">
+<g id="a_Node000004"><a xlink:href="class_easy___copier_1_1_services_1_1_game_info_download_service.html#ac477ae8ebd5151e39a13ea8a66aafafc" target="_top" xlink:title="Asynchronously scans the specified source folders and downloads system requirements,...">
 <polygon fill="white" stroke="#666666" points="181.75,-44 0,-44 0,0 181.75,0 181.75,-44"/>
 <text xml:space="preserve" text-anchor="start" x="8" y="-30.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Services.Game</text>
 <text xml:space="preserve" text-anchor="start" x="8" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">InfoDownloadService.DownloadGame</text>

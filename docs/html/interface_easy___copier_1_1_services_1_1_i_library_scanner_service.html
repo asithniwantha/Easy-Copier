@@ -112,6 +112,9 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('interface_easy
   <div class="headertitle"><div class="title">Easy_Copier.Services.ILibraryScannerService Interface Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Defines operations for scanning library folders and generating duplicate item reports.  
+ <a href="#details">More...</a></p>
 <div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Inheritance diagram for Easy_Copier.Services.ILibraryScannerService:</div>
 <div id="dynsection-0-summary" class="dynsummary">
 </div>
@@ -121,12 +124,15 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('interface_easy
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ac2d7b391e6cc030737ef975192ead0c6" id="r_ac2d7b391e6cc030737ef975192ead0c6"><td class="memItemLeft">Task&lt;(IReadOnlyList&lt; <a class="el" href="namespace_easy___copier_1_1_models.html#ab9811c24c166bd7f4768ddafbcbaf75d">GameEntry</a> &gt; Games, IReadOnlyList&lt; <a class="el" href="namespace_easy___copier_1_1_models.html#ab9811c24c166bd7f4768ddafbcbaf75d">GameEntry</a> &gt; Apps, IReadOnlyList&lt; <a class="el" href="namespace_easy___copier_1_1_models.html#ab9811c24c166bd7f4768ddafbcbaf75d">GameEntry</a> &gt; TvAndFilms, IReadOnlyList&lt; <a class="el" href="namespace_easy___copier_1_1_models.html#ab9811c24c166bd7f4768ddafbcbaf75d">GameEntry</a> &gt; OsImages)&gt;&#160;</td><td class="memItemRight"><a class="el" href="#ac2d7b391e6cc030737ef975192ead0c6">ScanAllLibrariesAsync</a> (<a class="el" href="class_easy___copier_1_1_models_1_1_app_settings.html">AppSettings</a> settings, IProgress&lt; string &gt;? progress=null, CancellationToken cancellationToken=default)</td></tr>
+<tr class="memitem:ac2d7b391e6cc030737ef975192ead0c6" id="r_ac2d7b391e6cc030737ef975192ead0c6"><td class="memItemLeft">Task&lt;(IReadOnlyList&lt; <a class="el" href="namespace_easy___copier_1_1_models.html#a9c2abd1d64352c07d3085ba499cf2aae">GameEntry</a> &gt; Games, IReadOnlyList&lt; <a class="el" href="namespace_easy___copier_1_1_models.html#a9c2abd1d64352c07d3085ba499cf2aae">GameEntry</a> &gt; Apps, IReadOnlyList&lt; <a class="el" href="namespace_easy___copier_1_1_models.html#a9c2abd1d64352c07d3085ba499cf2aae">GameEntry</a> &gt; TvAndFilms, IReadOnlyList&lt; <a class="el" href="namespace_easy___copier_1_1_models.html#a9c2abd1d64352c07d3085ba499cf2aae">GameEntry</a> &gt; OsImages)&gt;&#160;</td><td class="memItemRight"><a class="el" href="#ac2d7b391e6cc030737ef975192ead0c6">ScanAllLibrariesAsync</a> (<a class="el" href="class_easy___copier_1_1_models_1_1_app_settings.html">AppSettings</a> settings, IProgress&lt; string &gt;? progress=null, CancellationToken cancellationToken=default)</td></tr>
+<tr class="memdesc:ac2d7b391e6cc030737ef975192ead0c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Asynchronously scans configured library source directories and categorizes discovered items into Games, Apps, TV/Films, and OS Images.  <br /></td></tr>
 <tr class="memitem:a5a7a9efb54f6d97fe51ba6cafd1f5f6b" id="r_a5a7a9efb54f6d97fe51ba6cafd1f5f6b"><td class="memItemLeft">Task&lt; string &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a5a7a9efb54f6d97fe51ba6cafd1f5f6b">FindDuplicatesReportAsync</a> (<a class="el" href="class_easy___copier_1_1_models_1_1_app_settings.html">AppSettings</a> settings, IProgress&lt; string &gt;? progress=null, CancellationToken cancellationToken=default)</td></tr>
+<tr class="memdesc:a5a7a9efb54f6d97fe51ba6cafd1f5f6b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Asynchronously scans libraries to identify duplicate game/item entries across different source folders and generates a summary report.  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="_i_library_scanner_service_8cs_source.html#l00009">9</a> of file <a class="el" href="_i_library_scanner_service_8cs_source.html">ILibraryScannerService.cs</a>.</p>
+<div class="textblock"><p>Defines operations for scanning library folders and generating duplicate item reports. </p>
+
+<p class="definition">Definition at line <a class="el" href="_i_library_scanner_service_8cs_source.html#l00012">12</a> of file <a class="el" href="_i_library_scanner_service_8cs_source.html">ILibraryScannerService.cs</a>.</p>
 </div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
 <a id="a5a7a9efb54f6d97fe51ba6cafd1f5f6b" name="a5a7a9efb54f6d97fe51ba6cafd1f5f6b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a5a7a9efb54f6d97fe51ba6cafd1f5f6b">&#9670;&#160;</a></span>FindDuplicatesReportAsync()</h2>
@@ -152,6 +158,17 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Asynchronously scans libraries to identify duplicate game/item entries across different source folders and generates a summary report. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">settings</td><td>The application settings containing configured library paths.</td></tr>
+    <tr><td class="paramname">progress</td><td>An optional progress reporter for status updates.</td></tr>
+    <tr><td class="paramname">cancellationToken</td><td>A cancellation token to observe while scanning.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A task returning a formatted text report of duplicate entries found.</dd></dl>
+
 <p>Implemented in <a class="el" href="class_easy___copier_1_1_services_1_1_library_scanner_service.html#a38e8a65c4c8eb8136409703d89394b4f">Easy_Copier.Services.LibraryScannerService</a>.</p>
 
 </div>
@@ -163,7 +180,7 @@ Public Member Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">Task&lt;(IReadOnlyList&lt; <a class="el" href="namespace_easy___copier_1_1_models.html#ab9811c24c166bd7f4768ddafbcbaf75d">GameEntry</a> &gt; Games, IReadOnlyList&lt; <a class="el" href="namespace_easy___copier_1_1_models.html#ab9811c24c166bd7f4768ddafbcbaf75d">GameEntry</a> &gt; Apps, IReadOnlyList&lt; <a class="el" href="namespace_easy___copier_1_1_models.html#ab9811c24c166bd7f4768ddafbcbaf75d">GameEntry</a> &gt; TvAndFilms, IReadOnlyList&lt; <a class="el" href="namespace_easy___copier_1_1_models.html#ab9811c24c166bd7f4768ddafbcbaf75d">GameEntry</a> &gt; OsImages)&gt; Easy_Copier.Services.ILibraryScannerService.ScanAllLibrariesAsync </td>
+          <td class="memname">Task&lt;(IReadOnlyList&lt; <a class="el" href="namespace_easy___copier_1_1_models.html#a9c2abd1d64352c07d3085ba499cf2aae">GameEntry</a> &gt; Games, IReadOnlyList&lt; <a class="el" href="namespace_easy___copier_1_1_models.html#a9c2abd1d64352c07d3085ba499cf2aae">GameEntry</a> &gt; Apps, IReadOnlyList&lt; <a class="el" href="namespace_easy___copier_1_1_models.html#a9c2abd1d64352c07d3085ba499cf2aae">GameEntry</a> &gt; TvAndFilms, IReadOnlyList&lt; <a class="el" href="namespace_easy___copier_1_1_models.html#a9c2abd1d64352c07d3085ba499cf2aae">GameEntry</a> &gt; OsImages)&gt; Easy_Copier.Services.ILibraryScannerService.ScanAllLibrariesAsync </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="class_easy___copier_1_1_models_1_1_app_settings.html">AppSettings</a></td>          <td class="paramname"><span class="paramname"><em>settings</em></span>, </td>
         </tr>
@@ -179,6 +196,17 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Asynchronously scans configured library source directories and categorizes discovered items into Games, Apps, TV/Films, and OS Images. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">settings</td><td>The application settings containing configured library paths.</td></tr>
+    <tr><td class="paramname">progress</td><td>An optional progress reporter for status updates.</td></tr>
+    <tr><td class="paramname">cancellationToken</td><td>A cancellation token to observe while scanning.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A task returning a tuple containing lists for each content category (Games, Apps, TvAndFilms, OsImages).</dd></dl>
 
 <p>Implemented in <a class="el" href="class_easy___copier_1_1_services_1_1_library_scanner_service.html#abe28a90a228cf60d04ec99e09213d621">Easy_Copier.Services.LibraryScannerService</a>.</p>
 

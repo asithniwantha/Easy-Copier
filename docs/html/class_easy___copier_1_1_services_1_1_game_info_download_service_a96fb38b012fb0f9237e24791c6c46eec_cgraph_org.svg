@@ -11,7 +11,7 @@
 <!-- Node1 -->
 <g id="Node000001" class="node">
 <title>Node1</title>
-<g id="a_Node000001"><a xlink:title=" ">
+<g id="a_Node000001"><a xlink:title="Fetches game genres from the Steam Web API for the specified app ID and maps them to GameCategory enu...">
 <polygon fill="#999999" stroke="#666666" points="165.25,-44 0,-44 0,0 165.25,0 165.25,-44"/>
 <text xml:space="preserve" text-anchor="start" x="8" y="-30.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Services.Game</text>
 <text xml:space="preserve" text-anchor="start" x="8" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">InfoDownloadService.FetchSteam</text>
@@ -22,7 +22,7 @@
 <!-- Node2 -->
 <g id="Node000002" class="node">
 <title>Node2</title>
-<g id="a_Node000002"><a xlink:href="class_easy___copier_1_1_services_1_1_game_info_download_service.html#a5e8dd0f68d5c823f9b58034ae798e912" target="_top" xlink:title=" ">
+<g id="a_Node000002"><a xlink:href="class_easy___copier_1_1_services_1_1_game_info_download_service.html#a5e8dd0f68d5c823f9b58034ae798e912" target="_top" xlink:title="Maps a Steam genre description string to a corresponding GameCategory.">
 <polygon fill="white" stroke="#666666" points="386.75,-44 201.25,-44 201.25,0 386.75,0 386.75,-44"/>
 <text xml:space="preserve" text-anchor="start" x="209.25" y="-30.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Services.Game</text>
 <text xml:space="preserve" text-anchor="start" x="209.25" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">InfoDownloadService.MapSteamGenre</text>

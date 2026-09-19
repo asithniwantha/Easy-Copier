@@ -112,6 +112,9 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('class_easy___c
   <div class="headertitle"><div class="title">Easy_Copier.Services.SmartAdderHistoryService Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Service for persisting Smart Adder calculator history to the local SQLite database (<span class="tt">SmartAdderHistory</span> table).  
+ <a href="#details">More...</a></p>
 <div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Inheritance diagram for Easy_Copier.Services.SmartAdderHistoryService:</div>
 <div id="dynsection-0-summary" class="dynsummary">
 </div>
@@ -128,19 +131,27 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('class_easy___c
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a104fe25fcf039f17124d541db2ce9ede" id="r_a104fe25fcf039f17124d541db2ce9ede"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a104fe25fcf039f17124d541db2ce9ede">SmartAdderHistoryService</a> (ILogger&lt; SmartAdderHistoryService &gt; logger)</td></tr>
+<tr class="memdesc:a104fe25fcf039f17124d541db2ce9ede"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes a new instance of the SmartAdderHistoryService class and sets up database connection properties.  <br /></td></tr>
 <tr class="memitem:ac0600467e618cb5a677ff5ebbd84782c" id="r_ac0600467e618cb5a677ff5ebbd84782c"><td class="memItemLeft">async Task&#160;</td><td class="memItemRight"><a class="el" href="#ac0600467e618cb5a677ff5ebbd84782c">InitializeAsync</a> ()</td></tr>
+<tr class="memdesc:ac0600467e618cb5a677ff5ebbd84782c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Asynchronously creates the <code>SmartAdderHistory</code> table in SQLite if it does not exist.  <br /></td></tr>
 <tr class="memitem:a140f526c291c726f34abee58f9667e2b" id="r_a140f526c291c726f34abee58f9667e2b"><td class="memItemLeft">async Task&#160;</td><td class="memItemRight"><a class="el" href="#a140f526c291c726f34abee58f9667e2b">AddRecordAsync</a> (<a class="el" href="class_easy___copier_1_1_models_1_1_smart_adder_history_record.html">SmartAdderHistoryRecord</a> record)</td></tr>
+<tr class="memdesc:a140f526c291c726f34abee58f9667e2b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Asynchronously inserts a new calculation record into the <code>SmartAdderHistory</code> table.  <br /></td></tr>
 <tr class="memitem:ac7f7a36883df867d57ab80fd1f5b56c1" id="r_ac7f7a36883df867d57ab80fd1f5b56c1"><td class="memItemLeft">async Task&lt; List&lt; <a class="el" href="class_easy___copier_1_1_models_1_1_smart_adder_history_record.html">SmartAdderHistoryRecord</a> &gt; &gt;&#160;</td><td class="memItemRight"><a class="el" href="#ac7f7a36883df867d57ab80fd1f5b56c1">GetRecentRecordsAsync</a> (int count)</td></tr>
+<tr class="memdesc:ac7f7a36883df867d57ab80fd1f5b56c1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Asynchronously retrieves recent calculation history records, sorted by ID descending.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pri-attribs" class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
 <tr class="memitem:a01939eea50747f0a314eadaa8de57505" id="r_a01939eea50747f0a314eadaa8de57505"><td class="memItemLeft">readonly ILogger&lt; <a class="el" href="#a104fe25fcf039f17124d541db2ce9ede">SmartAdderHistoryService</a> &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a01939eea50747f0a314eadaa8de57505">_logger</a></td></tr>
+<tr class="memdesc:a01939eea50747f0a314eadaa8de57505"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logger instance used for logging operations and errors.  <br /></td></tr>
 <tr class="memitem:a827fe7345741828ca87215e99a0e9d61" id="r_a827fe7345741828ca87215e99a0e9d61"><td class="memItemLeft">readonly string&#160;</td><td class="memItemRight"><a class="el" href="#a827fe7345741828ca87215e99a0e9d61">_dbPath</a></td></tr>
+<tr class="memdesc:a827fe7345741828ca87215e99a0e9d61"><td class="mdescLeft">&#160;</td><td class="mdescRight">Local database file path.  <br /></td></tr>
 <tr class="memitem:a0aba7f74fdaf75503fe19f1e1ad2183a" id="r_a0aba7f74fdaf75503fe19f1e1ad2183a"><td class="memItemLeft">readonly string&#160;</td><td class="memItemRight"><a class="el" href="#a0aba7f74fdaf75503fe19f1e1ad2183a">_connectionString</a></td></tr>
+<tr class="memdesc:a0aba7f74fdaf75503fe19f1e1ad2183a"><td class="mdescLeft">&#160;</td><td class="mdescRight">SQLite connection string.  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="_smart_adder_history_service_8cs_source.html#l00019">19</a> of file <a class="el" href="_smart_adder_history_service_8cs_source.html">SmartAdderHistoryService.cs</a>.</p>
+<div class="textblock"><p>Service for persisting Smart Adder calculator history to the local SQLite database (<span class="tt">SmartAdderHistory</span> table). </p>
+
+<p class="definition">Definition at line <a class="el" href="_smart_adder_history_service_8cs_source.html#l00041">41</a> of file <a class="el" href="_smart_adder_history_service_8cs_source.html">SmartAdderHistoryService.cs</a>.</p>
 </div><a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a104fe25fcf039f17124d541db2ce9ede" name="a104fe25fcf039f17124d541db2ce9ede"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a104fe25fcf039f17124d541db2ce9ede">&#9670;&#160;</a></span>SmartAdderHistoryService()</h2>
@@ -157,9 +168,17 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_smart_adder_history_service_8cs_source.html#l00025">25</a> of file <a class="el" href="_smart_adder_history_service_8cs_source.html">SmartAdderHistoryService.cs</a>.</p>
+<p>Initializes a new instance of the SmartAdderHistoryService class and sets up database connection properties. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">logger</td><td>Logger instance.</td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p class="reference">References <a class="el" href="_smart_adder_history_service_8cs_source.html#l00023">_connectionString</a>, <a class="el" href="_smart_adder_history_service_8cs_source.html#l00022">_dbPath</a>, and <a class="el" href="_smart_adder_history_service_8cs_source.html#l00021">_logger</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_smart_adder_history_service_8cs_source.html#l00062">62</a> of file <a class="el" href="_smart_adder_history_service_8cs_source.html">SmartAdderHistoryService.cs</a>.</p>
+
+<p class="reference">References <a class="el" href="_smart_adder_history_service_8cs_source.html#l00056">_connectionString</a>, <a class="el" href="_smart_adder_history_service_8cs_source.html#l00051">_dbPath</a>, and <a class="el" href="_smart_adder_history_service_8cs_source.html#l00046">_logger</a>.</p>
 
 </div>
 </div>
@@ -179,11 +198,20 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Asynchronously inserts a new calculation record into the <code>SmartAdderHistory</code> table. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">record</td><td>The record containing Smart Adder calculation entries and total sum.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A task representing the asynchronous operation.</dd></dl>
+
 <p>Implements <a class="el" href="interface_easy___copier_1_1_services_1_1_i_smart_adder_history_service.html#a52977ddda72721b3c39eac306ba2b24a">Easy_Copier.Services.ISmartAdderHistoryService</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_smart_adder_history_service_8cs_source.html#l00061">61</a> of file <a class="el" href="_smart_adder_history_service_8cs_source.html">SmartAdderHistoryService.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_smart_adder_history_service_8cs_source.html#l00107">107</a> of file <a class="el" href="_smart_adder_history_service_8cs_source.html">SmartAdderHistoryService.cs</a>.</p>
 
-<p class="reference">References <a class="el" href="_smart_adder_history_service_8cs_source.html#l00023">_connectionString</a>, <a class="el" href="_smart_adder_history_service_8cs_source.html#l00021">_logger</a>, <a class="el" href="_smart_adder_history_record_8cs_source.html#l00009">Easy_Copier.Models.SmartAdderHistoryRecord.EntriesJson</a>, <a class="el" href="_smart_adder_history_record_8cs_source.html#l00008">Easy_Copier.Models.SmartAdderHistoryRecord.Timestamp</a>, <a class="el" href="_smart_adder_history_record_8cs_source.html#l00012">Easy_Copier.Models.SmartAdderHistoryRecord.Total</a>, and <a class="el" href="_smart_adder_history_record_8cs_source.html#l00010">Easy_Copier.Models.SmartAdderHistoryRecord.TotalSum</a>.</p>
+<p class="reference">References <a class="el" href="_smart_adder_history_service_8cs_source.html#l00056">_connectionString</a>, <a class="el" href="_smart_adder_history_service_8cs_source.html#l00046">_logger</a>, <a class="el" href="_smart_adder_history_record_8cs_source.html#l00023">Easy_Copier.Models.SmartAdderHistoryRecord.EntriesJson</a>, <a class="el" href="_smart_adder_history_record_8cs_source.html#l00018">Easy_Copier.Models.SmartAdderHistoryRecord.Timestamp</a>, <a class="el" href="_smart_adder_history_record_8cs_source.html#l00034">Easy_Copier.Models.SmartAdderHistoryRecord.Total</a>, and <a class="el" href="_smart_adder_history_record_8cs_source.html#l00028">Easy_Copier.Models.SmartAdderHistoryRecord.TotalSum</a>.</p>
 
 </div>
 </div>
@@ -202,11 +230,20 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Asynchronously retrieves recent calculation history records, sorted by ID descending. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">count</td><td>Maximum number of records to return.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A task returning a list of SmartAdderHistoryRecord instances.</dd></dl>
+
 <p>Implements <a class="el" href="interface_easy___copier_1_1_services_1_1_i_smart_adder_history_service.html#a837ae03b72df34b0a81085df44313867">Easy_Copier.Services.ISmartAdderHistoryService</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_smart_adder_history_service_8cs_source.html#l00086">86</a> of file <a class="el" href="_smart_adder_history_service_8cs_source.html">SmartAdderHistoryService.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_smart_adder_history_service_8cs_source.html#l00137">137</a> of file <a class="el" href="_smart_adder_history_service_8cs_source.html">SmartAdderHistoryService.cs</a>.</p>
 
-<p class="reference">References <a class="el" href="_smart_adder_history_service_8cs_source.html#l00023">_connectionString</a>, and <a class="el" href="_smart_adder_history_service_8cs_source.html#l00021">_logger</a>.</p>
+<p class="reference">References <a class="el" href="_smart_adder_history_service_8cs_source.html#l00056">_connectionString</a>, and <a class="el" href="_smart_adder_history_service_8cs_source.html#l00046">_logger</a>.</p>
 
 </div>
 </div>
@@ -225,11 +262,14 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Asynchronously creates the <code>SmartAdderHistory</code> table in SQLite if it does not exist. </p>
+<dl class="section return"><dt>Returns</dt><dd>A task representing the asynchronous operation.</dd></dl>
+
 <p>Implements <a class="el" href="interface_easy___copier_1_1_services_1_1_i_smart_adder_history_service.html#aaddc783b61b267dc6a9cce276b8b7506">Easy_Copier.Services.ISmartAdderHistoryService</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_smart_adder_history_service_8cs_source.html#l00035">35</a> of file <a class="el" href="_smart_adder_history_service_8cs_source.html">SmartAdderHistoryService.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_smart_adder_history_service_8cs_source.html#l00076">76</a> of file <a class="el" href="_smart_adder_history_service_8cs_source.html">SmartAdderHistoryService.cs</a>.</p>
 
-<p class="reference">References <a class="el" href="_smart_adder_history_service_8cs_source.html#l00023">_connectionString</a>, <a class="el" href="_smart_adder_history_service_8cs_source.html#l00022">_dbPath</a>, and <a class="el" href="_smart_adder_history_service_8cs_source.html#l00021">_logger</a>.</p>
+<p class="reference">References <a class="el" href="_smart_adder_history_service_8cs_source.html#l00056">_connectionString</a>, <a class="el" href="_smart_adder_history_service_8cs_source.html#l00051">_dbPath</a>, and <a class="el" href="_smart_adder_history_service_8cs_source.html#l00046">_logger</a>.</p>
 
 </div>
 </div>
@@ -254,9 +294,11 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_smart_adder_history_service_8cs_source.html#l00023">23</a> of file <a class="el" href="_smart_adder_history_service_8cs_source.html">SmartAdderHistoryService.cs</a>.</p>
+<p>SQLite connection string. </p>
 
-<p class="reference">Referenced by <a class="el" href="_smart_adder_history_service_8cs_source.html#l00061">AddRecordAsync()</a>, <a class="el" href="_smart_adder_history_service_8cs_source.html#l00086">GetRecentRecordsAsync()</a>, <a class="el" href="_smart_adder_history_service_8cs_source.html#l00035">InitializeAsync()</a>, and <a class="el" href="_smart_adder_history_service_8cs_source.html#l00025">SmartAdderHistoryService()</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_smart_adder_history_service_8cs_source.html#l00056">56</a> of file <a class="el" href="_smart_adder_history_service_8cs_source.html">SmartAdderHistoryService.cs</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_smart_adder_history_service_8cs_source.html#l00107">AddRecordAsync()</a>, <a class="el" href="_smart_adder_history_service_8cs_source.html#l00137">GetRecentRecordsAsync()</a>, <a class="el" href="_smart_adder_history_service_8cs_source.html#l00076">InitializeAsync()</a>, and <a class="el" href="_smart_adder_history_service_8cs_source.html#l00062">SmartAdderHistoryService()</a>.</p>
 
 </div>
 </div>
@@ -280,9 +322,11 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_smart_adder_history_service_8cs_source.html#l00022">22</a> of file <a class="el" href="_smart_adder_history_service_8cs_source.html">SmartAdderHistoryService.cs</a>.</p>
+<p>Local database file path. </p>
 
-<p class="reference">Referenced by <a class="el" href="_smart_adder_history_service_8cs_source.html#l00035">InitializeAsync()</a>, and <a class="el" href="_smart_adder_history_service_8cs_source.html#l00025">SmartAdderHistoryService()</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_smart_adder_history_service_8cs_source.html#l00051">51</a> of file <a class="el" href="_smart_adder_history_service_8cs_source.html">SmartAdderHistoryService.cs</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_smart_adder_history_service_8cs_source.html#l00076">InitializeAsync()</a>, and <a class="el" href="_smart_adder_history_service_8cs_source.html#l00062">SmartAdderHistoryService()</a>.</p>
 
 </div>
 </div>
@@ -306,9 +350,11 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_smart_adder_history_service_8cs_source.html#l00021">21</a> of file <a class="el" href="_smart_adder_history_service_8cs_source.html">SmartAdderHistoryService.cs</a>.</p>
+<p>Logger instance used for logging operations and errors. </p>
 
-<p class="reference">Referenced by <a class="el" href="_smart_adder_history_service_8cs_source.html#l00061">AddRecordAsync()</a>, <a class="el" href="_smart_adder_history_service_8cs_source.html#l00086">GetRecentRecordsAsync()</a>, <a class="el" href="_smart_adder_history_service_8cs_source.html#l00035">InitializeAsync()</a>, and <a class="el" href="_smart_adder_history_service_8cs_source.html#l00025">SmartAdderHistoryService()</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_smart_adder_history_service_8cs_source.html#l00046">46</a> of file <a class="el" href="_smart_adder_history_service_8cs_source.html">SmartAdderHistoryService.cs</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_smart_adder_history_service_8cs_source.html#l00107">AddRecordAsync()</a>, <a class="el" href="_smart_adder_history_service_8cs_source.html#l00137">GetRecentRecordsAsync()</a>, <a class="el" href="_smart_adder_history_service_8cs_source.html#l00076">InitializeAsync()</a>, and <a class="el" href="_smart_adder_history_service_8cs_source.html#l00062">SmartAdderHistoryService()</a>.</p>
 
 </div>
 </div>

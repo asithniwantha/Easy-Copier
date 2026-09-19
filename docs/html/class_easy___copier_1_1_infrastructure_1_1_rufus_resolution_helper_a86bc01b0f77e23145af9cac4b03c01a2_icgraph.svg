@@ -53,7 +53,7 @@
 <!-- Node1 -->
 <g id="Node000001" class="node">
 <title>Node1</title>
-<g id="a_Node000001"><a xlink:title="Attempts to parse a Version object from a Rufus filename (e.g. rufus&#45;4.7.exe =&gt; Version 4....">
+<g id="a_Node000001"><a xlink:title="Attempts to parse a Version object from a Rufus filename (e.g., rufus&#45;4.7.exe =&gt; Version 4....">
 <polygon fill="#999999" stroke="#666666" points="1004.75,-88 812.5,-88 812.5,-44 1004.75,-44 1004.75,-88"/>
 <text xml:space="preserve" text-anchor="start" x="820.5" y="-74.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Infrastructure.</text>
 <text xml:space="preserve" text-anchor="start" x="820.5" y="-62.5" font-family="Helvetica,sans-Serif" font-size="10.00">RufusResolutionHelper.TryParseVersion</text>

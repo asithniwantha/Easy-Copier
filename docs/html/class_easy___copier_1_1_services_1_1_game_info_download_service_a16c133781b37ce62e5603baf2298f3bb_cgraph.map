@@ -1,5 +1,5 @@
 <map id="Easy_Copier.Services.GameInfoDownloadService.TryFetchSteamCoverAsync" name="Easy_Copier.Services.GameInfoDownloadService.TryFetchSteamCoverAsync">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,245,64"/>
-<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_services_1_1_game_info_download_service.html#aa5082d34c94299e50e9b4ec7213d3638" title=" " alt="" coords="293,13,573,56"/>
+<area shape="rect" id="Node000001" title="Attempts to download vertical library cover art from Steam CDN using the given Steam App ID." alt="" coords="5,5,245,64"/>
+<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_services_1_1_game_info_download_service.html#aa5082d34c94299e50e9b4ec7213d3638" title="Downloads an image from the specified URL and saves it to a local file path." alt="" coords="293,13,573,56"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="245,32,280,34,274,35,245,37"/>
 </map>

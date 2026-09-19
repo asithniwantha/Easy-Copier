@@ -112,6 +112,9 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('interface_easy
   <div class="headertitle"><div class="title">Easy_Copier.Services.IGameScannerService Interface Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Defines operations for scanning game and content directories, computing folder sizes, and locating metadata assets.  
+ <a href="#details">More...</a></p>
 <div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Inheritance diagram for Easy_Copier.Services.IGameScannerService:</div>
 <div id="dynsection-0-summary" class="dynsummary">
 </div>
@@ -121,14 +124,19 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('interface_easy
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:af36335b5e4251e70b5a575cd54a40ffc" id="r_af36335b5e4251e70b5a575cd54a40ffc"><td class="memItemLeft">Task&lt; IReadOnlyList&lt; <a class="el" href="namespace_easy___copier_1_1_models.html#ab9811c24c166bd7f4768ddafbcbaf75d">GameEntry</a> &gt; &gt;&#160;</td><td class="memItemRight"><a class="el" href="#af36335b5e4251e70b5a575cd54a40ffc">ScanLibraryAsync</a> (IEnumerable&lt; string &gt; sourceFolders, <a class="el" href="namespace_easy___copier_1_1_models.html#aa1c98543798d7f84e29b2e4deba8a58b">LibraryCategory</a> category, IProgress&lt; string &gt;? progress=null, string? videoExtensions=null, CancellationToken cancellationToken=default)</td></tr>
+<tr class="memitem:af36335b5e4251e70b5a575cd54a40ffc" id="r_af36335b5e4251e70b5a575cd54a40ffc"><td class="memItemLeft">Task&lt; IReadOnlyList&lt; <a class="el" href="namespace_easy___copier_1_1_models.html#a9c2abd1d64352c07d3085ba499cf2aae">GameEntry</a> &gt; &gt;&#160;</td><td class="memItemRight"><a class="el" href="#af36335b5e4251e70b5a575cd54a40ffc">ScanLibraryAsync</a> (IEnumerable&lt; string &gt; sourceFolders, <a class="el" href="namespace_easy___copier_1_1_models.html#aa1c98543798d7f84e29b2e4deba8a58b">LibraryCategory</a> category, IProgress&lt; string &gt;? progress=null, string? videoExtensions=null, CancellationToken cancellationToken=default)</td></tr>
+<tr class="memdesc:af36335b5e4251e70b5a575cd54a40ffc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Asynchronously scans specified source folders for items belonging to the given library category.  <br /></td></tr>
 <tr class="memitem:a94cebd84e18a4163fcb674cf9d7666e9" id="r_a94cebd84e18a4163fcb674cf9d7666e9"><td class="memItemLeft">Task&lt;(long TotalSize, bool HasLargeFiles)&gt;&#160;</td><td class="memItemRight"><a class="el" href="#a94cebd84e18a4163fcb674cf9d7666e9">GetFolderStatsAsync</a> (string folderPath, long sizeLimit, CancellationToken cancellationToken=default)</td></tr>
+<tr class="memdesc:a94cebd84e18a4163fcb674cf9d7666e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the total byte size and determines if any contained file exceeds the specified size limit.  <br /></td></tr>
 <tr class="memitem:a7cb19221b905b17f190c99f1c5e6d475" id="r_a7cb19221b905b17f190c99f1c5e6d475"><td class="memItemLeft">string?&#160;</td><td class="memItemRight"><a class="el" href="#a7cb19221b905b17f190c99f1c5e6d475">FindCoverImage</a> (string gameFolderPath)</td></tr>
+<tr class="memdesc:a7cb19221b905b17f190c99f1c5e6d475"><td class="mdescLeft">&#160;</td><td class="mdescRight">Locates a cover image file within a game folder if available.  <br /></td></tr>
 <tr class="memitem:a9795cdcc313b3e53e51cabd8abd35ec6" id="r_a9795cdcc313b3e53e51cabd8abd35ec6"><td class="memItemLeft">IReadOnlyList&lt; <a class="el" href="namespace_easy___copier_1_1_models.html#a79b82f8099c51633e7a21698ac8835c5">GameCategory</a> &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a9795cdcc313b3e53e51cabd8abd35ec6">GetCategories</a> (string gameFolderPath)</td></tr>
+<tr class="memdesc:a9795cdcc313b3e53e51cabd8abd35ec6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads genre categories for a game from its local <code>categories.txt</code> file.  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="_game_scanner_service_8cs_source.html#l00012">12</a> of file <a class="el" href="_game_scanner_service_8cs_source.html">GameScannerService.cs</a>.</p>
+<div class="textblock"><p>Defines operations for scanning game and content directories, computing folder sizes, and locating metadata assets. </p>
+
+<p class="definition">Definition at line <a class="el" href="_game_scanner_service_8cs_source.html#l00015">15</a> of file <a class="el" href="_game_scanner_service_8cs_source.html">GameScannerService.cs</a>.</p>
 </div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
 <a id="a7cb19221b905b17f190c99f1c5e6d475" name="a7cb19221b905b17f190c99f1c5e6d475"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a7cb19221b905b17f190c99f1c5e6d475">&#9670;&#160;</a></span>FindCoverImage()</h2>
@@ -144,6 +152,15 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Locates a cover image file within a game folder if available. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">gameFolderPath</td><td>The local game folder path.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The full path to the cover image file if found; otherwise, <code>null</code>.</dd></dl>
 
 <p>Implemented in <a class="el" href="class_easy___copier_1_1_services_1_1_game_scanner_service.html#ad02afc9dc82d4dbc5162a245d3a000fa">Easy_Copier.Services.GameScannerService</a>.</p>
 
@@ -163,6 +180,15 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Reads genre categories for a game from its local <code>categories.txt</code> file. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">gameFolderPath</td><td>The game folder path.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A read-only list of parsed GameCategory values.</dd></dl>
 
 <p>Implemented in <a class="el" href="class_easy___copier_1_1_services_1_1_game_scanner_service.html#ab383305abb0feb67093cedb7073fd161">Easy_Copier.Services.GameScannerService</a>.</p>
 
@@ -192,6 +218,17 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Calculates the total byte size and determines if any contained file exceeds the specified size limit. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">folderPath</td><td>The file or directory path to inspect.</td></tr>
+    <tr><td class="paramname">sizeLimit</td><td>The maximum single file size threshold (e.g., 4GB for FAT32).</td></tr>
+    <tr><td class="paramname">cancellationToken</td><td>Cancellation token.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A task returning a tuple with total byte size and a boolean flag indicating whether large files exist.</dd></dl>
+
 <p>Implemented in <a class="el" href="class_easy___copier_1_1_services_1_1_game_scanner_service.html#a7b30922461e6cc77a917e38c1276d45a">Easy_Copier.Services.GameScannerService</a>.</p>
 
 </div>
@@ -203,7 +240,7 @@ Public Member Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">Task&lt; IReadOnlyList&lt; <a class="el" href="namespace_easy___copier_1_1_models.html#ab9811c24c166bd7f4768ddafbcbaf75d">GameEntry</a> &gt; &gt; Easy_Copier.Services.IGameScannerService.ScanLibraryAsync </td>
+          <td class="memname">Task&lt; IReadOnlyList&lt; <a class="el" href="namespace_easy___copier_1_1_models.html#a9c2abd1d64352c07d3085ba499cf2aae">GameEntry</a> &gt; &gt; Easy_Copier.Services.IGameScannerService.ScanLibraryAsync </td>
           <td>(</td>
           <td class="paramtype">IEnumerable&lt; string &gt;</td>          <td class="paramname"><span class="paramname"><em>sourceFolders</em></span>, </td>
         </tr>
@@ -229,6 +266,19 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Asynchronously scans specified source folders for items belonging to the given library category. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sourceFolders</td><td>Collection of source folder directory paths.</td></tr>
+    <tr><td class="paramname">category</td><td>The content library category being scanned.</td></tr>
+    <tr><td class="paramname">progress</td><td>Optional progress reporter for status updates.</td></tr>
+    <tr><td class="paramname">videoExtensions</td><td>Optional video file extension filter string (e.g., ".mp4, .mkv") for video libraries.</td></tr>
+    <tr><td class="paramname">cancellationToken</td><td>Cancellation token to observe while scanning.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A task returning a read-only list of discovered GameEntry objects.</dd></dl>
 
 <p>Implemented in <a class="el" href="class_easy___copier_1_1_services_1_1_game_scanner_service.html#ab0cc3d6dc81dba63d460e8ebb4465ac5">Easy_Copier.Services.GameScannerService</a>.</p>
 

@@ -1,0 +1,25 @@
+var class_easy___copier_1_1_views_1_1_tv_and_films_tab_view =
+[
+    [ "XamlBindingSetters", "class_easy___copier_1_1_views_1_1_tv_and_films_tab_view_1_1_xaml_binding_setters.html", "class_easy___copier_1_1_views_1_1_tv_and_films_tab_view_1_1_xaml_binding_setters" ],
+    [ "TvAndFilmsTabView_obj3_Bindings", "class_easy___copier_1_1_views_1_1_tv_and_films_tab_view_1_1_tv_and_films_tab_view__obj3___bindings.html", "class_easy___copier_1_1_views_1_1_tv_and_films_tab_view_1_1_tv_and_films_tab_view__obj3___bindings" ],
+    [ "TvAndFilmsTabView_obj1_Bindings", "class_easy___copier_1_1_views_1_1_tv_and_films_tab_view_1_1_tv_and_films_tab_view__obj1___bindings.html", "class_easy___copier_1_1_views_1_1_tv_and_films_tab_view_1_1_tv_and_films_tab_view__obj1___bindings" ],
+    [ "ITvAndFilmsTabView_Bindings", "interface_easy___copier_1_1_views_1_1_tv_and_films_tab_view_1_1_i_tv_and_films_tab_view___bindings.html", "interface_easy___copier_1_1_views_1_1_tv_and_films_tab_view_1_1_i_tv_and_films_tab_view___bindings" ],
+    [ "ITvAndFilmsTabView_BindingsScopeConnector", "interface_easy___copier_1_1_views_1_1_tv_and_films_tab_view_1_1_i_tv_and_films_tab_view___bindings_scope_connector.html", "interface_easy___copier_1_1_views_1_1_tv_and_films_tab_view_1_1_i_tv_and_films_tab_view___bindings_scope_connector" ],
+    [ "TvAndFilmsTabView", "class_easy___copier_1_1_views_1_1_tv_and_films_tab_view.html#a371c654bd63e5b69d3ae11b949144101", null ],
+    [ "ClearSelection", "class_easy___copier_1_1_views_1_1_tv_and_films_tab_view.html#a602392f7687067b8b7d3c1cd61c18c93", null ],
+    [ "Connect", "class_easy___copier_1_1_views_1_1_tv_and_films_tab_view.html#a6aea0d345958634c0faa92277586c1fe", null ],
+    [ "GameCard_RightTapped", "class_easy___copier_1_1_views_1_1_tv_and_films_tab_view.html#a6ae4cfc2dbc9ba8a4fbf48a476d6bd02", null ],
+    [ "GetBindingConnector", "class_easy___copier_1_1_views_1_1_tv_and_films_tab_view.html#ab74d75d453d1f18ce7744ccc0818b1b2", null ],
+    [ "GetSelectedEntries", "class_easy___copier_1_1_views_1_1_tv_and_films_tab_view.html#a0d52f34e47af900cb275f7982508f7dd", null ],
+    [ "InitializeComponent", "class_easy___copier_1_1_views_1_1_tv_and_films_tab_view.html#ae17c0766034297f2bab39d5a9e14b200", null ],
+    [ "OpenFolderButton_Click", "class_easy___copier_1_1_views_1_1_tv_and_films_tab_view.html#a545cec72208622ab7a85fcd809165120", null ],
+    [ "TvAndFilmsGridView_SelectionChanged", "class_easy___copier_1_1_views_1_1_tv_and_films_tab_view.html#a27a15b4961935d02a41e25a905805886", null ],
+    [ "UnloadObject", "class_easy___copier_1_1_views_1_1_tv_and_films_tab_view.html#a2ebcfa78a27af53c17706bf66f8d17cd", null ],
+    [ "_contentLoaded", "class_easy___copier_1_1_views_1_1_tv_and_films_tab_view.html#acb3a09d184a433b5cdda441fe7389e1d", null ],
+    [ "Bindings", "class_easy___copier_1_1_views_1_1_tv_and_films_tab_view.html#abfc65d6f242b8cc299ce08c14baa99e3", null ],
+    [ "TvAndFilmsGridView", "class_easy___copier_1_1_views_1_1_tv_and_films_tab_view.html#a625632146e5c268473e1c6a6a7689e38", null ],
+    [ "ViewModelProperty", "class_easy___copier_1_1_views_1_1_tv_and_films_tab_view.html#ab8b19776b9aba13362ad3b31db727891", null ],
+    [ "SelectedItems", "class_easy___copier_1_1_views_1_1_tv_and_films_tab_view.html#a5a4639a002edf12bfdea68d7d1b9cd26", null ],
+    [ "ViewModel", "class_easy___copier_1_1_views_1_1_tv_and_films_tab_view.html#a4ef5df546d066a973a46b59c12a6df98", null ],
+    [ "SelectionChanged", "class_easy___copier_1_1_views_1_1_tv_and_films_tab_view.html#a4b1b793eda72c5850fc2f2e358cc370b", null ]
+];

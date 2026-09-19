@@ -112,18 +112,27 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('class_easy___c
   <div class="headertitle"><div class="title">Easy_Copier.Models.SmartAdderHistoryRecord Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Represents a stored SmartAdder calculation entry in SQLite history.  
+ <a href="#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-properties" class="groupheader"><a id="properties" name="properties"></a>
 Properties</h2></td></tr>
 <tr class="memitem:aa3d9083b65f3096c7b112afe05054f7a" id="r_aa3d9083b65f3096c7b112afe05054f7a"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="#aa3d9083b65f3096c7b112afe05054f7a">Id</a><code> [get, set]</code></td></tr>
+<tr class="memdesc:aa3d9083b65f3096c7b112afe05054f7a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets or sets the database auto-increment primary key ID.  <br /></td></tr>
 <tr class="memitem:adaeed0f7a9cf929f8584b8371a2d0833" id="r_adaeed0f7a9cf929f8584b8371a2d0833"><td class="memItemLeft">DateTime&#160;</td><td class="memItemRight"><a class="el" href="#adaeed0f7a9cf929f8584b8371a2d0833">Timestamp</a><code> [get, set]</code></td></tr>
+<tr class="memdesc:adaeed0f7a9cf929f8584b8371a2d0833"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets or sets the date and time when the record was created.  <br /></td></tr>
 <tr class="memitem:a0e6eba9716661bdeae4f5ab665efb3f0" id="r_a0e6eba9716661bdeae4f5ab665efb3f0"><td class="memItemLeft">string&#160;</td><td class="memItemRight"><a class="el" href="#a0e6eba9716661bdeae4f5ab665efb3f0">EntriesJson</a> = &quot;[]&quot;<code> [get, set]</code></td></tr>
+<tr class="memdesc:a0e6eba9716661bdeae4f5ab665efb3f0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets or sets the JSON representation of the entry list.  <br /></td></tr>
 <tr class="memitem:a3a343bb15cad48fc5630c59eacc10aec" id="r_a3a343bb15cad48fc5630c59eacc10aec"><td class="memItemLeft">double&#160;</td><td class="memItemRight"><a class="el" href="#a3a343bb15cad48fc5630c59eacc10aec">TotalSum</a><code> [get, set]</code></td></tr>
+<tr class="memdesc:a3a343bb15cad48fc5630c59eacc10aec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets or sets the calculated total sum of the entries.  <br /></td></tr>
 <tr class="memitem:a38980545360fc7993fdfed58563fdd7f" id="r_a38980545360fc7993fdfed58563fdd7f"><td class="memItemLeft">double&#160;</td><td class="memItemRight"><a class="el" href="#a38980545360fc7993fdfed58563fdd7f">Total</a><code> [get, set]</code></td></tr>
+<tr class="memdesc:a38980545360fc7993fdfed58563fdd7f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets or sets the total sum, acting as an alias for TotalSum.  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="_smart_adder_history_record_8cs_source.html#l00005">5</a> of file <a class="el" href="_smart_adder_history_record_8cs_source.html">SmartAdderHistoryRecord.cs</a>.</p>
+<div class="textblock"><p>Represents a stored SmartAdder calculation entry in SQLite history. </p>
+
+<p class="definition">Definition at line <a class="el" href="_smart_adder_history_record_8cs_source.html#l00008">8</a> of file <a class="el" href="_smart_adder_history_record_8cs_source.html">SmartAdderHistoryRecord.cs</a>.</p>
 </div><a name="doc-property-members" id="doc-property-members"></a><h2 id="header-doc-property-members" class="groupheader">Property Documentation</h2>
 <a id="a0e6eba9716661bdeae4f5ab665efb3f0" name="a0e6eba9716661bdeae4f5ab665efb3f0"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a0e6eba9716661bdeae4f5ab665efb3f0">&#9670;&#160;</a></span>EntriesJson</h2>
@@ -145,9 +154,11 @@ Properties</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_smart_adder_history_record_8cs_source.html#l00009">9</a> of file <a class="el" href="_smart_adder_history_record_8cs_source.html">SmartAdderHistoryRecord.cs</a>.</p>
+<p>Gets or sets the JSON representation of the entry list. </p>
 
-<p class="reference">Referenced by <a class="el" href="_smart_adder_history_service_8cs_source.html#l00061">Easy_Copier.Services.SmartAdderHistoryService.AddRecordAsync()</a>, and <a class="el" href="_smart_adder_history_entry_view_model_8cs_source.html#l00025">Easy_Copier.ViewModels.SmartAdderHistoryEntryViewModel.SmartAdderHistoryEntryViewModel()</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_smart_adder_history_record_8cs_source.html#l00023">23</a> of file <a class="el" href="_smart_adder_history_record_8cs_source.html">SmartAdderHistoryRecord.cs</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_smart_adder_history_service_8cs_source.html#l00107">Easy_Copier.Services.SmartAdderHistoryService.AddRecordAsync()</a>, and <a class="el" href="_smart_adder_history_entry_view_model_8cs_source.html#l00025">Easy_Copier.ViewModels.SmartAdderHistoryEntryViewModel.SmartAdderHistoryEntryViewModel()</a>.</p>
 
 </div>
 </div>
@@ -171,7 +182,9 @@ Properties</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_smart_adder_history_record_8cs_source.html#l00007">7</a> of file <a class="el" href="_smart_adder_history_record_8cs_source.html">SmartAdderHistoryRecord.cs</a>.</p>
+<p>Gets or sets the database auto-increment primary key ID. </p>
+
+<p class="definition">Definition at line <a class="el" href="_smart_adder_history_record_8cs_source.html#l00013">13</a> of file <a class="el" href="_smart_adder_history_record_8cs_source.html">SmartAdderHistoryRecord.cs</a>.</p>
 
 </div>
 </div>
@@ -195,9 +208,11 @@ Properties</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_smart_adder_history_record_8cs_source.html#l00008">8</a> of file <a class="el" href="_smart_adder_history_record_8cs_source.html">SmartAdderHistoryRecord.cs</a>.</p>
+<p>Gets or sets the date and time when the record was created. </p>
 
-<p class="reference">Referenced by <a class="el" href="_smart_adder_history_service_8cs_source.html#l00061">Easy_Copier.Services.SmartAdderHistoryService.AddRecordAsync()</a>, and <a class="el" href="_smart_adder_history_entry_view_model_8cs_source.html#l00025">Easy_Copier.ViewModels.SmartAdderHistoryEntryViewModel.SmartAdderHistoryEntryViewModel()</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_smart_adder_history_record_8cs_source.html#l00018">18</a> of file <a class="el" href="_smart_adder_history_record_8cs_source.html">SmartAdderHistoryRecord.cs</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_smart_adder_history_service_8cs_source.html#l00107">Easy_Copier.Services.SmartAdderHistoryService.AddRecordAsync()</a>, and <a class="el" href="_smart_adder_history_entry_view_model_8cs_source.html#l00025">Easy_Copier.ViewModels.SmartAdderHistoryEntryViewModel.SmartAdderHistoryEntryViewModel()</a>.</p>
 
 </div>
 </div>
@@ -221,9 +236,11 @@ Properties</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_smart_adder_history_record_8cs_source.html#l00011">11</a> of file <a class="el" href="_smart_adder_history_record_8cs_source.html">SmartAdderHistoryRecord.cs</a>.</p>
+<p>Gets or sets the total sum, acting as an alias for TotalSum. </p>
 
-<p class="reference">Referenced by <a class="el" href="_smart_adder_history_service_8cs_source.html#l00061">Easy_Copier.Services.SmartAdderHistoryService.AddRecordAsync()</a>, and <a class="el" href="_smart_adder_history_entry_view_model_8cs_source.html#l00025">Easy_Copier.ViewModels.SmartAdderHistoryEntryViewModel.SmartAdderHistoryEntryViewModel()</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_smart_adder_history_record_8cs_source.html#l00033">33</a> of file <a class="el" href="_smart_adder_history_record_8cs_source.html">SmartAdderHistoryRecord.cs</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_smart_adder_history_service_8cs_source.html#l00107">Easy_Copier.Services.SmartAdderHistoryService.AddRecordAsync()</a>, and <a class="el" href="_smart_adder_history_entry_view_model_8cs_source.html#l00025">Easy_Copier.ViewModels.SmartAdderHistoryEntryViewModel.SmartAdderHistoryEntryViewModel()</a>.</p>
 
 </div>
 </div>
@@ -247,9 +264,11 @@ Properties</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_smart_adder_history_record_8cs_source.html#l00010">10</a> of file <a class="el" href="_smart_adder_history_record_8cs_source.html">SmartAdderHistoryRecord.cs</a>.</p>
+<p>Gets or sets the calculated total sum of the entries. </p>
 
-<p class="reference">Referenced by <a class="el" href="_smart_adder_history_service_8cs_source.html#l00061">Easy_Copier.Services.SmartAdderHistoryService.AddRecordAsync()</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_smart_adder_history_record_8cs_source.html#l00028">28</a> of file <a class="el" href="_smart_adder_history_record_8cs_source.html">SmartAdderHistoryRecord.cs</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_smart_adder_history_service_8cs_source.html#l00107">Easy_Copier.Services.SmartAdderHistoryService.AddRecordAsync()</a>.</p>
 
 </div>
 </div>

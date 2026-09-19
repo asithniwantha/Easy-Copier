@@ -23,9 +23,9 @@
 <g id="Node000002" class="node">
 <title>Node2</title>
 <g id="a_Node000002"><a xlink:title=" ">
-<polygon fill="white" stroke="#666666" points="166.75,-244 9,-244 9,-212 166.75,-212 166.75,-244"/>
-<text xml:space="preserve" text-anchor="start" x="17" y="-230.5" font-family="Helvetica,sans-Serif" font-size="10.00">global::MicrosoftUI</text>
-<text xml:space="preserve" text-anchor="middle" x="87.88" y="-218.5" font-family="Helvetica,sans-Serif" font-size="10.00">::Xaml::IDataTemplateExtension</text>
+<polygon fill="white" stroke="#666666" points="149.88,-244 25.88,-244 25.88,-212 149.88,-212 149.88,-244"/>
+<text xml:space="preserve" text-anchor="start" x="33.88" y="-230.5" font-family="Helvetica,sans-Serif" font-size="10.00">global.MicrosoftUI.Xaml.</text>
+<text xml:space="preserve" text-anchor="middle" x="87.88" y="-218.5" font-family="Helvetica,sans-Serif" font-size="10.00">IDataTemplateExtension</text>
 </a>
 </g>
 </g>
@@ -42,8 +42,8 @@
 <g id="edge5_Node000001_Node000002" class="edge">
 <title>Node2&#45;&gt;Node1</title>
 <g id="a_edge5_Node000001_Node000002"><a xlink:title=" ">
-<path fill="none" stroke="#63b8ff" d="M164.23,-207.82C168.17,-206.3 172.03,-204.69 175.75,-203 207.21,-188.69 240.02,-166.75 262.71,-150.29"/>
-<polygon fill="#63b8ff" stroke="#63b8ff" points="163.32,-204.43 155.11,-211.13 165.71,-211.01 163.32,-204.43"/>
+<path fill="none" stroke="#63b8ff" d="M160.67,-209.16C165.84,-207.25 170.91,-205.2 175.75,-203 207.21,-188.69 240.02,-166.75 262.71,-150.29"/>
+<polygon fill="#63b8ff" stroke="#63b8ff" points="159.71,-205.79 151.41,-212.38 162.01,-212.4 159.71,-205.79"/>
 </a>
 </g>
 </g>
@@ -51,8 +51,8 @@
 <g id="edge10_Node000001_Node000002" class="edge">
 <title>Node2&#45;&gt;Node1</title>
 <g id="a_edge10_Node000001_Node000002"><a xlink:title=" ">
-<path fill="none" stroke="#63b8ff" d="M177.37,-219.88C221.46,-198.58 258.94,-171.02 278.34,-150.18"/>
-<polygon fill="#63b8ff" stroke="#63b8ff" points="175.91,-216.7 168.33,-224.1 178.87,-223.04 175.91,-216.7"/>
+<path fill="none" stroke="#63b8ff" d="M160.67,-227.12C165.84,-225.25 170.91,-223.2 175.75,-221 215.51,-202.92 257.43,-172.64 278.34,-150.18"/>
+<polygon fill="#63b8ff" stroke="#63b8ff" points="159.8,-223.72 151.42,-230.2 162.01,-230.36 159.8,-223.72"/>
 </a>
 </g>
 </g>

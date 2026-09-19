@@ -53,7 +53,7 @@
 <!-- Node1 -->
 <g id="Node000001" class="node">
 <title>Node1</title>
-<g id="a_Node000001"><a xlink:title=" ">
+<g id="a_Node000001"><a xlink:title="Formats and standardizes raw system requirement strings by adding line breaks before key headers.">
 <polygon fill="#999999" stroke="#666666" points="145.75,-357 0,-357 0,-325 145.75,-325 145.75,-357"/>
 <text xml:space="preserve" text-anchor="start" x="8" y="-343.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Infrastructure.</text>
 <text xml:space="preserve" text-anchor="middle" x="72.88" y="-331.5" font-family="Helvetica,sans-Serif" font-size="10.00">SysReqFormatter.FormatText</text>

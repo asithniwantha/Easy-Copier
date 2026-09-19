@@ -112,6 +112,9 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('interface_easy
   <div class="headertitle"><div class="title">Easy_Copier.Services.ILibraryCacheService Interface Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Defines operations for managing persistent JSON library caching and checking cache validity against directory fingerprints.  
+ <a href="#details">More...</a></p>
 <div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Inheritance diagram for Easy_Copier.Services.ILibraryCacheService:</div>
 <div id="dynsection-0-summary" class="dynsummary">
 </div>
@@ -122,14 +125,20 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('interface_easy
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a9eb6758c8b5cc72579b5a0ee9c17dd94" id="r_a9eb6758c8b5cc72579b5a0ee9c17dd94"><td class="memItemLeft">Task&lt; <a class="el" href="namespace_easy___copier_1_1_models.html#a6ce72bb145c4b6a2a691fff265751706">LibraryCacheSnapshot</a>?&gt;&#160;</td><td class="memItemRight"><a class="el" href="#a9eb6758c8b5cc72579b5a0ee9c17dd94">LoadCacheAsync</a> ()</td></tr>
+<tr class="memdesc:a9eb6758c8b5cc72579b5a0ee9c17dd94"><td class="mdescLeft">&#160;</td><td class="mdescRight">Asynchronously loads the cached library snapshot from local disk storage if available and schema compatible.  <br /></td></tr>
 <tr class="memitem:af6d9e8159cbbd841975e73a34ddce367" id="r_af6d9e8159cbbd841975e73a34ddce367"><td class="memItemLeft">Task&#160;</td><td class="memItemRight"><a class="el" href="#af6d9e8159cbbd841975e73a34ddce367">SaveCacheAsync</a> (<a class="el" href="namespace_easy___copier_1_1_models.html#a6ce72bb145c4b6a2a691fff265751706">LibraryCacheSnapshot</a> snapshot)</td></tr>
+<tr class="memdesc:af6d9e8159cbbd841975e73a34ddce367"><td class="mdescLeft">&#160;</td><td class="mdescRight">Asynchronously saves the library cache snapshot to local disk storage using atomic write patterns.  <br /></td></tr>
 <tr class="memitem:adb98b8a2f2a1833036dc56506104953c" id="r_adb98b8a2f2a1833036dc56506104953c"><td class="memItemLeft">Task&#160;</td><td class="memItemRight"><a class="el" href="#adb98b8a2f2a1833036dc56506104953c">InvalidateCacheAsync</a> ()</td></tr>
+<tr class="memdesc:adb98b8a2f2a1833036dc56506104953c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Asynchronously deletes the local library cache file from disk.  <br /></td></tr>
 <tr class="memitem:a767b09540d7984e9563a00b516bd4609" id="r_a767b09540d7984e9563a00b516bd4609"><td class="memItemLeft">Task&lt; <a class="el" href="namespace_easy___copier_1_1_models.html#a63b99d96f6d7e71a96281be9501fa569">CacheValidationOutcome</a> &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a767b09540d7984e9563a00b516bd4609">ValidateCacheAsync</a> (<a class="el" href="namespace_easy___copier_1_1_models.html#a6ce72bb145c4b6a2a691fff265751706">LibraryCacheSnapshot</a> cache, <a class="el" href="class_easy___copier_1_1_models_1_1_app_settings.html">AppSettings</a> currentSettings, CancellationToken cancellationToken=default)</td></tr>
+<tr class="memdesc:a767b09540d7984e9563a00b516bd4609"><td class="mdescLeft">&#160;</td><td class="mdescRight">Validates whether the cached snapshot matches current application settings source folders and directory fingerprints.  <br /></td></tr>
 <tr class="memitem:ad575f108654f524baf65dbec4da90b71" id="r_ad575f108654f524baf65dbec4da90b71"><td class="memItemLeft">Task&lt; <a class="el" href="namespace_easy___copier_1_1_models.html#aae2a352ac1ad9a55ae8b37e300153431">ItemFingerprint</a> &gt;&#160;</td><td class="memItemRight"><a class="el" href="#ad575f108654f524baf65dbec4da90b71">ComputeItemFingerprintAsync</a> (string folderPath, CancellationToken cancellationToken=default)</td></tr>
+<tr class="memdesc:ad575f108654f524baf65dbec4da90b71"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes a lightweight size and modification fingerprint for a given file or folder path.  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="_library_cache_service_8cs_source.html#l00013">13</a> of file <a class="el" href="_library_cache_service_8cs_source.html">LibraryCacheService.cs</a>.</p>
+<div class="textblock"><p>Defines operations for managing persistent JSON library caching and checking cache validity against directory fingerprints. </p>
+
+<p class="definition">Definition at line <a class="el" href="_library_cache_service_8cs_source.html#l00016">16</a> of file <a class="el" href="_library_cache_service_8cs_source.html">LibraryCacheService.cs</a>.</p>
 </div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
 <a id="ad575f108654f524baf65dbec4da90b71" name="ad575f108654f524baf65dbec4da90b71"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad575f108654f524baf65dbec4da90b71">&#9670;&#160;</a></span>ComputeItemFingerprintAsync()</h2>
@@ -150,6 +159,16 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Computes a lightweight size and modification fingerprint for a given file or folder path. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">folderPath</td><td>The folder path to inspect.</td></tr>
+    <tr><td class="paramname">cancellationToken</td><td>Cancellation token.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A task returning the computed ItemFingerprint.</dd></dl>
+
 <p>Implemented in <a class="el" href="class_easy___copier_1_1_services_1_1_library_cache_service.html#a2abaf39099e322db7d5f78d9c2ff8363">Easy_Copier.Services.LibraryCacheService</a>.</p>
 
 </div>
@@ -168,6 +187,9 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Asynchronously deletes the local library cache file from disk. </p>
+<dl class="section return"><dt>Returns</dt><dd>A task representing the deletion operation.</dd></dl>
 
 <p>Implemented in <a class="el" href="class_easy___copier_1_1_services_1_1_library_cache_service.html#a28508b1cd4dc6e586b314f7cbae10ace">Easy_Copier.Services.LibraryCacheService</a>.</p>
 
@@ -188,6 +210,9 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Asynchronously loads the cached library snapshot from local disk storage if available and schema compatible. </p>
+<dl class="section return"><dt>Returns</dt><dd>A task returning the loaded LibraryCacheSnapshot, or <code>null</code> if not found or invalid.</dd></dl>
+
 <p>Implemented in <a class="el" href="class_easy___copier_1_1_services_1_1_library_cache_service.html#a0803da77cac9887ad4dd36e5a47b0ee8">Easy_Copier.Services.LibraryCacheService</a>.</p>
 
 </div>
@@ -206,6 +231,15 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Asynchronously saves the library cache snapshot to local disk storage using atomic write patterns. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">snapshot</td><td>The snapshot object containing scanned library state and fingerprints.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A task representing the save operation.</dd></dl>
 
 <p>Implemented in <a class="el" href="class_easy___copier_1_1_services_1_1_library_cache_service.html#a85c47e1fe8510bcb82b48e83a7796cd1">Easy_Copier.Services.LibraryCacheService</a>.</p>
 
@@ -242,6 +276,17 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Validates whether the cached snapshot matches current application settings source folders and directory fingerprints. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">cache</td><td>The cached snapshot to validate.</td></tr>
+    <tr><td class="paramname">currentSettings</td><td>Current application settings containing source folder lists.</td></tr>
+    <tr><td class="paramname">cancellationToken</td><td>Cancellation token to cancel operation.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A task returning a CacheValidationOutcome indicating validation results and changed items.</dd></dl>
 
 <p>Implemented in <a class="el" href="class_easy___copier_1_1_services_1_1_library_cache_service.html#a05e76d2554223c9f80d4b4ca9358b977">Easy_Copier.Services.LibraryCacheService</a>.</p>
 

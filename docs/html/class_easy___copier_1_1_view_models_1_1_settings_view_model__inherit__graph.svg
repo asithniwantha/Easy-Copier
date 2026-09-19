@@ -22,7 +22,7 @@
 <!-- Node1 -->
 <g id="Node000001" class="node">
 <title>Node1</title>
-<g id="a_Node000001"><a xlink:title=" ">
+<g id="a_Node000001"><a xlink:title="ViewModel managing application settings, source folder configurations, price tiers,...">
 <polygon fill="#999999" stroke="#666666" points="167.5,-32 0,-32 0,0 167.5,0 167.5,-32"/>
 <text xml:space="preserve" text-anchor="start" x="8" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.ViewModels.Settings</text>
 <text xml:space="preserve" text-anchor="middle" x="83.75" y="-6.5" font-family="Helvetica,sans-Serif" font-size="10.00">ViewModel</text>

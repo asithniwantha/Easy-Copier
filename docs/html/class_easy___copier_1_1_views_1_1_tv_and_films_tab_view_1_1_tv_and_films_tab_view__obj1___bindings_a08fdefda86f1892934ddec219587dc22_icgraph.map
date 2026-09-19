@@ -1,0 +1,9 @@
+<map id="Easy_Copier.Views.TvAndFilmsTabView.TvAndFilmsTabView_obj1_Bindings.Initialize" name="Easy_Copier.Views.TvAndFilmsTabView.TvAndFilmsTabView_obj1_Bindings.Initialize">
+<area shape="rect" id="Node000001" title=" " alt="" coords="522,47,732,105"/>
+<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_views_1_1_tv_and_films_tab_view_1_1_tv_and_films_tab_view__obj1___bindings.html#a7e6d627aec1b4476d69794bf3fc07ae3" title=" " alt="" coords="264,5,474,64"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="504,57,475,54,475,49,509,57"/>
+<area shape="rect" id="Node000003" href="$class_easy___copier_1_1_views_1_1_tv_and_films_tab_view_1_1_tv_and_films_tab_view__obj1___bindings.html#aa08c7769bb42f14fc9f273f75028968b" title=" " alt="" coords="264,88,474,147"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="509,95,475,103,474,98,504,96"/>
+<area shape="rect" id="Node000004" href="$class_easy___copier_1_1_views_1_1_tv_and_films_tab_view.html#ab74d75d453d1f18ce7744ccc0818b1b2" title="GetBindingConnector(int connectionId, object target)." alt="" coords="5,96,216,139"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="245,118,216,120,216,115,250,117"/>
+</map>

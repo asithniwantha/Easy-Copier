@@ -1,5 +1,5 @@
 <map id="Easy_Copier.Services.WindowsShellTransferService.CalculateAmount" name="Easy_Copier.Services.WindowsShellTransferService.CalculateAmount">
-<area shape="rect" id="Node000001" title=" " alt="" coords="327,5,573,48"/>
-<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_services_1_1_windows_shell_transfer_service.html#a9055d728deea07bb02f90815f235d6c6" title=" " alt="" coords="5,5,279,48"/>
+<area shape="rect" id="Node000001" title="Calculates the monetary price for transferring a specific byte volume based on current settings." alt="" coords="327,5,573,48"/>
+<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_services_1_1_windows_shell_transfer_service.html#a9055d728deea07bb02f90815f235d6c6" title="Executes a transfer request asynchronously on a dedicated STA background thread using Windows Shell C..." alt="" coords="5,5,279,48"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="308,27,279,29,279,24,314,27"/>
 </map>

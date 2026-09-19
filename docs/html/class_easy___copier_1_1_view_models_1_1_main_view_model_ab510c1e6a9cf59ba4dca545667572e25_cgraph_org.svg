@@ -21,7 +21,7 @@
 <!-- Node2 -->
 <g id="Node000002" class="node">
 <title>Node2</title>
-<g id="a_Node000002"><a xlink:href="interface_easy___copier_1_1_infrastructure_1_1_i_window_service.html#a1784a86189366de487edd428b3a021fe" target="_top" xlink:title=" ">
+<g id="a_Node000002"><a xlink:href="interface_easy___copier_1_1_infrastructure_1_1_i_window_service.html#a1784a86189366de487edd428b3a021fe" target="_top" xlink:title="Opens the Settings window with optional completion callback and tab action.">
 <polygon fill="white" stroke="#666666" points="374.75,-32 188.5,-32 188.5,0 374.75,0 374.75,-32"/>
 <text xml:space="preserve" text-anchor="start" x="196.5" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Infrastructure.</text>
 <text xml:space="preserve" text-anchor="middle" x="281.62" y="-6.5" font-family="Helvetica,sans-Serif" font-size="10.00">IWindowService.ShowSettingsWindow</text>

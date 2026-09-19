@@ -22,7 +22,7 @@
 <!-- Node2 -->
 <g id="Node000002" class="node">
 <title>Node2</title>
-<g id="a_Node000002"><a xlink:href="class_easy___copier_1_1_infrastructure_1_1_file_system_helpers.html#a179279ea5f1e52ea09d8923972b8892c" target="_top" xlink:title=" ">
+<g id="a_Node000002"><a xlink:href="class_easy___copier_1_1_infrastructure_1_1_file_system_helpers.html#a179279ea5f1e52ea09d8923972b8892c" target="_top" xlink:title="Recursively calculates the total byte size of a directory and all of its subdirectories.">
 <polygon fill="white" stroke="#666666" points="404.75,-82 202,-82 202,-50 404.75,-50 404.75,-82"/>
 <text xml:space="preserve" text-anchor="start" x="210" y="-68.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Infrastructure.</text>
 <text xml:space="preserve" text-anchor="middle" x="303.38" y="-56.5" font-family="Helvetica,sans-Serif" font-size="10.00">FileSystemHelpers.CalculateDirectorySize</text>

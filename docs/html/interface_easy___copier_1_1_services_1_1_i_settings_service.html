@@ -112,6 +112,9 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('interface_easy
   <div class="headertitle"><div class="title">Easy_Copier.Services.ISettingsService Interface Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Defines operations for loading, saving, and retrieving application configuration settings.  
+ <a href="#details">More...</a></p>
 <div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Inheritance diagram for Easy_Copier.Services.ISettingsService:</div>
 <div id="dynsection-0-summary" class="dynsummary">
 </div>
@@ -122,13 +125,18 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('interface_easy
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a8d9327a8fd91dfcefb4677241258dd62" id="r_a8d9327a8fd91dfcefb4677241258dd62"><td class="memItemLeft">Task&lt; <a class="el" href="class_easy___copier_1_1_models_1_1_app_settings.html">AppSettings</a> &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a8d9327a8fd91dfcefb4677241258dd62">LoadSettingsAsync</a> ()</td></tr>
+<tr class="memdesc:a8d9327a8fd91dfcefb4677241258dd62"><td class="mdescLeft">&#160;</td><td class="mdescRight">Asynchronously loads settings from disk or returns cached settings if already loaded.  <br /></td></tr>
 <tr class="memitem:a4f2b6c9f7141ced2f91b28ee3cf57069" id="r_a4f2b6c9f7141ced2f91b28ee3cf57069"><td class="memItemLeft"><a class="el" href="class_easy___copier_1_1_models_1_1_app_settings.html">AppSettings</a>&#160;</td><td class="memItemRight"><a class="el" href="#a4f2b6c9f7141ced2f91b28ee3cf57069">LoadSettingsSync</a> ()</td></tr>
+<tr class="memdesc:a4f2b6c9f7141ced2f91b28ee3cf57069"><td class="mdescLeft">&#160;</td><td class="mdescRight">Synchronously loads settings from disk or returns cached settings if already loaded.  <br /></td></tr>
 <tr class="memitem:ad0f344541190847017414eeb604de5d0" id="r_ad0f344541190847017414eeb604de5d0"><td class="memItemLeft">Task&#160;</td><td class="memItemRight"><a class="el" href="#ad0f344541190847017414eeb604de5d0">SaveSettingsAsync</a> (<a class="el" href="class_easy___copier_1_1_models_1_1_app_settings.html">AppSettings</a> settings)</td></tr>
+<tr class="memdesc:ad0f344541190847017414eeb604de5d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Asynchronously saves application settings to disk and updates memory cache.  <br /></td></tr>
 <tr class="memitem:a5ec7a22ba32cdb3f62403d1253c9f357" id="r_a5ec7a22ba32cdb3f62403d1253c9f357"><td class="memItemLeft">string&#160;</td><td class="memItemRight"><a class="el" href="#a5ec7a22ba32cdb3f62403d1253c9f357">GetSettingsFilePath</a> ()</td></tr>
+<tr class="memdesc:a5ec7a22ba32cdb3f62403d1253c9f357"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the full local file path to the settings JSON file.  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="_settings_service_8cs_source.html#l00010">10</a> of file <a class="el" href="_settings_service_8cs_source.html">SettingsService.cs</a>.</p>
+<div class="textblock"><p>Defines operations for loading, saving, and retrieving application configuration settings. </p>
+
+<p class="definition">Definition at line <a class="el" href="_settings_service_8cs_source.html#l00013">13</a> of file <a class="el" href="_settings_service_8cs_source.html">SettingsService.cs</a>.</p>
 </div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
 <a id="a5ec7a22ba32cdb3f62403d1253c9f357" name="a5ec7a22ba32cdb3f62403d1253c9f357"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a5ec7a22ba32cdb3f62403d1253c9f357">&#9670;&#160;</a></span>GetSettingsFilePath()</h2>
@@ -144,6 +152,9 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Returns the full local file path to the settings JSON file. </p>
+<dl class="section return"><dt>Returns</dt><dd>The file path string.</dd></dl>
 
 <p>Implemented in <a class="el" href="class_easy___copier_1_1_services_1_1_settings_service.html#aaa03456304f68a371f4de8b43b96ff62">Easy_Copier.Services.SettingsService</a>.</p>
 
@@ -164,6 +175,9 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Asynchronously loads settings from disk or returns cached settings if already loaded. </p>
+<dl class="section return"><dt>Returns</dt><dd>A task returning the active AppSettings instance.</dd></dl>
+
 <p>Implemented in <a class="el" href="class_easy___copier_1_1_services_1_1_settings_service.html#a1e92290b6dec8bd2f69b026b3060c13d">Easy_Copier.Services.SettingsService</a>.</p>
 
 </div>
@@ -183,9 +197,12 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Synchronously loads settings from disk or returns cached settings if already loaded. </p>
+<dl class="section return"><dt>Returns</dt><dd>The active AppSettings instance.</dd></dl>
+
 <p>Implemented in <a class="el" href="class_easy___copier_1_1_services_1_1_settings_service.html#adbb56e2452d9bf0ac9f56f9274d231fb">Easy_Copier.Services.SettingsService</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_common_converters_8cs_source.html#l00028">Easy_Copier.Converters.GameSizeToPriceConverter.Convert()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_common_converters_8cs_source.html#l00038">Easy_Copier.Converters.GameSizeToPriceConverter.Convert()</a>.</p>
 <div id="dynsection-1" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
 <div id="dynsection-1-summary" class="dynsummary">
 </div>
@@ -209,6 +226,15 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Asynchronously saves application settings to disk and updates memory cache. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">settings</td><td>The AppSettings instance to persist.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A task representing the save operation.</dd></dl>
 
 <p>Implemented in <a class="el" href="class_easy___copier_1_1_services_1_1_settings_service.html#a20cce7df87c9ef67b52952469f52fdbd">Easy_Copier.Services.SettingsService</a>.</p>
 

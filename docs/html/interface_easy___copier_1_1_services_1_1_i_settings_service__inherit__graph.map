@@ -1,5 +1,5 @@
 <map id="Easy_Copier.Services.ISettingsService" name="Easy_Copier.Services.ISettingsService">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,213,48"/>
-<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_services_1_1_settings_service.html" title=" " alt="" coords="7,96,211,139"/>
+<area shape="rect" id="Node000001" title="Defines operations for loading, saving, and retrieving application configuration settings." alt="" coords="5,5,213,48"/>
+<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_services_1_1_settings_service.html" title="Service for reading and persisting application configuration settings to appsettings...." alt="" coords="7,96,211,139"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="111,62,111,97,107,95,107,66"/>
 </map>

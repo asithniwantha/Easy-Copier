@@ -1,8 +1,8 @@
 <map id="Easy_Copier.Infrastructure.NativeWindowHelper.RestoreOwnerInput" name="Easy_Copier.Infrastructure.NativeWindowHelper.RestoreOwnerInput">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,43,267,85"/>
-<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_infrastructure_1_1_native_window_helper.html#ac6f330703159fa50a1108ba3f4051bd7" title=" " alt="" coords="315,8,579,51"/>
+<area shape="rect" id="Node000001" title="Re&#45;enables input interaction and restores foreground focus for an owner window after a modal window c..." alt="" coords="5,43,267,85"/>
+<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_infrastructure_1_1_native_window_helper.html#ac6f330703159fa50a1108ba3f4051bd7" title="Enables or disables input interaction for the specified window handle." alt="" coords="315,8,579,51"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="267,47,302,45,297,46,268,52"/>
-<area shape="rect" id="Node000004" href="$class_easy___copier_1_1_infrastructure_1_1_native_window_helper.html#a0866d3ff5ff5b806f9f86c5c9aaa412f" title=" " alt="" coords="330,76,564,119"/>
+<area shape="rect" id="Node000004" href="$class_easy___copier_1_1_infrastructure_1_1_native_window_helper.html#a0866d3ff5ff5b806f9f86c5c9aaa412f" title="Brings the specified window handle to the foreground." alt="" coords="330,76,564,119"/>
 <area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="267,75,317,83,312,83,267,81"/>
 <area shape="rect" id="Node000003" href="$class_easy___copier_1_1_infrastructure_1_1_native_window_helper.html#a1f21b6ba7d46d506d55916c65b7e7e72" title=" " alt="" coords="627,5,862,48"/>
 <area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="579,25,614,28,609,28,580,31"/>

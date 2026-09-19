@@ -97,7 +97,7 @@
 <!-- Node4 -->
 <g id="Node000004" class="node">
 <title>Node4</title>
-<g id="a_Node000004"><a xlink:href="interface_easy___copier_1_1_infrastructure_1_1_i_dispatcher_service.html#a610df3934d188d070dafefd96a3bc47a" target="_top" xlink:title=" ">
+<g id="a_Node000004"><a xlink:href="interface_easy___copier_1_1_infrastructure_1_1_i_dispatcher_service.html#a610df3934d188d070dafefd96a3bc47a" target="_top" xlink:title="Enqueues a synchronous action to be executed on the UI thread.">
 <polygon fill="white" stroke="#666666" points="744.25,-144 589.5,-144 589.5,-112 744.25,-112 744.25,-144"/>
 <text xml:space="preserve" text-anchor="start" x="597.5" y="-130.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Infrastructure.</text>
 <text xml:space="preserve" text-anchor="middle" x="666.88" y="-118.5" font-family="Helvetica,sans-Serif" font-size="10.00">IDispatcherService.TryEnqueue</text>

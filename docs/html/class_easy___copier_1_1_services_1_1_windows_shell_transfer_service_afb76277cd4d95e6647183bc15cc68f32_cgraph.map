@@ -1,5 +1,5 @@
 <map id="Easy_Copier.Services.WindowsShellTransferService.CopyItemWithFileOperation" name="Easy_Copier.Services.WindowsShellTransferService.CopyItemWithFileOperation">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,247,236,305"/>
+<area shape="rect" id="Node000001" title="Copies a source file or directory to a destination folder using Windows Shell IFileOperation COM inte..." alt="" coords="5,247,236,305"/>
 <area shape="rect" id="Node000002" href="$interface_easy___copier_1_1_interop_1_1_i_file_operation.html#af894cdb796ba9f0276df7473497ad2d5" title=" " alt="" coords="317,5,486,48"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="134,245,157,203,190,152,232,101,282,58,305,47,301,51,285,62,236,105,194,156,161,206,138,248"/>
 <area shape="rect" id="Node000003" href="$interface_easy___copier_1_1_interop_1_1_i_file_operation.html#a326b541968b02b4e15e1bc6613b37d30" title=" " alt="" coords="317,72,486,115"/>

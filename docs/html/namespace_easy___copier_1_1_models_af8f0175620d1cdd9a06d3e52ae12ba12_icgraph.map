@@ -3,31 +3,31 @@
 <area shape="poly" id="edge5_Node000001_Node000001" title=" " alt="" coords="1692,223,1675,220,1644,217,1616,219,1598,224,1591,230,1593,239,1588,237,1586,229,1595,219,1615,214,1644,212,1676,214,1697,223"/>
 <area shape="rect" id="Node000002" href="$class_easy___copier_1_1_view_models_1_1_main_view_model.html#a0f7fe2253298f83580cbd8544d2c11b7" title=" " alt="" coords="1220,5,1470,48"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="1623,224,1601,187,1571,143,1533,99,1489,62,1468,51,1469,46,1491,58,1537,95,1575,139,1606,185,1628,226"/>
-<area shape="rect" id="Node000003" href="$interface_easy___copier_1_1_services_1_1_i_transfer_queue_service.html#afdf1a06fba0ea7f44bc32d23bcef4edf" title=" " alt="" coords="1241,72,1448,115"/>
+<area shape="rect" id="Node000003" href="$interface_easy___copier_1_1_services_1_1_i_transfer_queue_service.html#afdf1a06fba0ea7f44bc32d23bcef4edf" title="Enqueues a batch of transfer items targeting a specific drive." alt="" coords="1241,72,1448,115"/>
 <area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="1612,227,1558,177,1525,151,1489,129,1449,113,1449,108,1491,124,1528,147,1562,173,1617,228"/>
-<area shape="rect" id="Node000004" href="$class_easy___copier_1_1_services_1_1_transfer_queue_service.html#a5652702431c6d1b7a185da7e3c383e29" title=" " alt="" coords="1243,139,1446,181"/>
+<area shape="rect" id="Node000004" href="$class_easy___copier_1_1_services_1_1_transfer_queue_service.html#a5652702431c6d1b7a185da7e3c383e29" title="Enqueues a batch transfer request targeting a specific drive." alt="" coords="1243,139,1446,181"/>
 <area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="1583,232,1489,196,1447,184,1447,178,1491,191,1588,232"/>
-<area shape="rect" id="Node000005" href="$class_easy___copier_1_1_services_1_1_drive_discovery_service.html#a258f6435fc2f1aacd52d731f0ed28425" title=" " alt="" coords="1200,205,1490,248"/>
+<area shape="rect" id="Node000005" href="$class_easy___copier_1_1_services_1_1_drive_discovery_service.html#a258f6435fc2f1aacd52d731f0ed28425" title="Asynchronously retrieves all connected drives that are classified as removable or USB&#45;connected stora..." alt="" coords="1200,205,1490,248"/>
 <area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="1520,247,1490,246,1490,240,1525,246"/>
-<area shape="rect" id="Node000006" href="$class_easy___copier_1_1_services_1_1_game_scanner_service.html#ab0cc3d6dc81dba63d460e8ebb4465ac5" title=" " alt="" coords="1233,272,1456,315"/>
+<area shape="rect" id="Node000006" href="$class_easy___copier_1_1_services_1_1_game_scanner_service.html#ab0cc3d6dc81dba63d460e8ebb4465ac5" title="Asynchronously scans the specified source directories for game, application, video,..." alt="" coords="1233,272,1456,315"/>
 <area shape="poly" id="edge6_Node000001_Node000006" title=" " alt="" coords="1520,274,1457,284,1456,278,1525,273"/>
 <area shape="rect" id="Node000007" href="$namespace_easy___copier_1_1_models.html#a361f45ad4ad4f48588e380daa766a5fa" title=" " alt="" coords="1248,363,1442,405"/>
 <area shape="poly" id="edge7_Node000001_Node000007" title=" " alt="" coords="1582,287,1491,329,1403,365,1402,360,1489,324,1577,289"/>
-<area shape="rect" id="Node000014" href="$class_easy___copier_1_1_services_1_1_drive_validation_service.html#ac4b9ded9985d7df860bf8838dda59bca" title=" " alt="" coords="1217,429,1473,472"/>
+<area shape="rect" id="Node000014" href="$class_easy___copier_1_1_services_1_1_drive_validation_service.html#ac4b9ded9985d7df860bf8838dda59bca" title="Asynchronously validates selected games against target drive storage capacity, file system limitation..." alt="" coords="1217,429,1473,472"/>
 <area shape="poly" id="edge15_Node000001_Node000014" title=" " alt="" coords="1622,293,1567,360,1531,392,1491,420,1466,431,1465,426,1489,415,1528,388,1563,356,1617,295"/>
-<area shape="rect" id="Node000015" href="$interface_easy___copier_1_1_services_1_1_i_drive_validation_service.html#abf7e21510548c621bef8344a9700f630" title=" " alt="" coords="1217,496,1473,539"/>
+<area shape="rect" id="Node000015" href="$interface_easy___copier_1_1_services_1_1_i_drive_validation_service.html#abf7e21510548c621bef8344a9700f630" title="Validates whether the selected games can be safely copied to the specified target drive and path." alt="" coords="1217,496,1473,539"/>
 <area shape="poly" id="edge16_Node000001_Node000015" title=" " alt="" coords="1631,294,1610,341,1579,392,1540,443,1492,486,1470,498,1469,493,1488,482,1536,440,1575,389,1605,338,1626,297"/>
 <area shape="poly" id="edge14_Node000007_Node000007" title=" " alt="" coords="1392,347,1376,344,1345,341,1316,343,1299,348,1292,354,1294,364,1289,361,1287,353,1296,343,1315,338,1345,336,1377,338,1398,348"/>
-<area shape="rect" id="Node000008" href="$class_easy___copier_1_1_services_1_1_transfer_queue_service.html#a533e1a35bdbcf9ff1fdd48462d021ff3" title=" " alt="" coords="906,296,1124,339"/>
+<area shape="rect" id="Node000008" href="$class_easy___copier_1_1_services_1_1_transfer_queue_service.html#a533e1a35bdbcf9ff1fdd48462d021ff3" title="Executes an individual transfer item and updates its status and progress properties on the UI thread." alt="" coords="906,296,1124,339"/>
 <area shape="poly" id="edge8_Node000007_Node000008" title=" " alt="" coords="1230,361,1124,342,1124,337,1235,361"/>
-<area shape="rect" id="Node000012" href="$interface_easy___copier_1_1_services_1_1_i_file_transfer_service.html#ae4cb14860a42a462aab955a6e77a90d5" title=" " alt="" coords="893,363,1137,405"/>
+<area shape="rect" id="Node000012" href="$interface_easy___copier_1_1_services_1_1_i_file_transfer_service.html#ae4cb14860a42a462aab955a6e77a90d5" title="Asynchronously transfers game files according to the provided transfer request configuration." alt="" coords="893,363,1137,405"/>
 <area shape="poly" id="edge12_Node000007_Node000012" title=" " alt="" coords="1229,384,1138,387,1137,381,1235,384"/>
-<area shape="rect" id="Node000013" href="$class_easy___copier_1_1_services_1_1_windows_shell_transfer_service.html#a9055d728deea07bb02f90815f235d6c6" title=" " alt="" coords="878,429,1152,472"/>
+<area shape="rect" id="Node000013" href="$class_easy___copier_1_1_services_1_1_windows_shell_transfer_service.html#a9055d728deea07bb02f90815f235d6c6" title="Executes a transfer request asynchronously on a dedicated STA background thread using Windows Shell C..." alt="" coords="878,429,1152,472"/>
 <area shape="poly" id="edge13_Node000007_Node000013" title=" " alt="" coords="1235,406,1124,431,1124,426,1230,407"/>
-<area shape="rect" id="Node000009" href="$class_easy___copier_1_1_services_1_1_transfer_queue_service.html#a78c880327c9c88ec2a8691920afd3593" title=" " alt="" coords="569,296,830,339"/>
+<area shape="rect" id="Node000009" href="$class_easy___copier_1_1_services_1_1_transfer_queue_service.html#a78c880327c9c88ec2a8691920afd3593" title="Per&#45;drive loop processing queued transfers sequentially for a single drive letter." alt="" coords="569,296,830,339"/>
 <area shape="poly" id="edge9_Node000008_Node000009" title=" " alt="" coords="888,318,831,320,831,315,893,317"/>
-<area shape="rect" id="Node000010" href="$class_easy___copier_1_1_services_1_1_transfer_queue_service.html#ad3adb01ff5efc729bccd3060144e6f34" title=" " alt="" coords="291,296,521,339"/>
+<area shape="rect" id="Node000010" href="$class_easy___copier_1_1_services_1_1_transfer_queue_service.html#ad3adb01ff5efc729bccd3060144e6f34" title="Main background loop reading items from the primary channel and routing them to per&#45;drive execution c..." alt="" coords="291,296,521,339"/>
 <area shape="poly" id="edge10_Node000009_Node000010" title=" " alt="" coords="551,318,522,320,521,315,556,317"/>
-<area shape="rect" id="Node000011" href="$class_easy___copier_1_1_services_1_1_transfer_queue_service.html#a31960a3b7a1549213ab478448f6c15c2" title=" " alt="" coords="5,296,243,339"/>
+<area shape="rect" id="Node000011" href="$class_easy___copier_1_1_services_1_1_transfer_queue_service.html#a31960a3b7a1549213ab478448f6c15c2" title="Initializes a new instance of the TransferQueueService class and starts background consumer tasks." alt="" coords="5,296,243,339"/>
 <area shape="poly" id="edge11_Node000010_Node000011" title=" " alt="" coords="273,318,244,320,242,315,278,316"/>
 </map>

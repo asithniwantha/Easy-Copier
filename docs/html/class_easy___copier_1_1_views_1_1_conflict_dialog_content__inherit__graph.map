@@ -1,0 +1,10 @@
+<map id="Easy_Copier.Views.ConflictDialogContent" name="Easy_Copier.Views.ConflictDialogContent">
+<area shape="rect" id="Node000001" title="UserControl content for folder conflict resolution dialogs." alt="" coords="253,39,438,81"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="22,5,188,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="203,46,255,55,250,57,203,52"/>
+<area shape="poly" id="edge3_Node000001_Node000002" title=" " alt="" coords="203,29,255,38,250,39,203,34"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="5,72,205,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="219,75,255,72,249,74,221,80"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="59,139,151,165"/>
+<area shape="poly" id="edge4_Node000001_Node000004" title=" " alt="" coords="165,136,204,124,256,103,301,83,306,81,258,107,206,129,166,141"/>
+</map>

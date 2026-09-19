@@ -22,7 +22,7 @@
 <!-- Node1 -->
 <g id="Node000001" class="node">
 <title>Node1</title>
-<g id="a_Node000001"><a xlink:title=" ">
+<g id="a_Node000001"><a xlink:title="Logger message when apply update fails.">
 <polygon fill="#999999" stroke="#666666" points="341.75,-32 193.75,-32 193.75,0 341.75,0 341.75,-32"/>
 <text xml:space="preserve" text-anchor="start" x="201.75" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Services.Update</text>
 <text xml:space="preserve" text-anchor="middle" x="267.75" y="-6.5" font-family="Helvetica,sans-Serif" font-size="10.00">Service.LogApplyUpdateError</text>
@@ -32,7 +32,7 @@
 <!-- Node2 -->
 <g id="Node000002" class="node">
 <title>Node2</title>
-<g id="a_Node000002"><a xlink:href="class_easy___copier_1_1_services_1_1_update_service.html#ae0bd3d393585ef2eec47a1282056bb79" target="_top" xlink:title=" ">
+<g id="a_Node000002"><a xlink:href="class_easy___copier_1_1_services_1_1_update_service.html#ae0bd3d393585ef2eec47a1282056bb79" target="_top" xlink:title="Applies the downloaded update and restarts the application.">
 <polygon fill="white" stroke="#666666" points="157.75,-32 0,-32 0,0 157.75,0 157.75,-32"/>
 <text xml:space="preserve" text-anchor="start" x="8" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Services.Update</text>
 <text xml:space="preserve" text-anchor="middle" x="78.88" y="-6.5" font-family="Helvetica,sans-Serif" font-size="10.00">Service.RestartAndApplyUpdate</text>

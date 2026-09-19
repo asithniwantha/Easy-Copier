@@ -22,7 +22,7 @@
 <!-- Node1 -->
 <g id="Node000001" class="node">
 <title>Node1</title>
-<g id="a_Node000001"><a xlink:title=" ">
+<g id="a_Node000001"><a xlink:title="Asynchronously calculates file size statistics for a folder or file path.">
 <polygon fill="#999999" stroke="#666666" points="385.25,-32 203.5,-32 203.5,0 385.25,0 385.25,-32"/>
 <text xml:space="preserve" text-anchor="start" x="211.5" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Services.Game</text>
 <text xml:space="preserve" text-anchor="middle" x="294.38" y="-6.5" font-family="Helvetica,sans-Serif" font-size="10.00">ScannerService.GetFolderStatsAsync</text>
@@ -32,7 +32,7 @@
 <!-- Node2 -->
 <g id="Node000002" class="node">
 <title>Node2</title>
-<g id="a_Node000002"><a xlink:href="class_easy___copier_1_1_services_1_1_game_scanner_service.html#ab0cc3d6dc81dba63d460e8ebb4465ac5" target="_top" xlink:title=" ">
+<g id="a_Node000002"><a xlink:href="class_easy___copier_1_1_services_1_1_game_scanner_service.html#ab0cc3d6dc81dba63d460e8ebb4465ac5" target="_top" xlink:title="Asynchronously scans the specified source directories for game, application, video,...">
 <polygon fill="white" stroke="#666666" points="167.5,-32 0,-32 0,0 167.5,0 167.5,-32"/>
 <text xml:space="preserve" text-anchor="start" x="8" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Services.Game</text>
 <text xml:space="preserve" text-anchor="middle" x="83.75" y="-6.5" font-family="Helvetica,sans-Serif" font-size="10.00">ScannerService.ScanLibraryAsync</text>

@@ -112,6 +112,9 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('class_easy___c
   <div class="headertitle"><div class="title">Easy_Copier.Services.DriveDiscoveryService Class Reference<span class="mlabels"><span class="mlabel sealed">sealed</span></span></div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Provides physical and logical drive detection and real-time drive insertion/removal monitoring via WMI.  
+ <a href="#details">More...</a></p>
 <div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Inheritance diagram for Easy_Copier.Services.DriveDiscoveryService:</div>
 <div id="dynsection-0-summary" class="dynsummary">
 </div>
@@ -128,42 +131,62 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('class_easy___c
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a14d7920656ab646a07fa9cfa422f99d7" id="r_a14d7920656ab646a07fa9cfa422f99d7"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a14d7920656ab646a07fa9cfa422f99d7">DriveDiscoveryService</a> (ILogger&lt; DriveDiscoveryService &gt; logger)</td></tr>
+<tr class="memdesc:a14d7920656ab646a07fa9cfa422f99d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes a new instance of the DriveDiscoveryService class.  <br /></td></tr>
 <tr class="memitem:a258f6435fc2f1aacd52d731f0ed28425" id="r_a258f6435fc2f1aacd52d731f0ed28425"><td class="memItemLeft">async Task&lt; IReadOnlyList&lt; <a class="el" href="namespace_easy___copier_1_1_models.html#af8f0175620d1cdd9a06d3e52ae12ba12">RemovableDrive</a> &gt; &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a258f6435fc2f1aacd52d731f0ed28425">GetRemovableDrivesAsync</a> ()</td></tr>
+<tr class="memdesc:a258f6435fc2f1aacd52d731f0ed28425"><td class="mdescLeft">&#160;</td><td class="mdescRight">Asynchronously retrieves all connected drives that are classified as removable or USB-connected storage.  <br /></td></tr>
 <tr class="memitem:a326c4547ff0f1f958799d963a9ea80c0" id="r_a326c4547ff0f1f958799d963a9ea80c0"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a326c4547ff0f1f958799d963a9ea80c0">StartWatching</a> ()</td></tr>
+<tr class="memdesc:a326c4547ff0f1f958799d963a9ea80c0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Starts the WMI event listener for Windows volume change events.  <br /></td></tr>
 <tr class="memitem:afb32927d7b82e3d42575bf49e7f732d5" id="r_afb32927d7b82e3d42575bf49e7f732d5"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#afb32927d7b82e3d42575bf49e7f732d5">StopWatching</a> ()</td></tr>
+<tr class="memdesc:afb32927d7b82e3d42575bf49e7f732d5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stops the WMI event listener and cleans up watcher instances safely.  <br /></td></tr>
 <tr class="memitem:a8d9f3925e02834e5d1a0884c9d2761fd" id="r_a8d9f3925e02834e5d1a0884c9d2761fd"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a8d9f3925e02834e5d1a0884c9d2761fd">Dispose</a> ()</td></tr>
+<tr class="memdesc:a8d9f3925e02834e5d1a0884c9d2761fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Disposes unmanaged WMI resources and terminates drive monitoring handlers.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-events" class="groupheader"><a id="events" name="events"></a>
 Events</h2></td></tr>
 <tr class="memitem:aff4d8b558176272161449d11c9528c43" id="r_aff4d8b558176272161449d11c9528c43"><td class="memItemLeft">EventHandler?&#160;</td><td class="memItemRight"><a class="el" href="#aff4d8b558176272161449d11c9528c43">DrivesChanged</a></td></tr>
+<tr class="memdesc:aff4d8b558176272161449d11c9528c43"><td class="mdescLeft">&#160;</td><td class="mdescRight">Event raised when a system volume insertion or removal is detected.  <br /></td></tr>
 <tr class="inherit_header events_interface_easy___copier_1_1_services_1_1_i_drive_discovery_service"><td colspan="2" class="dyn-inherit"><span class="dynarrow"><span class="arrowhead closed"></span></span>Events inherited from <a class="el" href="interface_easy___copier_1_1_services_1_1_i_drive_discovery_service.html">Easy_Copier.Services.IDriveDiscoveryService</a></td></tr>
 <tr class="memitem:a8b663034e92a967eb2231149984a51c4 inherit events_interface_easy___copier_1_1_services_1_1_i_drive_discovery_service" id="r_a8b663034e92a967eb2231149984a51c4"><td class="memItemLeft">EventHandler?&#160;</td><td class="memItemRight"><a class="el" href="interface_easy___copier_1_1_services_1_1_i_drive_discovery_service.html#a8b663034e92a967eb2231149984a51c4">DrivesChanged</a></td></tr>
+<tr class="memdesc:a8b663034e92a967eb2231149984a51c4 inherit events_interface_easy___copier_1_1_services_1_1_i_drive_discovery_service"><td class="mdescLeft">&#160;</td><td class="mdescRight">Occurs when a volume change event is detected (e.g., drive insertion or removal).  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pri-methods" class="groupheader"><a id="pri-methods" name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
 <tr class="memitem:a40c9d26a86373808632f9df8bd4aa434" id="r_a40c9d26a86373808632f9df8bd4aa434"><td class="memItemLeft">string? bool IsUsb&#160;</td><td class="memItemRight"><a class="el" href="#a40c9d26a86373808632f9df8bd4aa434">GetPhysicalDiskInfo</a> (string driveLetterWithColon)</td></tr>
 <tr class="memitem:a93558750a3717c2c2abbb645a07b9291" id="r_a93558750a3717c2c2abbb645a07b9291"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a93558750a3717c2c2abbb645a07b9291">IsUsbBusType</a> (string? diskIndex)</td></tr>
+<tr class="memdesc:a93558750a3717c2c2abbb645a07b9291"><td class="mdescLeft">&#160;</td><td class="mdescRight">Queries the MSFT_PhysicalDisk WMI class in the root\Microsoft\Windows\Storage namespace to verify BusType.  <br /></td></tr>
 <tr class="memitem:a1575d3ce8e61855e3fc047a766528c13" id="r_a1575d3ce8e61855e3fc047a766528c13"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a1575d3ce8e61855e3fc047a766528c13">OnDriveChanged</a> (object sender, EventArrivedEventArgs e)</td></tr>
+<tr class="memdesc:a1575d3ce8e61855e3fc047a766528c13"><td class="mdescLeft">&#160;</td><td class="mdescRight">Callback handler triggered when WMI delivers a volume change event.  <br /></td></tr>
 <tr class="memitem:a7ba351ddd54ff1f9102745452f2f1b75" id="r_a7ba351ddd54ff1f9102745452f2f1b75"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a7ba351ddd54ff1f9102745452f2f1b75">WaitForPendingDriveNotifications</a> ()</td></tr>
+<tr class="memdesc:a7ba351ddd54ff1f9102745452f2f1b75"><td class="mdescLeft">&#160;</td><td class="mdescRight">Blocks until all currently running WMI event arrival callbacks have completed or until a timeout occurs.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pri-attribs" class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
 <tr class="memitem:afc8af308b61a0df58955988bcac2341b" id="r_afc8af308b61a0df58955988bcac2341b"><td class="memItemLeft">readonly ILogger&lt; <a class="el" href="#a14d7920656ab646a07fa9cfa422f99d7">DriveDiscoveryService</a> &gt;&#160;</td><td class="memItemRight"><a class="el" href="#afc8af308b61a0df58955988bcac2341b">_logger</a></td></tr>
+<tr class="memdesc:afc8af308b61a0df58955988bcac2341b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logger instance used for recording drive discovery and monitoring events.  <br /></td></tr>
 <tr class="memitem:a355a557d312bdf46ca8c67d0c5e60a2a" id="r_a355a557d312bdf46ca8c67d0c5e60a2a"><td class="memItemLeft">readonly object&#160;</td><td class="memItemRight"><a class="el" href="#a355a557d312bdf46ca8c67d0c5e60a2a">_watcherLock</a> = new()</td></tr>
+<tr class="memdesc:a355a557d312bdf46ca8c67d0c5e60a2a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Lock object ensuring thread-safe access to WMI watcher instantiation and teardown.  <br /></td></tr>
 <tr class="memitem:ac2a0a8c2d16321fc4de655e0553d58c0" id="r_ac2a0a8c2d16321fc4de655e0553d58c0"><td class="memItemLeft">readonly ManualResetEventSlim&#160;</td><td class="memItemRight"><a class="el" href="#ac2a0a8c2d16321fc4de655e0553d58c0">_driveChangeCallbacksCompleted</a> = new(initialState: true)</td></tr>
+<tr class="memdesc:ac2a0a8c2d16321fc4de655e0553d58c0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Signal used to ensure in-flight WMI callback events finish prior to stopping or disposing.  <br /></td></tr>
 <tr class="memitem:aa89168ce523dc713715262e38472a286" id="r_aa89168ce523dc713715262e38472a286"><td class="memItemLeft">ManagementEventWatcher?&#160;</td><td class="memItemRight"><a class="el" href="#aa89168ce523dc713715262e38472a286">_driveWatcher</a></td></tr>
+<tr class="memdesc:aa89168ce523dc713715262e38472a286"><td class="mdescLeft">&#160;</td><td class="mdescRight">WMI event watcher monitoring <code>Win32_VolumeChangeEvent</code> events.  <br /></td></tr>
 <tr class="memitem:a9af6bac8541e0f8245fccc930a8c8569" id="r_a9af6bac8541e0f8245fccc930a8c8569"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="#a9af6bac8541e0f8245fccc930a8c8569">_activeDriveChangeCallbacks</a></td></tr>
+<tr class="memdesc:a9af6bac8541e0f8245fccc930a8c8569"><td class="mdescLeft">&#160;</td><td class="mdescRight">Count of active, concurrently executing drive change callback handlers.  <br /></td></tr>
 <tr class="memitem:a17aeace43a54656ff494685242be8350" id="r_a17aeace43a54656ff494685242be8350"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="#a17aeace43a54656ff494685242be8350">_isWatching</a></td></tr>
+<tr class="memdesc:a17aeace43a54656ff494685242be8350"><td class="mdescLeft">&#160;</td><td class="mdescRight">Atomic flag indicating whether active WMI event monitoring is enabled (1) or disabled (0).  <br /></td></tr>
 <tr class="memitem:a55823bb99f1765a74ab34396b334abfd" id="r_a55823bb99f1765a74ab34396b334abfd"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="#a55823bb99f1765a74ab34396b334abfd">_isDisposed</a></td></tr>
+<tr class="memdesc:a55823bb99f1765a74ab34396b334abfd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Atomic flag indicating whether this service instance has been disposed (1) or not (0).  <br /></td></tr>
 <tr class="memitem:a6c59ec2f91625e1062cac1fa3b3762c1" id="r_a6c59ec2f91625e1062cac1fa3b3762c1"><td class="memItemLeft">string?&#160;</td><td class="memItemRight"><a class="el" href="#a6c59ec2f91625e1062cac1fa3b3762c1">Model</a></td></tr>
+<tr class="memdesc:a6c59ec2f91625e1062cac1fa3b3762c1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Queries WMI to retrieve physical disk model information and determine if the drive is connected via USB.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pri-static-attribs" class="groupheader"><a id="pri-static-attribs" name="pri-static-attribs"></a>
 Static Private Attributes</h2></td></tr>
 <tr class="memitem:a432df026634299c15261af153cb2c768" id="r_a432df026634299c15261af153cb2c768"><td class="memItemLeft">const ushort&#160;</td><td class="memItemRight"><a class="el" href="#a432df026634299c15261af153cb2c768">UsbBusType</a> = 7</td></tr>
+<tr class="memdesc:a432df026634299c15261af153cb2c768"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constant value representing BusType 7 (USB) according to MSFT_PhysicalDisk documentation.  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="_drive_services_8cs_source.html#l00021">21</a> of file <a class="el" href="_drive_services_8cs_source.html">DriveServices.cs</a>.</p>
+<div class="textblock"><p>Provides physical and logical drive detection and real-time drive insertion/removal monitoring via WMI. </p>
+
+<p class="definition">Definition at line <a class="el" href="_drive_services_8cs_source.html#l00043">43</a> of file <a class="el" href="_drive_services_8cs_source.html">DriveServices.cs</a>.</p>
 </div><a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a14d7920656ab646a07fa9cfa422f99d7" name="a14d7920656ab646a07fa9cfa422f99d7"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a14d7920656ab646a07fa9cfa422f99d7">&#9670;&#160;</a></span>DriveDiscoveryService()</h2>
@@ -180,9 +203,17 @@ Static Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_drive_services_8cs_source.html#l00033">33</a> of file <a class="el" href="_drive_services_8cs_source.html">DriveServices.cs</a>.</p>
+<p>Initializes a new instance of the DriveDiscoveryService class. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">logger</td><td>The logger instance used for recording drive service events.</td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p class="reference">References <a class="el" href="_drive_services_8cs_source.html#l00023">_logger</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_drive_services_8cs_source.html#l00094">94</a> of file <a class="el" href="_drive_services_8cs_source.html">DriveServices.cs</a>.</p>
+
+<p class="reference">References <a class="el" href="_drive_services_8cs_source.html#l00048">_logger</a>.</p>
 
 </div>
 </div>
@@ -202,9 +233,11 @@ Static Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_drive_services_8cs_source.html#l00290">290</a> of file <a class="el" href="_drive_services_8cs_source.html">DriveServices.cs</a>.</p>
+<p>Disposes unmanaged WMI resources and terminates drive monitoring handlers. </p>
 
-<p class="reference">References <a class="el" href="_drive_services_8cs_source.html#l00025">_driveChangeCallbacksCompleted</a>, <a class="el" href="_drive_services_8cs_source.html#l00029">_isDisposed</a>, and <a class="el" href="_drive_services_8cs_source.html#l00216">StopWatching()</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_drive_services_8cs_source.html#l00379">379</a> of file <a class="el" href="_drive_services_8cs_source.html">DriveServices.cs</a>.</p>
+
+<p class="reference">References <a class="el" href="_drive_services_8cs_source.html#l00058">_driveChangeCallbacksCompleted</a>, <a class="el" href="_drive_services_8cs_source.html#l00078">_isDisposed</a>, and <a class="el" href="_drive_services_8cs_source.html#l00294">StopWatching()</a>.</p>
 <div id="dynsection-2" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-2-summary" class="dynsummary">
 </div>
@@ -237,11 +270,11 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_drive_services_8cs_source.html#l00109">109</a> of file <a class="el" href="_drive_services_8cs_source.html">DriveServices.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_drive_services_8cs_source.html#l00179">179</a> of file <a class="el" href="_drive_services_8cs_source.html">DriveServices.cs</a>.</p>
 
-<p class="reference">References <a class="el" href="_drive_services_8cs_source.html#l00023">_logger</a>, <a class="el" href="_drive_services_8cs_source.html#l00160">IsUsbBusType()</a>, and <a class="el" href="_drive_services_8cs_source.html#l00109">Model</a>.</p>
+<p class="reference">References <a class="el" href="_drive_services_8cs_source.html#l00048">_logger</a>, <a class="el" href="_drive_services_8cs_source.html#l00232">IsUsbBusType()</a>, and <a class="el" href="_drive_services_8cs_source.html#l00179">Model</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_drive_services_8cs_source.html#l00038">GetRemovableDrivesAsync()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_drive_services_8cs_source.html#l00103">GetRemovableDrivesAsync()</a>.</p>
 <div id="dynsection-3" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-3-summary" class="dynsummary">
 </div>
@@ -272,11 +305,14 @@ Static Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Asynchronously retrieves all connected drives that are classified as removable or USB-connected storage. </p>
+<dl class="section return"><dt>Returns</dt><dd>A task that returns a list of RemovableDrive instances.</dd></dl>
+
 <p>Implements <a class="el" href="interface_easy___copier_1_1_services_1_1_i_drive_discovery_service.html#a45341b1eeeb4b61b3b769ebd1cc34f26">Easy_Copier.Services.IDriveDiscoveryService</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_drive_services_8cs_source.html#l00038">38</a> of file <a class="el" href="_drive_services_8cs_source.html">DriveServices.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_drive_services_8cs_source.html#l00103">103</a> of file <a class="el" href="_drive_services_8cs_source.html">DriveServices.cs</a>.</p>
 
-<p class="reference">References <a class="el" href="_drive_services_8cs_source.html#l00023">_logger</a>, <a class="el" href="_drive_services_8cs_source.html#l00109">GetPhysicalDiskInfo()</a>, <a class="el" href="_drive_services_8cs_source.html#l00109">Model</a>, and <a class="el" href="_domain_models_8cs_source.html#l00054">Easy_Copier.Models.RemovableDrive()</a>.</p>
+<p class="reference">References <a class="el" href="_drive_services_8cs_source.html#l00048">_logger</a>, <a class="el" href="_drive_services_8cs_source.html#l00179">GetPhysicalDiskInfo()</a>, <a class="el" href="_drive_services_8cs_source.html#l00179">Model</a>, and <a class="el" href="_domain_models_8cs_source.html#l00054">Easy_Copier.Models.RemovableDrive()</a>.</p>
 <div id="dynsection-5" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-5-summary" class="dynsummary">
 </div>
@@ -309,11 +345,20 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_drive_services_8cs_source.html#l00160">160</a> of file <a class="el" href="_drive_services_8cs_source.html">DriveServices.cs</a>.</p>
+<p>Queries the MSFT_PhysicalDisk WMI class in the root\Microsoft\Windows\Storage namespace to verify BusType. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">diskIndex</td><td>The physical disk device index string.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><code>true</code> if the physical disk BusType is 7 (USB); otherwise, <code>false</code>.</dd></dl>
 
-<p class="reference">References <a class="el" href="_drive_services_8cs_source.html#l00023">_logger</a>, and <a class="el" href="_drive_services_8cs_source.html#l00158">UsbBusType</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_drive_services_8cs_source.html#l00232">232</a> of file <a class="el" href="_drive_services_8cs_source.html">DriveServices.cs</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_drive_services_8cs_source.html#l00109">GetPhysicalDiskInfo()</a>.</p>
+<p class="reference">References <a class="el" href="_drive_services_8cs_source.html#l00048">_logger</a>, and <a class="el" href="_drive_services_8cs_source.html#l00088">UsbBusType</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_drive_services_8cs_source.html#l00179">GetPhysicalDiskInfo()</a>.</p>
 <div id="dynsection-6" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
 <div id="dynsection-6-summary" class="dynsummary">
 </div>
@@ -350,11 +395,20 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_drive_services_8cs_source.html#l00249">249</a> of file <a class="el" href="_drive_services_8cs_source.html">DriveServices.cs</a>.</p>
+<p>Callback handler triggered when WMI delivers a volume change event. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sender</td><td>The source of the event.</td></tr>
+    <tr><td class="paramname">e</td><td>Event details containing WMI event parameters.</td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p class="reference">References <a class="el" href="_drive_services_8cs_source.html#l00027">_activeDriveChangeCallbacks</a>, <a class="el" href="_drive_services_8cs_source.html#l00025">_driveChangeCallbacksCompleted</a>, <a class="el" href="_drive_services_8cs_source.html#l00029">_isDisposed</a>, <a class="el" href="_drive_services_8cs_source.html#l00028">_isWatching</a>, <a class="el" href="_drive_services_8cs_source.html#l00023">_logger</a>, and <a class="el" href="_drive_services_8cs_source.html#l00031">DrivesChanged</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_drive_services_8cs_source.html#l00332">332</a> of file <a class="el" href="_drive_services_8cs_source.html">DriveServices.cs</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_drive_services_8cs_source.html#l00190">StartWatching()</a>, and <a class="el" href="_drive_services_8cs_source.html#l00216">StopWatching()</a>.</p>
+<p class="reference">References <a class="el" href="_drive_services_8cs_source.html#l00068">_activeDriveChangeCallbacks</a>, <a class="el" href="_drive_services_8cs_source.html#l00058">_driveChangeCallbacksCompleted</a>, <a class="el" href="_drive_services_8cs_source.html#l00078">_isDisposed</a>, <a class="el" href="_drive_services_8cs_source.html#l00073">_isWatching</a>, <a class="el" href="_drive_services_8cs_source.html#l00048">_logger</a>, and <a class="el" href="_drive_services_8cs_source.html#l00083">DrivesChanged</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_drive_services_8cs_source.html#l00265">StartWatching()</a>, and <a class="el" href="_drive_services_8cs_source.html#l00294">StopWatching()</a>.</p>
 <div id="dynsection-7" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
 <div id="dynsection-7-summary" class="dynsummary">
 </div>
@@ -379,11 +433,13 @@ Static Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Starts the WMI event listener for Windows volume change events. </p>
+
 <p>Implements <a class="el" href="interface_easy___copier_1_1_services_1_1_i_drive_discovery_service.html#a9129582d6300764b4970e726a5e2462e">Easy_Copier.Services.IDriveDiscoveryService</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_drive_services_8cs_source.html#l00190">190</a> of file <a class="el" href="_drive_services_8cs_source.html">DriveServices.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_drive_services_8cs_source.html#l00265">265</a> of file <a class="el" href="_drive_services_8cs_source.html">DriveServices.cs</a>.</p>
 
-<p class="reference">References <a class="el" href="_drive_services_8cs_source.html#l00026">_driveWatcher</a>, <a class="el" href="_drive_services_8cs_source.html#l00029">_isDisposed</a>, <a class="el" href="_drive_services_8cs_source.html#l00028">_isWatching</a>, <a class="el" href="_drive_services_8cs_source.html#l00023">_logger</a>, <a class="el" href="_drive_services_8cs_source.html#l00024">_watcherLock</a>, and <a class="el" href="_drive_services_8cs_source.html#l00249">OnDriveChanged()</a>.</p>
+<p class="reference">References <a class="el" href="_drive_services_8cs_source.html#l00063">_driveWatcher</a>, <a class="el" href="_drive_services_8cs_source.html#l00078">_isDisposed</a>, <a class="el" href="_drive_services_8cs_source.html#l00073">_isWatching</a>, <a class="el" href="_drive_services_8cs_source.html#l00048">_logger</a>, <a class="el" href="_drive_services_8cs_source.html#l00053">_watcherLock</a>, and <a class="el" href="_drive_services_8cs_source.html#l00332">OnDriveChanged()</a>.</p>
 <div id="dynsection-8" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-8-summary" class="dynsummary">
 </div>
@@ -408,13 +464,15 @@ Static Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Stops the WMI event listener and cleans up watcher instances safely. </p>
+
 <p>Implements <a class="el" href="interface_easy___copier_1_1_services_1_1_i_drive_discovery_service.html#a072e899a66872f7ca41b1cad64dc56b2">Easy_Copier.Services.IDriveDiscoveryService</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_drive_services_8cs_source.html#l00216">216</a> of file <a class="el" href="_drive_services_8cs_source.html">DriveServices.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_drive_services_8cs_source.html#l00294">294</a> of file <a class="el" href="_drive_services_8cs_source.html">DriveServices.cs</a>.</p>
 
-<p class="reference">References <a class="el" href="_drive_services_8cs_source.html#l00026">_driveWatcher</a>, <a class="el" href="_drive_services_8cs_source.html#l00028">_isWatching</a>, <a class="el" href="_drive_services_8cs_source.html#l00023">_logger</a>, <a class="el" href="_drive_services_8cs_source.html#l00024">_watcherLock</a>, <a class="el" href="_drive_services_8cs_source.html#l00249">OnDriveChanged()</a>, and <a class="el" href="_drive_services_8cs_source.html#l00280">WaitForPendingDriveNotifications()</a>.</p>
+<p class="reference">References <a class="el" href="_drive_services_8cs_source.html#l00063">_driveWatcher</a>, <a class="el" href="_drive_services_8cs_source.html#l00073">_isWatching</a>, <a class="el" href="_drive_services_8cs_source.html#l00048">_logger</a>, <a class="el" href="_drive_services_8cs_source.html#l00053">_watcherLock</a>, <a class="el" href="_drive_services_8cs_source.html#l00332">OnDriveChanged()</a>, and <a class="el" href="_drive_services_8cs_source.html#l00366">WaitForPendingDriveNotifications()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_drive_services_8cs_source.html#l00290">Dispose()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_drive_services_8cs_source.html#l00379">Dispose()</a>.</p>
 <div id="dynsection-9" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-9-summary" class="dynsummary">
 </div>
@@ -453,11 +511,13 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_drive_services_8cs_source.html#l00280">280</a> of file <a class="el" href="_drive_services_8cs_source.html">DriveServices.cs</a>.</p>
+<p>Blocks until all currently running WMI event arrival callbacks have completed or until a timeout occurs. </p>
 
-<p class="reference">References <a class="el" href="_drive_services_8cs_source.html#l00025">_driveChangeCallbacksCompleted</a>, and <a class="el" href="_drive_services_8cs_source.html#l00023">_logger</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_drive_services_8cs_source.html#l00366">366</a> of file <a class="el" href="_drive_services_8cs_source.html">DriveServices.cs</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_drive_services_8cs_source.html#l00216">StopWatching()</a>.</p>
+<p class="reference">References <a class="el" href="_drive_services_8cs_source.html#l00058">_driveChangeCallbacksCompleted</a>, and <a class="el" href="_drive_services_8cs_source.html#l00048">_logger</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_drive_services_8cs_source.html#l00294">StopWatching()</a>.</p>
 <div id="dynsection-11" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
 <div id="dynsection-11-summary" class="dynsummary">
 </div>
@@ -488,9 +548,11 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_drive_services_8cs_source.html#l00027">27</a> of file <a class="el" href="_drive_services_8cs_source.html">DriveServices.cs</a>.</p>
+<p>Count of active, concurrently executing drive change callback handlers. </p>
 
-<p class="reference">Referenced by <a class="el" href="_drive_services_8cs_source.html#l00249">OnDriveChanged()</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_drive_services_8cs_source.html#l00068">68</a> of file <a class="el" href="_drive_services_8cs_source.html">DriveServices.cs</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_drive_services_8cs_source.html#l00332">OnDriveChanged()</a>.</p>
 
 </div>
 </div>
@@ -514,9 +576,11 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_drive_services_8cs_source.html#l00025">25</a> of file <a class="el" href="_drive_services_8cs_source.html">DriveServices.cs</a>.</p>
+<p>Signal used to ensure in-flight WMI callback events finish prior to stopping or disposing. </p>
 
-<p class="reference">Referenced by <a class="el" href="_drive_services_8cs_source.html#l00290">Dispose()</a>, <a class="el" href="_drive_services_8cs_source.html#l00249">OnDriveChanged()</a>, and <a class="el" href="_drive_services_8cs_source.html#l00280">WaitForPendingDriveNotifications()</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_drive_services_8cs_source.html#l00058">58</a> of file <a class="el" href="_drive_services_8cs_source.html">DriveServices.cs</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_drive_services_8cs_source.html#l00379">Dispose()</a>, <a class="el" href="_drive_services_8cs_source.html#l00332">OnDriveChanged()</a>, and <a class="el" href="_drive_services_8cs_source.html#l00366">WaitForPendingDriveNotifications()</a>.</p>
 
 </div>
 </div>
@@ -540,9 +604,11 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_drive_services_8cs_source.html#l00026">26</a> of file <a class="el" href="_drive_services_8cs_source.html">DriveServices.cs</a>.</p>
+<p>WMI event watcher monitoring <code>Win32_VolumeChangeEvent</code> events. </p>
 
-<p class="reference">Referenced by <a class="el" href="_drive_services_8cs_source.html#l00190">StartWatching()</a>, and <a class="el" href="_drive_services_8cs_source.html#l00216">StopWatching()</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_drive_services_8cs_source.html#l00063">63</a> of file <a class="el" href="_drive_services_8cs_source.html">DriveServices.cs</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_drive_services_8cs_source.html#l00265">StartWatching()</a>, and <a class="el" href="_drive_services_8cs_source.html#l00294">StopWatching()</a>.</p>
 
 </div>
 </div>
@@ -566,9 +632,11 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_drive_services_8cs_source.html#l00029">29</a> of file <a class="el" href="_drive_services_8cs_source.html">DriveServices.cs</a>.</p>
+<p>Atomic flag indicating whether this service instance has been disposed (1) or not (0). </p>
 
-<p class="reference">Referenced by <a class="el" href="_drive_services_8cs_source.html#l00290">Dispose()</a>, <a class="el" href="_drive_services_8cs_source.html#l00249">OnDriveChanged()</a>, and <a class="el" href="_drive_services_8cs_source.html#l00190">StartWatching()</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_drive_services_8cs_source.html#l00078">78</a> of file <a class="el" href="_drive_services_8cs_source.html">DriveServices.cs</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_drive_services_8cs_source.html#l00379">Dispose()</a>, <a class="el" href="_drive_services_8cs_source.html#l00332">OnDriveChanged()</a>, and <a class="el" href="_drive_services_8cs_source.html#l00265">StartWatching()</a>.</p>
 
 </div>
 </div>
@@ -592,9 +660,11 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_drive_services_8cs_source.html#l00028">28</a> of file <a class="el" href="_drive_services_8cs_source.html">DriveServices.cs</a>.</p>
+<p>Atomic flag indicating whether active WMI event monitoring is enabled (1) or disabled (0). </p>
 
-<p class="reference">Referenced by <a class="el" href="_drive_services_8cs_source.html#l00249">OnDriveChanged()</a>, <a class="el" href="_drive_services_8cs_source.html#l00190">StartWatching()</a>, and <a class="el" href="_drive_services_8cs_source.html#l00216">StopWatching()</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_drive_services_8cs_source.html#l00073">73</a> of file <a class="el" href="_drive_services_8cs_source.html">DriveServices.cs</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_drive_services_8cs_source.html#l00332">OnDriveChanged()</a>, <a class="el" href="_drive_services_8cs_source.html#l00265">StartWatching()</a>, and <a class="el" href="_drive_services_8cs_source.html#l00294">StopWatching()</a>.</p>
 
 </div>
 </div>
@@ -618,9 +688,11 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_drive_services_8cs_source.html#l00023">23</a> of file <a class="el" href="_drive_services_8cs_source.html">DriveServices.cs</a>.</p>
+<p>Logger instance used for recording drive discovery and monitoring events. </p>
 
-<p class="reference">Referenced by <a class="el" href="_drive_services_8cs_source.html#l00033">DriveDiscoveryService()</a>, <a class="el" href="_drive_services_8cs_source.html#l00109">GetPhysicalDiskInfo()</a>, <a class="el" href="_drive_services_8cs_source.html#l00038">GetRemovableDrivesAsync()</a>, <a class="el" href="_drive_services_8cs_source.html#l00160">IsUsbBusType()</a>, <a class="el" href="_drive_services_8cs_source.html#l00249">OnDriveChanged()</a>, <a class="el" href="_drive_services_8cs_source.html#l00190">StartWatching()</a>, <a class="el" href="_drive_services_8cs_source.html#l00216">StopWatching()</a>, and <a class="el" href="_drive_services_8cs_source.html#l00280">WaitForPendingDriveNotifications()</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_drive_services_8cs_source.html#l00048">48</a> of file <a class="el" href="_drive_services_8cs_source.html">DriveServices.cs</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_drive_services_8cs_source.html#l00094">DriveDiscoveryService()</a>, <a class="el" href="_drive_services_8cs_source.html#l00179">GetPhysicalDiskInfo()</a>, <a class="el" href="_drive_services_8cs_source.html#l00103">GetRemovableDrivesAsync()</a>, <a class="el" href="_drive_services_8cs_source.html#l00232">IsUsbBusType()</a>, <a class="el" href="_drive_services_8cs_source.html#l00332">OnDriveChanged()</a>, <a class="el" href="_drive_services_8cs_source.html#l00265">StartWatching()</a>, <a class="el" href="_drive_services_8cs_source.html#l00294">StopWatching()</a>, and <a class="el" href="_drive_services_8cs_source.html#l00366">WaitForPendingDriveNotifications()</a>.</p>
 
 </div>
 </div>
@@ -644,9 +716,11 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_drive_services_8cs_source.html#l00024">24</a> of file <a class="el" href="_drive_services_8cs_source.html">DriveServices.cs</a>.</p>
+<p>Lock object ensuring thread-safe access to WMI watcher instantiation and teardown. </p>
 
-<p class="reference">Referenced by <a class="el" href="_drive_services_8cs_source.html#l00190">StartWatching()</a>, and <a class="el" href="_drive_services_8cs_source.html#l00216">StopWatching()</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_drive_services_8cs_source.html#l00053">53</a> of file <a class="el" href="_drive_services_8cs_source.html">DriveServices.cs</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_drive_services_8cs_source.html#l00265">StartWatching()</a>, and <a class="el" href="_drive_services_8cs_source.html#l00294">StopWatching()</a>.</p>
 
 </div>
 </div>
@@ -670,9 +744,18 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_drive_services_8cs_source.html#l00109">109</a> of file <a class="el" href="_drive_services_8cs_source.html">DriveServices.cs</a>.</p>
+<p>Queries WMI to retrieve physical disk model information and determine if the drive is connected via USB. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">driveLetterWithColon</td><td>The drive letter identifier (e.g., "E:").</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A tuple containing the hardware model name (if found) and a boolean indicating whether it is connected via USB.</dd></dl>
 
-<p class="reference">Referenced by <a class="el" href="_drive_services_8cs_source.html#l00109">GetPhysicalDiskInfo()</a>, and <a class="el" href="_drive_services_8cs_source.html#l00038">GetRemovableDrivesAsync()</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_drive_services_8cs_source.html#l00179">179</a> of file <a class="el" href="_drive_services_8cs_source.html">DriveServices.cs</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_drive_services_8cs_source.html#l00179">GetPhysicalDiskInfo()</a>, and <a class="el" href="_drive_services_8cs_source.html#l00103">GetRemovableDrivesAsync()</a>.</p>
 
 </div>
 </div>
@@ -696,9 +779,11 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_drive_services_8cs_source.html#l00158">158</a> of file <a class="el" href="_drive_services_8cs_source.html">DriveServices.cs</a>.</p>
+<p>Constant value representing BusType 7 (USB) according to MSFT_PhysicalDisk documentation. </p>
 
-<p class="reference">Referenced by <a class="el" href="_drive_services_8cs_source.html#l00160">IsUsbBusType()</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_drive_services_8cs_source.html#l00088">88</a> of file <a class="el" href="_drive_services_8cs_source.html">DriveServices.cs</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_drive_services_8cs_source.html#l00232">IsUsbBusType()</a>.</p>
 
 </div>
 </div>
@@ -715,9 +800,11 @@ Static Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_drive_services_8cs_source.html#l00031">31</a> of file <a class="el" href="_drive_services_8cs_source.html">DriveServices.cs</a>.</p>
+<p>Event raised when a system volume insertion or removal is detected. </p>
 
-<p class="reference">Referenced by <a class="el" href="_drive_services_8cs_source.html#l00249">OnDriveChanged()</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_drive_services_8cs_source.html#l00083">83</a> of file <a class="el" href="_drive_services_8cs_source.html">DriveServices.cs</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_drive_services_8cs_source.html#l00332">OnDriveChanged()</a>.</p>
 
 </div>
 </div>

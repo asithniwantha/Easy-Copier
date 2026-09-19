@@ -1,0 +1,6 @@
+var interface_easy___copier_1_1_views_1_1_tv_and_films_tab_view_1_1_i_tv_and_films_tab_view___bindings_scope_connector =
+[
+    [ "ContainsElement", "interface_easy___copier_1_1_views_1_1_tv_and_films_tab_view_1_1_i_tv_and_films_tab_view___bindings_scope_connector.html#afd6e6684a7c60a38603520184caadec0", null ],
+    [ "RegisterForElementConnection", "interface_easy___copier_1_1_views_1_1_tv_and_films_tab_view_1_1_i_tv_and_films_tab_view___bindings_scope_connector.html#ab4295a855d322d5d9eb5d5c91bb7199c", null ],
+    [ "Parent", "interface_easy___copier_1_1_views_1_1_tv_and_films_tab_view_1_1_i_tv_and_films_tab_view___bindings_scope_connector.html#aa10a38e23279adb89df87d0b5c488452", null ]
+];

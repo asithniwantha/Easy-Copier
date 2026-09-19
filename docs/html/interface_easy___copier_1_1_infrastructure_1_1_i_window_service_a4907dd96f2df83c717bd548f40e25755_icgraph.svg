@@ -22,7 +22,7 @@
 <!-- Node1 -->
 <g id="Node000001" class="node">
 <title>Node1</title>
-<g id="a_Node000001"><a xlink:title=" ">
+<g id="a_Node000001"><a xlink:title="Opens the About application information window.">
 <polygon fill="#999999" stroke="#666666" points="364.25,-32 188.5,-32 188.5,0 364.25,0 364.25,-32"/>
 <text xml:space="preserve" text-anchor="start" x="196.5" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Infrastructure.</text>
 <text xml:space="preserve" text-anchor="middle" x="276.38" y="-6.5" font-family="Helvetica,sans-Serif" font-size="10.00">IWindowService.ShowAboutWindow</text>

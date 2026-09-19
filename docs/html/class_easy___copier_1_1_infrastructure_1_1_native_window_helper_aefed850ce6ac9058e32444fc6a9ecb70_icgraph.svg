@@ -53,7 +53,7 @@
 <!-- Node1 -->
 <g id="Node000001" class="node">
 <title>Node1</title>
-<g id="a_Node000001"><a xlink:title=" ">
+<g id="a_Node000001"><a xlink:title="Initializes standard window parameters including window dimensions and default window icons.">
 <polygon fill="#999999" stroke="#666666" points="596.25,-79 413.75,-79 413.75,-47 596.25,-47 596.25,-79"/>
 <text xml:space="preserve" text-anchor="start" x="421.75" y="-65.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Infrastructure.</text>
 <text xml:space="preserve" text-anchor="middle" x="505" y="-53.5" font-family="Helvetica,sans-Serif" font-size="10.00">NativeWindowHelper.InitializeWindow</text>
@@ -63,7 +63,7 @@
 <!-- Node2 -->
 <g id="Node000002" class="node">
 <title>Node2</title>
-<g id="a_Node000002"><a xlink:href="class_easy___copier_1_1_infrastructure_1_1_native_window_helper.html#a3d287dd8cb064cde0c403d6692cb4a67" target="_top" xlink:title=" ">
+<g id="a_Node000002"><a xlink:href="class_easy___copier_1_1_infrastructure_1_1_native_window_helper.html#a3d287dd8cb064cde0c403d6692cb4a67" target="_top" xlink:title="Centralized helper method to initialize a modal dialog window, setting data context,...">
 <polygon fill="white" stroke="#666666" points="377.75,-138 204.25,-138 204.25,-94 377.75,-94 377.75,-138"/>
 <text xml:space="preserve" text-anchor="start" x="212.25" y="-124.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Infrastructure.</text>
 <text xml:space="preserve" text-anchor="start" x="212.25" y="-112.5" font-family="Helvetica,sans-Serif" font-size="10.00">NativeWindowHelper.InitializeModal</text>

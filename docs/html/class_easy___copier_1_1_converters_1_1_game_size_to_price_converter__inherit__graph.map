@@ -1,5 +1,5 @@
 <map id="Easy_Copier.Converters.GameSizeToPriceConverter" name="Easy_Copier.Converters.GameSizeToPriceConverter">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,80,209,123"/>
+<area shape="rect" id="Node000001" title="Converts a byte size into a formatted price string based on user settings or size brackets." alt="" coords="5,80,209,123"/>
 <area shape="rect" id="Node000002" title=" " alt="" coords="50,5,164,32"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="109,46,109,81,105,79,105,50"/>
 </map>

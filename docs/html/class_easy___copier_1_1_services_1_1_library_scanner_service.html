@@ -112,6 +112,9 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('class_easy___c
   <div class="headertitle"><div class="title">Easy_Copier.Services.LibraryScannerService Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Service coordinating overall scanning across games, apps, video, and OS image source libraries.  
+ <a href="#details">More...</a></p>
 <div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Inheritance diagram for Easy_Copier.Services.LibraryScannerService:</div>
 <div id="dynsection-0-summary" class="dynsummary">
 </div>
@@ -128,16 +131,21 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('class_easy___c
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:aa98faf07880f86f112c9ab19478b36ec" id="r_aa98faf07880f86f112c9ab19478b36ec"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#aa98faf07880f86f112c9ab19478b36ec">LibraryScannerService</a> (<a class="el" href="interface_easy___copier_1_1_services_1_1_i_game_scanner_service.html">IGameScannerService</a> gameScannerService)</td></tr>
-<tr class="memitem:abe28a90a228cf60d04ec99e09213d621" id="r_abe28a90a228cf60d04ec99e09213d621"><td class="memItemLeft">async Task&lt;(IReadOnlyList&lt; <a class="el" href="namespace_easy___copier_1_1_models.html#ab9811c24c166bd7f4768ddafbcbaf75d">GameEntry</a> &gt; Games, IReadOnlyList&lt; <a class="el" href="namespace_easy___copier_1_1_models.html#ab9811c24c166bd7f4768ddafbcbaf75d">GameEntry</a> &gt; Apps, IReadOnlyList&lt; <a class="el" href="namespace_easy___copier_1_1_models.html#ab9811c24c166bd7f4768ddafbcbaf75d">GameEntry</a> &gt; TvAndFilms, IReadOnlyList&lt; <a class="el" href="namespace_easy___copier_1_1_models.html#ab9811c24c166bd7f4768ddafbcbaf75d">GameEntry</a> &gt; OsImages)&gt;&#160;</td><td class="memItemRight"><a class="el" href="#abe28a90a228cf60d04ec99e09213d621">ScanAllLibrariesAsync</a> (<a class="el" href="class_easy___copier_1_1_models_1_1_app_settings.html">AppSettings</a> settings, IProgress&lt; string &gt;? progress=null, CancellationToken cancellationToken=default)</td></tr>
+<tr class="memdesc:aa98faf07880f86f112c9ab19478b36ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes a new instance of the LibraryScannerService class.  <br /></td></tr>
+<tr class="memitem:abe28a90a228cf60d04ec99e09213d621" id="r_abe28a90a228cf60d04ec99e09213d621"><td class="memItemLeft">async Task&lt;(IReadOnlyList&lt; <a class="el" href="namespace_easy___copier_1_1_models.html#a9c2abd1d64352c07d3085ba499cf2aae">GameEntry</a> &gt; Games, IReadOnlyList&lt; <a class="el" href="namespace_easy___copier_1_1_models.html#a9c2abd1d64352c07d3085ba499cf2aae">GameEntry</a> &gt; Apps, IReadOnlyList&lt; <a class="el" href="namespace_easy___copier_1_1_models.html#a9c2abd1d64352c07d3085ba499cf2aae">GameEntry</a> &gt; TvAndFilms, IReadOnlyList&lt; <a class="el" href="namespace_easy___copier_1_1_models.html#a9c2abd1d64352c07d3085ba499cf2aae">GameEntry</a> &gt; OsImages)&gt;&#160;</td><td class="memItemRight"><a class="el" href="#abe28a90a228cf60d04ec99e09213d621">ScanAllLibrariesAsync</a> (<a class="el" href="class_easy___copier_1_1_models_1_1_app_settings.html">AppSettings</a> settings, IProgress&lt; string &gt;? progress=null, CancellationToken cancellationToken=default)</td></tr>
+<tr class="memdesc:abe28a90a228cf60d04ec99e09213d621"><td class="mdescLeft">&#160;</td><td class="mdescRight">Asynchronously scans all configured library directories specified in <em>settings</em> .  <br /></td></tr>
 <tr class="memitem:a38e8a65c4c8eb8136409703d89394b4f" id="r_a38e8a65c4c8eb8136409703d89394b4f"><td class="memItemLeft">async Task&lt; string &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a38e8a65c4c8eb8136409703d89394b4f">FindDuplicatesReportAsync</a> (<a class="el" href="class_easy___copier_1_1_models_1_1_app_settings.html">AppSettings</a> settings, IProgress&lt; string &gt;? progress=null, CancellationToken cancellationToken=default)</td></tr>
+<tr class="memdesc:a38e8a65c4c8eb8136409703d89394b4f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Asynchronously scans all libraries and formats a duplicate items report.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pri-attribs" class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
 <tr class="memitem:ac1dc5d09411d2ad66eb269a0323ff02d" id="r_ac1dc5d09411d2ad66eb269a0323ff02d"><td class="memItemLeft">readonly <a class="el" href="interface_easy___copier_1_1_services_1_1_i_game_scanner_service.html">IGameScannerService</a>&#160;</td><td class="memItemRight"><a class="el" href="#ac1dc5d09411d2ad66eb269a0323ff02d">_gameScannerService</a></td></tr>
+<tr class="memdesc:ac1dc5d09411d2ad66eb269a0323ff02d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Underlying scanner service used to inspect individual library folders.  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="_library_scanner_service_8cs_source.html#l00011">11</a> of file <a class="el" href="_library_scanner_service_8cs_source.html">LibraryScannerService.cs</a>.</p>
+<div class="textblock"><p>Service coordinating overall scanning across games, apps, video, and OS image source libraries. </p>
+
+<p class="definition">Definition at line <a class="el" href="_library_scanner_service_8cs_source.html#l00014">14</a> of file <a class="el" href="_library_scanner_service_8cs_source.html">LibraryScannerService.cs</a>.</p>
 </div><a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="aa98faf07880f86f112c9ab19478b36ec" name="aa98faf07880f86f112c9ab19478b36ec"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aa98faf07880f86f112c9ab19478b36ec">&#9670;&#160;</a></span>LibraryScannerService()</h2>
@@ -154,9 +162,17 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_library_scanner_service_8cs_source.html#l00015">15</a> of file <a class="el" href="_library_scanner_service_8cs_source.html">LibraryScannerService.cs</a>.</p>
+<p>Initializes a new instance of the LibraryScannerService class. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">gameScannerService</td><td>The game scanner service dependency.</td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p class="reference">References <a class="el" href="_library_scanner_service_8cs_source.html#l00013">_gameScannerService</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_library_scanner_service_8cs_source.html#l00025">25</a> of file <a class="el" href="_library_scanner_service_8cs_source.html">LibraryScannerService.cs</a>.</p>
+
+<p class="reference">References <a class="el" href="_library_scanner_service_8cs_source.html#l00019">_gameScannerService</a>.</p>
 
 </div>
 </div>
@@ -185,11 +201,22 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Asynchronously scans all libraries and formats a duplicate items report. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">settings</td><td>Application settings containing source library folders.</td></tr>
+    <tr><td class="paramname">progress</td><td>Optional progress reporter.</td></tr>
+    <tr><td class="paramname">cancellationToken</td><td>Cancellation token.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A formatted string summarizing duplicate titles and their file system paths.</dd></dl>
+
 <p>Implements <a class="el" href="interface_easy___copier_1_1_services_1_1_i_library_scanner_service.html#a5a7a9efb54f6d97fe51ba6cafd1f5f6b">Easy_Copier.Services.ILibraryScannerService</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_library_scanner_service_8cs_source.html#l00080">80</a> of file <a class="el" href="_library_scanner_service_8cs_source.html">LibraryScannerService.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_library_scanner_service_8cs_source.html#l00104">104</a> of file <a class="el" href="_library_scanner_service_8cs_source.html">LibraryScannerService.cs</a>.</p>
 
-<p class="reference">References <a class="el" href="_domain_models_8cs_source.html#l00040">Easy_Copier.Models.GameEntry()</a>, and <a class="el" href="_library_scanner_service_8cs_source.html#l00020">ScanAllLibrariesAsync()</a>.</p>
+<p class="reference">References <a class="el" href="_domain_models_8cs_source.html#l00040">Easy_Copier.Models.GameEntry()</a>, and <a class="el" href="_library_scanner_service_8cs_source.html#l00037">ScanAllLibrariesAsync()</a>.</p>
 <div id="dynsection-2" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-2-summary" class="dynsummary">
 </div>
@@ -206,7 +233,7 @@ Private Attributes</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">async Task&lt;(IReadOnlyList&lt; <a class="el" href="namespace_easy___copier_1_1_models.html#ab9811c24c166bd7f4768ddafbcbaf75d">GameEntry</a> &gt; Games, IReadOnlyList&lt; <a class="el" href="namespace_easy___copier_1_1_models.html#ab9811c24c166bd7f4768ddafbcbaf75d">GameEntry</a> &gt; Apps, IReadOnlyList&lt; <a class="el" href="namespace_easy___copier_1_1_models.html#ab9811c24c166bd7f4768ddafbcbaf75d">GameEntry</a> &gt; TvAndFilms, IReadOnlyList&lt; <a class="el" href="namespace_easy___copier_1_1_models.html#ab9811c24c166bd7f4768ddafbcbaf75d">GameEntry</a> &gt; OsImages)&gt; Easy_Copier.Services.LibraryScannerService.ScanAllLibrariesAsync </td>
+          <td class="memname">async Task&lt;(IReadOnlyList&lt; <a class="el" href="namespace_easy___copier_1_1_models.html#a9c2abd1d64352c07d3085ba499cf2aae">GameEntry</a> &gt; Games, IReadOnlyList&lt; <a class="el" href="namespace_easy___copier_1_1_models.html#a9c2abd1d64352c07d3085ba499cf2aae">GameEntry</a> &gt; Apps, IReadOnlyList&lt; <a class="el" href="namespace_easy___copier_1_1_models.html#a9c2abd1d64352c07d3085ba499cf2aae">GameEntry</a> &gt; TvAndFilms, IReadOnlyList&lt; <a class="el" href="namespace_easy___copier_1_1_models.html#a9c2abd1d64352c07d3085ba499cf2aae">GameEntry</a> &gt; OsImages)&gt; Easy_Copier.Services.LibraryScannerService.ScanAllLibrariesAsync </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="class_easy___copier_1_1_models_1_1_app_settings.html">AppSettings</a></td>          <td class="paramname"><span class="paramname"><em>settings</em></span>, </td>
         </tr>
@@ -223,13 +250,24 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Asynchronously scans all configured library directories specified in <em>settings</em> . </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">settings</td><td>Application settings containing source directory configurations.</td></tr>
+    <tr><td class="paramname">progress</td><td>Optional progress reporter.</td></tr>
+    <tr><td class="paramname">cancellationToken</td><td>Cancellation token.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A tuple containing lists for each content category (Games, Apps, TvAndFilms, OsImages).</dd></dl>
+
 <p>Implements <a class="el" href="interface_easy___copier_1_1_services_1_1_i_library_scanner_service.html#ac2d7b391e6cc030737ef975192ead0c6">Easy_Copier.Services.ILibraryScannerService</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_library_scanner_service_8cs_source.html#l00020">20</a> of file <a class="el" href="_library_scanner_service_8cs_source.html">LibraryScannerService.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_library_scanner_service_8cs_source.html#l00037">37</a> of file <a class="el" href="_library_scanner_service_8cs_source.html">LibraryScannerService.cs</a>.</p>
 
-<p class="reference">References <a class="el" href="_library_scanner_service_8cs_source.html#l00013">_gameScannerService</a>, <a class="el" href="_domain_models_8cs_source.html#l00113">Easy_Copier.Models.AppSettings.AppSourceFolders</a>, <a class="el" href="_domain_models_8cs_source.html#l00112">Easy_Copier.Models.AppSettings.GameSourceFolders</a>, <a class="el" href="_domain_models_8cs_source.html#l00115">Easy_Copier.Models.AppSettings.OsImageSourceFolders</a>, <a class="el" href="_domain_models_8cs_source.html#l00114">Easy_Copier.Models.AppSettings.TvAndFilmSourceFolders</a>, and <a class="el" href="_domain_models_8cs_source.html#l00117">Easy_Copier.Models.AppSettings.VideoFileExtensions</a>.</p>
+<p class="reference">References <a class="el" href="_library_scanner_service_8cs_source.html#l00019">_gameScannerService</a>, <a class="el" href="_domain_models_8cs_source.html#l00113">Easy_Copier.Models.AppSettings.AppSourceFolders</a>, <a class="el" href="_domain_models_8cs_source.html#l00112">Easy_Copier.Models.AppSettings.GameSourceFolders</a>, <a class="el" href="_domain_models_8cs_source.html#l00115">Easy_Copier.Models.AppSettings.OsImageSourceFolders</a>, <a class="el" href="_domain_models_8cs_source.html#l00114">Easy_Copier.Models.AppSettings.TvAndFilmSourceFolders</a>, and <a class="el" href="_domain_models_8cs_source.html#l00117">Easy_Copier.Models.AppSettings.VideoFileExtensions</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_library_scanner_service_8cs_source.html#l00080">FindDuplicatesReportAsync()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_library_scanner_service_8cs_source.html#l00104">FindDuplicatesReportAsync()</a>.</p>
 <div id="dynsection-3" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
 <div id="dynsection-3-summary" class="dynsummary">
 </div>
@@ -260,9 +298,11 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_library_scanner_service_8cs_source.html#l00013">13</a> of file <a class="el" href="_library_scanner_service_8cs_source.html">LibraryScannerService.cs</a>.</p>
+<p>Underlying scanner service used to inspect individual library folders. </p>
 
-<p class="reference">Referenced by <a class="el" href="_library_scanner_service_8cs_source.html#l00015">LibraryScannerService()</a>, and <a class="el" href="_library_scanner_service_8cs_source.html#l00020">ScanAllLibrariesAsync()</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_library_scanner_service_8cs_source.html#l00019">19</a> of file <a class="el" href="_library_scanner_service_8cs_source.html">LibraryScannerService.cs</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_library_scanner_service_8cs_source.html#l00025">LibraryScannerService()</a>, and <a class="el" href="_library_scanner_service_8cs_source.html#l00037">ScanAllLibrariesAsync()</a>.</p>
 
 </div>
 </div>

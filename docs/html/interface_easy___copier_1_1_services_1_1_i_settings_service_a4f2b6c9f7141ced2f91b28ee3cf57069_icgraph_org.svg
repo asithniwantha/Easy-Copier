@@ -11,7 +11,7 @@
 <!-- Node1 -->
 <g id="Node000001" class="node">
 <title>Node1</title>
-<g id="a_Node000001"><a xlink:title=" ">
+<g id="a_Node000001"><a xlink:title="Synchronously loads settings from disk or returns cached settings if already loaded.">
 <polygon fill="#999999" stroke="#666666" points="344,-32 188.5,-32 188.5,0 344,0 344,-32"/>
 <text xml:space="preserve" text-anchor="start" x="196.5" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Services.ISettings</text>
 <text xml:space="preserve" text-anchor="middle" x="266.25" y="-6.5" font-family="Helvetica,sans-Serif" font-size="10.00">Service.LoadSettingsSync</text>

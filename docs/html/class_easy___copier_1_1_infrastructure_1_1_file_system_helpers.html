@@ -112,14 +112,19 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('class_easy___c
   <div class="headertitle"><div class="title">Easy_Copier.Infrastructure.FileSystemHelpers Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Provides filesystem calculation and helper utilities.  
+ <a href="#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-static-methods" class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a179279ea5f1e52ea09d8923972b8892c" id="r_a179279ea5f1e52ea09d8923972b8892c"><td class="memItemLeft">static long&#160;</td><td class="memItemRight"><a class="el" href="#a179279ea5f1e52ea09d8923972b8892c">CalculateDirectorySize</a> (DirectoryInfo directoryInfo)</td></tr>
+<tr class="memdesc:a179279ea5f1e52ea09d8923972b8892c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Recursively calculates the total byte size of a directory and all of its subdirectories.  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="_file_system_helpers_8cs_source.html#l00005">5</a> of file <a class="el" href="_file_system_helpers_8cs_source.html">FileSystemHelpers.cs</a>.</p>
+<div class="textblock"><p>Provides filesystem calculation and helper utilities. </p>
+
+<p class="definition">Definition at line <a class="el" href="_file_system_helpers_8cs_source.html#l00008">8</a> of file <a class="el" href="_file_system_helpers_8cs_source.html">FileSystemHelpers.cs</a>.</p>
 </div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
 <a id="a179279ea5f1e52ea09d8923972b8892c" name="a179279ea5f1e52ea09d8923972b8892c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a179279ea5f1e52ea09d8923972b8892c">&#9670;&#160;</a></span>CalculateDirectorySize()</h2>
@@ -144,11 +149,26 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_file_system_helpers_8cs_source.html#l00007">7</a> of file <a class="el" href="_file_system_helpers_8cs_source.html">FileSystemHelpers.cs</a>.</p>
+<p>Recursively calculates the total byte size of a directory and all of its subdirectories. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">directoryInfo</td><td>The directory to measure.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The total size in bytes.</dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">System.ArgumentNullException</td><td>Thrown when <em>directoryInfo</em>  is null.</td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p class="reference">References <a class="el" href="_file_system_helpers_8cs_source.html#l00007">CalculateDirectorySize()</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_file_system_helpers_8cs_source.html#l00016">16</a> of file <a class="el" href="_file_system_helpers_8cs_source.html">FileSystemHelpers.cs</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_file_system_helpers_8cs_source.html#l00007">CalculateDirectorySize()</a>, and <a class="el" href="_game_details_view_model_8cs_source.html#l00073">Easy_Copier.ViewModels.GameDetailsViewModel.CalculateFolderSizeAsync()</a>.</p>
+<p class="reference">References <a class="el" href="_file_system_helpers_8cs_source.html#l00016">CalculateDirectorySize()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_file_system_helpers_8cs_source.html#l00016">CalculateDirectorySize()</a>, and <a class="el" href="_game_details_view_model_8cs_source.html#l00073">Easy_Copier.ViewModels.GameDetailsViewModel.CalculateFolderSizeAsync()</a>.</p>
 <div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-0-summary" class="dynsummary">
 </div>

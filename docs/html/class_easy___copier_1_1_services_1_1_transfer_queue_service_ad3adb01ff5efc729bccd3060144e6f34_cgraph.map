@@ -1,20 +1,20 @@
 <map id="Easy_Copier.Services.TransferQueueService.ProcessQueueAsync" name="Easy_Copier.Services.TransferQueueService.ProcessQueueAsync">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,100,236,143"/>
-<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_services_1_1_transfer_queue_service.html#a2ba83cddc2543b30afbbb19aad204c97" title=" " alt="" coords="304,67,524,109"/>
+<area shape="rect" id="Node000001" title="Main background loop reading items from the primary channel and routing them to per&#45;drive execution c..." alt="" coords="5,100,236,143"/>
+<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_services_1_1_transfer_queue_service.html#a2ba83cddc2543b30afbbb19aad204c97" title="Normalizes a drive letter string for dictionary keys." alt="" coords="304,67,524,109"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="235,106,291,101,286,103,237,111"/>
-<area shape="rect" id="Node000003" href="$class_easy___copier_1_1_services_1_1_transfer_queue_service.html#a78c880327c9c88ec2a8691920afd3593" title=" " alt="" coords="284,133,545,176"/>
+<area shape="rect" id="Node000003" href="$class_easy___copier_1_1_services_1_1_transfer_queue_service.html#a78c880327c9c88ec2a8691920afd3593" title="Per&#45;drive loop processing queued transfers sequentially for a single drive letter." alt="" coords="284,133,545,176"/>
 <area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="236,132,271,137,266,139,237,137"/>
-<area shape="rect" id="Node000004" href="$class_easy___copier_1_1_services_1_1_transfer_queue_service.html#a533e1a35bdbcf9ff1fdd48462d021ff3" title=" " alt="" coords="593,133,811,176"/>
+<area shape="rect" id="Node000004" href="$class_easy___copier_1_1_services_1_1_transfer_queue_service.html#a533e1a35bdbcf9ff1fdd48462d021ff3" title="Executes an individual transfer item and updates its status and progress properties on the UI thread." alt="" coords="593,133,811,176"/>
 <area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="545,152,580,154,574,155,546,157"/>
-<area shape="rect" id="Node000005" href="$class_easy___copier_1_1_services_1_1_transfer_queue_service.html#a32e2c5f600b609c21a22bf2d6437f4fb" title=" " alt="" coords="859,5,1097,64"/>
+<area shape="rect" id="Node000005" href="$class_easy___copier_1_1_services_1_1_transfer_queue_service.html#a32e2c5f600b609c21a22bf2d6437f4fb" title="Checks if all queued items targeting a drive have finished and triggers completion sounds and toast n..." alt="" coords="859,5,1097,64"/>
 <area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="742,130,858,74,871,71,876,69,860,78,744,135"/>
-<area shape="rect" id="Node000007" href="$class_easy___copier_1_1_services_1_1_transfer_queue_service.html#a7c3c07a217ea001a005714d570176bd2" title=" " alt="" coords="876,88,1080,131"/>
+<area shape="rect" id="Node000007" href="$class_easy___copier_1_1_services_1_1_transfer_queue_service.html#a7c3c07a217ea001a005714d570176bd2" title="Executes an action on the UI thread using Infrastructure.IDispatcherService." alt="" coords="876,88,1080,131"/>
 <area shape="poly" id="edge6_Node000004_Node000007" title=" " alt="" coords="811,134,864,128,859,129,812,139"/>
 <area shape="rect" id="Node000008" href="$namespace_easy___copier_1_1_models.html#a0f254e810a60e913105ca1898e396f4c" title=" " alt="" coords="881,179,1075,221"/>
 <area shape="poly" id="edge7_Node000004_Node000008" title=" " alt="" coords="812,170,868,182,863,182,812,175"/>
 <area shape="rect" id="Node000009" href="$namespace_easy___copier_1_1_models.html#a361f45ad4ad4f48588e380daa766a5fa" title=" " alt="" coords="881,269,1075,312"/>
 <area shape="poly" id="edge9_Node000004_Node000009" title=" " alt="" coords="747,174,861,231,921,263,916,262,858,236,746,179"/>
-<area shape="rect" id="Node000006" href="$class_easy___copier_1_1_services_1_1_transfer_queue_service.html#a609a297676ded43e4cae11d0c7b0eb04" title=" " alt="" coords="1145,13,1400,56"/>
+<area shape="rect" id="Node000006" href="$class_easy___copier_1_1_services_1_1_transfer_queue_service.html#a609a297676ded43e4cae11d0c7b0eb04" title="Builds and displays a Windows AppNotification toast message summarizing batch transfer completion." alt="" coords="1145,13,1400,56"/>
 <area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="1097,32,1132,34,1126,35,1097,37"/>
 <area shape="poly" id="edge8_Node000008_Node000008" title=" " alt="" coords="927,177,924,169,933,160,951,154,978,152,1008,154,1027,164,1022,163,1006,160,978,157,952,159,936,164,929,170,931,180"/>
 <area shape="poly" id="edge12_Node000009_Node000009" title=" " alt="" coords="927,267,924,259,933,250,951,245,978,243,1008,245,1027,254,1022,254,1006,250,978,248,952,250,936,255,929,261,931,270"/>

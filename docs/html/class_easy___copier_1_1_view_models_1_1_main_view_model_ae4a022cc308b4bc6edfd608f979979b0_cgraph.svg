@@ -32,7 +32,7 @@
 <!-- Node2 -->
 <g id="Node000002" class="node">
 <title>Node2</title>
-<g id="a_Node000002"><a xlink:href="interface_easy___copier_1_1_infrastructure_1_1_i_dispatcher_service.html#a610df3934d188d070dafefd96a3bc47a" target="_top" xlink:title=" ">
+<g id="a_Node000002"><a xlink:href="interface_easy___copier_1_1_infrastructure_1_1_i_dispatcher_service.html#a610df3934d188d070dafefd96a3bc47a" target="_top" xlink:title="Enqueues a synchronous action to be executed on the UI thread.">
 <polygon fill="white" stroke="#666666" points="359.75,-32 205,-32 205,0 359.75,0 359.75,-32"/>
 <text xml:space="preserve" text-anchor="start" x="213" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Infrastructure.</text>
 <text xml:space="preserve" text-anchor="middle" x="282.38" y="-6.5" font-family="Helvetica,sans-Serif" font-size="10.00">IDispatcherService.TryEnqueue</text>

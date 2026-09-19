@@ -1,7 +1,7 @@
 <map id="Easy_Copier.Interop.IFileOperation.CopyItem" name="Easy_Copier.Interop.IFileOperation.CopyItem">
 <area shape="rect" id="Node000001" title=" " alt="" coords="605,13,774,56"/>
-<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_services_1_1_windows_shell_transfer_service.html#afb76277cd4d95e6647183bc15cc68f32" title=" " alt="" coords="327,5,557,64"/>
+<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_services_1_1_windows_shell_transfer_service.html#afb76277cd4d95e6647183bc15cc68f32" title="Copies a source file or directory to a destination folder using Windows Shell IFileOperation COM inte..." alt="" coords="327,5,557,64"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="587,35,557,37,557,32,592,35"/>
-<area shape="rect" id="Node000003" href="$class_easy___copier_1_1_services_1_1_windows_shell_transfer_service.html#a9055d728deea07bb02f90815f235d6c6" title=" " alt="" coords="5,13,279,56"/>
+<area shape="rect" id="Node000003" href="$class_easy___copier_1_1_services_1_1_windows_shell_transfer_service.html#a9055d728deea07bb02f90815f235d6c6" title="Executes a transfer request asynchronously on a dedicated STA background thread using Windows Shell C..." alt="" coords="5,13,279,56"/>
 <area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="308,35,279,37,279,32,313,35"/>
 </map>

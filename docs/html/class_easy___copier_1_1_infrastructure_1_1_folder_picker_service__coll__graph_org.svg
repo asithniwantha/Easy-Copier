@@ -11,7 +11,7 @@
 <!-- Node1 -->
 <g id="Node000001" class="node">
 <title>Node1</title>
-<g id="a_Node000001"><a xlink:title=" ">
+<g id="a_Node000001"><a xlink:title="Implements folder selection operations using WinRT FolderPicker.">
 <polygon fill="#999999" stroke="#666666" points="415.25,-82 279.25,-82 279.25,-50 415.25,-50 415.25,-82"/>
 <text xml:space="preserve" text-anchor="start" x="287.25" y="-68.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Infrastructure.</text>
 <text xml:space="preserve" text-anchor="middle" x="347.25" y="-56.5" font-family="Helvetica,sans-Serif" font-size="10.00">FolderPickerService</text>
@@ -21,7 +21,7 @@
 <!-- Node2 -->
 <g id="Node000002" class="node">
 <title>Node2</title>
-<g id="a_Node000002"><a xlink:href="interface_easy___copier_1_1_services_1_1_i_folder_picker_service.html" target="_top" xlink:title=" ">
+<g id="a_Node000002"><a xlink:href="interface_easy___copier_1_1_services_1_1_i_folder_picker_service.html" target="_top" xlink:title="Defines operations for interacting with UI folder selection picker dialogs.">
 <polygon fill="white" stroke="#666666" points="146.5,-132 0,-132 0,-100 146.5,-100 146.5,-132"/>
 <text xml:space="preserve" text-anchor="start" x="8" y="-118.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Services.IFolder</text>
 <text xml:space="preserve" text-anchor="middle" x="73.25" y="-106.5" font-family="Helvetica,sans-Serif" font-size="10.00">PickerService</text>
@@ -40,7 +40,7 @@
 <!-- Node3 -->
 <g id="Node000003" class="node">
 <title>Node3</title>
-<g id="a_Node000003"><a xlink:href="interface_easy___copier_1_1_infrastructure_1_1_i_dispatcher_service.html" target="_top" xlink:title=" ">
+<g id="a_Node000003"><a xlink:href="interface_easy___copier_1_1_infrastructure_1_1_i_dispatcher_service.html" target="_top" xlink:title="Abstracts dispatcher operations for executing code on the UI thread.">
 <polygon fill="white" stroke="#666666" points="141.25,-82 5.25,-82 5.25,-50 141.25,-50 141.25,-82"/>
 <text xml:space="preserve" text-anchor="start" x="13.25" y="-68.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Infrastructure.</text>
 <text xml:space="preserve" text-anchor="middle" x="73.25" y="-56.5" font-family="Helvetica,sans-Serif" font-size="10.00">IDispatcherService</text>
@@ -60,7 +60,7 @@
 <!-- Node4 -->
 <g id="Node000004" class="node">
 <title>Node4</title>
-<g id="a_Node000004"><a xlink:href="interface_easy___copier_1_1_infrastructure_1_1_i_app_window_context.html" target="_top" xlink:title=" ">
+<g id="a_Node000004"><a xlink:href="interface_easy___copier_1_1_infrastructure_1_1_i_app_window_context.html" target="_top" xlink:title="Defines a contract for accessing window and XAML root context UI elements without direct coupling.">
 <polygon fill="white" stroke="#666666" points="141.25,-32 5.25,-32 5.25,0 141.25,0 141.25,-32"/>
 <text xml:space="preserve" text-anchor="start" x="13.25" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Infrastructure.</text>
 <text xml:space="preserve" text-anchor="middle" x="73.25" y="-6.5" font-family="Helvetica,sans-Serif" font-size="10.00">IAppWindowContext</text>

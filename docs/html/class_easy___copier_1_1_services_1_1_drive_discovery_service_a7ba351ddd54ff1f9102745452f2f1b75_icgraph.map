@@ -1,7 +1,7 @@
 <map id="Easy_Copier.Services.DriveDiscoveryService.WaitForPendingDriveNotifications" name="Easy_Copier.Services.DriveDiscoveryService.WaitForPendingDriveNotifications">
-<area shape="rect" id="Node000001" title=" " alt="" coords="497,5,717,64"/>
-<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_services_1_1_drive_discovery_service.html#afb32927d7b82e3d42575bf49e7f732d5" title=" " alt="" coords="240,13,449,56"/>
+<area shape="rect" id="Node000001" title="Blocks until all currently running WMI event arrival callbacks have completed or until a timeout occu..." alt="" coords="497,5,717,64"/>
+<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_services_1_1_drive_discovery_service.html#afb32927d7b82e3d42575bf49e7f732d5" title="Stops the WMI event listener and cleans up watcher instances safely." alt="" coords="240,13,449,56"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="479,35,450,37,450,32,484,35"/>
-<area shape="rect" id="Node000003" href="$class_easy___copier_1_1_services_1_1_drive_discovery_service.html#a8d9f3925e02834e5d1a0884c9d2761fd" title=" " alt="" coords="5,13,192,56"/>
+<area shape="rect" id="Node000003" href="$class_easy___copier_1_1_services_1_1_drive_discovery_service.html#a8d9f3925e02834e5d1a0884c9d2761fd" title="Disposes unmanaged WMI resources and terminates drive monitoring handlers." alt="" coords="5,13,192,56"/>
 <area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="221,35,192,37,192,32,227,34"/>
 </map>

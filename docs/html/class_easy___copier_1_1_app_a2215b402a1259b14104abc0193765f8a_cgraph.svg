@@ -99,7 +99,7 @@
 <!-- Node4 -->
 <g id="Node000004" class="node">
 <title>Node4</title>
-<g id="a_Node000004"><a xlink:href="interface_easy___copier_1_1_services_1_1_i_copy_history_service.html#a6867d761ff9d16ab2e8df2da66d293df" target="_top" xlink:title=" ">
+<g id="a_Node000004"><a xlink:href="interface_easy___copier_1_1_services_1_1_i_copy_history_service.html#a6867d761ff9d16ab2e8df2da66d293df" target="_top" xlink:title="Initializes the underlying SQLite database schema and applies any pending migrations.">
 <polygon fill="white" stroke="#666666" points="346.25,-182 199,-182 199,-150 346.25,-150 346.25,-182"/>
 <text xml:space="preserve" text-anchor="start" x="207" y="-168.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Services.ICopy</text>
 <text xml:space="preserve" text-anchor="middle" x="272.62" y="-156.5" font-family="Helvetica,sans-Serif" font-size="10.00">HistoryService.InitializeAsync</text>
@@ -118,7 +118,7 @@
 <!-- Node5 -->
 <g id="Node000005" class="node">
 <title>Node5</title>
-<g id="a_Node000005"><a xlink:href="interface_easy___copier_1_1_services_1_1_i_smart_adder_history_service.html#aaddc783b61b267dc6a9cce276b8b7506" target="_top" xlink:title=" ">
+<g id="a_Node000005"><a xlink:href="interface_easy___copier_1_1_services_1_1_i_smart_adder_history_service.html#aaddc783b61b267dc6a9cce276b8b7506" target="_top" xlink:title="Asynchronously initializes the SmartAdderHistory table in SQLite database.">
 <polygon fill="white" stroke="#666666" points="359,-132 186.25,-132 186.25,-100 359,-100 359,-132"/>
 <text xml:space="preserve" text-anchor="start" x="194.25" y="-118.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Services.ISmart</text>
 <text xml:space="preserve" text-anchor="middle" x="272.62" y="-106.5" font-family="Helvetica,sans-Serif" font-size="10.00">AdderHistoryService.InitializeAsync</text>
@@ -175,7 +175,7 @@
 <!-- Node8 -->
 <g id="Node000008" class="node">
 <title>Node8</title>
-<g id="a_Node000008"><a xlink:href="class_easy___copier_1_1_infrastructure_1_1_native_window_helper.html#aefed850ce6ac9058e32444fc6a9ecb70" target="_top" xlink:title=" ">
+<g id="a_Node000008"><a xlink:href="class_easy___copier_1_1_infrastructure_1_1_native_window_helper.html#aefed850ce6ac9058e32444fc6a9ecb70" target="_top" xlink:title="Initializes standard window parameters including window dimensions and default window icons.">
 <polygon fill="white" stroke="#666666" points="579,-82 396.5,-82 396.5,-50 579,-50 579,-82"/>
 <text xml:space="preserve" text-anchor="start" x="404.5" y="-68.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Infrastructure.</text>
 <text xml:space="preserve" text-anchor="middle" x="487.75" y="-56.5" font-family="Helvetica,sans-Serif" font-size="10.00">NativeWindowHelper.InitializeWindow</text>
@@ -194,7 +194,7 @@
 <!-- Node9 -->
 <g id="Node000009" class="node">
 <title>Node9</title>
-<g id="a_Node000009"><a xlink:href="class_easy___copier_1_1_infrastructure_1_1_native_window_helper.html#a5e662d85a854e91b6a3f8f468e72a1a5" target="_top" xlink:title=" ">
+<g id="a_Node000009"><a xlink:href="class_easy___copier_1_1_infrastructure_1_1_native_window_helper.html#a5e662d85a854e91b6a3f8f468e72a1a5" target="_top" xlink:title="Sets the minimum window size preferences taking high DPI display scaling into account.">
 <polygon fill="white" stroke="#666666" points="580.5,-32 395,-32 395,0 580.5,0 580.5,-32"/>
 <text xml:space="preserve" text-anchor="start" x="403" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Infrastructure.</text>
 <text xml:space="preserve" text-anchor="middle" x="487.75" y="-6.5" font-family="Helvetica,sans-Serif" font-size="10.00">NativeWindowHelper.SetMinimumSize</text>

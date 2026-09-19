@@ -1,0 +1,5 @@
+<map id="Easy_Copier.ViewModels.LibraryTabViewModelBase" name="Easy_Copier.ViewModels.LibraryTabViewModelBase">
+<area shape="rect" id="Node000001" title="Abstract base ViewModel for tab&#45;specific child ViewModels that synchronize state with MainViewModel." alt="" coords="5,80,220,123"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="50,5,175,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="114,46,115,81,110,79,111,50"/>
+</map>

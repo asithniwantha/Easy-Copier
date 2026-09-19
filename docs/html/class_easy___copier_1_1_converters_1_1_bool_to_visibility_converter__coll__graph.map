@@ -1,5 +1,5 @@
 <map id="Easy_Copier.Converters.BoolToVisibilityConverter" name="Easy_Copier.Converters.BoolToVisibilityConverter">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,80,200,123"/>
+<area shape="rect" id="Node000001" title="Converts a boolean value to a UI Visibility status, supporting optional inversion via the converter p..." alt="" coords="5,80,200,123"/>
 <area shape="rect" id="Node000002" title=" " alt="" coords="45,5,160,32"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="104,46,105,81,100,79,101,50"/>
 </map>

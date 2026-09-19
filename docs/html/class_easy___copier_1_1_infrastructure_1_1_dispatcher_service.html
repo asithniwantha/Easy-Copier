@@ -112,6 +112,9 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('class_easy___c
   <div class="headertitle"><div class="title">Easy_Copier.Infrastructure.DispatcherService Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Manages execution of delegates on the WinUI 3 UI thread dispatcher queue.  
+ <a href="#details">More...</a></p>
 <div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Inheritance diagram for Easy_Copier.Infrastructure.DispatcherService:</div>
 <div id="dynsection-0-summary" class="dynsummary">
 </div>
@@ -128,20 +131,25 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('class_easy___c
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:ab9555f6968a83c32e923a34987ec7bb7" id="r_ab9555f6968a83c32e923a34987ec7bb7"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ab9555f6968a83c32e923a34987ec7bb7">DispatcherService</a> ()</td></tr>
+<tr class="memdesc:ab9555f6968a83c32e923a34987ec7bb7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes a new instance of the DispatcherService class bound to the current thread's dispatcher.  <br /></td></tr>
 <tr class="memitem:aca4f795944fadc64e8ee03ff96fc6bad" id="r_aca4f795944fadc64e8ee03ff96fc6bad"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#aca4f795944fadc64e8ee03ff96fc6bad">TryEnqueue</a> (Action action)</td></tr>
+<tr class="memdesc:aca4f795944fadc64e8ee03ff96fc6bad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enqueues a synchronous action to be executed on the UI thread.  <br /></td></tr>
 <tr class="memitem:a7c72f001d5fae136035bc769ccd81973" id="r_a7c72f001d5fae136035bc769ccd81973"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a7c72f001d5fae136035bc769ccd81973">TryEnqueue</a> (Func&lt; Task &gt; action)</td></tr>
+<tr class="memdesc:a7c72f001d5fae136035bc769ccd81973"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enqueues an asynchronous task delegate to be executed on the UI thread.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-properties" class="groupheader"><a id="properties" name="properties"></a>
 Properties</h2></td></tr>
 <tr class="memitem:a11a3fba45d3013a33b6e406b574f8d92" id="r_a11a3fba45d3013a33b6e406b574f8d92"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a11a3fba45d3013a33b6e406b574f8d92">HasThreadAccess</a><code> [get]</code></td></tr>
+<tr class="memdesc:a11a3fba45d3013a33b6e406b574f8d92"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets a value indicating whether the caller is running on the UI thread.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pri-attribs" class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
 <tr class="memitem:a0969dd1bbc63a7602a8b0df0567c8830" id="r_a0969dd1bbc63a7602a8b0df0567c8830"><td class="memItemLeft">readonly DispatcherQueue&#160;</td><td class="memItemRight"><a class="el" href="#a0969dd1bbc63a7602a8b0df0567c8830">_dispatcherQueue</a></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="_dispatcher_service_8cs_source.html#l00007">7</a> of file <a class="el" href="_dispatcher_service_8cs_source.html">DispatcherService.cs</a>.</p>
+<div class="textblock"><p>Manages execution of delegates on the WinUI 3 UI thread dispatcher queue. </p>
+
+<p class="definition">Definition at line <a class="el" href="_dispatcher_service_8cs_source.html#l00010">10</a> of file <a class="el" href="_dispatcher_service_8cs_source.html">DispatcherService.cs</a>.</p>
 </div><a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ab9555f6968a83c32e923a34987ec7bb7" name="ab9555f6968a83c32e923a34987ec7bb7"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab9555f6968a83c32e923a34987ec7bb7">&#9670;&#160;</a></span>DispatcherService()</h2>
@@ -158,9 +166,11 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_dispatcher_service_8cs_source.html#l00011">11</a> of file <a class="el" href="_dispatcher_service_8cs_source.html">DispatcherService.cs</a>.</p>
+<p>Initializes a new instance of the DispatcherService class bound to the current thread's dispatcher. </p>
 
-<p class="reference">References <a class="el" href="_dispatcher_service_8cs_source.html#l00009">_dispatcherQueue</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_dispatcher_service_8cs_source.html#l00017">17</a> of file <a class="el" href="_dispatcher_service_8cs_source.html">DispatcherService.cs</a>.</p>
+
+<p class="reference">References <a class="el" href="_dispatcher_service_8cs_source.html#l00012">_dispatcherQueue</a>.</p>
 
 </div>
 </div>
@@ -180,11 +190,26 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Enqueues a synchronous action to be executed on the UI thread. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">action</td><td>The action to execute.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><code>true</code> if the action was successfully enqueued or executed directly; otherwise, <code>false</code>.</dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">ArgumentNullException</td><td>Thrown when <em>action</em>  is null.</td></tr>
+  </table>
+  </dd>
+</dl>
+
 <p>Implements <a class="el" href="interface_easy___copier_1_1_infrastructure_1_1_i_dispatcher_service.html#a610df3934d188d070dafefd96a3bc47a">Easy_Copier.Infrastructure.IDispatcherService</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_dispatcher_service_8cs_source.html#l00018">18</a> of file <a class="el" href="_dispatcher_service_8cs_source.html">DispatcherService.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_dispatcher_service_8cs_source.html#l00033">33</a> of file <a class="el" href="_dispatcher_service_8cs_source.html">DispatcherService.cs</a>.</p>
 
-<p class="reference">References <a class="el" href="_dispatcher_service_8cs_source.html#l00009">_dispatcherQueue</a>.</p>
+<p class="reference">References <a class="el" href="_dispatcher_service_8cs_source.html#l00012">_dispatcherQueue</a>.</p>
 
 </div>
 </div>
@@ -203,11 +228,26 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Enqueues an asynchronous task delegate to be executed on the UI thread. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">action</td><td>The asynchronous task delegate to execute.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><code>true</code> if the task was successfully enqueued or started directly; otherwise, <code>false</code>.</dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">ArgumentNullException</td><td>Thrown when <em>action</em>  is null.</td></tr>
+  </table>
+  </dd>
+</dl>
+
 <p>Implements <a class="el" href="interface_easy___copier_1_1_infrastructure_1_1_i_dispatcher_service.html#a88fe373cb9dd853245728fbccc104274">Easy_Copier.Infrastructure.IDispatcherService</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_dispatcher_service_8cs_source.html#l00033">33</a> of file <a class="el" href="_dispatcher_service_8cs_source.html">DispatcherService.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_dispatcher_service_8cs_source.html#l00054">54</a> of file <a class="el" href="_dispatcher_service_8cs_source.html">DispatcherService.cs</a>.</p>
 
-<p class="reference">References <a class="el" href="_dispatcher_service_8cs_source.html#l00009">_dispatcherQueue</a>.</p>
+<p class="reference">References <a class="el" href="_dispatcher_service_8cs_source.html#l00012">_dispatcherQueue</a>.</p>
 
 </div>
 </div>
@@ -232,9 +272,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_dispatcher_service_8cs_source.html#l00009">9</a> of file <a class="el" href="_dispatcher_service_8cs_source.html">DispatcherService.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_dispatcher_service_8cs_source.html#l00012">12</a> of file <a class="el" href="_dispatcher_service_8cs_source.html">DispatcherService.cs</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_dispatcher_service_8cs_source.html#l00011">DispatcherService()</a>, <a class="el" href="_dispatcher_service_8cs_source.html#l00018">TryEnqueue()</a>, and <a class="el" href="_dispatcher_service_8cs_source.html#l00033">TryEnqueue()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_dispatcher_service_8cs_source.html#l00017">DispatcherService()</a>, <a class="el" href="_dispatcher_service_8cs_source.html#l00033">TryEnqueue()</a>, and <a class="el" href="_dispatcher_service_8cs_source.html#l00054">TryEnqueue()</a>.</p>
 
 </div>
 </div>
@@ -259,9 +299,11 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Gets a value indicating whether the caller is running on the UI thread. </p>
+
 <p>Implements <a class="el" href="interface_easy___copier_1_1_infrastructure_1_1_i_dispatcher_service.html#a66b0ca65cbf8aadc1829ee8bf08d1918">Easy_Copier.Infrastructure.IDispatcherService</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_dispatcher_service_8cs_source.html#l00016">16</a> of file <a class="el" href="_dispatcher_service_8cs_source.html">DispatcherService.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_dispatcher_service_8cs_source.html#l00025">25</a> of file <a class="el" href="_dispatcher_service_8cs_source.html">DispatcherService.cs</a>.</p>
 
 </div>
 </div>

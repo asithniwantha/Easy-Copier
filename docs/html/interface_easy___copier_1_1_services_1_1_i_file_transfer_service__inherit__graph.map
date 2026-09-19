@@ -1,5 +1,5 @@
 <map id="Easy_Copier.Services.IFileTransferService" name="Easy_Copier.Services.IFileTransferService">
-<area shape="rect" id="Node000001" title=" " alt="" coords="20,5,200,48"/>
-<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_services_1_1_windows_shell_transfer_service.html" title=" " alt="" coords="5,96,215,139"/>
+<area shape="rect" id="Node000001" title="Defines operations for executing file transfer requests and querying directory file size statistics." alt="" coords="20,5,200,48"/>
+<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_services_1_1_windows_shell_transfer_service.html" title="Implements file transfer operations utilizing the Windows Shell COM API (IFileOperation) on STA backg..." alt="" coords="5,96,215,139"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="112,62,112,97,108,95,108,66"/>
 </map>

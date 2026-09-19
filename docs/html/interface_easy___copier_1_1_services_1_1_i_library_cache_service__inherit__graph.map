@@ -1,5 +1,5 @@
 <map id="Easy_Copier.Services.ILibraryCacheService" name="Easy_Copier.Services.ILibraryCacheService">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,204,48"/>
-<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_services_1_1_library_cache_service.html" title=" " alt="" coords="7,96,202,139"/>
+<area shape="rect" id="Node000001" title="Defines operations for managing persistent JSON library caching and checking cache validity against d..." alt="" coords="5,5,204,48"/>
+<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_services_1_1_library_cache_service.html" title="Service for serializing, deserializing, and validating library scan results stored in library_cache...." alt="" coords="7,96,202,139"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="106,62,107,97,102,95,103,66"/>
 </map>

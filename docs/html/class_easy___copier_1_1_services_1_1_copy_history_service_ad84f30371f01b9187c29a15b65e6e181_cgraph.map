@@ -1,6 +1,6 @@
 <map id="Easy_Copier.Services.CopyHistoryService.GetRecordsByWeekAsync" name="Easy_Copier.Services.CopyHistoryService.GetRecordsByWeekAsync">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,29,273,72"/>
-<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_services_1_1_copy_history_service.html#adb2b5883ce370a33757bd5764bc96228" title=" " alt="" coords="321,29,554,72"/>
+<area shape="rect" id="Node000001" title="Retrieves records matching the designated week date range, sorted by timestamp descending." alt="" coords="5,29,273,72"/>
+<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_services_1_1_copy_history_service.html#adb2b5883ce370a33757bd5764bc96228" title="Helper method that reads all history records stored in the database." alt="" coords="321,29,554,72"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="273,48,308,51,303,51,273,53"/>
 <area shape="rect" id="Node000003" href="$namespace_easy___copier_1_1_models.html#a22cad9581ea699aafef9d310c84f0836" title=" " alt="" coords="602,29,821,72"/>
 <area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="555,48,589,51,584,51,555,53"/>

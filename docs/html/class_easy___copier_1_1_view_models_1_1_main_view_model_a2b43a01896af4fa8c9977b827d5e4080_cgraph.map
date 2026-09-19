@@ -1,6 +1,6 @@
 <map id="Easy_Copier.ViewModels.MainViewModel.GetFormattedSystemRequirementsAsync" name="Easy_Copier.ViewModels.MainViewModel.GetFormattedSystemRequirementsAsync">
 <area shape="rect" id="Node000001" title=" " alt="" coords="5,439,338,481"/>
-<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_infrastructure_1_1_sys_req_formatter.html#a131cdbfd011cc937fd40a1980802296b" title=" " alt="" coords="386,439,580,481"/>
+<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_infrastructure_1_1_sys_req_formatter.html#a131cdbfd011cc937fd40a1980802296b" title="Formats and standardizes raw system requirement strings by adding line breaks before key headers." alt="" coords="386,439,580,481"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="337,458,373,459,368,461,339,462"/>
 <area shape="rect" id="Node000003" href="$class_easy___copier_1_1_infrastructure_1_1_sys_req_formatter.html#a9c6566e268aa2ce9bd6c9eb65adcf89e" title=" " alt="" coords="638,5,896,48"/>
 <area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="483,437,490,365,512,263,530,207,555,153,586,102,626,58,634,55,630,59,630,62,591,105,559,155,535,209,517,264,495,366,488,439"/>

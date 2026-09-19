@@ -1,0 +1,16 @@
+<map id="Easy_Copier.Views.GamesTabView.GamesTabView_obj3_Bindings.Update_Categories" name="Easy_Copier.Views.GamesTabView.GamesTabView_obj3_Bindings.Update_Categories">
+<area shape="rect" id="Node000001" title=" " alt="" coords="1061,39,1264,97"/>
+<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_views_1_1_games_tab_view_1_1_games_tab_view__obj3___bindings.html#a543c2f18fa9cd20feebb70430a06c262" title=" " alt="" coords="809,39,1013,97"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="1043,68,1013,71,1013,65,1048,68"/>
+<area shape="rect" id="Node000003" href="$class_easy___copier_1_1_views_1_1_games_tab_view_1_1_games_tab_view__obj3___bindings.html#a443b1d5c1e1cab0c3b561476fa4d1a30" title=" " alt="" coords="5,5,209,64"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="791,62,761,63,209,41,209,35,761,57,796,61"/>
+<area shape="rect" id="Node000004" href="$class_easy___copier_1_1_views_1_1_games_tab_view_1_1_games_tab_view__obj3___bindings.html#a44c4d17fa67e043a11a284854368cdaa" title=" " alt="" coords="558,72,761,131"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="791,84,762,90,762,85,797,83"/>
+<area shape="rect" id="Node000005" href="$class_easy___copier_1_1_views_1_1_games_tab_view_1_1_games_tab_view__obj3___bindings.html#a435b1087188e6e2aeadf0367567fbaa6" title=" " alt="" coords="257,72,510,131"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="540,102,511,104,510,99,545,101"/>
+<area shape="rect" id="Node000007" href="$class_easy___copier_1_1_views_1_1_games_tab_view_1_1_games_tab_view__obj3___bindings.html#a0bc152b9b042698af088fe452b6520d5" title=" " alt="" coords="282,155,485,213"/>
+<area shape="poly" id="edge7_Node000004_Node000007" title=" " alt="" coords="547,135,485,157,483,151,542,136"/>
+<area shape="poly" id="edge6_Node000005_Node000003" title=" " alt="" coords="242,69,209,62,209,57,247,67"/>
+<area shape="rect" id="Node000006" href="$class_easy___copier_1_1_views_1_1_games_tab_view.html#a08102174b7b319e7b1041acd5dbd3bc7" title="GetBindingConnector(int connectionId, object target)." alt="" coords="5,88,209,131"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="239,106,210,109,208,104,244,105"/>
+</map>

@@ -2,9 +2,9 @@
 <area shape="rect" id="Node000001" title=" " alt="" coords="5,72,212,115"/>
 <area shape="rect" id="Node000002" href="$class_easy___copier_1_1_main_window.html#addce742f888856d950f0d30050604f97" title="InitializeComponent()." alt="" coords="270,5,496,48"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="198,69,280,51,275,53,200,74"/>
-<area shape="rect" id="Node000003" href="$class_easy___copier_1_1_infrastructure_1_1_native_window_helper.html#aefed850ce6ac9058e32444fc6a9ecb70" title=" " alt="" coords="262,72,505,115"/>
+<area shape="rect" id="Node000003" href="$class_easy___copier_1_1_infrastructure_1_1_native_window_helper.html#aefed850ce6ac9058e32444fc6a9ecb70" title="Initializes standard window parameters including window dimensions and default window icons." alt="" coords="262,72,505,115"/>
 <area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="212,91,249,93,244,94,212,96"/>
-<area shape="rect" id="Node000004" href="$class_easy___copier_1_1_infrastructure_1_1_native_window_helper.html#a5e662d85a854e91b6a3f8f468e72a1a5" title=" " alt="" coords="260,139,507,181"/>
+<area shape="rect" id="Node000004" href="$class_easy___copier_1_1_infrastructure_1_1_native_window_helper.html#a5e662d85a854e91b6a3f8f468e72a1a5" title="Sets the minimum window size preferences taking high DPI display scaling into account." alt="" coords="260,139,507,181"/>
 <area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="200,113,280,134,275,135,199,118"/>
 <area shape="rect" id="Node000005" href="$class_easy___copier_1_1_infrastructure_1_1_native_window_helper.html#a95738f648a74872e265d231e37718f42" title=" " alt="" coords="555,139,834,181"/>
 <area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="507,157,542,160,537,160,508,163"/>

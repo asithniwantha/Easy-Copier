@@ -1,5 +1,5 @@
 <map id="Easy_Copier.Converters.SeverityToInfoBarSeverityConverter" name="Easy_Copier.Converters.SeverityToInfoBarSeverityConverter">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,80,222,123"/>
+<area shape="rect" id="Node000001" title="Converts a domain ValidationSeverity enum value to a WinUI InfoBarSeverity value." alt="" coords="5,80,222,123"/>
 <area shape="rect" id="Node000002" title=" " alt="" coords="56,5,171,32"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="115,46,116,81,111,79,112,50"/>
 </map>

@@ -1,10 +1,10 @@
 <map id="Easy_Copier.Interop.IFileOperation.PerformOperations" name="Easy_Copier.Interop.IFileOperation.PerformOperations">
 <area shape="rect" id="Node000001" title=" " alt="" coords="605,55,795,97"/>
-<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_services_1_1_windows_shell_transfer_service.html#afb76277cd4d95e6647183bc15cc68f32" title=" " alt="" coords="327,5,557,64"/>
+<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_services_1_1_windows_shell_transfer_service.html#afb76277cd4d95e6647183bc15cc68f32" title="Copies a source file or directory to a destination folder using Windows Shell IFileOperation COM inte..." alt="" coords="327,5,557,64"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="587,58,558,56,558,51,592,58"/>
-<area shape="rect" id="Node000004" href="$class_easy___copier_1_1_services_1_1_windows_shell_transfer_service.html#ab2a27fa82dcd964d45d832b0afcf8065" title=" " alt="" coords="337,88,547,147"/>
+<area shape="rect" id="Node000004" href="$class_easy___copier_1_1_services_1_1_windows_shell_transfer_service.html#ab2a27fa82dcd964d45d832b0afcf8065" title="Deletes a file or folder using native Windows Shell IFileOperation COM interface." alt="" coords="337,88,547,147"/>
 <area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="592,93,548,103,547,98,587,94"/>
-<area shape="rect" id="Node000003" href="$class_easy___copier_1_1_services_1_1_windows_shell_transfer_service.html#a9055d728deea07bb02f90815f235d6c6" title=" " alt="" coords="5,55,279,97"/>
+<area shape="rect" id="Node000003" href="$class_easy___copier_1_1_services_1_1_windows_shell_transfer_service.html#a9055d728deea07bb02f90815f235d6c6" title="Executes a transfer request asynchronously on a dedicated STA background thread using Windows Shell C..." alt="" coords="5,55,279,97"/>
 <area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="309,53,280,60,279,55,314,52"/>
 <area shape="poly" id="edge4_Node000004_Node000003" title=" " alt="" coords="319,101,279,98,279,92,324,101"/>
 </map>

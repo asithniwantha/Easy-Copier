@@ -11,7 +11,7 @@
 <!-- Node1 -->
 <g id="Node000001" class="node">
 <title>Node1</title>
-<g id="a_Node000001"><a xlink:title=" ">
+<g id="a_Node000001"><a xlink:title="Implements UI dialog display services using WinUI 3 ContentDialog controls.">
 <polygon fill="#999999" stroke="#666666" points="404.75,-82 268.75,-82 268.75,-50 404.75,-50 404.75,-82"/>
 <text xml:space="preserve" text-anchor="start" x="276.75" y="-68.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Infrastructure.</text>
 <text xml:space="preserve" text-anchor="middle" x="336.75" y="-56.5" font-family="Helvetica,sans-Serif" font-size="10.00">DialogService</text>
@@ -21,7 +21,7 @@
 <!-- Node2 -->
 <g id="Node000002" class="node">
 <title>Node2</title>
-<g id="a_Node000002"><a xlink:href="interface_easy___copier_1_1_infrastructure_1_1_i_dialog_service.html" target="_top" xlink:title=" ">
+<g id="a_Node000002"><a xlink:href="interface_easy___copier_1_1_infrastructure_1_1_i_dialog_service.html" target="_top" xlink:title="Provides an abstraction for displaying UI dialogs and prompts from ViewModels.">
 <polygon fill="white" stroke="#666666" points="136,-132 0,-132 0,-100 136,-100 136,-132"/>
 <text xml:space="preserve" text-anchor="start" x="8" y="-118.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Infrastructure.</text>
 <text xml:space="preserve" text-anchor="middle" x="68" y="-106.5" font-family="Helvetica,sans-Serif" font-size="10.00">IDialogService</text>
@@ -40,7 +40,7 @@
 <!-- Node3 -->
 <g id="Node000003" class="node">
 <title>Node3</title>
-<g id="a_Node000003"><a xlink:href="interface_easy___copier_1_1_infrastructure_1_1_i_window_service.html" target="_top" xlink:title=" ">
+<g id="a_Node000003"><a xlink:href="interface_easy___copier_1_1_infrastructure_1_1_i_window_service.html" target="_top" xlink:title="Provides abstract methods for creating and displaying secondary windows in the application.">
 <polygon fill="white" stroke="#666666" points="136,-82 0,-82 0,-50 136,-50 136,-82"/>
 <text xml:space="preserve" text-anchor="start" x="8" y="-68.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Infrastructure.</text>
 <text xml:space="preserve" text-anchor="middle" x="68" y="-56.5" font-family="Helvetica,sans-Serif" font-size="10.00">IWindowService</text>
@@ -60,7 +60,7 @@
 <!-- Node4 -->
 <g id="Node000004" class="node">
 <title>Node4</title>
-<g id="a_Node000004"><a xlink:href="interface_easy___copier_1_1_infrastructure_1_1_i_app_window_context.html" target="_top" xlink:title=" ">
+<g id="a_Node000004"><a xlink:href="interface_easy___copier_1_1_infrastructure_1_1_i_app_window_context.html" target="_top" xlink:title="Defines a contract for accessing window and XAML root context UI elements without direct coupling.">
 <polygon fill="white" stroke="#666666" points="136,-32 0,-32 0,0 136,0 136,-32"/>
 <text xml:space="preserve" text-anchor="start" x="8" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Infrastructure.</text>
 <text xml:space="preserve" text-anchor="middle" x="68" y="-6.5" font-family="Helvetica,sans-Serif" font-size="10.00">IAppWindowContext</text>

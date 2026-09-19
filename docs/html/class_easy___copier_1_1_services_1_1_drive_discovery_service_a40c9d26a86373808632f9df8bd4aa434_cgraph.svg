@@ -32,7 +32,7 @@
 <!-- Node2 -->
 <g id="Node000002" class="node">
 <title>Node2</title>
-<g id="a_Node000002"><a xlink:href="class_easy___copier_1_1_services_1_1_drive_discovery_service.html#a93558750a3717c2c2abbb645a07b9291" target="_top" xlink:title=" ">
+<g id="a_Node000002"><a xlink:href="class_easy___copier_1_1_services_1_1_drive_discovery_service.html#a93558750a3717c2c2abbb645a07b9291" target="_top" xlink:title="Queries the MSFT_PhysicalDisk WMI class in the root\Microsoft\Windows\Storage namespace to verify Bus...">
 <polygon fill="white" stroke="#666666" points="383,-32 222.25,-32 222.25,0 383,0 383,-32"/>
 <text xml:space="preserve" text-anchor="start" x="230.25" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Services.Drive</text>
 <text xml:space="preserve" text-anchor="middle" x="302.62" y="-6.5" font-family="Helvetica,sans-Serif" font-size="10.00">DiscoveryService.IsUsbBusType</text>

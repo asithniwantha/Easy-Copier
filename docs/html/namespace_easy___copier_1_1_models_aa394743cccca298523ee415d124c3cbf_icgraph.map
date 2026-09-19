@@ -1,6 +1,6 @@
 <map id="Easy_Copier.Models.ValidationResult" name="Easy_Copier.Models.ValidationResult">
 <area shape="rect" id="Node000001" title="Represents the result of a validation operation, including whether it is valid, the severity of the v..." alt="" coords="310,29,512,72"/>
 <area shape="poly" id="edge2_Node000001_Node000001" title=" " alt="" coords="455,14,439,10,411,8,384,10,368,15,362,21,364,30,359,27,357,19,365,10,383,5,411,3,441,5,460,14"/>
-<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_services_1_1_drive_validation_service.html#ac4b9ded9985d7df860bf8838dda59bca" title=" " alt="" coords="5,29,262,72"/>
+<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_services_1_1_drive_validation_service.html#ac4b9ded9985d7df860bf8838dda59bca" title="Asynchronously validates selected games against target drive storage capacity, file system limitation..." alt="" coords="5,29,262,72"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="291,51,262,53,262,48,297,51"/>
 </map>

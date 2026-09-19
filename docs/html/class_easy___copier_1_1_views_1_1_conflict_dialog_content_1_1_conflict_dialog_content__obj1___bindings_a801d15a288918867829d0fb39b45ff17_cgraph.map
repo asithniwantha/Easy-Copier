@@ -1,0 +1,29 @@
+<map id="Easy_Copier.Views.ConflictDialogContent.ConflictDialogContent_obj1_Bindings.Loading" name="Easy_Copier.Views.ConflictDialogContent.ConflictDialogContent_obj1_Bindings.Loading">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,212,242,271"/>
+<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_views_1_1_conflict_dialog_content_1_1_conflict_dialog_content__obj1___bindings.html#a748996d25510c56b0b8ea03e4acb4879" title=" " alt="" coords="290,212,526,271"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="241,239,277,240,272,242,243,244"/>
+<area shape="rect" id="Node000003" href="$class_easy___copier_1_1_views_1_1_conflict_dialog_content_1_1_conflict_dialog_content__obj1___bindings.html#abe31e3806c34f665d7923a0a5caf491a" title=" " alt="" coords="574,212,810,271"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="526,239,561,241,556,242,527,244"/>
+<area shape="rect" id="Node000004" href="$class_easy___copier_1_1_views_1_1_conflict_dialog_content_1_1_conflict_dialog_content__obj1___bindings.html#a9d1077ac0f63691a6a8047b10e3d545e" title=" " alt="" coords="858,212,1095,271"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="811,239,846,241,840,242,811,244"/>
+<area shape="rect" id="Node000005" href="$class_easy___copier_1_1_views_1_1_conflict_dialog_content_1_1_conflict_dialog_content__obj1___bindings.html#a4e28b0d3d3763bfe06a1e68ee1790e36" title=" " alt="" coords="1146,5,1427,64"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="998,210,1057,142,1097,105,1141,74,1149,72,1154,70,1144,78,1101,109,1061,145,1001,214"/>
+<area shape="rect" id="Node000007" href="$class_easy___copier_1_1_views_1_1_conflict_dialog_content_1_1_conflict_dialog_content__obj1___bindings.html#a86d20c4dd2c13c713b48caad63a4d453" title=" " alt="" coords="1147,88,1426,147"/>
+<area shape="poly" id="edge6_Node000004_Node000007" title=" " alt="" coords="1030,209,1083,182,1142,156,1158,153,1163,151,1144,161,1086,187,1032,214"/>
+<area shape="rect" id="Node000008" href="$class_easy___copier_1_1_views_1_1_conflict_dialog_content_1_1_conflict_dialog_content__obj1___bindings.html#aa4a66cfe64b8bfa8933766e5c53b8f4a" title=" " alt="" coords="1143,419,1430,477"/>
+<area shape="poly" id="edge8_Node000004_Node000008" title=" " alt="" coords="1001,268,1061,337,1101,374,1144,404,1154,412,1149,411,1141,409,1097,378,1057,341,999,273"/>
+<area shape="rect" id="Node000010" href="$class_easy___copier_1_1_views_1_1_conflict_dialog_content_1_1_conflict_dialog_content__obj1___bindings.html#a08ed017b8e016455400dcde0a5b731bb" title=" " alt="" coords="1148,171,1424,229"/>
+<area shape="poly" id="edge10_Node000004_Node000010" title=" " alt="" coords="1095,223,1135,220,1130,221,1096,228"/>
+<area shape="rect" id="Node000011" href="$class_easy___copier_1_1_views_1_1_conflict_dialog_content_1_1_conflict_dialog_content__obj1___bindings.html#af49ef09a3613bf9da51ba7c294e783a4" title=" " alt="" coords="1158,253,1414,312"/>
+<area shape="poly" id="edge12_Node000004_Node000011" title=" " alt="" coords="1095,254,1145,263,1140,264,1095,260"/>
+<area shape="rect" id="Node000012" href="$class_easy___copier_1_1_views_1_1_conflict_dialog_content_1_1_conflict_dialog_content__obj1___bindings.html#a4e5ba45a38d5001e8eab17b891d34dd6" title=" " alt="" coords="1159,336,1414,395"/>
+<area shape="poly" id="edge14_Node000004_Node000012" title=" " alt="" coords="1032,269,1086,296,1144,322,1163,331,1158,330,1142,326,1083,301,1031,274"/>
+<area shape="rect" id="Node000006" href="$class_easy___copier_1_1_views_1_1_conflict_dialog_content_1_1_xaml_binding_setters.html#a4508e2818f3a2287e9156c3bd6e88a1b" title=" " alt="" coords="1484,163,1711,237"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="1404,62,1431,74,1492,110,1546,153,1541,152,1489,115,1429,78,1404,67"/>
+<area shape="poly" id="edge7_Node000007_Node000006" title=" " alt="" coords="1400,145,1472,166,1467,166,1399,150"/>
+<area shape="rect" id="Node000009" href="$class_easy___copier_1_1_views_1_1_conflict_dialog_content_1_1_xaml_binding_setters.html#aa35816f9982319d284a73541f4ecefb3" title=" " alt="" coords="1478,411,1717,485"/>
+<area shape="poly" id="edge9_Node000008_Node000009" title=" " alt="" coords="1430,445,1465,448,1460,448,1430,451"/>
+<area shape="poly" id="edge11_Node000010_Node000006" title=" " alt="" coords="1425,197,1471,200,1466,200,1425,203"/>
+<area shape="poly" id="edge13_Node000011_Node000006" title=" " alt="" coords="1399,250,1467,235,1472,233,1400,255"/>
+<area shape="poly" id="edge15_Node000012_Node000006" title=" " alt="" coords="1403,333,1429,322,1489,285,1541,248,1546,246,1492,290,1431,326,1405,338"/>
+</map>

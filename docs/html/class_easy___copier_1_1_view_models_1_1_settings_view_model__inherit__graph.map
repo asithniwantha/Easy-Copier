@@ -1,5 +1,5 @@
 <map id="Easy_Copier.ViewModels.SettingsViewModel" name="Easy_Copier.ViewModels.SettingsViewModel">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,80,229,123"/>
+<area shape="rect" id="Node000001" title="ViewModel managing application settings, source folder configurations, price tiers,..." alt="" coords="5,80,229,123"/>
 <area shape="rect" id="Node000002" title=" " alt="" coords="54,5,180,32"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="119,46,119,81,115,79,115,50"/>
 </map>

@@ -1,0 +1,12 @@
+<map id="Easy_Copier.Views.GamesTabView" name="Easy_Copier.Views.GamesTabView">
+<area shape="rect" id="Node000001" title="UserControl representing the Games tab in the library view." alt="" coords="253,80,485,107"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="22,5,188,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="177,50,282,78,277,81,177,55"/>
+<area shape="poly" id="edge3_Node000001_Node000002" title=" " alt="" coords="203,40,339,78,335,81,203,45"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="5,72,205,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="219,91,255,92,250,94,221,96"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="59,139,151,165"/>
+<area shape="poly" id="edge4_Node000001_Node000004" title=" " alt="" coords="165,136,308,105,304,109,167,141"/>
+<area shape="rect" id="Node000005" href="$interface_easy___copier_1_1_views_1_1_i_library_tab_view.html" title="Contract implemented by library tab user controls for unified selection management." alt="" coords="13,189,197,232"/>
+<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="188,181,204,175,280,139,341,108,346,106,282,143,206,180,190,186"/>
+</map>

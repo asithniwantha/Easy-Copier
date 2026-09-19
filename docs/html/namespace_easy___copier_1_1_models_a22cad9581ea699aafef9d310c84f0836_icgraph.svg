@@ -72,7 +72,7 @@
 <!-- Node2 -->
 <g id="Node000002" class="node">
 <title>Node2</title>
-<g id="a_Node000002"><a xlink:href="class_easy___copier_1_1_services_1_1_copy_history_service.html#aecc6eeb77ecd42fa94e25a0c2a8fa664" target="_top" xlink:title=" ">
+<g id="a_Node000002"><a xlink:href="class_easy___copier_1_1_services_1_1_copy_history_service.html#aecc6eeb77ecd42fa94e25a0c2a8fa664" target="_top" xlink:title="Asynchronously inserts a new copy operation record into the SQLite database.">
 <polygon fill="white" stroke="#666666" points="641.25,-370 481.25,-370 481.25,-338 641.25,-338 641.25,-370"/>
 <text xml:space="preserve" text-anchor="start" x="489.25" y="-356.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Services.Copy</text>
 <text xml:space="preserve" text-anchor="middle" x="561.25" y="-344.5" font-family="Helvetica,sans-Serif" font-size="10.00">HistoryService.AddRecordAsync</text>
@@ -91,7 +91,7 @@
 <!-- Node3 -->
 <g id="Node000003" class="node">
 <title>Node3</title>
-<g id="a_Node000003"><a xlink:href="interface_easy___copier_1_1_services_1_1_i_copy_history_service.html#a0a03e9cfcfc3ecbb06861795b25de91b" target="_top" xlink:title=" ">
+<g id="a_Node000003"><a xlink:href="interface_easy___copier_1_1_services_1_1_i_copy_history_service.html#a0a03e9cfcfc3ecbb06861795b25de91b" target="_top" xlink:title="Inserts a new copy operation history record into the database.">
 <polygon fill="white" stroke="#666666" points="641.25,-320 481.25,-320 481.25,-288 641.25,-288 641.25,-320"/>
 <text xml:space="preserve" text-anchor="start" x="489.25" y="-306.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Services.ICopy</text>
 <text xml:space="preserve" text-anchor="middle" x="561.25" y="-294.5" font-family="Helvetica,sans-Serif" font-size="10.00">HistoryService.AddRecordAsync</text>
@@ -110,7 +110,7 @@
 <!-- Node4 -->
 <g id="Node000004" class="node">
 <title>Node4</title>
-<g id="a_Node000004"><a xlink:href="class_easy___copier_1_1_services_1_1_report_service.html#aa8624b17b23286b08e5f71f2b6370441" target="_top" xlink:title=" ">
+<g id="a_Node000004"><a xlink:href="class_easy___copier_1_1_services_1_1_report_service.html#aa8624b17b23286b08e5f71f2b6370441" target="_top" xlink:title="Asynchronously exports copy history records to a UTF&#45;8 encoded CSV file.">
 <polygon fill="white" stroke="#666666" points="645.38,-270 477.12,-270 477.12,-238 645.38,-238 645.38,-270"/>
 <text xml:space="preserve" text-anchor="start" x="485.12" y="-256.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Services.Report</text>
 <text xml:space="preserve" text-anchor="middle" x="561.25" y="-244.5" font-family="Helvetica,sans-Serif" font-size="10.00">Service.ExportHistoryToCsvAsync</text>
@@ -129,7 +129,7 @@
 <!-- Node5 -->
 <g id="Node000005" class="node">
 <title>Node5</title>
-<g id="a_Node000005"><a xlink:href="class_easy___copier_1_1_services_1_1_copy_history_service.html#adb2b5883ce370a33757bd5764bc96228" target="_top" xlink:title=" ">
+<g id="a_Node000005"><a xlink:href="class_easy___copier_1_1_services_1_1_copy_history_service.html#adb2b5883ce370a33757bd5764bc96228" target="_top" xlink:title="Helper method that reads all history records stored in the database.">
 <polygon fill="white" stroke="#666666" points="648.75,-182 473.75,-182 473.75,-150 648.75,-150 648.75,-182"/>
 <text xml:space="preserve" text-anchor="start" x="481.75" y="-168.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Services.Copy</text>
 <text xml:space="preserve" text-anchor="middle" x="561.25" y="-156.5" font-family="Helvetica,sans-Serif" font-size="10.00">HistoryService.GetAllRecordsAsync</text>
@@ -148,7 +148,7 @@
 <!-- Node6 -->
 <g id="Node000006" class="node">
 <title>Node6</title>
-<g id="a_Node000006"><a xlink:href="class_easy___copier_1_1_services_1_1_copy_history_service.html#adbef4e4fdcec262e40f3efb1b18ca2e5" target="_top" xlink:title=" ">
+<g id="a_Node000006"><a xlink:href="class_easy___copier_1_1_services_1_1_copy_history_service.html#adbef4e4fdcec262e40f3efb1b18ca2e5" target="_top" xlink:title="Asynchronously determines all distinct year/month combinations present in the history database.">
 <polygon fill="white" stroke="#666666" points="420.88,-332 221.88,-332 221.88,-300 420.88,-300 420.88,-332"/>
 <text xml:space="preserve" text-anchor="start" x="229.88" y="-318.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Services.Copy</text>
 <text xml:space="preserve" text-anchor="middle" x="321.38" y="-306.5" font-family="Helvetica,sans-Serif" font-size="10.00">HistoryService.GetAvailableMonthsAsync</text>
@@ -167,7 +167,7 @@
 <!-- Node7 -->
 <g id="Node000007" class="node">
 <title>Node7</title>
-<g id="a_Node000007"><a xlink:href="class_easy___copier_1_1_services_1_1_copy_history_service.html#a2e4145003b9ce0b022847861cbc13cc8" target="_top" xlink:title=" ">
+<g id="a_Node000007"><a xlink:href="class_easy___copier_1_1_services_1_1_copy_history_service.html#a2e4145003b9ce0b022847861cbc13cc8" target="_top" xlink:title="Asynchronously determines all distinct week start dates present in the history database.">
 <polygon fill="white" stroke="#666666" points="419.75,-132 223,-132 223,-100 419.75,-100 419.75,-132"/>
 <text xml:space="preserve" text-anchor="start" x="231" y="-118.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Services.Copy</text>
 <text xml:space="preserve" text-anchor="middle" x="321.38" y="-106.5" font-family="Helvetica,sans-Serif" font-size="10.00">HistoryService.GetAvailableWeeksAsync</text>
@@ -205,7 +205,7 @@
 <!-- Node16 -->
 <g id="Node000016" class="node">
 <title>Node16</title>
-<g id="a_Node000016"><a xlink:href="class_easy___copier_1_1_services_1_1_windows_shell_transfer_service.html#a9055d728deea07bb02f90815f235d6c6" target="_top" xlink:title=" ">
+<g id="a_Node000016"><a xlink:href="class_easy___copier_1_1_services_1_1_windows_shell_transfer_service.html#a9055d728deea07bb02f90815f235d6c6" target="_top" xlink:title="Executes a transfer request asynchronously on a dedicated STA background thread using Windows Shell C...">
 <polygon fill="white" stroke="#666666" points="663.75,-35 458.75,-35 458.75,-3 663.75,-3 663.75,-35"/>
 <text xml:space="preserve" text-anchor="start" x="466.75" y="-21.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Services.Windows</text>
 <text xml:space="preserve" text-anchor="middle" x="561.25" y="-9.5" font-family="Helvetica,sans-Serif" font-size="10.00">ShellTransferService.TransferGamesAsync</text>
@@ -242,7 +242,7 @@
 <!-- Node8 -->
 <g id="Node000008" class="node">
 <title>Node8</title>
-<g id="a_Node000008"><a xlink:href="class_easy___copier_1_1_services_1_1_copy_history_service.html#a977fc855e31450a0f4e8bb945c376d46" target="_top" xlink:title=" ">
+<g id="a_Node000008"><a xlink:href="class_easy___copier_1_1_services_1_1_copy_history_service.html#a977fc855e31450a0f4e8bb945c376d46" target="_top" xlink:title="Retrieves history records matching the specified year and month.">
 <polygon fill="white" stroke="#666666" points="422.75,-282 220,-282 220,-250 422.75,-250 422.75,-282"/>
 <text xml:space="preserve" text-anchor="start" x="228" y="-268.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Services.Copy</text>
 <text xml:space="preserve" text-anchor="middle" x="321.38" y="-256.5" font-family="Helvetica,sans-Serif" font-size="10.00">HistoryService.GetRecordsByMonthAsync</text>
@@ -261,7 +261,7 @@
 <!-- Node9 -->
 <g id="Node000009" class="node">
 <title>Node9</title>
-<g id="a_Node000009"><a xlink:href="class_easy___copier_1_1_services_1_1_copy_history_service.html#ad84f30371f01b9187c29a15b65e6e181" target="_top" xlink:title=" ">
+<g id="a_Node000009"><a xlink:href="class_easy___copier_1_1_services_1_1_copy_history_service.html#ad84f30371f01b9187c29a15b65e6e181" target="_top" xlink:title="Retrieves records matching the designated week date range, sorted by timestamp descending.">
 <polygon fill="white" stroke="#666666" points="421.62,-232 221.12,-232 221.12,-200 421.62,-200 421.62,-232"/>
 <text xml:space="preserve" text-anchor="start" x="229.12" y="-218.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Services.Copy</text>
 <text xml:space="preserve" text-anchor="middle" x="321.38" y="-206.5" font-family="Helvetica,sans-Serif" font-size="10.00">HistoryService.GetRecordsByWeekAsync</text>
@@ -280,7 +280,7 @@
 <!-- Node10 -->
 <g id="Node000010" class="node">
 <title>Node10</title>
-<g id="a_Node000010"><a xlink:href="class_easy___copier_1_1_services_1_1_copy_history_service.html#a81662fae72f6e44dd0978e950b57341b" target="_top" xlink:title=" ">
+<g id="a_Node000010"><a xlink:href="class_easy___copier_1_1_services_1_1_copy_history_service.html#a81662fae72f6e44dd0978e950b57341b" target="_top" xlink:title="Asynchronously computes summary statistics for copy operations within the specified date range.">
 <polygon fill="white" stroke="#666666" points="396.5,-182 246.25,-182 246.25,-150 396.5,-150 396.5,-182"/>
 <text xml:space="preserve" text-anchor="start" x="254.25" y="-168.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Services.Copy</text>
 <text xml:space="preserve" text-anchor="middle" x="321.38" y="-156.5" font-family="Helvetica,sans-Serif" font-size="10.00">HistoryService.GetStatsAsync</text>

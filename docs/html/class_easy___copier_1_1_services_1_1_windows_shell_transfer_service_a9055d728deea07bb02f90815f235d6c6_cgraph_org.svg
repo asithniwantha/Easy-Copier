@@ -11,7 +11,7 @@
 <!-- Node1 -->
 <g id="Node000001" class="node">
 <title>Node1</title>
-<g id="a_Node000001"><a xlink:title=" ">
+<g id="a_Node000001"><a xlink:title="Executes a transfer request asynchronously on a dedicated STA background thread using Windows Shell C...">
 <polygon fill="#999999" stroke="#666666" points="205,-311 0,-311 0,-279 205,-279 205,-311"/>
 <text xml:space="preserve" text-anchor="start" x="8" y="-297.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Services.Windows</text>
 <text xml:space="preserve" text-anchor="middle" x="102.5" y="-285.5" font-family="Helvetica,sans-Serif" font-size="10.00">ShellTransferService.TransferGamesAsync</text>
@@ -21,7 +21,7 @@
 <!-- Node2 -->
 <g id="Node000002" class="node">
 <title>Node2</title>
-<g id="a_Node000002"><a xlink:href="class_easy___copier_1_1_services_1_1_windows_shell_transfer_service.html#a315061c1ab2c8cfa09b31d5d54b7cc27" target="_top" xlink:title=" ">
+<g id="a_Node000002"><a xlink:href="class_easy___copier_1_1_services_1_1_windows_shell_transfer_service.html#a315061c1ab2c8cfa09b31d5d54b7cc27" target="_top" xlink:title="Calculates the monetary price for transferring a specific byte volume based on current settings.">
 <polygon fill="white" stroke="#666666" points="425.75,-641 241,-641 241,-609 425.75,-609 425.75,-641"/>
 <text xml:space="preserve" text-anchor="start" x="249" y="-627.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Services.Windows</text>
 <text xml:space="preserve" text-anchor="middle" x="333.38" y="-615.5" font-family="Helvetica,sans-Serif" font-size="10.00">ShellTransferService.CalculateAmount</text>
@@ -40,7 +40,7 @@
 <!-- Node4 -->
 <g id="Node000004" class="node">
 <title>Node4</title>
-<g id="a_Node000004"><a xlink:href="class_easy___copier_1_1_services_1_1_windows_shell_transfer_service_1_1_native_methods.html#ac87a73c8e9532551f592f16182ed083e" target="_top" xlink:title=" ">
+<g id="a_Node000004"><a xlink:href="class_easy___copier_1_1_services_1_1_windows_shell_transfer_service_1_1_native_methods.html#ac87a73c8e9532551f592f16182ed083e" target="_top" xlink:title="Initializes the COM library on the calling thread.">
 <polygon fill="white" stroke="#666666" points="422.75,-534 244,-534 244,-490 422.75,-490 422.75,-534"/>
 <text xml:space="preserve" text-anchor="start" x="252" y="-520.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Services.Windows</text>
 <text xml:space="preserve" text-anchor="start" x="252" y="-508.5" font-family="Helvetica,sans-Serif" font-size="10.00">ShellTransferService.NativeMethods.</text>
@@ -79,7 +79,7 @@
 <!-- Node6 -->
 <g id="Node000006" class="node">
 <title>Node6</title>
-<g id="a_Node000006"><a xlink:href="class_easy___copier_1_1_services_1_1_windows_shell_transfer_service.html#afb76277cd4d95e6647183bc15cc68f32" target="_top" xlink:title=" ">
+<g id="a_Node000006"><a xlink:href="class_easy___copier_1_1_services_1_1_windows_shell_transfer_service.html#afb76277cd4d95e6647183bc15cc68f32" target="_top" xlink:title="Copies a source file or directory to a destination folder using Windows Shell IFileOperation COM inte...">
 <polygon fill="white" stroke="#666666" points="419.75,-404 247,-404 247,-360 419.75,-360 419.75,-404"/>
 <text xml:space="preserve" text-anchor="start" x="255" y="-390.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Services.Windows</text>
 <text xml:space="preserve" text-anchor="start" x="255" y="-378.5" font-family="Helvetica,sans-Serif" font-size="10.00">ShellTransferService.CopyItemWith</text>
@@ -99,7 +99,7 @@
 <!-- Node15 -->
 <g id="Node000015" class="node">
 <title>Node15</title>
-<g id="a_Node000015"><a xlink:href="class_easy___copier_1_1_services_1_1_windows_shell_transfer_service.html#ab2a27fa82dcd964d45d832b0afcf8065" target="_top" xlink:title=" ">
+<g id="a_Node000015"><a xlink:href="class_easy___copier_1_1_services_1_1_windows_shell_transfer_service.html#ab2a27fa82dcd964d45d832b0afcf8065" target="_top" xlink:title="Deletes a file or folder using native Windows Shell IFileOperation COM interface.">
 <polygon fill="white" stroke="#666666" points="412.25,-342 254.5,-342 254.5,-298 412.25,-298 412.25,-342"/>
 <text xml:space="preserve" text-anchor="start" x="262.5" y="-328.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Services.Windows</text>
 <text xml:space="preserve" text-anchor="start" x="262.5" y="-316.5" font-family="Helvetica,sans-Serif" font-size="10.00">ShellTransferService.DeleteItem</text>
@@ -119,7 +119,7 @@
 <!-- Node17 -->
 <g id="Node000017" class="node">
 <title>Node17</title>
-<g id="a_Node000017"><a xlink:href="namespace_easy___copier_1_1_models.html#ab9811c24c166bd7f4768ddafbcbaf75d" target="_top" xlink:title=" ">
+<g id="a_Node000017"><a xlink:href="namespace_easy___copier_1_1_models.html#a9c2abd1d64352c07d3085ba499cf2aae" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="#666666" points="630,-156 470.75,-156 470.75,-136 630,-136 630,-156"/>
 <text xml:space="preserve" text-anchor="middle" x="550.38" y="-142.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Models.GameEntry</text>
 </a>
@@ -137,7 +137,7 @@
 <!-- Node18 -->
 <g id="Node000018" class="node">
 <title>Node18</title>
-<g id="a_Node000018"><a xlink:href="class_easy___copier_1_1_services_1_1_windows_shell_transfer_service.html#ae9408b15a80f4ebfe0683c79ee8cd5da" target="_top" xlink:title=" ">
+<g id="a_Node000018"><a xlink:href="class_easy___copier_1_1_services_1_1_windows_shell_transfer_service.html#ae9408b15a80f4ebfe0683c79ee8cd5da" target="_top" xlink:title="Merges a source directory into a target destination directory without overwriting existing target fil...">
 <polygon fill="white" stroke="#666666" points="421.62,-168 245.12,-168 245.12,-136 421.62,-136 421.62,-168"/>
 <text xml:space="preserve" text-anchor="start" x="253.12" y="-154.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Services.Windows</text>
 <text xml:space="preserve" text-anchor="middle" x="333.38" y="-142.5" font-family="Helvetica,sans-Serif" font-size="10.00">ShellTransferService.MergeDirectory</text>

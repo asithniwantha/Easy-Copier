@@ -1,6 +1,6 @@
 <map id="Easy_Copier.Infrastructure.RufusResolutionHelper.RufusVersionRegex" name="Easy_Copier.Infrastructure.RufusResolutionHelper.RufusVersionRegex">
 <area shape="rect" id="Node000001" title=" " alt="" coords="1393,72,1669,115"/>
-<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_infrastructure_1_1_rufus_resolution_helper.html#a86bc01b0f77e23145af9cac4b03c01a2" title="Attempts to parse a Version object from a Rufus filename (e.g. rufus&#45;4.7.exe =&gt; Version 4...." alt="" coords="1089,64,1345,123"/>
+<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_infrastructure_1_1_rufus_resolution_helper.html#a86bc01b0f77e23145af9cac4b03c01a2" title="Attempts to parse a Version object from a Rufus filename (e.g., rufus&#45;4.7.exe =&gt; Version 4...." alt="" coords="1089,64,1345,123"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="1375,93,1346,96,1345,91,1380,93"/>
 <area shape="rect" id="Node000003" href="$class_easy___copier_1_1_infrastructure_1_1_rufus_resolution_helper.html#a99c0f58c87b73206f2635dbc1e95a235" title="Given a configured Rufus path (with optional environment variables), expands environment variables,..." alt="" coords="796,64,1041,123"/>
 <area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="1071,93,1041,96,1041,91,1076,93"/>

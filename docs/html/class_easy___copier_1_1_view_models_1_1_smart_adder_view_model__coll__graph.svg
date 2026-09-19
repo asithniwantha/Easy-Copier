@@ -50,7 +50,7 @@
 <!-- Node3 -->
 <g id="Node000003" class="node">
 <title>Node3</title>
-<g id="a_Node000003"><a xlink:href="interface_easy___copier_1_1_infrastructure_1_1_i_window_service.html" target="_top" xlink:title=" ">
+<g id="a_Node000003"><a xlink:href="interface_easy___copier_1_1_infrastructure_1_1_i_window_service.html" target="_top" xlink:title="Provides abstract methods for creating and displaying secondary windows in the application.">
 <polygon fill="white" stroke="#666666" points="140.88,-82 4.88,-82 4.88,-50 140.88,-50 140.88,-82"/>
 <text xml:space="preserve" text-anchor="start" x="12.88" y="-68.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Infrastructure.</text>
 <text xml:space="preserve" text-anchor="middle" x="72.88" y="-56.5" font-family="Helvetica,sans-Serif" font-size="10.00">IWindowService</text>
@@ -70,7 +70,7 @@
 <!-- Node4 -->
 <g id="Node000004" class="node">
 <title>Node4</title>
-<g id="a_Node000004"><a xlink:href="interface_easy___copier_1_1_services_1_1_i_smart_adder_history_service.html" target="_top" xlink:title=" ">
+<g id="a_Node000004"><a xlink:href="interface_easy___copier_1_1_services_1_1_i_smart_adder_history_service.html" target="_top" xlink:title="Defines operations for persisting and retrieving Smart Adder calculations in SQLite storage.">
 <polygon fill="white" stroke="#666666" points="145.75,-32 0,-32 0,0 145.75,0 145.75,-32"/>
 <text xml:space="preserve" text-anchor="start" x="8" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Services.ISmart</text>
 <text xml:space="preserve" text-anchor="middle" x="72.88" y="-6.5" font-family="Helvetica,sans-Serif" font-size="10.00">AdderHistoryService</text>

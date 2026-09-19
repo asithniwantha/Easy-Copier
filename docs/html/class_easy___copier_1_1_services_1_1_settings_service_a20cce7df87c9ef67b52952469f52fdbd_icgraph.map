@@ -1,5 +1,5 @@
 <map id="Easy_Copier.Services.SettingsService.SaveSettingsAsync" name="Easy_Copier.Services.SettingsService.SaveSettingsAsync">
-<area shape="rect" id="Node000001" title=" " alt="" coords="257,5,460,48"/>
-<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_services_1_1_settings_service.html#a1e92290b6dec8bd2f69b026b3060c13d" title=" " alt="" coords="5,5,209,48"/>
+<area shape="rect" id="Node000001" title="Asynchronously writes settings to disk and updates the memory cache." alt="" coords="257,5,460,48"/>
+<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_services_1_1_settings_service.html#a1e92290b6dec8bd2f69b026b3060c13d" title="Asynchronously loads settings from disk, creating default settings if the file does not exist." alt="" coords="5,5,209,48"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="239,27,209,29,209,24,244,27"/>
 </map>

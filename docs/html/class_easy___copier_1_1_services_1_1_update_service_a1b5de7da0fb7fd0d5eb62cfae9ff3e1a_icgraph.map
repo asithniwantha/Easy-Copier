@@ -1,5 +1,5 @@
 <map id="Easy_Copier.Services.UpdateService.LogApplyUpdateError" name="Easy_Copier.Services.UpdateService.LogApplyUpdateError">
-<area shape="rect" id="Node000001" title=" " alt="" coords="264,5,461,48"/>
-<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_services_1_1_update_service.html#ae0bd3d393585ef2eec47a1282056bb79" title=" " alt="" coords="5,5,216,48"/>
+<area shape="rect" id="Node000001" title="Logger message when apply update fails." alt="" coords="264,5,461,48"/>
+<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_services_1_1_update_service.html#ae0bd3d393585ef2eec47a1282056bb79" title="Applies the downloaded update and restarts the application." alt="" coords="5,5,216,48"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="245,27,216,29,216,24,251,27"/>
 </map>

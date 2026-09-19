@@ -112,6 +112,9 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('class_easy___c
   <div class="headertitle"><div class="title">Easy_Copier.Infrastructure.ProcessService Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Implements process launching and Windows identity checking functionality.  
+ <a href="#details">More...</a></p>
 <div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Inheritance diagram for Easy_Copier.Infrastructure.ProcessService:</div>
 <div id="dynsection-0-summary" class="dynsummary">
 </div>
@@ -128,11 +131,14 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('class_easy___c
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a81de8de323234c848413010f5bb62802" id="r_a81de8de323234c848413010f5bb62802"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a81de8de323234c848413010f5bb62802">OpenInExplorer</a> (string path)</td></tr>
+<tr class="memdesc:a81de8de323234c848413010f5bb62802"><td class="mdescLeft">&#160;</td><td class="mdescRight">Opens Windows File Explorer to the specified directory or file path.  <br /></td></tr>
 <tr class="memitem:ab389f2af4be67ec15fdf879407de0af7" id="r_ab389f2af4be67ec15fdf879407de0af7"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#ab389f2af4be67ec15fdf879407de0af7">IsRunningAsAdministrator</a> ()</td></tr>
+<tr class="memdesc:ab389f2af4be67ec15fdf879407de0af7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks whether the current application process is executing with Administrator privileges.  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="_process_service_8cs_source.html#l00012">12</a> of file <a class="el" href="_process_service_8cs_source.html">ProcessService.cs</a>.</p>
+<div class="textblock"><p>Implements process launching and Windows identity checking functionality. </p>
+
+<p class="definition">Definition at line <a class="el" href="_process_service_8cs_source.html#l00027">27</a> of file <a class="el" href="_process_service_8cs_source.html">ProcessService.cs</a>.</p>
 </div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
 <a id="ab389f2af4be67ec15fdf879407de0af7" name="ab389f2af4be67ec15fdf879407de0af7"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab389f2af4be67ec15fdf879407de0af7">&#9670;&#160;</a></span>IsRunningAsAdministrator()</h2>
@@ -149,9 +155,12 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Checks whether the current application process is executing with Administrator privileges. </p>
+<dl class="section return"><dt>Returns</dt><dd><code>true</code> if running as Administrator; otherwise, <code>false</code>.</dd></dl>
+
 <p>Implements <a class="el" href="interface_easy___copier_1_1_infrastructure_1_1_i_process_service.html#a904be9f48261c51ac940c3836031ec08">Easy_Copier.Infrastructure.IProcessService</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_process_service_8cs_source.html#l00031">31</a> of file <a class="el" href="_process_service_8cs_source.html">ProcessService.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_process_service_8cs_source.html#l00054">54</a> of file <a class="el" href="_process_service_8cs_source.html">ProcessService.cs</a>.</p>
 
 </div>
 </div>
@@ -170,9 +179,17 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Opens Windows File Explorer to the specified directory or file path. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">path</td><td>The folder or file path to display.</td></tr>
+  </table>
+  </dd>
+</dl>
+
 <p>Implements <a class="el" href="interface_easy___copier_1_1_infrastructure_1_1_i_process_service.html#a0cc043e8f68b2d2e9368c71a559dab73">Easy_Copier.Infrastructure.IProcessService</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_process_service_8cs_source.html#l00014">14</a> of file <a class="el" href="_process_service_8cs_source.html">ProcessService.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_process_service_8cs_source.html#l00033">33</a> of file <a class="el" href="_process_service_8cs_source.html">ProcessService.cs</a>.</p>
 
 </div>
 </div>

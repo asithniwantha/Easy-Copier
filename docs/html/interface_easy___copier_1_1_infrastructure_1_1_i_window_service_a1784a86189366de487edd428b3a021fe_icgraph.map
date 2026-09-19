@@ -1,5 +1,5 @@
 <map id="Easy_Copier.Infrastructure.IWindowService.ShowSettingsWindow" name="Easy_Copier.Infrastructure.IWindowService.ShowSettingsWindow">
-<area shape="rect" id="Node000001" title=" " alt="" coords="257,39,505,81"/>
+<area shape="rect" id="Node000001" title="Opens the Settings window with optional completion callback and tab action." alt="" coords="257,39,505,81"/>
 <area shape="rect" id="Node000002" href="$class_easy___copier_1_1_view_models_1_1_main_view_model.html#ab510c1e6a9cf59ba4dca545667572e25" title=" " alt="" coords="5,5,209,48"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="238,43,209,42,209,36,244,43"/>
 <area shape="rect" id="Node000003" href="$class_easy___copier_1_1_view_models_1_1_main_view_model.html#a7e04c9f1b8f92bdb0e0b615df032cd6b" title=" " alt="" coords="5,72,209,115"/>

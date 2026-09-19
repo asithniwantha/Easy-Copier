@@ -49,7 +49,7 @@
 <!-- Node3 -->
 <g id="Node000003" class="node">
 <title>Node3</title>
-<g id="a_Node000003"><a xlink:href="interface_easy___copier_1_1_services_1_1_i_transfer_queue_service.html#afdf1a06fba0ea7f44bc32d23bcef4edf" target="_top" xlink:title=" ">
+<g id="a_Node000003"><a xlink:href="interface_easy___copier_1_1_services_1_1_i_transfer_queue_service.html#afdf1a06fba0ea7f44bc32d23bcef4edf" target="_top" xlink:title="Enqueues a batch of transfer items targeting a specific drive.">
 <polygon fill="white" stroke="#666666" points="1082.38,-350 926.88,-350 926.88,-318 1082.38,-318 1082.38,-350"/>
 <text xml:space="preserve" text-anchor="start" x="934.88" y="-336.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Services.ITransfer</text>
 <text xml:space="preserve" text-anchor="middle" x="1004.62" y="-324.5" font-family="Helvetica,sans-Serif" font-size="10.00">QueueService.Enqueue</text>
@@ -68,7 +68,7 @@
 <!-- Node4 -->
 <g id="Node000004" class="node">
 <title>Node4</title>
-<g id="a_Node000004"><a xlink:href="class_easy___copier_1_1_services_1_1_transfer_queue_service.html#a5652702431c6d1b7a185da7e3c383e29" target="_top" xlink:title=" ">
+<g id="a_Node000004"><a xlink:href="class_easy___copier_1_1_services_1_1_transfer_queue_service.html#a5652702431c6d1b7a185da7e3c383e29" target="_top" xlink:title="Enqueues a batch transfer request targeting a specific drive.">
 <polygon fill="white" stroke="#666666" points="1080.88,-300 928.38,-300 928.38,-268 1080.88,-268 1080.88,-300"/>
 <text xml:space="preserve" text-anchor="start" x="936.38" y="-286.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Services.Transfer</text>
 <text xml:space="preserve" text-anchor="middle" x="1004.62" y="-274.5" font-family="Helvetica,sans-Serif" font-size="10.00">QueueService.Enqueue</text>
@@ -87,7 +87,7 @@
 <!-- Node5 -->
 <g id="Node000005" class="node">
 <title>Node5</title>
-<g id="a_Node000005"><a xlink:href="class_easy___copier_1_1_services_1_1_drive_discovery_service.html#a258f6435fc2f1aacd52d731f0ed28425" target="_top" xlink:title=" ">
+<g id="a_Node000005"><a xlink:href="class_easy___copier_1_1_services_1_1_drive_discovery_service.html#a258f6435fc2f1aacd52d731f0ed28425" target="_top" xlink:title="Asynchronously retrieves all connected drives that are classified as removable or USB&#45;connected stora...">
 <polygon fill="white" stroke="#666666" points="1113.5,-250 895.75,-250 895.75,-218 1113.5,-218 1113.5,-250"/>
 <text xml:space="preserve" text-anchor="start" x="903.75" y="-236.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Services.Drive</text>
 <text xml:space="preserve" text-anchor="middle" x="1004.62" y="-224.5" font-family="Helvetica,sans-Serif" font-size="10.00">DiscoveryService.GetRemovableDrivesAsync</text>
@@ -106,7 +106,7 @@
 <!-- Node6 -->
 <g id="Node000006" class="node">
 <title>Node6</title>
-<g id="a_Node000006"><a xlink:href="class_easy___copier_1_1_services_1_1_game_scanner_service.html#ab0cc3d6dc81dba63d460e8ebb4465ac5" target="_top" xlink:title=" ">
+<g id="a_Node000006"><a xlink:href="class_easy___copier_1_1_services_1_1_game_scanner_service.html#ab0cc3d6dc81dba63d460e8ebb4465ac5" target="_top" xlink:title="Asynchronously scans the specified source directories for game, application, video,...">
 <polygon fill="white" stroke="#666666" points="1088.38,-200 920.88,-200 920.88,-168 1088.38,-168 1088.38,-200"/>
 <text xml:space="preserve" text-anchor="start" x="928.88" y="-186.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Services.Game</text>
 <text xml:space="preserve" text-anchor="middle" x="1004.62" y="-174.5" font-family="Helvetica,sans-Serif" font-size="10.00">ScannerService.ScanLibraryAsync</text>
@@ -144,7 +144,7 @@
 <!-- Node14 -->
 <g id="Node000014" class="node">
 <title>Node14</title>
-<g id="a_Node000014"><a xlink:href="class_easy___copier_1_1_services_1_1_drive_validation_service.html#ac4b9ded9985d7df860bf8838dda59bca" target="_top" xlink:title=" ">
+<g id="a_Node000014"><a xlink:href="class_easy___copier_1_1_services_1_1_drive_validation_service.html#ac4b9ded9985d7df860bf8838dda59bca" target="_top" xlink:title="Asynchronously validates selected games against target drive storage capacity, file system limitation...">
 <polygon fill="white" stroke="#666666" points="1100.75,-82 908.5,-82 908.5,-50 1100.75,-50 1100.75,-82"/>
 <text xml:space="preserve" text-anchor="start" x="916.5" y="-68.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Services.Drive</text>
 <text xml:space="preserve" text-anchor="middle" x="1004.62" y="-56.5" font-family="Helvetica,sans-Serif" font-size="10.00">ValidationService.ValidateTransferAsync</text>
@@ -163,7 +163,7 @@
 <!-- Node15 -->
 <g id="Node000015" class="node">
 <title>Node15</title>
-<g id="a_Node000015"><a xlink:href="interface_easy___copier_1_1_services_1_1_i_drive_validation_service.html#abf7e21510548c621bef8344a9700f630" target="_top" xlink:title=" ">
+<g id="a_Node000015"><a xlink:href="interface_easy___copier_1_1_services_1_1_i_drive_validation_service.html#abf7e21510548c621bef8344a9700f630" target="_top" xlink:title="Validates whether the selected games can be safely copied to the specified target drive and path.">
 <polygon fill="white" stroke="#666666" points="1100.75,-32 908.5,-32 908.5,0 1100.75,0 1100.75,-32"/>
 <text xml:space="preserve" text-anchor="start" x="916.5" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Services.IDrive</text>
 <text xml:space="preserve" text-anchor="middle" x="1004.62" y="-6.5" font-family="Helvetica,sans-Serif" font-size="10.00">ValidationService.ValidateTransferAsync</text>
@@ -191,7 +191,7 @@
 <!-- Node8 -->
 <g id="Node000008" class="node">
 <title>Node8</title>
-<g id="a_Node000008"><a xlink:href="class_easy___copier_1_1_services_1_1_transfer_queue_service.html#a533e1a35bdbcf9ff1fdd48462d021ff3" target="_top" xlink:title=" ">
+<g id="a_Node000008"><a xlink:href="class_easy___copier_1_1_services_1_1_transfer_queue_service.html#a533e1a35bdbcf9ff1fdd48462d021ff3" target="_top" xlink:title="Executes an individual transfer item and updates its status and progress properties on the UI thread.">
 <polygon fill="white" stroke="#666666" points="839.12,-182 675.38,-182 675.38,-150 839.12,-150 839.12,-182"/>
 <text xml:space="preserve" text-anchor="start" x="683.38" y="-168.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Services.Transfer</text>
 <text xml:space="preserve" text-anchor="middle" x="757.25" y="-156.5" font-family="Helvetica,sans-Serif" font-size="10.00">QueueService.ProcessItemAsync</text>
@@ -210,7 +210,7 @@
 <!-- Node12 -->
 <g id="Node000012" class="node">
 <title>Node12</title>
-<g id="a_Node000012"><a xlink:href="interface_easy___copier_1_1_services_1_1_i_file_transfer_service.html#ae4cb14860a42a462aab955a6e77a90d5" target="_top" xlink:title=" ">
+<g id="a_Node000012"><a xlink:href="interface_easy___copier_1_1_services_1_1_i_file_transfer_service.html#ae4cb14860a42a462aab955a6e77a90d5" target="_top" xlink:title="Asynchronously transfers game files according to the provided transfer request configuration.">
 <polygon fill="white" stroke="#666666" points="848.88,-132 665.62,-132 665.62,-100 848.88,-100 848.88,-132"/>
 <text xml:space="preserve" text-anchor="start" x="673.62" y="-118.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Services.IFile</text>
 <text xml:space="preserve" text-anchor="middle" x="757.25" y="-106.5" font-family="Helvetica,sans-Serif" font-size="10.00">TransferService.TransferGamesAsync</text>
@@ -229,7 +229,7 @@
 <!-- Node13 -->
 <g id="Node000013" class="node">
 <title>Node13</title>
-<g id="a_Node000013"><a xlink:href="class_easy___copier_1_1_services_1_1_windows_shell_transfer_service.html#a9055d728deea07bb02f90815f235d6c6" target="_top" xlink:title=" ">
+<g id="a_Node000013"><a xlink:href="class_easy___copier_1_1_services_1_1_windows_shell_transfer_service.html#a9055d728deea07bb02f90815f235d6c6" target="_top" xlink:title="Executes a transfer request asynchronously on a dedicated STA background thread using Windows Shell C...">
 <polygon fill="white" stroke="#666666" points="859.75,-82 654.75,-82 654.75,-50 859.75,-50 859.75,-82"/>
 <text xml:space="preserve" text-anchor="start" x="662.75" y="-68.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Services.Windows</text>
 <text xml:space="preserve" text-anchor="middle" x="757.25" y="-56.5" font-family="Helvetica,sans-Serif" font-size="10.00">ShellTransferService.TransferGamesAsync</text>
@@ -248,7 +248,7 @@
 <!-- Node9 -->
 <g id="Node000009" class="node">
 <title>Node9</title>
-<g id="a_Node000009"><a xlink:href="class_easy___copier_1_1_services_1_1_transfer_queue_service.html#a78c880327c9c88ec2a8691920afd3593" target="_top" xlink:title=" ">
+<g id="a_Node000009"><a xlink:href="class_easy___copier_1_1_services_1_1_transfer_queue_service.html#a78c880327c9c88ec2a8691920afd3593" target="_top" xlink:title="Per&#45;drive loop processing queued transfers sequentially for a single drive letter.">
 <polygon fill="white" stroke="#666666" points="618.75,-182 422.75,-182 422.75,-150 618.75,-150 618.75,-182"/>
 <text xml:space="preserve" text-anchor="start" x="430.75" y="-168.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Services.Transfer</text>
 <text xml:space="preserve" text-anchor="middle" x="520.75" y="-156.5" font-family="Helvetica,sans-Serif" font-size="10.00">QueueService.ProcessDriveQueueAsync</text>
@@ -267,7 +267,7 @@
 <!-- Node10 -->
 <g id="Node000010" class="node">
 <title>Node10</title>
-<g id="a_Node000010"><a xlink:href="class_easy___copier_1_1_services_1_1_transfer_queue_service.html#ad3adb01ff5efc729bccd3060144e6f34" target="_top" xlink:title=" ">
+<g id="a_Node000010"><a xlink:href="class_easy___copier_1_1_services_1_1_transfer_queue_service.html#ad3adb01ff5efc729bccd3060144e6f34" target="_top" xlink:title="Main background loop reading items from the primary channel and routing them to per&#45;drive execution c...">
 <polygon fill="white" stroke="#666666" points="386.75,-182 214,-182 214,-150 386.75,-150 386.75,-182"/>
 <text xml:space="preserve" text-anchor="start" x="222" y="-168.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Services.Transfer</text>
 <text xml:space="preserve" text-anchor="middle" x="300.38" y="-156.5" font-family="Helvetica,sans-Serif" font-size="10.00">QueueService.ProcessQueueAsync</text>
@@ -286,7 +286,7 @@
 <!-- Node11 -->
 <g id="Node000011" class="node">
 <title>Node11</title>
-<g id="a_Node000011"><a xlink:href="class_easy___copier_1_1_services_1_1_transfer_queue_service.html#a31960a3b7a1549213ab478448f6c15c2" target="_top" xlink:title=" ">
+<g id="a_Node000011"><a xlink:href="class_easy___copier_1_1_services_1_1_transfer_queue_service.html#a31960a3b7a1549213ab478448f6c15c2" target="_top" xlink:title="Initializes a new instance of the TransferQueueService class and starts background consumer tasks.">
 <polygon fill="white" stroke="#666666" points="178,-182 0,-182 0,-150 178,-150 178,-182"/>
 <text xml:space="preserve" text-anchor="start" x="8" y="-168.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Services.Transfer</text>
 <text xml:space="preserve" text-anchor="middle" x="89" y="-156.5" font-family="Helvetica,sans-Serif" font-size="10.00">QueueService.TransferQueueService</text>

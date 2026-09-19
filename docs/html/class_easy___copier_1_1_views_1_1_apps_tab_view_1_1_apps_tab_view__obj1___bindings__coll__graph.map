@@ -1,0 +1,24 @@
+<map id="Easy_Copier.Views.AppsTabView.AppsTabView_obj1_Bindings" name="Easy_Copier.Views.AppsTabView.AppsTabView_obj1_Bindings">
+<area shape="rect" id="Node000001" title=" " alt="" coords="704,164,925,207"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="320,5,540,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="526,50,551,57,617,77,681,102,736,131,785,164,779,163,734,136,679,106,615,82,549,63,526,55"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="313,72,548,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="563,106,681,131,767,163,762,164,679,136,563,112"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="5,139,205,181"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="220,161,705,179,703,184,220,167"/>
+<area shape="rect" id="Node000006" href="$class_easy___copier_1_1_views_1_1_apps_tab_view.html" title="UserControl representing the Applications tab in the library view." alt="" coords="320,280,540,307"/>
+<area shape="poly" id="edge7_Node000006_Node000004" title=" " alt="" coords="176,185,288,230,400,279,395,280,286,234,176,190"/>
+<area shape="rect" id="Node000005" href="$interface_easy___copier_1_1_views_1_1_apps_tab_view_1_1_i_apps_tab_view___bindings.html" title=" " alt="" coords="8,215,202,257"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="217,225,704,191,703,196,218,231"/>
+<area shape="poly" id="edge11_Node000006_Node000005" title=" " alt="" coords="217,257,229,259,338,278,334,281,228,264,218,262"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="555,284,618,275,679,259,735,234,781,208,786,206,737,238,681,264,619,280,556,289"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="8,291,202,333"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="217,312,334,306,329,309,218,317"/>
+<area shape="poly" id="edge8_Node000006_Node000007" title=" " alt="" coords="217,294,322,290,317,292,218,300"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="59,357,151,384"/>
+<area shape="poly" id="edge9_Node000006_Node000008" title=" " alt="" coords="165,353,310,316,364,306,359,308,311,321,166,358"/>
+<area shape="rect" id="Node000009" href="$interface_easy___copier_1_1_views_1_1_i_library_tab_view.html" title="Contract implemented by library tab user controls for unified selection management." alt="" coords="13,408,197,451"/>
+<area shape="poly" id="edge10_Node000006_Node000009" title=" " alt="" coords="191,399,203,394,246,371,285,342,296,329,309,316,335,308,340,306,312,321,300,332,288,346,249,376,206,398,193,404"/>
+<area shape="rect" id="Node000010" href="$class_easy___copier_1_1_views_1_1_apps_tab_view_1_1_apps_tab_view__obj1___bindings_1_1_apps_tab_view__obj1___bindings_tracking.html" title=" " alt="" coords="311,331,550,389"/>
+<area shape="poly" id="edge12_Node000001_Node000010" title=" " alt="" coords="565,347,623,333,679,311,715,288,747,259,795,208,800,206,751,263,718,292,681,316,625,338,566,352"/>
+</map>

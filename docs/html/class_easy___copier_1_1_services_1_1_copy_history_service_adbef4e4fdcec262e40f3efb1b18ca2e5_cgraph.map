@@ -1,8 +1,8 @@
 <map id="Easy_Copier.Services.CopyHistoryService.GetAvailableMonthsAsync" name="Easy_Copier.Services.CopyHistoryService.GetAvailableMonthsAsync">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,29,271,72"/>
+<area shape="rect" id="Node000001" title="Asynchronously determines all distinct year/month combinations present in the history database." alt="" coords="5,29,271,72"/>
 <area shape="rect" id="Node000002" href="$namespace_easy___copier_1_1_models.html#a22cad9581ea699aafef9d310c84f0836" title=" " alt="" coords="600,29,819,72"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="271,45,319,44,552,44,587,47,581,47,552,49,319,49,271,50"/>
-<area shape="rect" id="Node000003" href="$class_easy___copier_1_1_services_1_1_copy_history_service.html#adb2b5883ce370a33757bd5764bc96228" title=" " alt="" coords="319,59,552,101"/>
+<area shape="rect" id="Node000003" href="$class_easy___copier_1_1_services_1_1_copy_history_service.html#adb2b5883ce370a33757bd5764bc96228" title="Helper method that reads all history records stored in the database." alt="" coords="319,59,552,101"/>
 <area shape="poly" id="edge3_Node000001_Node000003" title=" " alt="" coords="271,61,305,67,300,67,271,66"/>
 <area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="658,27,656,19,665,10,683,5,710,3,739,5,758,14,753,14,738,10,710,8,684,10,667,15,661,21,663,30"/>
 <area shape="poly" id="edge4_Node000003_Node000002" title=" " alt="" coords="552,65,582,64,587,64,553,70"/>

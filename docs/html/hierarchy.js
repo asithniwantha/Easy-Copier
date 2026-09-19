@@ -17,16 +17,20 @@ var hierarchy =
       [ "Easy_Copier.App", "class_easy___copier_1_1_app.html", null ]
     ] ],
     [ "Easy_Copier.Models.AppSettings", "class_easy___copier_1_1_models_1_1_app_settings.html", null ],
+    [ "Easy_Copier.Views.AppsTabView.AppsTabView_obj1_Bindings.AppsTabView_obj1_BindingsTracking", "class_easy___copier_1_1_views_1_1_apps_tab_view_1_1_apps_tab_view__obj1___bindings_1_1_apps_tab_view__obj1___bindings_tracking.html", null ],
     [ "Microsoft.Xaml.Interactivity.Behavior", null, [
       [ "Easy_Copier.Behaviors.FocusWithinBehavior", "class_easy___copier_1_1_behaviors_1_1_focus_within_behavior.html", null ],
       [ "Easy_Copier.Behaviors.HoverBehavior", "class_easy___copier_1_1_behaviors_1_1_hover_behavior.html", null ],
       [ "Easy_Copier.Behaviors.NumericTextBoxBehavior", "class_easy___copier_1_1_behaviors_1_1_numeric_text_box_behavior.html", null ]
     ] ],
+    [ "Easy_Copier.Views.ConflictDialogContent.ConflictDialogContent_obj1_Bindings.ConflictDialogContent_obj1_BindingsTracking", "class_easy___copier_1_1_views_1_1_conflict_dialog_content_1_1_conflict_dialog_content__obj1___bif831f6fbba8421fd7cc7ec397c3662ec.html", null ],
     [ "Easy_Copier.Interop.FileOperationInterop", "class_easy___copier_1_1_interop_1_1_file_operation_interop.html", null ],
     [ "Easy_Copier.Infrastructure.FileSystemHelpers", "class_easy___copier_1_1_infrastructure_1_1_file_system_helpers.html", null ],
+    [ "Easy_Copier.Infrastructure.FlyoutHelper", "class_easy___copier_1_1_infrastructure_1_1_flyout_helper.html", null ],
     [ "Easy_Copier.Infrastructure.FormattingHelpers", "class_easy___copier_1_1_infrastructure_1_1_formatting_helpers.html", null ],
     [ "Easy_Copier.Views.GameDetailsFlyout.GameDetailsFlyout_obj1_Bindings.GameDetailsFlyout_obj1_BindingsTracking", "class_easy___copier_1_1_views_1_1_game_details_flyout_1_1_game_details_flyout__obj1___bindings_19d507df63b2a4e39c1531db504bbf67b.html", null ],
     [ "Easy_Copier.Views.GameDetailsFlyout.GameDetailsFlyout_obj6_Bindings.GameDetailsFlyout_obj6_BindingsTracking", "class_easy___copier_1_1_views_1_1_game_details_flyout_1_1_game_details_flyout__obj6___bindings_13c9d381701cd52e5efbcd131f32364af.html", null ],
+    [ "Easy_Copier.Views.GamesTabView.GamesTabView_obj1_Bindings.GamesTabView_obj1_BindingsTracking", "class_easy___copier_1_1_views_1_1_games_tab_view_1_1_games_tab_view__obj1___bindings_1_1_games_ta772194b92f36762b8aa404da4ab9ab1.html", null ],
     [ "Easy_Copier.Views.HistoryPage.HistoryPage_obj1_Bindings.HistoryPage_obj1_BindingsTracking", "class_easy___copier_1_1_views_1_1_history_page_1_1_history_page__obj1___bindings_1_1_history_page__obj1___bindings_tracking.html", null ],
     [ "Easy_Copier.Views.AboutWindow.IAboutWindow_Bindings", "interface_easy___copier_1_1_views_1_1_about_window_1_1_i_about_window___bindings.html", [
       [ "Easy_Copier.Views.AboutWindow.AboutWindow_obj1_Bindings", "class_easy___copier_1_1_views_1_1_about_window_1_1_about_window__obj1___bindings.html", null ],
@@ -36,6 +40,11 @@ var hierarchy =
       [ "Easy_Copier.Views.AboutWindow.AboutWindow_obj1_Bindings", "class_easy___copier_1_1_views_1_1_about_window_1_1_about_window__obj1___bindings.html", null ]
     ] ],
     [ "Easy_Copier.Views.AboutWindow.IAboutWindow_BindingsScopeConnector", "interface_easy___copier_1_1_views_1_1_about_window_1_1_i_about_window___bindings_scope_connector.html", null ],
+    [ "Easy_Copier.Views.AppsTabView.IAppsTabView_Bindings", "interface_easy___copier_1_1_views_1_1_apps_tab_view_1_1_i_apps_tab_view___bindings.html", [
+      [ "Easy_Copier.Views.AppsTabView.AppsTabView_obj1_Bindings", "class_easy___copier_1_1_views_1_1_apps_tab_view_1_1_apps_tab_view__obj1___bindings.html", null ],
+      [ "Easy_Copier.Views.AppsTabView.AppsTabView_obj3_Bindings", "class_easy___copier_1_1_views_1_1_apps_tab_view_1_1_apps_tab_view__obj3___bindings.html", null ]
+    ] ],
+    [ "Easy_Copier.Views.AppsTabView.IAppsTabView_BindingsScopeConnector", "interface_easy___copier_1_1_views_1_1_apps_tab_view_1_1_i_apps_tab_view___bindings_scope_connector.html", null ],
     [ "Easy_Copier.Infrastructure.IAppWindowContext", "interface_easy___copier_1_1_infrastructure_1_1_i_app_window_context.html", [
       [ "Easy_Copier.Infrastructure.AppWindowContext", "class_easy___copier_1_1_infrastructure_1_1_app_window_context.html", null ]
     ] ],
@@ -58,6 +67,11 @@ var hierarchy =
       [ "Easy_Copier.Views.AboutWindow.AboutWindow_obj1_Bindings", "class_easy___copier_1_1_views_1_1_about_window_1_1_about_window__obj1___bindings.html", null ],
       [ "Easy_Copier.Views.AboutWindow.AboutWindow_obj1_Bindings", "class_easy___copier_1_1_views_1_1_about_window_1_1_about_window__obj1___bindings.html", null ],
       [ "Easy_Copier.Views.AboutWindow.AboutWindow_obj1_Bindings", "class_easy___copier_1_1_views_1_1_about_window_1_1_about_window__obj1___bindings.html", null ],
+      [ "Easy_Copier.Views.AppsTabView", "class_easy___copier_1_1_views_1_1_apps_tab_view.html", null ],
+      [ "Easy_Copier.Views.AppsTabView.AppsTabView_obj1_Bindings", "class_easy___copier_1_1_views_1_1_apps_tab_view_1_1_apps_tab_view__obj1___bindings.html", null ],
+      [ "Easy_Copier.Views.AppsTabView.AppsTabView_obj3_Bindings", "class_easy___copier_1_1_views_1_1_apps_tab_view_1_1_apps_tab_view__obj3___bindings.html", null ],
+      [ "Easy_Copier.Views.ConflictDialogContent", "class_easy___copier_1_1_views_1_1_conflict_dialog_content.html", null ],
+      [ "Easy_Copier.Views.ConflictDialogContent.ConflictDialogContent_obj1_Bindings", "class_easy___copier_1_1_views_1_1_conflict_dialog_content_1_1_conflict_dialog_content__obj1___bindings.html", null ],
       [ "Easy_Copier.Views.GameDetailsFlyout", "class_easy___copier_1_1_views_1_1_game_details_flyout.html", null ],
       [ "Easy_Copier.Views.GameDetailsFlyout", "class_easy___copier_1_1_views_1_1_game_details_flyout.html", null ],
       [ "Easy_Copier.Views.GameDetailsFlyout", "class_easy___copier_1_1_views_1_1_game_details_flyout.html", null ],
@@ -67,6 +81,9 @@ var hierarchy =
       [ "Easy_Copier.Views.GameDetailsFlyout.GameDetailsFlyout_obj6_Bindings", "class_easy___copier_1_1_views_1_1_game_details_flyout_1_1_game_details_flyout__obj6___bindings.html", null ],
       [ "Easy_Copier.Views.GameDetailsFlyout.GameDetailsFlyout_obj6_Bindings", "class_easy___copier_1_1_views_1_1_game_details_flyout_1_1_game_details_flyout__obj6___bindings.html", null ],
       [ "Easy_Copier.Views.GameDetailsFlyout.GameDetailsFlyout_obj6_Bindings", "class_easy___copier_1_1_views_1_1_game_details_flyout_1_1_game_details_flyout__obj6___bindings.html", null ],
+      [ "Easy_Copier.Views.GamesTabView", "class_easy___copier_1_1_views_1_1_games_tab_view.html", null ],
+      [ "Easy_Copier.Views.GamesTabView.GamesTabView_obj1_Bindings", "class_easy___copier_1_1_views_1_1_games_tab_view_1_1_games_tab_view__obj1___bindings.html", null ],
+      [ "Easy_Copier.Views.GamesTabView.GamesTabView_obj3_Bindings", "class_easy___copier_1_1_views_1_1_games_tab_view_1_1_games_tab_view__obj3___bindings.html", null ],
       [ "Easy_Copier.Views.HistoryPage", "class_easy___copier_1_1_views_1_1_history_page.html", null ],
       [ "Easy_Copier.Views.HistoryPage", "class_easy___copier_1_1_views_1_1_history_page.html", null ],
       [ "Easy_Copier.Views.HistoryPage", "class_easy___copier_1_1_views_1_1_history_page.html", null ],
@@ -87,6 +104,7 @@ var hierarchy =
       [ "Easy_Copier.Views.MainPage", "class_easy___copier_1_1_views_1_1_main_page.html", null ],
       [ "Easy_Copier.Views.MainPage", "class_easy___copier_1_1_views_1_1_main_page.html", null ],
       [ "Easy_Copier.Views.MainPage", "class_easy___copier_1_1_views_1_1_main_page.html", null ],
+      [ "Easy_Copier.Views.MainPage.MainPage_obj13_Bindings", "class_easy___copier_1_1_views_1_1_main_page_1_1_main_page__obj13___bindings.html", null ],
       [ "Easy_Copier.Views.MainPage.MainPage_obj1_Bindings", "class_easy___copier_1_1_views_1_1_main_page_1_1_main_page__obj1___bindings.html", null ],
       [ "Easy_Copier.Views.MainPage.MainPage_obj1_Bindings", "class_easy___copier_1_1_views_1_1_main_page_1_1_main_page__obj1___bindings.html", null ],
       [ "Easy_Copier.Views.MainPage.MainPage_obj1_Bindings", "class_easy___copier_1_1_views_1_1_main_page_1_1_main_page__obj1___bindings.html", null ],
@@ -96,24 +114,25 @@ var hierarchy =
       [ "Easy_Copier.Views.MainPage.MainPage_obj21_Bindings", "class_easy___copier_1_1_views_1_1_main_page_1_1_main_page__obj21___bindings.html", null ],
       [ "Easy_Copier.Views.MainPage.MainPage_obj23_Bindings", "class_easy___copier_1_1_views_1_1_main_page_1_1_main_page__obj23___bindings.html", null ],
       [ "Easy_Copier.Views.MainPage.MainPage_obj23_Bindings", "class_easy___copier_1_1_views_1_1_main_page_1_1_main_page__obj23___bindings.html", null ],
-      [ "Easy_Copier.Views.MainPage.MainPage_obj23_Bindings", "class_easy___copier_1_1_views_1_1_main_page_1_1_main_page__obj23___bindings.html", null ],
+      [ "Easy_Copier.Views.MainPage.MainPage_obj26_Bindings", "class_easy___copier_1_1_views_1_1_main_page_1_1_main_page__obj26___bindings.html", null ],
       [ "Easy_Copier.Views.MainPage.MainPage_obj34_Bindings", "class_easy___copier_1_1_views_1_1_main_page_1_1_main_page__obj34___bindings.html", null ],
       [ "Easy_Copier.Views.MainPage.MainPage_obj34_Bindings", "class_easy___copier_1_1_views_1_1_main_page_1_1_main_page__obj34___bindings.html", null ],
+      [ "Easy_Copier.Views.MainPage.MainPage_obj35_Bindings", "class_easy___copier_1_1_views_1_1_main_page_1_1_main_page__obj35___bindings.html", null ],
       [ "Easy_Copier.Views.MainPage.MainPage_obj36_Bindings", "class_easy___copier_1_1_views_1_1_main_page_1_1_main_page__obj36___bindings.html", null ],
       [ "Easy_Copier.Views.MainPage.MainPage_obj36_Bindings", "class_easy___copier_1_1_views_1_1_main_page_1_1_main_page__obj36___bindings.html", null ],
-      [ "Easy_Copier.Views.MainPage.MainPage_obj36_Bindings", "class_easy___copier_1_1_views_1_1_main_page_1_1_main_page__obj36___bindings.html", null ],
-      [ "Easy_Copier.Views.MainPage.MainPage_obj3_Bindings", "class_easy___copier_1_1_views_1_1_main_page_1_1_main_page__obj3___bindings.html", null ],
       [ "Easy_Copier.Views.MainPage.MainPage_obj3_Bindings", "class_easy___copier_1_1_views_1_1_main_page_1_1_main_page__obj3___bindings.html", null ],
       [ "Easy_Copier.Views.MainPage.MainPage_obj3_Bindings", "class_easy___copier_1_1_views_1_1_main_page_1_1_main_page__obj3___bindings.html", null ],
       [ "Easy_Copier.Views.MainPage.MainPage_obj3_Bindings", "class_easy___copier_1_1_views_1_1_main_page_1_1_main_page__obj3___bindings.html", null ],
       [ "Easy_Copier.Views.MainPage.MainPage_obj3_Bindings", "class_easy___copier_1_1_views_1_1_main_page_1_1_main_page__obj3___bindings.html", null ],
       [ "Easy_Copier.Views.MainPage.MainPage_obj43_Bindings", "class_easy___copier_1_1_views_1_1_main_page_1_1_main_page__obj43___bindings.html", null ],
       [ "Easy_Copier.Views.MainPage.MainPage_obj43_Bindings", "class_easy___copier_1_1_views_1_1_main_page_1_1_main_page__obj43___bindings.html", null ],
-      [ "Easy_Copier.Views.MainPage.MainPage_obj45_Bindings", "class_easy___copier_1_1_views_1_1_main_page_1_1_main_page__obj45___bindings.html", null ],
       [ "Easy_Copier.Views.MainPage.MainPage_obj45_Bindings", "class_easy___copier_1_1_views_1_1_main_page_1_1_main_page__obj45___bindings.html", null ],
       [ "Easy_Copier.Views.MainPage.MainPage_obj45_Bindings", "class_easy___copier_1_1_views_1_1_main_page_1_1_main_page__obj45___bindings.html", null ],
       [ "Easy_Copier.Views.OsImageDetailsFlyout", "class_easy___copier_1_1_views_1_1_os_image_details_flyout.html", null ],
       [ "Easy_Copier.Views.OsImageDetailsFlyout.OsImageDetailsFlyout_obj1_Bindings", "class_easy___copier_1_1_views_1_1_os_image_details_flyout_1_1_os_image_details_flyout__obj1___bindings.html", null ],
+      [ "Easy_Copier.Views.OsImagesTabView", "class_easy___copier_1_1_views_1_1_os_images_tab_view.html", null ],
+      [ "Easy_Copier.Views.OsImagesTabView.OsImagesTabView_obj1_Bindings", "class_easy___copier_1_1_views_1_1_os_images_tab_view_1_1_os_images_tab_view__obj1___bindings.html", null ],
+      [ "Easy_Copier.Views.OsImagesTabView.OsImagesTabView_obj3_Bindings", "class_easy___copier_1_1_views_1_1_os_images_tab_view_1_1_os_images_tab_view__obj3___bindings.html", null ],
       [ "Easy_Copier.Views.SettingsWindow", "class_easy___copier_1_1_views_1_1_settings_window.html", null ],
       [ "Easy_Copier.Views.SettingsWindow", "class_easy___copier_1_1_views_1_1_settings_window.html", null ],
       [ "Easy_Copier.Views.SettingsWindow", "class_easy___copier_1_1_views_1_1_settings_window.html", null ],
@@ -162,8 +181,15 @@ var hierarchy =
       [ "Easy_Copier.Views.SmartAdderHistoryWindow", "class_easy___copier_1_1_views_1_1_smart_adder_history_window.html", null ],
       [ "Easy_Copier.Views.SmartAdderHistoryWindow", "class_easy___copier_1_1_views_1_1_smart_adder_history_window.html", null ],
       [ "Easy_Copier.Views.SmartAdderHistoryWindow", "class_easy___copier_1_1_views_1_1_smart_adder_history_window.html", null ],
-      [ "Easy_Copier.Views.SmartAdderHistoryWindow.SmartAdderHistoryWindow_obj1_Bindings", "class_easy___copier_1_1_views_1_1_smart_adder_history_window_1_1_smart_adder_history_window__obj1___bindings.html", null ]
+      [ "Easy_Copier.Views.SmartAdderHistoryWindow.SmartAdderHistoryWindow_obj1_Bindings", "class_easy___copier_1_1_views_1_1_smart_adder_history_window_1_1_smart_adder_history_window__obj1___bindings.html", null ],
+      [ "Easy_Copier.Views.TvAndFilmsTabView", "class_easy___copier_1_1_views_1_1_tv_and_films_tab_view.html", null ],
+      [ "Easy_Copier.Views.TvAndFilmsTabView.TvAndFilmsTabView_obj1_Bindings", "class_easy___copier_1_1_views_1_1_tv_and_films_tab_view_1_1_tv_and_films_tab_view__obj1___bindings.html", null ],
+      [ "Easy_Copier.Views.TvAndFilmsTabView.TvAndFilmsTabView_obj3_Bindings", "class_easy___copier_1_1_views_1_1_tv_and_films_tab_view_1_1_tv_and_films_tab_view__obj3___bindings.html", null ]
     ] ],
+    [ "Easy_Copier.Views.ConflictDialogContent.IConflictDialogContent_Bindings", "interface_easy___copier_1_1_views_1_1_conflict_dialog_content_1_1_i_conflict_dialog_content___bindings.html", [
+      [ "Easy_Copier.Views.ConflictDialogContent.ConflictDialogContent_obj1_Bindings", "class_easy___copier_1_1_views_1_1_conflict_dialog_content_1_1_conflict_dialog_content__obj1___bindings.html", null ]
+    ] ],
+    [ "Easy_Copier.Views.ConflictDialogContent.IConflictDialogContent_BindingsScopeConnector", "interface_easy___copier_1_1_views_1_1_conflict_dialog_content_1_1_i_conflict_dialog_content___bindings_scope_connector.html", null ],
     [ "Easy_Copier.Services.ICopyHistoryService", "interface_easy___copier_1_1_services_1_1_i_copy_history_service.html", [
       [ "Easy_Copier.Services.CopyHistoryService", "class_easy___copier_1_1_services_1_1_copy_history_service.html", null ]
     ] ],
@@ -171,14 +197,20 @@ var hierarchy =
       [ "Easy_Copier.Views.AboutWindow.AboutWindow_obj1_Bindings", "class_easy___copier_1_1_views_1_1_about_window_1_1_about_window__obj1___bindings.html", null ],
       [ "Easy_Copier.Views.AboutWindow.AboutWindow_obj1_Bindings", "class_easy___copier_1_1_views_1_1_about_window_1_1_about_window__obj1___bindings.html", null ],
       [ "Easy_Copier.Views.AboutWindow.AboutWindow_obj1_Bindings", "class_easy___copier_1_1_views_1_1_about_window_1_1_about_window__obj1___bindings.html", null ],
+      [ "Easy_Copier.Views.AppsTabView.AppsTabView_obj1_Bindings", "class_easy___copier_1_1_views_1_1_apps_tab_view_1_1_apps_tab_view__obj1___bindings.html", null ],
+      [ "Easy_Copier.Views.AppsTabView.AppsTabView_obj3_Bindings", "class_easy___copier_1_1_views_1_1_apps_tab_view_1_1_apps_tab_view__obj3___bindings.html", null ],
+      [ "Easy_Copier.Views.ConflictDialogContent.ConflictDialogContent_obj1_Bindings", "class_easy___copier_1_1_views_1_1_conflict_dialog_content_1_1_conflict_dialog_content__obj1___bindings.html", null ],
       [ "Easy_Copier.Views.GameDetailsFlyout.GameDetailsFlyout_obj1_Bindings", "class_easy___copier_1_1_views_1_1_game_details_flyout_1_1_game_details_flyout__obj1___bindings.html", null ],
       [ "Easy_Copier.Views.GameDetailsFlyout.GameDetailsFlyout_obj1_Bindings", "class_easy___copier_1_1_views_1_1_game_details_flyout_1_1_game_details_flyout__obj1___bindings.html", null ],
       [ "Easy_Copier.Views.GameDetailsFlyout.GameDetailsFlyout_obj6_Bindings", "class_easy___copier_1_1_views_1_1_game_details_flyout_1_1_game_details_flyout__obj6___bindings.html", null ],
       [ "Easy_Copier.Views.GameDetailsFlyout.GameDetailsFlyout_obj6_Bindings", "class_easy___copier_1_1_views_1_1_game_details_flyout_1_1_game_details_flyout__obj6___bindings.html", null ],
       [ "Easy_Copier.Views.GameDetailsFlyout.GameDetailsFlyout_obj6_Bindings", "class_easy___copier_1_1_views_1_1_game_details_flyout_1_1_game_details_flyout__obj6___bindings.html", null ],
+      [ "Easy_Copier.Views.GamesTabView.GamesTabView_obj1_Bindings", "class_easy___copier_1_1_views_1_1_games_tab_view_1_1_games_tab_view__obj1___bindings.html", null ],
+      [ "Easy_Copier.Views.GamesTabView.GamesTabView_obj3_Bindings", "class_easy___copier_1_1_views_1_1_games_tab_view_1_1_games_tab_view__obj3___bindings.html", null ],
       [ "Easy_Copier.Views.HistoryPage.HistoryPage_obj1_Bindings", "class_easy___copier_1_1_views_1_1_history_page_1_1_history_page__obj1___bindings.html", null ],
       [ "Easy_Copier.Views.HistoryPage.HistoryPage_obj1_Bindings", "class_easy___copier_1_1_views_1_1_history_page_1_1_history_page__obj1___bindings.html", null ],
       [ "Easy_Copier.Views.HistoryPage.HistoryPage_obj1_Bindings", "class_easy___copier_1_1_views_1_1_history_page_1_1_history_page__obj1___bindings.html", null ],
+      [ "Easy_Copier.Views.MainPage.MainPage_obj13_Bindings", "class_easy___copier_1_1_views_1_1_main_page_1_1_main_page__obj13___bindings.html", null ],
       [ "Easy_Copier.Views.MainPage.MainPage_obj1_Bindings", "class_easy___copier_1_1_views_1_1_main_page_1_1_main_page__obj1___bindings.html", null ],
       [ "Easy_Copier.Views.MainPage.MainPage_obj1_Bindings", "class_easy___copier_1_1_views_1_1_main_page_1_1_main_page__obj1___bindings.html", null ],
       [ "Easy_Copier.Views.MainPage.MainPage_obj1_Bindings", "class_easy___copier_1_1_views_1_1_main_page_1_1_main_page__obj1___bindings.html", null ],
@@ -186,23 +218,23 @@ var hierarchy =
       [ "Easy_Copier.Views.MainPage.MainPage_obj21_Bindings", "class_easy___copier_1_1_views_1_1_main_page_1_1_main_page__obj21___bindings.html", null ],
       [ "Easy_Copier.Views.MainPage.MainPage_obj23_Bindings", "class_easy___copier_1_1_views_1_1_main_page_1_1_main_page__obj23___bindings.html", null ],
       [ "Easy_Copier.Views.MainPage.MainPage_obj23_Bindings", "class_easy___copier_1_1_views_1_1_main_page_1_1_main_page__obj23___bindings.html", null ],
-      [ "Easy_Copier.Views.MainPage.MainPage_obj23_Bindings", "class_easy___copier_1_1_views_1_1_main_page_1_1_main_page__obj23___bindings.html", null ],
+      [ "Easy_Copier.Views.MainPage.MainPage_obj26_Bindings", "class_easy___copier_1_1_views_1_1_main_page_1_1_main_page__obj26___bindings.html", null ],
       [ "Easy_Copier.Views.MainPage.MainPage_obj34_Bindings", "class_easy___copier_1_1_views_1_1_main_page_1_1_main_page__obj34___bindings.html", null ],
       [ "Easy_Copier.Views.MainPage.MainPage_obj34_Bindings", "class_easy___copier_1_1_views_1_1_main_page_1_1_main_page__obj34___bindings.html", null ],
+      [ "Easy_Copier.Views.MainPage.MainPage_obj35_Bindings", "class_easy___copier_1_1_views_1_1_main_page_1_1_main_page__obj35___bindings.html", null ],
       [ "Easy_Copier.Views.MainPage.MainPage_obj36_Bindings", "class_easy___copier_1_1_views_1_1_main_page_1_1_main_page__obj36___bindings.html", null ],
       [ "Easy_Copier.Views.MainPage.MainPage_obj36_Bindings", "class_easy___copier_1_1_views_1_1_main_page_1_1_main_page__obj36___bindings.html", null ],
-      [ "Easy_Copier.Views.MainPage.MainPage_obj36_Bindings", "class_easy___copier_1_1_views_1_1_main_page_1_1_main_page__obj36___bindings.html", null ],
-      [ "Easy_Copier.Views.MainPage.MainPage_obj3_Bindings", "class_easy___copier_1_1_views_1_1_main_page_1_1_main_page__obj3___bindings.html", null ],
       [ "Easy_Copier.Views.MainPage.MainPage_obj3_Bindings", "class_easy___copier_1_1_views_1_1_main_page_1_1_main_page__obj3___bindings.html", null ],
       [ "Easy_Copier.Views.MainPage.MainPage_obj3_Bindings", "class_easy___copier_1_1_views_1_1_main_page_1_1_main_page__obj3___bindings.html", null ],
       [ "Easy_Copier.Views.MainPage.MainPage_obj3_Bindings", "class_easy___copier_1_1_views_1_1_main_page_1_1_main_page__obj3___bindings.html", null ],
       [ "Easy_Copier.Views.MainPage.MainPage_obj3_Bindings", "class_easy___copier_1_1_views_1_1_main_page_1_1_main_page__obj3___bindings.html", null ],
       [ "Easy_Copier.Views.MainPage.MainPage_obj43_Bindings", "class_easy___copier_1_1_views_1_1_main_page_1_1_main_page__obj43___bindings.html", null ],
       [ "Easy_Copier.Views.MainPage.MainPage_obj43_Bindings", "class_easy___copier_1_1_views_1_1_main_page_1_1_main_page__obj43___bindings.html", null ],
-      [ "Easy_Copier.Views.MainPage.MainPage_obj45_Bindings", "class_easy___copier_1_1_views_1_1_main_page_1_1_main_page__obj45___bindings.html", null ],
       [ "Easy_Copier.Views.MainPage.MainPage_obj45_Bindings", "class_easy___copier_1_1_views_1_1_main_page_1_1_main_page__obj45___bindings.html", null ],
       [ "Easy_Copier.Views.MainPage.MainPage_obj45_Bindings", "class_easy___copier_1_1_views_1_1_main_page_1_1_main_page__obj45___bindings.html", null ],
       [ "Easy_Copier.Views.OsImageDetailsFlyout.OsImageDetailsFlyout_obj1_Bindings", "class_easy___copier_1_1_views_1_1_os_image_details_flyout_1_1_os_image_details_flyout__obj1___bindings.html", null ],
+      [ "Easy_Copier.Views.OsImagesTabView.OsImagesTabView_obj1_Bindings", "class_easy___copier_1_1_views_1_1_os_images_tab_view_1_1_os_images_tab_view__obj1___bindings.html", null ],
+      [ "Easy_Copier.Views.OsImagesTabView.OsImagesTabView_obj3_Bindings", "class_easy___copier_1_1_views_1_1_os_images_tab_view_1_1_os_images_tab_view__obj3___bindings.html", null ],
       [ "Easy_Copier.Views.SettingsWindow.SettingsWindow_obj16_Bindings", "class_easy___copier_1_1_views_1_1_settings_window_1_1_settings_window__obj16___bindings.html", null ],
       [ "Easy_Copier.Views.SettingsWindow.SettingsWindow_obj16_Bindings", "class_easy___copier_1_1_views_1_1_settings_window_1_1_settings_window__obj16___bindings.html", null ],
       [ "Easy_Copier.Views.SettingsWindow.SettingsWindow_obj17_Bindings", "class_easy___copier_1_1_views_1_1_settings_window_1_1_settings_window__obj17___bindings.html", null ],
@@ -232,23 +264,27 @@ var hierarchy =
       [ "Easy_Copier.Views.SmartAdderControl.SmartAdderControl_obj3_Bindings", "class_easy___copier_1_1_views_1_1_smart_adder_control_1_1_smart_adder_control__obj3___bindings.html", null ],
       [ "Easy_Copier.Views.SmartAdderControl.SmartAdderControl_obj3_Bindings", "class_easy___copier_1_1_views_1_1_smart_adder_control_1_1_smart_adder_control__obj3___bindings.html", null ],
       [ "Easy_Copier.Views.SmartAdderControl.SmartAdderControl_obj3_Bindings", "class_easy___copier_1_1_views_1_1_smart_adder_control_1_1_smart_adder_control__obj3___bindings.html", null ],
-      [ "Easy_Copier.Views.SmartAdderHistoryWindow.SmartAdderHistoryWindow_obj1_Bindings", "class_easy___copier_1_1_views_1_1_smart_adder_history_window_1_1_smart_adder_history_window__obj1___bindings.html", null ]
+      [ "Easy_Copier.Views.SmartAdderHistoryWindow.SmartAdderHistoryWindow_obj1_Bindings", "class_easy___copier_1_1_views_1_1_smart_adder_history_window_1_1_smart_adder_history_window__obj1___bindings.html", null ],
+      [ "Easy_Copier.Views.TvAndFilmsTabView.TvAndFilmsTabView_obj1_Bindings", "class_easy___copier_1_1_views_1_1_tv_and_films_tab_view_1_1_tv_and_films_tab_view__obj1___bindings.html", null ],
+      [ "Easy_Copier.Views.TvAndFilmsTabView.TvAndFilmsTabView_obj3_Bindings", "class_easy___copier_1_1_views_1_1_tv_and_films_tab_view_1_1_tv_and_films_tab_view__obj3___bindings.html", null ]
     ] ],
     [ "global.MicrosoftUI.Xaml.IDataTemplateExtension", null, [
+      [ "Easy_Copier.Views.AppsTabView.AppsTabView_obj3_Bindings", "class_easy___copier_1_1_views_1_1_apps_tab_view_1_1_apps_tab_view__obj3___bindings.html", null ],
       [ "Easy_Copier.Views.GameDetailsFlyout.GameDetailsFlyout_obj6_Bindings", "class_easy___copier_1_1_views_1_1_game_details_flyout_1_1_game_details_flyout__obj6___bindings.html", null ],
       [ "Easy_Copier.Views.GameDetailsFlyout.GameDetailsFlyout_obj6_Bindings", "class_easy___copier_1_1_views_1_1_game_details_flyout_1_1_game_details_flyout__obj6___bindings.html", null ],
       [ "Easy_Copier.Views.GameDetailsFlyout.GameDetailsFlyout_obj6_Bindings", "class_easy___copier_1_1_views_1_1_game_details_flyout_1_1_game_details_flyout__obj6___bindings.html", null ],
+      [ "Easy_Copier.Views.GamesTabView.GamesTabView_obj3_Bindings", "class_easy___copier_1_1_views_1_1_games_tab_view_1_1_games_tab_view__obj3___bindings.html", null ],
+      [ "Easy_Copier.Views.MainPage.MainPage_obj13_Bindings", "class_easy___copier_1_1_views_1_1_main_page_1_1_main_page__obj13___bindings.html", null ],
       [ "Easy_Copier.Views.MainPage.MainPage_obj21_Bindings", "class_easy___copier_1_1_views_1_1_main_page_1_1_main_page__obj21___bindings.html", null ],
       [ "Easy_Copier.Views.MainPage.MainPage_obj21_Bindings", "class_easy___copier_1_1_views_1_1_main_page_1_1_main_page__obj21___bindings.html", null ],
       [ "Easy_Copier.Views.MainPage.MainPage_obj23_Bindings", "class_easy___copier_1_1_views_1_1_main_page_1_1_main_page__obj23___bindings.html", null ],
       [ "Easy_Copier.Views.MainPage.MainPage_obj23_Bindings", "class_easy___copier_1_1_views_1_1_main_page_1_1_main_page__obj23___bindings.html", null ],
-      [ "Easy_Copier.Views.MainPage.MainPage_obj23_Bindings", "class_easy___copier_1_1_views_1_1_main_page_1_1_main_page__obj23___bindings.html", null ],
+      [ "Easy_Copier.Views.MainPage.MainPage_obj26_Bindings", "class_easy___copier_1_1_views_1_1_main_page_1_1_main_page__obj26___bindings.html", null ],
       [ "Easy_Copier.Views.MainPage.MainPage_obj34_Bindings", "class_easy___copier_1_1_views_1_1_main_page_1_1_main_page__obj34___bindings.html", null ],
       [ "Easy_Copier.Views.MainPage.MainPage_obj34_Bindings", "class_easy___copier_1_1_views_1_1_main_page_1_1_main_page__obj34___bindings.html", null ],
+      [ "Easy_Copier.Views.MainPage.MainPage_obj35_Bindings", "class_easy___copier_1_1_views_1_1_main_page_1_1_main_page__obj35___bindings.html", null ],
       [ "Easy_Copier.Views.MainPage.MainPage_obj36_Bindings", "class_easy___copier_1_1_views_1_1_main_page_1_1_main_page__obj36___bindings.html", null ],
       [ "Easy_Copier.Views.MainPage.MainPage_obj36_Bindings", "class_easy___copier_1_1_views_1_1_main_page_1_1_main_page__obj36___bindings.html", null ],
-      [ "Easy_Copier.Views.MainPage.MainPage_obj36_Bindings", "class_easy___copier_1_1_views_1_1_main_page_1_1_main_page__obj36___bindings.html", null ],
-      [ "Easy_Copier.Views.MainPage.MainPage_obj3_Bindings", "class_easy___copier_1_1_views_1_1_main_page_1_1_main_page__obj3___bindings.html", null ],
       [ "Easy_Copier.Views.MainPage.MainPage_obj3_Bindings", "class_easy___copier_1_1_views_1_1_main_page_1_1_main_page__obj3___bindings.html", null ],
       [ "Easy_Copier.Views.MainPage.MainPage_obj3_Bindings", "class_easy___copier_1_1_views_1_1_main_page_1_1_main_page__obj3___bindings.html", null ],
       [ "Easy_Copier.Views.MainPage.MainPage_obj3_Bindings", "class_easy___copier_1_1_views_1_1_main_page_1_1_main_page__obj3___bindings.html", null ],
@@ -257,7 +293,7 @@ var hierarchy =
       [ "Easy_Copier.Views.MainPage.MainPage_obj43_Bindings", "class_easy___copier_1_1_views_1_1_main_page_1_1_main_page__obj43___bindings.html", null ],
       [ "Easy_Copier.Views.MainPage.MainPage_obj45_Bindings", "class_easy___copier_1_1_views_1_1_main_page_1_1_main_page__obj45___bindings.html", null ],
       [ "Easy_Copier.Views.MainPage.MainPage_obj45_Bindings", "class_easy___copier_1_1_views_1_1_main_page_1_1_main_page__obj45___bindings.html", null ],
-      [ "Easy_Copier.Views.MainPage.MainPage_obj45_Bindings", "class_easy___copier_1_1_views_1_1_main_page_1_1_main_page__obj45___bindings.html", null ],
+      [ "Easy_Copier.Views.OsImagesTabView.OsImagesTabView_obj3_Bindings", "class_easy___copier_1_1_views_1_1_os_images_tab_view_1_1_os_images_tab_view__obj3___bindings.html", null ],
       [ "Easy_Copier.Views.SettingsWindow.SettingsWindow_obj16_Bindings", "class_easy___copier_1_1_views_1_1_settings_window_1_1_settings_window__obj16___bindings.html", null ],
       [ "Easy_Copier.Views.SettingsWindow.SettingsWindow_obj16_Bindings", "class_easy___copier_1_1_views_1_1_settings_window_1_1_settings_window__obj16___bindings.html", null ],
       [ "Easy_Copier.Views.SettingsWindow.SettingsWindow_obj17_Bindings", "class_easy___copier_1_1_views_1_1_settings_window_1_1_settings_window__obj17___bindings.html", null ],
@@ -280,7 +316,8 @@ var hierarchy =
       [ "Easy_Copier.Views.SmartAdderControl.SmartAdderControl_obj3_Bindings", "class_easy___copier_1_1_views_1_1_smart_adder_control_1_1_smart_adder_control__obj3___bindings.html", null ],
       [ "Easy_Copier.Views.SmartAdderControl.SmartAdderControl_obj3_Bindings", "class_easy___copier_1_1_views_1_1_smart_adder_control_1_1_smart_adder_control__obj3___bindings.html", null ],
       [ "Easy_Copier.Views.SmartAdderControl.SmartAdderControl_obj3_Bindings", "class_easy___copier_1_1_views_1_1_smart_adder_control_1_1_smart_adder_control__obj3___bindings.html", null ],
-      [ "Easy_Copier.Views.SmartAdderControl.SmartAdderControl_obj3_Bindings", "class_easy___copier_1_1_views_1_1_smart_adder_control_1_1_smart_adder_control__obj3___bindings.html", null ]
+      [ "Easy_Copier.Views.SmartAdderControl.SmartAdderControl_obj3_Bindings", "class_easy___copier_1_1_views_1_1_smart_adder_control_1_1_smart_adder_control__obj3___bindings.html", null ],
+      [ "Easy_Copier.Views.TvAndFilmsTabView.TvAndFilmsTabView_obj3_Bindings", "class_easy___copier_1_1_views_1_1_tv_and_films_tab_view_1_1_tv_and_films_tab_view__obj3___bindings.html", null ]
     ] ],
     [ "Easy_Copier.Infrastructure.IDialogService", "interface_easy___copier_1_1_infrastructure_1_1_i_dialog_service.html", [
       [ "Easy_Copier.Infrastructure.DialogService", "class_easy___copier_1_1_infrastructure_1_1_dialog_service.html", null ]
@@ -326,6 +363,11 @@ var hierarchy =
     [ "Easy_Copier.Services.IGameScannerService", "interface_easy___copier_1_1_services_1_1_i_game_scanner_service.html", [
       [ "Easy_Copier.Services.GameScannerService", "class_easy___copier_1_1_services_1_1_game_scanner_service.html", null ]
     ] ],
+    [ "Easy_Copier.Views.GamesTabView.IGamesTabView_Bindings", "interface_easy___copier_1_1_views_1_1_games_tab_view_1_1_i_games_tab_view___bindings.html", [
+      [ "Easy_Copier.Views.GamesTabView.GamesTabView_obj1_Bindings", "class_easy___copier_1_1_views_1_1_games_tab_view_1_1_games_tab_view__obj1___bindings.html", null ],
+      [ "Easy_Copier.Views.GamesTabView.GamesTabView_obj3_Bindings", "class_easy___copier_1_1_views_1_1_games_tab_view_1_1_games_tab_view__obj3___bindings.html", null ]
+    ] ],
+    [ "Easy_Copier.Views.GamesTabView.IGamesTabView_BindingsScopeConnector", "interface_easy___copier_1_1_views_1_1_games_tab_view_1_1_i_games_tab_view___bindings_scope_connector.html", null ],
     [ "Easy_Copier.Views.HistoryPage.IHistoryPage_Bindings", "interface_easy___copier_1_1_views_1_1_history_page_1_1_i_history_page___bindings.html", [
       [ "Easy_Copier.Views.HistoryPage.HistoryPage_obj1_Bindings", "class_easy___copier_1_1_views_1_1_history_page_1_1_history_page__obj1___bindings.html", null ],
       [ "Easy_Copier.Views.HistoryPage.HistoryPage_obj1_Bindings", "class_easy___copier_1_1_views_1_1_history_page_1_1_history_page__obj1___bindings.html", null ],
@@ -340,7 +382,14 @@ var hierarchy =
     [ "Easy_Copier.Services.ILibraryScannerService", "interface_easy___copier_1_1_services_1_1_i_library_scanner_service.html", [
       [ "Easy_Copier.Services.LibraryScannerService", "class_easy___copier_1_1_services_1_1_library_scanner_service.html", null ]
     ] ],
+    [ "Easy_Copier.Views.ILibraryTabView", "interface_easy___copier_1_1_views_1_1_i_library_tab_view.html", [
+      [ "Easy_Copier.Views.AppsTabView", "class_easy___copier_1_1_views_1_1_apps_tab_view.html", null ],
+      [ "Easy_Copier.Views.GamesTabView", "class_easy___copier_1_1_views_1_1_games_tab_view.html", null ],
+      [ "Easy_Copier.Views.OsImagesTabView", "class_easy___copier_1_1_views_1_1_os_images_tab_view.html", null ],
+      [ "Easy_Copier.Views.TvAndFilmsTabView", "class_easy___copier_1_1_views_1_1_tv_and_films_tab_view.html", null ]
+    ] ],
     [ "Easy_Copier.Views.MainPage.IMainPage_Bindings", "interface_easy___copier_1_1_views_1_1_main_page_1_1_i_main_page___bindings.html", [
+      [ "Easy_Copier.Views.MainPage.MainPage_obj13_Bindings", "class_easy___copier_1_1_views_1_1_main_page_1_1_main_page__obj13___bindings.html", null ],
       [ "Easy_Copier.Views.MainPage.MainPage_obj1_Bindings", "class_easy___copier_1_1_views_1_1_main_page_1_1_main_page__obj1___bindings.html", null ],
       [ "Easy_Copier.Views.MainPage.MainPage_obj1_Bindings", "class_easy___copier_1_1_views_1_1_main_page_1_1_main_page__obj1___bindings.html", null ],
       [ "Easy_Copier.Views.MainPage.MainPage_obj1_Bindings", "class_easy___copier_1_1_views_1_1_main_page_1_1_main_page__obj1___bindings.html", null ],
@@ -350,20 +399,18 @@ var hierarchy =
       [ "Easy_Copier.Views.MainPage.MainPage_obj21_Bindings", "class_easy___copier_1_1_views_1_1_main_page_1_1_main_page__obj21___bindings.html", null ],
       [ "Easy_Copier.Views.MainPage.MainPage_obj23_Bindings", "class_easy___copier_1_1_views_1_1_main_page_1_1_main_page__obj23___bindings.html", null ],
       [ "Easy_Copier.Views.MainPage.MainPage_obj23_Bindings", "class_easy___copier_1_1_views_1_1_main_page_1_1_main_page__obj23___bindings.html", null ],
-      [ "Easy_Copier.Views.MainPage.MainPage_obj23_Bindings", "class_easy___copier_1_1_views_1_1_main_page_1_1_main_page__obj23___bindings.html", null ],
+      [ "Easy_Copier.Views.MainPage.MainPage_obj26_Bindings", "class_easy___copier_1_1_views_1_1_main_page_1_1_main_page__obj26___bindings.html", null ],
       [ "Easy_Copier.Views.MainPage.MainPage_obj34_Bindings", "class_easy___copier_1_1_views_1_1_main_page_1_1_main_page__obj34___bindings.html", null ],
       [ "Easy_Copier.Views.MainPage.MainPage_obj34_Bindings", "class_easy___copier_1_1_views_1_1_main_page_1_1_main_page__obj34___bindings.html", null ],
+      [ "Easy_Copier.Views.MainPage.MainPage_obj35_Bindings", "class_easy___copier_1_1_views_1_1_main_page_1_1_main_page__obj35___bindings.html", null ],
       [ "Easy_Copier.Views.MainPage.MainPage_obj36_Bindings", "class_easy___copier_1_1_views_1_1_main_page_1_1_main_page__obj36___bindings.html", null ],
       [ "Easy_Copier.Views.MainPage.MainPage_obj36_Bindings", "class_easy___copier_1_1_views_1_1_main_page_1_1_main_page__obj36___bindings.html", null ],
-      [ "Easy_Copier.Views.MainPage.MainPage_obj36_Bindings", "class_easy___copier_1_1_views_1_1_main_page_1_1_main_page__obj36___bindings.html", null ],
-      [ "Easy_Copier.Views.MainPage.MainPage_obj3_Bindings", "class_easy___copier_1_1_views_1_1_main_page_1_1_main_page__obj3___bindings.html", null ],
       [ "Easy_Copier.Views.MainPage.MainPage_obj3_Bindings", "class_easy___copier_1_1_views_1_1_main_page_1_1_main_page__obj3___bindings.html", null ],
       [ "Easy_Copier.Views.MainPage.MainPage_obj3_Bindings", "class_easy___copier_1_1_views_1_1_main_page_1_1_main_page__obj3___bindings.html", null ],
       [ "Easy_Copier.Views.MainPage.MainPage_obj3_Bindings", "class_easy___copier_1_1_views_1_1_main_page_1_1_main_page__obj3___bindings.html", null ],
       [ "Easy_Copier.Views.MainPage.MainPage_obj3_Bindings", "class_easy___copier_1_1_views_1_1_main_page_1_1_main_page__obj3___bindings.html", null ],
       [ "Easy_Copier.Views.MainPage.MainPage_obj43_Bindings", "class_easy___copier_1_1_views_1_1_main_page_1_1_main_page__obj43___bindings.html", null ],
       [ "Easy_Copier.Views.MainPage.MainPage_obj43_Bindings", "class_easy___copier_1_1_views_1_1_main_page_1_1_main_page__obj43___bindings.html", null ],
-      [ "Easy_Copier.Views.MainPage.MainPage_obj45_Bindings", "class_easy___copier_1_1_views_1_1_main_page_1_1_main_page__obj45___bindings.html", null ],
       [ "Easy_Copier.Views.MainPage.MainPage_obj45_Bindings", "class_easy___copier_1_1_views_1_1_main_page_1_1_main_page__obj45___bindings.html", null ],
       [ "Easy_Copier.Views.MainPage.MainPage_obj45_Bindings", "class_easy___copier_1_1_views_1_1_main_page_1_1_main_page__obj45___bindings.html", null ]
     ] ],
@@ -372,6 +419,11 @@ var hierarchy =
       [ "Easy_Copier.Views.OsImageDetailsFlyout.OsImageDetailsFlyout_obj1_Bindings", "class_easy___copier_1_1_views_1_1_os_image_details_flyout_1_1_os_image_details_flyout__obj1___bindings.html", null ]
     ] ],
     [ "Easy_Copier.Views.OsImageDetailsFlyout.IOsImageDetailsFlyout_BindingsScopeConnector", "interface_easy___copier_1_1_views_1_1_os_image_details_flyout_1_1_i_os_image_details_flyout___bindings_scope_connector.html", null ],
+    [ "Easy_Copier.Views.OsImagesTabView.IOsImagesTabView_Bindings", "interface_easy___copier_1_1_views_1_1_os_images_tab_view_1_1_i_os_images_tab_view___bindings.html", [
+      [ "Easy_Copier.Views.OsImagesTabView.OsImagesTabView_obj1_Bindings", "class_easy___copier_1_1_views_1_1_os_images_tab_view_1_1_os_images_tab_view__obj1___bindings.html", null ],
+      [ "Easy_Copier.Views.OsImagesTabView.OsImagesTabView_obj3_Bindings", "class_easy___copier_1_1_views_1_1_os_images_tab_view_1_1_os_images_tab_view__obj3___bindings.html", null ]
+    ] ],
+    [ "Easy_Copier.Views.OsImagesTabView.IOsImagesTabView_BindingsScopeConnector", "interface_easy___copier_1_1_views_1_1_os_images_tab_view_1_1_i_os_images_tab_view___bindings_scope_connector.html", null ],
     [ "Easy_Copier.Infrastructure.IProcessService", "interface_easy___copier_1_1_infrastructure_1_1_i_process_service.html", [
       [ "Easy_Copier.Infrastructure.ProcessService", "class_easy___copier_1_1_infrastructure_1_1_process_service.html", null ]
     ] ],
@@ -437,6 +489,11 @@ var hierarchy =
     [ "Easy_Copier.Services.ITransferQueueService", "interface_easy___copier_1_1_services_1_1_i_transfer_queue_service.html", [
       [ "Easy_Copier.Services.TransferQueueService", "class_easy___copier_1_1_services_1_1_transfer_queue_service.html", null ]
     ] ],
+    [ "Easy_Copier.Views.TvAndFilmsTabView.ITvAndFilmsTabView_Bindings", "interface_easy___copier_1_1_views_1_1_tv_and_films_tab_view_1_1_i_tv_and_films_tab_view___bindings.html", [
+      [ "Easy_Copier.Views.TvAndFilmsTabView.TvAndFilmsTabView_obj1_Bindings", "class_easy___copier_1_1_views_1_1_tv_and_films_tab_view_1_1_tv_and_films_tab_view__obj1___bindings.html", null ],
+      [ "Easy_Copier.Views.TvAndFilmsTabView.TvAndFilmsTabView_obj3_Bindings", "class_easy___copier_1_1_views_1_1_tv_and_films_tab_view_1_1_tv_and_films_tab_view__obj3___bindings.html", null ]
+    ] ],
+    [ "Easy_Copier.Views.TvAndFilmsTabView.ITvAndFilmsTabView_BindingsScopeConnector", "interface_easy___copier_1_1_views_1_1_tv_and_films_tab_view_1_1_i_tv_and_films_tab_view___bindings_scope_connector.html", null ],
     [ "Easy_Copier.Services.IUpdateService", "interface_easy___copier_1_1_services_1_1_i_update_service.html", [
       [ "Easy_Copier.Services.UpdateService", "class_easy___copier_1_1_services_1_1_update_service.html", null ]
     ] ],
@@ -460,29 +517,35 @@ var hierarchy =
       [ "Easy_Copier.Views.AboutWindow.AboutWindow_obj1_Bindings", "class_easy___copier_1_1_views_1_1_about_window_1_1_about_window__obj1___bindings.html", null ],
       [ "Easy_Copier.Views.AboutWindow.AboutWindow_obj1_Bindings", "class_easy___copier_1_1_views_1_1_about_window_1_1_about_window__obj1___bindings.html", null ],
       [ "Easy_Copier.Views.AboutWindow.AboutWindow_obj1_Bindings", "class_easy___copier_1_1_views_1_1_about_window_1_1_about_window__obj1___bindings.html", null ],
+      [ "Easy_Copier.Views.AppsTabView.AppsTabView_obj1_Bindings", "class_easy___copier_1_1_views_1_1_apps_tab_view_1_1_apps_tab_view__obj1___bindings.html", null ],
+      [ "Easy_Copier.Views.AppsTabView.AppsTabView_obj3_Bindings", "class_easy___copier_1_1_views_1_1_apps_tab_view_1_1_apps_tab_view__obj3___bindings.html", null ],
+      [ "Easy_Copier.Views.ConflictDialogContent.ConflictDialogContent_obj1_Bindings", "class_easy___copier_1_1_views_1_1_conflict_dialog_content_1_1_conflict_dialog_content__obj1___bindings.html", null ],
       [ "Easy_Copier.Views.GameDetailsFlyout.GameDetailsFlyout_obj1_Bindings", "class_easy___copier_1_1_views_1_1_game_details_flyout_1_1_game_details_flyout__obj1___bindings.html", null ],
       [ "Easy_Copier.Views.GameDetailsFlyout.GameDetailsFlyout_obj1_Bindings", "class_easy___copier_1_1_views_1_1_game_details_flyout_1_1_game_details_flyout__obj1___bindings.html", null ],
       [ "Easy_Copier.Views.GameDetailsFlyout.GameDetailsFlyout_obj6_Bindings", "class_easy___copier_1_1_views_1_1_game_details_flyout_1_1_game_details_flyout__obj6___bindings.html", null ],
       [ "Easy_Copier.Views.GameDetailsFlyout.GameDetailsFlyout_obj6_Bindings", "class_easy___copier_1_1_views_1_1_game_details_flyout_1_1_game_details_flyout__obj6___bindings.html", null ],
+      [ "Easy_Copier.Views.GamesTabView.GamesTabView_obj1_Bindings", "class_easy___copier_1_1_views_1_1_games_tab_view_1_1_games_tab_view__obj1___bindings.html", null ],
+      [ "Easy_Copier.Views.GamesTabView.GamesTabView_obj3_Bindings", "class_easy___copier_1_1_views_1_1_games_tab_view_1_1_games_tab_view__obj3___bindings.html", null ],
       [ "Easy_Copier.Views.HistoryPage.HistoryPage_obj1_Bindings", "class_easy___copier_1_1_views_1_1_history_page_1_1_history_page__obj1___bindings.html", null ],
       [ "Easy_Copier.Views.HistoryPage.HistoryPage_obj1_Bindings", "class_easy___copier_1_1_views_1_1_history_page_1_1_history_page__obj1___bindings.html", null ],
       [ "Easy_Copier.Views.HistoryPage.HistoryPage_obj1_Bindings", "class_easy___copier_1_1_views_1_1_history_page_1_1_history_page__obj1___bindings.html", null ],
+      [ "Easy_Copier.Views.MainPage.MainPage_obj13_Bindings", "class_easy___copier_1_1_views_1_1_main_page_1_1_main_page__obj13___bindings.html", null ],
       [ "Easy_Copier.Views.MainPage.MainPage_obj1_Bindings", "class_easy___copier_1_1_views_1_1_main_page_1_1_main_page__obj1___bindings.html", null ],
       [ "Easy_Copier.Views.MainPage.MainPage_obj1_Bindings", "class_easy___copier_1_1_views_1_1_main_page_1_1_main_page__obj1___bindings.html", null ],
       [ "Easy_Copier.Views.MainPage.MainPage_obj1_Bindings", "class_easy___copier_1_1_views_1_1_main_page_1_1_main_page__obj1___bindings.html", null ],
       [ "Easy_Copier.Views.MainPage.MainPage_obj21_Bindings", "class_easy___copier_1_1_views_1_1_main_page_1_1_main_page__obj21___bindings.html", null ],
       [ "Easy_Copier.Views.MainPage.MainPage_obj23_Bindings", "class_easy___copier_1_1_views_1_1_main_page_1_1_main_page__obj23___bindings.html", null ],
-      [ "Easy_Copier.Views.MainPage.MainPage_obj23_Bindings", "class_easy___copier_1_1_views_1_1_main_page_1_1_main_page__obj23___bindings.html", null ],
+      [ "Easy_Copier.Views.MainPage.MainPage_obj26_Bindings", "class_easy___copier_1_1_views_1_1_main_page_1_1_main_page__obj26___bindings.html", null ],
       [ "Easy_Copier.Views.MainPage.MainPage_obj34_Bindings", "class_easy___copier_1_1_views_1_1_main_page_1_1_main_page__obj34___bindings.html", null ],
+      [ "Easy_Copier.Views.MainPage.MainPage_obj35_Bindings", "class_easy___copier_1_1_views_1_1_main_page_1_1_main_page__obj35___bindings.html", null ],
       [ "Easy_Copier.Views.MainPage.MainPage_obj36_Bindings", "class_easy___copier_1_1_views_1_1_main_page_1_1_main_page__obj36___bindings.html", null ],
-      [ "Easy_Copier.Views.MainPage.MainPage_obj36_Bindings", "class_easy___copier_1_1_views_1_1_main_page_1_1_main_page__obj36___bindings.html", null ],
-      [ "Easy_Copier.Views.MainPage.MainPage_obj3_Bindings", "class_easy___copier_1_1_views_1_1_main_page_1_1_main_page__obj3___bindings.html", null ],
       [ "Easy_Copier.Views.MainPage.MainPage_obj3_Bindings", "class_easy___copier_1_1_views_1_1_main_page_1_1_main_page__obj3___bindings.html", null ],
       [ "Easy_Copier.Views.MainPage.MainPage_obj3_Bindings", "class_easy___copier_1_1_views_1_1_main_page_1_1_main_page__obj3___bindings.html", null ],
       [ "Easy_Copier.Views.MainPage.MainPage_obj43_Bindings", "class_easy___copier_1_1_views_1_1_main_page_1_1_main_page__obj43___bindings.html", null ],
       [ "Easy_Copier.Views.MainPage.MainPage_obj45_Bindings", "class_easy___copier_1_1_views_1_1_main_page_1_1_main_page__obj45___bindings.html", null ],
-      [ "Easy_Copier.Views.MainPage.MainPage_obj45_Bindings", "class_easy___copier_1_1_views_1_1_main_page_1_1_main_page__obj45___bindings.html", null ],
       [ "Easy_Copier.Views.OsImageDetailsFlyout.OsImageDetailsFlyout_obj1_Bindings", "class_easy___copier_1_1_views_1_1_os_image_details_flyout_1_1_os_image_details_flyout__obj1___bindings.html", null ],
+      [ "Easy_Copier.Views.OsImagesTabView.OsImagesTabView_obj1_Bindings", "class_easy___copier_1_1_views_1_1_os_images_tab_view_1_1_os_images_tab_view__obj1___bindings.html", null ],
+      [ "Easy_Copier.Views.OsImagesTabView.OsImagesTabView_obj3_Bindings", "class_easy___copier_1_1_views_1_1_os_images_tab_view_1_1_os_images_tab_view__obj3___bindings.html", null ],
       [ "Easy_Copier.Views.SettingsWindow.SettingsWindow_obj16_Bindings", "class_easy___copier_1_1_views_1_1_settings_window_1_1_settings_window__obj16___bindings.html", null ],
       [ "Easy_Copier.Views.SettingsWindow.SettingsWindow_obj17_Bindings", "class_easy___copier_1_1_views_1_1_settings_window_1_1_settings_window__obj17___bindings.html", null ],
       [ "Easy_Copier.Views.SettingsWindow.SettingsWindow_obj19_Bindings", "class_easy___copier_1_1_views_1_1_settings_window_1_1_settings_window__obj19___bindings.html", null ],
@@ -503,7 +566,9 @@ var hierarchy =
       [ "Easy_Copier.Views.SmartAdderControl.SmartAdderControl_obj3_Bindings", "class_easy___copier_1_1_views_1_1_smart_adder_control_1_1_smart_adder_control__obj3___bindings.html", null ],
       [ "Easy_Copier.Views.SmartAdderControl.SmartAdderControl_obj3_Bindings", "class_easy___copier_1_1_views_1_1_smart_adder_control_1_1_smart_adder_control__obj3___bindings.html", null ],
       [ "Easy_Copier.Views.SmartAdderControl.SmartAdderControl_obj3_Bindings", "class_easy___copier_1_1_views_1_1_smart_adder_control_1_1_smart_adder_control__obj3___bindings.html", null ],
-      [ "Easy_Copier.Views.SmartAdderHistoryWindow.SmartAdderHistoryWindow_obj1_Bindings", "class_easy___copier_1_1_views_1_1_smart_adder_history_window_1_1_smart_adder_history_window__obj1___bindings.html", null ]
+      [ "Easy_Copier.Views.SmartAdderHistoryWindow.SmartAdderHistoryWindow_obj1_Bindings", "class_easy___copier_1_1_views_1_1_smart_adder_history_window_1_1_smart_adder_history_window__obj1___bindings.html", null ],
+      [ "Easy_Copier.Views.TvAndFilmsTabView.TvAndFilmsTabView_obj1_Bindings", "class_easy___copier_1_1_views_1_1_tv_and_films_tab_view_1_1_tv_and_films_tab_view__obj1___bindings.html", null ],
+      [ "Easy_Copier.Views.TvAndFilmsTabView.TvAndFilmsTabView_obj3_Bindings", "class_easy___copier_1_1_views_1_1_tv_and_films_tab_view_1_1_tv_and_films_tab_view__obj3___bindings.html", null ]
     ] ],
     [ "global.MicrosoftUI.Xaml.Markup.IXamlMember", null, [
       [ "Easy_Copier.Easy_Copier_XamlTypeInfo.XamlMember", "class_easy___copier_1_1_easy___copier___xaml_type_info_1_1_xaml_member.html", null ],
@@ -536,6 +601,7 @@ var hierarchy =
       [ "Easy_Copier.Easy_Copier_XamlTypeInfo.XamlUserType", "class_easy___copier_1_1_easy___copier___xaml_type_info_1_1_xaml_user_type.html", null ],
       [ "Easy_Copier.Easy_Copier_XamlTypeInfo.XamlUserType", "class_easy___copier_1_1_easy___copier___xaml_type_info_1_1_xaml_user_type.html", null ]
     ] ],
+    [ "Easy_Copier.Views.MainPage.MainPage_obj13_Bindings.MainPage_obj13_BindingsTracking", "class_easy___copier_1_1_views_1_1_main_page_1_1_main_page__obj13___bindings_1_1_main_page__obj13___bindings_tracking.html", null ],
     [ "Easy_Copier.Views.MainPage.MainPage_obj1_Bindings.MainPage_obj1_BindingsTracking", "class_easy___copier_1_1_views_1_1_main_page_1_1_main_page__obj1___bindings_1_1_main_page__obj1___bindings_tracking.html", null ],
     [ "Easy_Copier.Views.MainPage.MainPage_obj21_Bindings.MainPage_obj21_BindingsTracking", "class_easy___copier_1_1_views_1_1_main_page_1_1_main_page__obj21___bindings_1_1_main_page__obj21___bindings_tracking.html", null ],
     [ "Easy_Copier.Views.MainPage.MainPage_obj23_Bindings.MainPage_obj23_BindingsTracking", "class_easy___copier_1_1_views_1_1_main_page_1_1_main_page__obj23___bindings_1_1_main_page__obj23___bindings_tracking.html", null ],
@@ -550,6 +616,12 @@ var hierarchy =
       [ "Easy_Copier.ViewModels.AboutViewModel", "class_easy___copier_1_1_view_models_1_1_about_view_model.html", null ],
       [ "Easy_Copier.ViewModels.GameDetailsViewModel", "class_easy___copier_1_1_view_models_1_1_game_details_view_model.html", null ],
       [ "Easy_Copier.ViewModels.HistoryViewModel", "class_easy___copier_1_1_view_models_1_1_history_view_model.html", null ],
+      [ "Easy_Copier.ViewModels.LibraryTabViewModelBase", "class_easy___copier_1_1_view_models_1_1_library_tab_view_model_base.html", [
+        [ "Easy_Copier.ViewModels.AppsTabViewModel", "class_easy___copier_1_1_view_models_1_1_apps_tab_view_model.html", null ],
+        [ "Easy_Copier.ViewModels.GamesTabViewModel", "class_easy___copier_1_1_view_models_1_1_games_tab_view_model.html", null ],
+        [ "Easy_Copier.ViewModels.OsImagesTabViewModel", "class_easy___copier_1_1_view_models_1_1_os_images_tab_view_model.html", null ],
+        [ "Easy_Copier.ViewModels.TvAndFilmsTabViewModel", "class_easy___copier_1_1_view_models_1_1_tv_and_films_tab_view_model.html", null ]
+      ] ],
       [ "Easy_Copier.ViewModels.MainViewModel", "class_easy___copier_1_1_view_models_1_1_main_view_model.html", null ],
       [ "Easy_Copier.ViewModels.OsImageDetailsViewModel", "class_easy___copier_1_1_view_models_1_1_os_image_details_view_model.html", null ],
       [ "Easy_Copier.ViewModels.SettingsViewModel", "class_easy___copier_1_1_view_models_1_1_settings_view_model.html", null ],
@@ -557,6 +629,7 @@ var hierarchy =
       [ "Easy_Copier.ViewModels.SmartAdderViewModel", "class_easy___copier_1_1_view_models_1_1_smart_adder_view_model.html", null ]
     ] ],
     [ "Easy_Copier.Views.OsImageDetailsFlyout.OsImageDetailsFlyout_obj1_Bindings.OsImageDetailsFlyout_obj1_BindingsTracking", "class_easy___copier_1_1_views_1_1_os_image_details_flyout_1_1_os_image_details_flyout__obj1___bi1429e4e636e7219308f9c4918a7a68fc.html", null ],
+    [ "Easy_Copier.Views.OsImagesTabView.OsImagesTabView_obj1_Bindings.OsImagesTabView_obj1_BindingsTracking", "class_easy___copier_1_1_views_1_1_os_images_tab_view_1_1_os_images_tab_view__obj1___bindings_1_11274be7e8ac1864a900d433ef6b15803.html", null ],
     [ "global.MicrosoftUI.Xaml.Controls.Page", null, [
       [ "Easy_Copier.Views.HistoryPage", "class_easy___copier_1_1_views_1_1_history_page.html", null ],
       [ "Easy_Copier.Views.HistoryPage", "class_easy___copier_1_1_views_1_1_history_page.html", null ],
@@ -593,15 +666,24 @@ var hierarchy =
     [ "Easy_Copier.ViewModels.SmartAdderHistoryEntryViewModel", "class_easy___copier_1_1_view_models_1_1_smart_adder_history_entry_view_model.html", null ],
     [ "Easy_Copier.Models.SmartAdderHistoryRecord", "class_easy___copier_1_1_models_1_1_smart_adder_history_record.html", null ],
     [ "Easy_Copier.Infrastructure.SysReqFormatter", "class_easy___copier_1_1_infrastructure_1_1_sys_req_formatter.html", null ],
+    [ "Easy_Copier.Views.TvAndFilmsTabView.TvAndFilmsTabView_obj1_Bindings.TvAndFilmsTabView_obj1_BindingsTracking", "class_easy___copier_1_1_views_1_1_tv_and_films_tab_view_1_1_tv_and_films_tab_view__obj1___bindin48050c52f26d15bb73a491fa5a0e2521.html", null ],
     [ "global.MicrosoftUI.Xaml.Controls.UserControl", null, [
+      [ "Easy_Copier.Views.AppsTabView", "class_easy___copier_1_1_views_1_1_apps_tab_view.html", null ],
+      [ "Easy_Copier.Views.AppsTabView", "class_easy___copier_1_1_views_1_1_apps_tab_view.html", null ],
+      [ "Easy_Copier.Views.ConflictDialogContent", "class_easy___copier_1_1_views_1_1_conflict_dialog_content.html", null ],
+      [ "Easy_Copier.Views.ConflictDialogContent", "class_easy___copier_1_1_views_1_1_conflict_dialog_content.html", null ],
       [ "Easy_Copier.Views.GameDetailsFlyout", "class_easy___copier_1_1_views_1_1_game_details_flyout.html", null ],
       [ "Easy_Copier.Views.GameDetailsFlyout", "class_easy___copier_1_1_views_1_1_game_details_flyout.html", null ],
       [ "Easy_Copier.Views.GameDetailsFlyout", "class_easy___copier_1_1_views_1_1_game_details_flyout.html", null ],
       [ "Easy_Copier.Views.GameDetailsFlyout", "class_easy___copier_1_1_views_1_1_game_details_flyout.html", null ],
       [ "Easy_Copier.Views.GameDetailsFlyout", "class_easy___copier_1_1_views_1_1_game_details_flyout.html", null ],
       [ "Easy_Copier.Views.GameDetailsFlyout", "class_easy___copier_1_1_views_1_1_game_details_flyout.html", null ],
+      [ "Easy_Copier.Views.GamesTabView", "class_easy___copier_1_1_views_1_1_games_tab_view.html", null ],
+      [ "Easy_Copier.Views.GamesTabView", "class_easy___copier_1_1_views_1_1_games_tab_view.html", null ],
       [ "Easy_Copier.Views.OsImageDetailsFlyout", "class_easy___copier_1_1_views_1_1_os_image_details_flyout.html", null ],
       [ "Easy_Copier.Views.OsImageDetailsFlyout", "class_easy___copier_1_1_views_1_1_os_image_details_flyout.html", null ],
+      [ "Easy_Copier.Views.OsImagesTabView", "class_easy___copier_1_1_views_1_1_os_images_tab_view.html", null ],
+      [ "Easy_Copier.Views.OsImagesTabView", "class_easy___copier_1_1_views_1_1_os_images_tab_view.html", null ],
       [ "Easy_Copier.Views.SmartAdderControl", "class_easy___copier_1_1_views_1_1_smart_adder_control.html", null ],
       [ "Easy_Copier.Views.SmartAdderControl", "class_easy___copier_1_1_views_1_1_smart_adder_control.html", null ],
       [ "Easy_Copier.Views.SmartAdderControl", "class_easy___copier_1_1_views_1_1_smart_adder_control.html", null ],
@@ -611,12 +693,19 @@ var hierarchy =
       [ "Easy_Copier.Views.SmartAdderControl", "class_easy___copier_1_1_views_1_1_smart_adder_control.html", null ],
       [ "Easy_Copier.Views.SmartAdderControl", "class_easy___copier_1_1_views_1_1_smart_adder_control.html", null ],
       [ "Easy_Copier.Views.SmartAdderControl", "class_easy___copier_1_1_views_1_1_smart_adder_control.html", null ],
-      [ "Easy_Copier.Views.SmartAdderControl", "class_easy___copier_1_1_views_1_1_smart_adder_control.html", null ]
+      [ "Easy_Copier.Views.SmartAdderControl", "class_easy___copier_1_1_views_1_1_smart_adder_control.html", null ],
+      [ "Easy_Copier.Views.TvAndFilmsTabView", "class_easy___copier_1_1_views_1_1_tv_and_films_tab_view.html", null ],
+      [ "Easy_Copier.Views.TvAndFilmsTabView", "class_easy___copier_1_1_views_1_1_tv_and_films_tab_view.html", null ]
     ] ],
     [ "UserControl", null, [
+      [ "Easy_Copier.Views.AppsTabView", "class_easy___copier_1_1_views_1_1_apps_tab_view.html", null ],
+      [ "Easy_Copier.Views.ConflictDialogContent", "class_easy___copier_1_1_views_1_1_conflict_dialog_content.html", null ],
       [ "Easy_Copier.Views.GameDetailsFlyout", "class_easy___copier_1_1_views_1_1_game_details_flyout.html", null ],
+      [ "Easy_Copier.Views.GamesTabView", "class_easy___copier_1_1_views_1_1_games_tab_view.html", null ],
       [ "Easy_Copier.Views.OsImageDetailsFlyout", "class_easy___copier_1_1_views_1_1_os_image_details_flyout.html", null ],
-      [ "Easy_Copier.Views.SmartAdderControl", "class_easy___copier_1_1_views_1_1_smart_adder_control.html", null ]
+      [ "Easy_Copier.Views.OsImagesTabView", "class_easy___copier_1_1_views_1_1_os_images_tab_view.html", null ],
+      [ "Easy_Copier.Views.SmartAdderControl", "class_easy___copier_1_1_views_1_1_smart_adder_control.html", null ],
+      [ "Easy_Copier.Views.TvAndFilmsTabView", "class_easy___copier_1_1_views_1_1_tv_and_films_tab_view.html", null ]
     ] ],
     [ "global.MicrosoftUI.Xaml.Window", null, [
       [ "Easy_Copier.MainWindow", "class_easy___copier_1_1_main_window.html", null ],
@@ -678,13 +767,18 @@ var hierarchy =
       [ "Easy_Copier.Views.SmartAdderHistoryWindow", "class_easy___copier_1_1_views_1_1_smart_adder_history_window.html", null ]
     ] ],
     [ "Easy_Copier.Views.AboutWindow.XamlBindingSetters", "class_easy___copier_1_1_views_1_1_about_window_1_1_xaml_binding_setters.html", null ],
+    [ "Easy_Copier.Views.AppsTabView.XamlBindingSetters", "class_easy___copier_1_1_views_1_1_apps_tab_view_1_1_xaml_binding_setters.html", null ],
+    [ "Easy_Copier.Views.ConflictDialogContent.XamlBindingSetters", "class_easy___copier_1_1_views_1_1_conflict_dialog_content_1_1_xaml_binding_setters.html", null ],
     [ "Easy_Copier.Views.GameDetailsFlyout.XamlBindingSetters", "class_easy___copier_1_1_views_1_1_game_details_flyout_1_1_xaml_binding_setters.html", null ],
+    [ "Easy_Copier.Views.GamesTabView.XamlBindingSetters", "class_easy___copier_1_1_views_1_1_games_tab_view_1_1_xaml_binding_setters.html", null ],
     [ "Easy_Copier.Views.HistoryPage.XamlBindingSetters", "class_easy___copier_1_1_views_1_1_history_page_1_1_xaml_binding_setters.html", null ],
     [ "Easy_Copier.Views.MainPage.XamlBindingSetters", "class_easy___copier_1_1_views_1_1_main_page_1_1_xaml_binding_setters.html", null ],
     [ "Easy_Copier.Views.OsImageDetailsFlyout.XamlBindingSetters", "class_easy___copier_1_1_views_1_1_os_image_details_flyout_1_1_xaml_binding_setters.html", null ],
+    [ "Easy_Copier.Views.OsImagesTabView.XamlBindingSetters", "class_easy___copier_1_1_views_1_1_os_images_tab_view_1_1_xaml_binding_setters.html", null ],
     [ "Easy_Copier.Views.SettingsWindow.XamlBindingSetters", "class_easy___copier_1_1_views_1_1_settings_window_1_1_xaml_binding_setters.html", null ],
     [ "Easy_Copier.Views.SmartAdderControl.XamlBindingSetters", "class_easy___copier_1_1_views_1_1_smart_adder_control_1_1_xaml_binding_setters.html", null ],
     [ "Easy_Copier.Views.SmartAdderHistoryWindow.XamlBindingSetters", "class_easy___copier_1_1_views_1_1_smart_adder_history_window_1_1_xaml_binding_setters.html", null ],
+    [ "Easy_Copier.Views.TvAndFilmsTabView.XamlBindingSetters", "class_easy___copier_1_1_views_1_1_tv_and_films_tab_view_1_1_xaml_binding_setters.html", null ],
     [ "global.Easy_CopierEasy_Copier_XamlTypeInfo.XamlSystemBaseType", null, [
       [ "Easy_Copier.Easy_Copier_XamlTypeInfo.XamlUserType", "class_easy___copier_1_1_easy___copier___xaml_type_info_1_1_xaml_user_type.html", null ],
       [ "Easy_Copier.Easy_Copier_XamlTypeInfo.XamlUserType", "class_easy___copier_1_1_easy___copier___xaml_type_info_1_1_xaml_user_type.html", null ],

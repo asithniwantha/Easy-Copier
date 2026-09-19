@@ -1,5 +1,5 @@
 <map id="Easy_Copier.Infrastructure.NativeWindowHelper.GetActiveWindowHandle" name="Easy_Copier.Infrastructure.NativeWindowHelper.GetActiveWindowHandle">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,72,259,131"/>
+<area shape="rect" id="Node000001" title="Gets the handle (HWND) of the currently active window belonging to the running application process." alt="" coords="5,72,259,131"/>
 <area shape="rect" id="Node000002" href="$class_easy___copier_1_1_infrastructure_1_1_native_window_helper.html#af2f00cbed90ce376200eee60352abd69" title=" " alt="" coords="308,5,562,48"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="253,69,333,51,328,53,255,74"/>
 <area shape="rect" id="Node000003" href="$class_easy___copier_1_1_infrastructure_1_1_native_window_helper.html#a8410a554f5ec231149291a296a81111c" title=" " alt="" coords="318,72,552,131"/>

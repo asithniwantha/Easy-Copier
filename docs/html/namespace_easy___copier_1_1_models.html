@@ -117,10 +117,13 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('namespace_easy
 Classes</h2></td></tr>
 <tr class="memitem:AppSettings" id="r_AppSettings"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="class_easy___copier_1_1_models_1_1_app_settings.html">AppSettings</a></td></tr>
 <tr class="memitem:FileSystemItem" id="r_FileSystemItem"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="class_easy___copier_1_1_models_1_1_file_system_item.html">FileSystemItem</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents a file system item (folder or file) for display in navigation or selection controls.  <a href="class_easy___copier_1_1_models_1_1_file_system_item.html#details">More...</a><br /></td></tr>
 <tr class="memitem:NumberCell" id="r_NumberCell"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="class_easy___copier_1_1_models_1_1_number_cell.html">NumberCell</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents an individual cell within the SmartAdder grid, tracking user input and negative state.  <a href="class_easy___copier_1_1_models_1_1_number_cell.html#details">More...</a><br /></td></tr>
 <tr class="memitem:SmartAdderEntry" id="r_SmartAdderEntry"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="class_easy___copier_1_1_models_1_1_smart_adder_entry.html">SmartAdderEntry</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents a single dynamic number-entry row within the SmartAdder overlay.  <a href="class_easy___copier_1_1_models_1_1_smart_adder_entry.html#details">More...</a><br /></td></tr>
 <tr class="memitem:SmartAdderHistoryRecord" id="r_SmartAdderHistoryRecord"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="class_easy___copier_1_1_models_1_1_smart_adder_history_record.html">SmartAdderHistoryRecord</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents a stored SmartAdder calculation entry in SQLite history.  <a href="class_easy___copier_1_1_models_1_1_smart_adder_history_record.html#details">More...</a><br /></td></tr>
 <tr class="memitem:TransferQueueItem" id="r_TransferQueueItem"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="class_easy___copier_1_1_models_1_1_transfer_queue_item.html">TransferQueueItem</a></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-enum-members" class="groupheader"><a id="enum-members" name="enum-members"></a>
@@ -148,7 +151,7 @@ Enumerations</h2></td></tr>
 , <a class="el" href="#aa1c98543798d7f84e29b2e4deba8a58bab19958e8f8f2f0afecec67d3d08c4a88">OsImage</a>
  }</td></tr>
 <tr class="memitem:a730e39ab051f5d5a6af5d61176138617" id="r_a730e39ab051f5d5a6af5d61176138617"><td class="memItemLeft">enum &#160;</td><td class="memItemRight"><a class="el" href="#a730e39ab051f5d5a6af5d61176138617">OsImageSortOption</a> { <a class="el" href="#a730e39ab051f5d5a6af5d61176138617a49ee3087348e8d44e1feda1917443987">Name</a>
-, <a class="el" href="#a730e39ab051f5d5a6af5d61176138617a90ac28eefb33054bd901e4c90e98a65a">DateAdded</a>
+, <a class="el" href="#a730e39ab051f5d5a6af5d61176138617ad3813870ed2a75e81f3789ac527f3148">DateCreated</a>
 , <a class="el" href="#a730e39ab051f5d5a6af5d61176138617a6f6cb72d544962fa333e2e34ce64f719">Size</a>
  }</td></tr>
 <tr class="memitem:ae4a6b01c2111b1eb1611b6970c615b8c" id="r_ae4a6b01c2111b1eb1611b6970c615b8c"><td class="memItemLeft">enum &#160;</td><td class="memItemRight"><a class="el" href="#ae4a6b01c2111b1eb1611b6970c615b8c">ValidationSeverity</a> { <a class="el" href="#ae4a6b01c2111b1eb1611b6970c615b8ca4059b0251f66a18cb56f544728796875">Info</a>
@@ -184,16 +187,16 @@ Enumerations</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:abf1613443f307029b23c31269e85160d" id="r_abf1613443f307029b23c31269e85160d"><td class="memItemLeft">record&#160;</td><td class="memItemRight"><a class="el" href="#abf1613443f307029b23c31269e85160d">SourceFolder</a> (string FolderPath, bool IsValid, DateTime LastScanned)</td></tr>
-<tr class="memitem:ab9811c24c166bd7f4768ddafbcbaf75d" id="r_ab9811c24c166bd7f4768ddafbcbaf75d"><td class="memItemLeft">record&#160;</td><td class="memItemRight"><a class="el" href="#ab9811c24c166bd7f4768ddafbcbaf75d">GameEntry</a> (string Name, string FolderPath, long TotalBytes, string? CoverImagePath, DateTime DateAdded, bool HasLargeFiles, <a class="el" href="#aa1c98543798d7f84e29b2e4deba8a58b">LibraryCategory</a> Category=<a class="el" href="#aa1c98543798d7f84e29b2e4deba8a58ba63d72051e901c069f8aa1b32aa0c43bb">LibraryCategory.Game</a>, IReadOnlyList&lt; <a class="el" href="#a79b82f8099c51633e7a21698ac8835c5">GameCategory</a> &gt;? Categories=null)</td></tr>
+<tr class="memitem:a9c2abd1d64352c07d3085ba499cf2aae" id="r_a9c2abd1d64352c07d3085ba499cf2aae"><td class="memItemLeft">record&#160;</td><td class="memItemRight"><a class="el" href="#a9c2abd1d64352c07d3085ba499cf2aae">GameEntry</a> (string Name, string FolderPath, long TotalBytes, string? CoverImagePath, DateTime DateCreated, bool HasLargeFiles, <a class="el" href="#aa1c98543798d7f84e29b2e4deba8a58b">LibraryCategory</a> Category=<a class="el" href="#aa1c98543798d7f84e29b2e4deba8a58ba63d72051e901c069f8aa1b32aa0c43bb">LibraryCategory.Game</a>, IReadOnlyList&lt; <a class="el" href="#a79b82f8099c51633e7a21698ac8835c5">GameCategory</a> &gt;? Categories=null)</td></tr>
 <tr class="memitem:af8f0175620d1cdd9a06d3e52ae12ba12" id="r_af8f0175620d1cdd9a06d3e52ae12ba12"><td class="memItemLeft">record&#160;</td><td class="memItemRight"><a class="el" href="#af8f0175620d1cdd9a06d3e52ae12ba12">RemovableDrive</a> (string DriveLetter, string DriveLabel, string FileSystem, long TotalBytes, long FreeBytes, double UsedPercentage, string Brand=&quot;Unknown&quot;)</td></tr>
 <tr class="memitem:aa394743cccca298523ee415d124c3cbf" id="r_aa394743cccca298523ee415d124c3cbf"><td class="memItemLeft">record&#160;</td><td class="memItemRight"><a class="el" href="#aa394743cccca298523ee415d124c3cbf">ValidationResult</a> (bool IsValid, <a class="el" href="#ae4a6b01c2111b1eb1611b6970c615b8c">ValidationSeverity</a> Severity, string Message)</td></tr>
 <tr class="memdesc:aa394743cccca298523ee415d124c3cbf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents the result of a validation operation, including whether it is valid, the severity of the validation, and an associated message.  <br /></td></tr>
-<tr class="memitem:a36bba191a5fad0b0ca63ed787ae607d8" id="r_a36bba191a5fad0b0ca63ed787ae607d8"><td class="memItemLeft">record&#160;</td><td class="memItemRight"><a class="el" href="#a36bba191a5fad0b0ca63ed787ae607d8">TransferItem</a> (<a class="el" href="#ab9811c24c166bd7f4768ddafbcbaf75d">GameEntry</a> Game, <a class="el" href="#a68a2590a03f2da096e940aad813f4053">CopyAction</a> Action=<a class="el" href="#a68a2590a03f2da096e940aad813f4053a7a1920d61156abc05a60135aefe8bc67">CopyAction.Default</a>)</td></tr>
+<tr class="memitem:a36bba191a5fad0b0ca63ed787ae607d8" id="r_a36bba191a5fad0b0ca63ed787ae607d8"><td class="memItemLeft">record&#160;</td><td class="memItemRight"><a class="el" href="#a36bba191a5fad0b0ca63ed787ae607d8">TransferItem</a> (<a class="el" href="#a9c2abd1d64352c07d3085ba499cf2aae">GameEntry</a> Game, <a class="el" href="#a68a2590a03f2da096e940aad813f4053">CopyAction</a> Action=<a class="el" href="#a68a2590a03f2da096e940aad813f4053a7a1920d61156abc05a60135aefe8bc67">CopyAction.Default</a>)</td></tr>
 <tr class="memitem:a5bc746b080509d1e3821a7f7fd82aa9f" id="r_a5bc746b080509d1e3821a7f7fd82aa9f"><td class="memItemLeft">record&#160;</td><td class="memItemRight"><a class="el" href="#a5bc746b080509d1e3821a7f7fd82aa9f">TransferProgress</a> (double Percentage, string SpeedText, string RemainingTimeText)</td></tr>
 <tr class="memitem:a361f45ad4ad4f48588e380daa766a5fa" id="r_a361f45ad4ad4f48588e380daa766a5fa"><td class="memItemLeft">record&#160;</td><td class="memItemRight"><a class="el" href="#a361f45ad4ad4f48588e380daa766a5fa">TransferRequest</a> (IReadOnlyList&lt; <a class="el" href="#a36bba191a5fad0b0ca63ed787ae607d8">TransferItem</a> &gt; Items, <a class="el" href="#af8f0175620d1cdd9a06d3e52ae12ba12">RemovableDrive</a> TargetDrive, string DestinationPath)</td></tr>
 <tr class="memitem:a0f254e810a60e913105ca1898e396f4c" id="r_a0f254e810a60e913105ca1898e396f4c"><td class="memItemLeft">record&#160;</td><td class="memItemRight"><a class="el" href="#a0f254e810a60e913105ca1898e396f4c">TransferOutcome</a> (bool Success, string Message, int FilesTransferred, long BytesTransferred, DateTime CompletedAt)</td></tr>
 <tr class="memitem:aae2a352ac1ad9a55ae8b37e300153431" id="r_aae2a352ac1ad9a55ae8b37e300153431"><td class="memItemLeft">record&#160;</td><td class="memItemRight"><a class="el" href="#aae2a352ac1ad9a55ae8b37e300153431">ItemFingerprint</a> (string RelativePath, long TotalBytes, DateTime LastWriteTimeUtc)</td></tr>
-<tr class="memitem:a6ce72bb145c4b6a2a691fff265751706" id="r_a6ce72bb145c4b6a2a691fff265751706"><td class="memItemLeft">record&#160;</td><td class="memItemRight"><a class="el" href="#a6ce72bb145c4b6a2a691fff265751706">LibraryCacheSnapshot</a> (int SchemaVersion, List&lt; <a class="el" href="#ab9811c24c166bd7f4768ddafbcbaf75d">GameEntry</a> &gt; Games, List&lt; <a class="el" href="#ab9811c24c166bd7f4768ddafbcbaf75d">GameEntry</a> &gt; Apps, List&lt; <a class="el" href="#ab9811c24c166bd7f4768ddafbcbaf75d">GameEntry</a> &gt; TvAndFilms, List&lt; <a class="el" href="#ab9811c24c166bd7f4768ddafbcbaf75d">GameEntry</a> &gt; OsImages, List&lt; string &gt; GameSourceFolders, List&lt; string &gt; AppSourceFolders, List&lt; string &gt; TvAndFilmSourceFolders, List&lt; string &gt; OsImageSourceFolders, DateTime CachedAt, Dictionary&lt; string, <a class="el" href="#aae2a352ac1ad9a55ae8b37e300153431">ItemFingerprint</a> &gt; ItemFingerprints)</td></tr>
+<tr class="memitem:a6ce72bb145c4b6a2a691fff265751706" id="r_a6ce72bb145c4b6a2a691fff265751706"><td class="memItemLeft">record&#160;</td><td class="memItemRight"><a class="el" href="#a6ce72bb145c4b6a2a691fff265751706">LibraryCacheSnapshot</a> (int SchemaVersion, List&lt; <a class="el" href="#a9c2abd1d64352c07d3085ba499cf2aae">GameEntry</a> &gt; Games, List&lt; <a class="el" href="#a9c2abd1d64352c07d3085ba499cf2aae">GameEntry</a> &gt; Apps, List&lt; <a class="el" href="#a9c2abd1d64352c07d3085ba499cf2aae">GameEntry</a> &gt; TvAndFilms, List&lt; <a class="el" href="#a9c2abd1d64352c07d3085ba499cf2aae">GameEntry</a> &gt; OsImages, List&lt; string &gt; GameSourceFolders, List&lt; string &gt; AppSourceFolders, List&lt; string &gt; TvAndFilmSourceFolders, List&lt; string &gt; OsImageSourceFolders, DateTime CachedAt, Dictionary&lt; string, <a class="el" href="#aae2a352ac1ad9a55ae8b37e300153431">ItemFingerprint</a> &gt; ItemFingerprints)</td></tr>
 <tr class="memitem:a63b99d96f6d7e71a96281be9501fa569" id="r_a63b99d96f6d7e71a96281be9501fa569"><td class="memItemLeft">record&#160;</td><td class="memItemRight"><a class="el" href="#a63b99d96f6d7e71a96281be9501fa569">CacheValidationOutcome</a> (<a class="el" href="#aa57b35a6509e5f7d276f3e36c2fa467f">CacheValidationResult</a> Result, List&lt; string &gt; ChangedItems)</td></tr>
 <tr class="memitem:a22cad9581ea699aafef9d310c84f0836" id="r_a22cad9581ea699aafef9d310c84f0836"><td class="memItemLeft">record&#160;</td><td class="memItemRight"><a class="el" href="#a22cad9581ea699aafef9d310c84f0836">CopyHistoryRecord</a> (int Id, DateTime Timestamp, string GameName, string TargetDriveLetter, string TargetDriveLabel, long BytesTransferred, bool IsSuccess, int Amount)</td></tr>
 </table>
@@ -309,7 +312,7 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 <table class="fieldtable">
 <tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a730e39ab051f5d5a6af5d61176138617a49ee3087348e8d44e1feda1917443987" name="a730e39ab051f5d5a6af5d61176138617a49ee3087348e8d44e1feda1917443987"></a>Name&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a730e39ab051f5d5a6af5d61176138617a90ac28eefb33054bd901e4c90e98a65a" name="a730e39ab051f5d5a6af5d61176138617a90ac28eefb33054bd901e4c90e98a65a"></a>DateAdded&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a730e39ab051f5d5a6af5d61176138617ad3813870ed2a75e81f3789ac527f3148" name="a730e39ab051f5d5a6af5d61176138617ad3813870ed2a75e81f3789ac527f3148"></a>DateCreated&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="a730e39ab051f5d5a6af5d61176138617a6f6cb72d544962fa333e2e34ce64f719" name="a730e39ab051f5d5a6af5d61176138617a6f6cb72d544962fa333e2e34ce64f719"></a>Size&#160;</td><td class="fielddoc"></td></tr>
 </table>
 
@@ -385,7 +388,7 @@ Functions</h2></td></tr>
 
 <p class="reference">References <a class="el" href="#a63b99d96f6d7e71a96281be9501fa569">CacheValidationOutcome()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="#a63b99d96f6d7e71a96281be9501fa569">CacheValidationOutcome()</a>, <a class="el" href="_main_view_model_8cs_source.html#l00402">Easy_Copier.ViewModels.MainViewModel.ValidateAndRefreshCacheAsync()</a>, and <a class="el" href="_library_cache_service_8cs_source.html#l00164">Easy_Copier.Services.LibraryCacheService.ValidateCacheAsync()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="#a63b99d96f6d7e71a96281be9501fa569">CacheValidationOutcome()</a>, <a class="el" href="_main_view_model_8cs_source.html#l00410">Easy_Copier.ViewModels.MainViewModel.ValidateAndRefreshCacheAsync()</a>, and <a class="el" href="_library_cache_service_8cs_source.html#l00239">Easy_Copier.Services.LibraryCacheService.ValidateCacheAsync()</a>.</p>
 <div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-0-summary" class="dynsummary">
 </div>
@@ -454,7 +457,7 @@ Functions</h2></td></tr>
 
 <p class="reference">References <a class="el" href="_domain_models_8cs_source.html#l00166">CopyHistoryRecord()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_copy_history_service_8cs_source.html#l00091">Easy_Copier.Services.CopyHistoryService.AddRecordAsync()</a>, <a class="el" href="interface_easy___copier_1_1_services_1_1_i_copy_history_service.html#a0a03e9cfcfc3ecbb06861795b25de91b">Easy_Copier.Services.ICopyHistoryService.AddRecordAsync()</a>, <a class="el" href="_domain_models_8cs_source.html#l00166">CopyHistoryRecord()</a>, <a class="el" href="_report_service_8cs_source.html#l00020">Easy_Copier.Services.ReportService.ExportHistoryToCsvAsync()</a>, <a class="el" href="_copy_history_service_8cs_source.html#l00121">Easy_Copier.Services.CopyHistoryService.GetAllRecordsAsync()</a>, <a class="el" href="_copy_history_service_8cs_source.html#l00205">Easy_Copier.Services.CopyHistoryService.GetAvailableMonthsAsync()</a>, <a class="el" href="_copy_history_service_8cs_source.html#l00178">Easy_Copier.Services.CopyHistoryService.GetAvailableWeeksAsync()</a>, <a class="el" href="_history_view_model_8cs_source.html#l00149">Easy_Copier.ViewModels.HistoryViewModel.ProcessLoadedRecords()</a>, and <a class="el" href="_file_transfer_service_8cs_source.html#l00080">Easy_Copier.Services.WindowsShellTransferService.TransferGamesAsync()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_copy_history_service_8cs_source.html#l00163">Easy_Copier.Services.CopyHistoryService.AddRecordAsync()</a>, <a class="el" href="interface_easy___copier_1_1_services_1_1_i_copy_history_service.html#a0a03e9cfcfc3ecbb06861795b25de91b">Easy_Copier.Services.ICopyHistoryService.AddRecordAsync()</a>, <a class="el" href="_domain_models_8cs_source.html#l00166">CopyHistoryRecord()</a>, <a class="el" href="_report_service_8cs_source.html#l00042">Easy_Copier.Services.ReportService.ExportHistoryToCsvAsync()</a>, <a class="el" href="_copy_history_service_8cs_source.html#l00197">Easy_Copier.Services.CopyHistoryService.GetAllRecordsAsync()</a>, <a class="el" href="_copy_history_service_8cs_source.html#l00301">Easy_Copier.Services.CopyHistoryService.GetAvailableMonthsAsync()</a>, <a class="el" href="_copy_history_service_8cs_source.html#l00264">Easy_Copier.Services.CopyHistoryService.GetAvailableWeeksAsync()</a>, <a class="el" href="_history_view_model_8cs_source.html#l00149">Easy_Copier.ViewModels.HistoryViewModel.ProcessLoadedRecords()</a>, and <a class="el" href="_file_transfer_service_8cs_source.html#l00131">Easy_Copier.Services.WindowsShellTransferService.TransferGamesAsync()</a>.</p>
 <div id="dynsection-2" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-2-summary" class="dynsummary">
 </div>
@@ -470,8 +473,8 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="ab9811c24c166bd7f4768ddafbcbaf75d" name="ab9811c24c166bd7f4768ddafbcbaf75d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab9811c24c166bd7f4768ddafbcbaf75d">&#9670;&#160;</a></span>GameEntry()</h2>
+<a id="a9c2abd1d64352c07d3085ba499cf2aae" name="a9c2abd1d64352c07d3085ba499cf2aae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9c2abd1d64352c07d3085ba499cf2aae">&#9670;&#160;</a></span>GameEntry()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -499,7 +502,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">DateTime</td>          <td class="paramname"><span class="paramname"><em>DateAdded</em></span>, </td>
+          <td class="paramtype">DateTime</td>          <td class="paramname"><span class="paramname"><em>DateCreated</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -523,18 +526,18 @@ Functions</h2></td></tr>
 
 <p class="reference">References <a class="el" href="_domain_models_8cs_source.html#l00040">GameEntry()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_main_view_model_8_scanning_8cs_source.html#l00242">Easy_Copier.ViewModels.MainViewModel.CopySelectedGamesAsync()</a>, <a class="el" href="_library_scanner_service_8cs_source.html#l00080">Easy_Copier.Services.LibraryScannerService.FindDuplicatesReportAsync()</a>, <a class="el" href="_main_page_8xaml_8cs_source.html#l00091">Easy_Copier.Views.MainPage.GameCard_RightTapped()</a>, <a class="el" href="_domain_models_8cs_source.html#l00040">GameEntry()</a>, <a class="el" href="_main_view_model_8_scanning_8cs_source.html#l00471">Easy_Copier.ViewModels.MainViewModel.OpenInRufusAsync()</a>, <a class="el" href="_main_view_model_8_scanning_8cs_source.html#l00088">Easy_Copier.ViewModels.MainViewModel.SaveCacheSnapshotAsync()</a>, <a class="el" href="_game_scanner_service_8cs_source.html#l00068">Easy_Copier.Services.GameScannerService.ScanLibraryAsync()</a>, <a class="el" href="_file_transfer_service_8cs_source.html#l00080">Easy_Copier.Services.WindowsShellTransferService.TransferGamesAsync()</a>, <a class="el" href="#a36bba191a5fad0b0ca63ed787ae607d8">TransferItem()</a>, <a class="el" href="_main_page_8xaml_8cs_source.html#l00066">Easy_Copier.Views.MainPage.UpdateCombinedSelection()</a>, <a class="el" href="_main_view_model_8_scanning_8cs_source.html#l00416">Easy_Copier.ViewModels.MainViewModel.UpdateSelectionSummary()</a>, <a class="el" href="_library_cache_service_8cs_source.html#l00164">Easy_Copier.Services.LibraryCacheService.ValidateCacheAsync()</a>, and <a class="el" href="_drive_services_8cs_source.html#l00320">Easy_Copier.Services.DriveValidationService.ValidateTransferAsync()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_main_view_model_8_scanning_8cs_source.html#l00242">Easy_Copier.ViewModels.MainViewModel.CopySelectedGamesAsync()</a>, <a class="el" href="_library_scanner_service_8cs_source.html#l00104">Easy_Copier.Services.LibraryScannerService.FindDuplicatesReportAsync()</a>, <a class="el" href="_domain_models_8cs_source.html#l00040">GameEntry()</a>, <a class="el" href="_apps_tab_view_8xaml_8cs_source.html#l00055">Easy_Copier.Views.AppsTabView.GetSelectedEntries()</a>, <a class="el" href="_games_tab_view_8xaml_8cs_source.html#l00055">Easy_Copier.Views.GamesTabView.GetSelectedEntries()</a>, <a class="el" href="_os_images_tab_view_8xaml_8cs_source.html#l00055">Easy_Copier.Views.OsImagesTabView.GetSelectedEntries()</a>, <a class="el" href="_tv_and_films_tab_view_8xaml_8cs_source.html#l00055">Easy_Copier.Views.TvAndFilmsTabView.GetSelectedEntries()</a>, <a class="el" href="_flyout_helper_8cs_source.html#l00022">Easy_Copier.Infrastructure.FlyoutHelper.HandleOpenFolderClick()</a>, <a class="el" href="_main_view_model_8_scanning_8cs_source.html#l00471">Easy_Copier.ViewModels.MainViewModel.OpenInRufusAsync()</a>, <a class="el" href="_main_view_model_8_scanning_8cs_source.html#l00088">Easy_Copier.ViewModels.MainViewModel.SaveCacheSnapshotAsync()</a>, <a class="el" href="_game_scanner_service_8cs_source.html#l00131">Easy_Copier.Services.GameScannerService.ScanLibraryAsync()</a>, <a class="el" href="_flyout_helper_8cs_source.html#l00036">Easy_Copier.Infrastructure.FlyoutHelper.ShowGameDetailsFlyoutAsync()</a>, <a class="el" href="_flyout_helper_8cs_source.html#l00060">Easy_Copier.Infrastructure.FlyoutHelper.ShowOsImageDetailsFlyout()</a>, <a class="el" href="_file_transfer_service_8cs_source.html#l00131">Easy_Copier.Services.WindowsShellTransferService.TransferGamesAsync()</a>, <a class="el" href="#a36bba191a5fad0b0ca63ed787ae607d8">TransferItem()</a>, <a class="el" href="_main_view_model_8_scanning_8cs_source.html#l00416">Easy_Copier.ViewModels.MainViewModel.UpdateSelectionSummary()</a>, <a class="el" href="_library_cache_service_8cs_source.html#l00239">Easy_Copier.Services.LibraryCacheService.ValidateCacheAsync()</a>, and <a class="el" href="_drive_services_8cs_source.html#l00436">Easy_Copier.Services.DriveValidationService.ValidateTransferAsync()</a>.</p>
 <div id="dynsection-4" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-4-summary" class="dynsummary">
 </div>
 <div id="dynsection-4-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespace_easy___copier_1_1_models_ab9811c24c166bd7f4768ddafbcbaf75d_cgraph.svg" width="223" height="62"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespace_easy___copier_1_1_models_a9c2abd1d64352c07d3085ba499cf2aae_cgraph.svg" width="223" height="62"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <div id="dynsection-5" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
 <div id="dynsection-5-summary" class="dynsummary">
 </div>
 <div id="dynsection-5-content" class="dyncontent hidden">
-<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespace_easy___copier_1_1_models_ab9811c24c166bd7f4768ddafbcbaf75d_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespace_easy___copier_1_1_models_a9c2abd1d64352c07d3085ba499cf2aae_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -565,7 +568,7 @@ Functions</h2></td></tr>
 
 <p class="reference">References <a class="el" href="#aae2a352ac1ad9a55ae8b37e300153431">ItemFingerprint()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_library_cache_service_8cs_source.html#l00333">Easy_Copier.Services.LibraryCacheService.ComputeItemFingerprintAsync()</a>, <a class="el" href="_library_cache_service_8cs_source.html#l00376">Easy_Copier.Services.LibraryCacheService.FingerprintsMatch()</a>, <a class="el" href="#aae2a352ac1ad9a55ae8b37e300153431">ItemFingerprint()</a>, <a class="el" href="_main_view_model_8_scanning_8cs_source.html#l00088">Easy_Copier.ViewModels.MainViewModel.SaveCacheSnapshotAsync()</a>, and <a class="el" href="_library_cache_service_8cs_source.html#l00164">Easy_Copier.Services.LibraryCacheService.ValidateCacheAsync()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_library_cache_service_8cs_source.html#l00423">Easy_Copier.Services.LibraryCacheService.ComputeItemFingerprintAsync()</a>, <a class="el" href="_library_cache_service_8cs_source.html#l00472">Easy_Copier.Services.LibraryCacheService.FingerprintsMatch()</a>, <a class="el" href="#aae2a352ac1ad9a55ae8b37e300153431">ItemFingerprint()</a>, <a class="el" href="_main_view_model_8_scanning_8cs_source.html#l00088">Easy_Copier.ViewModels.MainViewModel.SaveCacheSnapshotAsync()</a>, and <a class="el" href="_library_cache_service_8cs_source.html#l00239">Easy_Copier.Services.LibraryCacheService.ValidateCacheAsync()</a>.</p>
 <div id="dynsection-6" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-6-summary" class="dynsummary">
 </div>
@@ -595,22 +598,22 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">List&lt; <a class="el" href="#ab9811c24c166bd7f4768ddafbcbaf75d">GameEntry</a> &gt;</td>          <td class="paramname"><span class="paramname"><em>Games</em></span>, </td>
+          <td class="paramtype">List&lt; <a class="el" href="#a9c2abd1d64352c07d3085ba499cf2aae">GameEntry</a> &gt;</td>          <td class="paramname"><span class="paramname"><em>Games</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">List&lt; <a class="el" href="#ab9811c24c166bd7f4768ddafbcbaf75d">GameEntry</a> &gt;</td>          <td class="paramname"><span class="paramname"><em>Apps</em></span>, </td>
+          <td class="paramtype">List&lt; <a class="el" href="#a9c2abd1d64352c07d3085ba499cf2aae">GameEntry</a> &gt;</td>          <td class="paramname"><span class="paramname"><em>Apps</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">List&lt; <a class="el" href="#ab9811c24c166bd7f4768ddafbcbaf75d">GameEntry</a> &gt;</td>          <td class="paramname"><span class="paramname"><em>TvAndFilms</em></span>, </td>
+          <td class="paramtype">List&lt; <a class="el" href="#a9c2abd1d64352c07d3085ba499cf2aae">GameEntry</a> &gt;</td>          <td class="paramname"><span class="paramname"><em>TvAndFilms</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">List&lt; <a class="el" href="#ab9811c24c166bd7f4768ddafbcbaf75d">GameEntry</a> &gt;</td>          <td class="paramname"><span class="paramname"><em>OsImages</em></span>, </td>
+          <td class="paramtype">List&lt; <a class="el" href="#a9c2abd1d64352c07d3085ba499cf2aae">GameEntry</a> &gt;</td>          <td class="paramname"><span class="paramname"><em>OsImages</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -649,7 +652,7 @@ Functions</h2></td></tr>
 
 <p class="reference">References <a class="el" href="_domain_models_8cs_source.html#l00136">LibraryCacheSnapshot()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_main_view_model_8cs_source.html#l00312">Easy_Copier.ViewModels.MainViewModel.InitializeAsync()</a>, <a class="el" href="_domain_models_8cs_source.html#l00136">LibraryCacheSnapshot()</a>, <a class="el" href="_library_cache_service_8cs_source.html#l00046">Easy_Copier.Services.LibraryCacheService.LoadCacheAsync()</a>, <a class="el" href="interface_easy___copier_1_1_services_1_1_i_library_cache_service.html#af6d9e8159cbbd841975e73a34ddce367">Easy_Copier.Services.ILibraryCacheService.SaveCacheAsync()</a>, <a class="el" href="_library_cache_service_8cs_source.html#l00102">Easy_Copier.Services.LibraryCacheService.SaveCacheAsync()</a>, <a class="el" href="_main_view_model_8_scanning_8cs_source.html#l00088">Easy_Copier.ViewModels.MainViewModel.SaveCacheSnapshotAsync()</a>, <a class="el" href="_main_view_model_8cs_source.html#l00402">Easy_Copier.ViewModels.MainViewModel.ValidateAndRefreshCacheAsync()</a>, <a class="el" href="interface_easy___copier_1_1_services_1_1_i_library_cache_service.html#a767b09540d7984e9563a00b516bd4609">Easy_Copier.Services.ILibraryCacheService.ValidateCacheAsync()</a>, and <a class="el" href="_library_cache_service_8cs_source.html#l00164">Easy_Copier.Services.LibraryCacheService.ValidateCacheAsync()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_main_view_model_8cs_source.html#l00320">Easy_Copier.ViewModels.MainViewModel.InitializeAsync()</a>, <a class="el" href="_domain_models_8cs_source.html#l00136">LibraryCacheSnapshot()</a>, <a class="el" href="_library_cache_service_8cs_source.html#l00105">Easy_Copier.Services.LibraryCacheService.LoadCacheAsync()</a>, <a class="el" href="interface_easy___copier_1_1_services_1_1_i_library_cache_service.html#af6d9e8159cbbd841975e73a34ddce367">Easy_Copier.Services.ILibraryCacheService.SaveCacheAsync()</a>, <a class="el" href="_library_cache_service_8cs_source.html#l00166">Easy_Copier.Services.LibraryCacheService.SaveCacheAsync()</a>, <a class="el" href="_main_view_model_8_scanning_8cs_source.html#l00088">Easy_Copier.ViewModels.MainViewModel.SaveCacheSnapshotAsync()</a>, <a class="el" href="_main_view_model_8cs_source.html#l00410">Easy_Copier.ViewModels.MainViewModel.ValidateAndRefreshCacheAsync()</a>, <a class="el" href="interface_easy___copier_1_1_services_1_1_i_library_cache_service.html#a767b09540d7984e9563a00b516bd4609">Easy_Copier.Services.ILibraryCacheService.ValidateCacheAsync()</a>, and <a class="el" href="_library_cache_service_8cs_source.html#l00239">Easy_Copier.Services.LibraryCacheService.ValidateCacheAsync()</a>.</p>
 <div id="dynsection-8" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-8-summary" class="dynsummary">
 </div>
@@ -713,7 +716,7 @@ Functions</h2></td></tr>
 
 <p class="reference">References <a class="el" href="_domain_models_8cs_source.html#l00054">RemovableDrive()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_main_view_model_8_scanning_8cs_source.html#l00242">Easy_Copier.ViewModels.MainViewModel.CopySelectedGamesAsync()</a>, <a class="el" href="interface_easy___copier_1_1_services_1_1_i_transfer_queue_service.html#afdf1a06fba0ea7f44bc32d23bcef4edf">Easy_Copier.Services.ITransferQueueService.Enqueue()</a>, <a class="el" href="_transfer_queue_service_8cs_source.html#l00061">Easy_Copier.Services.TransferQueueService.Enqueue()</a>, <a class="el" href="_drive_services_8cs_source.html#l00038">Easy_Copier.Services.DriveDiscoveryService.GetRemovableDrivesAsync()</a>, <a class="el" href="_domain_models_8cs_source.html#l00054">RemovableDrive()</a>, <a class="el" href="_game_scanner_service_8cs_source.html#l00068">Easy_Copier.Services.GameScannerService.ScanLibraryAsync()</a>, <a class="el" href="#a361f45ad4ad4f48588e380daa766a5fa">TransferRequest()</a>, <a class="el" href="_drive_services_8cs_source.html#l00320">Easy_Copier.Services.DriveValidationService.ValidateTransferAsync()</a>, and <a class="el" href="interface_easy___copier_1_1_services_1_1_i_drive_validation_service.html#abf7e21510548c621bef8344a9700f630">Easy_Copier.Services.IDriveValidationService.ValidateTransferAsync()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_main_view_model_8_scanning_8cs_source.html#l00242">Easy_Copier.ViewModels.MainViewModel.CopySelectedGamesAsync()</a>, <a class="el" href="interface_easy___copier_1_1_services_1_1_i_transfer_queue_service.html#afdf1a06fba0ea7f44bc32d23bcef4edf">Easy_Copier.Services.ITransferQueueService.Enqueue()</a>, <a class="el" href="_transfer_queue_service_8cs_source.html#l00153">Easy_Copier.Services.TransferQueueService.Enqueue()</a>, <a class="el" href="_drive_services_8cs_source.html#l00103">Easy_Copier.Services.DriveDiscoveryService.GetRemovableDrivesAsync()</a>, <a class="el" href="_domain_models_8cs_source.html#l00054">RemovableDrive()</a>, <a class="el" href="_game_scanner_service_8cs_source.html#l00131">Easy_Copier.Services.GameScannerService.ScanLibraryAsync()</a>, <a class="el" href="#a361f45ad4ad4f48588e380daa766a5fa">TransferRequest()</a>, <a class="el" href="_drive_services_8cs_source.html#l00436">Easy_Copier.Services.DriveValidationService.ValidateTransferAsync()</a>, and <a class="el" href="interface_easy___copier_1_1_services_1_1_i_drive_validation_service.html#abf7e21510548c621bef8344a9700f630">Easy_Copier.Services.IDriveValidationService.ValidateTransferAsync()</a>.</p>
 <div id="dynsection-10" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-10-summary" class="dynsummary">
 </div>
@@ -755,7 +758,7 @@ Functions</h2></td></tr>
 
 <p class="reference">References <a class="el" href="#abf1613443f307029b23c31269e85160d">SourceFolder()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="#abf1613443f307029b23c31269e85160d">SourceFolder()</a>, and <a class="el" href="_source_library_service_8cs_source.html#l00027">Easy_Copier.Services.SourceLibraryService.ValidateSourceFoldersAsync()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="#abf1613443f307029b23c31269e85160d">SourceFolder()</a>, and <a class="el" href="_source_library_service_8cs_source.html#l00066">Easy_Copier.Services.SourceLibraryService.ValidateSourceFoldersAsync()</a>.</p>
 <div id="dynsection-12" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-12-summary" class="dynsummary">
 </div>
@@ -780,7 +783,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">record Easy_Copier.Models.TransferItem </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="#ab9811c24c166bd7f4768ddafbcbaf75d">GameEntry</a></td>          <td class="paramname"><span class="paramname"><em>Game</em></span>, </td>
+          <td class="paramtype"><a class="el" href="#a9c2abd1d64352c07d3085ba499cf2aae">GameEntry</a></td>          <td class="paramname"><span class="paramname"><em>Game</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -792,7 +795,7 @@ Functions</h2></td></tr>
 
 <p class="reference">References <a class="el" href="_domain_models_8cs_source.html#l00040">GameEntry()</a>, and <a class="el" href="#a36bba191a5fad0b0ca63ed787ae607d8">TransferItem()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_main_view_model_8_scanning_8cs_source.html#l00242">Easy_Copier.ViewModels.MainViewModel.CopySelectedGamesAsync()</a>, <a class="el" href="_file_transfer_service_8cs_source.html#l00080">Easy_Copier.Services.WindowsShellTransferService.TransferGamesAsync()</a>, and <a class="el" href="#a36bba191a5fad0b0ca63ed787ae607d8">TransferItem()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_main_view_model_8_scanning_8cs_source.html#l00242">Easy_Copier.ViewModels.MainViewModel.CopySelectedGamesAsync()</a>, <a class="el" href="_file_transfer_service_8cs_source.html#l00131">Easy_Copier.Services.WindowsShellTransferService.TransferGamesAsync()</a>, and <a class="el" href="#a36bba191a5fad0b0ca63ed787ae607d8">TransferItem()</a>.</p>
 <div id="dynsection-14" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-14-summary" class="dynsummary">
 </div>
@@ -844,7 +847,7 @@ Functions</h2></td></tr>
 
 <p class="reference">References <a class="el" href="#a0f254e810a60e913105ca1898e396f4c">TransferOutcome()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_transfer_queue_service_8cs_source.html#l00123">Easy_Copier.Services.TransferQueueService.ProcessItemAsync()</a>, <a class="el" href="_file_transfer_service_8cs_source.html#l00080">Easy_Copier.Services.WindowsShellTransferService.TransferGamesAsync()</a>, and <a class="el" href="#a0f254e810a60e913105ca1898e396f4c">TransferOutcome()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_transfer_queue_service_8cs_source.html#l00238">Easy_Copier.Services.TransferQueueService.ProcessItemAsync()</a>, <a class="el" href="_file_transfer_service_8cs_source.html#l00131">Easy_Copier.Services.WindowsShellTransferService.TransferGamesAsync()</a>, and <a class="el" href="#a0f254e810a60e913105ca1898e396f4c">TransferOutcome()</a>.</p>
 <div id="dynsection-16" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-16-summary" class="dynsummary">
 </div>
@@ -928,7 +931,7 @@ Functions</h2></td></tr>
 
 <p class="reference">References <a class="el" href="_domain_models_8cs_source.html#l00054">RemovableDrive()</a>, and <a class="el" href="#a361f45ad4ad4f48588e380daa766a5fa">TransferRequest()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_transfer_queue_service_8cs_source.html#l00123">Easy_Copier.Services.TransferQueueService.ProcessItemAsync()</a>, <a class="el" href="interface_easy___copier_1_1_services_1_1_i_file_transfer_service.html#ae4cb14860a42a462aab955a6e77a90d5">Easy_Copier.Services.IFileTransferService.TransferGamesAsync()</a>, <a class="el" href="_file_transfer_service_8cs_source.html#l00080">Easy_Copier.Services.WindowsShellTransferService.TransferGamesAsync()</a>, and <a class="el" href="#a361f45ad4ad4f48588e380daa766a5fa">TransferRequest()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_transfer_queue_service_8cs_source.html#l00238">Easy_Copier.Services.TransferQueueService.ProcessItemAsync()</a>, <a class="el" href="interface_easy___copier_1_1_services_1_1_i_file_transfer_service.html#ae4cb14860a42a462aab955a6e77a90d5">Easy_Copier.Services.IFileTransferService.TransferGamesAsync()</a>, <a class="el" href="_file_transfer_service_8cs_source.html#l00131">Easy_Copier.Services.WindowsShellTransferService.TransferGamesAsync()</a>, and <a class="el" href="#a361f45ad4ad4f48588e380daa766a5fa">TransferRequest()</a>.</p>
 <div id="dynsection-20" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-20-summary" class="dynsummary">
 </div>
@@ -972,7 +975,7 @@ Functions</h2></td></tr>
 
 <p class="reference">References <a class="el" href="#aa394743cccca298523ee415d124c3cbf">ValidationResult()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_drive_services_8cs_source.html#l00320">Easy_Copier.Services.DriveValidationService.ValidateTransferAsync()</a>, and <a class="el" href="#aa394743cccca298523ee415d124c3cbf">ValidationResult()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_drive_services_8cs_source.html#l00436">Easy_Copier.Services.DriveValidationService.ValidateTransferAsync()</a>, and <a class="el" href="#aa394743cccca298523ee415d124c3cbf">ValidationResult()</a>.</p>
 <div id="dynsection-22" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-22-summary" class="dynsummary">
 </div>

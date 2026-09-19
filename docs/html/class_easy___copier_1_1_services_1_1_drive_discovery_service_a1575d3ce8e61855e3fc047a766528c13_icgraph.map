@@ -1,9 +1,9 @@
 <map id="Easy_Copier.Services.DriveDiscoveryService.OnDriveChanged" name="Easy_Copier.Services.DriveDiscoveryService.OnDriveChanged">
-<area shape="rect" id="Node000001" title=" " alt="" coords="498,39,726,81"/>
-<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_services_1_1_drive_discovery_service.html#a326c4547ff0f1f958799d963a9ea80c0" title=" " alt="" coords="240,5,450,48"/>
+<area shape="rect" id="Node000001" title="Callback handler triggered when WMI delivers a volume change event." alt="" coords="498,39,726,81"/>
+<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_services_1_1_drive_discovery_service.html#a326c4547ff0f1f958799d963a9ea80c0" title="Starts the WMI event listener for Windows volume change events." alt="" coords="240,5,450,48"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="480,44,451,42,451,37,485,44"/>
-<area shape="rect" id="Node000003" href="$class_easy___copier_1_1_services_1_1_drive_discovery_service.html#afb32927d7b82e3d42575bf49e7f732d5" title=" " alt="" coords="240,72,450,115"/>
+<area shape="rect" id="Node000003" href="$class_easy___copier_1_1_services_1_1_drive_discovery_service.html#afb32927d7b82e3d42575bf49e7f732d5" title="Stops the WMI event listener and cleans up watcher instances safely." alt="" coords="240,72,450,115"/>
 <area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="485,76,450,83,450,78,480,76"/>
-<area shape="rect" id="Node000004" href="$class_easy___copier_1_1_services_1_1_drive_discovery_service.html#a8d9f3925e02834e5d1a0884c9d2761fd" title=" " alt="" coords="5,72,192,115"/>
+<area shape="rect" id="Node000004" href="$class_easy___copier_1_1_services_1_1_drive_discovery_service.html#a8d9f3925e02834e5d1a0884c9d2761fd" title="Disposes unmanaged WMI resources and terminates drive monitoring handlers." alt="" coords="5,72,192,115"/>
 <area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="222,94,192,96,192,91,227,93"/>
 </map>

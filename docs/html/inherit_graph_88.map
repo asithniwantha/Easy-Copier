@@ -1,0 +1,25 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="Node000000" title=" " alt="" coords="5,347,120,373"/>
+<area shape="rect" id="Node000001" href="$class_easy___copier_1_1_converters_1_1_bool_to_visibility_converter.html" title="Converts a boolean value to a UI Visibility status, supporting optional inversion via the converter p..." alt="" coords="181,5,376,48"/>
+<area shape="poly" id="edge289_Node000000_Node000001" title=" " alt="" coords="63,330,70,273,87,200,100,162,117,124,139,89,166,58,184,46,181,51,169,62,143,92,122,127,105,164,92,202,75,274,68,331"/>
+<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_converters_1_1_bytes_to_size_converter.html" title="Converts a byte count (long) into a human&#45;readable file size string (e.g., &quot;1.5 GB&quot;)." alt="" coords="177,72,380,115"/>
+<area shape="poly" id="edge290_Node000000_Node000002" title=" " alt="" coords="66,331,77,286,96,230,125,174,144,148,166,125,185,113,182,117,169,129,148,151,129,177,101,233,82,287,71,332"/>
+<area shape="rect" id="Node000003" href="$class_easy___copier_1_1_converters_1_1_category_format_converter.html" title="Converts a list of GameCategory values into a comma&#45;separated display string." alt="" coords="168,139,389,181"/>
+<area shape="poly" id="edge291_Node000000_Node000003" title=" " alt="" coords="72,331,106,261,133,223,166,191,188,180,184,184,169,195,137,227,111,264,77,333"/>
+<area shape="rect" id="Node000004" href="$class_easy___copier_1_1_converters_1_1_game_category_to_visibility_converter.html" title="Converts a LibraryCategory enum value to a UI Visibility status, returning Visibility...." alt="" coords="177,205,380,248"/>
+<area shape="poly" id="edge292_Node000000_Node000004" title=" " alt="" coords="82,334,119,294,166,258,193,246,189,251,169,262,122,298,86,336"/>
+<area shape="rect" id="Node000005" href="$class_easy___copier_1_1_converters_1_1_game_size_to_price_converter.html" title="Converts a byte size into a formatted price string based on user settings or size brackets." alt="" coords="177,272,380,315"/>
+<area shape="poly" id="edge293_Node000000_Node000005" title=" " alt="" coords="120,339,167,324,207,313,203,317,168,329,123,343"/>
+<area shape="rect" id="Node000006" href="$class_easy___copier_1_1_converters_1_1_negative_to_background_converter.html" title="Converts a boolean indicating negative value status to a subtle red background brush adapted to light..." alt="" coords="168,339,388,381"/>
+<area shape="poly" id="edge294_Node000000_Node000006" title=" " alt="" coords="134,358,170,358,166,362,136,362"/>
+<area shape="rect" id="Node000007" href="$class_easy___copier_1_1_converters_1_1_negative_to_foreground_converter.html" title="Converts a boolean indicating negative value status to a red text foreground brush." alt="" coords="168,405,388,448"/>
+<area shape="poly" id="edge295_Node000000_Node000007" title=" " alt="" coords="120,376,168,391,207,404,202,406,167,396,122,381"/>
+<area shape="rect" id="Node000008" href="$class_easy___copier_1_1_converters_1_1_path_to_image_source_converter.html" title="Converts a local file system path string to a Microsoft.UI.Xaml.Media.Imaging.BitmapImage for UI imag..." alt="" coords="181,472,376,515"/>
+<area shape="poly" id="edge296_Node000000_Node000008" title=" " alt="" coords="84,382,122,422,169,458,194,471,189,472,166,462,119,426,84,388"/>
+<area shape="rect" id="Node000009" href="$class_easy___copier_1_1_converters_1_1_severity_to_info_bar_severity_converter.html" title="Converts a domain ValidationSeverity enum value to a WinUI InfoBarSeverity value." alt="" coords="170,539,386,581"/>
+<area shape="poly" id="edge297_Node000000_Node000009" title=" " alt="" coords="74,385,111,456,137,493,169,525,189,538,183,539,166,529,133,497,106,459,74,391"/>
+<area shape="rect" id="Node000010" href="$class_easy___copier_1_1_converters_1_1_sort_direction_glyph_converter.html" title="Converts a boolean indicating ascending sort direction to a Segoe MDL2 Assets glyph character string ..." alt="" coords="182,605,374,648"/>
+<area shape="poly" id="edge298_Node000000_Node000010" title=" " alt="" coords="69,386,82,433,101,487,129,543,148,569,169,591,186,605,181,605,166,595,144,572,125,546,96,490,77,434,68,391"/>
+<area shape="rect" id="Node000011" href="$class_easy___copier_1_1_converters_1_1_sort_direction_tool_tip_converter.html" title="Converts a boolean indicating ascending sort direction to a localized or descriptive tooltip string (..." alt="" coords="182,672,374,715"/>
+<area shape="poly" id="edge299_Node000000_Node000011" title=" " alt="" coords="66,387,75,446,92,518,105,556,122,593,143,628,169,658,186,672,180,671,166,662,139,631,117,596,100,558,87,520,70,447,65,392"/>
+</map>

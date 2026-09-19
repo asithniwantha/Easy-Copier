@@ -21,7 +21,7 @@
 <!-- Node2 -->
 <g id="Node000002" class="node">
 <title>Node2</title>
-<g id="a_Node000002"><a xlink:href="class_easy___copier_1_1_services_1_1_windows_shell_transfer_service.html#afb76277cd4d95e6647183bc15cc68f32" target="_top" xlink:title=" ">
+<g id="a_Node000002"><a xlink:href="class_easy___copier_1_1_services_1_1_windows_shell_transfer_service.html#afb76277cd4d95e6647183bc15cc68f32" target="_top" xlink:title="Copies a source file or directory to a destination folder using Windows Shell IFileOperation COM inte...">
 <polygon fill="white" stroke="#666666" points="413.75,-106 241,-106 241,-62 413.75,-62 413.75,-106"/>
 <text xml:space="preserve" text-anchor="start" x="249" y="-92.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Services.Windows</text>
 <text xml:space="preserve" text-anchor="start" x="249" y="-80.5" font-family="Helvetica,sans-Serif" font-size="10.00">ShellTransferService.CopyItemWith</text>
@@ -41,7 +41,7 @@
 <!-- Node4 -->
 <g id="Node000004" class="node">
 <title>Node4</title>
-<g id="a_Node000004"><a xlink:href="class_easy___copier_1_1_services_1_1_windows_shell_transfer_service.html#ab2a27fa82dcd964d45d832b0afcf8065" target="_top" xlink:title=" ">
+<g id="a_Node000004"><a xlink:href="class_easy___copier_1_1_services_1_1_windows_shell_transfer_service.html#ab2a27fa82dcd964d45d832b0afcf8065" target="_top" xlink:title="Deletes a file or folder using native Windows Shell IFileOperation COM interface.">
 <polygon fill="white" stroke="#666666" points="406.25,-44 248.5,-44 248.5,0 406.25,0 406.25,-44"/>
 <text xml:space="preserve" text-anchor="start" x="256.5" y="-30.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Services.Windows</text>
 <text xml:space="preserve" text-anchor="start" x="256.5" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">ShellTransferService.DeleteItem</text>
@@ -61,7 +61,7 @@
 <!-- Node3 -->
 <g id="Node000003" class="node">
 <title>Node3</title>
-<g id="a_Node000003"><a xlink:href="class_easy___copier_1_1_services_1_1_windows_shell_transfer_service.html#a9055d728deea07bb02f90815f235d6c6" target="_top" xlink:title=" ">
+<g id="a_Node000003"><a xlink:href="class_easy___copier_1_1_services_1_1_windows_shell_transfer_service.html#a9055d728deea07bb02f90815f235d6c6" target="_top" xlink:title="Executes a transfer request asynchronously on a dedicated STA background thread using Windows Shell C...">
 <polygon fill="white" stroke="#666666" points="205,-69 0,-69 0,-37 205,-37 205,-69"/>
 <text xml:space="preserve" text-anchor="start" x="8" y="-55.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Services.Windows</text>
 <text xml:space="preserve" text-anchor="middle" x="102.5" y="-43.5" font-family="Helvetica,sans-Serif" font-size="10.00">ShellTransferService.TransferGamesAsync</text>

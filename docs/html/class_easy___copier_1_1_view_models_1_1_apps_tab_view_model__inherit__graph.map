@@ -1,0 +1,7 @@
+<map id="Easy_Copier.ViewModels.AppsTabViewModel" name="Easy_Copier.ViewModels.AppsTabViewModel">
+<area shape="rect" id="Node000001" title="ViewModel for managing the Applications library tab view. Acts as a dedicated child ViewModel that de..." alt="" coords="10,171,215,213"/>
+<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_view_models_1_1_library_tab_view_model_base.html" title="Abstract base ViewModel for tab&#45;specific child ViewModels that synchronize state with MainViewModel." alt="" coords="5,80,220,123"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="114,136,115,171,110,169,111,140"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="50,5,175,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="114,45,115,80,110,79,111,50"/>
+</map>

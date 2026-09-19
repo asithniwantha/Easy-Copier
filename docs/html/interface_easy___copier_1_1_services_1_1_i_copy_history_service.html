@@ -112,6 +112,9 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('interface_easy
   <div class="headertitle"><div class="title">Easy_Copier.Services.ICopyHistoryService Interface Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Service interface for recording and querying copy operation history in a local SQLite database.  
+ <a href="#details">More...</a></p>
 <div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Inheritance diagram for Easy_Copier.Services.ICopyHistoryService:</div>
 <div id="dynsection-0-summary" class="dynsummary">
 </div>
@@ -122,16 +125,24 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('interface_easy
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a6867d761ff9d16ab2e8df2da66d293df" id="r_a6867d761ff9d16ab2e8df2da66d293df"><td class="memItemLeft">Task&#160;</td><td class="memItemRight"><a class="el" href="#a6867d761ff9d16ab2e8df2da66d293df">InitializeAsync</a> ()</td></tr>
+<tr class="memdesc:a6867d761ff9d16ab2e8df2da66d293df"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the underlying SQLite database schema and applies any pending migrations.  <br /></td></tr>
 <tr class="memitem:a0a03e9cfcfc3ecbb06861795b25de91b" id="r_a0a03e9cfcfc3ecbb06861795b25de91b"><td class="memItemLeft">Task&#160;</td><td class="memItemRight"><a class="el" href="#a0a03e9cfcfc3ecbb06861795b25de91b">AddRecordAsync</a> (<a class="el" href="namespace_easy___copier_1_1_models.html#a22cad9581ea699aafef9d310c84f0836">CopyHistoryRecord</a> record)</td></tr>
+<tr class="memdesc:a0a03e9cfcfc3ecbb06861795b25de91b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inserts a new copy operation history record into the database.  <br /></td></tr>
 <tr class="memitem:a009edbc0ed4f2cd14fc3ba99bcaac75f" id="r_a009edbc0ed4f2cd14fc3ba99bcaac75f"><td class="memItemLeft">Task&lt; List&lt; <a class="el" href="namespace_easy___copier_1_1_models.html#a22cad9581ea699aafef9d310c84f0836">CopyHistoryRecord</a> &gt; &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a009edbc0ed4f2cd14fc3ba99bcaac75f">GetRecordsByWeekAsync</a> (DateTime startOfWeek, DateTime endOfWeek)</td></tr>
+<tr class="memdesc:a009edbc0ed4f2cd14fc3ba99bcaac75f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves all copy history records that occurred within a specific week range.  <br /></td></tr>
 <tr class="memitem:a195a7023c70384f14250e21a5e0e9428" id="r_a195a7023c70384f14250e21a5e0e9428"><td class="memItemLeft">Task&lt; List&lt; DateTime &gt; &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a195a7023c70384f14250e21a5e0e9428">GetAvailableWeeksAsync</a> ()</td></tr>
+<tr class="memdesc:a195a7023c70384f14250e21a5e0e9428"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves distinct start dates of weeks for which history records exist.  <br /></td></tr>
 <tr class="memitem:ac458a0686bf378a3225ca09ad649b252" id="r_ac458a0686bf378a3225ca09ad649b252"><td class="memItemLeft">Task&lt; List&lt; <a class="el" href="namespace_easy___copier_1_1_models.html#a22cad9581ea699aafef9d310c84f0836">CopyHistoryRecord</a> &gt; &gt;&#160;</td><td class="memItemRight"><a class="el" href="#ac458a0686bf378a3225ca09ad649b252">GetRecordsByMonthAsync</a> (int year, int month)</td></tr>
+<tr class="memdesc:ac458a0686bf378a3225ca09ad649b252"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves all copy history records for a specified year and month.  <br /></td></tr>
 <tr class="memitem:a249df9233162193ce84fe3d570d8a75c" id="r_a249df9233162193ce84fe3d570d8a75c"><td class="memItemLeft">Task&lt; List&lt;(int Year, int Month)&gt; &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a249df9233162193ce84fe3d570d8a75c">GetAvailableMonthsAsync</a> ()</td></tr>
+<tr class="memdesc:a249df9233162193ce84fe3d570d8a75c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves distinct year and month pairs for which history records exist.  <br /></td></tr>
 <tr class="memitem:a36a6ca49a55cf6414180eec27992a416" id="r_a36a6ca49a55cf6414180eec27992a416"><td class="memItemLeft">Task&lt;(int TotalItems, int SuccessfulItems, long TotalBytes, int TotalAmount)&gt;&#160;</td><td class="memItemRight"><a class="el" href="#a36a6ca49a55cf6414180eec27992a416">GetStatsAsync</a> (DateTime startDate, DateTime endDate)</td></tr>
+<tr class="memdesc:a36a6ca49a55cf6414180eec27992a416"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates aggregated statistics for history records within a specified date range.  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="_copy_history_service_8cs_source.html#l00012">12</a> of file <a class="el" href="_copy_history_service_8cs_source.html">CopyHistoryService.cs</a>.</p>
+<div class="textblock"><p>Service interface for recording and querying copy operation history in a local SQLite database. </p>
+
+<p class="definition">Definition at line <a class="el" href="_copy_history_service_8cs_source.html#l00015">15</a> of file <a class="el" href="_copy_history_service_8cs_source.html">CopyHistoryService.cs</a>.</p>
 </div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
 <a id="a0a03e9cfcfc3ecbb06861795b25de91b" name="a0a03e9cfcfc3ecbb06861795b25de91b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a0a03e9cfcfc3ecbb06861795b25de91b">&#9670;&#160;</a></span>AddRecordAsync()</h2>
@@ -147,6 +158,15 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Inserts a new copy operation history record into the database. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">record</td><td>The CopyHistoryRecord containing execution details to store.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A task representing the asynchronous operation.</dd></dl>
 
 <p>Implemented in <a class="el" href="class_easy___copier_1_1_services_1_1_copy_history_service.html#aecc6eeb77ecd42fa94e25a0c2a8fa664">Easy_Copier.Services.CopyHistoryService</a>.</p>
 
@@ -175,6 +195,9 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Retrieves distinct year and month pairs for which history records exist. </p>
+<dl class="section return"><dt>Returns</dt><dd>A task that returns a list of tuples containing (Year, Month) ordered descending.</dd></dl>
+
 <p>Implemented in <a class="el" href="class_easy___copier_1_1_services_1_1_copy_history_service.html#adbef4e4fdcec262e40f3efb1b18ca2e5">Easy_Copier.Services.CopyHistoryService</a>.</p>
 
 </div>
@@ -193,6 +216,9 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Retrieves distinct start dates of weeks for which history records exist. </p>
+<dl class="section return"><dt>Returns</dt><dd>A task that returns a list of Sunday start dates ordered descending.</dd></dl>
 
 <p>Implemented in <a class="el" href="class_easy___copier_1_1_services_1_1_copy_history_service.html#a2e4145003b9ce0b022847861cbc13cc8">Easy_Copier.Services.CopyHistoryService</a>.</p>
 
@@ -217,6 +243,16 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Retrieves all copy history records for a specified year and month. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">year</td><td>The 4-digit year to filter by.</td></tr>
+    <tr><td class="paramname">month</td><td>The month (1–12) to filter by.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A task that returns a list of matching CopyHistoryRecord instances ordered descending by timestamp.</dd></dl>
+
 <p>Implemented in <a class="el" href="class_easy___copier_1_1_services_1_1_copy_history_service.html#a977fc855e31450a0f4e8bb945c376d46">Easy_Copier.Services.CopyHistoryService</a>.</p>
 
 </div>
@@ -239,6 +275,16 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Retrieves all copy history records that occurred within a specific week range. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">startOfWeek</td><td>The start boundary of the week (inclusive).</td></tr>
+    <tr><td class="paramname">endOfWeek</td><td>The end boundary of the week.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A task that returns a list of matching CopyHistoryRecord instances ordered descending by timestamp.</dd></dl>
 
 <p>Implemented in <a class="el" href="class_easy___copier_1_1_services_1_1_copy_history_service.html#ad84f30371f01b9187c29a15b65e6e181">Easy_Copier.Services.CopyHistoryService</a>.</p>
 
@@ -263,6 +309,16 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Calculates aggregated statistics for history records within a specified date range. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">startDate</td><td>The start boundary of the date range (inclusive).</td></tr>
+    <tr><td class="paramname">endDate</td><td>The end boundary of the date range (exclusive).</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A task that returns a tuple containing total items, successful items, total bytes, and total monetary amount.</dd></dl>
+
 <p>Implemented in <a class="el" href="class_easy___copier_1_1_services_1_1_copy_history_service.html#a81662fae72f6e44dd0978e950b57341b">Easy_Copier.Services.CopyHistoryService</a>.</p>
 
 </div>
@@ -281,6 +337,9 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Initializes the underlying SQLite database schema and applies any pending migrations. </p>
+<dl class="section return"><dt>Returns</dt><dd>A task representing the asynchronous operation.</dd></dl>
 
 <p>Implemented in <a class="el" href="class_easy___copier_1_1_services_1_1_copy_history_service.html#aba29ee86567fbcfc77433959c46c65c2">Easy_Copier.Services.CopyHistoryService</a>.</p>
 

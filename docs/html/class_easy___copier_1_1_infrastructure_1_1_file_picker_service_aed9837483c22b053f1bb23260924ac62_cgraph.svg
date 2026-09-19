@@ -53,7 +53,7 @@
 <!-- Node1 -->
 <g id="Node000001" class="node">
 <title>Node1</title>
-<g id="a_Node000001"><a xlink:title=" ">
+<g id="a_Node000001"><a xlink:title="Displays a file open picker modal dialog allowing the user to select an existing file.">
 <polygon fill="#999999" stroke="#666666" points="181.75,-100 0,-100 0,-68 181.75,-68 181.75,-100"/>
 <text xml:space="preserve" text-anchor="start" x="8" y="-86.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Infrastructure.</text>
 <text xml:space="preserve" text-anchor="middle" x="90.88" y="-74.5" font-family="Helvetica,sans-Serif" font-size="10.00">FilePickerService.PickOpenFileAsync</text>
@@ -63,7 +63,7 @@
 <!-- Node2 -->
 <g id="Node000002" class="node">
 <title>Node2</title>
-<g id="a_Node000002"><a xlink:href="class_easy___copier_1_1_infrastructure_1_1_native_window_helper.html#a033d3528f56a522cc269f09ea0155388" target="_top" xlink:title=" ">
+<g id="a_Node000002"><a xlink:href="class_easy___copier_1_1_infrastructure_1_1_native_window_helper.html#a033d3528f56a522cc269f09ea0155388" target="_top" xlink:title="Gets the handle (HWND) of the currently active window belonging to the running application process.">
 <polygon fill="white" stroke="#666666" points="407.75,-106 217.75,-106 217.75,-62 407.75,-62 407.75,-106"/>
 <text xml:space="preserve" text-anchor="start" x="225.75" y="-92.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Infrastructure.</text>
 <text xml:space="preserve" text-anchor="start" x="225.75" y="-80.5" font-family="Helvetica,sans-Serif" font-size="10.00">NativeWindowHelper.GetActiveWindow</text>

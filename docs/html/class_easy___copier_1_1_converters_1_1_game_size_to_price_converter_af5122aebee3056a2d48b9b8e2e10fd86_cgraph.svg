@@ -32,7 +32,7 @@
 <!-- Node2 -->
 <g id="Node000002" class="node">
 <title>Node2</title>
-<g id="a_Node000002"><a xlink:href="interface_easy___copier_1_1_services_1_1_i_settings_service.html#a4f2b6c9f7141ced2f91b28ee3cf57069" target="_top" xlink:title=" ">
+<g id="a_Node000002"><a xlink:href="interface_easy___copier_1_1_services_1_1_i_settings_service.html#a4f2b6c9f7141ced2f91b28ee3cf57069" target="_top" xlink:title="Synchronously loads settings from disk or returns cached settings if already loaded.">
 <polygon fill="white" stroke="#666666" points="344,-32 188.5,-32 188.5,0 344,0 344,-32"/>
 <text xml:space="preserve" text-anchor="start" x="196.5" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Services.ISettings</text>
 <text xml:space="preserve" text-anchor="middle" x="266.25" y="-6.5" font-family="Helvetica,sans-Serif" font-size="10.00">Service.LoadSettingsSync</text>

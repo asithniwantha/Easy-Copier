@@ -112,6 +112,9 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('interface_easy
   <div class="headertitle"><div class="title">Easy_Copier.Services.ISourceLibraryService Interface Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Defines operations for validating source folder paths and reading game system requirements documents.  
+ <a href="#details">More...</a></p>
 <div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Inheritance diagram for Easy_Copier.Services.ISourceLibraryService:</div>
 <div id="dynsection-0-summary" class="dynsummary">
 </div>
@@ -122,12 +125,16 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('interface_easy
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:aca0d90caff63b58410180a293ddc1e6d" id="r_aca0d90caff63b58410180a293ddc1e6d"><td class="memItemLeft">Task&lt; IReadOnlyList&lt; <a class="el" href="namespace_easy___copier_1_1_models.html#abf1613443f307029b23c31269e85160d">SourceFolder</a> &gt; &gt;&#160;</td><td class="memItemRight"><a class="el" href="#aca0d90caff63b58410180a293ddc1e6d">ValidateSourceFoldersAsync</a> (IEnumerable&lt; string &gt; folderPaths)</td></tr>
+<tr class="memdesc:aca0d90caff63b58410180a293ddc1e6d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Asynchronously checks a list of source folder paths and returns accessibility status for each folder.  <br /></td></tr>
 <tr class="memitem:a99bdc5b5e992826eb81cf8f056b911ed" id="r_a99bdc5b5e992826eb81cf8f056b911ed"><td class="memItemLeft">Task&lt; bool &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a99bdc5b5e992826eb81cf8f056b911ed">FolderExistsAsync</a> (string folderPath)</td></tr>
+<tr class="memdesc:a99bdc5b5e992826eb81cf8f056b911ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Asynchronously verifies whether a directory folder path exists on disk.  <br /></td></tr>
 <tr class="memitem:a8c4c132efa47547b0c51e5350db3ae63" id="r_a8c4c132efa47547b0c51e5350db3ae63"><td class="memItemLeft">Task&lt; string &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a8c4c132efa47547b0c51e5350db3ae63">GetSystemRequirementsAsync</a> (string folderPath)</td></tr>
+<tr class="memdesc:a8c4c132efa47547b0c51e5350db3ae63"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads system requirements content from <code>system_requirements.txt</code> in the specified folder if present.  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="_source_library_service_8cs_source.html#l00016">16</a> of file <a class="el" href="_source_library_service_8cs_source.html">SourceLibraryService.cs</a>.</p>
+<div class="textblock"><p>Defines operations for validating source folder paths and reading game system requirements documents. </p>
+
+<p class="definition">Definition at line <a class="el" href="_source_library_service_8cs_source.html#l00026">26</a> of file <a class="el" href="_source_library_service_8cs_source.html">SourceLibraryService.cs</a>.</p>
 </div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
 <a id="a99bdc5b5e992826eb81cf8f056b911ed" name="a99bdc5b5e992826eb81cf8f056b911ed"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a99bdc5b5e992826eb81cf8f056b911ed">&#9670;&#160;</a></span>FolderExistsAsync()</h2>
@@ -143,6 +150,15 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Asynchronously verifies whether a directory folder path exists on disk. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">folderPath</td><td>The directory path to check.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A task returning <code>true</code> if the folder exists; otherwise, <code>false</code>.</dd></dl>
 
 <p>Implemented in <a class="el" href="class_easy___copier_1_1_services_1_1_source_library_service.html#adc0ad0ecbe83798539ebdd97775a9160">Easy_Copier.Services.SourceLibraryService</a>.</p>
 
@@ -163,6 +179,15 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Reads system requirements content from <code>system_requirements.txt</code> in the specified folder if present. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">folderPath</td><td>The target game folder path.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A task returning the system requirements text content or status message.</dd></dl>
+
 <p>Implemented in <a class="el" href="class_easy___copier_1_1_services_1_1_source_library_service.html#aa5c0c340fcded6c7ce59d61135e328f5">Easy_Copier.Services.SourceLibraryService</a>.</p>
 
 </div>
@@ -181,6 +206,15 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Asynchronously checks a list of source folder paths and returns accessibility status for each folder. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">folderPaths</td><td>The list of folder directory paths to check.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A task returning a list of SourceFolder validation instances.</dd></dl>
 
 <p>Implemented in <a class="el" href="class_easy___copier_1_1_services_1_1_source_library_service.html#ab93e3c963440246db83a2ed9ce3955cc">Easy_Copier.Services.SourceLibraryService</a>.</p>
 

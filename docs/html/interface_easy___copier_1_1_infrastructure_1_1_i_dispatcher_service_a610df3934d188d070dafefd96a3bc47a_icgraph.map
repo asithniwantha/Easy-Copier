@@ -1,5 +1,5 @@
 <map id="Easy_Copier.Infrastructure.IDispatcherService.TryEnqueue" name="Easy_Copier.Infrastructure.IDispatcherService.TryEnqueue">
-<area shape="rect" id="Node000001" title=" " alt="" coords="781,39,988,81"/>
+<area shape="rect" id="Node000001" title="Enqueues a synchronous action to be executed on the UI thread." alt="" coords="781,39,988,81"/>
 <area shape="rect" id="Node000002" href="$class_easy___copier_1_1_view_models_1_1_main_view_model.html#ae4a022cc308b4bc6edfd608f979979b0" title=" " alt="" coords="508,39,733,81"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="763,60,734,63,734,57,768,60"/>
 <area shape="rect" id="Node000003" href="$class_easy___copier_1_1_view_models_1_1_main_view_model.html#aa60e7b9b4c8fa06d820dee7b2776a9d1" title=" " alt="" coords="257,39,460,81"/>

@@ -1,0 +1,9 @@
+<map id="Easy_Copier.Views.MainPage.UpdateSearchBoxBackground" name="Easy_Copier.Views.MainPage.UpdateSearchBoxBackground">
+<area shape="rect" id="Node000001" title="Updates the SearchBox background and resource dictionaries based on whether search text is present." alt="" coords="506,39,708,81"/>
+<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_views_1_1_main_page.html#a1892f28feb0fd22b9cff5ebb690f1bea" title=" " alt="" coords="256,5,458,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="488,45,458,43,458,37,493,44"/>
+<area shape="rect" id="Node000003" href="$class_easy___copier_1_1_views_1_1_main_page.html#ab50d02306260ac86b6401ccd071aeaf6" title="Handles text change events in the search box to dynamically update its background color." alt="" coords="256,72,458,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="493,75,459,83,458,77,488,76"/>
+<area shape="rect" id="Node000004" href="$class_easy___copier_1_1_views_1_1_main_page.html#ae8c8697ec0b54f454eb9cf3d3c0fe5df" title="Connect()." alt="" coords="5,72,208,115"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="237,93,208,96,208,91,243,93"/>
+</map>

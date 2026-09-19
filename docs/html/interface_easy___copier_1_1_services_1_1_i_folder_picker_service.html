@@ -112,6 +112,9 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('interface_easy
   <div class="headertitle"><div class="title">Easy_Copier.Services.IFolderPickerService Interface Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Defines operations for interacting with UI folder selection picker dialogs.  
+ <a href="#details">More...</a></p>
 <div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Inheritance diagram for Easy_Copier.Services.IFolderPickerService:</div>
 <div id="dynsection-0-summary" class="dynsummary">
 </div>
@@ -122,10 +125,12 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('interface_easy
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:acecb10ebd71f068ae17f7f3ecef7023c" id="r_acecb10ebd71f068ae17f7f3ecef7023c"><td class="memItemLeft">Task&lt; string?&gt;&#160;</td><td class="memItemRight"><a class="el" href="#acecb10ebd71f068ae17f7f3ecef7023c">PickFolderAsync</a> ()</td></tr>
+<tr class="memdesc:acecb10ebd71f068ae17f7f3ecef7023c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prompts the user to select a folder from the operating system folder selection dialog.  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="_source_library_service_8cs_source.html#l00011">11</a> of file <a class="el" href="_source_library_service_8cs_source.html">SourceLibraryService.cs</a>.</p>
+<div class="textblock"><p>Defines operations for interacting with UI folder selection picker dialogs. </p>
+
+<p class="definition">Definition at line <a class="el" href="_source_library_service_8cs_source.html#l00014">14</a> of file <a class="el" href="_source_library_service_8cs_source.html">SourceLibraryService.cs</a>.</p>
 </div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
 <a id="acecb10ebd71f068ae17f7f3ecef7023c" name="acecb10ebd71f068ae17f7f3ecef7023c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#acecb10ebd71f068ae17f7f3ecef7023c">&#9670;&#160;</a></span>PickFolderAsync()</h2>
@@ -141,6 +146,9 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Prompts the user to select a folder from the operating system folder selection dialog. </p>
+<dl class="section return"><dt>Returns</dt><dd>A task returning the chosen directory folder path, or <code>null</code> if cancelled.</dd></dl>
 
 <p>Implemented in <a class="el" href="class_easy___copier_1_1_infrastructure_1_1_folder_picker_service.html#aa6db7f795c3874ad7c69a7f9dc7183aa">Easy_Copier.Infrastructure.FolderPickerService</a>.</p>
 

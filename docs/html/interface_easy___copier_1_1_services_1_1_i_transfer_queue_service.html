@@ -112,6 +112,9 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('interface_easy
   <div class="headertitle"><div class="title">Easy_Copier.Services.ITransferQueueService Interface Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Defines operations for managing the background transfer queue, enqueuing transfer items, and listening for completion events.  
+ <a href="#details">More...</a></p>
 <div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Inheritance diagram for Easy_Copier.Services.ITransferQueueService:</div>
 <div id="dynsection-0-summary" class="dynsummary">
 </div>
@@ -122,21 +125,28 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('interface_easy
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:afdf1a06fba0ea7f44bc32d23bcef4edf" id="r_afdf1a06fba0ea7f44bc32d23bcef4edf"><td class="memItemLeft"><a class="el" href="class_easy___copier_1_1_models_1_1_transfer_queue_item.html">TransferQueueItem</a>&#160;</td><td class="memItemRight"><a class="el" href="#afdf1a06fba0ea7f44bc32d23bcef4edf">Enqueue</a> (IReadOnlyList&lt; <a class="el" href="namespace_easy___copier_1_1_models.html#a36bba191a5fad0b0ca63ed787ae607d8">TransferItem</a> &gt; items, <a class="el" href="namespace_easy___copier_1_1_models.html#af8f0175620d1cdd9a06d3e52ae12ba12">RemovableDrive</a> targetDrive, string destinationPath)</td></tr>
+<tr class="memdesc:afdf1a06fba0ea7f44bc32d23bcef4edf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enqueues a batch of transfer items targeting a specific drive.  <br /></td></tr>
 <tr class="memitem:a3fef5ef5d4d147a7b3dd8976cf683375" id="r_a3fef5ef5d4d147a7b3dd8976cf683375"><td class="memItemLeft">long&#160;</td><td class="memItemRight"><a class="el" href="#a3fef5ef5d4d147a7b3dd8976cf683375">GetReservedBytes</a> (string driveLetter)</td></tr>
+<tr class="memdesc:a3fef5ef5d4d147a7b3dd8976cf683375"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates total bytes reserved by currently queued/active transfers targeting a specific drive letter.  <br /></td></tr>
 <tr class="memitem:a6fc34f4b3bad238f2601e7f94221b5ce" id="r_a6fc34f4b3bad238f2601e7f94221b5ce"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a6fc34f4b3bad238f2601e7f94221b5ce">ClearFinished</a> ()</td></tr>
+<tr class="memdesc:a6fc34f4b3bad238f2601e7f94221b5ce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clears all completed or failed items from the active transfer queue collection.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-properties" class="groupheader"><a id="properties" name="properties"></a>
 Properties</h2></td></tr>
 <tr class="memitem:a4fa6346052baf913120b7199d68c8435" id="r_a4fa6346052baf913120b7199d68c8435"><td class="memItemLeft">ObservableCollection&lt; <a class="el" href="class_easy___copier_1_1_models_1_1_transfer_queue_item.html">TransferQueueItem</a> &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a4fa6346052baf913120b7199d68c8435">QueueItems</a><code> [get]</code></td></tr>
+<tr class="memdesc:a4fa6346052baf913120b7199d68c8435"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the observable collection of transfer items currently in queue or recently completed.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-events" class="groupheader"><a id="events" name="events"></a>
 Events</h2></td></tr>
 <tr class="memitem:a6092b70d17226b9ea3d5bb9895e0b615" id="r_a6092b70d17226b9ea3d5bb9895e0b615"><td class="memItemLeft">EventHandler&lt; <a class="el" href="class_easy___copier_1_1_models_1_1_transfer_queue_item.html">TransferQueueItem</a> &gt;?&#160;</td><td class="memItemRight"><a class="el" href="#a6092b70d17226b9ea3d5bb9895e0b615">ItemCompleted</a></td></tr>
+<tr class="memdesc:a6092b70d17226b9ea3d5bb9895e0b615"><td class="mdescLeft">&#160;</td><td class="mdescRight">Event raised when an individual transfer queue item finishes processing.  <br /></td></tr>
 <tr class="memitem:a2bb8fef32aab7a946e1bd1b949d76ae4" id="r_a2bb8fef32aab7a946e1bd1b949d76ae4"><td class="memItemLeft">EventHandler&lt;(string Title, string Message)&gt;?&#160;</td><td class="memItemRight"><a class="el" href="#a2bb8fef32aab7a946e1bd1b949d76ae4">BatchCompleted</a></td></tr>
+<tr class="memdesc:a2bb8fef32aab7a946e1bd1b949d76ae4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Event raised when an entire drive batch queue finishes processing, providing title and message details.  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="_transfer_queue_service_8cs_source.html#l00016">16</a> of file <a class="el" href="_transfer_queue_service_8cs_source.html">TransferQueueService.cs</a>.</p>
+<div class="textblock"><p>Defines operations for managing the background transfer queue, enqueuing transfer items, and listening for completion events. </p>
+
+<p class="definition">Definition at line <a class="el" href="_transfer_queue_service_8cs_source.html#l00019">19</a> of file <a class="el" href="_transfer_queue_service_8cs_source.html">TransferQueueService.cs</a>.</p>
 </div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
 <a id="a6fc34f4b3bad238f2601e7f94221b5ce" name="a6fc34f4b3bad238f2601e7f94221b5ce"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a6fc34f4b3bad238f2601e7f94221b5ce">&#9670;&#160;</a></span>ClearFinished()</h2>
@@ -152,6 +162,8 @@ Events</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Clears all completed or failed items from the active transfer queue collection. </p>
 
 <p>Implemented in <a class="el" href="class_easy___copier_1_1_services_1_1_transfer_queue_service.html#ad4adf454830e78260018cc7ae3ca760a">Easy_Copier.Services.TransferQueueService</a>.</p>
 
@@ -181,6 +193,17 @@ Events</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Enqueues a batch of transfer items targeting a specific drive. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">items</td><td>Collection of transfer items to execute.</td></tr>
+    <tr><td class="paramname">targetDrive</td><td>The target drive information.</td></tr>
+    <tr><td class="paramname">destinationPath</td><td>The destination root directory path on the drive.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The created TransferQueueItem instance.</dd></dl>
+
 <p>Implemented in <a class="el" href="class_easy___copier_1_1_services_1_1_transfer_queue_service.html#a5652702431c6d1b7a185da7e3c383e29">Easy_Copier.Services.TransferQueueService</a>.</p>
 
 <p class="reference">References <a class="el" href="_domain_models_8cs_source.html#l00054">Easy_Copier.Models.RemovableDrive()</a>.</p>
@@ -208,6 +231,15 @@ Events</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Calculates total bytes reserved by currently queued/active transfers targeting a specific drive letter. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">driveLetter</td><td>Target drive letter identifier.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Total active reserved bytes.</dd></dl>
+
 <p>Implemented in <a class="el" href="class_easy___copier_1_1_services_1_1_transfer_queue_service.html#ab52d7fd62b714594a062e1a744097041">Easy_Copier.Services.TransferQueueService</a>.</p>
 
 </div>
@@ -233,9 +265,11 @@ Events</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Gets the observable collection of transfer items currently in queue or recently completed. </p>
+
 <p>Implemented in <a class="el" href="class_easy___copier_1_1_services_1_1_transfer_queue_service.html#a32c8b68392cefee2f9fa533d69b025dc">Easy_Copier.Services.TransferQueueService</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_transfer_queue_service_8cs_source.html#l00018">18</a> of file <a class="el" href="_transfer_queue_service_8cs_source.html">TransferQueueService.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_transfer_queue_service_8cs_source.html#l00024">24</a> of file <a class="el" href="_transfer_queue_service_8cs_source.html">TransferQueueService.cs</a>.</p>
 
 </div>
 </div>
@@ -252,7 +286,9 @@ Events</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_transfer_queue_service_8cs_source.html#l00027">27</a> of file <a class="el" href="_transfer_queue_service_8cs_source.html">TransferQueueService.cs</a>.</p>
+<p>Event raised when an entire drive batch queue finishes processing, providing title and message details. </p>
+
+<p class="definition">Definition at line <a class="el" href="_transfer_queue_service_8cs_source.html#l00055">55</a> of file <a class="el" href="_transfer_queue_service_8cs_source.html">TransferQueueService.cs</a>.</p>
 
 </div>
 </div>
@@ -268,7 +304,9 @@ Events</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_transfer_queue_service_8cs_source.html#l00026">26</a> of file <a class="el" href="_transfer_queue_service_8cs_source.html">TransferQueueService.cs</a>.</p>
+<p>Event raised when an individual transfer queue item finishes processing. </p>
+
+<p class="definition">Definition at line <a class="el" href="_transfer_queue_service_8cs_source.html#l00050">50</a> of file <a class="el" href="_transfer_queue_service_8cs_source.html">TransferQueueService.cs</a>.</p>
 
 </div>
 </div>

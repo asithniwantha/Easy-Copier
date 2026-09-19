@@ -39,7 +39,7 @@
 <!-- Node3 -->
 <g id="Node000003" class="node">
 <title>Node3</title>
-<g id="a_Node000003"><a xlink:href="interface_easy___copier_1_1_infrastructure_1_1_i_dispatcher_service.html" target="_top" xlink:title=" ">
+<g id="a_Node000003"><a xlink:href="interface_easy___copier_1_1_infrastructure_1_1_i_dispatcher_service.html" target="_top" xlink:title="Abstracts dispatcher operations for executing code on the UI thread.">
 <polygon fill="white" stroke="#666666" points="248,-118 112,-118 112,-86 248,-86 248,-118"/>
 <text xml:space="preserve" text-anchor="start" x="120" y="-104.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Infrastructure.</text>
 <text xml:space="preserve" text-anchor="middle" x="180" y="-92.5" font-family="Helvetica,sans-Serif" font-size="10.00">IDispatcherService</text>

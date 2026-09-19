@@ -22,7 +22,7 @@
 <!-- Node1 -->
 <g id="Node000001" class="node">
 <title>Node1</title>
-<g id="a_Node000001"><a xlink:title=" ">
+<g id="a_Node000001"><a xlink:title="Asynchronously writes the library cache snapshot to disk using a temporary file and atomic swap.">
 <polygon fill="#999999" stroke="#666666" points="159.25,-66 0,-66 0,-34 159.25,-34 159.25,-66"/>
 <text xml:space="preserve" text-anchor="start" x="8" y="-52.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Services.Library</text>
 <text xml:space="preserve" text-anchor="middle" x="79.62" y="-40.5" font-family="Helvetica,sans-Serif" font-size="10.00">CacheService.SaveCacheAsync</text>
@@ -32,7 +32,7 @@
 <!-- Node2 -->
 <g id="Node000002" class="node">
 <title>Node2</title>
-<g id="a_Node000002"><a xlink:href="class_easy___copier_1_1_services_1_1_library_cache_service.html#a270f99d033d4a205c8617caf505db28a" target="_top" xlink:title=" ">
+<g id="a_Node000002"><a xlink:href="class_easy___copier_1_1_services_1_1_library_cache_service.html#a270f99d033d4a205c8617caf505db28a" target="_top" xlink:title="Resolves the absolute path to the local library cache file in AppData.">
 <polygon fill="white" stroke="#666666" points="356,-100 195.25,-100 195.25,-68 356,-68 356,-100"/>
 <text xml:space="preserve" text-anchor="start" x="203.25" y="-86.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Services.Library</text>
 <text xml:space="preserve" text-anchor="middle" x="275.62" y="-74.5" font-family="Helvetica,sans-Serif" font-size="10.00">CacheService.GetCacheFilePath</text>

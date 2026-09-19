@@ -112,6 +112,9 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('interface_easy
   <div class="headertitle"><div class="title">Easy_Copier.Infrastructure.IProcessService Interface Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Provides services for external process execution and environment security checks.  
+ <a href="#details">More...</a></p>
 <div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Inheritance diagram for Easy_Copier.Infrastructure.IProcessService:</div>
 <div id="dynsection-0-summary" class="dynsummary">
 </div>
@@ -122,11 +125,14 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('interface_easy
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a0cc043e8f68b2d2e9368c71a559dab73" id="r_a0cc043e8f68b2d2e9368c71a559dab73"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a0cc043e8f68b2d2e9368c71a559dab73">OpenInExplorer</a> (string path)</td></tr>
+<tr class="memdesc:a0cc043e8f68b2d2e9368c71a559dab73"><td class="mdescLeft">&#160;</td><td class="mdescRight">Opens Windows File Explorer to the specified directory or file path.  <br /></td></tr>
 <tr class="memitem:a904be9f48261c51ac940c3836031ec08" id="r_a904be9f48261c51ac940c3836031ec08"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a904be9f48261c51ac940c3836031ec08">IsRunningAsAdministrator</a> ()</td></tr>
+<tr class="memdesc:a904be9f48261c51ac940c3836031ec08"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks whether the current application process is executing with Administrator privileges.  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="_process_service_8cs_source.html#l00006">6</a> of file <a class="el" href="_process_service_8cs_source.html">ProcessService.cs</a>.</p>
+<div class="textblock"><p>Provides services for external process execution and environment security checks. </p>
+
+<p class="definition">Definition at line <a class="el" href="_process_service_8cs_source.html#l00009">9</a> of file <a class="el" href="_process_service_8cs_source.html">ProcessService.cs</a>.</p>
 </div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
 <a id="a904be9f48261c51ac940c3836031ec08" name="a904be9f48261c51ac940c3836031ec08"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a904be9f48261c51ac940c3836031ec08">&#9670;&#160;</a></span>IsRunningAsAdministrator()</h2>
@@ -142,6 +148,9 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Checks whether the current application process is executing with Administrator privileges. </p>
+<dl class="section return"><dt>Returns</dt><dd><code>true</code> if running as Administrator; otherwise, <code>false</code>.</dd></dl>
 
 <p>Implemented in <a class="el" href="class_easy___copier_1_1_infrastructure_1_1_process_service.html#ab389f2af4be67ec15fdf879407de0af7">Easy_Copier.Infrastructure.ProcessService</a>.</p>
 
@@ -162,14 +171,22 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Opens Windows File Explorer to the specified directory or file path. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">path</td><td>The folder or file path to display.</td></tr>
+  </table>
+  </dd>
+</dl>
+
 <p>Implemented in <a class="el" href="class_easy___copier_1_1_infrastructure_1_1_process_service.html#a81de8de323234c848413010f5bb62802">Easy_Copier.Infrastructure.ProcessService</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_main_view_model_8_scanning_8cs_source.html#l00453">Easy_Copier.ViewModels.MainViewModel.OpenDriveInExplorer()</a>, <a class="el" href="_main_view_model_8_scanning_8cs_source.html#l00462">Easy_Copier.ViewModels.MainViewModel.OpenItemFolder()</a>, and <a class="el" href="_settings_view_model_8cs_source.html#l00018">Easy_Copier.ViewModels.SettingsViewModel.OpenLogsFolder()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_main_view_model_8_scanning_8cs_source.html#l00453">Easy_Copier.ViewModels.MainViewModel.OpenDriveInExplorer()</a>, and <a class="el" href="_main_view_model_8_scanning_8cs_source.html#l00462">Easy_Copier.ViewModels.MainViewModel.OpenItemFolder()</a>.</p>
 <div id="dynsection-1" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
 <div id="dynsection-1-summary" class="dynsummary">
 </div>
 <div id="dynsection-1-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="interface_easy___copier_1_1_infrastructure_1_1_i_process_service_a0cc043e8f68b2d2e9368c71a559dab73_icgraph.svg" width="494" height="187"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="interface_easy___copier_1_1_infrastructure_1_1_i_process_service_a0cc043e8f68b2d2e9368c71a559dab73_icgraph.svg" width="480" height="120"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>

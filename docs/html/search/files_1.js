@@ -7,6 +7,10 @@ var searchData=
   ['app_2eg_2ecs_4',['App.g.cs',['../_debug_2net10_80-windows10_80_826100_80_2win-x64_2_app_8g_8cs.html',1,'(Global Namespace)'],['../_release_2net10_80-windows10_80_826100_80_2win-x64_2_app_8g_8cs.html',1,'(Global Namespace)'],['../x64_2_debug_2net10_80-windows10_80_826100_80_2_app_8g_8cs.html',1,'(Global Namespace)'],['../x64_2_debug_2net10_80-windows10_80_826100_80_2win-x64_2_app_8g_8cs.html',1,'(Global Namespace)'],['../x64_2_release_2net10_80-windows10_80_826100_80_2win-x64_2_app_8g_8cs.html',1,'(Global Namespace)']]],
   ['app_2eg_2ei_2ecs_5',['App.g.i.cs',['../_debug_2net10_80-windows10_80_826100_80_2win-x64_2_app_8g_8i_8cs.html',1,'(Global Namespace)'],['../_release_2net10_80-windows10_80_826100_80_2win-x64_2_app_8g_8i_8cs.html',1,'(Global Namespace)'],['../x64_2_debug_2net10_80-windows10_80_826100_80_2_app_8g_8i_8cs.html',1,'(Global Namespace)'],['../x64_2_debug_2net10_80-windows10_80_826100_80_2win-x64_2_app_8g_8i_8cs.html',1,'(Global Namespace)'],['../x64_2_release_2net10_80-windows10_80_826100_80_2win-x64_2_app_8g_8i_8cs.html',1,'(Global Namespace)']]],
   ['app_2examl_2ecs_6',['App.xaml.cs',['../_app_8xaml_8cs.html',1,'']]],
-  ['appwindowcontext_2ecs_7',['AppWindowContext.cs',['../_app_window_context_8cs.html',1,'']]],
-  ['audioplaybackservice_2ecs_8',['AudioPlaybackService.cs',['../_audio_playback_service_8cs.html',1,'']]]
+  ['appstabview_2eg_2ecs_7',['AppsTabView.g.cs',['../_apps_tab_view_8g_8cs.html',1,'']]],
+  ['appstabview_2eg_2ei_2ecs_8',['AppsTabView.g.i.cs',['../_apps_tab_view_8g_8i_8cs.html',1,'']]],
+  ['appstabview_2examl_2ecs_9',['AppsTabView.xaml.cs',['../_apps_tab_view_8xaml_8cs.html',1,'']]],
+  ['appstabviewmodel_2ecs_10',['AppsTabViewModel.cs',['../_apps_tab_view_model_8cs.html',1,'']]],
+  ['appwindowcontext_2ecs_11',['AppWindowContext.cs',['../_app_window_context_8cs.html',1,'']]],
+  ['audioplaybackservice_2ecs_12',['AudioPlaybackService.cs',['../_audio_playback_service_8cs.html',1,'']]]
 ];

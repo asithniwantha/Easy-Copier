@@ -1,9 +1,9 @@
 <map id="Easy_Copier.Services.WindowsShellTransferService" name="Easy_Copier.Services.WindowsShellTransferService">
-<area shape="rect" id="Node000001" title=" " alt="" coords="390,72,599,115"/>
-<area shape="rect" id="Node000002" href="$interface_easy___copier_1_1_services_1_1_i_file_transfer_service.html" title=" " alt="" coords="19,5,199,48"/>
+<area shape="rect" id="Node000001" title="Implements file transfer operations utilizing the Windows Shell COM API (IFileOperation) on STA backg..." alt="" coords="390,72,599,115"/>
+<area shape="rect" id="Node000002" href="$interface_easy___copier_1_1_services_1_1_i_file_transfer_service.html" title="Defines operations for executing file transfer requests and querying directory file size statistics." alt="" coords="19,5,199,48"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="214,37,366,61,404,71,399,72,365,67,214,43"/>
-<area shape="rect" id="Node000003" href="$interface_easy___copier_1_1_services_1_1_i_copy_history_service.html" title=" " alt="" coords="14,72,204,115"/>
+<area shape="rect" id="Node000003" href="$interface_easy___copier_1_1_services_1_1_i_copy_history_service.html" title="Service interface for recording and querying copy operation history in a local SQLite database." alt="" coords="14,72,204,115"/>
 <area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="219,91,391,92,387,95,220,96"/>
-<area shape="rect" id="Node000004" href="$interface_easy___copier_1_1_services_1_1_i_settings_service.html" title=" " alt="" coords="5,139,213,181"/>
+<area shape="rect" id="Node000004" href="$interface_easy___copier_1_1_services_1_1_i_settings_service.html" title="Defines operations for loading, saving, and retrieving application configuration settings." alt="" coords="5,139,213,181"/>
 <area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="228,142,365,120,399,116,404,115,366,125,229,147"/>
 </map>

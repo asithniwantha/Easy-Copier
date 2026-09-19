@@ -40,7 +40,7 @@
 <!-- Node3 -->
 <g id="Node000003" class="node">
 <title>Node3</title>
-<g id="a_Node000003"><a xlink:href="class_easy___copier_1_1_infrastructure_1_1_native_window_helper.html#a5e662d85a854e91b6a3f8f468e72a1a5" target="_top" xlink:title=" ">
+<g id="a_Node000003"><a xlink:href="class_easy___copier_1_1_infrastructure_1_1_native_window_helper.html#a5e662d85a854e91b6a3f8f468e72a1a5" target="_top" xlink:title="Sets the minimum window size preferences taking high DPI display scaling into account.">
 <polygon fill="white" stroke="#666666" points="562.5,-32 377,-32 377,0 562.5,0 562.5,-32"/>
 <text xml:space="preserve" text-anchor="start" x="385" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Infrastructure.</text>
 <text xml:space="preserve" text-anchor="middle" x="469.75" y="-6.5" font-family="Helvetica,sans-Serif" font-size="10.00">NativeWindowHelper.SetMinimumSize</text>

@@ -8,7 +8,7 @@
 <area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="199,121,257,132,378,149,495,165,490,165,377,155,256,137,199,126"/>
 <area shape="rect" id="Node000003" href="$class_easy___copier_1_1_view_models_1_1_main_view_model.html#ae4a022cc308b4bc6edfd608f979979b0" title=" " alt="" coords="512,5,737,48"/>
 <area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="460,27,499,28,494,29,461,32"/>
-<area shape="rect" id="Node000004" href="$interface_easy___copier_1_1_infrastructure_1_1_i_dispatcher_service.html#a610df3934d188d070dafefd96a3bc47a" title=" " alt="" coords="791,5,998,48"/>
+<area shape="rect" id="Node000004" href="$interface_easy___copier_1_1_infrastructure_1_1_i_dispatcher_service.html#a610df3934d188d070dafefd96a3bc47a" title="Enqueues a synchronous action to be executed on the UI thread." alt="" coords="791,5,998,48"/>
 <area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="737,24,778,26,773,27,738,29"/>
 <area shape="rect" id="Node000006" href="$class_easy___copier_1_1_view_models_1_1_main_view_model.html#ab6d8a2ec8a4cb2058010ec1c4d4556f3" title=" " alt="" coords="508,72,741,131"/>
 <area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="460,99,495,101,490,102,461,104"/>

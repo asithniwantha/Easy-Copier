@@ -112,6 +112,9 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('class_easy___c
   <div class="headertitle"><div class="title">Easy_Copier.Services.UpdateService Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Service managing automatic application update checks, package downloads, and updates application execution using Velopack.  
+ <a href="#details">More...</a></p>
 <div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Inheritance diagram for Easy_Copier.Services.UpdateService:</div>
 <div id="dynsection-0-summary" class="dynsummary">
 </div>
@@ -128,38 +131,59 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('class_easy___c
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:aacc8ea5df82e591902e0e8d3eb728074" id="r_aacc8ea5df82e591902e0e8d3eb728074"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#aacc8ea5df82e591902e0e8d3eb728074">UpdateService</a> (ILogger&lt; UpdateService &gt; logger)</td></tr>
+<tr class="memdesc:aacc8ea5df82e591902e0e8d3eb728074"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes a new instance of the UpdateService class and sets up Velopack update source.  <br /></td></tr>
 <tr class="memitem:a55cbb64f356109e29dcb0929e953507c" id="r_a55cbb64f356109e29dcb0929e953507c"><td class="memItemLeft">async Task&lt; bool &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a55cbb64f356109e29dcb0929e953507c">CheckForUpdatesAsync</a> ()</td></tr>
+<tr class="memdesc:a55cbb64f356109e29dcb0929e953507c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Asynchronously checks if a new version release is available on GitHub via Velopack.  <br /></td></tr>
 <tr class="memitem:a42115342f12a72887fd604b1b1351761" id="r_a42115342f12a72887fd604b1b1351761"><td class="memItemLeft">async Task&#160;</td><td class="memItemRight"><a class="el" href="#a42115342f12a72887fd604b1b1351761">DownloadUpdateAsync</a> ()</td></tr>
+<tr class="memdesc:a42115342f12a72887fd604b1b1351761"><td class="mdescLeft">&#160;</td><td class="mdescRight">Asynchronously downloads the latest update package files.  <br /></td></tr>
 <tr class="memitem:ae0bd3d393585ef2eec47a1282056bb79" id="r_ae0bd3d393585ef2eec47a1282056bb79"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ae0bd3d393585ef2eec47a1282056bb79">RestartAndApplyUpdate</a> ()</td></tr>
+<tr class="memdesc:ae0bd3d393585ef2eec47a1282056bb79"><td class="mdescLeft">&#160;</td><td class="mdescRight">Applies the downloaded update and restarts the application.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pri-methods" class="groupheader"><a id="pri-methods" name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
 <tr class="memitem:a4871437eda816d30469eb5d0cf932511" id="r_a4871437eda816d30469eb5d0cf932511"><td class="memItemLeft">string&#160;</td><td class="memItemRight"><a class="el" href="#a4871437eda816d30469eb5d0cf932511">GetCurrentVersion</a> ()</td></tr>
+<tr class="memdesc:a4871437eda816d30469eb5d0cf932511"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the current installed version string from Velopack or assembly reflection.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pri-static-methods" class="groupheader"><a id="pri-static-methods" name="pri-static-methods"></a>
 Static Private Member Functions</h2></td></tr>
 <tr class="memitem:a5aeb51f78a80621b0753e2d1292fe8fb" id="r_a5aeb51f78a80621b0753e2d1292fe8fb"><td class="memItemLeft">static partial void&#160;</td><td class="memItemRight"><a class="el" href="#a5aeb51f78a80621b0753e2d1292fe8fb">LogUpdateManagerInitializationFailed</a> (ILogger logger, Exception ex)</td></tr>
+<tr class="memdesc:a5aeb51f78a80621b0753e2d1292fe8fb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logger message for initialization failures.  <br /></td></tr>
 <tr class="memitem:a0de99f466aed81cd65c3c31eae046e22" id="r_a0de99f466aed81cd65c3c31eae046e22"><td class="memItemLeft">static partial void&#160;</td><td class="memItemRight"><a class="el" href="#a0de99f466aed81cd65c3c31eae046e22">LogUpdateCheckSkippedNotInstalled</a> (ILogger logger)</td></tr>
+<tr class="memdesc:a0de99f466aed81cd65c3c31eae046e22"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logger message when update check is skipped because app is not installed via Velopack.  <br /></td></tr>
 <tr class="memitem:a569f88aebfb77227b40e692d42b4d40e" id="r_a569f88aebfb77227b40e692d42b4d40e"><td class="memItemLeft">static partial void&#160;</td><td class="memItemRight"><a class="el" href="#a569f88aebfb77227b40e692d42b4d40e">LogCheckingForUpdates</a> (ILogger logger, string localVersion)</td></tr>
+<tr class="memdesc:a569f88aebfb77227b40e692d42b4d40e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logger message when starting update check.  <br /></td></tr>
 <tr class="memitem:ab3c076e02cfa9838a23f7621b60d48cb" id="r_ab3c076e02cfa9838a23f7621b60d48cb"><td class="memItemLeft">static partial void&#160;</td><td class="memItemRight"><a class="el" href="#ab3c076e02cfa9838a23f7621b60d48cb">LogUpdateFound</a> (ILogger logger, string localVersion, string remoteVersion)</td></tr>
+<tr class="memdesc:ab3c076e02cfa9838a23f7621b60d48cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logger message when a new update is found.  <br /></td></tr>
 <tr class="memitem:a9d478276518b3974d6714e3a8be16aaa" id="r_a9d478276518b3974d6714e3a8be16aaa"><td class="memItemLeft">static partial void&#160;</td><td class="memItemRight"><a class="el" href="#a9d478276518b3974d6714e3a8be16aaa">LogNoUpdateAvailable</a> (ILogger logger, string localVersion)</td></tr>
+<tr class="memdesc:a9d478276518b3974d6714e3a8be16aaa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logger message when no update is available.  <br /></td></tr>
 <tr class="memitem:aa5dadffec21c2380d4fb16d31d105fcc" id="r_aa5dadffec21c2380d4fb16d31d105fcc"><td class="memItemLeft">static partial void&#160;</td><td class="memItemRight"><a class="el" href="#aa5dadffec21c2380d4fb16d31d105fcc">LogCheckForUpdatesError</a> (ILogger logger, Exception ex)</td></tr>
+<tr class="memdesc:aa5dadffec21c2380d4fb16d31d105fcc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logger message when error occurs during update check.  <br /></td></tr>
 <tr class="memitem:aac877ab8477cf3fc25bc2e1430b75d55" id="r_aac877ab8477cf3fc25bc2e1430b75d55"><td class="memItemLeft">static partial void&#160;</td><td class="memItemRight"><a class="el" href="#aac877ab8477cf3fc25bc2e1430b75d55">LogDownloadSkipped</a> (ILogger logger)</td></tr>
+<tr class="memdesc:aac877ab8477cf3fc25bc2e1430b75d55"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logger message when download is skipped.  <br /></td></tr>
 <tr class="memitem:a12f18eb02f8ebaeb2e30eb3bb36601fb" id="r_a12f18eb02f8ebaeb2e30eb3bb36601fb"><td class="memItemLeft">static partial void&#160;</td><td class="memItemRight"><a class="el" href="#a12f18eb02f8ebaeb2e30eb3bb36601fb">LogDownloadStart</a> (ILogger logger, string targetVersion)</td></tr>
+<tr class="memdesc:a12f18eb02f8ebaeb2e30eb3bb36601fb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logger message when update download starts.  <br /></td></tr>
 <tr class="memitem:a4e860e022ee273a556cbb4d92ba9b536" id="r_a4e860e022ee273a556cbb4d92ba9b536"><td class="memItemLeft">static partial void&#160;</td><td class="memItemRight"><a class="el" href="#a4e860e022ee273a556cbb4d92ba9b536">LogDownloadSuccess</a> (ILogger logger, string targetVersion)</td></tr>
+<tr class="memdesc:a4e860e022ee273a556cbb4d92ba9b536"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logger message when update download succeeds.  <br /></td></tr>
 <tr class="memitem:a05be55038507a9decc8dea00f4842d4d" id="r_a05be55038507a9decc8dea00f4842d4d"><td class="memItemLeft">static partial void&#160;</td><td class="memItemRight"><a class="el" href="#a05be55038507a9decc8dea00f4842d4d">LogDownloadError</a> (ILogger logger, Exception ex, string targetVersion)</td></tr>
+<tr class="memdesc:a05be55038507a9decc8dea00f4842d4d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logger message when update download fails.  <br /></td></tr>
 <tr class="memitem:ad31cb7be362e78d4dbb1dc8380139dd9" id="r_ad31cb7be362e78d4dbb1dc8380139dd9"><td class="memItemLeft">static partial void&#160;</td><td class="memItemRight"><a class="el" href="#ad31cb7be362e78d4dbb1dc8380139dd9">LogApplyUpdateStart</a> (ILogger logger, string targetVersion)</td></tr>
+<tr class="memdesc:ad31cb7be362e78d4dbb1dc8380139dd9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logger message when applying update and restarting.  <br /></td></tr>
 <tr class="memitem:a1b5de7da0fb7fd0d5eb62cfae9ff3e1a" id="r_a1b5de7da0fb7fd0d5eb62cfae9ff3e1a"><td class="memItemLeft">static partial void&#160;</td><td class="memItemRight"><a class="el" href="#a1b5de7da0fb7fd0d5eb62cfae9ff3e1a">LogApplyUpdateError</a> (ILogger logger, Exception ex, string targetVersion)</td></tr>
+<tr class="memdesc:a1b5de7da0fb7fd0d5eb62cfae9ff3e1a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logger message when apply update fails.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pri-attribs" class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
 <tr class="memitem:af875541ec9cc9fac1170c8bca00d3835" id="r_af875541ec9cc9fac1170c8bca00d3835"><td class="memItemLeft">readonly ILogger&lt; <a class="el" href="#aacc8ea5df82e591902e0e8d3eb728074">UpdateService</a> &gt;&#160;</td><td class="memItemRight"><a class="el" href="#af875541ec9cc9fac1170c8bca00d3835">_logger</a></td></tr>
+<tr class="memdesc:af875541ec9cc9fac1170c8bca00d3835"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logger instance used for diagnostic logging.  <br /></td></tr>
 <tr class="memitem:a5b97b7e87e2a7065fd649062666c1b79" id="r_a5b97b7e87e2a7065fd649062666c1b79"><td class="memItemLeft">readonly? UpdateManager&#160;</td><td class="memItemRight"><a class="el" href="#a5b97b7e87e2a7065fd649062666c1b79">_updateManager</a></td></tr>
+<tr class="memdesc:a5b97b7e87e2a7065fd649062666c1b79"><td class="mdescLeft">&#160;</td><td class="mdescRight">Velopack update manager instance connected to the GitHub releases feed.  <br /></td></tr>
 <tr class="memitem:a74deeaaa4978c41974b8e7be1419265f" id="r_a74deeaaa4978c41974b8e7be1419265f"><td class="memItemLeft">UpdateInfo?&#160;</td><td class="memItemRight"><a class="el" href="#a74deeaaa4978c41974b8e7be1419265f">_updateInfo</a></td></tr>
+<tr class="memdesc:a74deeaaa4978c41974b8e7be1419265f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Currently detected update package info.  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="_update_service_8cs_source.html#l00010">10</a> of file <a class="el" href="_update_service_8cs_source.html">UpdateService.cs</a>.</p>
+<div class="textblock"><p>Service managing automatic application update checks, package downloads, and updates application execution using Velopack. </p>
+
+<p class="definition">Definition at line <a class="el" href="_update_service_8cs_source.html#l00013">13</a> of file <a class="el" href="_update_service_8cs_source.html">UpdateService.cs</a>.</p>
 </div><a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="aacc8ea5df82e591902e0e8d3eb728074" name="aacc8ea5df82e591902e0e8d3eb728074"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aacc8ea5df82e591902e0e8d3eb728074">&#9670;&#160;</a></span>UpdateService()</h2>
@@ -176,9 +200,17 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_update_service_8cs_source.html#l00016">16</a> of file <a class="el" href="_update_service_8cs_source.html">UpdateService.cs</a>.</p>
+<p>Initializes a new instance of the UpdateService class and sets up Velopack update source. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">logger</td><td>Logger instance.</td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p class="reference">References <a class="el" href="_update_service_8cs_source.html#l00012">_logger</a>, <a class="el" href="_update_service_8cs_source.html#l00013">_updateManager</a>, and <a class="el" href="#a5aeb51f78a80621b0753e2d1292fe8fb">LogUpdateManagerInitializationFailed()</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_update_service_8cs_source.html#l00034">34</a> of file <a class="el" href="_update_service_8cs_source.html">UpdateService.cs</a>.</p>
+
+<p class="reference">References <a class="el" href="_update_service_8cs_source.html#l00018">_logger</a>, <a class="el" href="_update_service_8cs_source.html#l00023">_updateManager</a>, and <a class="el" href="#a5aeb51f78a80621b0753e2d1292fe8fb">LogUpdateManagerInitializationFailed()</a>.</p>
 <div id="dynsection-2" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-2-summary" class="dynsummary">
 </div>
@@ -204,11 +236,14 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Asynchronously checks if a new version release is available on GitHub via Velopack. </p>
+<dl class="section return"><dt>Returns</dt><dd>A task returning <code>true</code> if a newer update package is available; otherwise, <code>false</code>.</dd></dl>
+
 <p>Implements <a class="el" href="interface_easy___copier_1_1_services_1_1_i_update_service.html#a38e7cccdfa9eeefbb1f579ae3c625562">Easy_Copier.Services.IUpdateService</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_update_service_8cs_source.html#l00037">37</a> of file <a class="el" href="_update_service_8cs_source.html">UpdateService.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_update_service_8cs_source.html#l00063">63</a> of file <a class="el" href="_update_service_8cs_source.html">UpdateService.cs</a>.</p>
 
-<p class="reference">References <a class="el" href="_update_service_8cs_source.html#l00012">_logger</a>, <a class="el" href="_update_service_8cs_source.html#l00014">_updateInfo</a>, <a class="el" href="_update_service_8cs_source.html#l00013">_updateManager</a>, <a class="el" href="_update_service_8cs_source.html#l00030">GetCurrentVersion()</a>, <a class="el" href="#aa5dadffec21c2380d4fb16d31d105fcc">LogCheckForUpdatesError()</a>, <a class="el" href="#a569f88aebfb77227b40e692d42b4d40e">LogCheckingForUpdates()</a>, <a class="el" href="#a9d478276518b3974d6714e3a8be16aaa">LogNoUpdateAvailable()</a>, <a class="el" href="#a0de99f466aed81cd65c3c31eae046e22">LogUpdateCheckSkippedNotInstalled()</a>, and <a class="el" href="#ab3c076e02cfa9838a23f7621b60d48cb">LogUpdateFound()</a>.</p>
+<p class="reference">References <a class="el" href="_update_service_8cs_source.html#l00018">_logger</a>, <a class="el" href="_update_service_8cs_source.html#l00028">_updateInfo</a>, <a class="el" href="_update_service_8cs_source.html#l00023">_updateManager</a>, <a class="el" href="_update_service_8cs_source.html#l00052">GetCurrentVersion()</a>, <a class="el" href="#aa5dadffec21c2380d4fb16d31d105fcc">LogCheckForUpdatesError()</a>, <a class="el" href="#a569f88aebfb77227b40e692d42b4d40e">LogCheckingForUpdates()</a>, <a class="el" href="#a9d478276518b3974d6714e3a8be16aaa">LogNoUpdateAvailable()</a>, <a class="el" href="#a0de99f466aed81cd65c3c31eae046e22">LogUpdateCheckSkippedNotInstalled()</a>, and <a class="el" href="#ab3c076e02cfa9838a23f7621b60d48cb">LogUpdateFound()</a>.</p>
 <div id="dynsection-3" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-3-summary" class="dynsummary">
 </div>
@@ -233,11 +268,14 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Asynchronously downloads the latest update package files. </p>
+<dl class="section return"><dt>Returns</dt><dd>A task representing the download operation.</dd></dl>
+
 <p>Implements <a class="el" href="interface_easy___copier_1_1_services_1_1_i_update_service.html#a038e18dbbad7c4990d14a686a297c4cb">Easy_Copier.Services.IUpdateService</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_update_service_8cs_source.html#l00071">71</a> of file <a class="el" href="_update_service_8cs_source.html">UpdateService.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_update_service_8cs_source.html#l00101">101</a> of file <a class="el" href="_update_service_8cs_source.html">UpdateService.cs</a>.</p>
 
-<p class="reference">References <a class="el" href="_update_service_8cs_source.html#l00012">_logger</a>, <a class="el" href="_update_service_8cs_source.html#l00014">_updateInfo</a>, <a class="el" href="_update_service_8cs_source.html#l00013">_updateManager</a>, <a class="el" href="#a05be55038507a9decc8dea00f4842d4d">LogDownloadError()</a>, <a class="el" href="#aac877ab8477cf3fc25bc2e1430b75d55">LogDownloadSkipped()</a>, <a class="el" href="#a12f18eb02f8ebaeb2e30eb3bb36601fb">LogDownloadStart()</a>, and <a class="el" href="#a4e860e022ee273a556cbb4d92ba9b536">LogDownloadSuccess()</a>.</p>
+<p class="reference">References <a class="el" href="_update_service_8cs_source.html#l00018">_logger</a>, <a class="el" href="_update_service_8cs_source.html#l00028">_updateInfo</a>, <a class="el" href="_update_service_8cs_source.html#l00023">_updateManager</a>, <a class="el" href="#a05be55038507a9decc8dea00f4842d4d">LogDownloadError()</a>, <a class="el" href="#aac877ab8477cf3fc25bc2e1430b75d55">LogDownloadSkipped()</a>, <a class="el" href="#a12f18eb02f8ebaeb2e30eb3bb36601fb">LogDownloadStart()</a>, and <a class="el" href="#a4e860e022ee273a556cbb4d92ba9b536">LogDownloadSuccess()</a>.</p>
 <div id="dynsection-4" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-4-summary" class="dynsummary">
 </div>
@@ -270,11 +308,14 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_update_service_8cs_source.html#l00030">30</a> of file <a class="el" href="_update_service_8cs_source.html">UpdateService.cs</a>.</p>
+<p>Gets the current installed version string from Velopack or assembly reflection. </p>
+<dl class="section return"><dt>Returns</dt><dd>The version string.</dd></dl>
 
-<p class="reference">References <a class="el" href="_update_service_8cs_source.html#l00013">_updateManager</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_update_service_8cs_source.html#l00052">52</a> of file <a class="el" href="_update_service_8cs_source.html">UpdateService.cs</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_update_service_8cs_source.html#l00037">CheckForUpdatesAsync()</a>.</p>
+<p class="reference">References <a class="el" href="_update_service_8cs_source.html#l00023">_updateManager</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_update_service_8cs_source.html#l00063">CheckForUpdatesAsync()</a>.</p>
 <div id="dynsection-5" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
 <div id="dynsection-5-summary" class="dynsummary">
 </div>
@@ -316,7 +357,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="_update_service_8cs_source.html#l00093">RestartAndApplyUpdate()</a>.</p>
+<p>Logger message when apply update fails. </p>
+
+<p class="reference">Referenced by <a class="el" href="_update_service_8cs_source.html#l00126">RestartAndApplyUpdate()</a>.</p>
 <div id="dynsection-6" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
 <div id="dynsection-6-summary" class="dynsummary">
 </div>
@@ -353,7 +396,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="_update_service_8cs_source.html#l00093">RestartAndApplyUpdate()</a>.</p>
+<p>Logger message when applying update and restarting. </p>
+
+<p class="reference">Referenced by <a class="el" href="_update_service_8cs_source.html#l00126">RestartAndApplyUpdate()</a>.</p>
 <div id="dynsection-7" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
 <div id="dynsection-7-summary" class="dynsummary">
 </div>
@@ -390,7 +435,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="_update_service_8cs_source.html#l00037">CheckForUpdatesAsync()</a>.</p>
+<p>Logger message when error occurs during update check. </p>
+
+<p class="reference">Referenced by <a class="el" href="_update_service_8cs_source.html#l00063">CheckForUpdatesAsync()</a>.</p>
 <div id="dynsection-8" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
 <div id="dynsection-8-summary" class="dynsummary">
 </div>
@@ -427,7 +474,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="_update_service_8cs_source.html#l00037">CheckForUpdatesAsync()</a>.</p>
+<p>Logger message when starting update check. </p>
+
+<p class="reference">Referenced by <a class="el" href="_update_service_8cs_source.html#l00063">CheckForUpdatesAsync()</a>.</p>
 <div id="dynsection-9" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
 <div id="dynsection-9-summary" class="dynsummary">
 </div>
@@ -469,7 +518,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="_update_service_8cs_source.html#l00071">DownloadUpdateAsync()</a>.</p>
+<p>Logger message when update download fails. </p>
+
+<p class="reference">Referenced by <a class="el" href="_update_service_8cs_source.html#l00101">DownloadUpdateAsync()</a>.</p>
 <div id="dynsection-10" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
 <div id="dynsection-10-summary" class="dynsummary">
 </div>
@@ -502,7 +553,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="_update_service_8cs_source.html#l00071">DownloadUpdateAsync()</a>.</p>
+<p>Logger message when download is skipped. </p>
+
+<p class="reference">Referenced by <a class="el" href="_update_service_8cs_source.html#l00101">DownloadUpdateAsync()</a>.</p>
 <div id="dynsection-11" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
 <div id="dynsection-11-summary" class="dynsummary">
 </div>
@@ -539,7 +592,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="_update_service_8cs_source.html#l00071">DownloadUpdateAsync()</a>.</p>
+<p>Logger message when update download starts. </p>
+
+<p class="reference">Referenced by <a class="el" href="_update_service_8cs_source.html#l00101">DownloadUpdateAsync()</a>.</p>
 <div id="dynsection-12" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
 <div id="dynsection-12-summary" class="dynsummary">
 </div>
@@ -576,7 +631,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="_update_service_8cs_source.html#l00071">DownloadUpdateAsync()</a>.</p>
+<p>Logger message when update download succeeds. </p>
+
+<p class="reference">Referenced by <a class="el" href="_update_service_8cs_source.html#l00101">DownloadUpdateAsync()</a>.</p>
 <div id="dynsection-13" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
 <div id="dynsection-13-summary" class="dynsummary">
 </div>
@@ -613,7 +670,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="_update_service_8cs_source.html#l00037">CheckForUpdatesAsync()</a>.</p>
+<p>Logger message when no update is available. </p>
+
+<p class="reference">Referenced by <a class="el" href="_update_service_8cs_source.html#l00063">CheckForUpdatesAsync()</a>.</p>
 <div id="dynsection-14" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
 <div id="dynsection-14-summary" class="dynsummary">
 </div>
@@ -646,7 +705,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="_update_service_8cs_source.html#l00037">CheckForUpdatesAsync()</a>.</p>
+<p>Logger message when update check is skipped because app is not installed via Velopack. </p>
+
+<p class="reference">Referenced by <a class="el" href="_update_service_8cs_source.html#l00063">CheckForUpdatesAsync()</a>.</p>
 <div id="dynsection-15" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
 <div id="dynsection-15-summary" class="dynsummary">
 </div>
@@ -688,7 +749,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="_update_service_8cs_source.html#l00037">CheckForUpdatesAsync()</a>.</p>
+<p>Logger message when a new update is found. </p>
+
+<p class="reference">Referenced by <a class="el" href="_update_service_8cs_source.html#l00063">CheckForUpdatesAsync()</a>.</p>
 <div id="dynsection-16" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
 <div id="dynsection-16-summary" class="dynsummary">
 </div>
@@ -725,7 +788,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="_update_service_8cs_source.html#l00016">UpdateService()</a>.</p>
+<p>Logger message for initialization failures. </p>
+
+<p class="reference">Referenced by <a class="el" href="_update_service_8cs_source.html#l00034">UpdateService()</a>.</p>
 <div id="dynsection-17" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
 <div id="dynsection-17-summary" class="dynsummary">
 </div>
@@ -750,11 +815,13 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Applies the downloaded update and restarts the application. </p>
+
 <p>Implements <a class="el" href="interface_easy___copier_1_1_services_1_1_i_update_service.html#a8f6fa4fc5355660b86e2db1b1f925d42">Easy_Copier.Services.IUpdateService</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_update_service_8cs_source.html#l00093">93</a> of file <a class="el" href="_update_service_8cs_source.html">UpdateService.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_update_service_8cs_source.html#l00126">126</a> of file <a class="el" href="_update_service_8cs_source.html">UpdateService.cs</a>.</p>
 
-<p class="reference">References <a class="el" href="_update_service_8cs_source.html#l00012">_logger</a>, <a class="el" href="_update_service_8cs_source.html#l00014">_updateInfo</a>, <a class="el" href="_update_service_8cs_source.html#l00013">_updateManager</a>, <a class="el" href="#a1b5de7da0fb7fd0d5eb62cfae9ff3e1a">LogApplyUpdateError()</a>, and <a class="el" href="#ad31cb7be362e78d4dbb1dc8380139dd9">LogApplyUpdateStart()</a>.</p>
+<p class="reference">References <a class="el" href="_update_service_8cs_source.html#l00018">_logger</a>, <a class="el" href="_update_service_8cs_source.html#l00028">_updateInfo</a>, <a class="el" href="_update_service_8cs_source.html#l00023">_updateManager</a>, <a class="el" href="#a1b5de7da0fb7fd0d5eb62cfae9ff3e1a">LogApplyUpdateError()</a>, and <a class="el" href="#ad31cb7be362e78d4dbb1dc8380139dd9">LogApplyUpdateStart()</a>.</p>
 <div id="dynsection-18" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-18-summary" class="dynsummary">
 </div>
@@ -785,9 +852,11 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_update_service_8cs_source.html#l00012">12</a> of file <a class="el" href="_update_service_8cs_source.html">UpdateService.cs</a>.</p>
+<p>Logger instance used for diagnostic logging. </p>
 
-<p class="reference">Referenced by <a class="el" href="_update_service_8cs_source.html#l00037">CheckForUpdatesAsync()</a>, <a class="el" href="_update_service_8cs_source.html#l00071">DownloadUpdateAsync()</a>, <a class="el" href="_update_service_8cs_source.html#l00093">RestartAndApplyUpdate()</a>, and <a class="el" href="_update_service_8cs_source.html#l00016">UpdateService()</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_update_service_8cs_source.html#l00018">18</a> of file <a class="el" href="_update_service_8cs_source.html">UpdateService.cs</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_update_service_8cs_source.html#l00063">CheckForUpdatesAsync()</a>, <a class="el" href="_update_service_8cs_source.html#l00101">DownloadUpdateAsync()</a>, <a class="el" href="_update_service_8cs_source.html#l00126">RestartAndApplyUpdate()</a>, and <a class="el" href="_update_service_8cs_source.html#l00034">UpdateService()</a>.</p>
 
 </div>
 </div>
@@ -811,9 +880,11 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_update_service_8cs_source.html#l00014">14</a> of file <a class="el" href="_update_service_8cs_source.html">UpdateService.cs</a>.</p>
+<p>Currently detected update package info. </p>
 
-<p class="reference">Referenced by <a class="el" href="_update_service_8cs_source.html#l00037">CheckForUpdatesAsync()</a>, <a class="el" href="_update_service_8cs_source.html#l00071">DownloadUpdateAsync()</a>, and <a class="el" href="_update_service_8cs_source.html#l00093">RestartAndApplyUpdate()</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_update_service_8cs_source.html#l00028">28</a> of file <a class="el" href="_update_service_8cs_source.html">UpdateService.cs</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_update_service_8cs_source.html#l00063">CheckForUpdatesAsync()</a>, <a class="el" href="_update_service_8cs_source.html#l00101">DownloadUpdateAsync()</a>, and <a class="el" href="_update_service_8cs_source.html#l00126">RestartAndApplyUpdate()</a>.</p>
 
 </div>
 </div>
@@ -837,9 +908,11 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_update_service_8cs_source.html#l00013">13</a> of file <a class="el" href="_update_service_8cs_source.html">UpdateService.cs</a>.</p>
+<p>Velopack update manager instance connected to the GitHub releases feed. </p>
 
-<p class="reference">Referenced by <a class="el" href="_update_service_8cs_source.html#l00037">CheckForUpdatesAsync()</a>, <a class="el" href="_update_service_8cs_source.html#l00071">DownloadUpdateAsync()</a>, <a class="el" href="_update_service_8cs_source.html#l00030">GetCurrentVersion()</a>, <a class="el" href="_update_service_8cs_source.html#l00093">RestartAndApplyUpdate()</a>, and <a class="el" href="_update_service_8cs_source.html#l00016">UpdateService()</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_update_service_8cs_source.html#l00023">23</a> of file <a class="el" href="_update_service_8cs_source.html">UpdateService.cs</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_update_service_8cs_source.html#l00063">CheckForUpdatesAsync()</a>, <a class="el" href="_update_service_8cs_source.html#l00101">DownloadUpdateAsync()</a>, <a class="el" href="_update_service_8cs_source.html#l00052">GetCurrentVersion()</a>, <a class="el" href="_update_service_8cs_source.html#l00126">RestartAndApplyUpdate()</a>, and <a class="el" href="_update_service_8cs_source.html#l00034">UpdateService()</a>.</p>
 
 </div>
 </div>

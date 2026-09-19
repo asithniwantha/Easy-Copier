@@ -53,7 +53,7 @@
 <!-- Node1 -->
 <g id="Node000001" class="node">
 <title>Node1</title>
-<g id="a_Node000001"><a xlink:title=" ">
+<g id="a_Node000001"><a xlink:title="Executes an individual transfer item and updates its status and progress properties on the UI thread.">
 <polygon fill="#999999" stroke="#666666" points="163.75,-134 0,-134 0,-102 163.75,-102 163.75,-134"/>
 <text xml:space="preserve" text-anchor="start" x="8" y="-120.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Services.Transfer</text>
 <text xml:space="preserve" text-anchor="middle" x="81.88" y="-108.5" font-family="Helvetica,sans-Serif" font-size="10.00">QueueService.ProcessItemAsync</text>
@@ -63,7 +63,7 @@
 <!-- Node2 -->
 <g id="Node000002" class="node">
 <title>Node2</title>
-<g id="a_Node000002"><a xlink:href="class_easy___copier_1_1_services_1_1_transfer_queue_service.html#a32e2c5f600b609c21a22bf2d6437f4fb" target="_top" xlink:title=" ">
+<g id="a_Node000002"><a xlink:href="class_easy___copier_1_1_services_1_1_transfer_queue_service.html#a32e2c5f600b609c21a22bf2d6437f4fb" target="_top" xlink:title="Checks if all queued items targeting a drive have finished and triggers completion sounds and toast n...">
 <polygon fill="white" stroke="#666666" points="377.75,-230 199.75,-230 199.75,-186 377.75,-186 377.75,-230"/>
 <text xml:space="preserve" text-anchor="start" x="207.75" y="-216.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Services.Transfer</text>
 <text xml:space="preserve" text-anchor="start" x="207.75" y="-204.5" font-family="Helvetica,sans-Serif" font-size="10.00">QueueService.CheckAndNotifyBatch</text>
@@ -83,7 +83,7 @@
 <!-- Node4 -->
 <g id="Node000004" class="node">
 <title>Node4</title>
-<g id="a_Node000004"><a xlink:href="class_easy___copier_1_1_services_1_1_transfer_queue_service.html#a7c3c07a217ea001a005714d570176bd2" target="_top" xlink:title=" ">
+<g id="a_Node000004"><a xlink:href="class_easy___copier_1_1_services_1_1_transfer_queue_service.html#a7c3c07a217ea001a005714d570176bd2" target="_top" xlink:title="Executes an action on the UI thread using Infrastructure.IDispatcherService.">
 <polygon fill="white" stroke="#666666" points="365,-168 212.5,-168 212.5,-136 365,-136 365,-168"/>
 <text xml:space="preserve" text-anchor="start" x="220.5" y="-154.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Services.Transfer</text>
 <text xml:space="preserve" text-anchor="middle" x="288.75" y="-142.5" font-family="Helvetica,sans-Serif" font-size="10.00">QueueService.RunOnUiThread</text>
@@ -140,7 +140,7 @@
 <!-- Node3 -->
 <g id="Node000003" class="node">
 <title>Node3</title>
-<g id="a_Node000003"><a xlink:href="class_easy___copier_1_1_services_1_1_transfer_queue_service.html#a609a297676ded43e4cae11d0c7b0eb04" target="_top" xlink:title=" ">
+<g id="a_Node000003"><a xlink:href="class_easy___copier_1_1_services_1_1_transfer_queue_service.html#a609a297676ded43e4cae11d0c7b0eb04" target="_top" xlink:title="Builds and displays a Windows AppNotification toast message summarizing batch transfer completion.">
 <polygon fill="white" stroke="#666666" points="605.25,-224 413.75,-224 413.75,-192 605.25,-192 605.25,-224"/>
 <text xml:space="preserve" text-anchor="start" x="421.75" y="-210.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Services.Transfer</text>
 <text xml:space="preserve" text-anchor="middle" x="509.5" y="-198.5" font-family="Helvetica,sans-Serif" font-size="10.00">QueueService.ShowDesktopNotification</text>

@@ -11,7 +11,7 @@
 <!-- Node1 -->
 <g id="Node000001" class="node">
 <title>Node1</title>
-<g id="a_Node000001"><a xlink:title=" ">
+<g id="a_Node000001"><a xlink:title="Provides functionality to play audio feedback sound files asynchronously.">
 <polygon fill="#999999" stroke="#666666" points="142.75,-32 1.5,-32 1.5,0 142.75,0 142.75,-32"/>
 <text xml:space="preserve" text-anchor="start" x="9.5" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Services.Audio</text>
 <text xml:space="preserve" text-anchor="middle" x="72.12" y="-6.5" font-family="Helvetica,sans-Serif" font-size="10.00">PlaybackService</text>
@@ -21,7 +21,7 @@
 <!-- Node2 -->
 <g id="Node000002" class="node">
 <title>Node2</title>
-<g id="a_Node000002"><a xlink:href="interface_easy___copier_1_1_services_1_1_i_audio_playback_service.html" target="_top" xlink:title=" ">
+<g id="a_Node000002"><a xlink:href="interface_easy___copier_1_1_services_1_1_i_audio_playback_service.html" target="_top" xlink:title="Defines operations for playing audio feedback notifications within the application.">
 <polygon fill="white" stroke="#666666" points="144.25,-100 0,-100 0,-68 144.25,-68 144.25,-100"/>
 <text xml:space="preserve" text-anchor="start" x="8" y="-86.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Services.IAudio</text>
 <text xml:space="preserve" text-anchor="middle" x="72.12" y="-74.5" font-family="Helvetica,sans-Serif" font-size="10.00">PlaybackService</text>

@@ -32,7 +32,7 @@
 <!-- Node2 -->
 <g id="Node000002" class="node">
 <title>Node2</title>
-<g id="a_Node000002"><a xlink:href="interface_easy___copier_1_1_infrastructure_1_1_i_process_service.html#a0cc043e8f68b2d2e9368c71a559dab73" target="_top" xlink:title=" ">
+<g id="a_Node000002"><a xlink:href="interface_easy___copier_1_1_infrastructure_1_1_i_process_service.html#a0cc043e8f68b2d2e9368c71a559dab73" target="_top" xlink:title="Opens Windows File Explorer to the specified directory or file path.">
 <polygon fill="white" stroke="#666666" points="347,-32 188.5,-32 188.5,0 347,0 347,-32"/>
 <text xml:space="preserve" text-anchor="start" x="196.5" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Infrastructure.</text>
 <text xml:space="preserve" text-anchor="middle" x="267.75" y="-6.5" font-family="Helvetica,sans-Serif" font-size="10.00">IProcessService.OpenInExplorer</text>

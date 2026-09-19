@@ -11,7 +11,7 @@
 <!-- Node1 -->
 <g id="Node000001" class="node">
 <title>Node1</title>
-<g id="a_Node000001"><a xlink:title=" ">
+<g id="a_Node000001"><a xlink:title="Downloads cover image for a game from various online services (Steam, GOG, PCGW, Lutris,...">
 <polygon fill="#999999" stroke="#666666" points="209.5,-255 0,-255 0,-223 209.5,-223 209.5,-255"/>
 <text xml:space="preserve" text-anchor="start" x="8" y="-241.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Services.Game</text>
 <text xml:space="preserve" text-anchor="middle" x="104.75" y="-229.5" font-family="Helvetica,sans-Serif" font-size="10.00">InfoDownloadService.DownloadCoverAsync</text>
@@ -21,7 +21,7 @@
 <!-- Node2 -->
 <g id="Node000002" class="node">
 <title>Node2</title>
-<g id="a_Node000002"><a xlink:href="class_easy___copier_1_1_services_1_1_game_info_download_service.html#aeea730db504e9ee979c0426e61115c3e" target="_top" xlink:title=" ">
+<g id="a_Node000002"><a xlink:href="class_easy___copier_1_1_services_1_1_game_info_download_service.html#aeea730db504e9ee979c0426e61115c3e" target="_top" xlink:title="Queries the Steam community app search endpoint to find the Steam App ID for a game title.">
 <polygon fill="white" stroke="#666666" points="425,-478 259.75,-478 259.75,-434 425,-434 425,-478"/>
 <text xml:space="preserve" text-anchor="start" x="267.75" y="-464.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Services.Game</text>
 <text xml:space="preserve" text-anchor="start" x="267.75" y="-452.5" font-family="Helvetica,sans-Serif" font-size="10.00">InfoDownloadService.FetchSteam</text>
@@ -41,7 +41,7 @@
 <!-- Node3 -->
 <g id="Node000003" class="node">
 <title>Node3</title>
-<g id="a_Node000003"><a xlink:href="class_easy___copier_1_1_services_1_1_game_info_download_service.html#a9cd6862f282d8d6d4612cb9c15eed770" target="_top" xlink:title=" ">
+<g id="a_Node000003"><a xlink:href="class_easy___copier_1_1_services_1_1_game_info_download_service.html#a9cd6862f282d8d6d4612cb9c15eed770" target="_top" xlink:title="Attempts to download vertical cover art from GOG catalog API for the given game title.">
 <polygon fill="white" stroke="#666666" points="426.88,-416 257.88,-416 257.88,-372 426.88,-372 426.88,-416"/>
 <text xml:space="preserve" text-anchor="start" x="265.88" y="-402.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Services.Game</text>
 <text xml:space="preserve" text-anchor="start" x="265.88" y="-390.5" font-family="Helvetica,sans-Serif" font-size="10.00">InfoDownloadService.TryFetchGog</text>
@@ -61,7 +61,7 @@
 <!-- Node5 -->
 <g id="Node000005" class="node">
 <title>Node5</title>
-<g id="a_Node000005"><a xlink:href="class_easy___copier_1_1_services_1_1_game_info_download_service.html#abe5fa26f5662b94eea1d946a43f7e0da" target="_top" xlink:title=" ">
+<g id="a_Node000005"><a xlink:href="class_easy___copier_1_1_services_1_1_game_info_download_service.html#abe5fa26f5662b94eea1d946a43f7e0da" target="_top" xlink:title="Attempts to download cover art from GameSystemRequirements website by searching the game title.">
 <polygon fill="white" stroke="#666666" points="425.75,-354 259,-354 259,-310 425.75,-310 425.75,-354"/>
 <text xml:space="preserve" text-anchor="start" x="267" y="-340.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Services.Game</text>
 <text xml:space="preserve" text-anchor="start" x="267" y="-328.5" font-family="Helvetica,sans-Serif" font-size="10.00">InfoDownloadService.TryFetchGsr</text>
@@ -81,7 +81,7 @@
 <!-- Node6 -->
 <g id="Node000006" class="node">
 <title>Node6</title>
-<g id="a_Node000006"><a xlink:href="class_easy___copier_1_1_services_1_1_game_info_download_service.html#a632ff81276844ba2cb1151e84710bd2a" target="_top" xlink:title=" ">
+<g id="a_Node000006"><a xlink:href="class_easy___copier_1_1_services_1_1_game_info_download_service.html#a632ff81276844ba2cb1151e84710bd2a" target="_top" xlink:title="Attempts to download cover image from Lutris game search page for the specified game title.">
 <polygon fill="white" stroke="#666666" points="429.88,-292 254.88,-292 254.88,-248 429.88,-248 429.88,-292"/>
 <text xml:space="preserve" text-anchor="start" x="262.88" y="-278.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Services.Game</text>
 <text xml:space="preserve" text-anchor="start" x="262.88" y="-266.5" font-family="Helvetica,sans-Serif" font-size="10.00">InfoDownloadService.TryFetchLutris</text>
@@ -101,7 +101,7 @@
 <!-- Node7 -->
 <g id="Node000007" class="node">
 <title>Node7</title>
-<g id="a_Node000007"><a xlink:href="class_easy___copier_1_1_services_1_1_game_info_download_service.html#a1a870cf4392f465f104385c6c15bc184" target="_top" xlink:title=" ">
+<g id="a_Node000007"><a xlink:href="class_easy___copier_1_1_services_1_1_game_info_download_service.html#a1a870cf4392f465f104385c6c15bc184" target="_top" xlink:title="Attempts to download box art or banner cover from OpenCritic API for the specified game title.">
 <polygon fill="white" stroke="#666666" points="429.5,-230 255.25,-230 255.25,-186 429.5,-186 429.5,-230"/>
 <text xml:space="preserve" text-anchor="start" x="263.25" y="-216.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Services.Game</text>
 <text xml:space="preserve" text-anchor="start" x="263.25" y="-204.5" font-family="Helvetica,sans-Serif" font-size="10.00">InfoDownloadService.TryFetchOpen</text>
@@ -121,7 +121,7 @@
 <!-- Node8 -->
 <g id="Node000008" class="node">
 <title>Node8</title>
-<g id="a_Node000008"><a xlink:href="class_easy___copier_1_1_services_1_1_game_info_download_service.html#aa30670d8a3a368e70633c032acbed2c1" target="_top" xlink:title=" ">
+<g id="a_Node000008"><a xlink:href="class_easy___copier_1_1_services_1_1_game_info_download_service.html#aa30670d8a3a368e70633c032acbed2c1" target="_top" xlink:title="Attempts to download cover art thumbnail from PCGamingWiki API for the specified game title.">
 <polygon fill="white" stroke="#666666" points="430.25,-168 254.5,-168 254.5,-124 430.25,-124 430.25,-168"/>
 <text xml:space="preserve" text-anchor="start" x="262.5" y="-154.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Services.Game</text>
 <text xml:space="preserve" text-anchor="start" x="262.5" y="-142.5" font-family="Helvetica,sans-Serif" font-size="10.00">InfoDownloadService.TryFetchPcgw</text>
@@ -141,7 +141,7 @@
 <!-- Node9 -->
 <g id="Node000009" class="node">
 <title>Node9</title>
-<g id="a_Node000009"><a xlink:href="class_easy___copier_1_1_services_1_1_game_info_download_service.html#a16c133781b37ce62e5603baf2298f3bb" target="_top" xlink:title=" ">
+<g id="a_Node000009"><a xlink:href="class_easy___copier_1_1_services_1_1_game_info_download_service.html#a16c133781b37ce62e5603baf2298f3bb" target="_top" xlink:title="Attempts to download vertical library cover art from Steam CDN using the given Steam App ID.">
 <polygon fill="white" stroke="#666666" points="432.12,-106 252.62,-106 252.62,-62 432.12,-62 432.12,-106"/>
 <text xml:space="preserve" text-anchor="start" x="260.62" y="-92.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Services.Game</text>
 <text xml:space="preserve" text-anchor="start" x="260.62" y="-80.5" font-family="Helvetica,sans-Serif" font-size="10.00">InfoDownloadService.TryFetchSteam</text>
@@ -161,7 +161,7 @@
 <!-- Node10 -->
 <g id="Node000010" class="node">
 <title>Node10</title>
-<g id="a_Node000010"><a xlink:href="class_easy___copier_1_1_services_1_1_game_info_download_service.html#adae95494262fe3bfc1cedb49a21416a9" target="_top" xlink:title=" ">
+<g id="a_Node000010"><a xlink:href="class_easy___copier_1_1_services_1_1_game_info_download_service.html#adae95494262fe3bfc1cedb49a21416a9" target="_top" xlink:title="Attempts to download cover art from Wikipedia infobox for the specified game title.">
 <polygon fill="white" stroke="#666666" points="439.25,-44 245.5,-44 245.5,0 439.25,0 439.25,-44"/>
 <text xml:space="preserve" text-anchor="start" x="253.5" y="-30.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Services.Game</text>
 <text xml:space="preserve" text-anchor="start" x="253.5" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">InfoDownloadService.TryFetchWikipedia</text>
@@ -181,7 +181,7 @@
 <!-- Node4 -->
 <g id="Node000004" class="node">
 <title>Node4</title>
-<g id="a_Node000004"><a xlink:href="class_easy___copier_1_1_services_1_1_game_info_download_service.html#aa5082d34c94299e50e9b4ec7213d3638" target="_top" xlink:title=" ">
+<g id="a_Node000004"><a xlink:href="class_easy___copier_1_1_services_1_1_game_info_download_service.html#aa5082d34c94299e50e9b4ec7213d3638" target="_top" xlink:title="Downloads an image from the specified URL and saves it to a local file path.">
 <polygon fill="white" stroke="#666666" points="685.5,-224 475.25,-224 475.25,-192 685.5,-192 685.5,-224"/>
 <text xml:space="preserve" text-anchor="start" x="483.25" y="-210.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Services.Game</text>
 <text xml:space="preserve" text-anchor="middle" x="580.38" y="-198.5" font-family="Helvetica,sans-Serif" font-size="10.00">InfoDownloadService.DownloadImageAsync</text>

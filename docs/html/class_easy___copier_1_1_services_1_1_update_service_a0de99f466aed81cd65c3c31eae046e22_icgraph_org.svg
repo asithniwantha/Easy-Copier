@@ -11,7 +11,7 @@
 <!-- Node1 -->
 <g id="Node000001" class="node">
 <title>Node1</title>
-<g id="a_Node000001"><a xlink:title=" ">
+<g id="a_Node000001"><a xlink:title="Logger message when update check is skipped because app is not installed via Velopack.">
 <polygon fill="#999999" stroke="#666666" points="374,-44 195.25,-44 195.25,0 374,0 374,-44"/>
 <text xml:space="preserve" text-anchor="start" x="203.25" y="-30.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Services.Update</text>
 <text xml:space="preserve" text-anchor="start" x="203.25" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">Service.LogUpdateCheckSkippedNot</text>
@@ -22,7 +22,7 @@
 <!-- Node2 -->
 <g id="Node000002" class="node">
 <title>Node2</title>
-<g id="a_Node000002"><a xlink:href="class_easy___copier_1_1_services_1_1_update_service.html#a55cbb64f356109e29dcb0929e953507c" target="_top" xlink:title=" ">
+<g id="a_Node000002"><a xlink:href="class_easy___copier_1_1_services_1_1_update_service.html#a55cbb64f356109e29dcb0929e953507c" target="_top" xlink:title="Asynchronously checks if a new version release is available on GitHub via Velopack.">
 <polygon fill="white" stroke="#666666" points="159.25,-38 0,-38 0,-6 159.25,-6 159.25,-38"/>
 <text xml:space="preserve" text-anchor="start" x="8" y="-24.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Services.Update</text>
 <text xml:space="preserve" text-anchor="middle" x="79.62" y="-12.5" font-family="Helvetica,sans-Serif" font-size="10.00">Service.CheckForUpdatesAsync</text>

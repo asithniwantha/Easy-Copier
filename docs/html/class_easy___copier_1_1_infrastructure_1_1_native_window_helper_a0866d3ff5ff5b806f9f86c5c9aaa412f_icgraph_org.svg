@@ -11,7 +11,7 @@
 <!-- Node1 -->
 <g id="Node000001" class="node">
 <title>Node1</title>
-<g id="a_Node000001"><a xlink:title=" ">
+<g id="a_Node000001"><a xlink:title="Brings the specified window handle to the foreground.">
 <polygon fill="#999999" stroke="#666666" points="820.75,-119 645.75,-119 645.75,-87 820.75,-87 820.75,-119"/>
 <text xml:space="preserve" text-anchor="start" x="653.75" y="-105.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Infrastructure.</text>
 <text xml:space="preserve" text-anchor="middle" x="733.25" y="-93.5" font-family="Helvetica,sans-Serif" font-size="10.00">NativeWindowHelper.SetForeground</text>
@@ -21,7 +21,7 @@
 <!-- Node2 -->
 <g id="Node000002" class="node">
 <title>Node2</title>
-<g id="a_Node000002"><a xlink:href="class_easy___copier_1_1_infrastructure_1_1_native_window_helper.html#afda73520a4a05ae69313906202e7c369" target="_top" xlink:title=" ">
+<g id="a_Node000002"><a xlink:href="class_easy___copier_1_1_infrastructure_1_1_native_window_helper.html#afda73520a4a05ae69313906202e7c369" target="_top" xlink:title="Re&#45;enables input interaction and restores foreground focus for an owner window after a modal window c...">
 <polygon fill="white" stroke="#666666" points="609.75,-119 413.75,-119 413.75,-87 609.75,-87 609.75,-119"/>
 <text xml:space="preserve" text-anchor="start" x="421.75" y="-105.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Infrastructure.</text>
 <text xml:space="preserve" text-anchor="middle" x="511.75" y="-93.5" font-family="Helvetica,sans-Serif" font-size="10.00">NativeWindowHelper.RestoreOwnerInput</text>
@@ -40,7 +40,7 @@
 <!-- Node3 -->
 <g id="Node000003" class="node">
 <title>Node3</title>
-<g id="a_Node000003"><a xlink:href="class_easy___copier_1_1_infrastructure_1_1_native_window_helper.html#a3d287dd8cb064cde0c403d6692cb4a67" target="_top" xlink:title=" ">
+<g id="a_Node000003"><a xlink:href="class_easy___copier_1_1_infrastructure_1_1_native_window_helper.html#a3d287dd8cb064cde0c403d6692cb4a67" target="_top" xlink:title="Centralized helper method to initialize a modal dialog window, setting data context,...">
 <polygon fill="white" stroke="#666666" points="377.75,-125 204.25,-125 204.25,-81 377.75,-81 377.75,-125"/>
 <text xml:space="preserve" text-anchor="start" x="212.25" y="-111.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Infrastructure.</text>
 <text xml:space="preserve" text-anchor="start" x="212.25" y="-99.5" font-family="Helvetica,sans-Serif" font-size="10.00">NativeWindowHelper.InitializeModal</text>

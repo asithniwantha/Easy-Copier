@@ -1,0 +1,11 @@
+<map id="Easy_Copier.Views.OsImagesTabView.OsImagesTabView_obj1_Bindings" name="Easy_Copier.Views.OsImagesTabView.OsImagesTabView_obj1_Bindings">
+<area shape="rect" id="Node000001" title=" " alt="" coords="288,97,488,156"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="12,5,233,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="219,50,241,58,328,96,323,98,239,62,220,56"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="5,72,240,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="255,107,290,113,284,115,256,113"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="23,139,222,181"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="237,143,290,138,285,140,238,148"/>
+<area shape="rect" id="Node000005" href="$interface_easy___copier_1_1_views_1_1_os_images_tab_view_1_1_i_os_images_tab_view___bindings.html" title=" " alt="" coords="22,205,223,264"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="223,197,239,191,321,157,326,156,241,196,225,202"/>
+</map>

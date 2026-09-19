@@ -1,5 +1,5 @@
 <map id="Easy_Copier.Services.IUpdateService" name="Easy_Copier.Services.IUpdateService">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,207,48"/>
-<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_services_1_1_update_service.html" title=" " alt="" coords="7,96,205,139"/>
+<area shape="rect" id="Node000001" title="Defines operations for checking, downloading, and applying application updates via Velopack." alt="" coords="5,5,207,48"/>
+<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_services_1_1_update_service.html" title="Service managing automatic application update checks, package downloads, and updates application exec..." alt="" coords="7,96,205,139"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="108,62,108,97,104,95,104,66"/>
 </map>

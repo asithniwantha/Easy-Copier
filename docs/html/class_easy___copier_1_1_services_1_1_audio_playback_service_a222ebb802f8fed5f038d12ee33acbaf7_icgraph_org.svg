@@ -11,7 +11,7 @@
 <!-- Node1 -->
 <g id="Node000001" class="node">
 <title>Node1</title>
-<g id="a_Node000001"><a xlink:title=" ">
+<g id="a_Node000001"><a xlink:title="Asynchronously plays an audio WAV file located at the specified relative path within the application ...">
 <polygon fill="#999999" stroke="#666666" points="369.5,-57 214,-57 214,-25 369.5,-25 369.5,-57"/>
 <text xml:space="preserve" text-anchor="start" x="222" y="-43.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Services.Audio</text>
 <text xml:space="preserve" text-anchor="middle" x="291.75" y="-31.5" font-family="Helvetica,sans-Serif" font-size="10.00">PlaybackService.PlaySoundFile</text>
@@ -21,7 +21,7 @@
 <!-- Node2 -->
 <g id="Node000002" class="node">
 <title>Node2</title>
-<g id="a_Node000002"><a xlink:href="class_easy___copier_1_1_services_1_1_audio_playback_service.html#a558b69c64a7c07c3a3017b9dd1968e04" target="_top" xlink:title=" ">
+<g id="a_Node000002"><a xlink:href="class_easy___copier_1_1_services_1_1_audio_playback_service.html#a558b69c64a7c07c3a3017b9dd1968e04" target="_top" xlink:title="Plays the sound effect associated with failed operations.">
 <polygon fill="white" stroke="#666666" points="173.5,-82 4.5,-82 4.5,-50 173.5,-50 173.5,-82"/>
 <text xml:space="preserve" text-anchor="start" x="12.5" y="-68.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Services.Audio</text>
 <text xml:space="preserve" text-anchor="middle" x="89" y="-56.5" font-family="Helvetica,sans-Serif" font-size="10.00">PlaybackService.PlayFailureSound</text>
@@ -40,7 +40,7 @@
 <!-- Node3 -->
 <g id="Node000003" class="node">
 <title>Node3</title>
-<g id="a_Node000003"><a xlink:href="class_easy___copier_1_1_services_1_1_audio_playback_service.html#a7f1ea7e77f7658f1c9b6430d0d3bed40" target="_top" xlink:title=" ">
+<g id="a_Node000003"><a xlink:href="class_easy___copier_1_1_services_1_1_audio_playback_service.html#a7f1ea7e77f7658f1c9b6430d0d3bed40" target="_top" xlink:title="Plays the sound effect associated with successful operation completion.">
 <polygon fill="white" stroke="#666666" points="178,-32 0,-32 0,0 178,0 178,-32"/>
 <text xml:space="preserve" text-anchor="start" x="8" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Services.Audio</text>
 <text xml:space="preserve" text-anchor="middle" x="89" y="-6.5" font-family="Helvetica,sans-Serif" font-size="10.00">PlaybackService.PlaySuccessSound</text>

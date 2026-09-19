@@ -112,6 +112,9 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('class_easy___c
   <div class="headertitle"><div class="title">Easy_Copier.Services.StartupService(ILogger&lt; StartupService &gt; logger) Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Service for adding or removing the application's executable path in the Windows CurrentUser Run registry key.  
+ <a href="#details">More...</a></p>
 <div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Inheritance diagram for Easy_Copier.Services.StartupService:</div>
 <div id="dynsection-0-summary" class="dynsummary">
 </div>
@@ -128,19 +131,30 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('class_easy___c
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a2fb8f45e9be5242d7d9decf7e24659cc" id="r_a2fb8f45e9be5242d7d9decf7e24659cc"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a2fb8f45e9be5242d7d9decf7e24659cc">UpdateStartOnLogon</a> (bool enable)</td></tr>
+<tr class="memdesc:a2fb8f45e9be5242d7d9decf7e24659cc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets or removes the Windows registry entry under <code>HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Run</code> to start application at logon.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pri-attribs" class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
 <tr class="memitem:a815f6883c34d7b2c76f8832d4579b6a5" id="r_a815f6883c34d7b2c76f8832d4579b6a5"><td class="memItemLeft">readonly ILogger&lt; <a class="el" href="class_easy___copier_1_1_services_1_1_startup_service.html">StartupService</a> &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a815f6883c34d7b2c76f8832d4579b6a5">_logger</a> = logger</td></tr>
+<tr class="memdesc:a815f6883c34d7b2c76f8832d4579b6a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logger instance used for diagnostic logging.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pri-static-attribs" class="groupheader"><a id="pri-static-attribs" name="pri-static-attribs"></a>
 Static Private Attributes</h2></td></tr>
 <tr class="memitem:ae25ed700c1df3e488152a90f182c0f2e" id="r_ae25ed700c1df3e488152a90f182c0f2e"><td class="memItemLeft">const string&#160;</td><td class="memItemRight"><a class="el" href="#ae25ed700c1df3e488152a90f182c0f2e">RunKeyPath</a> = @&quot;SOFTWARE\Microsoft\Windows\CurrentVersion\Run&quot;</td></tr>
+<tr class="memdesc:ae25ed700c1df3e488152a90f182c0f2e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Registry subkey path for current user auto-run entries.  <br /></td></tr>
 <tr class="memitem:a6385a0781b237c1999f1126bb2c85051" id="r_a6385a0781b237c1999f1126bb2c85051"><td class="memItemLeft">const string&#160;</td><td class="memItemRight"><a class="el" href="#a6385a0781b237c1999f1126bb2c85051">AppName</a> = &quot;EasyCopier&quot;</td></tr>
+<tr class="memdesc:a6385a0781b237c1999f1126bb2c85051"><td class="mdescLeft">&#160;</td><td class="mdescRight">Application name value name stored in the Windows registry.  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="_startup_service_8cs_source.html#l00012">12</a> of file <a class="el" href="_startup_service_8cs_source.html">StartupService.cs</a>.</p>
+<div class="textblock"><p>Service for adding or removing the application's executable path in the Windows CurrentUser Run registry key. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">logger</td><td>The logger instance for operational output.</td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="_startup_service_8cs_source.html#l00023">23</a> of file <a class="el" href="_startup_service_8cs_source.html">StartupService.cs</a>.</p>
 </div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
 <a id="a2fb8f45e9be5242d7d9decf7e24659cc" name="a2fb8f45e9be5242d7d9decf7e24659cc"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a2fb8f45e9be5242d7d9decf7e24659cc">&#9670;&#160;</a></span>UpdateStartOnLogon()</h2>
@@ -157,11 +171,19 @@ Static Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Sets or removes the Windows registry entry under <code>HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Run</code> to start application at logon. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">enable</td><td><code>true</code> to add registry value; <code>false</code> to delete registry value.</td></tr>
+  </table>
+  </dd>
+</dl>
+
 <p>Implements <a class="el" href="interface_easy___copier_1_1_services_1_1_i_startup_service.html#a66166682d5608a767b3dd791efd571f3">Easy_Copier.Services.IStartupService</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_startup_service_8cs_source.html#l00018">18</a> of file <a class="el" href="_startup_service_8cs_source.html">StartupService.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_startup_service_8cs_source.html#l00044">44</a> of file <a class="el" href="_startup_service_8cs_source.html">StartupService.cs</a>.</p>
 
-<p class="reference">References <a class="el" href="_startup_service_8cs_source.html#l00016">_logger</a>, <a class="el" href="_startup_service_8cs_source.html#l00015">AppName</a>, and <a class="el" href="_startup_service_8cs_source.html#l00014">RunKeyPath</a>.</p>
+<p class="reference">References <a class="el" href="_startup_service_8cs_source.html#l00038">_logger</a>, <a class="el" href="_startup_service_8cs_source.html#l00033">AppName</a>, and <a class="el" href="_startup_service_8cs_source.html#l00028">RunKeyPath</a>.</p>
 
 </div>
 </div>
@@ -186,9 +208,11 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_startup_service_8cs_source.html#l00016">16</a> of file <a class="el" href="_startup_service_8cs_source.html">StartupService.cs</a>.</p>
+<p>Logger instance used for diagnostic logging. </p>
 
-<p class="reference">Referenced by <a class="el" href="_startup_service_8cs_source.html#l00018">UpdateStartOnLogon()</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_startup_service_8cs_source.html#l00038">38</a> of file <a class="el" href="_startup_service_8cs_source.html">StartupService.cs</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_startup_service_8cs_source.html#l00044">UpdateStartOnLogon()</a>.</p>
 
 </div>
 </div>
@@ -212,9 +236,11 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_startup_service_8cs_source.html#l00015">15</a> of file <a class="el" href="_startup_service_8cs_source.html">StartupService.cs</a>.</p>
+<p>Application name value name stored in the Windows registry. </p>
 
-<p class="reference">Referenced by <a class="el" href="_startup_service_8cs_source.html#l00018">UpdateStartOnLogon()</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_startup_service_8cs_source.html#l00033">33</a> of file <a class="el" href="_startup_service_8cs_source.html">StartupService.cs</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_startup_service_8cs_source.html#l00044">UpdateStartOnLogon()</a>.</p>
 
 </div>
 </div>
@@ -238,9 +264,11 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_startup_service_8cs_source.html#l00014">14</a> of file <a class="el" href="_startup_service_8cs_source.html">StartupService.cs</a>.</p>
+<p>Registry subkey path for current user auto-run entries. </p>
 
-<p class="reference">Referenced by <a class="el" href="_startup_service_8cs_source.html#l00018">UpdateStartOnLogon()</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_startup_service_8cs_source.html#l00028">28</a> of file <a class="el" href="_startup_service_8cs_source.html">StartupService.cs</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_startup_service_8cs_source.html#l00044">UpdateStartOnLogon()</a>.</p>
 
 </div>
 </div>

@@ -112,6 +112,9 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('interface_easy
   <div class="headertitle"><div class="title">Easy_Copier.Infrastructure.IDispatcherService Interface Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Abstracts dispatcher operations for executing code on the UI thread.  
+ <a href="#details">More...</a></p>
 <div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Inheritance diagram for Easy_Copier.Infrastructure.IDispatcherService:</div>
 <div id="dynsection-0-summary" class="dynsummary">
 </div>
@@ -122,15 +125,19 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('interface_easy
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a610df3934d188d070dafefd96a3bc47a" id="r_a610df3934d188d070dafefd96a3bc47a"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a610df3934d188d070dafefd96a3bc47a">TryEnqueue</a> (Action action)</td></tr>
+<tr class="memdesc:a610df3934d188d070dafefd96a3bc47a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enqueues a synchronous action to be executed on the UI thread.  <br /></td></tr>
 <tr class="memitem:a88fe373cb9dd853245728fbccc104274" id="r_a88fe373cb9dd853245728fbccc104274"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a88fe373cb9dd853245728fbccc104274">TryEnqueue</a> (Func&lt; Task &gt; action)</td></tr>
+<tr class="memdesc:a88fe373cb9dd853245728fbccc104274"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enqueues an asynchronous task delegate to be executed on the UI thread.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-properties" class="groupheader"><a id="properties" name="properties"></a>
 Properties</h2></td></tr>
 <tr class="memitem:a66b0ca65cbf8aadc1829ee8bf08d1918" id="r_a66b0ca65cbf8aadc1829ee8bf08d1918"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a66b0ca65cbf8aadc1829ee8bf08d1918">HasThreadAccess</a><code> [get]</code></td></tr>
+<tr class="memdesc:a66b0ca65cbf8aadc1829ee8bf08d1918"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets a value indicating whether the caller has thread access to the UI thread.  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="_i_dispatcher_service_8cs_source.html#l00006">6</a> of file <a class="el" href="_i_dispatcher_service_8cs_source.html">IDispatcherService.cs</a>.</p>
+<div class="textblock"><p>Abstracts dispatcher operations for executing code on the UI thread. </p>
+
+<p class="definition">Definition at line <a class="el" href="_i_dispatcher_service_8cs_source.html#l00009">9</a> of file <a class="el" href="_i_dispatcher_service_8cs_source.html">IDispatcherService.cs</a>.</p>
 </div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
 <a id="a610df3934d188d070dafefd96a3bc47a" name="a610df3934d188d070dafefd96a3bc47a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a610df3934d188d070dafefd96a3bc47a">&#9670;&#160;</a></span>TryEnqueue() <span class="overload">[1/2]</span></h2>
@@ -146,6 +153,15 @@ Properties</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Enqueues a synchronous action to be executed on the UI thread. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">action</td><td>The action to execute.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><code>true</code> if the action was enqueued or executed successfully; otherwise, <code>false</code>.</dd></dl>
 
 <p>Implemented in <a class="el" href="class_easy___copier_1_1_infrastructure_1_1_dispatcher_service.html#aca4f795944fadc64e8ee03ff96fc6bad">Easy_Copier.Infrastructure.DispatcherService</a>.</p>
 
@@ -174,6 +190,15 @@ Properties</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Enqueues an asynchronous task delegate to be executed on the UI thread. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">action</td><td>The asynchronous task delegate to execute.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><code>true</code> if the task was enqueued or executed successfully; otherwise, <code>false</code>.</dd></dl>
+
 <p>Implemented in <a class="el" href="class_easy___copier_1_1_infrastructure_1_1_dispatcher_service.html#a7c72f001d5fae136035bc769ccd81973">Easy_Copier.Infrastructure.DispatcherService</a>.</p>
 
 </div>
@@ -199,9 +224,11 @@ Properties</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Gets a value indicating whether the caller has thread access to the UI thread. </p>
+
 <p>Implemented in <a class="el" href="class_easy___copier_1_1_infrastructure_1_1_dispatcher_service.html#a11a3fba45d3013a33b6e406b574f8d92">Easy_Copier.Infrastructure.DispatcherService</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_i_dispatcher_service_8cs_source.html#l00008">8</a> of file <a class="el" href="_i_dispatcher_service_8cs_source.html">IDispatcherService.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_i_dispatcher_service_8cs_source.html#l00014">14</a> of file <a class="el" href="_i_dispatcher_service_8cs_source.html">IDispatcherService.cs</a>.</p>
 
 </div>
 </div>

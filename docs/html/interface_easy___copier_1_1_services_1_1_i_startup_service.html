@@ -112,6 +112,9 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('interface_easy
   <div class="headertitle"><div class="title">Easy_Copier.Services.IStartupService Interface Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Defines operations for configuring Windows startup behavior on user logon.  
+ <a href="#details">More...</a></p>
 <div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Inheritance diagram for Easy_Copier.Services.IStartupService:</div>
 <div id="dynsection-0-summary" class="dynsummary">
 </div>
@@ -122,10 +125,12 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('interface_easy
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a66166682d5608a767b3dd791efd571f3" id="r_a66166682d5608a767b3dd791efd571f3"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a66166682d5608a767b3dd791efd571f3">UpdateStartOnLogon</a> (bool enable)</td></tr>
+<tr class="memdesc:a66166682d5608a767b3dd791efd571f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Registers or unregisters the application to run automatically upon Windows user logon.  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="_startup_service_8cs_source.html#l00007">7</a> of file <a class="el" href="_startup_service_8cs_source.html">StartupService.cs</a>.</p>
+<div class="textblock"><p>Defines operations for configuring Windows startup behavior on user logon. </p>
+
+<p class="definition">Definition at line <a class="el" href="_startup_service_8cs_source.html#l00010">10</a> of file <a class="el" href="_startup_service_8cs_source.html">StartupService.cs</a>.</p>
 </div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
 <a id="a66166682d5608a767b3dd791efd571f3" name="a66166682d5608a767b3dd791efd571f3"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a66166682d5608a767b3dd791efd571f3">&#9670;&#160;</a></span>UpdateStartOnLogon()</h2>
@@ -141,6 +146,14 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Registers or unregisters the application to run automatically upon Windows user logon. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">enable</td><td><code>true</code> to enable launch at logon; <code>false</code> to disable.</td></tr>
+  </table>
+  </dd>
+</dl>
 
 <p>Implemented in <a class="el" href="class_easy___copier_1_1_services_1_1_startup_service.html#a2fb8f45e9be5242d7d9decf7e24659cc">Easy_Copier.Services.StartupService</a>.</p>
 

@@ -112,6 +112,9 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('interface_easy
   <div class="headertitle"><div class="title">Easy_Copier.Services.IDriveDiscoveryService Interface Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Defines operations for detecting, enumerating, and monitoring removable and USB drives.  
+ <a href="#details">More...</a></p>
 <div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Inheritance diagram for Easy_Copier.Services.IDriveDiscoveryService:</div>
 <div id="dynsection-0-summary" class="dynsummary">
 </div>
@@ -128,16 +131,21 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('interface_easy
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a45341b1eeeb4b61b3b769ebd1cc34f26" id="r_a45341b1eeeb4b61b3b769ebd1cc34f26"><td class="memItemLeft">Task&lt; IReadOnlyList&lt; <a class="el" href="namespace_easy___copier_1_1_models.html#af8f0175620d1cdd9a06d3e52ae12ba12">RemovableDrive</a> &gt; &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a45341b1eeeb4b61b3b769ebd1cc34f26">GetRemovableDrivesAsync</a> ()</td></tr>
+<tr class="memdesc:a45341b1eeeb4b61b3b769ebd1cc34f26"><td class="mdescLeft">&#160;</td><td class="mdescRight">Asynchronously queries and returns a list of connected removable and USB drives.  <br /></td></tr>
 <tr class="memitem:a9129582d6300764b4970e726a5e2462e" id="r_a9129582d6300764b4970e726a5e2462e"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a9129582d6300764b4970e726a5e2462e">StartWatching</a> ()</td></tr>
+<tr class="memdesc:a9129582d6300764b4970e726a5e2462e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Starts watching for hardware volume change events via WMI.  <br /></td></tr>
 <tr class="memitem:a072e899a66872f7ca41b1cad64dc56b2" id="r_a072e899a66872f7ca41b1cad64dc56b2"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a072e899a66872f7ca41b1cad64dc56b2">StopWatching</a> ()</td></tr>
+<tr class="memdesc:a072e899a66872f7ca41b1cad64dc56b2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stops watching for hardware volume change events.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-events" class="groupheader"><a id="events" name="events"></a>
 Events</h2></td></tr>
 <tr class="memitem:a8b663034e92a967eb2231149984a51c4" id="r_a8b663034e92a967eb2231149984a51c4"><td class="memItemLeft">EventHandler?&#160;</td><td class="memItemRight"><a class="el" href="#a8b663034e92a967eb2231149984a51c4">DrivesChanged</a></td></tr>
+<tr class="memdesc:a8b663034e92a967eb2231149984a51c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Occurs when a volume change event is detected (e.g., drive insertion or removal).  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="_drive_services_8cs_source.html#l00013">13</a> of file <a class="el" href="_drive_services_8cs_source.html">DriveServices.cs</a>.</p>
+<div class="textblock"><p>Defines operations for detecting, enumerating, and monitoring removable and USB drives. </p>
+
+<p class="definition">Definition at line <a class="el" href="_drive_services_8cs_source.html#l00016">16</a> of file <a class="el" href="_drive_services_8cs_source.html">DriveServices.cs</a>.</p>
 </div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
 <a id="a45341b1eeeb4b61b3b769ebd1cc34f26" name="a45341b1eeeb4b61b3b769ebd1cc34f26"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a45341b1eeeb4b61b3b769ebd1cc34f26">&#9670;&#160;</a></span>GetRemovableDrivesAsync()</h2>
@@ -153,6 +161,9 @@ Events</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Asynchronously queries and returns a list of connected removable and USB drives. </p>
+<dl class="section return"><dt>Returns</dt><dd>A task returning a read-only list of RemovableDrive objects.</dd></dl>
 
 <p>Implemented in <a class="el" href="class_easy___copier_1_1_services_1_1_drive_discovery_service.html#a258f6435fc2f1aacd52d731f0ed28425">Easy_Copier.Services.DriveDiscoveryService</a>.</p>
 
@@ -173,6 +184,8 @@ Events</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Starts watching for hardware volume change events via WMI. </p>
+
 <p>Implemented in <a class="el" href="class_easy___copier_1_1_services_1_1_drive_discovery_service.html#a326c4547ff0f1f958799d963a9ea80c0">Easy_Copier.Services.DriveDiscoveryService</a>.</p>
 
 </div>
@@ -192,6 +205,8 @@ Events</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Stops watching for hardware volume change events. </p>
+
 <p>Implemented in <a class="el" href="class_easy___copier_1_1_services_1_1_drive_discovery_service.html#afb32927d7b82e3d42575bf49e7f732d5">Easy_Copier.Services.DriveDiscoveryService</a>.</p>
 
 </div>
@@ -209,7 +224,9 @@ Events</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_drive_services_8cs_source.html#l00016">16</a> of file <a class="el" href="_drive_services_8cs_source.html">DriveServices.cs</a>.</p>
+<p>Occurs when a volume change event is detected (e.g., drive insertion or removal). </p>
+
+<p class="definition">Definition at line <a class="el" href="_drive_services_8cs_source.html#l00027">27</a> of file <a class="el" href="_drive_services_8cs_source.html">DriveServices.cs</a>.</p>
 
 </div>
 </div>

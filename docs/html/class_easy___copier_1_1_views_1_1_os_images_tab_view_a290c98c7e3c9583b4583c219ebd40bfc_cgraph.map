@@ -1,0 +1,21 @@
+<map id="Easy_Copier.Views.OsImagesTabView.Connect" name="Easy_Copier.Views.OsImagesTabView.Connect">
+<area shape="rect" id="Node000001" title="Connect()." alt="" coords="5,89,206,132"/>
+<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_views_1_1_os_images_tab_view.html#adf0ba063d48705c3526daa00139ade60" title=" " alt="" coords="254,89,471,132"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="206,108,241,110,236,111,207,113"/>
+<area shape="rect" id="Node000007" href="$class_easy___copier_1_1_views_1_1_os_images_tab_view.html#a466fd73bd468914db6b030292b718bc1" title=" " alt="" coords="254,21,470,64"/>
+<area shape="poly" id="edge7_Node000001_Node000007" title=" " alt="" coords="188,86,267,67,262,70,190,91"/>
+<area shape="rect" id="Node000009" href="$class_easy___copier_1_1_views_1_1_os_images_tab_view.html#a1ca8b5db1f91cd3748e89bc3f8c29374" title=" " alt="" coords="262,156,462,215"/>
+<area shape="poly" id="edge10_Node000001_Node000009" title=" " alt="" coords="182,130,250,151,245,153,182,135"/>
+<area shape="rect" id="Node000003" href="$class_easy___copier_1_1_infrastructure_1_1_flyout_helper.html#a7129d8af4e5b49e0b85728bbf84bc228" title="Displays the OS image details flyout when right&#45;tapping an OS image card." alt="" coords="524,84,751,143"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="471,109,511,112,506,112,472,114"/>
+<area shape="rect" id="Node000004" href="$namespace_easy___copier_1_1_models.html#a9c2abd1d64352c07d3085ba499cf2aae" title=" " alt="" coords="805,29,1018,56"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="751,81,839,61,844,60,752,87"/>
+<area shape="rect" id="Node000005" href="$class_easy___copier_1_1_view_models_1_1_os_image_details_view_model.html#a4da5a2ff8f4938af03fe4c9322dd53f5" title=" " alt="" coords="804,88,1019,131"/>
+<area shape="poly" id="edge5_Node000003_Node000005" title=" " alt="" coords="751,109,792,111,786,111,751,114"/>
+<area shape="rect" id="Node000006" href="$class_easy___copier_1_1_infrastructure_1_1_flyout_helper.html#aa507f17416e85f5f75287778e50b473b" title=" " alt="" coords="821,155,1002,197"/>
+<area shape="poly" id="edge6_Node000003_Node000006" title=" " alt="" coords="751,137,808,152,803,152,751,142"/>
+<area shape="poly" id="edge4_Node000004_Node000004" title=" " alt="" coords="865,28,858,21,863,11,882,5,912,3,944,5,963,15,958,14,943,11,911,8,883,10,867,15,863,20,871,30"/>
+<area shape="rect" id="Node000008" href="$class_easy___copier_1_1_infrastructure_1_1_flyout_helper.html#a45ed191cae19aa7c8da5127da35d04fb" title="Handles the click event for opening an item&#39;s folder in File Explorer." alt="" coords="519,17,756,60"/>
+<area shape="poly" id="edge8_Node000007_Node000008" title=" " alt="" coords="471,38,506,40,501,41,471,44"/>
+<area shape="poly" id="edge9_Node000008_Node000004" title=" " alt="" coords="756,38,792,41,787,41,757,43"/>
+</map>

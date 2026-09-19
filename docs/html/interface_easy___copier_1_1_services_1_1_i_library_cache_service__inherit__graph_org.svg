@@ -11,7 +11,7 @@
 <!-- Node1 -->
 <g id="Node000001" class="node">
 <title>Node1</title>
-<g id="a_Node000001"><a xlink:title=" ">
+<g id="a_Node000001"><a xlink:title="Defines operations for managing persistent JSON library caching and checking cache validity against d...">
 <polygon fill="#999999" stroke="#666666" points="148.75,-100 0,-100 0,-68 148.75,-68 148.75,-100"/>
 <text xml:space="preserve" text-anchor="start" x="8" y="-86.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Services.ILibrary</text>
 <text xml:space="preserve" text-anchor="middle" x="74.38" y="-74.5" font-family="Helvetica,sans-Serif" font-size="10.00">CacheService</text>
@@ -21,7 +21,7 @@
 <!-- Node2 -->
 <g id="Node000002" class="node">
 <title>Node2</title>
-<g id="a_Node000002"><a xlink:href="class_easy___copier_1_1_services_1_1_library_cache_service.html" target="_top" xlink:title=" ">
+<g id="a_Node000002"><a xlink:href="class_easy___copier_1_1_services_1_1_library_cache_service.html" target="_top" xlink:title="Service for serializing, deserializing, and validating library scan results stored in library_cache....">
 <polygon fill="white" stroke="#666666" points="147.25,-32 1.5,-32 1.5,0 147.25,0 147.25,-32"/>
 <text xml:space="preserve" text-anchor="start" x="9.5" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Services.Library</text>
 <text xml:space="preserve" text-anchor="middle" x="74.38" y="-6.5" font-family="Helvetica,sans-Serif" font-size="10.00">CacheService</text>

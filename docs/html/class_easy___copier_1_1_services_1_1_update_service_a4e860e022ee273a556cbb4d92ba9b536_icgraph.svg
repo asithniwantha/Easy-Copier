@@ -22,7 +22,7 @@
 <!-- Node1 -->
 <g id="Node000001" class="node">
 <title>Node1</title>
-<g id="a_Node000001"><a xlink:title=" ">
+<g id="a_Node000001"><a xlink:title="Logger message when update download succeeds.">
 <polygon fill="#999999" stroke="#666666" points="340.25,-32 190.75,-32 190.75,0 340.25,0 340.25,-32"/>
 <text xml:space="preserve" text-anchor="start" x="198.75" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Services.Update</text>
 <text xml:space="preserve" text-anchor="middle" x="265.5" y="-6.5" font-family="Helvetica,sans-Serif" font-size="10.00">Service.LogDownloadSuccess</text>
@@ -32,7 +32,7 @@
 <!-- Node2 -->
 <g id="Node000002" class="node">
 <title>Node2</title>
-<g id="a_Node000002"><a xlink:href="class_easy___copier_1_1_services_1_1_update_service.html#a42115342f12a72887fd604b1b1351761" target="_top" xlink:title=" ">
+<g id="a_Node000002"><a xlink:href="class_easy___copier_1_1_services_1_1_update_service.html#a42115342f12a72887fd604b1b1351761" target="_top" xlink:title="Asynchronously downloads the latest update package files.">
 <polygon fill="white" stroke="#666666" points="154.75,-32 0,-32 0,0 154.75,0 154.75,-32"/>
 <text xml:space="preserve" text-anchor="start" x="8" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Services.Update</text>
 <text xml:space="preserve" text-anchor="middle" x="77.38" y="-6.5" font-family="Helvetica,sans-Serif" font-size="10.00">Service.DownloadUpdateAsync</text>

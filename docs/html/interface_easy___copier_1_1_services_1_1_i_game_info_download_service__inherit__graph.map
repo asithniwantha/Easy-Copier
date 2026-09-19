@@ -1,5 +1,5 @@
 <map id="Easy_Copier.Services.IGameInfoDownloadService" name="Easy_Copier.Services.IGameInfoDownloadService">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,200,48"/>
-<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_services_1_1_game_info_download_service.html" title=" " alt="" coords="7,96,198,139"/>
+<area shape="rect" id="Node000001" title="Defines operations for downloading game metadata, system requirements, covers, and category informati..." alt="" coords="5,5,200,48"/>
+<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_services_1_1_game_info_download_service.html" title="Service that downloads game system requirements, cover images, and category metadata from various web..." alt="" coords="7,96,198,139"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="104,62,105,97,100,95,101,66"/>
 </map>

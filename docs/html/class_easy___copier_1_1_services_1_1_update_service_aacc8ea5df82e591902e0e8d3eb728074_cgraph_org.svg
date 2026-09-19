@@ -11,7 +11,7 @@
 <!-- Node1 -->
 <g id="Node000001" class="node">
 <title>Node1</title>
-<g id="a_Node000001"><a xlink:title=" ">
+<g id="a_Node000001"><a xlink:title="Initializes a new instance of the UpdateService class and sets up Velopack update source.">
 <polygon fill="#999999" stroke="#666666" points="148,-38 0,-38 0,-6 148,-6 148,-38"/>
 <text xml:space="preserve" text-anchor="start" x="8" y="-24.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Services.Update</text>
 <text xml:space="preserve" text-anchor="middle" x="74" y="-12.5" font-family="Helvetica,sans-Serif" font-size="10.00">Service.UpdateService</text>
@@ -21,7 +21,7 @@
 <!-- Node2 -->
 <g id="Node000002" class="node">
 <title>Node2</title>
-<g id="a_Node000002"><a xlink:href="class_easy___copier_1_1_services_1_1_update_service.html#a5aeb51f78a80621b0753e2d1292fe8fb" target="_top" xlink:title=" ">
+<g id="a_Node000002"><a xlink:href="class_easy___copier_1_1_services_1_1_update_service.html#a5aeb51f78a80621b0753e2d1292fe8fb" target="_top" xlink:title="Logger message for initialization failures.">
 <polygon fill="white" stroke="#666666" points="372.5,-44 184,-44 184,0 372.5,0 372.5,-44"/>
 <text xml:space="preserve" text-anchor="start" x="192" y="-30.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Services.Update</text>
 <text xml:space="preserve" text-anchor="start" x="192" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">Service.LogUpdateManagerInitialization</text>

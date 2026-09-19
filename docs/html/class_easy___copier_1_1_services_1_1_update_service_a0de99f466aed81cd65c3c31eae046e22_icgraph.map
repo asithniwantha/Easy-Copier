@@ -1,5 +1,5 @@
 <map id="Easy_Copier.Services.UpdateService.LogUpdateCheckSkippedNotInstalled" name="Easy_Copier.Services.UpdateService.LogUpdateCheckSkippedNotInstalled">
-<area shape="rect" id="Node000001" title=" " alt="" coords="266,5,504,64"/>
-<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_services_1_1_update_service.html#a55cbb64f356109e29dcb0929e953507c" title=" " alt="" coords="5,13,218,56"/>
+<area shape="rect" id="Node000001" title="Logger message when update check is skipped because app is not installed via Velopack." alt="" coords="266,5,504,64"/>
+<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_services_1_1_update_service.html#a55cbb64f356109e29dcb0929e953507c" title="Asynchronously checks if a new version release is available on GitHub via Velopack." alt="" coords="5,13,218,56"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="247,35,218,37,218,32,253,34"/>
 </map>

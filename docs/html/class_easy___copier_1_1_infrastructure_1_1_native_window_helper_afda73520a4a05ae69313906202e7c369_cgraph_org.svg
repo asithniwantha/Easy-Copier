@@ -11,7 +11,7 @@
 <!-- Node1 -->
 <g id="Node000001" class="node">
 <title>Node1</title>
-<g id="a_Node000001"><a xlink:title=" ">
+<g id="a_Node000001"><a xlink:title="Re&#45;enables input interaction and restores foreground focus for an owner window after a modal window c...">
 <polygon fill="#999999" stroke="#666666" points="196,-66 0,-66 0,-34 196,-34 196,-66"/>
 <text xml:space="preserve" text-anchor="start" x="8" y="-52.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Infrastructure.</text>
 <text xml:space="preserve" text-anchor="middle" x="98" y="-40.5" font-family="Helvetica,sans-Serif" font-size="10.00">NativeWindowHelper.RestoreOwnerInput</text>
@@ -21,7 +21,7 @@
 <!-- Node2 -->
 <g id="Node000002" class="node">
 <title>Node2</title>
-<g id="a_Node000002"><a xlink:href="class_easy___copier_1_1_infrastructure_1_1_native_window_helper.html#ac6f330703159fa50a1108ba3f4051bd7" target="_top" xlink:title=" ">
+<g id="a_Node000002"><a xlink:href="class_easy___copier_1_1_infrastructure_1_1_native_window_helper.html#ac6f330703159fa50a1108ba3f4051bd7" target="_top" xlink:title="Enables or disables input interaction for the specified window handle.">
 <polygon fill="white" stroke="#666666" points="430.25,-92 232,-92 232,-60 430.25,-60 430.25,-92"/>
 <text xml:space="preserve" text-anchor="start" x="240" y="-78.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Infrastructure.</text>
 <text xml:space="preserve" text-anchor="middle" x="331.12" y="-66.5" font-family="Helvetica,sans-Serif" font-size="10.00">NativeWindowHelper.EnableWindowInput</text>
@@ -40,7 +40,7 @@
 <!-- Node4 -->
 <g id="Node000004" class="node">
 <title>Node4</title>
-<g id="a_Node000004"><a xlink:href="class_easy___copier_1_1_infrastructure_1_1_native_window_helper.html#a0866d3ff5ff5b806f9f86c5c9aaa412f" target="_top" xlink:title=" ">
+<g id="a_Node000004"><a xlink:href="class_easy___copier_1_1_infrastructure_1_1_native_window_helper.html#a0866d3ff5ff5b806f9f86c5c9aaa412f" target="_top" xlink:title="Brings the specified window handle to the foreground.">
 <polygon fill="white" stroke="#666666" points="418.62,-41 243.62,-41 243.62,-9 418.62,-9 418.62,-41"/>
 <text xml:space="preserve" text-anchor="start" x="251.62" y="-27.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Infrastructure.</text>
 <text xml:space="preserve" text-anchor="middle" x="331.12" y="-15.5" font-family="Helvetica,sans-Serif" font-size="10.00">NativeWindowHelper.SetForeground</text>

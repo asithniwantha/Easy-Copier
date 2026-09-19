@@ -1,10 +1,10 @@
 <map id="Easy_Copier.ViewModels.MainViewModel.CopySelectedGamesAsync" name="Easy_Copier.ViewModels.MainViewModel.CopySelectedGamesAsync">
 <area shape="rect" id="Node000001" title=" " alt="" coords="5,97,256,140"/>
-<area shape="rect" id="Node000002" href="$namespace_easy___copier_1_1_models.html#ab9811c24c166bd7f4768ddafbcbaf75d" title=" " alt="" coords="614,105,826,132"/>
+<area shape="rect" id="Node000002" href="$namespace_easy___copier_1_1_models.html#a9c2abd1d64352c07d3085ba499cf2aae" title=" " alt="" coords="614,105,826,132"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="161,94,224,56,263,38,303,25,376,9,435,3,494,8,567,25,602,38,636,55,693,95,688,95,634,60,600,43,565,30,493,13,435,8,377,14,304,30,265,43,227,61,164,98"/>
 <area shape="rect" id="Node000003" href="$namespace_easy___copier_1_1_models.html#af8f0175620d1cdd9a06d3e52ae12ba12" title=" " alt="" coords="329,64,541,106"/>
 <area shape="poly" id="edge3_Node000001_Node000003" title=" " alt="" coords="256,102,316,97,311,99,257,107"/>
-<area shape="rect" id="Node000004" href="$interface_easy___copier_1_1_infrastructure_1_1_i_dialog_service.html#a9bd95aa4bbb692442c72bf8dac7dc84c" title=" " alt="" coords="304,130,566,173"/>
+<area shape="rect" id="Node000004" href="$interface_easy___copier_1_1_infrastructure_1_1_i_dialog_service.html#a9bd95aa4bbb692442c72bf8dac7dc84c" title="Displays a folder conflict resolution dialog allowing the user to select how to handle duplicate item..." alt="" coords="304,130,566,173"/>
 <area shape="poly" id="edge5_Node000001_Node000004" title=" " alt="" coords="256,129,291,135,286,136,257,135"/>
 <area shape="rect" id="Node000005" href="$namespace_easy___copier_1_1_models.html#a36bba191a5fad0b0ca63ed787ae607d8" title=" " alt="" coords="325,221,545,248"/>
 <area shape="poly" id="edge6_Node000001_Node000005" title=" " alt="" coords="188,137,305,182,385,215,380,215,303,187,187,143"/>

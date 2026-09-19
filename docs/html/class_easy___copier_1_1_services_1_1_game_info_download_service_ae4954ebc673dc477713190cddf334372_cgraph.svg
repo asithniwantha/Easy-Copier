@@ -53,7 +53,7 @@
 <!-- Node1 -->
 <g id="Node000001" class="node">
 <title>Node1</title>
-<g id="a_Node000001"><a xlink:title=" ">
+<g id="a_Node000001"><a xlink:title="Downloads system requirements for a game from Steam Web API and saves them to system_requirements....">
 <polygon fill="#999999" stroke="#666666" points="244,-60 0,-60 0,-28 244,-28 244,-60"/>
 <text xml:space="preserve" text-anchor="start" x="8" y="-46.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Services.Game</text>
 <text xml:space="preserve" text-anchor="middle" x="122" y="-34.5" font-family="Helvetica,sans-Serif" font-size="10.00">InfoDownloadService.DownloadRequirementsAsync</text>
@@ -63,7 +63,7 @@
 <!-- Node2 -->
 <g id="Node000002" class="node">
 <title>Node2</title>
-<g id="a_Node000002"><a xlink:href="class_easy___copier_1_1_services_1_1_game_info_download_service.html#ac41153caca406b8dd484dc3ec12ccb1a" target="_top" xlink:title=" ">
+<g id="a_Node000002"><a xlink:href="class_easy___copier_1_1_services_1_1_game_info_download_service.html#ac41153caca406b8dd484dc3ec12ccb1a" target="_top" xlink:title="Fetches minimum and recommended PC system requirements for a game from the Steam Store API.">
 <polygon fill="white" stroke="#666666" points="464.38,-94 299.12,-94 299.12,-50 464.38,-50 464.38,-94"/>
 <text xml:space="preserve" text-anchor="start" x="307.12" y="-80.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Services.Game</text>
 <text xml:space="preserve" text-anchor="start" x="307.12" y="-68.5" font-family="Helvetica,sans-Serif" font-size="10.00">InfoDownloadService.FetchSteam</text>
@@ -83,7 +83,7 @@
 <!-- Node6 -->
 <g id="Node000006" class="node">
 <title>Node6</title>
-<g id="a_Node000006"><a xlink:href="class_easy___copier_1_1_services_1_1_game_info_download_service.html#a07b3f49cf0f3dd8d9c78894a0acd45c7" target="_top" xlink:title=" ">
+<g id="a_Node000006"><a xlink:href="class_easy___copier_1_1_services_1_1_game_info_download_service.html#a07b3f49cf0f3dd8d9c78894a0acd45c7" target="_top" xlink:title="Formats parsed requirements into a clean, human&#45;readable text document format.">
 <polygon fill="white" stroke="#666666" points="483.5,-32 280,-32 280,0 483.5,0 483.5,-32"/>
 <text xml:space="preserve" text-anchor="start" x="288" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Services.Game</text>
 <text xml:space="preserve" text-anchor="middle" x="381.75" y="-6.5" font-family="Helvetica,sans-Serif" font-size="10.00">InfoDownloadService.FormatRequirements</text>
@@ -102,7 +102,7 @@
 <!-- Node3 -->
 <g id="Node000003" class="node">
 <title>Node3</title>
-<g id="a_Node000003"><a xlink:href="class_easy___copier_1_1_services_1_1_game_info_download_service.html#aeea730db504e9ee979c0426e61115c3e" target="_top" xlink:title=" ">
+<g id="a_Node000003"><a xlink:href="class_easy___copier_1_1_services_1_1_game_info_download_service.html#aeea730db504e9ee979c0426e61115c3e" target="_top" xlink:title="Queries the Steam community app search endpoint to find the Steam App ID for a game title.">
 <polygon fill="white" stroke="#666666" points="685.12,-125 519.88,-125 519.88,-81 685.12,-81 685.12,-125"/>
 <text xml:space="preserve" text-anchor="start" x="527.88" y="-111.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Services.Game</text>
 <text xml:space="preserve" text-anchor="start" x="527.88" y="-99.5" font-family="Helvetica,sans-Serif" font-size="10.00">InfoDownloadService.FetchSteam</text>
@@ -122,7 +122,7 @@
 <!-- Node4 -->
 <g id="Node000004" class="node">
 <title>Node4</title>
-<g id="a_Node000004"><a xlink:href="class_easy___copier_1_1_services_1_1_game_info_download_service.html#a0ac54d272f5be25a45615f2b4b473ad0" target="_top" xlink:title=" ">
+<g id="a_Node000004"><a xlink:href="class_easy___copier_1_1_services_1_1_game_info_download_service.html#a0ac54d272f5be25a45615f2b4b473ad0" target="_top" xlink:title="Parses HTML string returned by Steam requirement properties to extract spec categories (CPU,...">
 <polygon fill="white" stroke="#666666" points="685.5,-63 519.5,-63 519.5,-19 685.5,-19 685.5,-63"/>
 <text xml:space="preserve" text-anchor="start" x="527.5" y="-49.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Services.Game</text>
 <text xml:space="preserve" text-anchor="start" x="527.5" y="-37.5" font-family="Helvetica,sans-Serif" font-size="10.00">InfoDownloadService.ParseSteam</text>
@@ -142,7 +142,7 @@
 <!-- Node5 -->
 <g id="Node000005" class="node">
 <title>Node5</title>
-<g id="a_Node000005"><a xlink:href="class_easy___copier_1_1_services_1_1_game_info_download_service.html#a3be12a770e78f10afafac12d962ceeec" target="_top" xlink:title=" ">
+<g id="a_Node000005"><a xlink:href="class_easy___copier_1_1_services_1_1_game_info_download_service.html#a3be12a770e78f10afafac12d962ceeec" target="_top" xlink:title="Generates a regular expression for stripping HTML tags.">
 <polygon fill="white" stroke="#666666" points="875.5,-57 721.5,-57 721.5,-25 875.5,-25 875.5,-57"/>
 <text xml:space="preserve" text-anchor="start" x="729.5" y="-43.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Services.Game</text>
 <text xml:space="preserve" text-anchor="middle" x="798.5" y="-31.5" font-family="Helvetica,sans-Serif" font-size="10.00">InfoDownloadService.MyRegex</text>

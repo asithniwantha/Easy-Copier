@@ -5,6 +5,7 @@ var namespace_easy___copier_1_1_infrastructure =
     [ "DispatcherService", "class_easy___copier_1_1_infrastructure_1_1_dispatcher_service.html", "class_easy___copier_1_1_infrastructure_1_1_dispatcher_service" ],
     [ "FilePickerService", "class_easy___copier_1_1_infrastructure_1_1_file_picker_service.html", "class_easy___copier_1_1_infrastructure_1_1_file_picker_service" ],
     [ "FileSystemHelpers", "class_easy___copier_1_1_infrastructure_1_1_file_system_helpers.html", "class_easy___copier_1_1_infrastructure_1_1_file_system_helpers" ],
+    [ "FlyoutHelper", "class_easy___copier_1_1_infrastructure_1_1_flyout_helper.html", "class_easy___copier_1_1_infrastructure_1_1_flyout_helper" ],
     [ "FolderPickerService", "class_easy___copier_1_1_infrastructure_1_1_folder_picker_service.html", "class_easy___copier_1_1_infrastructure_1_1_folder_picker_service" ],
     [ "FormattingHelpers", "class_easy___copier_1_1_infrastructure_1_1_formatting_helpers.html", "class_easy___copier_1_1_infrastructure_1_1_formatting_helpers" ],
     [ "IAppWindowContext", "interface_easy___copier_1_1_infrastructure_1_1_i_app_window_context.html", "interface_easy___copier_1_1_infrastructure_1_1_i_app_window_context" ],

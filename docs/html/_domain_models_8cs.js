@@ -37,7 +37,7 @@ var _domain_models_8cs =
     ] ],
     [ "Easy_Copier.Models.OsImageSortOption", "namespace_easy___copier_1_1_models.html#a730e39ab051f5d5a6af5d61176138617", [
       [ "Easy_Copier.Models.OsImageSortOption.Name", "namespace_easy___copier_1_1_models.html#a730e39ab051f5d5a6af5d61176138617a49ee3087348e8d44e1feda1917443987", null ],
-      [ "Easy_Copier.Models.OsImageSortOption.DateAdded", "namespace_easy___copier_1_1_models.html#a730e39ab051f5d5a6af5d61176138617a90ac28eefb33054bd901e4c90e98a65a", null ],
+      [ "Easy_Copier.Models.OsImageSortOption.DateCreated", "namespace_easy___copier_1_1_models.html#a730e39ab051f5d5a6af5d61176138617ad3813870ed2a75e81f3789ac527f3148", null ],
       [ "Easy_Copier.Models.OsImageSortOption.Size", "namespace_easy___copier_1_1_models.html#a730e39ab051f5d5a6af5d61176138617a6f6cb72d544962fa333e2e34ce64f719", null ]
     ] ],
     [ "Easy_Copier.Models.ValidationSeverity", "namespace_easy___copier_1_1_models.html#ae4a6b01c2111b1eb1611b6970c615b8c", [
@@ -47,7 +47,7 @@ var _domain_models_8cs =
     ] ],
     [ "Easy_Copier.Models.CacheValidationOutcome", "namespace_easy___copier_1_1_models.html#a63b99d96f6d7e71a96281be9501fa569", null ],
     [ "Easy_Copier.Models.CopyHistoryRecord", "namespace_easy___copier_1_1_models.html#a22cad9581ea699aafef9d310c84f0836", null ],
-    [ "Easy_Copier.Models.GameEntry", "namespace_easy___copier_1_1_models.html#ab9811c24c166bd7f4768ddafbcbaf75d", null ],
+    [ "Easy_Copier.Models.GameEntry", "namespace_easy___copier_1_1_models.html#a9c2abd1d64352c07d3085ba499cf2aae", null ],
     [ "Easy_Copier.Models.ItemFingerprint", "namespace_easy___copier_1_1_models.html#aae2a352ac1ad9a55ae8b37e300153431", null ],
     [ "Easy_Copier.Models.LibraryCacheSnapshot", "namespace_easy___copier_1_1_models.html#a6ce72bb145c4b6a2a691fff265751706", null ],
     [ "Easy_Copier.Models.RemovableDrive", "namespace_easy___copier_1_1_models.html#af8f0175620d1cdd9a06d3e52ae12ba12", null ],

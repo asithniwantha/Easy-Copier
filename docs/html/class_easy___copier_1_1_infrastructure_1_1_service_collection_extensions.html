@@ -112,15 +112,21 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('class_easy___c
   <div class="headertitle"><div class="title">Easy_Copier.Infrastructure.ServiceCollectionExtensions Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Extension methods for registering application services and <a class="el" href="namespace_easy___copier_1_1_view_models.html">ViewModels</a> into the Dependency Injection container.  
+ <a href="#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-static-methods" class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:ac76aa7482d41ba34a041fc46c10b8e54" id="r_ac76aa7482d41ba34a041fc46c10b8e54"><td class="memItemLeft">static IServiceCollection&#160;</td><td class="memItemRight"><a class="el" href="#ac76aa7482d41ba34a041fc46c10b8e54">AddApplicationServices</a> (this IServiceCollection services)</td></tr>
+<tr class="memdesc:ac76aa7482d41ba34a041fc46c10b8e54"><td class="mdescLeft">&#160;</td><td class="mdescRight">Registers core application infrastructure services, logging, and domain services into the IServiceCollection.  <br /></td></tr>
 <tr class="memitem:a65eb425191094c4f3547ef3dfda18a2b" id="r_a65eb425191094c4f3547ef3dfda18a2b"><td class="memItemLeft">static IServiceCollection&#160;</td><td class="memItemRight"><a class="el" href="#a65eb425191094c4f3547ef3dfda18a2b">AddViewModels</a> (this IServiceCollection services)</td></tr>
+<tr class="memdesc:a65eb425191094c4f3547ef3dfda18a2b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Registers <a class="el" href="namespace_easy___copier_1_1_view_models.html">ViewModels</a> and ViewModel factories into the IServiceCollection.  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="_service_collection_extensions_8cs_source.html#l00010">10</a> of file <a class="el" href="_service_collection_extensions_8cs_source.html">ServiceCollectionExtensions.cs</a>.</p>
+<div class="textblock"><p>Extension methods for registering application services and <a class="el" href="namespace_easy___copier_1_1_view_models.html">ViewModels</a> into the Dependency Injection container. </p>
+
+<p class="definition">Definition at line <a class="el" href="_service_collection_extensions_8cs_source.html#l00013">13</a> of file <a class="el" href="_service_collection_extensions_8cs_source.html">ServiceCollectionExtensions.cs</a>.</p>
 </div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
 <a id="ac76aa7482d41ba34a041fc46c10b8e54" name="ac76aa7482d41ba34a041fc46c10b8e54"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ac76aa7482d41ba34a041fc46c10b8e54">&#9670;&#160;</a></span>AddApplicationServices()</h2>
@@ -145,7 +151,16 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_service_collection_extensions_8cs_source.html#l00012">12</a> of file <a class="el" href="_service_collection_extensions_8cs_source.html">ServiceCollectionExtensions.cs</a>.</p>
+<p>Registers core application infrastructure services, logging, and domain services into the IServiceCollection. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">services</td><td>The service collection to populate.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The updated IServiceCollection.</dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_service_collection_extensions_8cs_source.html#l00020">20</a> of file <a class="el" href="_service_collection_extensions_8cs_source.html">ServiceCollectionExtensions.cs</a>.</p>
 
 </div>
 </div>
@@ -172,7 +187,16 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_service_collection_extensions_8cs_source.html#l00061">61</a> of file <a class="el" href="_service_collection_extensions_8cs_source.html">ServiceCollectionExtensions.cs</a>.</p>
+<p>Registers <a class="el" href="namespace_easy___copier_1_1_view_models.html">ViewModels</a> and ViewModel factories into the IServiceCollection. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">services</td><td>The service collection to populate.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The updated IServiceCollection.</dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_service_collection_extensions_8cs_source.html#l00074">74</a> of file <a class="el" href="_service_collection_extensions_8cs_source.html">ServiceCollectionExtensions.cs</a>.</p>
 
 </div>
 </div>

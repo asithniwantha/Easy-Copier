@@ -11,7 +11,7 @@
 <!-- Node1 -->
 <g id="Node000001" class="node">
 <title>Node1</title>
-<g id="a_Node000001"><a xlink:title=" ">
+<g id="a_Node000001"><a xlink:title="Blocks until all currently running WMI event arrival callbacks have completed or until a timeout occu...">
 <polygon fill="#999999" stroke="#666666" points="534,-44 368.75,-44 368.75,0 534,0 534,-44"/>
 <text xml:space="preserve" text-anchor="start" x="376.75" y="-30.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Services.Drive</text>
 <text xml:space="preserve" text-anchor="start" x="376.75" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">DiscoveryService.WaitForPending</text>
@@ -22,7 +22,7 @@
 <!-- Node2 -->
 <g id="Node000002" class="node">
 <title>Node2</title>
-<g id="a_Node000002"><a xlink:href="class_easy___copier_1_1_services_1_1_drive_discovery_service.html#afb32927d7b82e3d42575bf49e7f732d5" target="_top" xlink:title=" ">
+<g id="a_Node000002"><a xlink:href="class_easy___copier_1_1_services_1_1_drive_discovery_service.html#afb32927d7b82e3d42575bf49e7f732d5" target="_top" xlink:title="Stops the WMI event listener and cleans up watcher instances safely.">
 <polygon fill="white" stroke="#666666" points="332.75,-38 175.75,-38 175.75,-6 332.75,-6 332.75,-38"/>
 <text xml:space="preserve" text-anchor="start" x="183.75" y="-24.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Services.Drive</text>
 <text xml:space="preserve" text-anchor="middle" x="254.25" y="-12.5" font-family="Helvetica,sans-Serif" font-size="10.00">DiscoveryService.StopWatching</text>
@@ -41,7 +41,7 @@
 <!-- Node3 -->
 <g id="Node000003" class="node">
 <title>Node3</title>
-<g id="a_Node000003"><a xlink:href="class_easy___copier_1_1_services_1_1_drive_discovery_service.html#a8d9f3925e02834e5d1a0884c9d2761fd" target="_top" xlink:title=" ">
+<g id="a_Node000003"><a xlink:href="class_easy___copier_1_1_services_1_1_drive_discovery_service.html#a8d9f3925e02834e5d1a0884c9d2761fd" target="_top" xlink:title="Disposes unmanaged WMI resources and terminates drive monitoring handlers.">
 <polygon fill="white" stroke="#666666" points="139.75,-38 0,-38 0,-6 139.75,-6 139.75,-38"/>
 <text xml:space="preserve" text-anchor="start" x="8" y="-24.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Services.Drive</text>
 <text xml:space="preserve" text-anchor="middle" x="69.88" y="-12.5" font-family="Helvetica,sans-Serif" font-size="10.00">DiscoveryService.Dispose</text>

@@ -11,7 +11,7 @@
 <!-- Node1 -->
 <g id="Node000001" class="node">
 <title>Node1</title>
-<g id="a_Node000001"><a xlink:title=" ">
+<g id="a_Node000001"><a xlink:title="Asynchronously scans the specified source directories for game, application, video,...">
 <polygon fill="#999999" stroke="#666666" points="167.5,-175 0,-175 0,-143 167.5,-143 167.5,-175"/>
 <text xml:space="preserve" text-anchor="start" x="8" y="-161.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Services.Game</text>
 <text xml:space="preserve" text-anchor="middle" x="83.75" y="-149.5" font-family="Helvetica,sans-Serif" font-size="10.00">ScannerService.ScanLibraryAsync</text>
@@ -21,7 +21,7 @@
 <!-- Node2 -->
 <g id="Node000002" class="node">
 <title>Node2</title>
-<g id="a_Node000002"><a xlink:href="class_easy___copier_1_1_services_1_1_game_scanner_service.html#ad02afc9dc82d4dbc5162a245d3a000fa" target="_top" xlink:title=" ">
+<g id="a_Node000002"><a xlink:href="class_easy___copier_1_1_services_1_1_game_scanner_service.html#ad02afc9dc82d4dbc5162a245d3a000fa" target="_top" xlink:title="Searches a game folder for standard cover image files (cover.jpg, cover.png, etc.).">
 <polygon fill="white" stroke="#666666" points="374.38,-306 214.38,-306 214.38,-274 374.38,-274 374.38,-306"/>
 <text xml:space="preserve" text-anchor="start" x="222.38" y="-292.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Services.Game</text>
 <text xml:space="preserve" text-anchor="middle" x="294.38" y="-280.5" font-family="Helvetica,sans-Serif" font-size="10.00">ScannerService.FindCoverImage</text>
@@ -40,7 +40,7 @@
 <!-- Node3 -->
 <g id="Node000003" class="node">
 <title>Node3</title>
-<g id="a_Node000003"><a xlink:href="namespace_easy___copier_1_1_models.html#ab9811c24c166bd7f4768ddafbcbaf75d" target="_top" xlink:title=" ">
+<g id="a_Node000003"><a xlink:href="namespace_easy___copier_1_1_models.html#a9c2abd1d64352c07d3085ba499cf2aae" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="#666666" points="374,-238 214.75,-238 214.75,-218 374,-218 374,-238"/>
 <text xml:space="preserve" text-anchor="middle" x="294.38" y="-224.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Models.GameEntry</text>
 </a>
@@ -58,7 +58,7 @@
 <!-- Node4 -->
 <g id="Node000004" class="node">
 <title>Node4</title>
-<g id="a_Node000004"><a xlink:href="class_easy___copier_1_1_services_1_1_game_scanner_service.html#ab383305abb0feb67093cedb7073fd161" target="_top" xlink:title=" ">
+<g id="a_Node000004"><a xlink:href="class_easy___copier_1_1_services_1_1_game_scanner_service.html#ab383305abb0feb67093cedb7073fd161" target="_top" xlink:title="Parses genre category information from categories.txt inside a game directory.">
 <polygon fill="white" stroke="#666666" points="369.88,-200 218.88,-200 218.88,-168 369.88,-168 369.88,-200"/>
 <text xml:space="preserve" text-anchor="start" x="226.88" y="-186.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Services.Game</text>
 <text xml:space="preserve" text-anchor="middle" x="294.38" y="-174.5" font-family="Helvetica,sans-Serif" font-size="10.00">ScannerService.GetCategories</text>
@@ -77,7 +77,7 @@
 <!-- Node5 -->
 <g id="Node000005" class="node">
 <title>Node5</title>
-<g id="a_Node000005"><a xlink:href="class_easy___copier_1_1_services_1_1_game_scanner_service.html#a7b30922461e6cc77a917e38c1276d45a" target="_top" xlink:title=" ">
+<g id="a_Node000005"><a xlink:href="class_easy___copier_1_1_services_1_1_game_scanner_service.html#a7b30922461e6cc77a917e38c1276d45a" target="_top" xlink:title="Asynchronously calculates file size statistics for a folder or file path.">
 <polygon fill="white" stroke="#666666" points="385.25,-150 203.5,-150 203.5,-118 385.25,-118 385.25,-150"/>
 <text xml:space="preserve" text-anchor="start" x="211.5" y="-136.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Services.Game</text>
 <text xml:space="preserve" text-anchor="middle" x="294.38" y="-124.5" font-family="Helvetica,sans-Serif" font-size="10.00">ScannerService.GetFolderStatsAsync</text>
@@ -96,7 +96,7 @@
 <!-- Node6 -->
 <g id="Node000006" class="node">
 <title>Node6</title>
-<g id="a_Node000006"><a xlink:href="class_easy___copier_1_1_services_1_1_game_scanner_service.html#ae83383ac60473067e85e187c3fc17aae" target="_top" xlink:title=" ">
+<g id="a_Node000006"><a xlink:href="class_easy___copier_1_1_services_1_1_game_scanner_service.html#ae83383ac60473067e85e187c3fc17aae" target="_top" xlink:title="Determines whether a folder should be excluded from scanning (e.g., system directories,...">
 <polygon fill="white" stroke="#666666" points="376.25,-100 212.5,-100 212.5,-68 376.25,-68 376.25,-100"/>
 <text xml:space="preserve" text-anchor="start" x="220.5" y="-86.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Services.Game</text>
 <text xml:space="preserve" text-anchor="middle" x="294.38" y="-74.5" font-family="Helvetica,sans-Serif" font-size="10.00">ScannerService.IsExcludedFolder</text>

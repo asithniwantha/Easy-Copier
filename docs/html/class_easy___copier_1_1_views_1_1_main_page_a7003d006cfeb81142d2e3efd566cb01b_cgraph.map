@@ -1,0 +1,5 @@
+<map id="Easy_Copier.Views.MainPage.ClearGameSelection" name="Easy_Copier.Views.MainPage.ClearGameSelection">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,208,48"/>
+<area shape="rect" id="Node000002" href="$interface_easy___copier_1_1_views_1_1_i_library_tab_view.html#a51210482fba95c0f8717fef25726e893" title="Clears all active item selections in this view." alt="" coords="256,5,439,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="208,24,243,27,237,27,208,29"/>
+</map>

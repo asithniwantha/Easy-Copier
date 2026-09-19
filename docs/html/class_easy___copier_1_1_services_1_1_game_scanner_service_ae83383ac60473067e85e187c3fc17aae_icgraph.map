@@ -1,5 +1,5 @@
 <map id="Easy_Copier.Services.GameScannerService.IsExcludedFolder" name="Easy_Copier.Services.GameScannerService.IsExcludedFolder">
-<area shape="rect" id="Node000001" title=" " alt="" coords="277,5,495,48"/>
-<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_services_1_1_game_scanner_service.html#ab0cc3d6dc81dba63d460e8ebb4465ac5" title=" " alt="" coords="5,5,229,48"/>
+<area shape="rect" id="Node000001" title="Determines whether a folder should be excluded from scanning (e.g., system directories,..." alt="" coords="277,5,495,48"/>
+<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_services_1_1_game_scanner_service.html#ab0cc3d6dc81dba63d460e8ebb4465ac5" title="Asynchronously scans the specified source directories for game, application, video,..." alt="" coords="5,5,229,48"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="259,27,229,29,229,24,264,27"/>
 </map>

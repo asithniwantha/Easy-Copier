@@ -1,0 +1,8 @@
+var _tv_and_films_tab_view_8g_8cs =
+[
+    [ "Easy_Copier.Views.TvAndFilmsTabView", "class_easy___copier_1_1_views_1_1_tv_and_films_tab_view.html", "class_easy___copier_1_1_views_1_1_tv_and_films_tab_view" ],
+    [ "Easy_Copier.Views.TvAndFilmsTabView.XamlBindingSetters", "class_easy___copier_1_1_views_1_1_tv_and_films_tab_view_1_1_xaml_binding_setters.html", "class_easy___copier_1_1_views_1_1_tv_and_films_tab_view_1_1_xaml_binding_setters" ],
+    [ "Easy_Copier.Views.TvAndFilmsTabView.TvAndFilmsTabView_obj3_Bindings", "class_easy___copier_1_1_views_1_1_tv_and_films_tab_view_1_1_tv_and_films_tab_view__obj3___bindings.html", "class_easy___copier_1_1_views_1_1_tv_and_films_tab_view_1_1_tv_and_films_tab_view__obj3___bindings" ],
+    [ "Easy_Copier.Views.TvAndFilmsTabView.TvAndFilmsTabView_obj1_Bindings", "class_easy___copier_1_1_views_1_1_tv_and_films_tab_view_1_1_tv_and_films_tab_view__obj1___bindings.html", "class_easy___copier_1_1_views_1_1_tv_and_films_tab_view_1_1_tv_and_films_tab_view__obj1___bindings" ],
+    [ "Easy_Copier.Views.TvAndFilmsTabView.TvAndFilmsTabView_obj1_Bindings.TvAndFilmsTabView_obj1_BindingsTracking", "class_easy___copier_1_1_views_1_1_tv_and_films_tab_view_1_1_tv_and_films_tab_view__obj1___bindin48050c52f26d15bb73a491fa5a0e2521.html", "class_easy___copier_1_1_views_1_1_tv_and_films_tab_view_1_1_tv_and_films_tab_view__obj1___bindin48050c52f26d15bb73a491fa5a0e2521" ]
+];

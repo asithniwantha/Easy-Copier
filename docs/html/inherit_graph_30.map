@@ -1,5 +1,5 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="Node000000" href="$interface_easy___copier_1_1_services_1_1_i_library_scanner_service.html" title=" " alt="" coords="5,5,204,48"/>
-<area shape="rect" id="Node000001" href="$class_easy___copier_1_1_services_1_1_library_scanner_service.html" title=" " alt="" coords="252,5,446,48"/>
-<area shape="poly" id="edge19_Node000000_Node000001" title=" " alt="" coords="219,24,254,27,249,27,219,29"/>
+<area shape="rect" id="Node000000" href="$interface_easy___copier_1_1_services_1_1_i_library_cache_service.html" title="Defines operations for managing persistent JSON library caching and checking cache validity against d..." alt="" coords="5,5,204,48"/>
+<area shape="rect" id="Node000001" href="$class_easy___copier_1_1_services_1_1_library_cache_service.html" title="Service for serializing, deserializing, and validating library scan results stored in library_cache...." alt="" coords="252,5,446,48"/>
+<area shape="poly" id="edge18_Node000000_Node000001" title=" " alt="" coords="219,24,254,27,249,27,219,29"/>
 </map>

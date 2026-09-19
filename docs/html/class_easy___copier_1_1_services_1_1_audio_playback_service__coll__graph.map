@@ -1,5 +1,5 @@
 <map id="Easy_Copier.Services.AudioPlaybackService" name="Easy_Copier.Services.AudioPlaybackService">
-<area shape="rect" id="Node000001" title=" " alt="" coords="7,96,196,139"/>
-<area shape="rect" id="Node000002" href="$interface_easy___copier_1_1_services_1_1_i_audio_playback_service.html" title=" " alt="" coords="5,5,198,48"/>
+<area shape="rect" id="Node000001" title="Provides functionality to play audio feedback sound files asynchronously." alt="" coords="7,96,196,139"/>
+<area shape="rect" id="Node000002" href="$interface_easy___copier_1_1_services_1_1_i_audio_playback_service.html" title="Defines operations for playing audio feedback notifications within the application." alt="" coords="5,5,198,48"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="103,62,104,97,99,95,100,66"/>
 </map>

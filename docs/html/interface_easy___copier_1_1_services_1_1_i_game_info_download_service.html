@@ -112,6 +112,9 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('interface_easy
   <div class="headertitle"><div class="title">Easy_Copier.Services.IGameInfoDownloadService Interface Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Defines operations for downloading game metadata, system requirements, covers, and category information for game directories.  
+ <a href="#details">More...</a></p>
 <div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Inheritance diagram for Easy_Copier.Services.IGameInfoDownloadService:</div>
 <div id="dynsection-0-summary" class="dynsummary">
 </div>
@@ -122,10 +125,12 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('interface_easy
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a1bd0831843e5c600eb2152069624b46b" id="r_a1bd0831843e5c600eb2152069624b46b"><td class="memItemLeft">Task&#160;</td><td class="memItemRight"><a class="el" href="#a1bd0831843e5c600eb2152069624b46b">DownloadGameInfoAsync</a> (IEnumerable&lt; string &gt; sourceFolders, IProgress&lt; string &gt;? progress=null, CancellationToken cancellationToken=default)</td></tr>
+<tr class="memdesc:a1bd0831843e5c600eb2152069624b46b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Asynchronously scans game source directories and downloads missing metadata (system requirements, cover art, genres/categories).  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="_game_info_download_service_8cs_source.html#l00012">12</a> of file <a class="el" href="_game_info_download_service_8cs_source.html">GameInfoDownloadService.cs</a>.</p>
+<div class="textblock"><p>Defines operations for downloading game metadata, system requirements, covers, and category information for game directories. </p>
+
+<p class="definition">Definition at line <a class="el" href="_game_info_download_service_8cs_source.html#l00015">15</a> of file <a class="el" href="_game_info_download_service_8cs_source.html">GameInfoDownloadService.cs</a>.</p>
 </div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
 <a id="a1bd0831843e5c600eb2152069624b46b" name="a1bd0831843e5c600eb2152069624b46b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a1bd0831843e5c600eb2152069624b46b">&#9670;&#160;</a></span>DownloadGameInfoAsync()</h2>
@@ -150,6 +155,17 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Asynchronously scans game source directories and downloads missing metadata (system requirements, cover art, genres/categories). </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sourceFolders</td><td>Collection of source folder directory paths to scan and process.</td></tr>
+    <tr><td class="paramname">progress</td><td>An optional progress reporter for reporting status messages.</td></tr>
+    <tr><td class="paramname">cancellationToken</td><td>A cancellation token that can be used to cancel the asynchronous operation.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A task representing the asynchronous operation.</dd></dl>
 
 <p>Implemented in <a class="el" href="class_easy___copier_1_1_services_1_1_game_info_download_service.html#ac477ae8ebd5151e39a13ea8a66aafafc">Easy_Copier.Services.GameInfoDownloadService</a>.</p>
 

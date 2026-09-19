@@ -112,6 +112,9 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('class_easy___c
   <div class="headertitle"><div class="title">Easy_Copier.Services.AudioPlaybackService Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Provides functionality to play audio feedback sound files asynchronously.  
+ <a href="#details">More...</a></p>
 <div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Inheritance diagram for Easy_Copier.Services.AudioPlaybackService:</div>
 <div id="dynsection-0-summary" class="dynsummary">
 </div>
@@ -128,20 +131,26 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('class_easy___c
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a930ba1d8f39d1d047abd4cc799357bfb" id="r_a930ba1d8f39d1d047abd4cc799357bfb"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a930ba1d8f39d1d047abd4cc799357bfb">AudioPlaybackService</a> (ILogger&lt; AudioPlaybackService &gt; logger)</td></tr>
+<tr class="memdesc:a930ba1d8f39d1d047abd4cc799357bfb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes a new instance of the AudioPlaybackService class with the specified logger.  <br /></td></tr>
 <tr class="memitem:a7f1ea7e77f7658f1c9b6430d0d3bed40" id="r_a7f1ea7e77f7658f1c9b6430d0d3bed40"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a7f1ea7e77f7658f1c9b6430d0d3bed40">PlaySuccessSound</a> ()</td></tr>
+<tr class="memdesc:a7f1ea7e77f7658f1c9b6430d0d3bed40"><td class="mdescLeft">&#160;</td><td class="mdescRight">Plays the sound effect associated with successful operation completion.  <br /></td></tr>
 <tr class="memitem:a558b69c64a7c07c3a3017b9dd1968e04" id="r_a558b69c64a7c07c3a3017b9dd1968e04"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a558b69c64a7c07c3a3017b9dd1968e04">PlayFailureSound</a> ()</td></tr>
+<tr class="memdesc:a558b69c64a7c07c3a3017b9dd1968e04"><td class="mdescLeft">&#160;</td><td class="mdescRight">Plays the sound effect associated with failed operations.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pri-methods" class="groupheader"><a id="pri-methods" name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
 <tr class="memitem:a222ebb802f8fed5f038d12ee33acbaf7" id="r_a222ebb802f8fed5f038d12ee33acbaf7"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a222ebb802f8fed5f038d12ee33acbaf7">PlaySoundFile</a> (string relativePath)</td></tr>
+<tr class="memdesc:a222ebb802f8fed5f038d12ee33acbaf7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Asynchronously plays an audio WAV file located at the specified relative path within the application directory.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pri-attribs" class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
 <tr class="memitem:a402626865298bace49bb2ea6392368eb" id="r_a402626865298bace49bb2ea6392368eb"><td class="memItemLeft">readonly ILogger&lt; <a class="el" href="#a930ba1d8f39d1d047abd4cc799357bfb">AudioPlaybackService</a> &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a402626865298bace49bb2ea6392368eb">_logger</a></td></tr>
+<tr class="memdesc:a402626865298bace49bb2ea6392368eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logger instance used for diagnostic and error logging during audio playback.  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="_audio_playback_service_8cs_source.html#l00015">15</a> of file <a class="el" href="_audio_playback_service_8cs_source.html">AudioPlaybackService.cs</a>.</p>
+<div class="textblock"><p>Provides functionality to play audio feedback sound files asynchronously. </p>
+
+<p class="definition">Definition at line <a class="el" href="_audio_playback_service_8cs_source.html#l00028">28</a> of file <a class="el" href="_audio_playback_service_8cs_source.html">AudioPlaybackService.cs</a>.</p>
 </div><a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a930ba1d8f39d1d047abd4cc799357bfb" name="a930ba1d8f39d1d047abd4cc799357bfb"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a930ba1d8f39d1d047abd4cc799357bfb">&#9670;&#160;</a></span>AudioPlaybackService()</h2>
@@ -158,9 +167,17 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_audio_playback_service_8cs_source.html#l00019">19</a> of file <a class="el" href="_audio_playback_service_8cs_source.html">AudioPlaybackService.cs</a>.</p>
+<p>Initializes a new instance of the AudioPlaybackService class with the specified logger. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">logger</td><td>The logger instance used to record playback warnings or errors.</td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p class="reference">References <a class="el" href="_audio_playback_service_8cs_source.html#l00017">_logger</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_audio_playback_service_8cs_source.html#l00039">39</a> of file <a class="el" href="_audio_playback_service_8cs_source.html">AudioPlaybackService.cs</a>.</p>
+
+<p class="reference">References <a class="el" href="_audio_playback_service_8cs_source.html#l00033">_logger</a>.</p>
 
 </div>
 </div>
@@ -180,11 +197,13 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Plays the sound effect associated with failed operations. </p>
+
 <p>Implements <a class="el" href="interface_easy___copier_1_1_services_1_1_i_audio_playback_service.html#a792345800374f58741132777137dad40">Easy_Copier.Services.IAudioPlaybackService</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_audio_playback_service_8cs_source.html#l00029">29</a> of file <a class="el" href="_audio_playback_service_8cs_source.html">AudioPlaybackService.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_audio_playback_service_8cs_source.html#l00055">55</a> of file <a class="el" href="_audio_playback_service_8cs_source.html">AudioPlaybackService.cs</a>.</p>
 
-<p class="reference">References <a class="el" href="_audio_playback_service_8cs_source.html#l00034">PlaySoundFile()</a>.</p>
+<p class="reference">References <a class="el" href="_audio_playback_service_8cs_source.html#l00064">PlaySoundFile()</a>.</p>
 <div id="dynsection-2" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-2-summary" class="dynsummary">
 </div>
@@ -217,11 +236,19 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_audio_playback_service_8cs_source.html#l00034">34</a> of file <a class="el" href="_audio_playback_service_8cs_source.html">AudioPlaybackService.cs</a>.</p>
+<p>Asynchronously plays an audio WAV file located at the specified relative path within the application directory. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">relativePath</td><td>The relative file path to the audio file within the application directory.</td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p class="reference">References <a class="el" href="_audio_playback_service_8cs_source.html#l00017">_logger</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_audio_playback_service_8cs_source.html#l00064">64</a> of file <a class="el" href="_audio_playback_service_8cs_source.html">AudioPlaybackService.cs</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_audio_playback_service_8cs_source.html#l00029">PlayFailureSound()</a>, and <a class="el" href="_audio_playback_service_8cs_source.html#l00024">PlaySuccessSound()</a>.</p>
+<p class="reference">References <a class="el" href="_audio_playback_service_8cs_source.html#l00033">_logger</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_audio_playback_service_8cs_source.html#l00055">PlayFailureSound()</a>, and <a class="el" href="_audio_playback_service_8cs_source.html#l00047">PlaySuccessSound()</a>.</p>
 <div id="dynsection-3" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
 <div id="dynsection-3-summary" class="dynsummary">
 </div>
@@ -246,11 +273,13 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Plays the sound effect associated with successful operation completion. </p>
+
 <p>Implements <a class="el" href="interface_easy___copier_1_1_services_1_1_i_audio_playback_service.html#a0a07b2e60b16be35dadc3cbd2661351a">Easy_Copier.Services.IAudioPlaybackService</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_audio_playback_service_8cs_source.html#l00024">24</a> of file <a class="el" href="_audio_playback_service_8cs_source.html">AudioPlaybackService.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_audio_playback_service_8cs_source.html#l00047">47</a> of file <a class="el" href="_audio_playback_service_8cs_source.html">AudioPlaybackService.cs</a>.</p>
 
-<p class="reference">References <a class="el" href="_audio_playback_service_8cs_source.html#l00034">PlaySoundFile()</a>.</p>
+<p class="reference">References <a class="el" href="_audio_playback_service_8cs_source.html#l00064">PlaySoundFile()</a>.</p>
 <div id="dynsection-4" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-4-summary" class="dynsummary">
 </div>
@@ -281,9 +310,11 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_audio_playback_service_8cs_source.html#l00017">17</a> of file <a class="el" href="_audio_playback_service_8cs_source.html">AudioPlaybackService.cs</a>.</p>
+<p>Logger instance used for diagnostic and error logging during audio playback. </p>
 
-<p class="reference">Referenced by <a class="el" href="_audio_playback_service_8cs_source.html#l00019">AudioPlaybackService()</a>, and <a class="el" href="_audio_playback_service_8cs_source.html#l00034">PlaySoundFile()</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_audio_playback_service_8cs_source.html#l00033">33</a> of file <a class="el" href="_audio_playback_service_8cs_source.html">AudioPlaybackService.cs</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_audio_playback_service_8cs_source.html#l00039">AudioPlaybackService()</a>, and <a class="el" href="_audio_playback_service_8cs_source.html#l00064">PlaySoundFile()</a>.</p>
 
 </div>
 </div>

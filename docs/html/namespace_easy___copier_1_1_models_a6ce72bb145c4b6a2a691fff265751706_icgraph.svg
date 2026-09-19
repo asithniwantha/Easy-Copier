@@ -91,7 +91,7 @@
 <!-- Node4 -->
 <g id="Node000004" class="node">
 <title>Node4</title>
-<g id="a_Node000004"><a xlink:href="class_easy___copier_1_1_services_1_1_library_cache_service.html#a0803da77cac9887ad4dd36e5a47b0ee8" target="_top" xlink:title=" ">
+<g id="a_Node000004"><a xlink:href="class_easy___copier_1_1_services_1_1_library_cache_service.html#a0803da77cac9887ad4dd36e5a47b0ee8" target="_top" xlink:title="Asynchronously deserializes and verifies the cached library snapshot file.">
 <polygon fill="white" stroke="#666666" points="982.62,-320 824.88,-320 824.88,-288 982.62,-288 982.62,-320"/>
 <text xml:space="preserve" text-anchor="start" x="832.88" y="-306.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Services.Library</text>
 <text xml:space="preserve" text-anchor="middle" x="903.75" y="-294.5" font-family="Helvetica,sans-Serif" font-size="10.00">CacheService.LoadCacheAsync</text>
@@ -110,7 +110,7 @@
 <!-- Node5 -->
 <g id="Node000005" class="node">
 <title>Node5</title>
-<g id="a_Node000005"><a xlink:href="interface_easy___copier_1_1_services_1_1_i_library_cache_service.html#af6d9e8159cbbd841975e73a34ddce367" target="_top" xlink:title=" ">
+<g id="a_Node000005"><a xlink:href="interface_easy___copier_1_1_services_1_1_i_library_cache_service.html#af6d9e8159cbbd841975e73a34ddce367" target="_top" xlink:title="Asynchronously saves the library cache snapshot to local disk storage using atomic write patterns.">
 <polygon fill="white" stroke="#666666" points="983.38,-270 824.12,-270 824.12,-238 983.38,-238 983.38,-270"/>
 <text xml:space="preserve" text-anchor="start" x="832.12" y="-256.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Services.ILibrary</text>
 <text xml:space="preserve" text-anchor="middle" x="903.75" y="-244.5" font-family="Helvetica,sans-Serif" font-size="10.00">CacheService.SaveCacheAsync</text>
@@ -129,7 +129,7 @@
 <!-- Node6 -->
 <g id="Node000006" class="node">
 <title>Node6</title>
-<g id="a_Node000006"><a xlink:href="class_easy___copier_1_1_services_1_1_library_cache_service.html#a85c47e1fe8510bcb82b48e83a7796cd1" target="_top" xlink:title=" ">
+<g id="a_Node000006"><a xlink:href="class_easy___copier_1_1_services_1_1_library_cache_service.html#a85c47e1fe8510bcb82b48e83a7796cd1" target="_top" xlink:title="Asynchronously writes the library cache snapshot to disk using a temporary file and atomic swap.">
 <polygon fill="white" stroke="#666666" points="983.38,-220 824.12,-220 824.12,-188 983.38,-188 983.38,-220"/>
 <text xml:space="preserve" text-anchor="start" x="832.12" y="-206.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Services.Library</text>
 <text xml:space="preserve" text-anchor="middle" x="903.75" y="-194.5" font-family="Helvetica,sans-Serif" font-size="10.00">CacheService.SaveCacheAsync</text>
@@ -186,7 +186,7 @@
 <!-- Node10 -->
 <g id="Node000010" class="node">
 <title>Node10</title>
-<g id="a_Node000010"><a xlink:href="interface_easy___copier_1_1_services_1_1_i_library_cache_service.html#a767b09540d7984e9563a00b516bd4609" target="_top" xlink:title=" ">
+<g id="a_Node000010"><a xlink:href="interface_easy___copier_1_1_services_1_1_i_library_cache_service.html#a767b09540d7984e9563a00b516bd4609" target="_top" xlink:title="Validates whether the cached snapshot matches current application settings source folders and directo...">
 <polygon fill="white" stroke="#666666" points="989.38,-82 818.12,-82 818.12,-50 989.38,-50 989.38,-82"/>
 <text xml:space="preserve" text-anchor="start" x="826.12" y="-68.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Services.ILibrary</text>
 <text xml:space="preserve" text-anchor="middle" x="903.75" y="-56.5" font-family="Helvetica,sans-Serif" font-size="10.00">CacheService.ValidateCacheAsync</text>
@@ -205,7 +205,7 @@
 <!-- Node11 -->
 <g id="Node000011" class="node">
 <title>Node11</title>
-<g id="a_Node000011"><a xlink:href="class_easy___copier_1_1_services_1_1_library_cache_service.html#a05e76d2554223c9f80d4b4ca9358b977" target="_top" xlink:title=" ">
+<g id="a_Node000011"><a xlink:href="class_easy___copier_1_1_services_1_1_library_cache_service.html#a05e76d2554223c9f80d4b4ca9358b977" target="_top" xlink:title="Compares the cached snapshot against active source folder settings and inspects modified files to eva...">
 <polygon fill="white" stroke="#666666" points="989.38,-32 818.12,-32 818.12,0 989.38,0 989.38,-32"/>
 <text xml:space="preserve" text-anchor="start" x="826.12" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Services.Library</text>
 <text xml:space="preserve" text-anchor="middle" x="903.75" y="-6.5" font-family="Helvetica,sans-Serif" font-size="10.00">CacheService.ValidateCacheAsync</text>

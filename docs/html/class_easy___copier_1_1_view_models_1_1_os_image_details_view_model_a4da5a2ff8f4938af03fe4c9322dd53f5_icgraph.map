@@ -1,7 +1,9 @@
 <map id="Easy_Copier.ViewModels.OsImageDetailsViewModel.Initialize" name="Easy_Copier.ViewModels.OsImageDetailsViewModel.Initialize">
-<area shape="rect" id="Node000001" title=" " alt="" coords="506,5,720,48"/>
-<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_views_1_1_main_page.html#a8ee32925e8fb5ea9df160bc30d71c8dc" title=" " alt="" coords="256,5,458,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="488,27,458,29,458,24,493,27"/>
-<area shape="rect" id="Node000003" href="$class_easy___copier_1_1_views_1_1_main_page.html#ae8c8697ec0b54f454eb9cf3d3c0fe5df" title="Connect()." alt="" coords="5,5,208,48"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="237,27,208,29,208,24,243,27"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="793,13,1008,56"/>
+<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_infrastructure_1_1_flyout_helper.html#a7129d8af4e5b49e0b85728bbf84bc228" title="Displays the OS image details flyout when right&#45;tapping an OS image card." alt="" coords="519,5,745,64"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="775,35,746,37,746,32,781,35"/>
+<area shape="rect" id="Node000003" href="$class_easy___copier_1_1_views_1_1_os_images_tab_view.html#adf0ba063d48705c3526daa00139ade60" title=" " alt="" coords="254,13,471,56"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="501,35,471,37,471,32,506,35"/>
+<area shape="rect" id="Node000004" href="$class_easy___copier_1_1_views_1_1_os_images_tab_view.html#a290c98c7e3c9583b4583c219ebd40bfc" title="Connect()." alt="" coords="5,13,206,56"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="236,35,206,37,206,32,241,34"/>
 </map>

@@ -112,6 +112,9 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('interface_easy
   <div class="headertitle"><div class="title">Easy_Copier.Services.ISmartAdderHistoryService Interface Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Defines operations for persisting and retrieving Smart Adder calculations in SQLite storage.  
+ <a href="#details">More...</a></p>
 <div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Inheritance diagram for Easy_Copier.Services.ISmartAdderHistoryService:</div>
 <div id="dynsection-0-summary" class="dynsummary">
 </div>
@@ -122,12 +125,16 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('interface_easy
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:aaddc783b61b267dc6a9cce276b8b7506" id="r_aaddc783b61b267dc6a9cce276b8b7506"><td class="memItemLeft">Task&#160;</td><td class="memItemRight"><a class="el" href="#aaddc783b61b267dc6a9cce276b8b7506">InitializeAsync</a> ()</td></tr>
+<tr class="memdesc:aaddc783b61b267dc6a9cce276b8b7506"><td class="mdescLeft">&#160;</td><td class="mdescRight">Asynchronously initializes the SmartAdderHistory table in SQLite database.  <br /></td></tr>
 <tr class="memitem:a52977ddda72721b3c39eac306ba2b24a" id="r_a52977ddda72721b3c39eac306ba2b24a"><td class="memItemLeft">Task&#160;</td><td class="memItemRight"><a class="el" href="#a52977ddda72721b3c39eac306ba2b24a">AddRecordAsync</a> (<a class="el" href="class_easy___copier_1_1_models_1_1_smart_adder_history_record.html">SmartAdderHistoryRecord</a> record)</td></tr>
+<tr class="memdesc:a52977ddda72721b3c39eac306ba2b24a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Asynchronously inserts a Smart Adder calculation record into SQLite database.  <br /></td></tr>
 <tr class="memitem:a837ae03b72df34b0a81085df44313867" id="r_a837ae03b72df34b0a81085df44313867"><td class="memItemLeft">Task&lt; List&lt; <a class="el" href="class_easy___copier_1_1_models_1_1_smart_adder_history_record.html">SmartAdderHistoryRecord</a> &gt; &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a837ae03b72df34b0a81085df44313867">GetRecentRecordsAsync</a> (int count)</td></tr>
+<tr class="memdesc:a837ae03b72df34b0a81085df44313867"><td class="mdescLeft">&#160;</td><td class="mdescRight">Asynchronously retrieves the most recent Smart Adder calculation history records.  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="_smart_adder_history_service_8cs_source.html#l00012">12</a> of file <a class="el" href="_smart_adder_history_service_8cs_source.html">SmartAdderHistoryService.cs</a>.</p>
+<div class="textblock"><p>Defines operations for persisting and retrieving Smart Adder calculations in SQLite storage. </p>
+
+<p class="definition">Definition at line <a class="el" href="_smart_adder_history_service_8cs_source.html#l00015">15</a> of file <a class="el" href="_smart_adder_history_service_8cs_source.html">SmartAdderHistoryService.cs</a>.</p>
 </div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
 <a id="a52977ddda72721b3c39eac306ba2b24a" name="a52977ddda72721b3c39eac306ba2b24a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a52977ddda72721b3c39eac306ba2b24a">&#9670;&#160;</a></span>AddRecordAsync()</h2>
@@ -143,6 +150,15 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Asynchronously inserts a Smart Adder calculation record into SQLite database. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">record</td><td>The SmartAdderHistoryRecord to insert.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A task representing the asynchronous operation.</dd></dl>
 
 <p>Implemented in <a class="el" href="class_easy___copier_1_1_services_1_1_smart_adder_history_service.html#a140f526c291c726f34abee58f9667e2b">Easy_Copier.Services.SmartAdderHistoryService</a>.</p>
 
@@ -163,6 +179,15 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Asynchronously retrieves the most recent Smart Adder calculation history records. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">count</td><td>The maximum number of recent records to retrieve.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A task returning a list of recent SmartAdderHistoryRecord items.</dd></dl>
+
 <p>Implemented in <a class="el" href="class_easy___copier_1_1_services_1_1_smart_adder_history_service.html#ac7f7a36883df867d57ab80fd1f5b56c1">Easy_Copier.Services.SmartAdderHistoryService</a>.</p>
 
 </div>
@@ -181,6 +206,9 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Asynchronously initializes the SmartAdderHistory table in SQLite database. </p>
+<dl class="section return"><dt>Returns</dt><dd>A task representing the asynchronous operation.</dd></dl>
 
 <p>Implemented in <a class="el" href="class_easy___copier_1_1_services_1_1_smart_adder_history_service.html#ac0600467e618cb5a677ff5ebbd84782c">Easy_Copier.Services.SmartAdderHistoryService</a>.</p>
 

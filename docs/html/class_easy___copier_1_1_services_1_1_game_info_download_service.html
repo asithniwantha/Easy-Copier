@@ -112,6 +112,9 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('class_easy___c
   <div class="headertitle"><div class="title">Easy_Copier.Services.GameInfoDownloadService Class Reference<span class="mlabels"><span class="mlabel sealed">sealed</span></span></div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Service that downloads game system requirements, cover images, and category metadata from various web APIs and web pages.  
+ <a href="#details">More...</a></p>
 <div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Inheritance diagram for Easy_Copier.Services.GameInfoDownloadService:</div>
 <div id="dynsection-0-summary" class="dynsummary">
 </div>
@@ -128,46 +131,73 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('class_easy___c
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a6ac76e6b585071d140305138b3fa160d" id="r_a6ac76e6b585071d140305138b3fa160d"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a6ac76e6b585071d140305138b3fa160d">GameInfoDownloadService</a> (ILogger&lt; GameInfoDownloadService &gt; logger)</td></tr>
+<tr class="memdesc:a6ac76e6b585071d140305138b3fa160d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes a new instance of the GameInfoDownloadService class.  <br /></td></tr>
 <tr class="memitem:ac477ae8ebd5151e39a13ea8a66aafafc" id="r_ac477ae8ebd5151e39a13ea8a66aafafc"><td class="memItemLeft">async Task&#160;</td><td class="memItemRight"><a class="el" href="#ac477ae8ebd5151e39a13ea8a66aafafc">DownloadGameInfoAsync</a> (IEnumerable&lt; string &gt; sourceFolders, IProgress&lt; string &gt;? progress=null, CancellationToken cancellationToken=default)</td></tr>
+<tr class="memdesc:ac477ae8ebd5151e39a13ea8a66aafafc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Asynchronously scans the specified source folders and downloads system requirements, covers, and categories for each game directory.  <br /></td></tr>
 <tr class="memitem:a2a530455423f9a92c2ea366d9790a4b1" id="r_a2a530455423f9a92c2ea366d9790a4b1"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a2a530455423f9a92c2ea366d9790a4b1">Dispose</a> ()</td></tr>
+<tr class="memdesc:a2a530455423f9a92c2ea366d9790a4b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Disposes internal resources used by GameInfoDownloadService.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pri-methods" class="groupheader"><a id="pri-methods" name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
 <tr class="memitem:a40b2abb0052c08724a3c1ddd4ef72600" id="r_a40b2abb0052c08724a3c1ddd4ef72600"><td class="memItemLeft">async Task&#160;</td><td class="memItemRight"><a class="el" href="#a40b2abb0052c08724a3c1ddd4ef72600">DownloadCategoriesAsync</a> (string gameName, string gameFolder, CancellationToken cancellationToken)</td></tr>
+<tr class="memdesc:a40b2abb0052c08724a3c1ddd4ef72600"><td class="mdescLeft">&#160;</td><td class="mdescRight">Downloads category information for a game and writes it to a <code>categories.txt</code> file within the game folder.  <br /></td></tr>
 <tr class="memitem:a96fb38b012fb0f9237e24791c6c46eec" id="r_a96fb38b012fb0f9237e24791c6c46eec"><td class="memItemLeft">async Task&lt; List&lt; <a class="el" href="namespace_easy___copier_1_1_models.html#a79b82f8099c51633e7a21698ac8835c5">GameCategory</a> &gt; &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a96fb38b012fb0f9237e24791c6c46eec">FetchSteamCategoriesAsync</a> (string appId, CancellationToken cancellationToken)</td></tr>
+<tr class="memdesc:a96fb38b012fb0f9237e24791c6c46eec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fetches game genres from the Steam Web API for the specified app ID and maps them to GameCategory enum values.  <br /></td></tr>
 <tr class="memitem:a16c133781b37ce62e5603baf2298f3bb" id="r_a16c133781b37ce62e5603baf2298f3bb"><td class="memItemLeft">async Task&lt; bool &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a16c133781b37ce62e5603baf2298f3bb">TryFetchSteamCoverAsync</a> (string appId, string coverPath, CancellationToken cancellationToken)</td></tr>
+<tr class="memdesc:a16c133781b37ce62e5603baf2298f3bb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Attempts to download vertical library cover art from Steam CDN using the given Steam <a class="el" href="class_easy___copier_1_1_app.html">App</a> ID.  <br /></td></tr>
 <tr class="memitem:a9cd6862f282d8d6d4612cb9c15eed770" id="r_a9cd6862f282d8d6d4612cb9c15eed770"><td class="memItemLeft">async Task&lt; bool &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a9cd6862f282d8d6d4612cb9c15eed770">TryFetchGogCoverAsync</a> (string gameName, string coverPath, CancellationToken cancellationToken)</td></tr>
+<tr class="memdesc:a9cd6862f282d8d6d4612cb9c15eed770"><td class="mdescLeft">&#160;</td><td class="mdescRight">Attempts to download vertical cover art from GOG catalog API for the given game title.  <br /></td></tr>
 <tr class="memitem:abe5fa26f5662b94eea1d946a43f7e0da" id="r_abe5fa26f5662b94eea1d946a43f7e0da"><td class="memItemLeft">async Task&lt; bool &gt;&#160;</td><td class="memItemRight"><a class="el" href="#abe5fa26f5662b94eea1d946a43f7e0da">TryFetchGsrCoverAsync</a> (string gameName, string coverPath, CancellationToken cancellationToken)</td></tr>
+<tr class="memdesc:abe5fa26f5662b94eea1d946a43f7e0da"><td class="mdescLeft">&#160;</td><td class="mdescRight">Attempts to download cover art from GameSystemRequirements website by searching the game title.  <br /></td></tr>
 <tr class="memitem:adae95494262fe3bfc1cedb49a21416a9" id="r_adae95494262fe3bfc1cedb49a21416a9"><td class="memItemLeft">async Task&lt; bool &gt;&#160;</td><td class="memItemRight"><a class="el" href="#adae95494262fe3bfc1cedb49a21416a9">TryFetchWikipediaCoverAsync</a> (string gameName, string coverPath, CancellationToken cancellationToken)</td></tr>
+<tr class="memdesc:adae95494262fe3bfc1cedb49a21416a9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Attempts to download cover art from Wikipedia infobox for the specified game title.  <br /></td></tr>
 <tr class="memitem:aa30670d8a3a368e70633c032acbed2c1" id="r_aa30670d8a3a368e70633c032acbed2c1"><td class="memItemLeft">async Task&lt; bool &gt;&#160;</td><td class="memItemRight"><a class="el" href="#aa30670d8a3a368e70633c032acbed2c1">TryFetchPcgwCoverAsync</a> (string gameName, string coverPath, CancellationToken cancellationToken)</td></tr>
+<tr class="memdesc:aa30670d8a3a368e70633c032acbed2c1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Attempts to download cover art thumbnail from PCGamingWiki API for the specified game title.  <br /></td></tr>
 <tr class="memitem:a1a870cf4392f465f104385c6c15bc184" id="r_a1a870cf4392f465f104385c6c15bc184"><td class="memItemLeft">async Task&lt; bool &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a1a870cf4392f465f104385c6c15bc184">TryFetchOpenCriticCoverAsync</a> (string gameName, string coverPath, CancellationToken cancellationToken)</td></tr>
+<tr class="memdesc:a1a870cf4392f465f104385c6c15bc184"><td class="mdescLeft">&#160;</td><td class="mdescRight">Attempts to download box art or banner cover from OpenCritic API for the specified game title.  <br /></td></tr>
 <tr class="memitem:a632ff81276844ba2cb1151e84710bd2a" id="r_a632ff81276844ba2cb1151e84710bd2a"><td class="memItemLeft">async Task&lt; bool &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a632ff81276844ba2cb1151e84710bd2a">TryFetchLutrisCoverAsync</a> (string gameName, string coverPath, CancellationToken cancellationToken)</td></tr>
+<tr class="memdesc:a632ff81276844ba2cb1151e84710bd2a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Attempts to download cover image from Lutris game search page for the specified game title.  <br /></td></tr>
 <tr class="memitem:afd2968475c5e82f9f3f3317df4159411" id="r_afd2968475c5e82f9f3f3317df4159411"><td class="memItemLeft">async Task&#160;</td><td class="memItemRight"><a class="el" href="#afd2968475c5e82f9f3f3317df4159411">ProcessGameAsync</a> (string gameName, string gameFolder, CancellationToken cancellationToken)</td></tr>
+<tr class="memdesc:afd2968475c5e82f9f3f3317df4159411"><td class="mdescLeft">&#160;</td><td class="mdescRight">Processes an individual game directory by fetching its requirements, cover image, and categories.  <br /></td></tr>
 <tr class="memitem:ae4954ebc673dc477713190cddf334372" id="r_ae4954ebc673dc477713190cddf334372"><td class="memItemLeft">async Task&#160;</td><td class="memItemRight"><a class="el" href="#ae4954ebc673dc477713190cddf334372">DownloadRequirementsAsync</a> (string gameName, string gameFolder, CancellationToken cancellationToken)</td></tr>
+<tr class="memdesc:ae4954ebc673dc477713190cddf334372"><td class="mdescLeft">&#160;</td><td class="mdescRight">Downloads system requirements for a game from Steam Web API and saves them to <code>system_requirements.txt</code>.  <br /></td></tr>
 <tr class="memitem:a7ac978253ad5997bc4bb5558b5a7ca20" id="r_a7ac978253ad5997bc4bb5558b5a7ca20"><td class="memItemLeft">async Task&#160;</td><td class="memItemRight"><a class="el" href="#a7ac978253ad5997bc4bb5558b5a7ca20">DownloadCoverAsync</a> (string gameName, string gameFolder, CancellationToken cancellationToken)</td></tr>
+<tr class="memdesc:a7ac978253ad5997bc4bb5558b5a7ca20"><td class="mdescLeft">&#160;</td><td class="mdescRight">Downloads cover image for a game from various online services (Steam, GOG, PCGW, Lutris, Wikipedia, OpenCritic) and saves it to <code>cover.jpg</code>.  <br /></td></tr>
 <tr class="memitem:aa5082d34c94299e50e9b4ec7213d3638" id="r_aa5082d34c94299e50e9b4ec7213d3638"><td class="memItemLeft">async Task&lt; bool &gt;&#160;</td><td class="memItemRight"><a class="el" href="#aa5082d34c94299e50e9b4ec7213d3638">DownloadImageAsync</a> (string url, string outputPath, CancellationToken cancellationToken)</td></tr>
+<tr class="memdesc:aa5082d34c94299e50e9b4ec7213d3638"><td class="mdescLeft">&#160;</td><td class="mdescRight">Downloads an image from the specified URL and saves it to a local file path.  <br /></td></tr>
 <tr class="memitem:ac41153caca406b8dd484dc3ec12ccb1a" id="r_ac41153caca406b8dd484dc3ec12ccb1a"><td class="memItemLeft">async Task&lt; Dictionary&lt; string, Dictionary&lt; string, string &gt; &gt;?&gt;&#160;</td><td class="memItemRight"><a class="el" href="#ac41153caca406b8dd484dc3ec12ccb1a">FetchSteamRequirementsAsync</a> (string gameName, CancellationToken cancellationToken)</td></tr>
+<tr class="memdesc:ac41153caca406b8dd484dc3ec12ccb1a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fetches minimum and recommended PC system requirements for a game from the Steam Store API.  <br /></td></tr>
 <tr class="memitem:aeea730db504e9ee979c0426e61115c3e" id="r_aeea730db504e9ee979c0426e61115c3e"><td class="memItemLeft">async Task&lt; string?&gt;&#160;</td><td class="memItemRight"><a class="el" href="#aeea730db504e9ee979c0426e61115c3e">FetchSteamAppIdAsync</a> (string gameName, CancellationToken cancellationToken)</td></tr>
+<tr class="memdesc:aeea730db504e9ee979c0426e61115c3e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Queries the Steam community app search endpoint to find the Steam <a class="el" href="class_easy___copier_1_1_app.html">App</a> ID for a game title.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pri-static-methods" class="groupheader"><a id="pri-static-methods" name="pri-static-methods"></a>
 Static Private Member Functions</h2></td></tr>
 <tr class="memitem:a5e8dd0f68d5c823f9b58034ae798e912" id="r_a5e8dd0f68d5c823f9b58034ae798e912"><td class="memItemLeft">static <a class="el" href="namespace_easy___copier_1_1_models.html#a79b82f8099c51633e7a21698ac8835c5">GameCategory</a>&#160;</td><td class="memItemRight"><a class="el" href="#a5e8dd0f68d5c823f9b58034ae798e912">MapSteamGenreToCore</a> (string steamGenre)</td></tr>
+<tr class="memdesc:a5e8dd0f68d5c823f9b58034ae798e912"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maps a Steam genre description string to a corresponding GameCategory.  <br /></td></tr>
 <tr class="memitem:a52925745092a234ad2ca782842d9b75d" id="r_a52925745092a234ad2ca782842d9b75d"><td class="memItemLeft">static List&lt; <a class="el" href="namespace_easy___copier_1_1_models.html#a79b82f8099c51633e7a21698ac8835c5">GameCategory</a> &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a52925745092a234ad2ca782842d9b75d">FallbackExtractCategories</a> (string gameName, string gameFolder)</td></tr>
+<tr class="memdesc:a52925745092a234ad2ca782842d9b75d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Extracts categories from the game name or folder name using keyword matching as a fallback when online APIs return no categories.  <br /></td></tr>
 <tr class="memitem:a3be12a770e78f10afafac12d962ceeec" id="r_a3be12a770e78f10afafac12d962ceeec"><td class="memItemLeft">static partial Regex&#160;</td><td class="memItemRight"><a class="el" href="#a3be12a770e78f10afafac12d962ceeec">MyRegex</a> ()</td></tr>
+<tr class="memdesc:a3be12a770e78f10afafac12d962ceeec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a regular expression for stripping HTML tags.  <br /></td></tr>
 <tr class="memitem:a0ac54d272f5be25a45615f2b4b473ad0" id="r_a0ac54d272f5be25a45615f2b4b473ad0"><td class="memItemLeft">static Dictionary&lt; string, string &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a0ac54d272f5be25a45615f2b4b473ad0">ParseSteamRequirements</a> (string? html)</td></tr>
+<tr class="memdesc:a0ac54d272f5be25a45615f2b4b473ad0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parses HTML string returned by Steam requirement properties to extract spec categories (CPU, GPU, RAM, Storage).  <br /></td></tr>
 <tr class="memitem:a07b3f49cf0f3dd8d9c78894a0acd45c7" id="r_a07b3f49cf0f3dd8d9c78894a0acd45c7"><td class="memItemLeft">static string&#160;</td><td class="memItemRight"><a class="el" href="#a07b3f49cf0f3dd8d9c78894a0acd45c7">FormatRequirements</a> (string gameName, Dictionary&lt; string, Dictionary&lt; string, string &gt; &gt; requirements)</td></tr>
+<tr class="memdesc:a07b3f49cf0f3dd8d9c78894a0acd45c7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Formats parsed requirements into a clean, human-readable text document format.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pri-attribs" class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
 <tr class="memitem:a0fecaa335958b1a0f12b3ec933c487f5" id="r_a0fecaa335958b1a0f12b3ec933c487f5"><td class="memItemLeft">readonly ILogger&lt; <a class="el" href="#a6ac76e6b585071d140305138b3fa160d">GameInfoDownloadService</a> &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a0fecaa335958b1a0f12b3ec933c487f5">_logger</a></td></tr>
+<tr class="memdesc:a0fecaa335958b1a0f12b3ec933c487f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logger instance used for diagnostic logging.  <br /></td></tr>
 <tr class="memitem:ad00664a026fe0de5e9a58d6758e7df93" id="r_ad00664a026fe0de5e9a58d6758e7df93"><td class="memItemLeft">readonly HttpClient&#160;</td><td class="memItemRight"><a class="el" href="#ad00664a026fe0de5e9a58d6758e7df93">_httpClient</a></td></tr>
+<tr class="memdesc:ad00664a026fe0de5e9a58d6758e7df93"><td class="mdescLeft">&#160;</td><td class="mdescRight">HTTP client instance used for web scraping and API requests.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pri-static-attribs" class="groupheader"><a id="pri-static-attribs" name="pri-static-attribs"></a>
 Static Private Attributes</h2></td></tr>
 <tr class="memitem:ae37cb6a78341742e4e06ec6dd0e12cb4" id="r_ae37cb6a78341742e4e06ec6dd0e12cb4"><td class="memItemLeft">static readonly Dictionary&lt; string, <a class="el" href="namespace_easy___copier_1_1_models.html#a79b82f8099c51633e7a21698ac8835c5">GameCategory</a> &gt;&#160;</td><td class="memItemRight"><a class="el" href="#ae37cb6a78341742e4e06ec6dd0e12cb4">KeywordCategoryMapping</a></td></tr>
+<tr class="memdesc:ae37cb6a78341742e4e06ec6dd0e12cb4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mapping dictionary that associates common text keywords with GameCategory enum values.  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
-<div class="textblock">
+<div class="textblock"><p>Service that downloads game system requirements, cover images, and category metadata from various web APIs and web pages. </p>
+
 <p class="definition">Definition at line <a class="el" href="_game_info_download_service_8_categories_8cs_source.html#l00014">14</a> of file <a class="el" href="_game_info_download_service_8_categories_8cs_source.html">GameInfoDownloadService.Categories.cs</a>.</p>
 </div><a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a6ac76e6b585071d140305138b3fa160d" name="a6ac76e6b585071d140305138b3fa160d"></a>
@@ -185,9 +215,17 @@ Static Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_game_info_download_service_8cs_source.html#l00022">22</a> of file <a class="el" href="_game_info_download_service_8cs_source.html">GameInfoDownloadService.cs</a>.</p>
+<p>Initializes a new instance of the GameInfoDownloadService class. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">logger</td><td>The logger instance for logging operation details.</td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p class="reference">References <a class="el" href="_game_info_download_service_8cs_source.html#l00020">_httpClient</a>, and <a class="el" href="_game_info_download_service_8cs_source.html#l00019">_logger</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_game_info_download_service_8cs_source.html#l00046">46</a> of file <a class="el" href="_game_info_download_service_8cs_source.html">GameInfoDownloadService.cs</a>.</p>
+
+<p class="reference">References <a class="el" href="_game_info_download_service_8cs_source.html#l00040">_httpClient</a>, and <a class="el" href="_game_info_download_service_8cs_source.html#l00035">_logger</a>.</p>
 
 </div>
 </div>
@@ -207,9 +245,11 @@ Static Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_game_info_download_service_8cs_source.html#l00183">183</a> of file <a class="el" href="_game_info_download_service_8cs_source.html">GameInfoDownloadService.cs</a>.</p>
+<p>Disposes internal resources used by GameInfoDownloadService. </p>
 
-<p class="reference">References <a class="el" href="_game_info_download_service_8cs_source.html#l00020">_httpClient</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_game_info_download_service_8cs_source.html#l00243">243</a> of file <a class="el" href="_game_info_download_service_8cs_source.html">GameInfoDownloadService.cs</a>.</p>
+
+<p class="reference">References <a class="el" href="_game_info_download_service_8cs_source.html#l00040">_httpClient</a>.</p>
 
 </div>
 </div>
@@ -245,11 +285,22 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_game_info_download_service_8_categories_8cs_source.html#l00048">48</a> of file <a class="el" href="_game_info_download_service_8_categories_8cs_source.html">GameInfoDownloadService.Categories.cs</a>.</p>
+<p>Downloads category information for a game and writes it to a <code>categories.txt</code> file within the game folder. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">gameName</td><td>The title of the game.</td></tr>
+    <tr><td class="paramname">gameFolder</td><td>The local folder path for the game.</td></tr>
+    <tr><td class="paramname">cancellationToken</td><td>Cancellation token to cancel operation.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A task representing the asynchronous operation.</dd></dl>
 
-<p class="reference">References <a class="el" href="_game_info_download_service_8cs_source.html#l00019">_logger</a>, <a class="el" href="_game_info_download_service_8_categories_8cs_source.html#l00143">FallbackExtractCategories()</a>, <a class="el" href="_game_info_download_service_8_requirements_8cs_source.html#l00143">FetchSteamAppIdAsync()</a>, and <a class="el" href="_game_info_download_service_8_categories_8cs_source.html#l00085">FetchSteamCategoriesAsync()</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_game_info_download_service_8_categories_8cs_source.html#l00058">58</a> of file <a class="el" href="_game_info_download_service_8_categories_8cs_source.html">GameInfoDownloadService.Categories.cs</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_game_info_download_service_8cs_source.html#l00097">ProcessGameAsync()</a>.</p>
+<p class="reference">References <a class="el" href="_game_info_download_service_8cs_source.html#l00035">_logger</a>, <a class="el" href="_game_info_download_service_8_categories_8cs_source.html#l00170">FallbackExtractCategories()</a>, <a class="el" href="_game_info_download_service_8_requirements_8cs_source.html#l00164">FetchSteamAppIdAsync()</a>, and <a class="el" href="_game_info_download_service_8_categories_8cs_source.html#l00101">FetchSteamCategoriesAsync()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_game_info_download_service_8cs_source.html#l00135">ProcessGameAsync()</a>.</p>
 <div id="dynsection-2" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-2-summary" class="dynsummary">
 </div>
@@ -297,11 +348,22 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_game_info_download_service_8cs_source.html#l00132">132</a> of file <a class="el" href="_game_info_download_service_8cs_source.html">GameInfoDownloadService.cs</a>.</p>
+<p>Downloads cover image for a game from various online services (Steam, GOG, PCGW, Lutris, Wikipedia, OpenCritic) and saves it to <code>cover.jpg</code>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">gameName</td><td>The title of the game.</td></tr>
+    <tr><td class="paramname">gameFolder</td><td>The directory path of the game.</td></tr>
+    <tr><td class="paramname">cancellationToken</td><td>Cancellation token.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A task representing the asynchronous operation.</dd></dl>
 
-<p class="reference">References <a class="el" href="_game_info_download_service_8cs_source.html#l00019">_logger</a>, <a class="el" href="_game_info_download_service_8_requirements_8cs_source.html#l00143">FetchSteamAppIdAsync()</a>, <a class="el" href="_game_info_download_service_8_covers_8cs_source.html#l00019">TryFetchGogCoverAsync()</a>, <a class="el" href="_game_info_download_service_8_covers_8cs_source.html#l00048">TryFetchGsrCoverAsync()</a>, <a class="el" href="_game_info_download_service_8_covers_8cs_source.html#l00181">TryFetchLutrisCoverAsync()</a>, <a class="el" href="_game_info_download_service_8_covers_8cs_source.html#l00134">TryFetchOpenCriticCoverAsync()</a>, <a class="el" href="_game_info_download_service_8_covers_8cs_source.html#l00105">TryFetchPcgwCoverAsync()</a>, <a class="el" href="_game_info_download_service_8_covers_8cs_source.html#l00013">TryFetchSteamCoverAsync()</a>, and <a class="el" href="_game_info_download_service_8_covers_8cs_source.html#l00074">TryFetchWikipediaCoverAsync()</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_game_info_download_service_8cs_source.html#l00184">184</a> of file <a class="el" href="_game_info_download_service_8cs_source.html">GameInfoDownloadService.cs</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_game_info_download_service_8cs_source.html#l00097">ProcessGameAsync()</a>.</p>
+<p class="reference">References <a class="el" href="_game_info_download_service_8cs_source.html#l00035">_logger</a>, <a class="el" href="_game_info_download_service_8_requirements_8cs_source.html#l00164">FetchSteamAppIdAsync()</a>, <a class="el" href="_game_info_download_service_8_covers_8cs_source.html#l00033">TryFetchGogCoverAsync()</a>, <a class="el" href="_game_info_download_service_8_covers_8cs_source.html#l00069">TryFetchGsrCoverAsync()</a>, <a class="el" href="_game_info_download_service_8_covers_8cs_source.html#l00230">TryFetchLutrisCoverAsync()</a>, <a class="el" href="_game_info_download_service_8_covers_8cs_source.html#l00176">TryFetchOpenCriticCoverAsync()</a>, <a class="el" href="_game_info_download_service_8_covers_8cs_source.html#l00140">TryFetchPcgwCoverAsync()</a>, <a class="el" href="_game_info_download_service_8_covers_8cs_source.html#l00020">TryFetchSteamCoverAsync()</a>, and <a class="el" href="_game_info_download_service_8_covers_8cs_source.html#l00102">TryFetchWikipediaCoverAsync()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_game_info_download_service_8cs_source.html#l00135">ProcessGameAsync()</a>.</p>
 <div id="dynsection-4" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-4-summary" class="dynsummary">
 </div>
@@ -341,11 +403,22 @@ Static Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Asynchronously scans the specified source folders and downloads system requirements, covers, and categories for each game directory. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sourceFolders</td><td>The root directory paths containing game folders or collections.</td></tr>
+    <tr><td class="paramname">progress</td><td>Optional status progress reporter.</td></tr>
+    <tr><td class="paramname">cancellationToken</td><td>A token to observe while waiting for the task to complete.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A task representing the asynchronous operation.</dd></dl>
+
 <p>Implements <a class="el" href="interface_easy___copier_1_1_services_1_1_i_game_info_download_service.html#a1bd0831843e5c600eb2152069624b46b">Easy_Copier.Services.IGameInfoDownloadService</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_game_info_download_service_8cs_source.html#l00029">29</a> of file <a class="el" href="_game_info_download_service_8cs_source.html">GameInfoDownloadService.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_game_info_download_service_8cs_source.html#l00060">60</a> of file <a class="el" href="_game_info_download_service_8cs_source.html">GameInfoDownloadService.cs</a>.</p>
 
-<p class="reference">References <a class="el" href="_game_info_download_service_8cs_source.html#l00019">_logger</a>, and <a class="el" href="_game_info_download_service_8cs_source.html#l00097">ProcessGameAsync()</a>.</p>
+<p class="reference">References <a class="el" href="_game_info_download_service_8cs_source.html#l00035">_logger</a>, and <a class="el" href="_game_info_download_service_8cs_source.html#l00135">ProcessGameAsync()</a>.</p>
 <div id="dynsection-6" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-6-summary" class="dynsummary">
 </div>
@@ -387,11 +460,22 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_game_info_download_service_8cs_source.html#l00164">164</a> of file <a class="el" href="_game_info_download_service_8cs_source.html">GameInfoDownloadService.cs</a>.</p>
+<p>Downloads an image from the specified URL and saves it to a local file path. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">url</td><td>The remote URL of the image.</td></tr>
+    <tr><td class="paramname">outputPath</td><td>The local destination file path.</td></tr>
+    <tr><td class="paramname">cancellationToken</td><td>Cancellation token.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A task returning <code>true</code> if the image was downloaded successfully; otherwise, <code>false</code>.</dd></dl>
 
-<p class="reference">References <a class="el" href="_game_info_download_service_8cs_source.html#l00020">_httpClient</a>, and <a class="el" href="_game_info_download_service_8cs_source.html#l00019">_logger</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_game_info_download_service_8cs_source.html#l00221">221</a> of file <a class="el" href="_game_info_download_service_8cs_source.html">GameInfoDownloadService.cs</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_game_info_download_service_8_covers_8cs_source.html#l00019">TryFetchGogCoverAsync()</a>, <a class="el" href="_game_info_download_service_8_covers_8cs_source.html#l00048">TryFetchGsrCoverAsync()</a>, <a class="el" href="_game_info_download_service_8_covers_8cs_source.html#l00181">TryFetchLutrisCoverAsync()</a>, <a class="el" href="_game_info_download_service_8_covers_8cs_source.html#l00134">TryFetchOpenCriticCoverAsync()</a>, <a class="el" href="_game_info_download_service_8_covers_8cs_source.html#l00105">TryFetchPcgwCoverAsync()</a>, <a class="el" href="_game_info_download_service_8_covers_8cs_source.html#l00013">TryFetchSteamCoverAsync()</a>, and <a class="el" href="_game_info_download_service_8_covers_8cs_source.html#l00074">TryFetchWikipediaCoverAsync()</a>.</p>
+<p class="reference">References <a class="el" href="_game_info_download_service_8cs_source.html#l00040">_httpClient</a>, and <a class="el" href="_game_info_download_service_8cs_source.html#l00035">_logger</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_game_info_download_service_8_covers_8cs_source.html#l00033">TryFetchGogCoverAsync()</a>, <a class="el" href="_game_info_download_service_8_covers_8cs_source.html#l00069">TryFetchGsrCoverAsync()</a>, <a class="el" href="_game_info_download_service_8_covers_8cs_source.html#l00230">TryFetchLutrisCoverAsync()</a>, <a class="el" href="_game_info_download_service_8_covers_8cs_source.html#l00176">TryFetchOpenCriticCoverAsync()</a>, <a class="el" href="_game_info_download_service_8_covers_8cs_source.html#l00140">TryFetchPcgwCoverAsync()</a>, <a class="el" href="_game_info_download_service_8_covers_8cs_source.html#l00020">TryFetchSteamCoverAsync()</a>, and <a class="el" href="_game_info_download_service_8_covers_8cs_source.html#l00102">TryFetchWikipediaCoverAsync()</a>.</p>
 <div id="dynsection-7" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
 <div id="dynsection-7-summary" class="dynsummary">
 </div>
@@ -433,11 +517,22 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_game_info_download_service_8cs_source.html#l00104">104</a> of file <a class="el" href="_game_info_download_service_8cs_source.html">GameInfoDownloadService.cs</a>.</p>
+<p>Downloads system requirements for a game from Steam Web API and saves them to <code>system_requirements.txt</code>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">gameName</td><td>The title of the game.</td></tr>
+    <tr><td class="paramname">gameFolder</td><td>The directory path of the game.</td></tr>
+    <tr><td class="paramname">cancellationToken</td><td>Cancellation token.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A task representing the asynchronous operation.</dd></dl>
 
-<p class="reference">References <a class="el" href="_game_info_download_service_8cs_source.html#l00019">_logger</a>, <a class="el" href="_game_info_download_service_8_requirements_8cs_source.html#l00015">FetchSteamRequirementsAsync()</a>, and <a class="el" href="_game_info_download_service_8_requirements_8cs_source.html#l00103">FormatRequirements()</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_game_info_download_service_8cs_source.html#l00149">149</a> of file <a class="el" href="_game_info_download_service_8cs_source.html">GameInfoDownloadService.cs</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_game_info_download_service_8cs_source.html#l00097">ProcessGameAsync()</a>.</p>
+<p class="reference">References <a class="el" href="_game_info_download_service_8cs_source.html#l00035">_logger</a>, <a class="el" href="_game_info_download_service_8_requirements_8cs_source.html#l00021">FetchSteamRequirementsAsync()</a>, and <a class="el" href="_game_info_download_service_8_requirements_8cs_source.html#l00120">FormatRequirements()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_game_info_download_service_8cs_source.html#l00135">ProcessGameAsync()</a>.</p>
 <div id="dynsection-8" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-8-summary" class="dynsummary">
 </div>
@@ -480,11 +575,21 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_game_info_download_service_8_categories_8cs_source.html#l00143">143</a> of file <a class="el" href="_game_info_download_service_8_categories_8cs_source.html">GameInfoDownloadService.Categories.cs</a>.</p>
+<p>Extracts categories from the game name or folder name using keyword matching as a fallback when online APIs return no categories. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">gameName</td><td>The title of the game.</td></tr>
+    <tr><td class="paramname">gameFolder</td><td>The local game folder path.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A list of inferred GameCategory values.</dd></dl>
 
-<p class="reference">References <a class="el" href="_game_info_download_service_8_categories_8cs_source.html#l00016">KeywordCategoryMapping</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_game_info_download_service_8_categories_8cs_source.html#l00170">170</a> of file <a class="el" href="_game_info_download_service_8_categories_8cs_source.html">GameInfoDownloadService.Categories.cs</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_game_info_download_service_8_categories_8cs_source.html#l00048">DownloadCategoriesAsync()</a>.</p>
+<p class="reference">References <a class="el" href="_game_info_download_service_8_categories_8cs_source.html#l00019">KeywordCategoryMapping</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_game_info_download_service_8_categories_8cs_source.html#l00058">DownloadCategoriesAsync()</a>.</p>
 <div id="dynsection-10" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
 <div id="dynsection-10-summary" class="dynsummary">
 </div>
@@ -521,11 +626,21 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_game_info_download_service_8_requirements_8cs_source.html#l00143">143</a> of file <a class="el" href="_game_info_download_service_8_requirements_8cs_source.html">GameInfoDownloadService.Requirements.cs</a>.</p>
+<p>Queries the Steam community app search endpoint to find the Steam <a class="el" href="class_easy___copier_1_1_app.html">App</a> ID for a game title. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">gameName</td><td>The title of the game.</td></tr>
+    <tr><td class="paramname">cancellationToken</td><td>Cancellation token.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A task returning the Steam <a class="el" href="class_easy___copier_1_1_app.html">App</a> ID string if found; otherwise, <code>null</code>.</dd></dl>
 
-<p class="reference">References <a class="el" href="_game_info_download_service_8cs_source.html#l00020">_httpClient</a>, and <a class="el" href="_game_info_download_service_8cs_source.html#l00019">_logger</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_game_info_download_service_8_requirements_8cs_source.html#l00164">164</a> of file <a class="el" href="_game_info_download_service_8_requirements_8cs_source.html">GameInfoDownloadService.Requirements.cs</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_game_info_download_service_8_categories_8cs_source.html#l00048">DownloadCategoriesAsync()</a>, <a class="el" href="_game_info_download_service_8cs_source.html#l00132">DownloadCoverAsync()</a>, and <a class="el" href="_game_info_download_service_8_requirements_8cs_source.html#l00015">FetchSteamRequirementsAsync()</a>.</p>
+<p class="reference">References <a class="el" href="_game_info_download_service_8cs_source.html#l00040">_httpClient</a>, and <a class="el" href="_game_info_download_service_8cs_source.html#l00035">_logger</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_game_info_download_service_8_categories_8cs_source.html#l00058">DownloadCategoriesAsync()</a>, <a class="el" href="_game_info_download_service_8cs_source.html#l00184">DownloadCoverAsync()</a>, and <a class="el" href="_game_info_download_service_8_requirements_8cs_source.html#l00021">FetchSteamRequirementsAsync()</a>.</p>
 <div id="dynsection-11" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
 <div id="dynsection-11-summary" class="dynsummary">
 </div>
@@ -562,11 +677,21 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_game_info_download_service_8_categories_8cs_source.html#l00085">85</a> of file <a class="el" href="_game_info_download_service_8_categories_8cs_source.html">GameInfoDownloadService.Categories.cs</a>.</p>
+<p>Fetches game genres from the Steam Web API for the specified app ID and maps them to GameCategory enum values. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">appId</td><td>The Steam <a class="el" href="class_easy___copier_1_1_app.html">App</a> ID.</td></tr>
+    <tr><td class="paramname">cancellationToken</td><td>Cancellation token.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A task returning a list of matched GameCategory values.</dd></dl>
 
-<p class="reference">References <a class="el" href="_game_info_download_service_8cs_source.html#l00020">_httpClient</a>, <a class="el" href="_game_info_download_service_8cs_source.html#l00019">_logger</a>, and <a class="el" href="_game_info_download_service_8_categories_8cs_source.html#l00124">MapSteamGenreToCore()</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_game_info_download_service_8_categories_8cs_source.html#l00101">101</a> of file <a class="el" href="_game_info_download_service_8_categories_8cs_source.html">GameInfoDownloadService.Categories.cs</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_game_info_download_service_8_categories_8cs_source.html#l00048">DownloadCategoriesAsync()</a>.</p>
+<p class="reference">References <a class="el" href="_game_info_download_service_8cs_source.html#l00040">_httpClient</a>, <a class="el" href="_game_info_download_service_8cs_source.html#l00035">_logger</a>, and <a class="el" href="_game_info_download_service_8_categories_8cs_source.html#l00145">MapSteamGenreToCore()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_game_info_download_service_8_categories_8cs_source.html#l00058">DownloadCategoriesAsync()</a>.</p>
 <div id="dynsection-12" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-12-summary" class="dynsummary">
 </div>
@@ -609,11 +734,21 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_game_info_download_service_8_requirements_8cs_source.html#l00015">15</a> of file <a class="el" href="_game_info_download_service_8_requirements_8cs_source.html">GameInfoDownloadService.Requirements.cs</a>.</p>
+<p>Fetches minimum and recommended PC system requirements for a game from the Steam Store API. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">gameName</td><td>The title of the game to query.</td></tr>
+    <tr><td class="paramname">cancellationToken</td><td>Cancellation token.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A task returning a nested dictionary of requirements (minimum and recommended), or <code>null</code> if not found.</dd></dl>
 
-<p class="reference">References <a class="el" href="_game_info_download_service_8cs_source.html#l00020">_httpClient</a>, <a class="el" href="_game_info_download_service_8_requirements_8cs_source.html#l00143">FetchSteamAppIdAsync()</a>, and <a class="el" href="_game_info_download_service_8_requirements_8cs_source.html#l00063">ParseSteamRequirements()</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_game_info_download_service_8_requirements_8cs_source.html#l00021">21</a> of file <a class="el" href="_game_info_download_service_8_requirements_8cs_source.html">GameInfoDownloadService.Requirements.cs</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_game_info_download_service_8cs_source.html#l00104">DownloadRequirementsAsync()</a>.</p>
+<p class="reference">References <a class="el" href="_game_info_download_service_8cs_source.html#l00040">_httpClient</a>, <a class="el" href="_game_info_download_service_8_requirements_8cs_source.html#l00164">FetchSteamAppIdAsync()</a>, and <a class="el" href="_game_info_download_service_8_requirements_8cs_source.html#l00074">ParseSteamRequirements()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_game_info_download_service_8cs_source.html#l00149">DownloadRequirementsAsync()</a>.</p>
 <div id="dynsection-14" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-14-summary" class="dynsummary">
 </div>
@@ -656,9 +791,19 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_game_info_download_service_8_requirements_8cs_source.html#l00103">103</a> of file <a class="el" href="_game_info_download_service_8_requirements_8cs_source.html">GameInfoDownloadService.Requirements.cs</a>.</p>
+<p>Formats parsed requirements into a clean, human-readable text document format. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">gameName</td><td>The title of the game.</td></tr>
+    <tr><td class="paramname">requirements</td><td>The parsed dictionary of requirements.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A formatted string containing system requirements.</dd></dl>
 
-<p class="reference">Referenced by <a class="el" href="_game_info_download_service_8cs_source.html#l00104">DownloadRequirementsAsync()</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_game_info_download_service_8_requirements_8cs_source.html#l00120">120</a> of file <a class="el" href="_game_info_download_service_8_requirements_8cs_source.html">GameInfoDownloadService.Requirements.cs</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_game_info_download_service_8cs_source.html#l00149">DownloadRequirementsAsync()</a>.</p>
 <div id="dynsection-16" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
 <div id="dynsection-16-summary" class="dynsummary">
 </div>
@@ -691,11 +836,20 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_game_info_download_service_8_categories_8cs_source.html#l00124">124</a> of file <a class="el" href="_game_info_download_service_8_categories_8cs_source.html">GameInfoDownloadService.Categories.cs</a>.</p>
+<p>Maps a Steam genre description string to a corresponding GameCategory. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">steamGenre</td><td>The genre string retrieved from Steam API.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The mapped GameCategory value.</dd></dl>
 
-<p class="reference">References <a class="el" href="_game_info_download_service_8_categories_8cs_source.html#l00016">KeywordCategoryMapping</a>, and <a class="el" href="_domain_models_8cs_source.html#l00012">Easy_Copier.Models.Uncategorized</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_game_info_download_service_8_categories_8cs_source.html#l00145">145</a> of file <a class="el" href="_game_info_download_service_8_categories_8cs_source.html">GameInfoDownloadService.Categories.cs</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_game_info_download_service_8_categories_8cs_source.html#l00085">FetchSteamCategoriesAsync()</a>.</p>
+<p class="reference">References <a class="el" href="_game_info_download_service_8_categories_8cs_source.html#l00019">KeywordCategoryMapping</a>, and <a class="el" href="_domain_models_8cs_source.html#l00012">Easy_Copier.Models.Uncategorized</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_game_info_download_service_8_categories_8cs_source.html#l00101">FetchSteamCategoriesAsync()</a>.</p>
 <div id="dynsection-17" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
 <div id="dynsection-17-summary" class="dynsummary">
 </div>
@@ -728,7 +882,10 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="_game_info_download_service_8_requirements_8cs_source.html#l00063">ParseSteamRequirements()</a>.</p>
+<p>Generates a regular expression for stripping HTML tags. </p>
+<dl class="section return"><dt>Returns</dt><dd>A Regex instance matching HTML tags.</dd></dl>
+
+<p class="reference">Referenced by <a class="el" href="_game_info_download_service_8_requirements_8cs_source.html#l00074">ParseSteamRequirements()</a>.</p>
 <div id="dynsection-18" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
 <div id="dynsection-18-summary" class="dynsummary">
 </div>
@@ -761,11 +918,20 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_game_info_download_service_8_requirements_8cs_source.html#l00063">63</a> of file <a class="el" href="_game_info_download_service_8_requirements_8cs_source.html">GameInfoDownloadService.Requirements.cs</a>.</p>
+<p>Parses HTML string returned by Steam requirement properties to extract spec categories (CPU, GPU, RAM, Storage). </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">html</td><td>The raw HTML system requirements string.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A dictionary containing spec component names and values.</dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_game_info_download_service_8_requirements_8cs_source.html#l00074">74</a> of file <a class="el" href="_game_info_download_service_8_requirements_8cs_source.html">GameInfoDownloadService.Requirements.cs</a>.</p>
 
 <p class="reference">References <a class="el" href="#a3be12a770e78f10afafac12d962ceeec">MyRegex()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_game_info_download_service_8_requirements_8cs_source.html#l00015">FetchSteamRequirementsAsync()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_game_info_download_service_8_requirements_8cs_source.html#l00021">FetchSteamRequirementsAsync()</a>.</p>
 <div id="dynsection-19" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-19-summary" class="dynsummary">
 </div>
@@ -813,11 +979,22 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_game_info_download_service_8cs_source.html#l00097">97</a> of file <a class="el" href="_game_info_download_service_8cs_source.html">GameInfoDownloadService.cs</a>.</p>
+<p>Processes an individual game directory by fetching its requirements, cover image, and categories. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">gameName</td><td>The title of the game.</td></tr>
+    <tr><td class="paramname">gameFolder</td><td>The local folder path of the game.</td></tr>
+    <tr><td class="paramname">cancellationToken</td><td>Cancellation token.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A task representing the asynchronous operation.</dd></dl>
 
-<p class="reference">References <a class="el" href="_game_info_download_service_8_categories_8cs_source.html#l00048">DownloadCategoriesAsync()</a>, <a class="el" href="_game_info_download_service_8cs_source.html#l00132">DownloadCoverAsync()</a>, and <a class="el" href="_game_info_download_service_8cs_source.html#l00104">DownloadRequirementsAsync()</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_game_info_download_service_8cs_source.html#l00135">135</a> of file <a class="el" href="_game_info_download_service_8cs_source.html">GameInfoDownloadService.cs</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_game_info_download_service_8cs_source.html#l00029">DownloadGameInfoAsync()</a>.</p>
+<p class="reference">References <a class="el" href="_game_info_download_service_8_categories_8cs_source.html#l00058">DownloadCategoriesAsync()</a>, <a class="el" href="_game_info_download_service_8cs_source.html#l00184">DownloadCoverAsync()</a>, and <a class="el" href="_game_info_download_service_8cs_source.html#l00149">DownloadRequirementsAsync()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_game_info_download_service_8cs_source.html#l00060">DownloadGameInfoAsync()</a>.</p>
 <div id="dynsection-21" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-21-summary" class="dynsummary">
 </div>
@@ -865,11 +1042,22 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_game_info_download_service_8_covers_8cs_source.html#l00019">19</a> of file <a class="el" href="_game_info_download_service_8_covers_8cs_source.html">GameInfoDownloadService.Covers.cs</a>.</p>
+<p>Attempts to download vertical cover art from GOG catalog API for the given game title. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">gameName</td><td>The game title.</td></tr>
+    <tr><td class="paramname">coverPath</td><td>The local destination file path for the cover image.</td></tr>
+    <tr><td class="paramname">cancellationToken</td><td>Cancellation token.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A task returning <code>true</code> if successfully downloaded; otherwise, <code>false</code>.</dd></dl>
 
-<p class="reference">References <a class="el" href="_game_info_download_service_8cs_source.html#l00020">_httpClient</a>, <a class="el" href="_game_info_download_service_8cs_source.html#l00019">_logger</a>, and <a class="el" href="_game_info_download_service_8cs_source.html#l00164">DownloadImageAsync()</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_game_info_download_service_8_covers_8cs_source.html#l00033">33</a> of file <a class="el" href="_game_info_download_service_8_covers_8cs_source.html">GameInfoDownloadService.Covers.cs</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_game_info_download_service_8cs_source.html#l00132">DownloadCoverAsync()</a>.</p>
+<p class="reference">References <a class="el" href="_game_info_download_service_8cs_source.html#l00040">_httpClient</a>, <a class="el" href="_game_info_download_service_8cs_source.html#l00035">_logger</a>, and <a class="el" href="_game_info_download_service_8cs_source.html#l00221">DownloadImageAsync()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_game_info_download_service_8cs_source.html#l00184">DownloadCoverAsync()</a>.</p>
 <div id="dynsection-23" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-23-summary" class="dynsummary">
 </div>
@@ -917,11 +1105,22 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_game_info_download_service_8_covers_8cs_source.html#l00048">48</a> of file <a class="el" href="_game_info_download_service_8_covers_8cs_source.html">GameInfoDownloadService.Covers.cs</a>.</p>
+<p>Attempts to download cover art from GameSystemRequirements website by searching the game title. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">gameName</td><td>The game title.</td></tr>
+    <tr><td class="paramname">coverPath</td><td>The local destination file path for the cover image.</td></tr>
+    <tr><td class="paramname">cancellationToken</td><td>Cancellation token.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A task returning <code>true</code> if successfully downloaded; otherwise, <code>false</code>.</dd></dl>
 
-<p class="reference">References <a class="el" href="_game_info_download_service_8cs_source.html#l00020">_httpClient</a>, <a class="el" href="_game_info_download_service_8cs_source.html#l00019">_logger</a>, and <a class="el" href="_game_info_download_service_8cs_source.html#l00164">DownloadImageAsync()</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_game_info_download_service_8_covers_8cs_source.html#l00069">69</a> of file <a class="el" href="_game_info_download_service_8_covers_8cs_source.html">GameInfoDownloadService.Covers.cs</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_game_info_download_service_8cs_source.html#l00132">DownloadCoverAsync()</a>.</p>
+<p class="reference">References <a class="el" href="_game_info_download_service_8cs_source.html#l00040">_httpClient</a>, <a class="el" href="_game_info_download_service_8cs_source.html#l00035">_logger</a>, and <a class="el" href="_game_info_download_service_8cs_source.html#l00221">DownloadImageAsync()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_game_info_download_service_8cs_source.html#l00184">DownloadCoverAsync()</a>.</p>
 <div id="dynsection-25" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-25-summary" class="dynsummary">
 </div>
@@ -969,11 +1168,22 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_game_info_download_service_8_covers_8cs_source.html#l00181">181</a> of file <a class="el" href="_game_info_download_service_8_covers_8cs_source.html">GameInfoDownloadService.Covers.cs</a>.</p>
+<p>Attempts to download cover image from Lutris game search page for the specified game title. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">gameName</td><td>The game title.</td></tr>
+    <tr><td class="paramname">coverPath</td><td>The local destination file path for the cover image.</td></tr>
+    <tr><td class="paramname">cancellationToken</td><td>Cancellation token.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A task returning <code>true</code> if successfully downloaded; otherwise, <code>false</code>.</dd></dl>
 
-<p class="reference">References <a class="el" href="_game_info_download_service_8cs_source.html#l00020">_httpClient</a>, <a class="el" href="_game_info_download_service_8cs_source.html#l00019">_logger</a>, and <a class="el" href="_game_info_download_service_8cs_source.html#l00164">DownloadImageAsync()</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_game_info_download_service_8_covers_8cs_source.html#l00230">230</a> of file <a class="el" href="_game_info_download_service_8_covers_8cs_source.html">GameInfoDownloadService.Covers.cs</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_game_info_download_service_8cs_source.html#l00132">DownloadCoverAsync()</a>.</p>
+<p class="reference">References <a class="el" href="_game_info_download_service_8cs_source.html#l00040">_httpClient</a>, <a class="el" href="_game_info_download_service_8cs_source.html#l00035">_logger</a>, and <a class="el" href="_game_info_download_service_8cs_source.html#l00221">DownloadImageAsync()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_game_info_download_service_8cs_source.html#l00184">DownloadCoverAsync()</a>.</p>
 <div id="dynsection-27" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-27-summary" class="dynsummary">
 </div>
@@ -1021,11 +1231,22 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_game_info_download_service_8_covers_8cs_source.html#l00134">134</a> of file <a class="el" href="_game_info_download_service_8_covers_8cs_source.html">GameInfoDownloadService.Covers.cs</a>.</p>
+<p>Attempts to download box art or banner cover from OpenCritic API for the specified game title. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">gameName</td><td>The game title.</td></tr>
+    <tr><td class="paramname">coverPath</td><td>The local destination file path for the cover image.</td></tr>
+    <tr><td class="paramname">cancellationToken</td><td>Cancellation token.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A task returning <code>true</code> if successfully downloaded; otherwise, <code>false</code>.</dd></dl>
 
-<p class="reference">References <a class="el" href="_game_info_download_service_8cs_source.html#l00020">_httpClient</a>, <a class="el" href="_game_info_download_service_8cs_source.html#l00019">_logger</a>, and <a class="el" href="_game_info_download_service_8cs_source.html#l00164">DownloadImageAsync()</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_game_info_download_service_8_covers_8cs_source.html#l00176">176</a> of file <a class="el" href="_game_info_download_service_8_covers_8cs_source.html">GameInfoDownloadService.Covers.cs</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_game_info_download_service_8cs_source.html#l00132">DownloadCoverAsync()</a>.</p>
+<p class="reference">References <a class="el" href="_game_info_download_service_8cs_source.html#l00040">_httpClient</a>, <a class="el" href="_game_info_download_service_8cs_source.html#l00035">_logger</a>, and <a class="el" href="_game_info_download_service_8cs_source.html#l00221">DownloadImageAsync()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_game_info_download_service_8cs_source.html#l00184">DownloadCoverAsync()</a>.</p>
 <div id="dynsection-29" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-29-summary" class="dynsummary">
 </div>
@@ -1073,11 +1294,22 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_game_info_download_service_8_covers_8cs_source.html#l00105">105</a> of file <a class="el" href="_game_info_download_service_8_covers_8cs_source.html">GameInfoDownloadService.Covers.cs</a>.</p>
+<p>Attempts to download cover art thumbnail from PCGamingWiki API for the specified game title. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">gameName</td><td>The game title.</td></tr>
+    <tr><td class="paramname">coverPath</td><td>The local destination file path for the cover image.</td></tr>
+    <tr><td class="paramname">cancellationToken</td><td>Cancellation token.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A task returning <code>true</code> if successfully downloaded; otherwise, <code>false</code>.</dd></dl>
 
-<p class="reference">References <a class="el" href="_game_info_download_service_8cs_source.html#l00020">_httpClient</a>, <a class="el" href="_game_info_download_service_8cs_source.html#l00019">_logger</a>, and <a class="el" href="_game_info_download_service_8cs_source.html#l00164">DownloadImageAsync()</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_game_info_download_service_8_covers_8cs_source.html#l00140">140</a> of file <a class="el" href="_game_info_download_service_8_covers_8cs_source.html">GameInfoDownloadService.Covers.cs</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_game_info_download_service_8cs_source.html#l00132">DownloadCoverAsync()</a>.</p>
+<p class="reference">References <a class="el" href="_game_info_download_service_8cs_source.html#l00040">_httpClient</a>, <a class="el" href="_game_info_download_service_8cs_source.html#l00035">_logger</a>, and <a class="el" href="_game_info_download_service_8cs_source.html#l00221">DownloadImageAsync()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_game_info_download_service_8cs_source.html#l00184">DownloadCoverAsync()</a>.</p>
 <div id="dynsection-31" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-31-summary" class="dynsummary">
 </div>
@@ -1125,11 +1357,22 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_game_info_download_service_8_covers_8cs_source.html#l00013">13</a> of file <a class="el" href="_game_info_download_service_8_covers_8cs_source.html">GameInfoDownloadService.Covers.cs</a>.</p>
+<p>Attempts to download vertical library cover art from Steam CDN using the given Steam <a class="el" href="class_easy___copier_1_1_app.html">App</a> ID. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">appId</td><td>The Steam <a class="el" href="class_easy___copier_1_1_app.html">App</a> ID.</td></tr>
+    <tr><td class="paramname">coverPath</td><td>The local destination file path for the cover image.</td></tr>
+    <tr><td class="paramname">cancellationToken</td><td>Cancellation token.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A task returning <code>true</code> if successfully downloaded; otherwise, <code>false</code>.</dd></dl>
 
-<p class="reference">References <a class="el" href="_game_info_download_service_8cs_source.html#l00164">DownloadImageAsync()</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_game_info_download_service_8_covers_8cs_source.html#l00020">20</a> of file <a class="el" href="_game_info_download_service_8_covers_8cs_source.html">GameInfoDownloadService.Covers.cs</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_game_info_download_service_8cs_source.html#l00132">DownloadCoverAsync()</a>.</p>
+<p class="reference">References <a class="el" href="_game_info_download_service_8cs_source.html#l00221">DownloadImageAsync()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_game_info_download_service_8cs_source.html#l00184">DownloadCoverAsync()</a>.</p>
 <div id="dynsection-33" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-33-summary" class="dynsummary">
 </div>
@@ -1177,11 +1420,22 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_game_info_download_service_8_covers_8cs_source.html#l00074">74</a> of file <a class="el" href="_game_info_download_service_8_covers_8cs_source.html">GameInfoDownloadService.Covers.cs</a>.</p>
+<p>Attempts to download cover art from Wikipedia infobox for the specified game title. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">gameName</td><td>The game title.</td></tr>
+    <tr><td class="paramname">coverPath</td><td>The local destination file path for the cover image.</td></tr>
+    <tr><td class="paramname">cancellationToken</td><td>Cancellation token.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A task returning <code>true</code> if successfully downloaded; otherwise, <code>false</code>.</dd></dl>
 
-<p class="reference">References <a class="el" href="_game_info_download_service_8cs_source.html#l00020">_httpClient</a>, <a class="el" href="_game_info_download_service_8cs_source.html#l00019">_logger</a>, and <a class="el" href="_game_info_download_service_8cs_source.html#l00164">DownloadImageAsync()</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_game_info_download_service_8_covers_8cs_source.html#l00102">102</a> of file <a class="el" href="_game_info_download_service_8_covers_8cs_source.html">GameInfoDownloadService.Covers.cs</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_game_info_download_service_8cs_source.html#l00132">DownloadCoverAsync()</a>.</p>
+<p class="reference">References <a class="el" href="_game_info_download_service_8cs_source.html#l00040">_httpClient</a>, <a class="el" href="_game_info_download_service_8cs_source.html#l00035">_logger</a>, and <a class="el" href="_game_info_download_service_8cs_source.html#l00221">DownloadImageAsync()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_game_info_download_service_8cs_source.html#l00184">DownloadCoverAsync()</a>.</p>
 <div id="dynsection-35" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-35-summary" class="dynsummary">
 </div>
@@ -1218,9 +1472,11 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_game_info_download_service_8cs_source.html#l00020">20</a> of file <a class="el" href="_game_info_download_service_8cs_source.html">GameInfoDownloadService.cs</a>.</p>
+<p>HTTP client instance used for web scraping and API requests. </p>
 
-<p class="reference">Referenced by <a class="el" href="_game_info_download_service_8cs_source.html#l00183">Dispose()</a>, <a class="el" href="_game_info_download_service_8cs_source.html#l00164">DownloadImageAsync()</a>, <a class="el" href="_game_info_download_service_8_requirements_8cs_source.html#l00143">FetchSteamAppIdAsync()</a>, <a class="el" href="_game_info_download_service_8_categories_8cs_source.html#l00085">FetchSteamCategoriesAsync()</a>, <a class="el" href="_game_info_download_service_8_requirements_8cs_source.html#l00015">FetchSteamRequirementsAsync()</a>, <a class="el" href="_game_info_download_service_8cs_source.html#l00022">GameInfoDownloadService()</a>, <a class="el" href="_game_info_download_service_8_covers_8cs_source.html#l00019">TryFetchGogCoverAsync()</a>, <a class="el" href="_game_info_download_service_8_covers_8cs_source.html#l00048">TryFetchGsrCoverAsync()</a>, <a class="el" href="_game_info_download_service_8_covers_8cs_source.html#l00181">TryFetchLutrisCoverAsync()</a>, <a class="el" href="_game_info_download_service_8_covers_8cs_source.html#l00134">TryFetchOpenCriticCoverAsync()</a>, <a class="el" href="_game_info_download_service_8_covers_8cs_source.html#l00105">TryFetchPcgwCoverAsync()</a>, and <a class="el" href="_game_info_download_service_8_covers_8cs_source.html#l00074">TryFetchWikipediaCoverAsync()</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_game_info_download_service_8cs_source.html#l00040">40</a> of file <a class="el" href="_game_info_download_service_8cs_source.html">GameInfoDownloadService.cs</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_game_info_download_service_8cs_source.html#l00243">Dispose()</a>, <a class="el" href="_game_info_download_service_8cs_source.html#l00221">DownloadImageAsync()</a>, <a class="el" href="_game_info_download_service_8_requirements_8cs_source.html#l00164">FetchSteamAppIdAsync()</a>, <a class="el" href="_game_info_download_service_8_categories_8cs_source.html#l00101">FetchSteamCategoriesAsync()</a>, <a class="el" href="_game_info_download_service_8_requirements_8cs_source.html#l00021">FetchSteamRequirementsAsync()</a>, <a class="el" href="_game_info_download_service_8cs_source.html#l00046">GameInfoDownloadService()</a>, <a class="el" href="_game_info_download_service_8_covers_8cs_source.html#l00033">TryFetchGogCoverAsync()</a>, <a class="el" href="_game_info_download_service_8_covers_8cs_source.html#l00069">TryFetchGsrCoverAsync()</a>, <a class="el" href="_game_info_download_service_8_covers_8cs_source.html#l00230">TryFetchLutrisCoverAsync()</a>, <a class="el" href="_game_info_download_service_8_covers_8cs_source.html#l00176">TryFetchOpenCriticCoverAsync()</a>, <a class="el" href="_game_info_download_service_8_covers_8cs_source.html#l00140">TryFetchPcgwCoverAsync()</a>, and <a class="el" href="_game_info_download_service_8_covers_8cs_source.html#l00102">TryFetchWikipediaCoverAsync()</a>.</p>
 
 </div>
 </div>
@@ -1244,9 +1500,11 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_game_info_download_service_8cs_source.html#l00019">19</a> of file <a class="el" href="_game_info_download_service_8cs_source.html">GameInfoDownloadService.cs</a>.</p>
+<p>Logger instance used for diagnostic logging. </p>
 
-<p class="reference">Referenced by <a class="el" href="_game_info_download_service_8_categories_8cs_source.html#l00048">DownloadCategoriesAsync()</a>, <a class="el" href="_game_info_download_service_8cs_source.html#l00132">DownloadCoverAsync()</a>, <a class="el" href="_game_info_download_service_8cs_source.html#l00029">DownloadGameInfoAsync()</a>, <a class="el" href="_game_info_download_service_8cs_source.html#l00164">DownloadImageAsync()</a>, <a class="el" href="_game_info_download_service_8cs_source.html#l00104">DownloadRequirementsAsync()</a>, <a class="el" href="_game_info_download_service_8_requirements_8cs_source.html#l00143">FetchSteamAppIdAsync()</a>, <a class="el" href="_game_info_download_service_8_categories_8cs_source.html#l00085">FetchSteamCategoriesAsync()</a>, <a class="el" href="_game_info_download_service_8cs_source.html#l00022">GameInfoDownloadService()</a>, <a class="el" href="_game_info_download_service_8_covers_8cs_source.html#l00019">TryFetchGogCoverAsync()</a>, <a class="el" href="_game_info_download_service_8_covers_8cs_source.html#l00048">TryFetchGsrCoverAsync()</a>, <a class="el" href="_game_info_download_service_8_covers_8cs_source.html#l00181">TryFetchLutrisCoverAsync()</a>, <a class="el" href="_game_info_download_service_8_covers_8cs_source.html#l00134">TryFetchOpenCriticCoverAsync()</a>, <a class="el" href="_game_info_download_service_8_covers_8cs_source.html#l00105">TryFetchPcgwCoverAsync()</a>, and <a class="el" href="_game_info_download_service_8_covers_8cs_source.html#l00074">TryFetchWikipediaCoverAsync()</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_game_info_download_service_8cs_source.html#l00035">35</a> of file <a class="el" href="_game_info_download_service_8cs_source.html">GameInfoDownloadService.cs</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_game_info_download_service_8_categories_8cs_source.html#l00058">DownloadCategoriesAsync()</a>, <a class="el" href="_game_info_download_service_8cs_source.html#l00184">DownloadCoverAsync()</a>, <a class="el" href="_game_info_download_service_8cs_source.html#l00060">DownloadGameInfoAsync()</a>, <a class="el" href="_game_info_download_service_8cs_source.html#l00221">DownloadImageAsync()</a>, <a class="el" href="_game_info_download_service_8cs_source.html#l00149">DownloadRequirementsAsync()</a>, <a class="el" href="_game_info_download_service_8_requirements_8cs_source.html#l00164">FetchSteamAppIdAsync()</a>, <a class="el" href="_game_info_download_service_8_categories_8cs_source.html#l00101">FetchSteamCategoriesAsync()</a>, <a class="el" href="_game_info_download_service_8cs_source.html#l00046">GameInfoDownloadService()</a>, <a class="el" href="_game_info_download_service_8_covers_8cs_source.html#l00033">TryFetchGogCoverAsync()</a>, <a class="el" href="_game_info_download_service_8_covers_8cs_source.html#l00069">TryFetchGsrCoverAsync()</a>, <a class="el" href="_game_info_download_service_8_covers_8cs_source.html#l00230">TryFetchLutrisCoverAsync()</a>, <a class="el" href="_game_info_download_service_8_covers_8cs_source.html#l00176">TryFetchOpenCriticCoverAsync()</a>, <a class="el" href="_game_info_download_service_8_covers_8cs_source.html#l00140">TryFetchPcgwCoverAsync()</a>, and <a class="el" href="_game_info_download_service_8_covers_8cs_source.html#l00102">TryFetchWikipediaCoverAsync()</a>.</p>
 
 </div>
 </div>
@@ -1270,9 +1528,11 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_game_info_download_service_8_categories_8cs_source.html#l00016">16</a> of file <a class="el" href="_game_info_download_service_8_categories_8cs_source.html">GameInfoDownloadService.Categories.cs</a>.</p>
+<p>Mapping dictionary that associates common text keywords with GameCategory enum values. </p>
 
-<p class="reference">Referenced by <a class="el" href="_game_info_download_service_8_categories_8cs_source.html#l00143">FallbackExtractCategories()</a>, and <a class="el" href="_game_info_download_service_8_categories_8cs_source.html#l00124">MapSteamGenreToCore()</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_game_info_download_service_8_categories_8cs_source.html#l00019">19</a> of file <a class="el" href="_game_info_download_service_8_categories_8cs_source.html">GameInfoDownloadService.Categories.cs</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_game_info_download_service_8_categories_8cs_source.html#l00170">FallbackExtractCategories()</a>, and <a class="el" href="_game_info_download_service_8_categories_8cs_source.html#l00145">MapSteamGenreToCore()</a>.</p>
 
 </div>
 </div>

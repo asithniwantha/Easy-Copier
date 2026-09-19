@@ -1,0 +1,24 @@
+<map id="Easy_Copier.Views.TvAndFilmsTabView.TvAndFilmsTabView_obj1_Bindings" name="Easy_Copier.Views.TvAndFilmsTabView.TvAndFilmsTabView_obj1_Bindings">
+<area shape="rect" id="Node000001" title=" " alt="" coords="710,156,920,215"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="329,5,549,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="532,50,557,57,623,76,687,102,733,127,775,156,770,155,730,131,685,106,621,81,555,63,533,55"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="322,72,556,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="571,106,687,131,751,155,746,156,685,136,571,112"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="11,135,210,177"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="225,158,711,179,708,183,226,163"/>
+<area shape="rect" id="Node000006" href="$class_easy___copier_1_1_views_1_1_tv_and_films_tab_view.html" title="UserControl representing the Films &amp; TV series tab in the library view." alt="" coords="334,276,544,319"/>
+<area shape="poly" id="edge7_Node000006_Node000004" title=" " alt="" coords="195,180,217,188,315,232,399,275,393,276,312,237,215,193,196,186"/>
+<area shape="rect" id="Node000005" href="$interface_easy___copier_1_1_views_1_1_tv_and_films_tab_view_1_1_i_tv_and_films_tab_view___bindings.html" title=" " alt="" coords="5,203,216,261"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="231,221,710,190,709,195,232,227"/>
+<area shape="poly" id="edge11_Node000006_Node000005" title=" " alt="" coords="230,257,240,259,336,278,331,280,239,264,232,262"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="559,287,623,276,685,259,731,238,771,216,776,214,734,242,687,264,624,281,560,292"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="28,291,193,333"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="208,313,336,309,331,312,209,319"/>
+<area shape="poly" id="edge8_Node000006_Node000007" title=" " alt="" coords="208,297,336,292,331,295,209,302"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="65,357,156,384"/>
+<area shape="poly" id="edge9_Node000006_Node000008" title=" " alt="" coords="171,355,341,317,338,321,172,360"/>
+<area shape="rect" id="Node000009" href="$interface_easy___copier_1_1_views_1_1_i_library_tab_view.html" title="Contract implemented by library tab user controls for unified selection management." alt="" coords="19,408,202,451"/>
+<area shape="poly" id="edge10_Node000006_Node000009" title=" " alt="" coords="201,399,214,394,320,328,349,320,354,318,323,333,217,398,203,404"/>
+<area shape="rect" id="Node000010" href="$class_easy___copier_1_1_views_1_1_tv_and_films_tab_view_1_1_tv_and_films_tab_view__obj1___bindin48050c52f26d15bb73a491fa5a0e2521.html" title=" " alt="" coords="322,343,556,417"/>
+<area shape="poly" id="edge12_Node000001_Node000010" title=" " alt="" coords="570,357,629,339,685,314,717,291,746,265,790,216,795,213,749,269,720,296,687,318,631,344,571,362"/>
+</map>

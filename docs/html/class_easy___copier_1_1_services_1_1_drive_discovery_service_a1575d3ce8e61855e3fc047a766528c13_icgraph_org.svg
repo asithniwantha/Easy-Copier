@@ -11,7 +11,7 @@
 <!-- Node1 -->
 <g id="Node000001" class="node">
 <title>Node1</title>
-<g id="a_Node000001"><a xlink:title=" ">
+<g id="a_Node000001"><a xlink:title="Callback handler triggered when WMI delivers a volume change event.">
 <polygon fill="#999999" stroke="#666666" points="540.75,-57 369.5,-57 369.5,-25 540.75,-25 540.75,-57"/>
 <text xml:space="preserve" text-anchor="start" x="377.5" y="-43.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Services.Drive</text>
 <text xml:space="preserve" text-anchor="middle" x="455.12" y="-31.5" font-family="Helvetica,sans-Serif" font-size="10.00">DiscoveryService.OnDriveChanged</text>
@@ -21,7 +21,7 @@
 <!-- Node2 -->
 <g id="Node000002" class="node">
 <title>Node2</title>
-<g id="a_Node000002"><a xlink:href="class_easy___copier_1_1_services_1_1_drive_discovery_service.html#a326c4547ff0f1f958799d963a9ea80c0" target="_top" xlink:title=" ">
+<g id="a_Node000002"><a xlink:href="class_easy___copier_1_1_services_1_1_drive_discovery_service.html#a326c4547ff0f1f958799d963a9ea80c0" target="_top" xlink:title="Starts the WMI event listener for Windows volume change events.">
 <polygon fill="white" stroke="#666666" points="333.5,-82 175.75,-82 175.75,-50 333.5,-50 333.5,-82"/>
 <text xml:space="preserve" text-anchor="start" x="183.75" y="-68.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Services.Drive</text>
 <text xml:space="preserve" text-anchor="middle" x="254.62" y="-56.5" font-family="Helvetica,sans-Serif" font-size="10.00">DiscoveryService.StartWatching</text>
@@ -40,7 +40,7 @@
 <!-- Node3 -->
 <g id="Node000003" class="node">
 <title>Node3</title>
-<g id="a_Node000003"><a xlink:href="class_easy___copier_1_1_services_1_1_drive_discovery_service.html#afb32927d7b82e3d42575bf49e7f732d5" target="_top" xlink:title=" ">
+<g id="a_Node000003"><a xlink:href="class_easy___copier_1_1_services_1_1_drive_discovery_service.html#afb32927d7b82e3d42575bf49e7f732d5" target="_top" xlink:title="Stops the WMI event listener and cleans up watcher instances safely.">
 <polygon fill="white" stroke="#666666" points="333.12,-32 176.12,-32 176.12,0 333.12,0 333.12,-32"/>
 <text xml:space="preserve" text-anchor="start" x="184.12" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Services.Drive</text>
 <text xml:space="preserve" text-anchor="middle" x="254.62" y="-6.5" font-family="Helvetica,sans-Serif" font-size="10.00">DiscoveryService.StopWatching</text>
@@ -59,7 +59,7 @@
 <!-- Node4 -->
 <g id="Node000004" class="node">
 <title>Node4</title>
-<g id="a_Node000004"><a xlink:href="class_easy___copier_1_1_services_1_1_drive_discovery_service.html#a8d9f3925e02834e5d1a0884c9d2761fd" target="_top" xlink:title=" ">
+<g id="a_Node000004"><a xlink:href="class_easy___copier_1_1_services_1_1_drive_discovery_service.html#a8d9f3925e02834e5d1a0884c9d2761fd" target="_top" xlink:title="Disposes unmanaged WMI resources and terminates drive monitoring handlers.">
 <polygon fill="white" stroke="#666666" points="139.75,-32 0,-32 0,0 139.75,0 139.75,-32"/>
 <text xml:space="preserve" text-anchor="start" x="8" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Services.Drive</text>
 <text xml:space="preserve" text-anchor="middle" x="69.88" y="-6.5" font-family="Helvetica,sans-Serif" font-size="10.00">DiscoveryService.Dispose</text>

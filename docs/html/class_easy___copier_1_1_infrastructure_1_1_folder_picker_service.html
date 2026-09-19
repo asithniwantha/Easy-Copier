@@ -112,6 +112,9 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('class_easy___c
   <div class="headertitle"><div class="title">Easy_Copier.Infrastructure.FolderPickerService Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Implements folder selection operations using WinRT FolderPicker.  
+ <a href="#details">More...</a></p>
 <div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Inheritance diagram for Easy_Copier.Infrastructure.FolderPickerService:</div>
 <div id="dynsection-0-summary" class="dynsummary">
 </div>
@@ -127,20 +130,24 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('class_easy___c
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:acc1bd8f7295ad903605baa02e4665ba3" id="r_acc1bd8f7295ad903605baa02e4665ba3"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#acc1bd8f7295ad903605baa02e4665ba3">FolderPickerService</a> (<a class="el" href="interface_easy___copier_1_1_infrastructure_1_1_i_dispatcher_service.html">IDispatcherService</a> dispatcherService, <a class="el" href="interface_easy___copier_1_1_infrastructure_1_1_i_app_window_context.html">IAppWindowContext</a> appWindowContext)</td></tr>
+<tr class="memitem:aec4ff381919b73dae31147826f273286" id="r_aec4ff381919b73dae31147826f273286"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#aec4ff381919b73dae31147826f273286">FolderPickerService</a> (<a class="el" href="interface_easy___copier_1_1_infrastructure_1_1_i_dispatcher_service.html">IDispatcherService</a> dispatcherService, <a class="el" href="interface_easy___copier_1_1_infrastructure_1_1_i_app_window_context.html">IAppWindowContext</a> appWindowContext, ILogger&lt; FolderPickerService &gt;? logger=null)</td></tr>
+<tr class="memdesc:aec4ff381919b73dae31147826f273286"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes a new instance of the FolderPickerService class.  <br /></td></tr>
 <tr class="memitem:aa6db7f795c3874ad7c69a7f9dc7183aa" id="r_aa6db7f795c3874ad7c69a7f9dc7183aa"><td class="memItemLeft">async Task&lt; string?&gt;&#160;</td><td class="memItemRight"><a class="el" href="#aa6db7f795c3874ad7c69a7f9dc7183aa">PickFolderAsync</a> ()</td></tr>
+<tr class="memdesc:aa6db7f795c3874ad7c69a7f9dc7183aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Displays a folder picker modal dialog allowing the user to select a target directory. also handles if the application is running in elevated mode or if the active window handle cannot be retrieved.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pri-attribs" class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
 <tr class="memitem:a37a58010f951f7f0094c72a8a69ae9e4" id="r_a37a58010f951f7f0094c72a8a69ae9e4"><td class="memItemLeft">readonly <a class="el" href="interface_easy___copier_1_1_infrastructure_1_1_i_dispatcher_service.html">IDispatcherService</a>&#160;</td><td class="memItemRight"><a class="el" href="#a37a58010f951f7f0094c72a8a69ae9e4">_dispatcherService</a></td></tr>
 <tr class="memitem:a32883b914ce01e6276dfab455e9db0a2" id="r_a32883b914ce01e6276dfab455e9db0a2"><td class="memItemLeft">readonly <a class="el" href="interface_easy___copier_1_1_infrastructure_1_1_i_app_window_context.html">IAppWindowContext</a>&#160;</td><td class="memItemRight"><a class="el" href="#a32883b914ce01e6276dfab455e9db0a2">_appWindowContext</a></td></tr>
+<tr class="memitem:a5ce1116fa02dad2c7143894ff6345b94" id="r_a5ce1116fa02dad2c7143894ff6345b94"><td class="memItemLeft">readonly ILogger&lt; <a class="el" href="#aec4ff381919b73dae31147826f273286">FolderPickerService</a> &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a5ce1116fa02dad2c7143894ff6345b94">_logger</a></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="_folder_picker_service_8cs_source.html#l00010">10</a> of file <a class="el" href="_folder_picker_service_8cs_source.html">FolderPickerService.cs</a>.</p>
+<div class="textblock"><p>Implements folder selection operations using WinRT FolderPicker. </p>
+
+<p class="definition">Definition at line <a class="el" href="_folder_picker_service_8cs_source.html#l00015">15</a> of file <a class="el" href="_folder_picker_service_8cs_source.html">FolderPickerService.cs</a>.</p>
 </div><a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="acc1bd8f7295ad903605baa02e4665ba3" name="acc1bd8f7295ad903605baa02e4665ba3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acc1bd8f7295ad903605baa02e4665ba3">&#9670;&#160;</a></span>FolderPickerService()</h2>
+<a id="aec4ff381919b73dae31147826f273286" name="aec4ff381919b73dae31147826f273286"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aec4ff381919b73dae31147826f273286">&#9670;&#160;</a></span>FolderPickerService()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -153,14 +160,35 @@ Private Attributes</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="interface_easy___copier_1_1_infrastructure_1_1_i_app_window_context.html">IAppWindowContext</a></td>          <td class="paramname"><span class="paramname"><em>appWindowContext</em></span>&#160;)</td>
+          <td class="paramtype"><a class="el" href="interface_easy___copier_1_1_infrastructure_1_1_i_app_window_context.html">IAppWindowContext</a></td>          <td class="paramname"><span class="paramname"><em>appWindowContext</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">ILogger&lt; FolderPickerService &gt;?</td>          <td class="paramname"><span class="paramname"><em>logger</em></span><span class="paramdefsep"> = </span><span class="paramdefval">null</span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_folder_picker_service_8cs_source.html#l00015">15</a> of file <a class="el" href="_folder_picker_service_8cs_source.html">FolderPickerService.cs</a>.</p>
+<p>Initializes a new instance of the FolderPickerService class. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dispatcherService</td><td>The UI thread dispatcher service.</td></tr>
+    <tr><td class="paramname">appWindowContext</td><td>The application window context provider.</td></tr>
+    <tr><td class="paramname">logger</td><td>Optional logger instance for diagnostics.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">ArgumentNullException</td><td>Thrown when <em>dispatcherService</em>  or <em>appWindowContext</em>  is null.</td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p class="reference">References <a class="el" href="_folder_picker_service_8cs_source.html#l00013">_appWindowContext</a>, and <a class="el" href="_folder_picker_service_8cs_source.html#l00012">_dispatcherService</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_folder_picker_service_8cs_source.html#l00028">28</a> of file <a class="el" href="_folder_picker_service_8cs_source.html">FolderPickerService.cs</a>.</p>
+
+<p class="reference">References <a class="el" href="_folder_picker_service_8cs_source.html#l00018">_appWindowContext</a>, <a class="el" href="_folder_picker_service_8cs_source.html#l00017">_dispatcherService</a>, and <a class="el" href="_folder_picker_service_8cs_source.html#l00019">_logger</a>.</p>
 
 </div>
 </div>
@@ -180,11 +208,14 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Displays a folder picker modal dialog allowing the user to select a target directory. also handles if the application is running in elevated mode or if the active window handle cannot be retrieved. </p>
+<dl class="section return"><dt>Returns</dt><dd>The full path of the selected folder, or <code>null</code> if canceled.</dd></dl>
+
 <p>Implements <a class="el" href="interface_easy___copier_1_1_services_1_1_i_folder_picker_service.html#acecb10ebd71f068ae17f7f3ecef7023c">Easy_Copier.Services.IFolderPickerService</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_folder_picker_service_8cs_source.html#l00021">21</a> of file <a class="el" href="_folder_picker_service_8cs_source.html">FolderPickerService.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_folder_picker_service_8cs_source.html#l00043">43</a> of file <a class="el" href="_folder_picker_service_8cs_source.html">FolderPickerService.cs</a>.</p>
 
-<p class="reference">References <a class="el" href="_folder_picker_service_8cs_source.html#l00013">_appWindowContext</a>, <a class="el" href="_folder_picker_service_8cs_source.html#l00012">_dispatcherService</a>, and <a class="el" href="_native_window_helper_8cs_source.html#l00062">Easy_Copier.Infrastructure.NativeWindowHelper.GetActiveWindowHandle()</a>.</p>
+<p class="reference">References <a class="el" href="_folder_picker_service_8cs_source.html#l00018">_appWindowContext</a>, <a class="el" href="_folder_picker_service_8cs_source.html#l00017">_dispatcherService</a>, <a class="el" href="_folder_picker_service_8cs_source.html#l00019">_logger</a>, and <a class="el" href="_native_window_helper_8cs_source.html#l00069">Easy_Copier.Infrastructure.NativeWindowHelper.GetActiveWindowHandle()</a>.</p>
 <div id="dynsection-2" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-2-summary" class="dynsummary">
 </div>
@@ -215,9 +246,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_folder_picker_service_8cs_source.html#l00013">13</a> of file <a class="el" href="_folder_picker_service_8cs_source.html">FolderPickerService.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_folder_picker_service_8cs_source.html#l00018">18</a> of file <a class="el" href="_folder_picker_service_8cs_source.html">FolderPickerService.cs</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_folder_picker_service_8cs_source.html#l00015">FolderPickerService()</a>, and <a class="el" href="_folder_picker_service_8cs_source.html#l00021">PickFolderAsync()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_folder_picker_service_8cs_source.html#l00028">FolderPickerService()</a>, and <a class="el" href="_folder_picker_service_8cs_source.html#l00043">PickFolderAsync()</a>.</p>
 
 </div>
 </div>
@@ -241,9 +272,35 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_folder_picker_service_8cs_source.html#l00012">12</a> of file <a class="el" href="_folder_picker_service_8cs_source.html">FolderPickerService.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_folder_picker_service_8cs_source.html#l00017">17</a> of file <a class="el" href="_folder_picker_service_8cs_source.html">FolderPickerService.cs</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_folder_picker_service_8cs_source.html#l00015">FolderPickerService()</a>, and <a class="el" href="_folder_picker_service_8cs_source.html#l00021">PickFolderAsync()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_folder_picker_service_8cs_source.html#l00028">FolderPickerService()</a>, and <a class="el" href="_folder_picker_service_8cs_source.html#l00043">PickFolderAsync()</a>.</p>
+
+</div>
+</div>
+<a id="a5ce1116fa02dad2c7143894ff6345b94" name="a5ce1116fa02dad2c7143894ff6345b94"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5ce1116fa02dad2c7143894ff6345b94">&#9670;&#160;</a></span>_logger</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">readonly ILogger&lt;<a class="el" href="#aec4ff381919b73dae31147826f273286">FolderPickerService</a>&gt; Easy_Copier.Infrastructure.FolderPickerService._logger</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_folder_picker_service_8cs_source.html#l00019">19</a> of file <a class="el" href="_folder_picker_service_8cs_source.html">FolderPickerService.cs</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_folder_picker_service_8cs_source.html#l00028">FolderPickerService()</a>, and <a class="el" href="_folder_picker_service_8cs_source.html#l00043">PickFolderAsync()</a>.</p>
 
 </div>
 </div>

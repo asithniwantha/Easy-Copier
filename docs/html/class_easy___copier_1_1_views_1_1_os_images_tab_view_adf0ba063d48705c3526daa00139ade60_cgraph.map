@@ -1,0 +1,12 @@
+<map id="Easy_Copier.Views.OsImagesTabView.GameCard_RightTapped" name="Easy_Copier.Views.OsImagesTabView.GameCard_RightTapped">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,80,223,123"/>
+<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_infrastructure_1_1_flyout_helper.html#a7129d8af4e5b49e0b85728bbf84bc228" title="Displays the OS image details flyout when right&#45;tapping an OS image card." alt="" coords="271,72,497,131"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="223,99,258,101,253,102,224,104"/>
+<area shape="rect" id="Node000003" href="$namespace_easy___copier_1_1_models.html#a9c2abd1d64352c07d3085ba499cf2aae" title=" " alt="" coords="546,29,758,56"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="497,74,576,59,570,60,498,79"/>
+<area shape="rect" id="Node000004" href="$class_easy___copier_1_1_view_models_1_1_os_image_details_view_model.html#a4da5a2ff8f4938af03fe4c9322dd53f5" title=" " alt="" coords="545,80,759,123"/>
+<area shape="poly" id="edge4_Node000002_Node000004" title=" " alt="" coords="497,99,532,101,527,102,498,104"/>
+<area shape="rect" id="Node000005" href="$class_easy___copier_1_1_infrastructure_1_1_flyout_helper.html#aa507f17416e85f5f75287778e50b473b" title=" " alt="" coords="562,147,743,189"/>
+<area shape="poly" id="edge5_Node000002_Node000005" title=" " alt="" coords="498,127,552,143,546,142,497,132"/>
+<area shape="poly" id="edge3_Node000003_Node000003" title=" " alt="" coords="607,28,599,21,605,11,623,5,652,3,684,5,703,15,697,14,683,11,652,8,624,10,608,15,605,20,612,30"/>
+</map>

@@ -112,18 +112,24 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('class_easy___c
   <div class="headertitle"><div class="title">Easy_Copier.Services.WindowsShellTransferService.NativeMethods Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>P/Invoke definitions for native Windows COM library functions.  
+ <a href="#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:ac87a73c8e9532551f592f16182ed083e" id="r_ac87a73c8e9532551f592f16182ed083e"><td class="memItemLeft">static int&#160;</td><td class="memItemRight"><a class="el" href="#ac87a73c8e9532551f592f16182ed083e">CoInitializeEx</a> (IntPtr pvReserved, uint dwCoInit)</td></tr>
+<tr class="memdesc:ac87a73c8e9532551f592f16182ed083e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the COM library on the calling thread.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-static-attribs" class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
 <tr class="memitem:a2fa385076311f0c63af9c5ae45160c53" id="r_a2fa385076311f0c63af9c5ae45160c53"><td class="memItemLeft">const uint&#160;</td><td class="memItemRight"><a class="el" href="#a2fa385076311f0c63af9c5ae45160c53">COINIT_APARTMENTTHREADED</a> = 0x2</td></tr>
+<tr class="memdesc:a2fa385076311f0c63af9c5ae45160c53"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the thread for single-threaded apartment (STA) COM execution.  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="_file_transfer_service_8cs_source.html#l00392">392</a> of file <a class="el" href="_file_transfer_service_8cs_source.html">FileTransferService.cs</a>.</p>
+<div class="textblock"><p>P/Invoke definitions for native Windows COM library functions. </p>
+
+<p class="definition">Definition at line <a class="el" href="_file_transfer_service_8cs_source.html#l00465">465</a> of file <a class="el" href="_file_transfer_service_8cs_source.html">FileTransferService.cs</a>.</p>
 </div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
 <a id="ac87a73c8e9532551f592f16182ed083e" name="ac87a73c8e9532551f592f16182ed083e"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ac87a73c8e9532551f592f16182ed083e">&#9670;&#160;</a></span>CoInitializeEx()</h2>
@@ -144,7 +150,17 @@ Static Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="_file_transfer_service_8cs_source.html#l00080">Easy_Copier.Services.WindowsShellTransferService.TransferGamesAsync()</a>.</p>
+<p>Initializes the COM library on the calling thread. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pvReserved</td><td>Reserved; must be IntPtr.Zero.</td></tr>
+    <tr><td class="paramname">dwCoInit</td><td>The concurrency model and initialization flags.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>An HRESULT indicating success or failure.</dd></dl>
+
+<p class="reference">Referenced by <a class="el" href="_file_transfer_service_8cs_source.html#l00131">Easy_Copier.Services.WindowsShellTransferService.TransferGamesAsync()</a>.</p>
 <div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
 <div id="dynsection-0-summary" class="dynsummary">
 </div>
@@ -175,9 +191,11 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_file_transfer_service_8cs_source.html#l00397">397</a> of file <a class="el" href="_file_transfer_service_8cs_source.html">FileTransferService.cs</a>.</p>
+<p>Initializes the thread for single-threaded apartment (STA) COM execution. </p>
 
-<p class="reference">Referenced by <a class="el" href="_file_transfer_service_8cs_source.html#l00080">Easy_Copier.Services.WindowsShellTransferService.TransferGamesAsync()</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_file_transfer_service_8cs_source.html#l00479">479</a> of file <a class="el" href="_file_transfer_service_8cs_source.html">FileTransferService.cs</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_file_transfer_service_8cs_source.html#l00131">Easy_Copier.Services.WindowsShellTransferService.TransferGamesAsync()</a>.</p>
 
 </div>
 </div>

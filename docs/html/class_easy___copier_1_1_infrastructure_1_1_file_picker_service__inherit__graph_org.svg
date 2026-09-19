@@ -11,7 +11,7 @@
 <!-- Node1 -->
 <g id="Node000001" class="node">
 <title>Node1</title>
-<g id="a_Node000001"><a xlink:title=" ">
+<g id="a_Node000001"><a xlink:title="Implements file picker operations using WinRT FileOpenPicker and FileSavePicker.">
 <polygon fill="#999999" stroke="#666666" points="136,-32 0,-32 0,0 136,0 136,-32"/>
 <text xml:space="preserve" text-anchor="start" x="8" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Infrastructure.</text>
 <text xml:space="preserve" text-anchor="middle" x="68" y="-6.5" font-family="Helvetica,sans-Serif" font-size="10.00">FilePickerService</text>
@@ -21,7 +21,7 @@
 <!-- Node2 -->
 <g id="Node000002" class="node">
 <title>Node2</title>
-<g id="a_Node000002"><a xlink:href="interface_easy___copier_1_1_infrastructure_1_1_i_file_picker_service.html" target="_top" xlink:title=" ">
+<g id="a_Node000002"><a xlink:href="interface_easy___copier_1_1_infrastructure_1_1_i_file_picker_service.html" target="_top" xlink:title="Provides file picker dialog functionality for selecting files to open or save.">
 <polygon fill="white" stroke="#666666" points="136,-100 0,-100 0,-68 136,-68 136,-100"/>
 <text xml:space="preserve" text-anchor="start" x="8" y="-86.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Infrastructure.</text>
 <text xml:space="preserve" text-anchor="middle" x="68" y="-74.5" font-family="Helvetica,sans-Serif" font-size="10.00">IFilePickerService</text>

@@ -11,27 +11,27 @@
 <!-- Node0 -->
 <g id="Node000000" class="node">
 <title>Node0</title>
-<g id="a_Node000000"><a xlink:href="interface_easy___copier_1_1_infrastructure_1_1_i_dispatcher_service.html" target="_top" xlink:title=" ">
+<g id="a_Node000000"><a xlink:href="interface_easy___copier_1_1_infrastructure_1_1_i_dialog_service.html" target="_top" xlink:title="Provides an abstraction for displaying UI dialogs and prompts from ViewModels.">
 <polygon fill="white" stroke="#666666" points="136,-32 0,-32 0,0 136,0 136,-32"/>
 <text xml:space="preserve" text-anchor="start" x="8" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Infrastructure.</text>
-<text xml:space="preserve" text-anchor="middle" x="68" y="-6.5" font-family="Helvetica,sans-Serif" font-size="10.00">IDispatcherService</text>
+<text xml:space="preserve" text-anchor="middle" x="68" y="-6.5" font-family="Helvetica,sans-Serif" font-size="10.00">IDialogService</text>
 </a>
 </g>
 </g>
 <!-- Node1 -->
 <g id="Node000001" class="node">
 <title>Node1</title>
-<g id="a_Node000001"><a xlink:href="class_easy___copier_1_1_infrastructure_1_1_dispatcher_service.html" target="_top" xlink:title=" ">
+<g id="a_Node000001"><a xlink:href="class_easy___copier_1_1_infrastructure_1_1_dialog_service.html" target="_top" xlink:title="Implements UI dialog display services using WinUI 3 ContentDialog controls.">
 <polygon fill="white" stroke="#666666" points="308,-32 172,-32 172,0 308,0 308,-32"/>
 <text xml:space="preserve" text-anchor="start" x="180" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Infrastructure.</text>
-<text xml:space="preserve" text-anchor="middle" x="240" y="-6.5" font-family="Helvetica,sans-Serif" font-size="10.00">DispatcherService</text>
+<text xml:space="preserve" text-anchor="middle" x="240" y="-6.5" font-family="Helvetica,sans-Serif" font-size="10.00">DialogService</text>
 </a>
 </g>
 </g>
 <!-- Node0&#45;&gt;Node1 -->
-<g id="edge7_Node000000_Node000001" class="edge">
+<g id="edge6_Node000000_Node000001" class="edge">
 <title>Node0&#45;&gt;Node1</title>
-<g id="a_edge7_Node000000_Node000001"><a xlink:title=" ">
+<g id="a_edge6_Node000000_Node000001"><a xlink:title=" ">
 <path fill="none" stroke="#63b8ff" d="M147.54,-16C155.63,-16 163.79,-16 171.74,-16"/>
 <polygon fill="#63b8ff" stroke="#63b8ff" points="147.7,-12.5 137.7,-16 147.7,-19.5 147.7,-12.5"/>
 </a>

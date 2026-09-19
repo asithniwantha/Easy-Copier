@@ -1,0 +1,7 @@
+<map id="Easy_Copier.Views.ILibraryTabView.ClearSelection" name="Easy_Copier.Views.ILibraryTabView.ClearSelection">
+<area shape="rect" id="Node000001" title="Clears all active item selections in this view." alt="" coords="506,5,689,48"/>
+<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_views_1_1_main_page.html#a7003d006cfeb81142d2e3efd566cb01b" title=" " alt="" coords="256,5,458,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="488,27,459,29,459,24,493,27"/>
+<area shape="rect" id="Node000003" href="$class_easy___copier_1_1_views_1_1_main_page.html#a1892f28feb0fd22b9cff5ebb690f1bea" title=" " alt="" coords="5,5,208,48"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="237,27,208,29,208,24,243,27"/>
+</map>

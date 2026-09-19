@@ -253,9 +253,9 @@
 <g id="Node000007" class="node">
 <title>Node7</title>
 <g id="a_Node000007"><a xlink:title=" ">
-<polygon fill="white" stroke="#666666" points="154,-106 8.25,-106 8.25,-74 154,-74 154,-106"/>
-<text xml:space="preserve" text-anchor="start" x="16.25" y="-92.5" font-family="Helvetica,sans-Serif" font-size="10.00">global::MicrosoftUI</text>
-<text xml:space="preserve" text-anchor="middle" x="81.12" y="-80.5" font-family="Helvetica,sans-Serif" font-size="10.00">::Xaml::Controls::UserControl</text>
+<polygon fill="white" stroke="#666666" points="143.12,-106 19.12,-106 19.12,-74 143.12,-74 143.12,-106"/>
+<text xml:space="preserve" text-anchor="start" x="27.12" y="-92.5" font-family="Helvetica,sans-Serif" font-size="10.00">global.MicrosoftUI.Xaml.</text>
+<text xml:space="preserve" text-anchor="middle" x="81.12" y="-80.5" font-family="Helvetica,sans-Serif" font-size="10.00">Controls.UserControl</text>
 </a>
 </g>
 </g>
@@ -281,8 +281,8 @@
 <g id="edge15_Node000006_Node000007" class="edge">
 <title>Node7&#45;&gt;Node6</title>
 <g id="a_edge15_Node000006_Node000007"><a xlink:title=" ">
-<path fill="none" stroke="#63b8ff" d="M165.65,-83.57C192.29,-83.13 221.7,-83.14 248.12,-83.62"/>
-<polygon fill="#63b8ff" stroke="#63b8ff" points="165.86,-80.07 155.93,-83.76 166,-87.07 165.86,-80.07"/>
+<path fill="none" stroke="#63b8ff" d="M154.79,-83.78C184.11,-83.13 218.05,-83.08 248.12,-83.62"/>
+<polygon fill="#63b8ff" stroke="#63b8ff" points="154.79,-80.28 144.89,-84.04 154.97,-87.28 154.79,-80.28"/>
 </a>
 </g>
 </g>
@@ -290,8 +290,8 @@
 <g id="edge17_Node000006_Node000007" class="edge">
 <title>Node7&#45;&gt;Node6</title>
 <g id="a_edge17_Node000006_Node000007"><a xlink:title=" ">
-<path fill="none" stroke="#63b8ff" d="M165.65,-96.43C192.29,-96.87 221.7,-96.86 248.12,-96.38"/>
-<polygon fill="#63b8ff" stroke="#63b8ff" points="166,-92.93 155.93,-96.24 165.86,-99.93 166,-92.93"/>
+<path fill="none" stroke="#63b8ff" d="M154.79,-96.22C184.11,-96.87 218.05,-96.92 248.12,-96.38"/>
+<polygon fill="#63b8ff" stroke="#63b8ff" points="154.97,-92.72 144.89,-95.96 154.79,-99.72 154.97,-92.72"/>
 </a>
 </g>
 </g>

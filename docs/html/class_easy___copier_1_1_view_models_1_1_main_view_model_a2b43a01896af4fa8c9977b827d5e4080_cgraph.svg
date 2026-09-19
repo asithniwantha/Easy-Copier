@@ -47,7 +47,7 @@
   </g>
 </defs>
 <script type="application/ecmascript" xlink:href="svg.min.js"/>
-<svg id="graph" class="graph" data-view-width="684" data-view-height="690" data-section-id="dynsection-11">
+<svg id="graph" class="graph" data-view-width="684" data-view-height="690" data-section-id="dynsection-12">
 <g id="viewport">
 <title>Easy_Copier.ViewModels.MainViewModel.GetFormattedSystemRequirementsAsync</title>
 <!-- Node1 -->
@@ -63,7 +63,7 @@
 <!-- Node2 -->
 <g id="Node000002" class="node">
 <title>Node2</title>
-<g id="a_Node000002"><a xlink:href="class_easy___copier_1_1_infrastructure_1_1_sys_req_formatter.html#a131cdbfd011cc937fd40a1980802296b" target="_top" xlink:title=" ">
+<g id="a_Node000002"><a xlink:href="class_easy___copier_1_1_infrastructure_1_1_sys_req_formatter.html#a131cdbfd011cc937fd40a1980802296b" target="_top" xlink:title="Formats and standardizes raw system requirement strings by adding line breaks before key headers.">
 <polygon fill="white" stroke="#666666" points="431,-357 285.25,-357 285.25,-325 431,-325 431,-357"/>
 <text xml:space="preserve" text-anchor="start" x="293.25" y="-343.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Infrastructure.</text>
 <text xml:space="preserve" text-anchor="middle" x="358.12" y="-331.5" font-family="Helvetica,sans-Serif" font-size="10.00">SysReqFormatter.FormatText</text>

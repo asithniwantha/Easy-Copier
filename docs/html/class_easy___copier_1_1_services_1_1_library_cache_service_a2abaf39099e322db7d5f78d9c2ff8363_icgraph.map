@@ -1,5 +1,5 @@
 <map id="Easy_Copier.Services.LibraryCacheService.ComputeItemFingerprintAsync" name="Easy_Copier.Services.LibraryCacheService.ComputeItemFingerprintAsync">
-<area shape="rect" id="Node000001" title=" " alt="" coords="282,5,566,48"/>
-<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_services_1_1_library_cache_service.html#a05e76d2554223c9f80d4b4ca9358b977" title=" " alt="" coords="5,5,234,48"/>
+<area shape="rect" id="Node000001" title="Calculates total size and latest modified timestamp for a directory or file." alt="" coords="282,5,566,48"/>
+<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_services_1_1_library_cache_service.html#a05e76d2554223c9f80d4b4ca9358b977" title="Compares the cached snapshot against active source folder settings and inspects modified files to eva..." alt="" coords="5,5,234,48"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="264,27,234,29,234,24,269,27"/>
 </map>

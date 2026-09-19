@@ -1,9 +1,9 @@
 <map id="Easy_Copier.Infrastructure.FilePickerService" name="Easy_Copier.Infrastructure.FilePickerService">
-<area shape="rect" id="Node000001" title=" " alt="" coords="364,72,545,115"/>
-<area shape="rect" id="Node000002" href="$interface_easy___copier_1_1_infrastructure_1_1_i_file_picker_service.html" title=" " alt="" coords="5,5,187,48"/>
+<area shape="rect" id="Node000001" title="Implements file picker operations using WinRT FileOpenPicker and FileSavePicker." alt="" coords="364,72,545,115"/>
+<area shape="rect" id="Node000002" href="$interface_easy___copier_1_1_infrastructure_1_1_i_file_picker_service.html" title="Provides file picker dialog functionality for selecting files to open or save." alt="" coords="5,5,187,48"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="202,38,340,61,375,71,369,72,339,67,202,43"/>
-<area shape="rect" id="Node000003" href="$interface_easy___copier_1_1_infrastructure_1_1_i_dispatcher_service.html" title=" " alt="" coords="5,72,187,115"/>
+<area shape="rect" id="Node000003" href="$interface_easy___copier_1_1_infrastructure_1_1_i_dispatcher_service.html" title="Abstracts dispatcher operations for executing code on the UI thread." alt="" coords="5,72,187,115"/>
 <area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="202,91,365,92,361,95,202,96"/>
-<area shape="rect" id="Node000004" href="$interface_easy___copier_1_1_infrastructure_1_1_i_app_window_context.html" title=" " alt="" coords="5,139,187,181"/>
+<area shape="rect" id="Node000004" href="$interface_easy___copier_1_1_infrastructure_1_1_i_app_window_context.html" title="Defines a contract for accessing window and XAML root context UI elements without direct coupling." alt="" coords="5,139,187,181"/>
 <area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="201,144,339,120,370,116,375,115,340,125,202,149"/>
 </map>

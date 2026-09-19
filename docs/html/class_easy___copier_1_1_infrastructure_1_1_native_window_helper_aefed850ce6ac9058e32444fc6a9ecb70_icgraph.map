@@ -1,6 +1,6 @@
 <map id="Easy_Copier.Infrastructure.NativeWindowHelper.InitializeWindow" name="Easy_Copier.Infrastructure.NativeWindowHelper.InitializeWindow">
-<area shape="rect" id="Node000001" title=" " alt="" coords="557,209,800,252"/>
-<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_infrastructure_1_1_native_window_helper.html#a3d287dd8cb064cde0c403d6692cb4a67" title=" " alt="" coords="278,131,509,189"/>
+<area shape="rect" id="Node000001" title="Initializes standard window parameters including window dimensions and default window icons." alt="" coords="557,209,800,252"/>
+<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_infrastructure_1_1_native_window_helper.html#a3d287dd8cb064cde0c403d6692cb4a67" title="Centralized helper method to initialize a modal dialog window, setting data context,..." alt="" coords="278,131,509,189"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="572,205,509,191,510,186,578,205"/>
 <area shape="rect" id="Node000007" href="$class_easy___copier_1_1_main_window.html#a4e6ac266bd9303e598362aa71aa60f39" title=" " alt="" coords="290,247,496,289"/>
 <area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="544,248,497,257,497,252,539,249"/>

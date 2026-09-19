@@ -63,7 +63,7 @@
 <!-- Node2 -->
 <g id="Node000002" class="node">
 <title>Node2</title>
-<g id="a_Node000002"><a xlink:href="namespace_easy___copier_1_1_models.html#ab9811c24c166bd7f4768ddafbcbaf75d" target="_top" xlink:title=" ">
+<g id="a_Node000002"><a xlink:href="namespace_easy___copier_1_1_models.html#a9c2abd1d64352c07d3085ba499cf2aae" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="#666666" points="615.75,-107 456.5,-107 456.5,-87 615.75,-87 615.75,-107"/>
 <text xml:space="preserve" text-anchor="middle" x="536.12" y="-93.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Models.GameEntry</text>
 </a>
@@ -100,7 +100,7 @@
 <!-- Node4 -->
 <g id="Node000004" class="node">
 <title>Node4</title>
-<g id="a_Node000004"><a xlink:href="interface_easy___copier_1_1_infrastructure_1_1_i_dialog_service.html#a9bd95aa4bbb692442c72bf8dac7dc84c" target="_top" xlink:title=" ">
+<g id="a_Node000004"><a xlink:href="interface_easy___copier_1_1_infrastructure_1_1_i_dialog_service.html#a9bd95aa4bbb692442c72bf8dac7dc84c" target="_top" xlink:title="Displays a folder conflict resolution dialog allowing the user to select how to handle duplicate item...">
 <polygon fill="white" stroke="#666666" points="420.5,-88 223.75,-88 223.75,-56 420.5,-56 420.5,-88"/>
 <text xml:space="preserve" text-anchor="start" x="231.75" y="-74.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Infrastructure.</text>
 <text xml:space="preserve" text-anchor="middle" x="322.12" y="-62.5" font-family="Helvetica,sans-Serif" font-size="10.00">IDialogService.ShowConflictDialogAsync</text>

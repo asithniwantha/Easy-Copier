@@ -1,5 +1,5 @@
 <map id="Easy_Copier.Infrastructure.IWindowService.ShowHistoryWindow" name="Easy_Copier.Infrastructure.IWindowService.ShowHistoryWindow">
-<area shape="rect" id="Node000001" title=" " alt="" coords="257,5,499,48"/>
+<area shape="rect" id="Node000001" title="Opens the Copy History window." alt="" coords="257,5,499,48"/>
 <area shape="rect" id="Node000002" href="$class_easy___copier_1_1_view_models_1_1_main_view_model.html#a0d5526777093973a8201aa85f7213ea9" title=" " alt="" coords="5,5,209,48"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="238,27,209,29,209,24,244,27"/>
 </map>

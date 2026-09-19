@@ -11,7 +11,7 @@
 <!-- Node1 -->
 <g id="Node000001" class="node">
 <title>Node1</title>
-<g id="a_Node000001"><a xlink:title=" ">
+<g id="a_Node000001"><a xlink:title="Configures and shows a child window modally with respect to an owner window.">
 <polygon fill="#999999" stroke="#666666" points="174.25,-132 0,-132 0,-100 174.25,-100 174.25,-132"/>
 <text xml:space="preserve" text-anchor="start" x="8" y="-118.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Infrastructure.</text>
 <text xml:space="preserve" text-anchor="middle" x="87.12" y="-106.5" font-family="Helvetica,sans-Serif" font-size="10.00">NativeWindowHelper.ShowAsModal</text>
@@ -21,7 +21,7 @@
 <!-- Node2 -->
 <g id="Node000002" class="node">
 <title>Node2</title>
-<g id="a_Node000002"><a xlink:href="class_easy___copier_1_1_infrastructure_1_1_native_window_helper.html#a57095da941364586505beed6d503f5f8" target="_top" xlink:title=" ">
+<g id="a_Node000002"><a xlink:href="class_easy___copier_1_1_infrastructure_1_1_native_window_helper.html#a57095da941364586505beed6d503f5f8" target="_top" xlink:title="Centers a child window over its owner window on screen.">
 <polygon fill="white" stroke="#666666" points="397.25,-182 221.5,-182 221.5,-150 397.25,-150 397.25,-182"/>
 <text xml:space="preserve" text-anchor="start" x="229.5" y="-168.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Infrastructure.</text>
 <text xml:space="preserve" text-anchor="middle" x="309.38" y="-156.5" font-family="Helvetica,sans-Serif" font-size="10.00">NativeWindowHelper.CenterWindow</text>
@@ -40,7 +40,7 @@
 <!-- Node5 -->
 <g id="Node000005" class="node">
 <title>Node5</title>
-<g id="a_Node000005"><a xlink:href="class_easy___copier_1_1_infrastructure_1_1_native_window_helper.html#ac6f330703159fa50a1108ba3f4051bd7" target="_top" xlink:title=" ">
+<g id="a_Node000005"><a xlink:href="class_easy___copier_1_1_infrastructure_1_1_native_window_helper.html#ac6f330703159fa50a1108ba3f4051bd7" target="_top" xlink:title="Enables or disables input interaction for the specified window handle.">
 <polygon fill="white" stroke="#666666" points="408.5,-132 210.25,-132 210.25,-100 408.5,-100 408.5,-132"/>
 <text xml:space="preserve" text-anchor="start" x="218.25" y="-118.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Infrastructure.</text>
 <text xml:space="preserve" text-anchor="middle" x="309.38" y="-106.5" font-family="Helvetica,sans-Serif" font-size="10.00">NativeWindowHelper.EnableWindowInput</text>
@@ -59,7 +59,7 @@
 <!-- Node7 -->
 <g id="Node000007" class="node">
 <title>Node7</title>
-<g id="a_Node000007"><a xlink:href="class_easy___copier_1_1_infrastructure_1_1_native_window_helper.html#a0fc9a1d529a9a4f81c43415a4cc755ae" target="_top" xlink:title=" ">
+<g id="a_Node000007"><a xlink:href="class_easy___copier_1_1_infrastructure_1_1_native_window_helper.html#a0fc9a1d529a9a4f81c43415a4cc755ae" target="_top" xlink:title="Sets the parent/owner window for a child window handle using Win32 SetWindowLongPtr.">
 <polygon fill="white" stroke="#666666" points="386.75,-82 232,-82 232,-50 386.75,-50 386.75,-82"/>
 <text xml:space="preserve" text-anchor="start" x="240" y="-68.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Infrastructure.</text>
 <text xml:space="preserve" text-anchor="middle" x="309.38" y="-56.5" font-family="Helvetica,sans-Serif" font-size="10.00">NativeWindowHelper.SetOwner</text>

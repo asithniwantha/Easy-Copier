@@ -1,9 +1,9 @@
 <map id="Easy_Copier.Services.DriveDiscoveryService.Dispose" name="Easy_Copier.Services.DriveDiscoveryService.Dispose">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,43,192,85"/>
-<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_services_1_1_drive_discovery_service.html#afb32927d7b82e3d42575bf49e7f732d5" title=" " alt="" coords="240,43,449,85"/>
+<area shape="rect" id="Node000001" title="Disposes unmanaged WMI resources and terminates drive monitoring handlers." alt="" coords="5,43,192,85"/>
+<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_services_1_1_drive_discovery_service.html#afb32927d7b82e3d42575bf49e7f732d5" title="Stops the WMI event listener and cleans up watcher instances safely." alt="" coords="240,43,449,85"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="192,61,227,63,222,65,192,67"/>
-<area shape="rect" id="Node000003" href="$class_easy___copier_1_1_services_1_1_drive_discovery_service.html#a1575d3ce8e61855e3fc047a766528c13" title=" " alt="" coords="497,5,725,48"/>
+<area shape="rect" id="Node000003" href="$class_easy___copier_1_1_services_1_1_drive_discovery_service.html#a1575d3ce8e61855e3fc047a766528c13" title="Callback handler triggered when WMI delivers a volume change event." alt="" coords="497,5,725,48"/>
 <area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="449,47,484,44,479,45,450,52"/>
-<area shape="rect" id="Node000004" href="$class_easy___copier_1_1_services_1_1_drive_discovery_service.html#a7ba351ddd54ff1f9102745452f2f1b75" title=" " alt="" coords="501,72,721,131"/>
+<area shape="rect" id="Node000004" href="$class_easy___copier_1_1_services_1_1_drive_discovery_service.html#a7ba351ddd54ff1f9102745452f2f1b75" title="Blocks until all currently running WMI event arrival callbacks have completed or until a timeout occu..." alt="" coords="501,72,721,131"/>
 <area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="449,76,488,84,483,84,449,81"/>
 </map>

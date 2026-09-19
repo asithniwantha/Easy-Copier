@@ -53,7 +53,7 @@
 <!-- Node1 -->
 <g id="Node000001" class="node">
 <title>Node1</title>
-<g id="a_Node000001"><a xlink:title=" ">
+<g id="a_Node000001"><a xlink:title="Queries the MSFT_PhysicalDisk WMI class in the root\Microsoft\Windows\Storage namespace to verify Bus...">
 <polygon fill="#999999" stroke="#666666" points="636.75,-32 476,-32 476,0 636.75,0 636.75,-32"/>
 <text xml:space="preserve" text-anchor="start" x="484" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Services.Drive</text>
 <text xml:space="preserve" text-anchor="middle" x="556.38" y="-6.5" font-family="Helvetica,sans-Serif" font-size="10.00">DiscoveryService.IsUsbBusType</text>
@@ -82,7 +82,7 @@
 <!-- Node3 -->
 <g id="Node000003" class="node">
 <title>Node3</title>
-<g id="a_Node000003"><a xlink:href="class_easy___copier_1_1_services_1_1_drive_discovery_service.html#a258f6435fc2f1aacd52d731f0ed28425" target="_top" xlink:title=" ">
+<g id="a_Node000003"><a xlink:href="class_easy___copier_1_1_services_1_1_drive_discovery_service.html#a258f6435fc2f1aacd52d731f0ed28425" target="_top" xlink:title="Asynchronously retrieves all connected drives that are classified as removable or USB&#45;connected stora...">
 <polygon fill="white" stroke="#666666" points="217.75,-32 0,-32 0,0 217.75,0 217.75,-32"/>
 <text xml:space="preserve" text-anchor="start" x="8" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Services.Drive</text>
 <text xml:space="preserve" text-anchor="middle" x="108.88" y="-6.5" font-family="Helvetica,sans-Serif" font-size="10.00">DiscoveryService.GetRemovableDrivesAsync</text>

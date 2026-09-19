@@ -1,0 +1,6 @@
+var _tv_and_films_tab_view_8g_8i_8cs =
+[
+    [ "Easy_Copier.Views.TvAndFilmsTabView", "class_easy___copier_1_1_views_1_1_tv_and_films_tab_view.html", "class_easy___copier_1_1_views_1_1_tv_and_films_tab_view" ],
+    [ "Easy_Copier.Views.TvAndFilmsTabView.ITvAndFilmsTabView_Bindings", "interface_easy___copier_1_1_views_1_1_tv_and_films_tab_view_1_1_i_tv_and_films_tab_view___bindings.html", "interface_easy___copier_1_1_views_1_1_tv_and_films_tab_view_1_1_i_tv_and_films_tab_view___bindings" ],
+    [ "Easy_Copier.Views.TvAndFilmsTabView.ITvAndFilmsTabView_BindingsScopeConnector", "interface_easy___copier_1_1_views_1_1_tv_and_films_tab_view_1_1_i_tv_and_films_tab_view___bindings_scope_connector.html", "interface_easy___copier_1_1_views_1_1_tv_and_films_tab_view_1_1_i_tv_and_films_tab_view___bindings_scope_connector" ]
+];
