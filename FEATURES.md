@@ -99,3 +99,52 @@
 - DI and logging via `Microsoft.Extensions.*` and `Serilog`.
 - Storage discovery via `DriveInfo` + WMI.
 - GitHub Actions for CI/CD workflows, update and release automation.
+
+## 📅 Future Enhancements (To-Do List)
+- [ ] Add transfer profiles and presets for one-click queueing of common game/app/media bundles.
+- [ ] Add optional post-copy verification (hash/size) to confirm file integrity.
+- [ ] Add automatic best-fit suggestions based on selected drive free space.
+- [x] Add duplicate detection across source libraries with cleanup recommendations.
+- [ ] Add retry and resume support for transient copy failures.
+- [ ] Add advanced reporting dashboards (daily/weekly totals, most-copied items, and failure-rate trends).
+- [ ] Add portable backup/restore for settings, price tiers, source folders, and library cache metadata.
+- [ ] Add pause and resume capabilities for active transfers.
+- [ ] Add speed throttling for copy operations to limit maximum disk read/write speeds.
+- [ ] Add parallel small file transfers for directories with many small files.
+- [ ] Add receipt generation and exporting for customer transactions.
+- [ ] Add customer or drive profiles using volume serial numbers to track previously copied games.
+- [ ] Add advanced pricing and promotional discounts support.
+- [ ] Add system tray integration to minimize the app during long copies and push toast notifications.
+- [ ] Add native drag-and-drop support from Windows File Explorer to the Copy Queue or Library.
+- [ ] Add a real-time transfer speed graph showing current MB/s in the active transfer view.
+- [ ] Add cloud backup functionality for the SQLite database to secure historical and financial records.
+- [x] Show notifications for copy failures and successes batch completion.
+
+- [ ] Show notifications for copy failures and successes batch completion.
+- [ ] Add a OS images tab and instruct Rufus to open with a specific image file eg:"rufus.exe -i "C:\path\to\your\image.iso"
+
+## 🗄️ Database Schema
+
+### `CopyHistory` Table
+Tracks detailed history of all copy operations.
+
+| Column Name | Type | Description |
+| :--- | :--- | :--- |
+| `Id` | `INTEGER` | Primary key, auto-incremented. |
+| `Timestamp` | `TEXT` | ISO 8601 formatted timestamp of the operation. |
+| `GameName` | `TEXT` | Name of the copied item (game, app, or media). |
+| `TargetDriveLetter` | `TEXT` | Drive letter of the destination. |
+| `TargetDriveLabel` | `TEXT` | Volume label of the destination drive. |
+| `BytesTransferred` | `INTEGER` | Total size of the item transferred in bytes. |
+| `IsSuccess` | `INTEGER` | Boolean representation (`1` = Success, `0` = Failure). |
+| `Amount` | `INTEGER` | Price or amount associated with the copied item. |
+
+### `SmartAdderHistory` Table
+Tracks records of calculations made using the Smart Adder tool.
+
+| Column Name | Type | Description |
+| :--- | :--- | :--- |
+| `Id` | `INTEGER` | Primary key, auto-incremented. |
+| `Timestamp` | `TEXT` | ISO 8601 formatted timestamp of the calculation record. |
+| `EntriesJson` | `TEXT` | JSON formatted string containing the individual calculation entries. |
+| `Total` | `REAL` | Total calculated sum of all entries. |
