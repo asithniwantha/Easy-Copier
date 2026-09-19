@@ -9,15 +9,22 @@ namespace Easy_Copier.Behaviors
     /// </summary>
     public sealed class FocusWithinBehavior : Microsoft.Xaml.Interactivity.Behavior<FrameworkElement>
     {
+        /// <summary>
+        /// Identifies the <see cref="IsFocusWithin"/> dependency property.
+        /// </summary>
         public static readonly DependencyProperty IsFocusWithinProperty =
             DependencyProperty.Register(nameof(IsFocusWithin), typeof(bool), typeof(FocusWithinBehavior), new PropertyMetadata(false));
 
+        /// <summary>
+        /// Gets or sets a value indicating whether keyboard focus is currently within the associated control or any of its descendants.
+        /// </summary>
         public bool IsFocusWithin
         {
             get => (bool)GetValue(IsFocusWithinProperty);
             set => SetValue(IsFocusWithinProperty, value);
         }
 
+        /// <inheritdoc />
         protected override void OnAttached()
         {
             base.OnAttached();
@@ -25,6 +32,7 @@ namespace Easy_Copier.Behaviors
             AssociatedObject.LostFocus += AssociatedObject_LostFocus;
         }
 
+        /// <inheritdoc />
         protected override void OnDetaching()
         {
             AssociatedObject.GotFocus -= AssociatedObject_GotFocus;

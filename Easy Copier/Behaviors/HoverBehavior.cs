@@ -9,15 +9,22 @@ namespace Easy_Copier.Behaviors
     /// </summary>
     public sealed class HoverBehavior : Behavior<FrameworkElement>
     {
+        /// <summary>
+        /// Identifies the <see cref="IsHovered"/> dependency property.
+        /// </summary>
         public static readonly DependencyProperty IsHoveredProperty =
             DependencyProperty.Register(nameof(IsHovered), typeof(bool), typeof(HoverBehavior), new PropertyMetadata(false));
 
+        /// <summary>
+        /// Gets or sets a value indicating whether the pointer cursor is currently positioned over the associated element.
+        /// </summary>
         public bool IsHovered
         {
             get => (bool)GetValue(IsHoveredProperty);
             set => SetValue(IsHoveredProperty, value);
         }
 
+        /// <inheritdoc />
         protected override void OnAttached()
         {
             base.OnAttached();
@@ -25,6 +32,7 @@ namespace Easy_Copier.Behaviors
             AssociatedObject.PointerExited += AssociatedObject_PointerExited;
         }
 
+        /// <inheritdoc />
         protected override void OnDetaching()
         {
             AssociatedObject.PointerEntered -= AssociatedObject_PointerEntered;

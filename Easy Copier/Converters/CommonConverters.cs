@@ -8,8 +8,13 @@ using System;
 
 namespace Easy_Copier.Converters
 {
+    /// <summary>
+    /// Converts a <see cref="LibraryCategory"/> enum value to a UI <see cref="Visibility"/> status,
+    /// returning <see cref="Visibility.Visible"/> if the category is <see cref="LibraryCategory.Game"/>.
+    /// </summary>
     public class GameCategoryToVisibilityConverter : IValueConverter
     {
+        /// <inheritdoc />
         public object Convert(object value, Type targetType, object parameter, string language)
         {
             return value is LibraryCategory category
@@ -17,14 +22,19 @@ namespace Easy_Copier.Converters
                 : Microsoft.UI.Xaml.Visibility.Collapsed;
         }
 
+        /// <inheritdoc />
         public object ConvertBack(object value, Type targetType, object parameter, string language)
         {
             throw new NotImplementedException();
         }
     }
 
+    /// <summary>
+    /// Converts a byte size into a formatted price string based on user settings or size brackets.
+    /// </summary>
     public class GameSizeToPriceConverter : IValueConverter
     {
+        /// <inheritdoc />
         public object Convert(object value, Type targetType, object parameter, string language)
         {
             if (value is long bytes)
@@ -53,27 +63,37 @@ namespace Easy_Copier.Converters
             return "Rs. -";
         }
 
+        /// <inheritdoc />
         public object ConvertBack(object value, Type targetType, object parameter, string language)
         {
             throw new NotImplementedException();
         }
     }
 
+    /// <summary>
+    /// Converts a byte count (<see cref="long"/>) into a human-readable file size string (e.g., "1.5 GB").
+    /// </summary>
     public class BytesToSizeConverter : IValueConverter
     {
+        /// <inheritdoc />
         public object Convert(object value, Type targetType, object parameter, string language)
         {
             return value is long bytes ? Infrastructure.FormattingHelpers.FormatBytes(bytes) : "0 B";
         }
 
+        /// <inheritdoc />
         public object ConvertBack(object value, Type targetType, object parameter, string language)
         {
             throw new NotImplementedException();
         }
     }
 
+    /// <summary>
+    /// Converts a boolean value to a UI <see cref="Visibility"/> status, supporting optional inversion via the converter parameter ("Invert").
+    /// </summary>
     public class BoolToVisibilityConverter : IValueConverter
     {
+        /// <inheritdoc />
         public object Convert(object value, Type targetType, object parameter, string language)
         {
             bool invert = parameter?.ToString() == "Invert";
@@ -87,14 +107,19 @@ namespace Easy_Copier.Converters
             return boolValue ? Microsoft.UI.Xaml.Visibility.Visible : Microsoft.UI.Xaml.Visibility.Collapsed;
         }
 
+        /// <inheritdoc />
         public object ConvertBack(object value, Type targetType, object parameter, string language)
         {
             throw new NotImplementedException();
         }
     }
 
+    /// <summary>
+    /// Converts a local file system path string to a <see cref="Microsoft.UI.Xaml.Media.Imaging.BitmapImage"/> for UI image bindings.
+    /// </summary>
     public class PathToImageSourceConverter : IValueConverter
     {
+        /// <inheritdoc />
         public object? Convert(object value, Type targetType, object parameter, string language)
         {
             if (value is string path && !string.IsNullOrEmpty(path))
@@ -117,14 +142,19 @@ namespace Easy_Copier.Converters
             return null;
         }
 
+        /// <inheritdoc />
         public object ConvertBack(object value, Type targetType, object parameter, string language)
         {
             throw new NotImplementedException();
         }
     }
 
+    /// <summary>
+    /// Converts a domain <see cref="ValidationSeverity"/> enum value to a WinUI <see cref="InfoBarSeverity"/> value.
+    /// </summary>
     public class SeverityToInfoBarSeverityConverter : IValueConverter
     {
+        /// <inheritdoc />
         public object Convert(object value, Type targetType, object parameter, string language)
         {
             return value is ValidationSeverity severity
@@ -138,33 +168,44 @@ namespace Easy_Copier.Converters
                 : InfoBarSeverity.Informational;
         }
 
+        /// <inheritdoc />
         public object ConvertBack(object value, Type targetType, object parameter, string language)
         {
             throw new NotImplementedException();
         }
     }
 
+    /// <summary>
+    /// Converts a boolean indicating ascending sort direction to a Segoe MDL2 Assets glyph character string for sort direction indicators.
+    /// </summary>
     public class SortDirectionGlyphConverter : IValueConverter
     {
+        /// <inheritdoc />
         public object Convert(object value, Type targetType, object parameter, string language)
         {
             // UpArrow =  (Ascending), DownArrow =  (Descending)
             return value is bool isAscending && isAscending ? "" : "";
         }
 
+        /// <inheritdoc />
         public object ConvertBack(object value, Type targetType, object parameter, string language)
         {
             throw new NotImplementedException();
         }
     }
 
+    /// <summary>
+    /// Converts a boolean indicating ascending sort direction to a localized or descriptive tooltip string ("Ascending" or "Descending").
+    /// </summary>
     public class SortDirectionToolTipConverter : IValueConverter
     {
+        /// <inheritdoc />
         public object Convert(object value, Type targetType, object parameter, string language)
         {
             return value is bool isAscending && isAscending ? "Ascending" : "Descending";
         }
 
+        /// <inheritdoc />
         public object ConvertBack(object value, Type targetType, object parameter, string language)
         {
             throw new NotImplementedException();
