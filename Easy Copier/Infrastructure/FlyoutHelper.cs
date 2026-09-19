@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 namespace Easy_Copier.Infrastructure
 {
     /// <summary>
-    /// Helper class encapsulating shared flyout and card interaction behaviors for library item views.
+    /// Encapsulates shared flyout and card interaction behaviors for library item views.
     /// </summary>
     public static class FlyoutHelper
     {
@@ -21,7 +21,7 @@ namespace Easy_Copier.Infrastructure
         /// <param name="mainViewModel">The main ViewModel containing the open folder command.</param>
         public static void HandleOpenFolderClick(object sender, MainViewModel? mainViewModel)
         {
-            if (sender is Button button && button.DataContext is GameEntry gameEntry && mainViewModel != null)
+            if (sender is Button { DataContext: GameEntry gameEntry } && mainViewModel != null)
             {
                 mainViewModel.OpenItemFolderCommand.Execute(gameEntry.FolderPath);
             }
@@ -37,24 +37,19 @@ namespace Easy_Copier.Infrastructure
         {
             ArgumentNullException.ThrowIfNull(e);
 
-            if (sender is FrameworkElement fe && fe.DataContext is GameEntry gameEntry && mainViewModel != null)
+            if (sender is not FrameworkElement fe || fe.DataContext is not GameEntry gameEntry || mainViewModel == null)
             {
-                string formattedText = await mainViewModel.GetFormattedSystemRequirementsAsync(gameEntry.FolderPath);
-                GameDetailsViewModel gameDetailsViewModel = mainViewModel.CreateGameDetailsViewModel();
-                Views.GameDetailsFlyout detailsFlyout = new(gameDetailsViewModel, formattedText, gameEntry.FolderPath);
-
-                Style flyoutStyle = new(typeof(FlyoutPresenter));
-                flyoutStyle.Setters.Add(new Setter(FrameworkElement.MaxWidthProperty, double.PositiveInfinity));
-
-                Flyout flyout = new()
-                {
-                    Content = detailsFlyout,
-                    Placement = FlyoutPlacementMode.RightEdgeAlignedTop,
-                    FlyoutPresenterStyle = flyoutStyle
-                };
-
-                flyout.ShowAt(fe, new FlyoutShowOptions { Position = e.GetPosition(fe) });
+                return;
             }
+
+            string formattedText = await mainViewModel.GetFormattedSystemRequirementsAsync(gameEntry.FolderPath);
+            GameDetailsViewModel gameDetailsViewModel = mainViewModel.CreateGameDetailsViewModel();
+            Views.GameDetailsFlyout detailsFlyout = new(gameDetailsViewModel, formattedText, gameEntry.FolderPath);
+
+            Style flyoutStyle = new(typeof(FlyoutPresenter));
+            flyoutStyle.Setters.Add(new Setter(FrameworkElement.MaxWidthProperty, double.PositiveInfinity));
+
+            PresentFlyout(fe, e, detailsFlyout, flyoutStyle);
         }
 
         /// <summary>
@@ -66,20 +61,32 @@ namespace Easy_Copier.Infrastructure
         {
             ArgumentNullException.ThrowIfNull(e);
 
-            if (sender is FrameworkElement fe && fe.DataContext is GameEntry gameEntry)
+            if (sender is not FrameworkElement fe || fe.DataContext is not GameEntry gameEntry)
             {
-                OsImageDetailsViewModel osImageVm = new();
-                osImageVm.Initialize(gameEntry.Name, gameEntry.FolderPath);
-                Views.OsImageDetailsFlyout osImageFlyout = new(osImageVm);
-
-                Flyout flyout = new()
-                {
-                    Content = osImageFlyout,
-                    Placement = FlyoutPlacementMode.RightEdgeAlignedTop
-                };
-
-                flyout.ShowAt(fe, new FlyoutShowOptions { Position = e.GetPosition(fe) });
+                return;
             }
+
+            OsImageDetailsViewModel osImageVm = new();
+            osImageVm.Initialize(gameEntry.Name, gameEntry.FolderPath);
+            Views.OsImageDetailsFlyout osImageFlyout = new(osImageVm);
+
+            PresentFlyout(fe, e, osImageFlyout, null);
+        }
+
+        private static void PresentFlyout(FrameworkElement targetElement, RightTappedRoutedEventArgs e, UIElement content, Style? presenterStyle)
+        {
+            Flyout flyout = new()
+            {
+                Content = content,
+                Placement = FlyoutPlacementMode.RightEdgeAlignedTop
+            };
+
+            if (presenterStyle != null)
+            {
+                flyout.FlyoutPresenterStyle = presenterStyle;
+            }
+
+            flyout.ShowAt(targetElement, new FlyoutShowOptions { Position = e.GetPosition(targetElement) });
         }
     }
 }

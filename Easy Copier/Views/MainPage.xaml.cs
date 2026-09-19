@@ -92,29 +92,33 @@ namespace Easy_Copier.Views
 
         private void UpdateCombinedSelection()
         {
+            if (ViewModel == null)
+            {
+                return;
+            }
+
             if (ViewModel.CurrentTabIndex == 3)
             {
-                IEnumerable<GameEntry> osImageItems = OsImagesTab?.SelectedItems.Cast<GameEntry>() ?? [];
+                IEnumerable<GameEntry> osImageItems = (OsImagesTab as ILibraryTabView)?.GetSelectedEntries() ?? [];
                 ViewModel.UpdateSelectionSummary(osImageItems);
             }
             else
             {
-                IEnumerable<GameEntry> tvItems = TvAndFilmsTab?.SelectedItems.Cast<GameEntry>() ?? [];
-                IEnumerable<GameEntry> gamesItems = GamesTab?.SelectedItems.Cast<GameEntry>() ?? [];
-                IEnumerable<GameEntry> appsItems = AppsTab?.SelectedItems.Cast<GameEntry>() ?? [];
-                IEnumerable<GameEntry> selectedItems = gamesItems
-                    .Concat(appsItems)
-                    .Concat(tvItems);
+                ILibraryTabView?[] activeTabs = [GamesTab as ILibraryTabView, AppsTab as ILibraryTabView, TvAndFilmsTab as ILibraryTabView];
+                IEnumerable<GameEntry> selectedItems = activeTabs
+                    .Where(t => t != null)
+                    .SelectMany(t => t!.GetSelectedEntries());
                 ViewModel.UpdateSelectionSummary(selectedItems);
             }
         }
 
         private void ClearGameSelection()
         {
-            GamesTab?.ClearSelection();
-            AppsTab?.ClearSelection();
-            TvAndFilmsTab?.ClearSelection();
-            OsImagesTab?.ClearSelection();
+            ILibraryTabView?[] tabs = [GamesTab as ILibraryTabView, AppsTab as ILibraryTabView, TvAndFilmsTab as ILibraryTabView, OsImagesTab as ILibraryTabView];
+            foreach (ILibraryTabView? tab in tabs)
+            {
+                tab?.ClearSelection();
+            }
         }
     }
 }

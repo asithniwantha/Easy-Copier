@@ -1,15 +1,18 @@
 using Easy_Copier.Infrastructure;
+using Easy_Copier.Models;
 using Easy_Copier.ViewModels;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Input;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Easy_Copier.Views
 {
     /// <summary>
     /// UserControl representing the OS Images tab in the library view.
     /// </summary>
-    public sealed partial class OsImagesTabView : UserControl
+    public sealed partial class OsImagesTabView : UserControl, ILibraryTabView
     {
         /// <summary>
         /// Identifies the <see cref="ViewModel"/> dependency property.
@@ -38,7 +41,7 @@ namespace Easy_Copier.Views
         /// <summary>
         /// Gets the selected items from the OS Images grid.
         /// </summary>
-        public System.Collections.Generic.IList<object> SelectedItems => OsImagesGridView.SelectedItems;
+        public IList<object> SelectedItems => OsImagesGridView.SelectedItems;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="OsImagesTabView"/> class.
@@ -48,9 +51,13 @@ namespace Easy_Copier.Views
             InitializeComponent();
         }
 
-        /// <summary>
-        /// Clears all selected items in the OS Images grid.
-        /// </summary>
+        /// <inheritdoc />
+        public IEnumerable<GameEntry> GetSelectedEntries()
+        {
+            return OsImagesGridView.SelectedItems.OfType<GameEntry>();
+        }
+
+        /// <inheritdoc />
         public void ClearSelection()
         {
             OsImagesGridView.SelectedItems.Clear();

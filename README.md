@@ -22,7 +22,7 @@ Easy Copier helps shop environments prepare customer drives without guessing whi
 * **🔔 Completion Sounds & Notifications:** Plays audio notifications and shows native Windows desktop toast notifications upon success or failure of a transfer queue batch (configurable in settings).
 * **🏗️ MVVM Architecture:** A clean, maintainable codebase with strong separation of logic and presentation using decoupled Services, Dependency Properties, and decoupled windowing.
 * **📊 Progress Tracking:** Real-time transfer status and queue visibility with per-item details.
-* **🛡️ Reliability:** Built-in validation and conflict resolution (Replace, Merge, Skip) for safer transfers.
+* **🛡️ Reliability:** Built-in validation and conflict resolution (Replace, Merge, Skip) for safer transfers with dedicated XAML dialog controls.
 * **💸 Game Pricing & Totals:** Size-tier pricing tags plus selected-game totals in both the library and copy queue.
 * **🧮 Smart Adder:** Built-in Excel-like calculator support for quick calculations.
 * **🔄 App Updates:** Automatic update checking and release notifications, with automatic background downloads and manual checking.
@@ -34,7 +34,7 @@ Easy Copier helps shop environments prepare customer drives without guessing whi
 
 ## 🌟 Highlights
 
-| | |
+| Feature | Description |
 |---|---|
 | 🔍 **USB Drive Identification** | Shows the drive letter, volume label, physical model/brand, file system, total capacity, and free space. |
 | 🔌 **Broad Portable-Drive Support** | Detects USB flash drives, portable HDDs, and USB NVMe/SSD enclosures—even when Windows reports them as fixed or UASP/SCSI disks. |
@@ -86,7 +86,7 @@ The selected-drive panel also shows a usage bar, free space, total capacity, and
 - Use Smart Adder for quick Excel-like calculations.
 
 ### 🚀 Copy Operations
-- Ask for conflict resolution (Replace, Merge, Skip) before queuing if destination items exist, comparing size and file count.
+- Ask for conflict resolution (Replace, Merge, Skip) before queuing if destination items exist, comparing size and file count using a dedicated `ConflictDialogContent` view.
 - Support "Merge" behavior by intelligently copying only missing files to the destination.
 - Copy multiple selected items asynchronously without blocking the UI.
 - Process copy jobs in parallel when they target different USB drives.
@@ -115,44 +115,30 @@ The selected-drive panel also shows a usage bar, free space, total capacity, and
 | **Framework** | WinUI 3 / Windows App SDK |
 | **Language** | C# 14 with .NET 10 |
 | **Pattern** | MVVM with CommunityToolkit.Mvvm (Strict adherence to SOLID principles, dependency injection, and clean view-model separation). Optimized clean code removing inefficient operations. Asynchronous database reads with `IsDBNullAsync`. MVVMTK0045 naturally resolved using preview `partial` properties. |
-| **Architecture** | High UI decoupling (e.g. secondary window abstractions without static coupling to App.MainWindow, using static `WindowService.MainWindow` for window context access), safely bridging UI-specific operations via abstractions like `IWindowService`. |
+| **Architecture** | High UI decoupling using `ILibraryTabView` contracts and `ConflictDialogContent` views, safely bridging UI-specific operations via abstractions like `IWindowService`. |
 | **Storage Discovery** | `DriveInfo` and Windows Management Instrumentation (WMI) |
 | **CI/CD** | GitHub Actions |
 | **Target Platform** | x64 |
 
 ## Development Environment
-    ### What each folder is for
-        •	ViewModels/
-        UI behavior/state and commands (example: SettingsViewModel, SmartAdderViewModel).
-        •	Views/
-        Windows/pages and code-behind (example: AboutWindow.xaml.cs).
-        •	Services/
-        Business/application logic and service contracts (copying, scanning, queueing, settings, etc.; example: TransferQueueService).
-        •	Infrastructure/
-        Platform/framework glue: picker wrappers, dispatcher, window helpers, DI registration (example: FolderPickerService, ServiceCollectionExtensions).
-        •	Models/
-        Domain/data types shared across app layers (example: GameEntry, RemovableDrive, AppSettings).
-        •	Easy Copier.Tests/
-        Unit/integration tests for services/viewmodels/helpers (example: PickerServicesTests).
-        •	docs/
-        Generated/static documentation assets, not core runtime app logic.
+### What each folder is for
+* **ViewModels/**: UI behavior/state and commands (example: `SettingsViewModel`, `SmartAdderViewModel`).
+* **Views/**: Windows/pages, user controls, and code-behind (example: `AboutWindow.xaml.cs`, `ConflictDialogContent.xaml`).
+* **Services/**: Business/application logic and service contracts (copying, scanning, queueing, settings, etc.; example: `TransferQueueService`).
+* **Infrastructure/**: Platform/framework glue: picker wrappers, dispatcher, window helpers, DI registration (example: `FolderPickerService`, `ServiceCollectionExtensions`).
+* **Models/**: Domain/data types shared across app layers (example: `GameEntry`, `RemovableDrive`, `AppSettings`).
+* **Easy Copier.Tests/**: Unit/integration tests for services/viewmodels/helpers (example: `PickerServicesTests`).
+* **docs/**: Generated/static documentation assets.
 
-    ### How to decide where to add something
-        Use this rule:
-        1.	Is it UI layout/window? → Views/
-        2.	Is it UI state/command handling? → ViewModels/
-        3.	Is it reusable app logic or external interaction? → Services/
-        4.	Is it app plumbing (WinUI interop, DI, thread/window abstractions)? → Infrastructure/
-        5.	Is it a pure data shape/enum/record? → Models/
-        6.	Is it verification for behavior? → Easy Copier.Tests/
+### How to decide where to add something
+1. Is it UI layout/window/control? → `Views/`
+2. Is it UI state/command handling? → `ViewModels/`
+3. Is it reusable app logic or external interaction? → `Services/`
+4. Is it app plumbing (WinUI interop, DI, thread/window abstractions)? → `Infrastructure/`
+5. Is it a pure data shape/enum/record? → `Models/`
+6. Is it verification for behavior? → `Easy Copier.Tests/`
 
-    ### Practical pattern for new features
-        •	Add/extend model in Models/ if new data is needed.
-        •	Add service interface + implementation in Services/ (or Infrastructure/ if it is platform glue).
-        •	Register it in Infrastructure/ServiceCollectionExtensions.cs.
-        •	Inject and call it from the relevant ViewModel.
-        •	Bind/update UI in Views.
-        •	Add tests in Easy Copier.Tests/.
+---
 
 ## 💻 Requirements
 
@@ -189,32 +175,11 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 ⭐️ **If you find this project helpful or interesting, please consider giving it a star!**
 
-## Updated Architecture
-* Extracted `MainPage` PivotItems into separate modular `UserControl` views (`GamesTabView`, `AppsTabView`, `TvAndFilmsTabView`, and `OsImagesTabView`) paired with dedicated child ViewModels (`GamesTabViewModel`, `AppsTabViewModel`, `TvAndFilmsTabViewModel`, and `OsImagesTabViewModel`) for improved maintainability and future extensibility. 🧩
-* Eliminated code-behind event handlers in Windows and Pages (e.g., `Click="Close_Click"`) and replaced them with strongly-typed `ICommand` bindings utilizing the `CommunityToolkit.Mvvm` framework. Event callbacks like `CloseRequested` decouple the ViewModel logic from direct UI window management, ensuring pure MVVM adherence and fully decoupled ViewModels. 🧹
-* Migrated hard-coded view-state visibility logic from XAML code-behind into ViewModel properties, utilizing standard WinUI DataBinding and Converters to natively manipulate view state. 🪄
-* Extracted file system operations from the `OsImageDetailsFlyout` view constructor into a dedicated, reusable `OsImageDetailsViewModel`. 🏗️
-* Extracted dynamic UI generation (e.g., Game details flyout) from code-behind into dedicated XAML UserControls (`GameDetailsFlyout`) and `GameDetailsViewModel`, significantly reducing view-to-view coupling, eliminating manual UI instantiation in C#, and enhancing MVVM separation.
-* Separated UI interactions in ViewModels using IAppWindowContext.
-* Split large ViewModels and Services into partial classes.
-* Resolved MVVMTK0045 warnings by converting observable property fields in `FileSystemItem` and `GameDetailsViewModel` to C# 13+ `partial` properties with `[ObservableProperty]`.
-* Resolved CS8611 nullability reference mismatch warnings on `[ObservableProperty]` generated partial method signatures.
-* Fixed Roslyn static analysis CA1308 and CA1307 warnings in `GameInfoDownloadService.Categories.cs`.
-* Fixed Roslyn static analysis CA1305 warnings in `LibraryScannerService.cs` and `FileOperationProgressSink.cs` by specifying `CultureInfo.InvariantCulture` in string formatting and `TimeSpan.ToString` calls.
-* Un-nested COM interop interfaces (`IFileOperation`, `IFileOperationProgressSink`, `IShellItem`) to namespace level to satisfy CA1034 guidelines.
-* Updated Interop enum underlying types to `int` and P/Invoke method visibilities to `internal` for CA1028 and CA1401 compliance.
-* Consolidated and abstracted duplicated modal window creation logic into `NativeWindowHelper.InitializeModalWindow`.
-* Replaced legacy UWP `Windows.UI.Color` usages with modern `Microsoft.UI.ColorHelper` for WinUI 3 compatibility.
-* Cleaned up UI dependencies in the SmartAdder feature by properly separating the code-behind using `DependencyProperty` and removing `HistoryDialogService` in favor of standard MVVM-compliant Windows.
-* Resolved Roslyn CA2213 warnings in `MainViewModel` by ensuring direct cancellation token source (`_scanCancellationTokenSource` and `_validationCancellationTokenSource`) disposal during object `Dispose()` and token replacement.
-* Resolved Roslyn static analysis CA1806 warning in `Program.cs` by handling the return value of `SetCurrentProcessExplicitAppUserModelID` and applying `DefaultDllImportSearchPaths`.
-* Resolved Roslyn CA1849 code analysis warning in `MainViewModel.Scanning.cs` by replacing synchronous `Cancel()` calls on `CancellationTokenSource` with `CancelAsync()`.
-* Refactored Settings window and view models to adhere to DRY principles by consolidating duplicated folder add/remove logic.
-* Resolved Roslyn static analysis CA1823 warning in `MainPage.xaml.cs` by removing unused `LineSeparators` field.
-* Eliminated view-to-view coupling and service locator anti-patterns in `MainPage.xaml.cs` when instantiating `GameDetailsFlyout` by utilizing `Func<GameDetailsViewModel>` factory injections.
-* Replaced manual code-behind events with direct `Command` and `CommandParameter` bindings in `SettingsWindow.xaml` for improved MVVM compliance.
-* Introduced `LibraryTabViewModelBase` abstract base class for child library tab ViewModels (`GamesTabViewModel`, `AppsTabViewModel`, `TvAndFilmsTabViewModel`, `OsImagesTabViewModel`) to eliminate duplicated property change synchronization boilerplate. 🧩
-* Extracted view-layer flyout generation and folder opening interactions into a unified `FlyoutHelper` static abstraction in `Easy_Copier.Infrastructure`. 🛠️
-* Consolidated tab and pivot selection change handlers in `MainPage.xaml.cs` into a single `TabOrPivot_SelectionChanged` event handler. 🧹
-* Added dynamic light yellow/amber background highlight feedback and enlarged clear button (24px font size with 40x40px touch/hover hit area) for the main `SearchBox` `AutoSuggestBox` on `MainPage.xaml`. 🔍
-* Enhanced the search bar (`AutoSuggestBox`) UI on `MainPage` with larger font size (`16px`) and increased height (`40px`) for improved readability and accessibility. 🔍
+---
+
+## 🏗️ Updated Architecture
+* Introduced `ILibraryTabView` contract implemented across `GamesTabView`, `AppsTabView`, `TvAndFilmsTabView`, and `OsImagesTabView`, eliminating view-to-view tight coupling in `MainPage.xaml.cs`. 🧩
+* Replaced programmatic imperative C# UI construction in `DialogService.ShowConflictDialogAsync` with a dedicated XAML UserControl `ConflictDialogContent.xaml` and clean data bindings. 🎨
+* Centralized flyout setup, positioning, and style configuration in `FlyoutHelper.cs` with clean pattern-matching guard clauses. 🛠️
+* Applied modern C# features including pattern matching, switch expressions, and collection expressions across `MainViewModel` and `SettingsViewModel`. ⚡
+* Eliminated code-behind event handlers in Windows and Pages (e.g., `Click="Close_Click"`) and replaced them with strongly-typed `ICommand` bindings utilizing the `CommunityToolkit.Mvvm` framework. Event callbacks like `CloseRequested` decouple the ViewModel logic from direct UI window management. 🧹

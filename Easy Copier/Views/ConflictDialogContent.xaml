@@ -1,0 +1,37 @@
+<UserControl
+    x:Class="Easy_Copier.Views.ConflictDialogContent"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <StackPanel Spacing="12">
+        <TextBlock
+            Text="{x:Bind ItemNameMessage, Mode=OneWay}"
+            TextWrapping="Wrap" />
+
+        <Grid ColumnSpacing="16">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Grid.Column="0">
+                <TextBlock FontWeight="SemiBold" Text="Source:" />
+                <TextBlock Text="{x:Bind SourceSizeText, Mode=OneWay}" />
+                <TextBlock Text="{x:Bind SourceFilesText, Mode=OneWay}" />
+            </StackPanel>
+
+            <StackPanel Grid.Column="1">
+                <TextBlock FontWeight="SemiBold" Text="Destination:" />
+                <TextBlock Text="{x:Bind DestinationSizeText, Mode=OneWay}" />
+                <TextBlock Text="{x:Bind DestinationFilesText, Mode=OneWay}" />
+            </StackPanel>
+        </Grid>
+
+        <CheckBox
+            Content="Do this for all conflicts"
+            IsChecked="{x:Bind IsApplyToAllChecked, Mode=TwoWay}" />
+    </StackPanel>
+</UserControl>

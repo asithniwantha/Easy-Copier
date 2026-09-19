@@ -4,12 +4,11 @@
 - Scan configured source folders for **Games**, **Apps**, and **Film & TV**.
 - Automatically expand folders ending in "collection" to scan their subdirectories.
 - Support automatic scanning at startup and on-demand rescanning.
-- Display library items in separate tabs (Games / Apps / Film & TV / OS Images).
+- Display library items in separate tabs (Games / Apps / Film & TV / OS Images) implementing `ILibraryTabView` for decoupled selection handling.
 - Sort OS Images by Name, Date Added, and Size with Ascending and Descending direction toggles.
 - Display creation, modification, and access timestamps in a right-click flyout for OS image tiles.
 - Search and filter items by name with dynamic light yellow/amber background highlight feedback when search text is active, and an enlarged clear button (24px font size with 40x40px touch/hover target).
 - **Game Categorization:** Extracts metadata from Steam with keyword fallbacks, displayed and filterable directly within the Games tab.
-
 - Multi-select items and show combined selection size.
 - Exclude folders starting with `$`, `recyclebin`, and `System Volume Information` from scanning.
 - Use optimized single-pass folder scanning for accurate file sizes and large-file checks.
@@ -19,7 +18,7 @@
 - Fallback icon for entries without cover images.
 - Item size display with human-readable formatting.
 - Large-file indicator badge for FAT32 incompatibility risk.
-- Right-click context flyout displaying color-formatted system requirements and scrollable folder contents.
+- Right-click context flyout displaying color-formatted system requirements and scrollable folder contents via `FlyoutHelper`.
 - Game pricing tags displayed in the library based on file size thresholds configured in App Settings.
 - Total price of selected games shown in the library view based on configured price tiers.
 - Smart Adder tool for quick Excel-like calculations during selection and pricing workflows.
@@ -37,12 +36,12 @@
 - Auto-refresh drive list on attach/remove events.
 - Open selected drive directly in File Explorer.
 
-## 🛡️ Transfer Validation
+## 🛡️ Transfer Validation & Dialogs
 - Validate that items are selected before copying.
 - Validate destination free space against required size.
 - Validate FAT32 single-file constraints (>4 GB).
 - Validate source folder accessibility.
-- Warn when destination folders already exist and provide Merge / Replace / Skip options.
+- Warn when destination folders already exist and provide Merge / Replace / Skip options using a dedicated XAML view (`ConflictDialogContent.xaml`).
 - Display validation messages with severity levels (Info / Warning / Error).
 
 ## 🚀 Copy Operations
@@ -83,19 +82,15 @@
 
 ## 🏗️ Architecture & Code Quality
 - Clean view-model separation enforcing zero View-to-ViewModel UI coupling through rigorous Dependency Injection (completely removing AppServiceLocator).
+- Decoupled library tab views using `ILibraryTabView` interface to eliminate view-to-view tight coupling.
+- Replaced imperative C# UI construction in `DialogService.cs` with declarative `ConflictDialogContent.xaml` XAML controls.
+- Centralized flyout logic in `FlyoutHelper.cs` for right-click details flyouts.
 - Strict adherence to SOLID principles through decoupled, highly-focused service abstractions.
 - Proper Dependency Injection flow used to instantiate View Models across pages and windows, eliminating service-locator anti-patterns.
-- Optimized the codebase by simplifying large methods and replacing inefficient queries (for example, refactoring parameterless `.Any()` checks to direct `.Count > 0` property checks).
-- UI elements decoupled from Services by leveraging `IDispatcherService` and `IWindowService` interfaces (with static window context resolution via `WindowService.MainWindow`).
+- UI elements decoupled from Services by leveraging `IDispatcherService` and `IWindowService` interfaces.
 - Centralized Win32 NativeWindow lifecycle hooks reducing duplicated window initialization logic.
-- Secondary modal windows explicitly decouple from static main window contexts, accepting owner parameters directly.
 - Implements `IDisposable` effectively for unmanaged resource and cancellation token lifecycle management.
-- Asynchronous database operations using `IsDBNullAsync` in SQLite readers to prevent synchronous blocking (CA1849).
-- CA and MVVM Toolkit analyzer compliant, leveraging modern C# preview features (`partial` properties) to resolve MVVMTK0045 warnings without project-level suppressions.
-- Strict MVVM architecture avoiding UI elements (like `Window`) in ViewModel interfaces and consolidating shared business logic (e.g. folder removals).
 - Comprehensive event logging utilizing Serilog to ensure troubleshooting is easy and traceable.
-- Shutdown-safe lifecycle cleanup prevents late drive-watcher and background update callbacks from targeting a closing UI thread.
-- **📐 Dynamic View Resizing:** The application cleanly abstracts responsive window resizing and UI teardowns (e.g., Settings, History) directly to a unified `NativeWindowHelper`.
 
 ## 🛠️ Technical Stack
 - WinUI 3 + Windows App SDK.
@@ -103,7 +98,7 @@
 - MVVM pattern via `CommunityToolkit.Mvvm` utilizing source generators (`partial` property observables).
 - DI and logging via `Microsoft.Extensions.*` and `Serilog`.
 - Storage discovery via `DriveInfo` + WMI.
-- GitHub Actions for CI/CD workflows, update and release automation, setup with versioning and release notes generation.
+- GitHub Actions for CI/CD workflows, update and release automation.
 
 ## 📅 Future Enhancements (To-Do List)
 - [ ] Add transfer profiles and presets for one-click queueing of common game/app/media bundles.
@@ -127,38 +122,6 @@
 
 - [ ] Show notifications for copy failures and successes batch completion.
 - [ ] Add a OS images tab and instruct Rufus to open with a specific image file eg:"rufus.exe -i "C:\path\to\your\image.iso"
-
-## New Architectural Updates
-* Split `MainPage` PivotItems (tabs) into dedicated modular views (`GamesTabView`, `AppsTabView`, `TvAndFilmsTabView`, `OsImagesTabView`) and child ViewModels (`GamesTabViewModel`, `AppsTabViewModel`, `TvAndFilmsTabViewModel`, `OsImagesTabViewModel`), encapsulating tab-specific card templates, right-click flyouts, and sorting logic for improved code organization. 🧩
-* Eliminated code-behind event handlers in Windows and Pages (e.g., `Click="Close_Click"`) and replaced them with strongly-typed `ICommand` bindings utilizing the `CommunityToolkit.Mvvm` framework. Event callbacks like `CloseRequested` decouple the ViewModel logic from direct UI window management, ensuring pure MVVM adherence and fully decoupled ViewModels. 🧹
-* Migrated hard-coded view-state visibility logic from XAML code-behind into ViewModel properties, utilizing standard WinUI DataBinding and Converters to natively manipulate view state. 🪄
-* Extracted file system operations from the `OsImageDetailsFlyout` view constructor into a dedicated, reusable `OsImageDetailsViewModel`. 🏗️
-* Extracted dynamic UI generation (e.g., Game details flyout) from code-behind into dedicated XAML UserControls (`GameDetailsFlyout`) and `GameDetailsViewModel`, significantly reducing view-to-view coupling, eliminating manual UI instantiation in C#, and enhancing MVVM separation.
-* IAppWindowContext introduced for clean UI abstraction.
-* File splits using C# partials applied to MainViewModel, SettingsViewModel, and GameInfoDownloadService.
-* Verified and resolved MVVMTK0045 warnings in `FileSystemItem.cs` and `GameDetailsViewModel.cs` using C# 13+ partial properties with `[ObservableProperty]`.
-* Resolved CS8611 nullability reference mismatch warnings on `[ObservableProperty]` generated partial method signatures.
-* Resolved CA1308 and CA1307 Roslyn static analysis warnings in `GameInfoDownloadService.Categories.cs`.
-* Resolved CA1305 Roslyn static analysis warnings in `LibraryScannerService.cs` and `FileOperationProgressSink.cs` by supplying `CultureInfo.InvariantCulture` to string formatting calls.
-* Un-nested COM interop interfaces (`IFileOperation`, `IFileOperationProgressSink`, `IShellItem`) to namespace level to satisfy CA1034 guidelines.
-* Updated Interop enum underlying types to `int` (CA1028) and P/Invoke method visibilities to `internal` (CA1401).
-* Resolved Roslyn CA2213 warnings in `MainViewModel` by ensuring direct cancellation token source (`_scanCancellationTokenSource` and `_validationCancellationTokenSource`) disposal during object `Dispose()` and token replacement.
-* Resolved Roslyn static analysis CA1806 warning in `Program.cs` by capturing the return value of `SetCurrentProcessExplicitAppUserModelID` and adding `DefaultDllImportSearchPaths`.
-* Resolved Roslyn CA1849 code analysis warning in `MainViewModel.Scanning.cs` by replacing synchronous `Cancel()` calls on `CancellationTokenSource` with `CancelAsync()`.
-* Resolved Roslyn static analysis CA1823 warning in `MainPage.xaml.cs` by removing unused `LineSeparators` field.
-* Eliminated view-to-view coupling and service locator anti-patterns in `MainPage.xaml.cs` when instantiating `GameDetailsFlyout` by utilizing `Func<GameDetailsViewModel>` factory injections.
-* Replaced manual code-behind events with direct `Command` and `CommandParameter` bindings in `SettingsWindow.xaml` for improved MVVM compliance.
-* Introduced `LibraryTabViewModelBase` abstract base class for child library tab ViewModels (`GamesTabViewModel`, `AppsTabViewModel`, `TvAndFilmsTabViewModel`, `OsImagesTabViewModel`) to eliminate duplicated property change synchronization boilerplate. 🧩
-* Extracted view-layer flyout generation and folder opening interactions into a unified `FlyoutHelper` static abstraction in `Easy_Copier.Infrastructure`. 🛠️
-* Consolidated tab and pivot selection change handlers in `MainPage.xaml.cs` into a single `TabOrPivot_SelectionChanged` event handler. 🧹
-* Enhanced the search bar (`AutoSuggestBox`) UI on `MainPage` with larger font size (`16px`) and increased height (`40px`) for improved readability and accessibility. 🔍
-
-## Development Highlights
-- **Refactored Smart Adder UI**: Migrated complex programmatic UI logic (Visibility manipulation) from code-behind into direct XAML data bindings utilizing MVVM view models, adhering strictly to clean code principles.
-- **Refactored Architecture**: Consolidated and abstracted duplicated modal window creation logic to reduce code duplication in Views.
-- **WinUI 3 Modernization**: Removed remaining legacy `Windows.UI` namespaces in favor of `Microsoft.UI`.
-- **Smart Adder Clean Up**: Removed code-behind generated dialog creation (e.g. `HistoryDialogService`) for SmartAdder in favor of clean MVVM patterns using `SmartAdderHistoryWindow` and `DependencyProperty` injection to eliminate service locator anti-patterns.
-- **Elevated Mode Picker Support**: Ensured folder and file pickers function correctly in elevated (Administrator) mode by providing automated window handle fallbacks via `IAppWindowContext.MainWindow` and logging warnings when foreground window handle resolution is constrained by process elevation.
 
 ## 🗄️ Database Schema
 
