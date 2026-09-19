@@ -8,7 +8,7 @@
 
     <StackPanel Spacing="12">
         <TextBlock
-            Text="{x:Bind ItemNameMessage, Mode=OneWay}"
+            Text="{x:Bind ItemNameMessage, Mode=OneTime}"
             TextWrapping="Wrap" />
 
         <Grid ColumnSpacing="16">
@@ -19,14 +19,14 @@
 
             <StackPanel Grid.Column="0">
                 <TextBlock FontWeight="SemiBold" Text="Source:" />
-                <TextBlock Text="{x:Bind SourceSizeText, Mode=OneWay}" />
-                <TextBlock Text="{x:Bind SourceFilesText, Mode=OneWay}" />
+                <TextBlock Text="{x:Bind SourceSizeText, Mode=OneTime}" />
+                <TextBlock Text="{x:Bind SourceFilesText, Mode=OneTime}" />
             </StackPanel>
 
             <StackPanel Grid.Column="1">
                 <TextBlock FontWeight="SemiBold" Text="Destination:" />
-                <TextBlock Text="{x:Bind DestinationSizeText, Mode=OneWay}" />
-                <TextBlock Text="{x:Bind DestinationFilesText, Mode=OneWay}" />
+                <TextBlock Text="{x:Bind DestinationSizeText, Mode=OneTime}" />
+                <TextBlock Text="{x:Bind DestinationFilesText, Mode=OneTime}" />
             </StackPanel>
         </Grid>
 
