@@ -27,6 +27,7 @@ namespace Easy_Copier.ViewModels
         private readonly IUpdateService _updateService;
         private readonly ISourceLibraryService _sourceLibraryService;
         private readonly IDialogService _dialogService;
+        private readonly ILibraryFilterService _libraryFilterService;
         private readonly Func<GameDetailsViewModel> _gameDetailsViewModelFactory;
         private CancellationTokenSource? _scanCancellationTokenSource;
         private CancellationTokenSource? _validationCancellationTokenSource;
@@ -193,6 +194,7 @@ namespace Easy_Copier.ViewModels
             IDispatcherService dispatcherService,
             ISourceLibraryService sourceLibraryService,
             IDialogService dialogService,
+            ILibraryFilterService libraryFilterService,
             SmartAdderViewModel smartAdderViewModel,
             Func<GameDetailsViewModel> gameDetailsViewModelFactory)
         {
@@ -210,6 +212,7 @@ namespace Easy_Copier.ViewModels
             _updateService = updateService;
             _sourceLibraryService = sourceLibraryService;
             _dialogService = dialogService;
+            _libraryFilterService = libraryFilterService;
             SmartAdderViewModel = smartAdderViewModel;
             _gameDetailsViewModelFactory = gameDetailsViewModelFactory;
             GamesTabViewModel = new GamesTabViewModel(this);

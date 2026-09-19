@@ -90,6 +90,12 @@ namespace Easy_Copier.Views
             UpdateCombinedSelection();
         }
 
+        private IEnumerable<ILibraryTabView> GetTabViews()
+        {
+            ILibraryTabView?[] tabs = [GamesTab as ILibraryTabView, AppsTab as ILibraryTabView, TvAndFilmsTab as ILibraryTabView, OsImagesTab as ILibraryTabView];
+            return tabs.OfType<ILibraryTabView>();
+        }
+
         private void UpdateCombinedSelection()
         {
             if (ViewModel == null)
@@ -97,27 +103,27 @@ namespace Easy_Copier.Views
                 return;
             }
 
-            if (ViewModel.CurrentTabIndex == 3)
+            IEnumerable<ILibraryTabView> tabs = GetTabViews();
+
+            if (ViewModel.IsOsImagesTabActive)
             {
-                IEnumerable<GameEntry> osImageItems = (OsImagesTab as ILibraryTabView)?.GetSelectedEntries() ?? [];
+                IEnumerable<GameEntry> osImageItems = tabs.ElementAtOrDefault(3)?.GetSelectedEntries() ?? [];
                 ViewModel.UpdateSelectionSummary(osImageItems);
             }
             else
             {
-                ILibraryTabView?[] activeTabs = [GamesTab as ILibraryTabView, AppsTab as ILibraryTabView, TvAndFilmsTab as ILibraryTabView];
-                IEnumerable<GameEntry> selectedItems = activeTabs
-                    .Where(t => t != null)
-                    .SelectMany(t => t!.GetSelectedEntries());
+                IEnumerable<GameEntry> selectedItems = tabs
+                    .Take(3)
+                    .SelectMany(t => t.GetSelectedEntries());
                 ViewModel.UpdateSelectionSummary(selectedItems);
             }
         }
 
         private void ClearGameSelection()
         {
-            ILibraryTabView?[] tabs = [GamesTab as ILibraryTabView, AppsTab as ILibraryTabView, TvAndFilmsTab as ILibraryTabView, OsImagesTab as ILibraryTabView];
-            foreach (ILibraryTabView? tab in tabs)
+            foreach (ILibraryTabView tab in GetTabViews())
             {
-                tab?.ClearSelection();
+                tab.ClearSelection();
             }
         }
     }

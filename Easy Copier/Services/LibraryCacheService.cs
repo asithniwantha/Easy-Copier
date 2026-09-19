@@ -55,6 +55,14 @@ namespace Easy_Copier.Services
         Task<ItemFingerprint> ComputeItemFingerprintAsync(
             string folderPath,
             CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Computes item fingerprints and creates/saves a library cache snapshot from scanned items and active settings.
+        /// </summary>
+        /// <param name="allEntries">All scanned game, app, TV/film, and OS image entries.</param>
+        /// <param name="settings">The current application settings.</param>
+        /// <returns>A task returning a status message describing the snapshot result.</returns>
+        Task<string?> CreateAndSaveSnapshotAsync(IEnumerable<GameEntry> allEntries, AppSettings settings);
     }
 
     /// <summary>
@@ -411,6 +419,67 @@ namespace Easy_Copier.Services
             {
                 _logger.LogError(ex, "Error during cache validation");
                 return new CacheValidationOutcome(CacheValidationResult.CorruptOrInvalid, []);
+            }
+        }
+
+        /// <summary>
+        /// Computes item fingerprints and creates/saves a library cache snapshot from scanned items and active settings.
+        /// </summary>
+        /// <param name="allEntries">All scanned game, app, TV/film, and OS image entries.</param>
+        /// <param name="settings">The current application settings.</param>
+        /// <returns>A task returning a status message describing any warning or error, or <c>null</c> if successful.</returns>
+        public async Task<string?> CreateAndSaveSnapshotAsync(IEnumerable<GameEntry> allEntries, AppSettings settings)
+        {
+            ArgumentNullException.ThrowIfNull(allEntries);
+            ArgumentNullException.ThrowIfNull(settings);
+
+            try
+            {
+                Dictionary<string, ItemFingerprint> fingerprints = [];
+                List<GameEntry> entriesList = allEntries.ToList();
+
+                string? warningMessage = null;
+
+                foreach (GameEntry entry in entriesList)
+                {
+                    try
+                    {
+                        ItemFingerprint fingerprint = await ComputeItemFingerprintAsync(entry.FolderPath);
+                        string normalizedPath = NormalizePath(entry.FolderPath);
+                        fingerprints[normalizedPath] = fingerprint;
+                    }
+                    catch (Exception ex)
+                    {
+                        warningMessage = $"Warning: Could not compute fingerprint for {entry.Name}: {ex.Message}";
+                        _logger.LogWarning(ex, "Could not compute fingerprint for {Name}", entry.Name);
+                    }
+                }
+
+                List<GameEntry> games = entriesList.Where(e => e.Category == LibraryCategory.Game).ToList();
+                List<GameEntry> apps = entriesList.Where(e => e.Category == LibraryCategory.App).ToList();
+                List<GameEntry> tvAndFilms = entriesList.Where(e => e.Category == LibraryCategory.TvAndFilm).ToList();
+                List<GameEntry> osImages = entriesList.Where(e => e.Category == LibraryCategory.OsImage).ToList();
+
+                LibraryCacheSnapshot snapshot = new(
+                    LibraryCacheSnapshot.CurrentSchemaVersion,
+                    games,
+                    apps,
+                    tvAndFilms,
+                    osImages,
+                    [.. settings.GameSourceFolders],
+                    [.. settings.AppSourceFolders],
+                    [.. settings.TvAndFilmSourceFolders ?? []],
+                    [.. settings.OsImageSourceFolders ?? []],
+                    DateTime.Now,
+                    fingerprints);
+
+                await SaveCacheAsync(snapshot);
+                return warningMessage;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Failed to save cache snapshot");
+                return $"Failed to save cache: {ex.Message}";
             }
         }
 
