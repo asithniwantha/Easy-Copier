@@ -19,7 +19,7 @@ namespace Easy_Copier.Interop
             string pszPath,
             IntPtr pbc,
             in Guid riid,
-            [Out][MarshalAs(UnmanagedType.Interface)] out IShellItem ppv);
+            out IntPtr ppv);
 
         /// <summary>
         /// Creates and initializes a Shell item object from a parsing name, throwing an exception if the native operation fails.
@@ -30,10 +30,16 @@ namespace Easy_Copier.Interop
             Guid riid,
             out IShellItem ppv)
         {
-            int hr = SHCreateItemFromParsingNameNative(pszPath, pbc, in riid, out ppv);
+            int hr = SHCreateItemFromParsingNameNative(pszPath, pbc, in riid, out IntPtr ptr);
             if (hr < 0)
             {
+                ppv = null!;
                 Marshal.ThrowExceptionForHR(hr);
+            }
+            else
+            {
+                ppv = (IShellItem)Marshal.GetObjectForIUnknown(ptr);
+                Marshal.Release(ptr);
             }
         }
     }
