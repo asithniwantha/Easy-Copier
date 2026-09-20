@@ -7,19 +7,20 @@ namespace Easy_Copier.Interop
     /// <summary>
     /// Provides interop helper constants and P/Invoke declarations for Windows Shell file operations.
     /// </summary>
-    public static class FileOperationInterop
+    public static partial class FileOperationInterop
     {
         public const string CLSID_FileOperation = "3AD05575-8857-4850-9277-11B85BDB8E09";
 
         /// <summary>
         /// Creates and initializes a Shell item object from a parsing name.
         /// </summary>
-        [DllImport("shell32.dll", CharSet = CharSet.Unicode, PreserveSig = false)]
-        internal static extern void SHCreateItemFromParsingName(
-            [In][MarshalAs(UnmanagedType.LPWStr)] string pszPath,
-            [In] IntPtr pbc,
-            [In][MarshalAs(UnmanagedType.LPStruct)] Guid riid,
-            [Out][MarshalAs(UnmanagedType.Interface)] out IShellItem ppv);
+        [LibraryImport("shell32.dll", StringMarshalling = StringMarshalling.Utf16)]
+        [DefaultDllImportSearchPaths(DllImportSearchPath.System32)]
+        internal static partial void SHCreateItemFromParsingName(
+            string pszPath,
+            IntPtr pbc,
+            in Guid riid,
+            [MarshalAs(UnmanagedType.Interface)] out IShellItem ppv);
     }
 
     /// <summary>
