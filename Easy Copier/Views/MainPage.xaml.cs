@@ -103,17 +103,16 @@ namespace Easy_Copier.Views
                 return;
             }
 
-            IEnumerable<ILibraryTabView> tabs = GetTabViews();
-
             if (ViewModel.IsOsImagesTabActive)
             {
-                IEnumerable<GameEntry> osImageItems = tabs.ElementAtOrDefault(3)?.GetSelectedEntries() ?? [];
+                IEnumerable<GameEntry> osImageItems = OsImagesTab?.GetSelectedEntries() ?? [];
                 ViewModel.UpdateSelectionSummary(osImageItems);
             }
             else
             {
-                IEnumerable<GameEntry> selectedItems = tabs
-                    .Take(3)
+                ILibraryTabView?[] gameTabs = [GamesTab, AppsTab, TvAndFilmsTab];
+                IEnumerable<GameEntry> selectedItems = gameTabs
+                    .OfType<ILibraryTabView>()
                     .SelectMany(t => t.GetSelectedEntries());
                 ViewModel.UpdateSelectionSummary(selectedItems);
             }
