@@ -5,5 +5,4 @@ using System.Diagnostics.CodeAnalysis;
 
 [assembly: SuppressMessage(
     "Security",
-    "CA5392:Use DefaultDllImportSearchPaths attribute for P/Invokes",
     Justification = "Auto-generated WindowsAppSDK code in external NuGet package cannot be modified directly.")]

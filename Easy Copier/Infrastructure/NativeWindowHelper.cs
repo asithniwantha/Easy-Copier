@@ -10,7 +10,7 @@ namespace Easy_Copier.Infrastructure
     /// <summary>
     /// Provides Win32 P/Invoke utilities and WinUI 3 AppWindow helpers for managing windows, modal dialog ownership, positioning, and sizing.
     /// </summary>
-    public static class NativeWindowHelper
+    public static partial class NativeWindowHelper
     {
         private const int GWLP_HWNDPARENT = -8;
         private const uint SWP_NOSIZE = 0x0001;
@@ -25,42 +25,45 @@ namespace Easy_Copier.Infrastructure
             public int Bottom;
         }
 
-        [DllImport("user32.dll", EntryPoint = "SetWindowLongPtr", SetLastError = true)]
+        [LibraryImport("user32.dll", EntryPoint = "SetWindowLongPtr", SetLastError = true)]
         [DefaultDllImportSearchPaths(DllImportSearchPath.System32)]
-        private static extern IntPtr SetWindowLongPtr64(IntPtr hWnd, int nIndex, IntPtr dwNewLong);
+        private static partial IntPtr SetWindowLongPtr64(IntPtr hWnd, int nIndex, IntPtr dwNewLong);
 
-        [DllImport("user32.dll", EntryPoint = "SetWindowLong", SetLastError = true)]
+        [LibraryImport("user32.dll", EntryPoint = "SetWindowLong", SetLastError = true)]
         [DefaultDllImportSearchPaths(DllImportSearchPath.System32)]
-        private static extern int SetWindowLong32(IntPtr hWnd, int nIndex, int dwNewLong);
+        private static partial int SetWindowLong32(IntPtr hWnd, int nIndex, int dwNewLong);
 
-        [DllImport("user32.dll", SetLastError = true)]
+        [LibraryImport("user32.dll", SetLastError = true)]
         [DefaultDllImportSearchPaths(DllImportSearchPath.System32)]
         [return: MarshalAs(UnmanagedType.Bool)]
-        private static extern bool EnableWindow(IntPtr hWnd, bool bEnable);
+        private static partial bool EnableWindow(IntPtr hWnd, [MarshalAs(UnmanagedType.Bool)] bool bEnable);
 
-        [DllImport("user32.dll")]
+        [LibraryImport("user32.dll")]
         [DefaultDllImportSearchPaths(DllImportSearchPath.System32)]
-        private static extern bool GetWindowRect(IntPtr hWnd, out RECT lpRect);
+        [return: MarshalAs(UnmanagedType.Bool)]
+        private static partial bool GetWindowRect(IntPtr hWnd, out RECT lpRect);
 
-        [DllImport("user32.dll")]
+        [LibraryImport("user32.dll")]
         [DefaultDllImportSearchPaths(DllImportSearchPath.System32)]
-        private static extern bool SetWindowPos(IntPtr hWnd, IntPtr hWndInsertAfter, int X, int Y, int cx, int cy, uint uFlags);
+        [return: MarshalAs(UnmanagedType.Bool)]
+        private static partial bool SetWindowPos(IntPtr hWnd, IntPtr hWndInsertAfter, int X, int Y, int cx, int cy, uint uFlags);
 
-        [DllImport("user32.dll")]
+        [LibraryImport("user32.dll")]
         [DefaultDllImportSearchPaths(DllImportSearchPath.System32)]
-        private static extern bool SetForegroundWindow(IntPtr hWnd);
+        [return: MarshalAs(UnmanagedType.Bool)]
+        private static partial bool SetForegroundWindow(IntPtr hWnd);
 
-        [DllImport("user32.dll")]
+        [LibraryImport("user32.dll")]
         [DefaultDllImportSearchPaths(DllImportSearchPath.System32)]
-        private static extern IntPtr GetForegroundWindow();
+        private static partial IntPtr GetForegroundWindow();
 
-        [DllImport("user32.dll")]
+        [LibraryImport("user32.dll")]
         [DefaultDllImportSearchPaths(DllImportSearchPath.System32)]
-        private static extern IntPtr GetActiveWindow();
+        private static partial IntPtr GetActiveWindow();
 
-        [DllImport("user32.dll", SetLastError = true)]
+        [LibraryImport("user32.dll", SetLastError = true)]
         [DefaultDllImportSearchPaths(DllImportSearchPath.System32)]
-        private static extern uint GetWindowThreadProcessId(IntPtr hWnd, out uint lpdwProcessId);
+        private static partial uint GetWindowThreadProcessId(IntPtr hWnd, out uint lpdwProcessId);
 
         /// <summary>
         /// Gets the handle (HWND) of the currently active window belonging to the running application process.
@@ -208,9 +211,9 @@ namespace Easy_Copier.Infrastructure
             return dpi <= 0 ? 1.0 : dpi / (double)defaultDpi;
         }
 
-        [DllImport("user32.dll")]
+        [LibraryImport("user32.dll")]
         [DefaultDllImportSearchPaths(DllImportSearchPath.System32)]
-        private static extern uint GetDpiForWindow(IntPtr hWnd);
+        private static partial uint GetDpiForWindow(IntPtr hWnd);
 
         /// <summary>
         /// Initializes standard window parameters including window dimensions and default window icons.
