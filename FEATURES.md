@@ -82,6 +82,8 @@
 
 ## 🏗️ Architecture & Code Quality
 - Clean view-model separation enforcing zero View-to-ViewModel UI coupling through rigorous Dependency Injection (completely removing AppServiceLocator).
+- Extracted `ILibraryFilterService` to handle text search query filtering, `GameCategory` matching, and OS image sorting in a dedicated service.
+- Refactored `ILibraryCacheService` to encapsulate snapshot fingerprinting and JSON cache file creation (`CreateAndSaveSnapshotAsync`).
 - Decoupled library tab views using `ILibraryTabView` interface to eliminate view-to-view tight coupling.
 - Replaced imperative C# UI construction in `DialogService.cs` with declarative `ConflictDialogContent.xaml` XAML controls.
 - Centralized flyout logic in `FlyoutHelper.cs` for right-click details flyouts.

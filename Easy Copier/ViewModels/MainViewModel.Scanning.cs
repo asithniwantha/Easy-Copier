@@ -87,45 +87,11 @@ namespace Easy_Copier.ViewModels
 
         private async Task SaveCacheSnapshotAsync(AppSettings settings)
         {
-            try
+            List<GameEntry> allEntries = [.. _allGames, .. _allApps, .. _allTvAndFilms, .. _allOsImages];
+            string? resultMessage = await _libraryCacheService.CreateAndSaveSnapshotAsync(allEntries, settings);
+            if (!string.IsNullOrEmpty(resultMessage))
             {
-                Dictionary<string, ItemFingerprint> fingerprints = [];
-
-                List<GameEntry> allEntries = [.. _allGames, .. _allApps, .. _allTvAndFilms, .. _allOsImages];
-
-                foreach (GameEntry? entry in allEntries)
-                {
-                    try
-                    {
-                        ItemFingerprint fingerprint = await _libraryCacheService.ComputeItemFingerprintAsync(entry.FolderPath);
-                        string normalizedPath = Path.GetFullPath(entry.FolderPath)
-                            .TrimEnd(Path.DirectorySeparatorChar, Path.AltDirectorySeparatorChar);
-                        fingerprints[normalizedPath] = fingerprint;
-                    }
-                    catch (Exception ex)
-                    {
-                        StatusMessage = $"Warning: Could not compute fingerprint for {entry.Name}: {ex.Message}";
-                    }
-                }
-
-                LibraryCacheSnapshot snapshot = new(
-                    LibraryCacheSnapshot.CurrentSchemaVersion,
-                    [.. _allGames],
-                    [.. _allApps],
-                    [.. _allTvAndFilms],
-                    [.. _allOsImages],
-                    [.. settings.GameSourceFolders],
-                    [.. settings.AppSourceFolders],
-                    [.. settings.TvAndFilmSourceFolders ?? []],
-                    [.. settings.OsImageSourceFolders ?? []],
-                    DateTime.Now,
-                    fingerprints);
-
-                await _libraryCacheService.SaveCacheAsync(snapshot);
-            }
-            catch (Exception ex)
-            {
-                StatusMessage = $"Failed to save cache: {ex.Message}";
+                StatusMessage = resultMessage;
             }
         }
 
@@ -161,44 +127,13 @@ namespace Easy_Copier.ViewModels
 
         private void ApplyFilter()
         {
-            string query = SearchText?.Trim() ?? string.Empty;
-            GameCategory categoryFilter = SelectedCategory;
-
-            IEnumerable<GameEntry> FilterEntries(IEnumerable<GameEntry> source)
-            {
-                IEnumerable<GameEntry> filtered = string.IsNullOrEmpty(query)
-                    ? source
-                    : source.Where(g => g.Name.Contains(query, StringComparison.OrdinalIgnoreCase));
-
-                if (categoryFilter != GameCategory.All)
-                {
-                    filtered = filtered.Where(g => g.Categories != null && g.Categories.Contains(categoryFilter));
-                }
-
-                return filtered;
-            }
-
-            IEnumerable<GameEntry> SortOsImages(IEnumerable<GameEntry> entries)
-            {
-                return SelectedOsImageSortOption switch
-                {
-                    OsImageSortOption.Name => IsOsImageSortAscending
-                        ? entries.OrderBy(e => e.Name, StringComparer.OrdinalIgnoreCase)
-                        : entries.OrderByDescending(e => e.Name, StringComparer.OrdinalIgnoreCase),
-                    OsImageSortOption.DateCreated => IsOsImageSortAscending
-                        ? entries.OrderBy(e => e.DateCreated).ThenBy(e => e.Name, StringComparer.OrdinalIgnoreCase)
-                        : entries.OrderByDescending(e => e.DateCreated).ThenByDescending(e => e.Name, StringComparer.OrdinalIgnoreCase),
-                    OsImageSortOption.Size => IsOsImageSortAscending
-                        ? entries.OrderBy(e => e.TotalBytes).ThenBy(e => e.Name, StringComparer.OrdinalIgnoreCase)
-                        : entries.OrderByDescending(e => e.TotalBytes).ThenByDescending(e => e.Name, StringComparer.OrdinalIgnoreCase),
-                    _ => entries
-                };
-            }
-
-            Games.UpdateFrom(FilterEntries(_allGames));
-            Apps.UpdateFrom(FilterEntries(_allApps));
-            TvAndFilms.UpdateFrom(FilterEntries(_allTvAndFilms));
-            OsImages.UpdateFrom(SortOsImages(FilterEntries(_allOsImages)));
+            Games.UpdateFrom(_libraryFilterService.FilterEntries(_allGames, SearchText, SelectedCategory));
+            Apps.UpdateFrom(_libraryFilterService.FilterEntries(_allApps, SearchText, SelectedCategory));
+            TvAndFilms.UpdateFrom(_libraryFilterService.FilterEntries(_allTvAndFilms, SearchText, SelectedCategory));
+            OsImages.UpdateFrom(_libraryFilterService.SortOsImages(
+                _libraryFilterService.FilterEntries(_allOsImages, SearchText, SelectedCategory),
+                SelectedOsImageSortOption,
+                IsOsImageSortAscending));
 
             OnPropertyChanged(nameof(IsGamesEmpty));
             OnPropertyChanged(nameof(IsAppsEmpty));
