@@ -54,13 +54,16 @@ namespace Easy_Copier.Views
         /// <inheritdoc />
         public IEnumerable<GameEntry> GetSelectedEntries()
         {
-            return OsImagesGridView.SelectedItems.OfType<GameEntry>();
+            return OsImagesGridView?.SelectedItems?.OfType<GameEntry>() ?? Enumerable.Empty<GameEntry>();
         }
 
         /// <inheritdoc />
         public void ClearSelection()
         {
-            OsImagesGridView.SelectedItems.Clear();
+            if (OsImagesGridView != null)
+            {
+                OsImagesGridView.SelectedItem = null;
+            }
         }
 
         private void OsImagesGridView_SelectionChanged(object sender, SelectionChangedEventArgs e)

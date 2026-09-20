@@ -54,13 +54,16 @@ namespace Easy_Copier.Views
         /// <inheritdoc />
         public IEnumerable<GameEntry> GetSelectedEntries()
         {
-            return AppsGridView.SelectedItems.OfType<GameEntry>();
+            return AppsGridView?.SelectedItems?.OfType<GameEntry>() ?? Enumerable.Empty<GameEntry>();
         }
 
         /// <inheritdoc />
         public void ClearSelection()
         {
-            AppsGridView.SelectedItems.Clear();
+            if (AppsGridView?.SelectedItems?.Count > 0)
+            {
+                AppsGridView.SelectedItems.Clear();
+            }
         }
 
         private void AppsGridView_SelectionChanged(object sender, SelectionChangedEventArgs e)
