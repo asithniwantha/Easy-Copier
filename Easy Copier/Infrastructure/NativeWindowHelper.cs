@@ -25,11 +25,11 @@ namespace Easy_Copier.Infrastructure
             public int Bottom;
         }
 
-        [LibraryImport("user32.dll", EntryPoint = "SetWindowLongPtr", SetLastError = true)]
+        [LibraryImport("user32.dll", EntryPoint = "SetWindowLongPtrW", SetLastError = true)]
         [DefaultDllImportSearchPaths(DllImportSearchPath.System32)]
         private static partial IntPtr SetWindowLongPtr64(IntPtr hWnd, int nIndex, IntPtr dwNewLong);
 
-        [LibraryImport("user32.dll", EntryPoint = "SetWindowLong", SetLastError = true)]
+        [LibraryImport("user32.dll", EntryPoint = "SetWindowLongW", SetLastError = true)]
         [DefaultDllImportSearchPaths(DllImportSearchPath.System32)]
         private static partial int SetWindowLong32(IntPtr hWnd, int nIndex, int dwNewLong);
 
