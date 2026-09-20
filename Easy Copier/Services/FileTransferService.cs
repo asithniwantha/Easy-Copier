@@ -33,7 +33,7 @@ namespace Easy_Copier.Services
     /// <summary>
     /// Implements file transfer operations utilizing the Windows Shell COM API (<see cref="IFileOperation"/>) on STA background threads.
     /// </summary>
-    public class WindowsShellTransferService : IFileTransferService
+    public partial class WindowsShellTransferService : IFileTransferService
     {
         /// <summary>
         /// Logger instance used for diagnostic logging of transfer operations.
@@ -462,7 +462,7 @@ namespace Easy_Copier.Services
         /// <summary>
         /// P/Invoke definitions for native Windows COM library functions.
         /// </summary>
-        private static class NativeMethods
+        private static partial class NativeMethods
         {
             /// <summary>
             /// Initializes the COM library on the calling thread.
@@ -470,8 +470,8 @@ namespace Easy_Copier.Services
             /// <param name="pvReserved">Reserved; must be <see cref="IntPtr.Zero"/>.</param>
             /// <param name="dwCoInit">The concurrency model and initialization flags.</param>
             /// <returns>An HRESULT indicating success or failure.</returns>
-            [DllImport("ole32.dll")]
-            public static extern int CoInitializeEx(IntPtr pvReserved, uint dwCoInit);
+            [LibraryImport("ole32.dll")]
+            public static partial int CoInitializeEx(IntPtr pvReserved, uint dwCoInit);
 
             /// <summary>
             /// Initializes the thread for single-threaded apartment (STA) COM execution.

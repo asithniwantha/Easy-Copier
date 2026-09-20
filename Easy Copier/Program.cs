@@ -7,8 +7,6 @@ namespace Easy_Copier
 {
     public static class Program
     {
-        // [System.Runtime.InteropServices.DllImport("shell32.dll", SetLastError = true)]
-        // [System.Runtime.InteropServices.DefaultDllImportSearchPaths(System.Runtime.InteropServices.DllImportSearchPath.System32)]
         // private static extern int SetCurrentProcessExplicitAppUserModelID([System.Runtime.InteropServices.MarshalAs(System.Runtime.InteropServices.UnmanagedType.LPWStr)] string AppID);
 
         [STAThread]
