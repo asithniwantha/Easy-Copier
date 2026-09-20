@@ -4,6 +4,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.UI.Xaml;
 using System;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace Easy_Copier
 {
@@ -24,6 +26,7 @@ namespace Easy_Copier
 
             UnhandledException += App_UnhandledException;
             AppDomain.CurrentDomain.UnhandledException += CurrentDomain_UnhandledException;
+            TaskScheduler.UnobservedTaskException += TaskScheduler_UnobservedTaskException;
         }
 
         private void App_UnhandledException(object sender, Microsoft.UI.Xaml.UnhandledExceptionEventArgs e)
@@ -42,6 +45,23 @@ namespace Easy_Copier
             {
                 ILogger<App> logger = _serviceProvider.GetRequiredService<ILogger<App>>();
                 logger.LogCritical(ex, "A fatal application domain exception occurred.");
+            }
+        }
+
+        private void TaskScheduler_UnobservedTaskException(object? sender, UnobservedTaskExceptionEventArgs e)
+        {
+            if (e.Exception.InnerExceptions.Any(ex => ex is TaskCanceledException || ex is OperationCanceledException))
+            {
+                e.SetObserved();
+            }
+            else
+            {
+                if (_serviceProvider != null)
+                {
+                    ILogger<App> logger = _serviceProvider.GetRequiredService<ILogger<App>>();
+                    logger.LogWarning(e.Exception, "An unobserved task exception occurred.");
+                }
+                e.SetObserved(); // Prevent unobserved task exceptions from terminating the process
             }
         }
 
