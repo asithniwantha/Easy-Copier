@@ -57,7 +57,17 @@ namespace Easy_Copier.Infrastructure
 
             if (_dispatcherQueue != null)
             {
-                return _dispatcherQueue.TryEnqueue(async () => await action());
+                return _dispatcherQueue.TryEnqueue(async () =>
+                {
+                    try
+                    {
+                        await action();
+                    }
+                    catch (Exception ex) when (ex is TaskCanceledException || ex is OperationCanceledException)
+                    {
+                        // Ignore expected cancellation exceptions on the dispatcher to prevent application crash during shutdown
+                    }
+                });
             }
             else
             {
