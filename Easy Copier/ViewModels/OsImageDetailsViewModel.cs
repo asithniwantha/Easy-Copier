@@ -54,9 +54,20 @@ namespace Easy_Copier.ViewModels
             }
 
             const string dateFormat = "dd/MM/yyyy hh:mm tt";
-            if (created.HasValue) DateCreatedFormatted = created.Value.ToString(dateFormat, CultureInfo.InvariantCulture);
-            if (modified.HasValue) DateModifiedFormatted = modified.Value.ToString(dateFormat, CultureInfo.InvariantCulture);
-            if (accessed.HasValue) DateAccessedFormatted = accessed.Value.ToString(dateFormat, CultureInfo.InvariantCulture);
+            if (created.HasValue)
+            {
+                DateCreatedFormatted = created.Value.ToString(dateFormat, CultureInfo.InvariantCulture);
+            }
+
+            if (modified.HasValue)
+            {
+                DateModifiedFormatted = modified.Value.ToString(dateFormat, CultureInfo.InvariantCulture);
+            }
+
+            if (accessed.HasValue)
+            {
+                DateAccessedFormatted = accessed.Value.ToString(dateFormat, CultureInfo.InvariantCulture);
+            }
         }
     }
 }

@@ -36,17 +36,17 @@ namespace Easy_Copier.ViewModels
             {
                 if (Directory.Exists(folderPath))
                 {
-                    var dirs = Directory.GetDirectories(folderPath).OrderBy(d => d);
-                    var files = Directory.GetFiles(folderPath).OrderBy(f => f);
+                    IOrderedEnumerable<string> dirs = Directory.GetDirectories(folderPath).OrderBy(d => d);
+                    IOrderedEnumerable<string> files = Directory.GetFiles(folderPath).OrderBy(f => f);
 
-                    foreach (var dir in dirs)
+                    foreach (string dir in dirs)
                     {
-                        var item = new FileSystemItem(dir, true);
+                        FileSystemItem item = new(dir, true);
                         FolderContents.Add(item);
                         _ = CalculateFolderSizeAsync(item);
                     }
 
-                    foreach (var file in files)
+                    foreach (string file in files)
                     {
                         FolderContents.Add(new FileSystemItem(file, false));
                     }
@@ -72,21 +72,24 @@ namespace Easy_Copier.ViewModels
 
         private async Task CalculateFolderSizeAsync(FileSystemItem item)
         {
-            if (!item.IsFolder) return;
+            if (!item.IsFolder)
+            {
+                return;
+            }
 
             await Task.Run(() =>
             {
                 try
                 {
                     long size = FileSystemHelpers.CalculateDirectorySize(new DirectoryInfo(item.Path));
-                    _dispatcherService.TryEnqueue(() =>
+                    _ = _dispatcherService.TryEnqueue(() =>
                     {
                         item.SizeFormatted = FormattingHelpers.FormatBytes(size);
                     });
                 }
                 catch
                 {
-                    _dispatcherService.TryEnqueue(() =>
+                    _ = _dispatcherService.TryEnqueue(() =>
                     {
                         item.SizeFormatted = "Unknown";
                     });

@@ -1,6 +1,7 @@
 using Easy_Copier.Models;
 using Microsoft.Extensions.Logging;
-
+using Microsoft.Windows.AppNotifications;
+using Microsoft.Windows.AppNotifications.Builder;
 using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
@@ -8,8 +9,6 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Channels;
 using System.Threading.Tasks;
-using Microsoft.Windows.AppNotifications;
-using Microsoft.Windows.AppNotifications.Builder;
 
 namespace Easy_Copier.Services
 {
@@ -306,17 +305,19 @@ namespace Easy_Copier.Services
 
             if (activeItemsForDrive == 0)
             {
-                var batchItems = QueueItems.Where(i =>
+                List<TransferQueueItem> batchItems = QueueItems.Where(i =>
                     !i.IsActive &&
                     string.Equals(i.TargetDrive.DriveLetter, driveLetter, StringComparison.OrdinalIgnoreCase))
                     .ToList();
 
                 if (batchItems.Count == 0)
+                {
                     return;
+                }
 
                 // We consider it a "failure" if ANY item in the queue for this drive has a Failed or Cancelled status.
                 // NOTE: Once a user hits 'Clear Finished', those items are gone, so this evaluates only the currently visible batch.
-                bool anyFailedOrCancelled = batchItems.Any(i => i.Status == TransferQueueItemStatus.Failed || i.Status == TransferQueueItemStatus.Cancelled);
+                bool anyFailedOrCancelled = batchItems.Any(i => i.Status is TransferQueueItemStatus.Failed or TransferQueueItemStatus.Cancelled);
 
                 if (settings.PlayNotificationSounds)
                 {
@@ -347,36 +348,29 @@ namespace Easy_Copier.Services
         {
             try
             {
-                var firstItem = batchItems.First();
+                TransferQueueItem firstItem = batchItems.First();
                 long totalDriveCapacity = firstItem.TargetDrive.TotalBytes;
                 string statusText = isSuccess ? "Complete" : "Failed";
                 string title = $"{firstItem.TargetDrive.DriveLetter} - {Infrastructure.FormattingHelpers.FormatBytes(totalDriveCapacity)} Capacity - {statusText}";
 
                 long totalBytes = batchItems.Sum(x => x.TotalBytes);
                 int totalPrice = batchItems.Sum(x => x.TotalPrice);
-                var allGames = batchItems.SelectMany(x => x.Items).Select(x => x.Game.Name).ToList();
+                List<string> allGames = batchItems.SelectMany(x => x.Items).Select(x => x.Game.Name).ToList();
                 int totalItems = allGames.Count;
 
-                string namesText;
-                if (totalItems > 3)
-                {
-                    namesText = $"{totalItems} items: {string.Join(", ", allGames.Take(3))} and {totalItems - 3} more.";
-                }
-                else
-                {
-                    namesText = $"{totalItems} items: {string.Join(", ", allGames)}.";
-                }
-
+                string namesText = totalItems > 3
+                    ? $"{totalItems} items: {string.Join(", ", allGames.Take(3))} and {totalItems - 3} more."
+                    : $"{totalItems} items: {string.Join(", ", allGames)}.";
                 string body = $"{namesText} Size: {Infrastructure.FormattingHelpers.FormatBytes(totalBytes)}. Price: Rs. {totalPrice}";
 
                 BatchCompleted?.Invoke(this, (title, body));
 
-                var builder = new AppNotificationBuilder()
+                AppNotificationBuilder builder = new AppNotificationBuilder()
                     .AddText(title)
                     .AddText(body);
 
                 _logger.LogInformation("Attempting to show desktop notification: {Title}", title);
-                var notification = builder.BuildNotification();
+                AppNotification notification = builder.BuildNotification();
                 if (!AppNotificationManager.IsSupported())
                 {
                     _logger.LogWarning("AppNotificationManager.IsSupported() returned false. Skipping toast display.");

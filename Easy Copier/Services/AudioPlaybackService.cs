@@ -1,8 +1,8 @@
+using Microsoft.Extensions.Logging;
 using System;
 using System.IO;
 using System.Media;
 using System.Threading.Tasks;
-using Microsoft.Extensions.Logging;
 
 namespace Easy_Copier.Services
 {
@@ -70,7 +70,7 @@ namespace Easy_Copier.Services
 
                 if (File.Exists(fullPath))
                 {
-                    Task.Run(() =>
+                    _ = Task.Run(() =>
                     {
                         try
                         {

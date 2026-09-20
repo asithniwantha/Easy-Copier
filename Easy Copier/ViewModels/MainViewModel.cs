@@ -269,12 +269,7 @@ namespace Easy_Copier.ViewModels
         {
             ArgumentNullException.ThrowIfNull(action);
 
-            if (IsDisposed)
-            {
-                return false;
-            }
-
-            return _dispatcherService.TryEnqueue(() =>
+            return !IsDisposed && _dispatcherService.TryEnqueue(() =>
             {
                 if (IsDisposed)
                 {
@@ -289,12 +284,7 @@ namespace Easy_Copier.ViewModels
         {
             ArgumentNullException.ThrowIfNull(action);
 
-            if (IsDisposed)
-            {
-                return false;
-            }
-
-            return _dispatcherService.TryEnqueue(async () =>
+            return !IsDisposed && _dispatcherService.TryEnqueue(async () =>
             {
                 if (IsDisposed)
                 {

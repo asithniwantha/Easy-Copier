@@ -1,7 +1,6 @@
 using Easy_Copier.ViewModels;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
-using System.ComponentModel;
 
 namespace Easy_Copier.Views
 {

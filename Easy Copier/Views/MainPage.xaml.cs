@@ -78,9 +78,9 @@ namespace Easy_Copier.Views
             }
             else
             {
-                SearchBox.Resources.Remove("TextControlBackground");
-                SearchBox.Resources.Remove("TextControlBackgroundPointerOver");
-                SearchBox.Resources.Remove("TextControlBackgroundFocused");
+                _ = SearchBox.Resources.Remove("TextControlBackground");
+                _ = SearchBox.Resources.Remove("TextControlBackgroundPointerOver");
+                _ = SearchBox.Resources.Remove("TextControlBackgroundFocused");
                 SearchBox.ClearValue(Control.BackgroundProperty);
             }
         }
@@ -92,7 +92,7 @@ namespace Easy_Copier.Views
 
         private IEnumerable<ILibraryTabView> GetTabViews()
         {
-            ILibraryTabView?[] tabs = [GamesTab as ILibraryTabView, AppsTab as ILibraryTabView, TvAndFilmsTab as ILibraryTabView, OsImagesTab as ILibraryTabView];
+            ILibraryTabView?[] tabs = [GamesTab, AppsTab, TvAndFilmsTab, OsImagesTab];
             return tabs.OfType<ILibraryTabView>();
         }
 

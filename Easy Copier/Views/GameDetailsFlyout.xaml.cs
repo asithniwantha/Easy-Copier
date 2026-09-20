@@ -1,11 +1,8 @@
 using Microsoft.UI.Text;
-using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Documents;
 using Microsoft.UI.Xaml.Media;
 using System;
-using System.IO;
-using System.Linq;
 
 namespace Easy_Copier.Views
 {

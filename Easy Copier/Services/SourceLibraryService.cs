@@ -67,7 +67,7 @@ namespace Easy_Copier.Services
         {
             ArgumentNullException.ThrowIfNull(folderPaths);
 
-            var tasks = folderPaths.Select(async path =>
+            IEnumerable<Task<SourceFolder>> tasks = folderPaths.Select(async path =>
             {
                 try
                 {

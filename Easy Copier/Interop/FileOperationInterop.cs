@@ -39,7 +39,7 @@ namespace Easy_Copier.Interop
             else
             {
                 ppv = (IShellItem)Marshal.GetObjectForIUnknown(ptr);
-                Marshal.Release(ptr);
+                _ = Marshal.Release(ptr);
             }
         }
     }

@@ -426,7 +426,7 @@ namespace Easy_Copier.Services
                 const uint COPYENGINE_E_USER_CANCELLED = 0x80270000;
 
                 // hr >= 0x80000000 means failure HRESULT
-                bool isFailed = (hr >= 0x80000000 && hr != COPYENGINE_E_USER_CANCELLED);
+                bool isFailed = hr is >= 0x80000000 and not COPYENGINE_E_USER_CANCELLED;
 
                 return !(aborted || hr == COPYENGINE_E_USER_CANCELLED || isFailed);
             }
