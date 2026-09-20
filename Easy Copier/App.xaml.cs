@@ -1,4 +1,4 @@
-﻿using Easy_Copier.Infrastructure;
+using Easy_Copier.Infrastructure;
 using Easy_Copier.Services;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
@@ -87,8 +87,15 @@ namespace Easy_Copier
                 logger.LogInformation("Easy Copier application shutting down.");
                 if (Microsoft.Windows.AppNotifications.AppNotificationManager.IsSupported())
                 {
-                    Microsoft.Windows.AppNotifications.AppNotificationManager.Default.Unregister();
-                    Microsoft.Windows.AppNotifications.AppNotificationManager.Default.NotificationInvoked -= AppNotificationManager_NotificationInvoked;
+                    try
+                    {
+                        Microsoft.Windows.AppNotifications.AppNotificationManager.Default.Unregister();
+                        Microsoft.Windows.AppNotifications.AppNotificationManager.Default.NotificationInvoked -= AppNotificationManager_NotificationInvoked;
+                    }
+                    catch (Exception ex)
+                    {
+                        logger.LogWarning(ex, "Exception unregistering AppNotificationManager during shutdown.");
+                    }
                 }
                 DisposeServices();
             };
