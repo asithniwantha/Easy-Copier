@@ -33,7 +33,7 @@ namespace Easy_Copier.Services
     /// <summary>
     /// Implements file transfer operations utilizing the Windows Shell COM API (<see cref="IFileOperation"/>) on STA background threads.
     /// </summary>
-    public class WindowsShellTransferService : IFileTransferService
+    public partial class WindowsShellTransferService : IFileTransferService
     {
         /// <summary>
         /// Logger instance used for diagnostic logging of transfer operations.
