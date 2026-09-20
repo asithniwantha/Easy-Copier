@@ -6,10 +6,22 @@ using System;
 
 namespace Easy_Copier.Views
 {
+    /// <summary>
+    /// User control displaying detailed information, system requirements, and folder contents for a game entry in a flyout.
+    /// </summary>
     public sealed partial class GameDetailsFlyout : UserControl
     {
+        /// <summary>
+        /// Gets the <see cref="ViewModels.GameDetailsViewModel"/> backing this details view.
+        /// </summary>
         public ViewModels.GameDetailsViewModel ViewModel { get; }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="GameDetailsFlyout"/> class.
+        /// </summary>
+        /// <param name="viewModel">The view model backing the game details.</param>
+        /// <param name="formattedSysReqText">The formatted system requirements text to present.</param>
+        /// <param name="folderPath">The root directory path of the game to list contents for.</param>
         public GameDetailsFlyout(ViewModels.GameDetailsViewModel viewModel, string formattedSysReqText, string folderPath)
         {
             ViewModel = viewModel;
@@ -18,12 +30,21 @@ namespace Easy_Copier.Views
             _ = ViewModel.LoadFolderContentsAsync(folderPath);
         }
 
+        /// <summary>
+        /// Populates the system requirements text block with formatted and colorized paragraphs.
+        /// </summary>
+        /// <param name="formattedText">The raw system requirements text to parse and display.</param>
         private void PopulateSysReqs(string formattedText)
         {
             SysReqTextBlock.Blocks.Clear();
             SysReqTextBlock.Blocks.Add(CreateColoredParagraph(formattedText));
         }
 
+        /// <summary>
+        /// Constructs a rich text <see cref="Paragraph"/> with color-coded category labels (CPU, GPU, RAM, Storage, OS).
+        /// </summary>
+        /// <param name="text">The formatted multi-line system requirements string.</param>
+        /// <returns>A <see cref="Paragraph"/> containing styled inline text runs.</returns>
         private static Paragraph CreateColoredParagraph(string text)
         {
             Paragraph paragraph = new();
