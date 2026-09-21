@@ -82,6 +82,8 @@
 
 ## 🏗️ Architecture & Code Quality
 - Clean view-model separation enforcing zero View-to-ViewModel UI coupling through rigorous Dependency Injection (completely removing AppServiceLocator).
+- Extracted `IRufusService` / `RufusService` into `Services/` to encapsulate Rufus executable path discovery and ISO launching, keeping `MainViewModel` lean.
+- Streamlined child tab ViewModels (`GamesTabViewModel`, `AppsTabViewModel`, `TvAndFilmsTabViewModel`, `OsImagesTabViewModel`) using `ForwardParentPropertyChanges` in `LibraryTabViewModelBase`.
 - Extracted `ILibraryFilterService` to handle text search query filtering, `GameCategory` matching, and OS image sorting in a dedicated service.
 - Refactored `ILibraryCacheService` to encapsulate snapshot fingerprinting and JSON cache file creation (`CreateAndSaveSnapshotAsync`).
 - Decoupled library tab views using `ILibraryTabView` interface to eliminate view-to-view tight coupling.
@@ -121,9 +123,7 @@
 - [ ] Add a real-time transfer speed graph showing current MB/s in the active transfer view.
 - [ ] Add cloud backup functionality for the SQLite database to secure historical and financial records.
 - [x] Show notifications for copy failures and successes batch completion.
-
-- [ ] Show notifications for copy failures and successes batch completion.
-- [ ] Add a OS images tab and instruct Rufus to open with a specific image file eg:"rufus.exe -i "C:\path\to\your\image.iso"
+- [x] Add an OS images tab and instruct Rufus to open with a specific image file (e.g., `rufus.exe -i "C:\path\to\your\image.iso"`).
 
 ## 🗄️ Database Schema
 

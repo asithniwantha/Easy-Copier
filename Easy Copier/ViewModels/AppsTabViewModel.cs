@@ -36,14 +36,9 @@ namespace Easy_Copier.ViewModels
         /// <inheritdoc />
         protected override void OnParentPropertyChanged(string? propertyName)
         {
-            if (propertyName == nameof(MainViewModel.IsAppsEmpty))
-            {
-                OnPropertyChanged(nameof(IsAppsEmpty));
-            }
-            else if (propertyName == nameof(MainViewModel.EmptyAppsMessage))
-            {
-                OnPropertyChanged(nameof(EmptyAppsMessage));
-            }
+            ForwardParentPropertyChanges(propertyName,
+                (nameof(MainViewModel.IsAppsEmpty), nameof(IsAppsEmpty)),
+                (nameof(MainViewModel.EmptyAppsMessage), nameof(EmptyAppsMessage)));
         }
     }
 }

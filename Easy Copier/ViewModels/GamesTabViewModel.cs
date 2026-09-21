@@ -51,18 +51,10 @@ namespace Easy_Copier.ViewModels
         /// <inheritdoc />
         protected override void OnParentPropertyChanged(string? propertyName)
         {
-            if (propertyName == nameof(MainViewModel.IsGamesEmpty))
-            {
-                OnPropertyChanged(nameof(IsGamesEmpty));
-            }
-            else if (propertyName == nameof(MainViewModel.EmptyGamesMessage))
-            {
-                OnPropertyChanged(nameof(EmptyGamesMessage));
-            }
-            else if (propertyName == nameof(MainViewModel.SelectedCategory))
-            {
-                OnPropertyChanged(nameof(SelectedCategory));
-            }
+            ForwardParentPropertyChanges(propertyName,
+                (nameof(MainViewModel.IsGamesEmpty), nameof(IsGamesEmpty)),
+                (nameof(MainViewModel.EmptyGamesMessage), nameof(EmptyGamesMessage)),
+                (nameof(MainViewModel.SelectedCategory), nameof(SelectedCategory)));
         }
     }
 }
