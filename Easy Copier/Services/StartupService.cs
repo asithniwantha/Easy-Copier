@@ -61,6 +61,13 @@ namespace Easy_Copier.Services
                         return;
                     }
 
+                    string expectedFolder = System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "EasyCopier");
+                    if (!executablePath.StartsWith(expectedFolder, StringComparison.OrdinalIgnoreCase))
+                    {
+                        _logger.LogWarning("Cannot enable start on logon: Application is not running from {ExpectedFolder}. Current path: {ExecutablePath}", expectedFolder, executablePath);
+                        return;
+                    }
+
                     // Add quotes around the path to handle spaces
                     string launchCommand = $"\"{executablePath}\"";
 
