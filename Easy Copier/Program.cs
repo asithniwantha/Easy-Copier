@@ -45,15 +45,12 @@ namespace Easy_Copier
 
         private static void MainInstance_Activated(object? sender, Microsoft.Windows.AppLifecycle.AppActivationArguments e)
         {
-            if (App.MainWindow != null)
-            {
-                App.MainWindow.DispatcherQueue.TryEnqueue(() =>
+            App.MainWindow?.DispatcherQueue.TryEnqueue(() =>
                 {
                     App.MainWindow.Activate();
                     IntPtr hwnd = WinRT.Interop.WindowNative.GetWindowHandle(App.MainWindow);
                     Easy_Copier.Infrastructure.NativeWindowHelper.SetForeground(hwnd);
                 });
-            }
         }
     }
 }
