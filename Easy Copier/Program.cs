@@ -19,26 +19,38 @@ namespace Easy_Copier
 
             // No longer explicitly setting AppUserModelID; relying on Windows App SDK bootstrapper and NotificationInvoked.
 
-            bool isRedirect = false;
             try
             {
-                // This call might throw if another instance has already redirected activation,
-                // but we typically don't use AppInstance redirection in this simple app right now.
-                // We keep standard initialization.
-                _ = Microsoft.Windows.AppLifecycle.AppInstance.GetCurrent().GetActivatedEventArgs();
+                Microsoft.Windows.AppLifecycle.AppInstance mainInstance = Microsoft.Windows.AppLifecycle.AppInstance.FindOrRegisterForKey("EasyCopierMainInstance");
+
+                if (!mainInstance.IsCurrent)
+                {
+                    Microsoft.Windows.AppLifecycle.AppActivationArguments argsActivated = Microsoft.Windows.AppLifecycle.AppInstance.GetCurrent().GetActivatedEventArgs();
+                    mainInstance.RedirectActivationToAsync(argsActivated).AsTask().Wait();
+                    return;
+                }
+
+                mainInstance.Activated += MainInstance_Activated;
             }
             catch { }
 
-            if (!isRedirect)
+            Microsoft.UI.Xaml.Application.Start((p) =>
             {
-                Microsoft.UI.Xaml.Application.Start((p) =>
+                DispatcherQueueSynchronizationContext context = new(
+                    DispatcherQueue.GetForCurrentThread());
+                SynchronizationContext.SetSynchronizationContext(context);
+                _ = new App();
+            });
+        }
+
+        private static void MainInstance_Activated(object? sender, Microsoft.Windows.AppLifecycle.AppActivationArguments e)
+        {
+            App.MainWindow?.DispatcherQueue.TryEnqueue(() =>
                 {
-                    DispatcherQueueSynchronizationContext context = new(
-                        DispatcherQueue.GetForCurrentThread());
-                    SynchronizationContext.SetSynchronizationContext(context);
-                    _ = new App();
+                    App.MainWindow.Activate();
+                    IntPtr hwnd = WinRT.Interop.WindowNative.GetWindowHandle(App.MainWindow);
+                    Easy_Copier.Infrastructure.NativeWindowHelper.SetForeground(hwnd);
                 });
-            }
         }
     }
 }
