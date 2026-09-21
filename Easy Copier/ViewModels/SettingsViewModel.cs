@@ -379,5 +379,21 @@ namespace Easy_Copier.ViewModels
             IsOsImagesPanelVisible = value is "OsImages";
             IsLogsPanelVisible = value is "Logs";
         }
+
+        partial void OnStartOnLogonChanged(bool value)
+        {
+            if (value)
+            {
+                string? executablePath = Environment.ProcessPath;
+                string expectedFolder = System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "EasyCopier");
+
+                if (string.IsNullOrEmpty(executablePath) || !executablePath.StartsWith(expectedFolder, StringComparison.OrdinalIgnoreCase))
+                {
+                    _logger.LogWarning("Cannot enable start on logon: Application is not running from {ExpectedFolder}. Current path: {ExecutablePath}", expectedFolder, executablePath);
+                    StartOnLogon = false;
+                    StatusMessage = "Cannot enable startup. App is not in AppData\\Local\\EasyCopier.";
+                }
+            }
+        }
     }
 }
