@@ -112,6 +112,9 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('class_easy___c
   <div class="headertitle"><div class="title">Easy_Copier.Views.AboutWindow Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Displays application version, license, and copyright information in a modal window.  
+ <a href="#details">More...</a></p>
 <div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Inheritance diagram for Easy_Copier.Views.AboutWindow:</div>
 <div id="dynsection-0-summary" class="dynsummary">
 </div>
@@ -165,10 +168,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:aef5f7774c5fd6c20285dc9557fcbb23b" id="r_aef5f7774c5fd6c20285dc9557fcbb23b"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#aef5f7774c5fd6c20285dc9557fcbb23b">InitializeComponent</a> ()</td></tr>
 <tr class="memdesc:aef5f7774c5fd6c20285dc9557fcbb23b"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="#aef5f7774c5fd6c20285dc9557fcbb23b" title="InitializeComponent().">InitializeComponent()</a>.  <br /></td></tr>
 <tr class="memitem:a86b76c2eb0d7e9e24bc276a20207a95e" id="r_a86b76c2eb0d7e9e24bc276a20207a95e"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a86b76c2eb0d7e9e24bc276a20207a95e">AboutWindow</a> (<a class="el" href="class_easy___copier_1_1_view_models_1_1_about_view_model.html">AboutViewModel</a> viewModel, Window owner)</td></tr>
+<tr class="memdesc:a86b76c2eb0d7e9e24bc276a20207a95e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes a new instance of the AboutWindow class.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-properties" class="groupheader"><a id="properties" name="properties"></a>
 Properties</h2></td></tr>
 <tr class="memitem:ae0653883dea04437134c43a473bdbe18" id="r_ae0653883dea04437134c43a473bdbe18"><td class="memItemLeft"><a class="el" href="class_easy___copier_1_1_view_models_1_1_about_view_model.html">AboutViewModel</a>&#160;</td><td class="memItemRight"><a class="el" href="#ae0653883dea04437134c43a473bdbe18">ViewModel</a><code> [get]</code></td></tr>
+<tr class="memdesc:ae0653883dea04437134c43a473bdbe18"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the AboutViewModel providing view state and commands for this window.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pri-methods" class="groupheader"><a id="pri-methods" name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
@@ -183,9 +188,11 @@ Private Attributes</h2></td></tr>
 <tr class="memitem:a9641543a8f8963d4b9ce0cfdf08ea001" id="r_a9641543a8f8963d4b9ce0cfdf08ea001"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a9641543a8f8963d4b9ce0cfdf08ea001">_contentLoaded</a></td></tr>
 <tr class="memitem:aa4952a81b185464779a3887aa807ffe1" id="r_aa4952a81b185464779a3887aa807ffe1"><td class="memItemLeft"><a class="el" href="interface_easy___copier_1_1_views_1_1_about_window_1_1_i_about_window___bindings.html">IAboutWindow_Bindings</a>&#160;</td><td class="memItemRight"><a class="el" href="#aa4952a81b185464779a3887aa807ffe1">Bindings</a></td></tr>
 <tr class="memitem:a0ba315a05670b87ed0252c6acaa86b0c" id="r_a0ba315a05670b87ed0252c6acaa86b0c"><td class="memItemLeft">readonly Window&#160;</td><td class="memItemRight"><a class="el" href="#a0ba315a05670b87ed0252c6acaa86b0c">_owner</a></td></tr>
+<tr class="memdesc:a0ba315a05670b87ed0252c6acaa86b0c"><td class="mdescLeft">&#160;</td><td class="mdescRight">The owner window used for modal positioning and centering.  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
-<div class="textblock">
+<div class="textblock"><p>Displays application version, license, and copyright information in a modal window. </p>
+
 <p class="definition">Definition at line <a class="el" href="_debug_2net10_80-windows10_80_826100_80_2win-x64_2_views_2_about_window_8g_8cs_source.html#l00013">13</a> of file <a class="el" href="_debug_2net10_80-windows10_80_826100_80_2win-x64_2_views_2_about_window_8g_8cs_source.html">AboutWindow.g.cs</a>.</p>
 </div><a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a86b76c2eb0d7e9e24bc276a20207a95e" name="a86b76c2eb0d7e9e24bc276a20207a95e"></a>
@@ -207,9 +214,18 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_about_window_8xaml_8cs_source.html#l00012">12</a> of file <a class="el" href="_about_window_8xaml_8cs_source.html">AboutWindow.xaml.cs</a>.</p>
+<p>Initializes a new instance of the AboutWindow class. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">viewModel</td><td>The view model backing the window.</td></tr>
+    <tr><td class="paramname">owner</td><td>The owner window for modal positioning.</td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p class="reference">References <a class="el" href="_about_window_8xaml_8cs_source.html#l00010">_owner</a>, <a class="el" href="_debug_2net10_80-windows10_80_826100_80_2win-x64_2_views_2_about_window_8g_8i_8cs_source.html#l00029">InitializeComponent()</a>, <a class="el" href="_native_window_helper_8cs_source.html#l00286">Easy_Copier.Infrastructure.NativeWindowHelper.InitializeModalWindow()</a>, and <a class="el" href="_about_window_8xaml_8cs_source.html#l00009">ViewModel</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_about_window_8xaml_8cs_source.html#l00027">27</a> of file <a class="el" href="_about_window_8xaml_8cs_source.html">AboutWindow.xaml.cs</a>.</p>
+
+<p class="reference">References <a class="el" href="_about_window_8xaml_8cs_source.html#l00020">_owner</a>, <a class="el" href="_debug_2net10_80-windows10_80_826100_80_2win-x64_2_views_2_about_window_8g_8i_8cs_source.html#l00029">InitializeComponent()</a>, <a class="el" href="_native_window_helper_8cs_source.html#l00289">Easy_Copier.Infrastructure.NativeWindowHelper.InitializeModalWindow()</a>, and <a class="el" href="_about_window_8xaml_8cs_source.html#l00015">ViewModel</a>.</p>
 <div id="dynsection-2" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-2-summary" class="dynsummary">
 </div>
@@ -531,7 +547,7 @@ Private Attributes</h2></td></tr>
 
 <p class="reference">References <a class="el" href="_debug_2net10_80-windows10_80_826100_80_2win-x64_2_views_2_about_window_8g_8i_8cs_source.html#l00022">_contentLoaded</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_about_window_8xaml_8cs_source.html#l00012">AboutWindow()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_about_window_8xaml_8cs_source.html#l00027">AboutWindow()</a>.</p>
 <div id="dynsection-8" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
 <div id="dynsection-8-summary" class="dynsummary">
 </div>
@@ -805,9 +821,11 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_about_window_8xaml_8cs_source.html#l00010">10</a> of file <a class="el" href="_about_window_8xaml_8cs_source.html">AboutWindow.xaml.cs</a>.</p>
+<p>The owner window used for modal positioning and centering. </p>
 
-<p class="reference">Referenced by <a class="el" href="_about_window_8xaml_8cs_source.html#l00012">AboutWindow()</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_about_window_8xaml_8cs_source.html#l00020">20</a> of file <a class="el" href="_about_window_8xaml_8cs_source.html">AboutWindow.xaml.cs</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_about_window_8xaml_8cs_source.html#l00027">AboutWindow()</a>.</p>
 
 </div>
 </div>
@@ -856,9 +874,11 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_about_window_8xaml_8cs_source.html#l00009">9</a> of file <a class="el" href="_about_window_8xaml_8cs_source.html">AboutWindow.xaml.cs</a>.</p>
+<p>Gets the AboutViewModel providing view state and commands for this window. </p>
 
-<p class="reference">Referenced by <a class="el" href="_about_window_8xaml_8cs_source.html#l00012">AboutWindow()</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_about_window_8xaml_8cs_source.html#l00015">15</a> of file <a class="el" href="_about_window_8xaml_8cs_source.html">AboutWindow.xaml.cs</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_about_window_8xaml_8cs_source.html#l00027">AboutWindow()</a>.</p>
 
 </div>
 </div>

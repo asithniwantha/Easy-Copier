@@ -1,5 +1,5 @@
 <map id="Easy_Copier.Views.OsImageDetailsFlyout.OsImageDetailsFlyout" name="Easy_Copier.Views.OsImageDetailsFlyout.OsImageDetailsFlyout">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,238,48"/>
+<area shape="rect" id="Node000001" title="Initializes a new instance of the OsImageDetailsFlyout class." alt="" coords="5,5,238,48"/>
 <area shape="rect" id="Node000002" href="$class_easy___copier_1_1_views_1_1_os_image_details_flyout.html#a802271a29bd215f0a171083c51cf656f" title="InitializeComponent()." alt="" coords="286,5,503,48"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="238,24,273,27,268,27,238,29"/>
 </map>

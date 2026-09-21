@@ -41,10 +41,10 @@
 <!-- Node3 -->
 <g id="Node000003" class="node">
 <title>Node3</title>
-<g id="a_Node000003"><a xlink:href="class_easy___copier_1_1_view_models_1_1_settings_view_model.html#a6348434751494a82036ccfef6961f24c" target="_top" xlink:title=" ">
-<polygon fill="white" stroke="#666666" points="539.62,-82 372.12,-82 372.12,-50 539.62,-50 539.62,-82"/>
-<text xml:space="preserve" text-anchor="start" x="380.12" y="-68.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.ViewModels.Settings</text>
-<text xml:space="preserve" text-anchor="middle" x="455.88" y="-56.5" font-family="Helvetica,sans-Serif" font-size="10.00">ViewModel.LoadSettingsAsync</text>
+<g id="a_Node000003"><a xlink:href="class_easy___copier_1_1_services_1_1_rufus_service.html#a8ae627d925bb04cb305e8cf48191eb3a" target="_top" xlink:title="Resolves the Rufus executable path and launches Rufus with the specified ISO file path....">
+<polygon fill="white" stroke="#666666" points="528.38,-82 383.38,-82 383.38,-50 528.38,-50 528.38,-82"/>
+<text xml:space="preserve" text-anchor="start" x="391.38" y="-68.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Services.Rufus</text>
+<text xml:space="preserve" text-anchor="middle" x="455.88" y="-56.5" font-family="Helvetica,sans-Serif" font-size="10.00">Service.LaunchWithIsoAsync</text>
 </a>
 </g>
 </g>
@@ -52,56 +52,37 @@
 <g id="edge2_Node000001_Node000003" class="edge">
 <title>Node1&#45;&gt;Node3</title>
 <g id="a_edge2_Node000001_Node000003"><a xlink:title=" ">
-<path fill="none" stroke="#63b8ff" d="M581.69,-66C567.68,-66 553.44,-66 539.84,-66"/>
+<path fill="none" stroke="#63b8ff" d="M581.52,-66C563.69,-66 545.49,-66 528.71,-66"/>
 <polygon fill="#63b8ff" stroke="#63b8ff" points="581.34,-69.5 591.34,-66 581.34,-62.5 581.34,-69.5"/>
-</a>
-</g>
-</g>
-<!-- Node6 -->
-<g id="Node000006" class="node">
-<title>Node6</title>
-<g id="a_Node000006"><a xlink:href="class_easy___copier_1_1_view_models_1_1_main_view_model.html#aa30e70396c030f5016e63e17e0cd9222" target="_top" xlink:title=" ">
-<polygon fill="white" stroke="#666666" points="532.12,-32 379.62,-32 379.62,0 532.12,0 532.12,-32"/>
-<text xml:space="preserve" text-anchor="start" x="387.62" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.ViewModels.Main</text>
-<text xml:space="preserve" text-anchor="middle" x="455.88" y="-6.5" font-family="Helvetica,sans-Serif" font-size="10.00">ViewModel.OpenInRufusAsync</text>
-</a>
-</g>
-</g>
-<!-- Node1&#45;&gt;Node6 -->
-<g id="edge5_Node000001_Node000006" class="edge">
-<title>Node1&#45;&gt;Node6</title>
-<g id="a_edge5_Node000001_Node000006"><a xlink:title=" ">
-<path fill="none" stroke="#63b8ff" d="M581.8,-43.52C564.88,-39.79 547.62,-35.99 531.54,-32.45"/>
-<polygon fill="#63b8ff" stroke="#63b8ff" points="580.86,-46.89 591.38,-45.63 582.36,-40.06 580.86,-46.89"/>
 </a>
 </g>
 </g>
 <!-- Node4 -->
 <g id="Node000004" class="node">
 <title>Node4</title>
-<g id="a_Node000004"><a xlink:href="class_easy___copier_1_1_views_1_1_settings_window.html#accf917a45f4d17ebb1686716a3cc5ff0" target="_top" xlink:title=" ">
-<polygon fill="white" stroke="#666666" points="318.5,-82 177.25,-82 177.25,-50 318.5,-50 318.5,-82"/>
-<text xml:space="preserve" text-anchor="start" x="185.25" y="-68.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Views.Settings</text>
-<text xml:space="preserve" text-anchor="middle" x="247.88" y="-56.5" font-family="Helvetica,sans-Serif" font-size="10.00">Window.LoadAsync</text>
+<g id="a_Node000004"><a xlink:href="class_easy___copier_1_1_view_models_1_1_settings_view_model.html#a6348434751494a82036ccfef6961f24c" target="_top" xlink:title=" ">
+<polygon fill="white" stroke="#666666" points="539.62,-32 372.12,-32 372.12,0 539.62,0 539.62,-32"/>
+<text xml:space="preserve" text-anchor="start" x="380.12" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.ViewModels.Settings</text>
+<text xml:space="preserve" text-anchor="middle" x="455.88" y="-6.5" font-family="Helvetica,sans-Serif" font-size="10.00">ViewModel.LoadSettingsAsync</text>
 </a>
 </g>
 </g>
-<!-- Node3&#45;&gt;Node4 -->
-<g id="edge3_Node000003_Node000004" class="edge">
-<title>Node3&#45;&gt;Node4</title>
-<g id="a_edge3_Node000003_Node000004"><a xlink:title=" ">
-<path fill="none" stroke="#63b8ff" d="M360.5,-66C346.48,-66 332.24,-66 318.84,-66"/>
-<polygon fill="#63b8ff" stroke="#63b8ff" points="360.17,-69.5 370.17,-66 360.17,-62.5 360.17,-69.5"/>
+<!-- Node1&#45;&gt;Node4 -->
+<g id="edge3_Node000001_Node000004" class="edge">
+<title>Node1&#45;&gt;Node4</title>
+<g id="a_edge3_Node000001_Node000004"><a xlink:title=" ">
+<path fill="none" stroke="#63b8ff" d="M581.8,-43.52C564.88,-39.79 547.62,-35.99 531.54,-32.45"/>
+<polygon fill="#63b8ff" stroke="#63b8ff" points="580.86,-46.89 591.38,-45.63 582.36,-40.06 580.86,-46.89"/>
 </a>
 </g>
 </g>
 <!-- Node5 -->
 <g id="Node000005" class="node">
 <title>Node5</title>
-<g id="a_Node000005"><a xlink:href="class_easy___copier_1_1_views_1_1_settings_window.html#aa5c96a3985044d8ebabe043cd105e570" target="_top" xlink:title=" ">
-<polygon fill="white" stroke="#666666" points="141.25,-82 0,-82 0,-50 141.25,-50 141.25,-82"/>
-<text xml:space="preserve" text-anchor="start" x="8" y="-68.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Views.Settings</text>
-<text xml:space="preserve" text-anchor="middle" x="70.62" y="-56.5" font-family="Helvetica,sans-Serif" font-size="10.00">Window.SettingsWindow</text>
+<g id="a_Node000005"><a xlink:href="class_easy___copier_1_1_views_1_1_settings_window.html#accf917a45f4d17ebb1686716a3cc5ff0" target="_top" xlink:title=" ">
+<polygon fill="white" stroke="#666666" points="318.5,-32 177.25,-32 177.25,0 318.5,0 318.5,-32"/>
+<text xml:space="preserve" text-anchor="start" x="185.25" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Views.Settings</text>
+<text xml:space="preserve" text-anchor="middle" x="247.88" y="-6.5" font-family="Helvetica,sans-Serif" font-size="10.00">Window.LoadAsync</text>
 </a>
 </g>
 </g>
@@ -109,8 +90,27 @@
 <g id="edge4_Node000004_Node000005" class="edge">
 <title>Node4&#45;&gt;Node5</title>
 <g id="a_edge4_Node000004_Node000005"><a xlink:title=" ">
-<path fill="none" stroke="#63b8ff" d="M165.57,-66C157.54,-66 149.44,-66 141.53,-66"/>
-<polygon fill="#63b8ff" stroke="#63b8ff" points="165.34,-69.5 175.34,-66 165.34,-62.5 165.34,-69.5"/>
+<path fill="none" stroke="#63b8ff" d="M360.5,-16C346.48,-16 332.24,-16 318.84,-16"/>
+<polygon fill="#63b8ff" stroke="#63b8ff" points="360.17,-19.5 370.17,-16 360.17,-12.5 360.17,-19.5"/>
+</a>
+</g>
+</g>
+<!-- Node6 -->
+<g id="Node000006" class="node">
+<title>Node6</title>
+<g id="a_Node000006"><a xlink:href="class_easy___copier_1_1_views_1_1_settings_window.html#aa5c96a3985044d8ebabe043cd105e570" target="_top" xlink:title=" ">
+<polygon fill="white" stroke="#666666" points="141.25,-32 0,-32 0,0 141.25,0 141.25,-32"/>
+<text xml:space="preserve" text-anchor="start" x="8" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Views.Settings</text>
+<text xml:space="preserve" text-anchor="middle" x="70.62" y="-6.5" font-family="Helvetica,sans-Serif" font-size="10.00">Window.SettingsWindow</text>
+</a>
+</g>
+</g>
+<!-- Node5&#45;&gt;Node6 -->
+<g id="edge5_Node000005_Node000006" class="edge">
+<title>Node5&#45;&gt;Node6</title>
+<g id="a_edge5_Node000005_Node000006"><a xlink:title=" ">
+<path fill="none" stroke="#63b8ff" d="M165.57,-16C157.54,-16 149.44,-16 141.53,-16"/>
+<polygon fill="#63b8ff" stroke="#63b8ff" points="165.34,-19.5 175.34,-16 165.34,-12.5 165.34,-19.5"/>
 </a>
 </g>
 </g>

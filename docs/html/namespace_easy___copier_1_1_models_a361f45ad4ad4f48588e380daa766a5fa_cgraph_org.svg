@@ -11,7 +11,7 @@
 <!-- Node1 -->
 <g id="Node000001" class="node">
 <title>Node1</title>
-<g id="a_Node000001"><a xlink:title=" ">
+<g id="a_Node000001"><a xlink:title="Represents a request to transfer a batch of items to a designated removable drive.">
 <polygon fill="#999999" stroke="#666666" points="145.75,-32 0,-32 0,0 145.75,0 145.75,-32"/>
 <text xml:space="preserve" text-anchor="start" x="8" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Models.Transfer</text>
 <text xml:space="preserve" text-anchor="middle" x="72.88" y="-6.5" font-family="Helvetica,sans-Serif" font-size="10.00">Request</text>
@@ -30,7 +30,7 @@
 <!-- Node2 -->
 <g id="Node000002" class="node">
 <title>Node2</title>
-<g id="a_Node000002"><a xlink:href="namespace_easy___copier_1_1_models.html#af8f0175620d1cdd9a06d3e52ae12ba12" target="_top" xlink:title=" ">
+<g id="a_Node000002"><a xlink:href="namespace_easy___copier_1_1_models.html#af8f0175620d1cdd9a06d3e52ae12ba12" target="_top" xlink:title="Represents information about a detected removable drive or storage volume.">
 <polygon fill="white" stroke="#666666" points="341,-32 181.75,-32 181.75,0 341,0 341,-32"/>
 <text xml:space="preserve" text-anchor="start" x="189.75" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Models.Removable</text>
 <text xml:space="preserve" text-anchor="middle" x="261.38" y="-6.5" font-family="Helvetica,sans-Serif" font-size="10.00">Drive</text>

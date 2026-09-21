@@ -11,7 +11,7 @@
 <!-- Node1 -->
 <g id="Node000001" class="node">
 <title>Node1</title>
-<g id="a_Node000001"><a xlink:title=" ">
+<g id="a_Node000001"><a xlink:title="Represents an individual item in a transfer batch along with its assigned copy action.">
 <polygon fill="#999999" stroke="#666666" points="165.25,-20 0,-20 0,0 165.25,0 165.25,-20"/>
 <text xml:space="preserve" text-anchor="middle" x="82.62" y="-6.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Models.TransferItem</text>
 </a>
@@ -29,7 +29,7 @@
 <!-- Node2 -->
 <g id="Node000002" class="node">
 <title>Node2</title>
-<g id="a_Node000002"><a xlink:href="namespace_easy___copier_1_1_models.html#a9c2abd1d64352c07d3085ba499cf2aae" target="_top" xlink:title=" ">
+<g id="a_Node000002"><a xlink:href="namespace_easy___copier_1_1_models.html#a9c2abd1d64352c07d3085ba499cf2aae" target="_top" xlink:title="Represents a single scanned library entry (game, app, TV/film, or OS image).">
 <polygon fill="white" stroke="#666666" points="360.5,-20 201.25,-20 201.25,0 360.5,0 360.5,-20"/>
 <text xml:space="preserve" text-anchor="middle" x="280.88" y="-6.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Models.GameEntry</text>
 </a>

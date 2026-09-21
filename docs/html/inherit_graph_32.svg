@@ -11,20 +11,20 @@
 <!-- Node0 -->
 <g id="Node000000" class="node">
 <title>Node0</title>
-<g id="a_Node000000"><a xlink:href="interface_easy___copier_1_1_services_1_1_i_report_service.html" target="_top" xlink:title="Defines operations for exporting operation history and reporting data to external formats such as CSV...">
+<g id="a_Node000000"><a xlink:href="interface_easy___copier_1_1_services_1_1_i_library_scanner_service.html" target="_top" xlink:title="Defines operations for scanning library folders and generating duplicate item reports.">
 <polygon fill="white" stroke="#666666" points="148.75,-32 0,-32 0,0 148.75,0 148.75,-32"/>
-<text xml:space="preserve" text-anchor="start" x="8" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Services.IReport</text>
-<text xml:space="preserve" text-anchor="middle" x="74.38" y="-6.5" font-family="Helvetica,sans-Serif" font-size="10.00">Service</text>
+<text xml:space="preserve" text-anchor="start" x="8" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Services.ILibrary</text>
+<text xml:space="preserve" text-anchor="middle" x="74.38" y="-6.5" font-family="Helvetica,sans-Serif" font-size="10.00">ScannerService</text>
 </a>
 </g>
 </g>
 <!-- Node1 -->
 <g id="Node000001" class="node">
 <title>Node1</title>
-<g id="a_Node000001"><a xlink:href="class_easy___copier_1_1_services_1_1_report_service.html" target="_top" xlink:title="Provides reporting and CSV export services for operation records.">
+<g id="a_Node000001"><a xlink:href="class_easy___copier_1_1_services_1_1_library_scanner_service.html" target="_top" xlink:title="Service coordinating overall scanning across games, apps, video, and OS image source libraries.">
 <polygon fill="white" stroke="#666666" points="330.5,-32 184.75,-32 184.75,0 330.5,0 330.5,-32"/>
-<text xml:space="preserve" text-anchor="start" x="192.75" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Services.Report</text>
-<text xml:space="preserve" text-anchor="middle" x="257.62" y="-6.5" font-family="Helvetica,sans-Serif" font-size="10.00">Service</text>
+<text xml:space="preserve" text-anchor="start" x="192.75" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Services.Library</text>
+<text xml:space="preserve" text-anchor="middle" x="257.62" y="-6.5" font-family="Helvetica,sans-Serif" font-size="10.00">ScannerService</text>
 </a>
 </g>
 </g>

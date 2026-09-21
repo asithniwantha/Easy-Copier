@@ -1,5 +1,5 @@
 <map id="Easy_Copier.Views.SmartAdderControl" name="Easy_Copier.Views.SmartAdderControl">
-<area shape="rect" id="Node000001" title=" " alt="" coords="253,65,462,108"/>
+<area shape="rect" id="Node000001" title="User control providing the SmartAdder grid overlay UI for interactive price calculation." alt="" coords="253,65,462,108"/>
 <area shape="rect" id="Node000002" title=" " alt="" coords="22,65,188,108"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="117,119,140,141,169,155,204,163,241,165,277,160,309,149,334,131,350,110,354,107,338,135,311,153,278,165,241,170,203,169,167,160,137,145,116,124"/>
 <area shape="poly" id="edge3_Node000001_Node000002" title=" " alt="" coords="123,117,146,131,175,141,208,146,242,147,276,143,307,135,331,123,347,110,352,107,334,127,308,140,277,148,243,152,207,151,174,146,144,136,122,122"/>

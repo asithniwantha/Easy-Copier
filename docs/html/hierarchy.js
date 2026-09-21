@@ -379,6 +379,9 @@ var hierarchy =
     [ "Easy_Copier.Services.ILibraryCacheService", "interface_easy___copier_1_1_services_1_1_i_library_cache_service.html", [
       [ "Easy_Copier.Services.LibraryCacheService", "class_easy___copier_1_1_services_1_1_library_cache_service.html", null ]
     ] ],
+    [ "Easy_Copier.Services.ILibraryFilterService", "interface_easy___copier_1_1_services_1_1_i_library_filter_service.html", [
+      [ "Easy_Copier.Services.LibraryFilterService", "class_easy___copier_1_1_services_1_1_library_filter_service.html", null ]
+    ] ],
     [ "Easy_Copier.Services.ILibraryScannerService", "interface_easy___copier_1_1_services_1_1_i_library_scanner_service.html", [
       [ "Easy_Copier.Services.LibraryScannerService", "class_easy___copier_1_1_services_1_1_library_scanner_service.html", null ]
     ] ],
@@ -429,6 +432,9 @@ var hierarchy =
     ] ],
     [ "Easy_Copier.Services.IReportService", "interface_easy___copier_1_1_services_1_1_i_report_service.html", [
       [ "Easy_Copier.Services.ReportService", "class_easy___copier_1_1_services_1_1_report_service.html", null ]
+    ] ],
+    [ "Easy_Copier.Services.IRufusService", "interface_easy___copier_1_1_services_1_1_i_rufus_service.html", [
+      [ "Easy_Copier.Services.RufusService", "class_easy___copier_1_1_services_1_1_rufus_service.html", null ]
     ] ],
     [ "Easy_Copier.Services.ISettingsService", "interface_easy___copier_1_1_services_1_1_i_settings_service.html", [
       [ "Easy_Copier.Services.SettingsService", "class_easy___copier_1_1_services_1_1_settings_service.html", null ]

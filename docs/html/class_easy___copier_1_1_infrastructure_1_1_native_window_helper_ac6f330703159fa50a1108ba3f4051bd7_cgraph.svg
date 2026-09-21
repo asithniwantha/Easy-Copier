@@ -32,7 +32,7 @@
 <!-- Node2 -->
 <g id="Node000002" class="node">
 <title>Node2</title>
-<g id="a_Node000002"><a xlink:href="class_easy___copier_1_1_infrastructure_1_1_native_window_helper.html#a1f21b6ba7d46d506d55916c65b7e7e72" target="_top" xlink:title=" ">
+<g id="a_Node000002"><a xlink:href="class_easy___copier_1_1_infrastructure_1_1_native_window_helper.html#a46e4f01bcb389c5e85ff7f526ffecc75" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="#666666" points="410.75,-32 234.25,-32 234.25,0 410.75,0 410.75,-32"/>
 <text xml:space="preserve" text-anchor="start" x="242.25" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Infrastructure.</text>
 <text xml:space="preserve" text-anchor="middle" x="322.5" y="-6.5" font-family="Helvetica,sans-Serif" font-size="10.00">NativeWindowHelper.EnableWindow</text>

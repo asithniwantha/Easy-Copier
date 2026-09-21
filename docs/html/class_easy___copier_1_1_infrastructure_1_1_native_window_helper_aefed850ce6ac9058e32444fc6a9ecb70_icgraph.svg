@@ -102,7 +102,7 @@
 <!-- Node3 -->
 <g id="Node000003" class="node">
 <title>Node3</title>
-<g id="a_Node000003"><a xlink:href="class_easy___copier_1_1_views_1_1_about_window.html#a86b76c2eb0d7e9e24bc276a20207a95e" target="_top" xlink:title=" ">
+<g id="a_Node000003"><a xlink:href="class_easy___copier_1_1_views_1_1_about_window.html#a86b76c2eb0d7e9e24bc276a20207a95e" target="_top" xlink:title="Initializes a new instance of the AboutWindow class.">
 <polygon fill="white" stroke="#666666" points="168.25,-232 0,-232 0,-200 168.25,-200 168.25,-232"/>
 <text xml:space="preserve" text-anchor="start" x="8" y="-218.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Views.AboutWindow.</text>
 <text xml:space="preserve" text-anchor="middle" x="84.12" y="-206.5" font-family="Helvetica,sans-Serif" font-size="10.00">AboutWindow</text>
@@ -121,7 +121,7 @@
 <!-- Node4 -->
 <g id="Node000004" class="node">
 <title>Node4</title>
-<g id="a_Node000004"><a xlink:href="class_easy___copier_1_1_views_1_1_history_window.html#a4665b9acd85137846e61b539bd7c0815" target="_top" xlink:title=" ">
+<g id="a_Node000004"><a xlink:href="class_easy___copier_1_1_views_1_1_history_window.html#a4665b9acd85137846e61b539bd7c0815" target="_top" xlink:title="Initializes a new instance of the HistoryWindow class.">
 <polygon fill="white" stroke="#666666" points="152.5,-182 15.75,-182 15.75,-150 152.5,-150 152.5,-182"/>
 <text xml:space="preserve" text-anchor="start" x="23.75" y="-168.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Views.History</text>
 <text xml:space="preserve" text-anchor="middle" x="84.12" y="-156.5" font-family="Helvetica,sans-Serif" font-size="10.00">Window.HistoryWindow</text>
@@ -159,7 +159,7 @@
 <!-- Node6 -->
 <g id="Node000006" class="node">
 <title>Node6</title>
-<g id="a_Node000006"><a xlink:href="class_easy___copier_1_1_views_1_1_smart_adder_history_window.html#a79e38193ee6ab739bd498202f49a3bb1" target="_top" xlink:title=" ">
+<g id="a_Node000006"><a xlink:href="class_easy___copier_1_1_views_1_1_smart_adder_history_window.html#a79e38193ee6ab739bd498202f49a3bb1" target="_top" xlink:title="Initializes a new instance of the SmartAdderHistoryWindow class.">
 <polygon fill="white" stroke="#666666" points="168.25,-82 0,-82 0,-38 168.25,-38 168.25,-82"/>
 <text xml:space="preserve" text-anchor="start" x="8" y="-68.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Views.SmartAdder</text>
 <text xml:space="preserve" text-anchor="start" x="8" y="-56.5" font-family="Helvetica,sans-Serif" font-size="10.00">HistoryWindow.SmartAdderHistory</text>

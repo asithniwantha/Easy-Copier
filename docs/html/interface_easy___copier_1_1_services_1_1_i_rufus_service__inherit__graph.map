@@ -1,0 +1,5 @@
+<map id="Easy_Copier.Services.IRufusService" name="Easy_Copier.Services.IRufusService">
+<area shape="rect" id="Node000001" title="Contract for Rufus integration and ISO image launching operations." alt="" coords="5,5,200,48"/>
+<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_services_1_1_rufus_service.html" title="Service responsible for discovering Rufus executable updates and launching ISO image files in Rufus." alt="" coords="7,96,198,139"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="104,62,105,97,100,95,101,66"/>
+</map>

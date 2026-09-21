@@ -1,5 +1,5 @@
 <map id="Easy_Copier.Models.TransferProgress" name="Easy_Copier.Models.TransferProgress">
-<area shape="rect" id="Node000001" title=" " alt="" coords="255,55,449,97"/>
+<area shape="rect" id="Node000001" title="Represents the progress of an active file copy or transfer operation." alt="" coords="255,55,449,97"/>
 <area shape="poly" id="edge2_Node000001_Node000001" title=" " alt="" coords="390,39,377,36,352,33,329,35,314,40,309,46,310,55,306,53,304,45,311,36,327,30,352,28,378,30,395,39"/>
 <area shape="rect" id="Node000002" href="$class_easy___copier_1_1_interop_1_1_file_operation_progress_sink.html#a2603964212d998b166ff5569e8d39820" title=" " alt="" coords="9,5,203,64"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="237,58,204,54,203,48,242,57"/>

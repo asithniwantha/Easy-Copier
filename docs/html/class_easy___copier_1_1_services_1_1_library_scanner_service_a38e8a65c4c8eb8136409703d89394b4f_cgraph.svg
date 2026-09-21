@@ -32,7 +32,7 @@
 <!-- Node2 -->
 <g id="Node000002" class="node">
 <title>Node2</title>
-<g id="a_Node000002"><a xlink:href="namespace_easy___copier_1_1_models.html#a9c2abd1d64352c07d3085ba499cf2aae" target="_top" xlink:title=" ">
+<g id="a_Node000002"><a xlink:href="namespace_easy___copier_1_1_models.html#a9c2abd1d64352c07d3085ba499cf2aae" target="_top" xlink:title="Represents a single scanned library entry (game, app, TV/film, or OS image).">
 <polygon fill="white" stroke="#666666" points="419,-70 259.75,-70 259.75,-50 419,-50 419,-70"/>
 <text xml:space="preserve" text-anchor="middle" x="339.38" y="-56.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Models.GameEntry</text>
 </a>

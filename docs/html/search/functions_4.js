@@ -1,7 +1,7 @@
 var searchData=
 [
   ['enabledynamicresizing_0',['EnableDynamicResizing',['../class_easy___copier_1_1_infrastructure_1_1_native_window_helper.html#a38c3746c49063658c17c4311ab5f0feb',1,'Easy_Copier::Infrastructure::NativeWindowHelper']]],
-  ['enablewindow_1',['EnableWindow',['../class_easy___copier_1_1_infrastructure_1_1_native_window_helper.html#a1f21b6ba7d46d506d55916c65b7e7e72',1,'Easy_Copier::Infrastructure::NativeWindowHelper']]],
+  ['enablewindow_1',['EnableWindow',['../class_easy___copier_1_1_infrastructure_1_1_native_window_helper.html#a46e4f01bcb389c5e85ff7f526ffecc75',1,'Easy_Copier::Infrastructure::NativeWindowHelper']]],
   ['enablewindowinput_2',['EnableWindowInput',['../class_easy___copier_1_1_infrastructure_1_1_native_window_helper.html#ac6f330703159fa50a1108ba3f4051bd7',1,'Easy_Copier::Infrastructure::NativeWindowHelper']]],
   ['enqueue_3',['Enqueue',['../interface_easy___copier_1_1_services_1_1_i_transfer_queue_service.html#afdf1a06fba0ea7f44bc32d23bcef4edf',1,'Easy_Copier.Services.ITransferQueueService.Enqueue()'],['../class_easy___copier_1_1_services_1_1_transfer_queue_service.html#a5652702431c6d1b7a185da7e3c383e29',1,'Easy_Copier.Services.TransferQueueService.Enqueue()']]],
   ['ensureoneemptybottomcell_4',['EnsureOneEmptyBottomCell',['../class_easy___copier_1_1_view_models_1_1_smart_adder_view_model.html#a04ec15ad74285788948c2efe234c6587',1,'Easy_Copier::ViewModels::SmartAdderViewModel']]],

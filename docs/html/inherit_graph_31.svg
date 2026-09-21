@@ -11,20 +11,20 @@
 <!-- Node0 -->
 <g id="Node000000" class="node">
 <title>Node0</title>
-<g id="a_Node000000"><a xlink:href="interface_easy___copier_1_1_services_1_1_i_library_scanner_service.html" target="_top" xlink:title="Defines operations for scanning library folders and generating duplicate item reports.">
+<g id="a_Node000000"><a xlink:href="interface_easy___copier_1_1_services_1_1_i_library_filter_service.html" target="_top" xlink:title="Defines operations for filtering and sorting library items (games, apps, films/TV,...">
 <polygon fill="white" stroke="#666666" points="148.75,-32 0,-32 0,0 148.75,0 148.75,-32"/>
 <text xml:space="preserve" text-anchor="start" x="8" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Services.ILibrary</text>
-<text xml:space="preserve" text-anchor="middle" x="74.38" y="-6.5" font-family="Helvetica,sans-Serif" font-size="10.00">ScannerService</text>
+<text xml:space="preserve" text-anchor="middle" x="74.38" y="-6.5" font-family="Helvetica,sans-Serif" font-size="10.00">FilterService</text>
 </a>
 </g>
 </g>
 <!-- Node1 -->
 <g id="Node000001" class="node">
 <title>Node1</title>
-<g id="a_Node000001"><a xlink:href="class_easy___copier_1_1_services_1_1_library_scanner_service.html" target="_top" xlink:title="Service coordinating overall scanning across games, apps, video, and OS image source libraries.">
+<g id="a_Node000001"><a xlink:href="class_easy___copier_1_1_services_1_1_library_filter_service.html" target="_top" xlink:title="Service that handles filtering and sorting operations for library entries.">
 <polygon fill="white" stroke="#666666" points="330.5,-32 184.75,-32 184.75,0 330.5,0 330.5,-32"/>
 <text xml:space="preserve" text-anchor="start" x="192.75" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Services.Library</text>
-<text xml:space="preserve" text-anchor="middle" x="257.62" y="-6.5" font-family="Helvetica,sans-Serif" font-size="10.00">ScannerService</text>
+<text xml:space="preserve" text-anchor="middle" x="257.62" y="-6.5" font-family="Helvetica,sans-Serif" font-size="10.00">FilterService</text>
 </a>
 </g>
 </g>

@@ -140,6 +140,8 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a28508b1cd4dc6e586b314f7cbae10ace"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deletes the cached snapshot file if present on disk.  <br /></td></tr>
 <tr class="memitem:a05e76d2554223c9f80d4b4ca9358b977" id="r_a05e76d2554223c9f80d4b4ca9358b977"><td class="memItemLeft">async Task&lt; <a class="el" href="namespace_easy___copier_1_1_models.html#a63b99d96f6d7e71a96281be9501fa569">CacheValidationOutcome</a> &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a05e76d2554223c9f80d4b4ca9358b977">ValidateCacheAsync</a> (<a class="el" href="namespace_easy___copier_1_1_models.html#a6ce72bb145c4b6a2a691fff265751706">LibraryCacheSnapshot</a> cache, <a class="el" href="class_easy___copier_1_1_models_1_1_app_settings.html">AppSettings</a> currentSettings, CancellationToken cancellationToken=default)</td></tr>
 <tr class="memdesc:a05e76d2554223c9f80d4b4ca9358b977"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compares the cached snapshot against active source folder settings and inspects modified files to evaluate cache validity.  <br /></td></tr>
+<tr class="memitem:aeabb97a2863de8f7c7adf124366631c3" id="r_aeabb97a2863de8f7c7adf124366631c3"><td class="memItemLeft">async Task&lt; string?&gt;&#160;</td><td class="memItemRight"><a class="el" href="#aeabb97a2863de8f7c7adf124366631c3">CreateAndSaveSnapshotAsync</a> (IEnumerable&lt; <a class="el" href="namespace_easy___copier_1_1_models.html#a9c2abd1d64352c07d3085ba499cf2aae">GameEntry</a> &gt; allEntries, <a class="el" href="class_easy___copier_1_1_models_1_1_app_settings.html">AppSettings</a> settings)</td></tr>
+<tr class="memdesc:aeabb97a2863de8f7c7adf124366631c3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes item fingerprints and creates/saves a library cache snapshot from scanned items and active settings.  <br /></td></tr>
 <tr class="memitem:a2abaf39099e322db7d5f78d9c2ff8363" id="r_a2abaf39099e322db7d5f78d9c2ff8363"><td class="memItemLeft">async Task&lt; <a class="el" href="namespace_easy___copier_1_1_models.html#aae2a352ac1ad9a55ae8b37e300153431">ItemFingerprint</a> &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a2abaf39099e322db7d5f78d9c2ff8363">ComputeItemFingerprintAsync</a> (string folderPath, CancellationToken cancellationToken=default)</td></tr>
 <tr class="memdesc:a2abaf39099e322db7d5f78d9c2ff8363"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates total size and latest modified timestamp for a directory or file.  <br /></td></tr>
 </table><table class="memberdecls">
@@ -170,7 +172,7 @@ Static Private Attributes</h2></td></tr>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Service for serializing, deserializing, and validating library scan results stored in <code>library_cache.json</code>. </p>
 
-<p class="definition">Definition at line <a class="el" href="_library_cache_service_8cs_source.html#l00063">63</a> of file <a class="el" href="_library_cache_service_8cs_source.html">LibraryCacheService.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_library_cache_service_8cs_source.html#l00071">71</a> of file <a class="el" href="_library_cache_service_8cs_source.html">LibraryCacheService.cs</a>.</p>
 </div><a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="aa53a2d77261809e7e5e5f1d404f3a4ac" name="aa53a2d77261809e7e5e5f1d404f3a4ac"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aa53a2d77261809e7e5e5f1d404f3a4ac">&#9670;&#160;</a></span>LibraryCacheService()</h2>
@@ -195,9 +197,9 @@ Static Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_library_cache_service_8cs_source.html#l00084">84</a> of file <a class="el" href="_library_cache_service_8cs_source.html">LibraryCacheService.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_library_cache_service_8cs_source.html#l00092">92</a> of file <a class="el" href="_library_cache_service_8cs_source.html">LibraryCacheService.cs</a>.</p>
 
-<p class="reference">References <a class="el" href="_library_cache_service_8cs_source.html#l00073">_logger</a>.</p>
+<p class="reference">References <a class="el" href="_library_cache_service_8cs_source.html#l00081">_logger</a>.</p>
 
 </div>
 </div>
@@ -233,11 +235,11 @@ Static Private Attributes</h2></td></tr>
 
 <p>Implements <a class="el" href="interface_easy___copier_1_1_services_1_1_i_library_cache_service.html#ad575f108654f524baf65dbec4da90b71">Easy_Copier.Services.ILibraryCacheService</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_library_cache_service_8cs_source.html#l00423">423</a> of file <a class="el" href="_library_cache_service_8cs_source.html">LibraryCacheService.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_library_cache_service_8cs_source.html#l00492">492</a> of file <a class="el" href="_library_cache_service_8cs_source.html">LibraryCacheService.cs</a>.</p>
 
-<p class="reference">References <a class="el" href="namespace_easy___copier_1_1_models.html#aae2a352ac1ad9a55ae8b37e300153431">Easy_Copier.Models.ItemFingerprint()</a>, and <a class="el" href="_library_cache_service_8cs_source.html#l00483">NormalizePath()</a>.</p>
+<p class="reference">References <a class="el" href="namespace_easy___copier_1_1_models.html#aae2a352ac1ad9a55ae8b37e300153431">Easy_Copier.Models.ItemFingerprint()</a>, and <a class="el" href="_library_cache_service_8cs_source.html#l00552">NormalizePath()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_library_cache_service_8cs_source.html#l00239">ValidateCacheAsync()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_library_cache_service_8cs_source.html#l00431">CreateAndSaveSnapshotAsync()</a>, and <a class="el" href="_library_cache_service_8cs_source.html#l00247">ValidateCacheAsync()</a>.</p>
 <div id="dynsection-2" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-2-summary" class="dynsummary">
 </div>
@@ -248,7 +250,50 @@ Static Private Attributes</h2></td></tr>
 <div id="dynsection-3-summary" class="dynsummary">
 </div>
 <div id="dynsection-3-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="class_easy___copier_1_1_services_1_1_library_cache_service_a2abaf39099e322db7d5f78d9c2ff8363_icgraph.svg" width="572" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="class_easy___copier_1_1_services_1_1_library_cache_service_a2abaf39099e322db7d5f78d9c2ff8363_icgraph.svg" width="635" height="120"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="aeabb97a2863de8f7c7adf124366631c3" name="aeabb97a2863de8f7c7adf124366631c3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeabb97a2863de8f7c7adf124366631c3">&#9670;&#160;</a></span>CreateAndSaveSnapshotAsync()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">async Task&lt; string?&gt; Easy_Copier.Services.LibraryCacheService.CreateAndSaveSnapshotAsync </td>
+          <td>(</td>
+          <td class="paramtype">IEnumerable&lt; <a class="el" href="namespace_easy___copier_1_1_models.html#a9c2abd1d64352c07d3085ba499cf2aae">GameEntry</a> &gt;</td>          <td class="paramname"><span class="paramname"><em>allEntries</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_easy___copier_1_1_models_1_1_app_settings.html">AppSettings</a></td>          <td class="paramname"><span class="paramname"><em>settings</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Computes item fingerprints and creates/saves a library cache snapshot from scanned items and active settings. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">allEntries</td><td>All scanned game, app, TV/film, and OS image entries.</td></tr>
+    <tr><td class="paramname">settings</td><td>The current application settings.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A task returning a status message describing any warning or error, or <code>null</code> if successful.</dd></dl>
+
+<p>Implements <a class="el" href="interface_easy___copier_1_1_services_1_1_i_library_cache_service.html#a2d4bf258de5dbf7dae7c92ca1b0435d3">Easy_Copier.Services.ILibraryCacheService</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="_library_cache_service_8cs_source.html#l00431">431</a> of file <a class="el" href="_library_cache_service_8cs_source.html">LibraryCacheService.cs</a>.</p>
+
+<p class="reference">References <a class="el" href="_library_cache_service_8cs_source.html#l00081">_logger</a>, <a class="el" href="_domain_models_8cs_source.html#l00247">Easy_Copier.Models.AppSettings.AppSourceFolders</a>, <a class="el" href="_library_cache_service_8cs_source.html#l00492">ComputeItemFingerprintAsync()</a>, <a class="el" href="_domain_models_8cs_source.html#l00100">Easy_Copier.Models.GameEntry()</a>, <a class="el" href="_domain_models_8cs_source.html#l00244">Easy_Copier.Models.AppSettings.GameSourceFolders</a>, <a class="el" href="namespace_easy___copier_1_1_models.html#aae2a352ac1ad9a55ae8b37e300153431">Easy_Copier.Models.ItemFingerprint()</a>, <a class="el" href="_domain_models_8cs_source.html#l00320">Easy_Copier.Models.LibraryCacheSnapshot()</a>, <a class="el" href="_library_cache_service_8cs_source.html#l00552">NormalizePath()</a>, and <a class="el" href="_library_cache_service_8cs_source.html#l00174">SaveCacheAsync()</a>.</p>
+<div id="dynsection-4" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-4-summary" class="dynsummary">
+</div>
+<div id="dynsection-4-content" class="dyncontent hidden">
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="class_easy___copier_1_1_services_1_1_library_cache_service_aeabb97a2863de8f7c7adf124366631c3_cgraph.svg" width="100%" height="562"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -290,21 +335,21 @@ Static Private Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd><code>true</code> if both fingerprints match; otherwise, <code>false</code>.</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_library_cache_service_8cs_source.html#l00472">472</a> of file <a class="el" href="_library_cache_service_8cs_source.html">LibraryCacheService.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_library_cache_service_8cs_source.html#l00541">541</a> of file <a class="el" href="_library_cache_service_8cs_source.html">LibraryCacheService.cs</a>.</p>
 
 <p class="reference">References <a class="el" href="namespace_easy___copier_1_1_models.html#aae2a352ac1ad9a55ae8b37e300153431">Easy_Copier.Models.ItemFingerprint()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_library_cache_service_8cs_source.html#l00239">ValidateCacheAsync()</a>.</p>
-<div id="dynsection-4" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-4-summary" class="dynsummary">
-</div>
-<div id="dynsection-4-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="class_easy___copier_1_1_services_1_1_library_cache_service_a104e5be4abc7061e4a3d5bca37655bff_cgraph.svg" width="504" height="70"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-<div id="dynsection-5" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<p class="reference">Referenced by <a class="el" href="_library_cache_service_8cs_source.html#l00247">ValidateCacheAsync()</a>.</p>
+<div id="dynsection-5" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-5-summary" class="dynsummary">
 </div>
 <div id="dynsection-5-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="class_easy___copier_1_1_services_1_1_library_cache_service_a104e5be4abc7061e4a3d5bca37655bff_cgraph.svg" width="504" height="70"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div id="dynsection-6" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-6-summary" class="dynsummary">
+</div>
+<div id="dynsection-6-content" class="dyncontent hidden">
 <div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="class_easy___copier_1_1_services_1_1_library_cache_service_a104e5be4abc7061e4a3d5bca37655bff_icgraph.svg" width="499" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
@@ -336,16 +381,16 @@ Static Private Attributes</h2></td></tr>
 <p>Resolves the absolute path to the local library cache file in AppData. </p>
 <dl class="section return"><dt>Returns</dt><dd>The full string path to the cache file.</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_library_cache_service_8cs_source.html#l00093">93</a> of file <a class="el" href="_library_cache_service_8cs_source.html">LibraryCacheService.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_library_cache_service_8cs_source.html#l00101">101</a> of file <a class="el" href="_library_cache_service_8cs_source.html">LibraryCacheService.cs</a>.</p>
 
-<p class="reference">References <a class="el" href="_library_cache_service_8cs_source.html#l00078">CacheFileName</a>.</p>
+<p class="reference">References <a class="el" href="_library_cache_service_8cs_source.html#l00086">CacheFileName</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_library_cache_service_8cs_source.html#l00214">InvalidateCacheAsync()</a>, <a class="el" href="_library_cache_service_8cs_source.html#l00105">LoadCacheAsync()</a>, and <a class="el" href="_library_cache_service_8cs_source.html#l00166">SaveCacheAsync()</a>.</p>
-<div id="dynsection-6" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
-<div id="dynsection-6-summary" class="dynsummary">
+<p class="reference">Referenced by <a class="el" href="_library_cache_service_8cs_source.html#l00222">InvalidateCacheAsync()</a>, <a class="el" href="_library_cache_service_8cs_source.html#l00113">LoadCacheAsync()</a>, and <a class="el" href="_library_cache_service_8cs_source.html#l00174">SaveCacheAsync()</a>.</p>
+<div id="dynsection-7" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-7-summary" class="dynsummary">
 </div>
-<div id="dynsection-6-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="class_easy___copier_1_1_services_1_1_library_cache_service_a270f99d033d4a205c8617caf505db28a_icgraph.svg" width="512" height="187"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div id="dynsection-7-content" class="dyncontent hidden">
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="class_easy___copier_1_1_services_1_1_library_cache_service_a270f99d033d4a205c8617caf505db28a_icgraph.svg" width="100%" height="440"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -370,13 +415,13 @@ Static Private Attributes</h2></td></tr>
 
 <p>Implements <a class="el" href="interface_easy___copier_1_1_services_1_1_i_library_cache_service.html#adb98b8a2f2a1833036dc56506104953c">Easy_Copier.Services.ILibraryCacheService</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_library_cache_service_8cs_source.html#l00214">214</a> of file <a class="el" href="_library_cache_service_8cs_source.html">LibraryCacheService.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_library_cache_service_8cs_source.html#l00222">222</a> of file <a class="el" href="_library_cache_service_8cs_source.html">LibraryCacheService.cs</a>.</p>
 
-<p class="reference">References <a class="el" href="_library_cache_service_8cs_source.html#l00073">_logger</a>, and <a class="el" href="_library_cache_service_8cs_source.html#l00093">GetCacheFilePath()</a>.</p>
-<div id="dynsection-7" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-7-summary" class="dynsummary">
+<p class="reference">References <a class="el" href="_library_cache_service_8cs_source.html#l00081">_logger</a>, and <a class="el" href="_library_cache_service_8cs_source.html#l00101">GetCacheFilePath()</a>.</p>
+<div id="dynsection-8" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-8-summary" class="dynsummary">
 </div>
-<div id="dynsection-7-content" class="dyncontent hidden">
+<div id="dynsection-8-content" class="dyncontent hidden">
 <div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="class_easy___copier_1_1_services_1_1_library_cache_service_a28508b1cd4dc6e586b314f7cbae10ace_cgraph.svg" width="512" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
@@ -402,13 +447,13 @@ Static Private Attributes</h2></td></tr>
 
 <p>Implements <a class="el" href="interface_easy___copier_1_1_services_1_1_i_library_cache_service.html#a9eb6758c8b5cc72579b5a0ee9c17dd94">Easy_Copier.Services.ILibraryCacheService</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_library_cache_service_8cs_source.html#l00105">105</a> of file <a class="el" href="_library_cache_service_8cs_source.html">LibraryCacheService.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_library_cache_service_8cs_source.html#l00113">113</a> of file <a class="el" href="_library_cache_service_8cs_source.html">LibraryCacheService.cs</a>.</p>
 
-<p class="reference">References <a class="el" href="_library_cache_service_8cs_source.html#l00073">_logger</a>, <a class="el" href="_library_cache_service_8cs_source.html#l00093">GetCacheFilePath()</a>, and <a class="el" href="_domain_models_8cs_source.html#l00136">Easy_Copier.Models.LibraryCacheSnapshot()</a>.</p>
-<div id="dynsection-8" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-8-summary" class="dynsummary">
+<p class="reference">References <a class="el" href="_library_cache_service_8cs_source.html#l00081">_logger</a>, <a class="el" href="_library_cache_service_8cs_source.html#l00101">GetCacheFilePath()</a>, and <a class="el" href="_domain_models_8cs_source.html#l00320">Easy_Copier.Models.LibraryCacheSnapshot()</a>.</p>
+<div id="dynsection-9" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-9-summary" class="dynsummary">
 </div>
-<div id="dynsection-8-content" class="dyncontent hidden">
+<div id="dynsection-9-content" class="dyncontent hidden">
 <div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="class_easy___copier_1_1_services_1_1_library_cache_service_a0803da77cac9887ad4dd36e5a47b0ee8_cgraph.svg" width="484" height="144"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
@@ -446,14 +491,14 @@ Static Private Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The normalized path string.</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_library_cache_service_8cs_source.html#l00483">483</a> of file <a class="el" href="_library_cache_service_8cs_source.html">LibraryCacheService.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_library_cache_service_8cs_source.html#l00552">552</a> of file <a class="el" href="_library_cache_service_8cs_source.html">LibraryCacheService.cs</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_library_cache_service_8cs_source.html#l00423">ComputeItemFingerprintAsync()</a>, and <a class="el" href="_library_cache_service_8cs_source.html#l00239">ValidateCacheAsync()</a>.</p>
-<div id="dynsection-9" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
-<div id="dynsection-9-summary" class="dynsummary">
+<p class="reference">Referenced by <a class="el" href="_library_cache_service_8cs_source.html#l00492">ComputeItemFingerprintAsync()</a>, <a class="el" href="_library_cache_service_8cs_source.html#l00431">CreateAndSaveSnapshotAsync()</a>, and <a class="el" href="_library_cache_service_8cs_source.html#l00247">ValidateCacheAsync()</a>.</p>
+<div id="dynsection-10" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-10-summary" class="dynsummary">
 </div>
-<div id="dynsection-9-content" class="dyncontent hidden">
-<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="class_easy___copier_1_1_services_1_1_library_cache_service_aaf6b234dce07569f9f44378ce18cef7a_icgraph.svg" width="100%" height="362"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div id="dynsection-10-content" class="dyncontent hidden">
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="class_easy___copier_1_1_services_1_1_library_cache_service_aaf6b234dce07569f9f44378ce18cef7a_icgraph.svg" width="100%" height="399"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -484,14 +529,22 @@ Static Private Attributes</h2></td></tr>
 
 <p>Implements <a class="el" href="interface_easy___copier_1_1_services_1_1_i_library_cache_service.html#af6d9e8159cbbd841975e73a34ddce367">Easy_Copier.Services.ILibraryCacheService</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_library_cache_service_8cs_source.html#l00166">166</a> of file <a class="el" href="_library_cache_service_8cs_source.html">LibraryCacheService.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_library_cache_service_8cs_source.html#l00174">174</a> of file <a class="el" href="_library_cache_service_8cs_source.html">LibraryCacheService.cs</a>.</p>
 
-<p class="reference">References <a class="el" href="_library_cache_service_8cs_source.html#l00068">_jsonOptions</a>, <a class="el" href="_library_cache_service_8cs_source.html#l00073">_logger</a>, <a class="el" href="_library_cache_service_8cs_source.html#l00093">GetCacheFilePath()</a>, and <a class="el" href="_domain_models_8cs_source.html#l00136">Easy_Copier.Models.LibraryCacheSnapshot()</a>.</p>
-<div id="dynsection-10" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-10-summary" class="dynsummary">
+<p class="reference">References <a class="el" href="_library_cache_service_8cs_source.html#l00076">_jsonOptions</a>, <a class="el" href="_library_cache_service_8cs_source.html#l00081">_logger</a>, <a class="el" href="_library_cache_service_8cs_source.html#l00101">GetCacheFilePath()</a>, and <a class="el" href="_domain_models_8cs_source.html#l00320">Easy_Copier.Models.LibraryCacheSnapshot()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_library_cache_service_8cs_source.html#l00431">CreateAndSaveSnapshotAsync()</a>.</p>
+<div id="dynsection-11" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-11-summary" class="dynsummary">
 </div>
-<div id="dynsection-10-content" class="dyncontent hidden">
+<div id="dynsection-11-content" class="dyncontent hidden">
 <div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="class_easy___copier_1_1_services_1_1_library_cache_service_a85c47e1fe8510bcb82b48e83a7796cd1_cgraph.svg" width="486" height="144"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div id="dynsection-12" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-12-summary" class="dynsummary">
+</div>
+<div id="dynsection-12-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="class_easy___copier_1_1_services_1_1_library_cache_service_a85c47e1fe8510bcb82b48e83a7796cd1_icgraph.svg" width="563" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -533,13 +586,13 @@ Static Private Attributes</h2></td></tr>
 
 <p>Implements <a class="el" href="interface_easy___copier_1_1_services_1_1_i_library_cache_service.html#a767b09540d7984e9563a00b516bd4609">Easy_Copier.Services.ILibraryCacheService</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_library_cache_service_8cs_source.html#l00239">239</a> of file <a class="el" href="_library_cache_service_8cs_source.html">LibraryCacheService.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_library_cache_service_8cs_source.html#l00247">247</a> of file <a class="el" href="_library_cache_service_8cs_source.html">LibraryCacheService.cs</a>.</p>
 
-<p class="reference">References <a class="el" href="_library_cache_service_8cs_source.html#l00073">_logger</a>, <a class="el" href="namespace_easy___copier_1_1_models.html#a63b99d96f6d7e71a96281be9501fa569">Easy_Copier.Models.CacheValidationOutcome()</a>, <a class="el" href="_library_cache_service_8cs_source.html#l00423">ComputeItemFingerprintAsync()</a>, <a class="el" href="_library_cache_service_8cs_source.html#l00472">FingerprintsMatch()</a>, <a class="el" href="_domain_models_8cs_source.html#l00040">Easy_Copier.Models.GameEntry()</a>, <a class="el" href="namespace_easy___copier_1_1_models.html#aae2a352ac1ad9a55ae8b37e300153431">Easy_Copier.Models.ItemFingerprint()</a>, <a class="el" href="_domain_models_8cs_source.html#l00136">Easy_Copier.Models.LibraryCacheSnapshot()</a>, and <a class="el" href="_library_cache_service_8cs_source.html#l00483">NormalizePath()</a>.</p>
-<div id="dynsection-11" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-11-summary" class="dynsummary">
+<p class="reference">References <a class="el" href="_library_cache_service_8cs_source.html#l00081">_logger</a>, <a class="el" href="namespace_easy___copier_1_1_models.html#a63b99d96f6d7e71a96281be9501fa569">Easy_Copier.Models.CacheValidationOutcome()</a>, <a class="el" href="_library_cache_service_8cs_source.html#l00492">ComputeItemFingerprintAsync()</a>, <a class="el" href="_library_cache_service_8cs_source.html#l00541">FingerprintsMatch()</a>, <a class="el" href="_domain_models_8cs_source.html#l00100">Easy_Copier.Models.GameEntry()</a>, <a class="el" href="namespace_easy___copier_1_1_models.html#aae2a352ac1ad9a55ae8b37e300153431">Easy_Copier.Models.ItemFingerprint()</a>, <a class="el" href="_domain_models_8cs_source.html#l00320">Easy_Copier.Models.LibraryCacheSnapshot()</a>, and <a class="el" href="_library_cache_service_8cs_source.html#l00552">NormalizePath()</a>.</p>
+<div id="dynsection-13" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-13-summary" class="dynsummary">
 </div>
-<div id="dynsection-11-content" class="dyncontent hidden">
+<div id="dynsection-13-content" class="dyncontent hidden">
 <div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="class_easy___copier_1_1_services_1_1_library_cache_service_a05e76d2554223c9f80d4b4ca9358b977_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
@@ -568,9 +621,9 @@ Static Private Attributes</h2></td></tr>
 
 <p>Indented JSON serializer options for formatting cached files. </p>
 
-<p class="definition">Definition at line <a class="el" href="_library_cache_service_8cs_source.html#l00068">68</a> of file <a class="el" href="_library_cache_service_8cs_source.html">LibraryCacheService.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_library_cache_service_8cs_source.html#l00076">76</a> of file <a class="el" href="_library_cache_service_8cs_source.html">LibraryCacheService.cs</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_library_cache_service_8cs_source.html#l00166">SaveCacheAsync()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_library_cache_service_8cs_source.html#l00174">SaveCacheAsync()</a>.</p>
 
 </div>
 </div>
@@ -596,9 +649,9 @@ Static Private Attributes</h2></td></tr>
 
 <p>Logger instance used for diagnostic logging. </p>
 
-<p class="definition">Definition at line <a class="el" href="_library_cache_service_8cs_source.html#l00073">73</a> of file <a class="el" href="_library_cache_service_8cs_source.html">LibraryCacheService.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_library_cache_service_8cs_source.html#l00081">81</a> of file <a class="el" href="_library_cache_service_8cs_source.html">LibraryCacheService.cs</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_library_cache_service_8cs_source.html#l00214">InvalidateCacheAsync()</a>, <a class="el" href="_library_cache_service_8cs_source.html#l00084">LibraryCacheService()</a>, <a class="el" href="_library_cache_service_8cs_source.html#l00105">LoadCacheAsync()</a>, <a class="el" href="_library_cache_service_8cs_source.html#l00166">SaveCacheAsync()</a>, and <a class="el" href="_library_cache_service_8cs_source.html#l00239">ValidateCacheAsync()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_library_cache_service_8cs_source.html#l00431">CreateAndSaveSnapshotAsync()</a>, <a class="el" href="_library_cache_service_8cs_source.html#l00222">InvalidateCacheAsync()</a>, <a class="el" href="_library_cache_service_8cs_source.html#l00092">LibraryCacheService()</a>, <a class="el" href="_library_cache_service_8cs_source.html#l00113">LoadCacheAsync()</a>, <a class="el" href="_library_cache_service_8cs_source.html#l00174">SaveCacheAsync()</a>, and <a class="el" href="_library_cache_service_8cs_source.html#l00247">ValidateCacheAsync()</a>.</p>
 
 </div>
 </div>
@@ -624,9 +677,9 @@ Static Private Attributes</h2></td></tr>
 
 <p>Name of the cache file stored in AppData. </p>
 
-<p class="definition">Definition at line <a class="el" href="_library_cache_service_8cs_source.html#l00078">78</a> of file <a class="el" href="_library_cache_service_8cs_source.html">LibraryCacheService.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_library_cache_service_8cs_source.html#l00086">86</a> of file <a class="el" href="_library_cache_service_8cs_source.html">LibraryCacheService.cs</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_library_cache_service_8cs_source.html#l00093">GetCacheFilePath()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_library_cache_service_8cs_source.html#l00101">GetCacheFilePath()</a>.</p>
 
 </div>
 </div>

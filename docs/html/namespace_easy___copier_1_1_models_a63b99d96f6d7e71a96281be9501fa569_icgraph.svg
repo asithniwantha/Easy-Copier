@@ -53,7 +53,7 @@
 <!-- Node1 -->
 <g id="Node000001" class="node">
 <title>Node1</title>
-<g id="a_Node000001"><a xlink:title=" ">
+<g id="a_Node000001"><a xlink:title="Holds the detailed outcome of a cache validation check.">
 <polygon fill="#999999" stroke="#666666" points="760,-57 621.75,-57 621.75,-25 760,-25 760,-57"/>
 <text xml:space="preserve" text-anchor="start" x="629.75" y="-43.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Models.Cache</text>
 <text xml:space="preserve" text-anchor="middle" x="690.88" y="-31.5" font-family="Helvetica,sans-Serif" font-size="10.00">ValidationOutcome</text>

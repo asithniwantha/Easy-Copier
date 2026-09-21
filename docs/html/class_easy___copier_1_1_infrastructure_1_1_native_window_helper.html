@@ -145,22 +145,19 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a3d287dd8cb064cde0c403d6692cb4a67" id="r_a3d287dd8cb064cde0c403d6692cb4a67"><td class="memItemLeft">static void&#160;</td><td class="memItemRight"><a class="el" href="#a3d287dd8cb064cde0c403d6692cb4a67">InitializeModalWindow</a> (Microsoft.UI.Xaml.Window window, Microsoft.UI.Xaml.Window owner, object viewModel, int width, int height)</td></tr>
 <tr class="memdesc:a3d287dd8cb064cde0c403d6692cb4a67"><td class="mdescLeft">&#160;</td><td class="mdescRight">Centralized helper method to initialize a modal dialog window, setting data context, dimensions, modality ownership, and close cleanup callbacks.  <br /></td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-pri-methods" class="groupheader"><a id="pri-methods" name="pri-methods"></a>
-Private Member Functions</h2></td></tr>
-<tr class="memitem:a4b3d096d98e73ebad341dba4feadd8bc" id="r_a4b3d096d98e73ebad341dba4feadd8bc"><td class="memItemLeft">static IntPtr&#160;</td><td class="memItemRight"><a class="el" href="#a4b3d096d98e73ebad341dba4feadd8bc">SetWindowLongPtr64</a> (IntPtr hWnd, int nIndex, IntPtr dwNewLong)</td></tr>
-<tr class="memitem:a1d25097e344173987487626f3edc0210" id="r_a1d25097e344173987487626f3edc0210"><td class="memItemLeft">static int&#160;</td><td class="memItemRight"><a class="el" href="#a1d25097e344173987487626f3edc0210">SetWindowLong32</a> (IntPtr hWnd, int nIndex, int dwNewLong)</td></tr>
-<tr class="memitem:a1f21b6ba7d46d506d55916c65b7e7e72" id="r_a1f21b6ba7d46d506d55916c65b7e7e72"><td class="memItemLeft">static bool&#160;</td><td class="memItemRight"><a class="el" href="#a1f21b6ba7d46d506d55916c65b7e7e72">EnableWindow</a> (IntPtr hWnd, bool bEnable)</td></tr>
-<tr class="memitem:a4362cdd56869526572895640e2bbed50" id="r_a4362cdd56869526572895640e2bbed50"><td class="memItemLeft">static bool&#160;</td><td class="memItemRight"><a class="el" href="#a4362cdd56869526572895640e2bbed50">GetWindowRect</a> (IntPtr hWnd, out <a class="el" href="struct_easy___copier_1_1_infrastructure_1_1_native_window_helper_1_1_r_e_c_t.html">RECT</a> lpRect)</td></tr>
-<tr class="memitem:a079a35793d02e114041c8d6820953e6f" id="r_a079a35793d02e114041c8d6820953e6f"><td class="memItemLeft">static bool&#160;</td><td class="memItemRight"><a class="el" href="#a079a35793d02e114041c8d6820953e6f">SetWindowPos</a> (IntPtr hWnd, IntPtr hWndInsertAfter, int X, int Y, int cx, int cy, uint uFlags)</td></tr>
-<tr class="memitem:a7ed8415bbce33a1bab54e3805d4be70b" id="r_a7ed8415bbce33a1bab54e3805d4be70b"><td class="memItemLeft">static bool&#160;</td><td class="memItemRight"><a class="el" href="#a7ed8415bbce33a1bab54e3805d4be70b">SetForegroundWindow</a> (IntPtr hWnd)</td></tr>
-<tr class="memitem:a8410a554f5ec231149291a296a81111c" id="r_a8410a554f5ec231149291a296a81111c"><td class="memItemLeft">static IntPtr&#160;</td><td class="memItemRight"><a class="el" href="#a8410a554f5ec231149291a296a81111c">GetForegroundWindow</a> ()</td></tr>
-<tr class="memitem:af2f00cbed90ce376200eee60352abd69" id="r_af2f00cbed90ce376200eee60352abd69"><td class="memItemLeft">static IntPtr&#160;</td><td class="memItemRight"><a class="el" href="#af2f00cbed90ce376200eee60352abd69">GetActiveWindow</a> ()</td></tr>
-<tr class="memitem:a03d05ba8fabbfa7651a02695d3b1a4e4" id="r_a03d05ba8fabbfa7651a02695d3b1a4e4"><td class="memItemLeft">static uint&#160;</td><td class="memItemRight"><a class="el" href="#a03d05ba8fabbfa7651a02695d3b1a4e4">GetWindowThreadProcessId</a> (IntPtr hWnd, out uint lpdwProcessId)</td></tr>
-<tr class="memitem:a910d924eeafa293537c93b6081a87f19" id="r_a910d924eeafa293537c93b6081a87f19"><td class="memItemLeft">static uint&#160;</td><td class="memItemRight"><a class="el" href="#a910d924eeafa293537c93b6081a87f19">GetDpiForWindow</a> (IntPtr hWnd)</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pri-static-methods" class="groupheader"><a id="pri-static-methods" name="pri-static-methods"></a>
 Static Private Member Functions</h2></td></tr>
+<tr class="memitem:a543062cf731d87ec98a5fe3026945048" id="r_a543062cf731d87ec98a5fe3026945048"><td class="memItemLeft">static partial IntPtr&#160;</td><td class="memItemRight"><a class="el" href="#a543062cf731d87ec98a5fe3026945048">SetWindowLongPtr64</a> (IntPtr hWnd, int nIndex, IntPtr dwNewLong)</td></tr>
+<tr class="memitem:accb5a28d072b25b841ac31c7b1837a29" id="r_accb5a28d072b25b841ac31c7b1837a29"><td class="memItemLeft">static partial int&#160;</td><td class="memItemRight"><a class="el" href="#accb5a28d072b25b841ac31c7b1837a29">SetWindowLong32</a> (IntPtr hWnd, int nIndex, int dwNewLong)</td></tr>
+<tr class="memitem:a46e4f01bcb389c5e85ff7f526ffecc75" id="r_a46e4f01bcb389c5e85ff7f526ffecc75"><td class="memItemLeft">static partial bool&#160;</td><td class="memItemRight"><a class="el" href="#a46e4f01bcb389c5e85ff7f526ffecc75">EnableWindow</a> (IntPtr hWnd, [MarshalAs(UnmanagedType.Bool)] bool bEnable)</td></tr>
+<tr class="memitem:a24df81dd6869ac538f152a76346e232b" id="r_a24df81dd6869ac538f152a76346e232b"><td class="memItemLeft">static partial bool&#160;</td><td class="memItemRight"><a class="el" href="#a24df81dd6869ac538f152a76346e232b">GetWindowRect</a> (IntPtr hWnd, out <a class="el" href="struct_easy___copier_1_1_infrastructure_1_1_native_window_helper_1_1_r_e_c_t.html">RECT</a> lpRect)</td></tr>
+<tr class="memitem:a7360d0d9cc4a75176e40dcbee62e1f16" id="r_a7360d0d9cc4a75176e40dcbee62e1f16"><td class="memItemLeft">static partial bool&#160;</td><td class="memItemRight"><a class="el" href="#a7360d0d9cc4a75176e40dcbee62e1f16">SetWindowPos</a> (IntPtr hWnd, IntPtr hWndInsertAfter, int X, int Y, int cx, int cy, uint uFlags)</td></tr>
+<tr class="memitem:a8ddfd36499035568510b6cb9e4b88459" id="r_a8ddfd36499035568510b6cb9e4b88459"><td class="memItemLeft">static partial bool&#160;</td><td class="memItemRight"><a class="el" href="#a8ddfd36499035568510b6cb9e4b88459">SetForegroundWindow</a> (IntPtr hWnd)</td></tr>
+<tr class="memitem:a97a55ddb0af9e915e73a6f5cc39b1489" id="r_a97a55ddb0af9e915e73a6f5cc39b1489"><td class="memItemLeft">static partial IntPtr&#160;</td><td class="memItemRight"><a class="el" href="#a97a55ddb0af9e915e73a6f5cc39b1489">GetForegroundWindow</a> ()</td></tr>
+<tr class="memitem:aa41f651ed2638a01a8d01d585ca19def" id="r_aa41f651ed2638a01a8d01d585ca19def"><td class="memItemLeft">static partial IntPtr&#160;</td><td class="memItemRight"><a class="el" href="#aa41f651ed2638a01a8d01d585ca19def">GetActiveWindow</a> ()</td></tr>
+<tr class="memitem:a6789d02bd742b33c13db95e29dc4ec51" id="r_a6789d02bd742b33c13db95e29dc4ec51"><td class="memItemLeft">static partial uint&#160;</td><td class="memItemRight"><a class="el" href="#a6789d02bd742b33c13db95e29dc4ec51">GetWindowThreadProcessId</a> (IntPtr hWnd, out uint lpdwProcessId)</td></tr>
 <tr class="memitem:a95738f648a74872e265d231e37718f42" id="r_a95738f648a74872e265d231e37718f42"><td class="memItemLeft">static double&#160;</td><td class="memItemRight"><a class="el" href="#a95738f648a74872e265d231e37718f42">GetRasterizationScale</a> (nint hwnd)</td></tr>
+<tr class="memitem:a1fc73b66e5307797eba4e1b88ef3e4e7" id="r_a1fc73b66e5307797eba4e1b88ef3e4e7"><td class="memItemLeft">static partial uint&#160;</td><td class="memItemRight"><a class="el" href="#a1fc73b66e5307797eba4e1b88ef3e4e7">GetDpiForWindow</a> (IntPtr hWnd)</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pri-static-attribs" class="groupheader"><a id="pri-static-attribs" name="pri-static-attribs"></a>
 Static Private Attributes</h2></td></tr>
@@ -209,11 +206,11 @@ Static Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_native_window_helper_8cs_source.html#l00123">123</a> of file <a class="el" href="_native_window_helper_8cs_source.html">NativeWindowHelper.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_native_window_helper_8cs_source.html#l00126">126</a> of file <a class="el" href="_native_window_helper_8cs_source.html">NativeWindowHelper.cs</a>.</p>
 
-<p class="reference">References <a class="el" href="#a4362cdd56869526572895640e2bbed50">GetWindowRect()</a>, <a class="el" href="#a079a35793d02e114041c8d6820953e6f">SetWindowPos()</a>, <a class="el" href="_native_window_helper_8cs_source.html#l00016">SWP_NOSIZE</a>, and <a class="el" href="_native_window_helper_8cs_source.html#l00017">SWP_NOZORDER</a>.</p>
+<p class="reference">References <a class="el" href="#a24df81dd6869ac538f152a76346e232b">GetWindowRect()</a>, <a class="el" href="#a7360d0d9cc4a75176e40dcbee62e1f16">SetWindowPos()</a>, <a class="el" href="_native_window_helper_8cs_source.html#l00016">SWP_NOSIZE</a>, and <a class="el" href="_native_window_helper_8cs_source.html#l00017">SWP_NOZORDER</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_native_window_helper_8cs_source.html#l00248">ShowAsModal()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_native_window_helper_8cs_source.html#l00251">ShowAsModal()</a>.</p>
 <div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-0-summary" class="dynsummary">
 </div>
@@ -283,7 +280,7 @@ Static Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_native_window_helper_8cs_source.html#l00158">158</a> of file <a class="el" href="_native_window_helper_8cs_source.html">NativeWindowHelper.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_native_window_helper_8cs_source.html#l00161">161</a> of file <a class="el" href="_native_window_helper_8cs_source.html">NativeWindowHelper.cs</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="_settings_window_8xaml_8cs_source.html#l00015">Easy_Copier.Views.SettingsWindow.SettingsWindow()</a>.</p>
 <div id="dynsection-2" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
@@ -295,8 +292,8 @@ Static Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a1f21b6ba7d46d506d55916c65b7e7e72" name="a1f21b6ba7d46d506d55916c65b7e7e72"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1f21b6ba7d46d506d55916c65b7e7e72">&#9670;&#160;</a></span>EnableWindow()</h2>
+<a id="a46e4f01bcb389c5e85ff7f526ffecc75" name="a46e4f01bcb389c5e85ff7f526ffecc75"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a46e4f01bcb389c5e85ff7f526ffecc75">&#9670;&#160;</a></span>EnableWindow()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -305,29 +302,29 @@ Static Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool Easy_Copier.Infrastructure.NativeWindowHelper.EnableWindow </td>
+          <td class="memname">partial bool Easy_Copier.Infrastructure.NativeWindowHelper.EnableWindow </td>
           <td>(</td>
           <td class="paramtype">IntPtr</td>          <td class="paramname"><span class="paramname"><em>hWnd</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>bEnable</em></span>&#160;)</td>
+          <td class="paramtype">[MarshalAs(UnmanagedType.Bool)] bool</td>          <td class="paramname"><span class="paramname"><em>bEnable</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel private">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="_native_window_helper_8cs_source.html#l00113">EnableWindowInput()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_native_window_helper_8cs_source.html#l00116">EnableWindowInput()</a>.</p>
 <div id="dynsection-3" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
 <div id="dynsection-3-summary" class="dynsummary">
 </div>
 <div id="dynsection-3-content" class="dyncontent hidden">
-<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="class_easy___copier_1_1_infrastructure_1_1_native_window_helper_a1f21b6ba7d46d506d55916c65b7e7e72_icgraph.svg" width="100%" height="502"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="class_easy___copier_1_1_infrastructure_1_1_native_window_helper_a46e4f01bcb389c5e85ff7f526ffecc75_icgraph.svg" width="100%" height="502"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -368,11 +365,11 @@ Static Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_native_window_helper_8cs_source.html#l00113">113</a> of file <a class="el" href="_native_window_helper_8cs_source.html">NativeWindowHelper.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_native_window_helper_8cs_source.html#l00116">116</a> of file <a class="el" href="_native_window_helper_8cs_source.html">NativeWindowHelper.cs</a>.</p>
 
-<p class="reference">References <a class="el" href="#a1f21b6ba7d46d506d55916c65b7e7e72">EnableWindow()</a>.</p>
+<p class="reference">References <a class="el" href="#a46e4f01bcb389c5e85ff7f526ffecc75">EnableWindow()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_native_window_helper_8cs_source.html#l00267">RestoreOwnerInput()</a>, and <a class="el" href="_native_window_helper_8cs_source.html#l00248">ShowAsModal()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_native_window_helper_8cs_source.html#l00270">RestoreOwnerInput()</a>, and <a class="el" href="_native_window_helper_8cs_source.html#l00251">ShowAsModal()</a>.</p>
 <div id="dynsection-4" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-4-summary" class="dynsummary">
 </div>
@@ -388,8 +385,8 @@ Static Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="af2f00cbed90ce376200eee60352abd69" name="af2f00cbed90ce376200eee60352abd69"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af2f00cbed90ce376200eee60352abd69">&#9670;&#160;</a></span>GetActiveWindow()</h2>
+<a id="aa41f651ed2638a01a8d01d585ca19def" name="aa41f651ed2638a01a8d01d585ca19def"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa41f651ed2638a01a8d01d585ca19def">&#9670;&#160;</a></span>GetActiveWindow()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -398,7 +395,7 @@ Static Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">IntPtr Easy_Copier.Infrastructure.NativeWindowHelper.GetActiveWindow </td>
+          <td class="memname">partial IntPtr Easy_Copier.Infrastructure.NativeWindowHelper.GetActiveWindow </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
@@ -406,17 +403,17 @@ Static Private Attributes</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel private">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="_native_window_helper_8cs_source.html#l00069">GetActiveWindowHandle()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_native_window_helper_8cs_source.html#l00072">GetActiveWindowHandle()</a>.</p>
 <div id="dynsection-6" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
 <div id="dynsection-6-summary" class="dynsummary">
 </div>
 <div id="dynsection-6-content" class="dyncontent hidden">
-<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="class_easy___copier_1_1_infrastructure_1_1_native_window_helper_af2f00cbed90ce376200eee60352abd69_icgraph.svg" width="100%" height="440"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="class_easy___copier_1_1_infrastructure_1_1_native_window_helper_aa41f651ed2638a01a8d01d585ca19def_icgraph.svg" width="100%" height="440"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -447,9 +444,9 @@ Static Private Attributes</h2></td></tr>
 <p>Gets the handle (HWND) of the currently active window belonging to the running application process. </p>
 <dl class="section return"><dt>Returns</dt><dd>The window handle IntPtr, or IntPtr.Zero if none is found or on non-Windows platforms.</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_native_window_helper_8cs_source.html#l00069">69</a> of file <a class="el" href="_native_window_helper_8cs_source.html">NativeWindowHelper.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_native_window_helper_8cs_source.html#l00072">72</a> of file <a class="el" href="_native_window_helper_8cs_source.html">NativeWindowHelper.cs</a>.</p>
 
-<p class="reference">References <a class="el" href="#af2f00cbed90ce376200eee60352abd69">GetActiveWindow()</a>, <a class="el" href="#a8410a554f5ec231149291a296a81111c">GetForegroundWindow()</a>, and <a class="el" href="#a03d05ba8fabbfa7651a02695d3b1a4e4">GetWindowThreadProcessId()</a>.</p>
+<p class="reference">References <a class="el" href="#aa41f651ed2638a01a8d01d585ca19def">GetActiveWindow()</a>, <a class="el" href="#a97a55ddb0af9e915e73a6f5cc39b1489">GetForegroundWindow()</a>, and <a class="el" href="#a6789d02bd742b33c13db95e29dc4ec51">GetWindowThreadProcessId()</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="_folder_picker_service_8cs_source.html#l00043">Easy_Copier.Infrastructure.FolderPickerService.PickFolderAsync()</a>, <a class="el" href="_file_picker_service_8cs_source.html#l00065">Easy_Copier.Infrastructure.FilePickerService.PickOpenFileAsync()</a>, and <a class="el" href="_file_picker_service_8cs_source.html#l00124">Easy_Copier.Infrastructure.FilePickerService.PickSaveFileAsync()</a>.</p>
 <div id="dynsection-7" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
@@ -467,8 +464,8 @@ Static Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a910d924eeafa293537c93b6081a87f19" name="a910d924eeafa293537c93b6081a87f19"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a910d924eeafa293537c93b6081a87f19">&#9670;&#160;</a></span>GetDpiForWindow()</h2>
+<a id="a1fc73b66e5307797eba4e1b88ef3e4e7" name="a1fc73b66e5307797eba4e1b88ef3e4e7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1fc73b66e5307797eba4e1b88ef3e4e7">&#9670;&#160;</a></span>GetDpiForWindow()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -477,7 +474,7 @@ Static Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">uint Easy_Copier.Infrastructure.NativeWindowHelper.GetDpiForWindow </td>
+          <td class="memname">partial uint Easy_Copier.Infrastructure.NativeWindowHelper.GetDpiForWindow </td>
           <td>(</td>
           <td class="paramtype">IntPtr</td>          <td class="paramname"><span class="paramname"><em>hWnd</em></span></td><td>)</td>
           <td></td>
@@ -485,23 +482,23 @@ Static Private Attributes</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel private">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="_native_window_helper_8cs_source.html#l00204">GetRasterizationScale()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_native_window_helper_8cs_source.html#l00207">GetRasterizationScale()</a>.</p>
 <div id="dynsection-9" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
 <div id="dynsection-9-summary" class="dynsummary">
 </div>
 <div id="dynsection-9-content" class="dyncontent hidden">
-<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="class_easy___copier_1_1_infrastructure_1_1_native_window_helper_a910d924eeafa293537c93b6081a87f19_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="class_easy___copier_1_1_infrastructure_1_1_native_window_helper_a1fc73b66e5307797eba4e1b88ef3e4e7_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
 </div>
-<a id="a8410a554f5ec231149291a296a81111c" name="a8410a554f5ec231149291a296a81111c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8410a554f5ec231149291a296a81111c">&#9670;&#160;</a></span>GetForegroundWindow()</h2>
+<a id="a97a55ddb0af9e915e73a6f5cc39b1489" name="a97a55ddb0af9e915e73a6f5cc39b1489"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a97a55ddb0af9e915e73a6f5cc39b1489">&#9670;&#160;</a></span>GetForegroundWindow()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -510,7 +507,7 @@ Static Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">IntPtr Easy_Copier.Infrastructure.NativeWindowHelper.GetForegroundWindow </td>
+          <td class="memname">partial IntPtr Easy_Copier.Infrastructure.NativeWindowHelper.GetForegroundWindow </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
@@ -518,17 +515,17 @@ Static Private Attributes</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel private">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="_native_window_helper_8cs_source.html#l00069">GetActiveWindowHandle()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_native_window_helper_8cs_source.html#l00072">GetActiveWindowHandle()</a>.</p>
 <div id="dynsection-10" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
 <div id="dynsection-10-summary" class="dynsummary">
 </div>
 <div id="dynsection-10-content" class="dyncontent hidden">
-<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="class_easy___copier_1_1_infrastructure_1_1_native_window_helper_a8410a554f5ec231149291a296a81111c_icgraph.svg" width="100%" height="440"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="class_easy___copier_1_1_infrastructure_1_1_native_window_helper_a97a55ddb0af9e915e73a6f5cc39b1489_icgraph.svg" width="100%" height="440"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -556,11 +553,11 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_native_window_helper_8cs_source.html#l00204">204</a> of file <a class="el" href="_native_window_helper_8cs_source.html">NativeWindowHelper.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_native_window_helper_8cs_source.html#l00207">207</a> of file <a class="el" href="_native_window_helper_8cs_source.html">NativeWindowHelper.cs</a>.</p>
 
-<p class="reference">References <a class="el" href="#a910d924eeafa293537c93b6081a87f19">GetDpiForWindow()</a>.</p>
+<p class="reference">References <a class="el" href="#a1fc73b66e5307797eba4e1b88ef3e4e7">GetDpiForWindow()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_native_window_helper_8cs_source.html#l00188">SetMinimumSize()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_native_window_helper_8cs_source.html#l00191">SetMinimumSize()</a>.</p>
 <div id="dynsection-11" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-11-summary" class="dynsummary">
 </div>
@@ -576,8 +573,8 @@ Static Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a4362cdd56869526572895640e2bbed50" name="a4362cdd56869526572895640e2bbed50"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4362cdd56869526572895640e2bbed50">&#9670;&#160;</a></span>GetWindowRect()</h2>
+<a id="a24df81dd6869ac538f152a76346e232b" name="a24df81dd6869ac538f152a76346e232b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a24df81dd6869ac538f152a76346e232b">&#9670;&#160;</a></span>GetWindowRect()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -586,7 +583,7 @@ Static Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool Easy_Copier.Infrastructure.NativeWindowHelper.GetWindowRect </td>
+          <td class="memname">partial bool Easy_Copier.Infrastructure.NativeWindowHelper.GetWindowRect </td>
           <td>(</td>
           <td class="paramtype">IntPtr</td>          <td class="paramname"><span class="paramname"><em>hWnd</em></span>, </td>
         </tr>
@@ -598,23 +595,23 @@ Static Private Attributes</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel private">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="_native_window_helper_8cs_source.html#l00123">CenterWindow()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_native_window_helper_8cs_source.html#l00126">CenterWindow()</a>.</p>
 <div id="dynsection-13" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
 <div id="dynsection-13-summary" class="dynsummary">
 </div>
 <div id="dynsection-13-content" class="dyncontent hidden">
-<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="class_easy___copier_1_1_infrastructure_1_1_native_window_helper_a4362cdd56869526572895640e2bbed50_icgraph.svg" width="100%" height="502"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="class_easy___copier_1_1_infrastructure_1_1_native_window_helper_a24df81dd6869ac538f152a76346e232b_icgraph.svg" width="100%" height="502"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
 </div>
-<a id="a03d05ba8fabbfa7651a02695d3b1a4e4" name="a03d05ba8fabbfa7651a02695d3b1a4e4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a03d05ba8fabbfa7651a02695d3b1a4e4">&#9670;&#160;</a></span>GetWindowThreadProcessId()</h2>
+<a id="a6789d02bd742b33c13db95e29dc4ec51" name="a6789d02bd742b33c13db95e29dc4ec51"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6789d02bd742b33c13db95e29dc4ec51">&#9670;&#160;</a></span>GetWindowThreadProcessId()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -623,7 +620,7 @@ Static Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">uint Easy_Copier.Infrastructure.NativeWindowHelper.GetWindowThreadProcessId </td>
+          <td class="memname">partial uint Easy_Copier.Infrastructure.NativeWindowHelper.GetWindowThreadProcessId </td>
           <td>(</td>
           <td class="paramtype">IntPtr</td>          <td class="paramname"><span class="paramname"><em>hWnd</em></span>, </td>
         </tr>
@@ -635,17 +632,17 @@ Static Private Attributes</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel private">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="_native_window_helper_8cs_source.html#l00069">GetActiveWindowHandle()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_native_window_helper_8cs_source.html#l00072">GetActiveWindowHandle()</a>.</p>
 <div id="dynsection-14" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
 <div id="dynsection-14-summary" class="dynsummary">
 </div>
 <div id="dynsection-14-content" class="dyncontent hidden">
-<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="class_easy___copier_1_1_infrastructure_1_1_native_window_helper_a03d05ba8fabbfa7651a02695d3b1a4e4_icgraph.svg" width="100%" height="440"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="class_easy___copier_1_1_infrastructure_1_1_native_window_helper_a6789d02bd742b33c13db95e29dc4ec51_icgraph.svg" width="100%" height="440"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -710,11 +707,11 @@ Static Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_native_window_helper_8cs_source.html#l00286">286</a> of file <a class="el" href="_native_window_helper_8cs_source.html">NativeWindowHelper.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_native_window_helper_8cs_source.html#l00289">289</a> of file <a class="el" href="_native_window_helper_8cs_source.html">NativeWindowHelper.cs</a>.</p>
 
-<p class="reference">References <a class="el" href="_native_window_helper_8cs_source.html#l00222">InitializeWindow()</a>, <a class="el" href="_native_window_helper_8cs_source.html#l00267">RestoreOwnerInput()</a>, and <a class="el" href="_native_window_helper_8cs_source.html#l00248">ShowAsModal()</a>.</p>
+<p class="reference">References <a class="el" href="_native_window_helper_8cs_source.html#l00225">InitializeWindow()</a>, <a class="el" href="_native_window_helper_8cs_source.html#l00270">RestoreOwnerInput()</a>, and <a class="el" href="_native_window_helper_8cs_source.html#l00251">ShowAsModal()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_about_window_8xaml_8cs_source.html#l00012">Easy_Copier.Views.AboutWindow.AboutWindow()</a>, <a class="el" href="_history_window_8xaml_8cs_source.html#l00015">Easy_Copier.Views.HistoryWindow.HistoryWindow()</a>, <a class="el" href="_settings_window_8xaml_8cs_source.html#l00015">Easy_Copier.Views.SettingsWindow.SettingsWindow()</a>, and <a class="el" href="_smart_adder_history_window_8xaml_8cs_source.html#l00012">Easy_Copier.Views.SmartAdderHistoryWindow.SmartAdderHistoryWindow()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_about_window_8xaml_8cs_source.html#l00027">Easy_Copier.Views.AboutWindow.AboutWindow()</a>, <a class="el" href="_history_window_8xaml_8cs_source.html#l00033">Easy_Copier.Views.HistoryWindow.HistoryWindow()</a>, <a class="el" href="_settings_window_8xaml_8cs_source.html#l00015">Easy_Copier.Views.SettingsWindow.SettingsWindow()</a>, and <a class="el" href="_smart_adder_history_window_8xaml_8cs_source.html#l00027">Easy_Copier.Views.SmartAdderHistoryWindow.SmartAdderHistoryWindow()</a>.</p>
 <div id="dynsection-15" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-15-summary" class="dynsummary">
 </div>
@@ -778,9 +775,9 @@ Static Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_native_window_helper_8cs_source.html#l00222">222</a> of file <a class="el" href="_native_window_helper_8cs_source.html">NativeWindowHelper.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_native_window_helper_8cs_source.html#l00225">225</a> of file <a class="el" href="_native_window_helper_8cs_source.html">NativeWindowHelper.cs</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_native_window_helper_8cs_source.html#l00286">InitializeModalWindow()</a>, and <a class="el" href="_main_window_8xaml_8cs_source.html#l00008">Easy_Copier.MainWindow.MainWindow()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_native_window_helper_8cs_source.html#l00289">InitializeModalWindow()</a>, and <a class="el" href="_main_window_8xaml_8cs_source.html#l00008">Easy_Copier.MainWindow.MainWindow()</a>.</p>
 <div id="dynsection-17" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
 <div id="dynsection-17-summary" class="dynsummary">
 </div>
@@ -821,11 +818,11 @@ Static Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_native_window_helper_8cs_source.html#l00267">267</a> of file <a class="el" href="_native_window_helper_8cs_source.html">NativeWindowHelper.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_native_window_helper_8cs_source.html#l00270">270</a> of file <a class="el" href="_native_window_helper_8cs_source.html">NativeWindowHelper.cs</a>.</p>
 
-<p class="reference">References <a class="el" href="_native_window_helper_8cs_source.html#l00113">EnableWindowInput()</a>, and <a class="el" href="_native_window_helper_8cs_source.html#l00145">SetForeground()</a>.</p>
+<p class="reference">References <a class="el" href="_native_window_helper_8cs_source.html#l00116">EnableWindowInput()</a>, and <a class="el" href="_native_window_helper_8cs_source.html#l00148">SetForeground()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_native_window_helper_8cs_source.html#l00286">InitializeModalWindow()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_native_window_helper_8cs_source.html#l00289">InitializeModalWindow()</a>.</p>
 <div id="dynsection-18" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-18-summary" class="dynsummary">
 </div>
@@ -872,11 +869,11 @@ Static Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_native_window_helper_8cs_source.html#l00145">145</a> of file <a class="el" href="_native_window_helper_8cs_source.html">NativeWindowHelper.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_native_window_helper_8cs_source.html#l00148">148</a> of file <a class="el" href="_native_window_helper_8cs_source.html">NativeWindowHelper.cs</a>.</p>
 
-<p class="reference">References <a class="el" href="#a7ed8415bbce33a1bab54e3805d4be70b">SetForegroundWindow()</a>.</p>
+<p class="reference">References <a class="el" href="#a8ddfd36499035568510b6cb9e4b88459">SetForegroundWindow()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_native_window_helper_8cs_source.html#l00267">RestoreOwnerInput()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_program_8cs_source.html#l00046">Easy_Copier.Program.MainInstance_Activated()</a>, and <a class="el" href="_native_window_helper_8cs_source.html#l00270">RestoreOwnerInput()</a>.</p>
 <div id="dynsection-20" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-20-summary" class="dynsummary">
 </div>
@@ -892,8 +889,8 @@ Static Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a7ed8415bbce33a1bab54e3805d4be70b" name="a7ed8415bbce33a1bab54e3805d4be70b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7ed8415bbce33a1bab54e3805d4be70b">&#9670;&#160;</a></span>SetForegroundWindow()</h2>
+<a id="a8ddfd36499035568510b6cb9e4b88459" name="a8ddfd36499035568510b6cb9e4b88459"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8ddfd36499035568510b6cb9e4b88459">&#9670;&#160;</a></span>SetForegroundWindow()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -902,7 +899,7 @@ Static Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool Easy_Copier.Infrastructure.NativeWindowHelper.SetForegroundWindow </td>
+          <td class="memname">partial bool Easy_Copier.Infrastructure.NativeWindowHelper.SetForegroundWindow </td>
           <td>(</td>
           <td class="paramtype">IntPtr</td>          <td class="paramname"><span class="paramname"><em>hWnd</em></span></td><td>)</td>
           <td></td>
@@ -910,17 +907,17 @@ Static Private Attributes</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel private">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="_native_window_helper_8cs_source.html#l00145">SetForeground()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_native_window_helper_8cs_source.html#l00148">SetForeground()</a>.</p>
 <div id="dynsection-22" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
 <div id="dynsection-22-summary" class="dynsummary">
 </div>
 <div id="dynsection-22-content" class="dyncontent hidden">
-<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="class_easy___copier_1_1_infrastructure_1_1_native_window_helper_a7ed8415bbce33a1bab54e3805d4be70b_icgraph.svg" width="100%" height="502"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="class_easy___copier_1_1_infrastructure_1_1_native_window_helper_a8ddfd36499035568510b6cb9e4b88459_icgraph.svg" width="100%" height="502"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -973,9 +970,9 @@ Static Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_native_window_helper_8cs_source.html#l00188">188</a> of file <a class="el" href="_native_window_helper_8cs_source.html">NativeWindowHelper.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_native_window_helper_8cs_source.html#l00191">191</a> of file <a class="el" href="_native_window_helper_8cs_source.html">NativeWindowHelper.cs</a>.</p>
 
-<p class="reference">References <a class="el" href="_native_window_helper_8cs_source.html#l00204">GetRasterizationScale()</a>.</p>
+<p class="reference">References <a class="el" href="_native_window_helper_8cs_source.html#l00207">GetRasterizationScale()</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="_main_window_8xaml_8cs_source.html#l00008">Easy_Copier.MainWindow.MainWindow()</a>.</p>
 <div id="dynsection-23" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
@@ -1029,11 +1026,11 @@ Static Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_native_window_helper_8cs_source.html#l00101">101</a> of file <a class="el" href="_native_window_helper_8cs_source.html">NativeWindowHelper.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_native_window_helper_8cs_source.html#l00104">104</a> of file <a class="el" href="_native_window_helper_8cs_source.html">NativeWindowHelper.cs</a>.</p>
 
-<p class="reference">References <a class="el" href="_native_window_helper_8cs_source.html#l00015">GWLP_HWNDPARENT</a>, <a class="el" href="#a1d25097e344173987487626f3edc0210">SetWindowLong32()</a>, and <a class="el" href="#a4b3d096d98e73ebad341dba4feadd8bc">SetWindowLongPtr64()</a>.</p>
+<p class="reference">References <a class="el" href="_native_window_helper_8cs_source.html#l00015">GWLP_HWNDPARENT</a>, <a class="el" href="#accb5a28d072b25b841ac31c7b1837a29">SetWindowLong32()</a>, and <a class="el" href="#a543062cf731d87ec98a5fe3026945048">SetWindowLongPtr64()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_native_window_helper_8cs_source.html#l00248">ShowAsModal()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_native_window_helper_8cs_source.html#l00251">ShowAsModal()</a>.</p>
 <div id="dynsection-25" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-25-summary" class="dynsummary">
 </div>
@@ -1049,8 +1046,8 @@ Static Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a1d25097e344173987487626f3edc0210" name="a1d25097e344173987487626f3edc0210"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1d25097e344173987487626f3edc0210">&#9670;&#160;</a></span>SetWindowLong32()</h2>
+<a id="accb5a28d072b25b841ac31c7b1837a29" name="accb5a28d072b25b841ac31c7b1837a29"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#accb5a28d072b25b841ac31c7b1837a29">&#9670;&#160;</a></span>SetWindowLong32()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1059,7 +1056,7 @@ Static Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">int Easy_Copier.Infrastructure.NativeWindowHelper.SetWindowLong32 </td>
+          <td class="memname">partial int Easy_Copier.Infrastructure.NativeWindowHelper.SetWindowLong32 </td>
           <td>(</td>
           <td class="paramtype">IntPtr</td>          <td class="paramname"><span class="paramname"><em>hWnd</em></span>, </td>
         </tr>
@@ -1076,23 +1073,23 @@ Static Private Attributes</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel private">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="_native_window_helper_8cs_source.html#l00101">SetOwner()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_native_window_helper_8cs_source.html#l00104">SetOwner()</a>.</p>
 <div id="dynsection-27" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
 <div id="dynsection-27-summary" class="dynsummary">
 </div>
 <div id="dynsection-27-content" class="dyncontent hidden">
-<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="class_easy___copier_1_1_infrastructure_1_1_native_window_helper_a1d25097e344173987487626f3edc0210_icgraph.svg" width="100%" height="502"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="class_easy___copier_1_1_infrastructure_1_1_native_window_helper_accb5a28d072b25b841ac31c7b1837a29_icgraph.svg" width="100%" height="502"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
 </div>
-<a id="a4b3d096d98e73ebad341dba4feadd8bc" name="a4b3d096d98e73ebad341dba4feadd8bc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4b3d096d98e73ebad341dba4feadd8bc">&#9670;&#160;</a></span>SetWindowLongPtr64()</h2>
+<a id="a543062cf731d87ec98a5fe3026945048" name="a543062cf731d87ec98a5fe3026945048"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a543062cf731d87ec98a5fe3026945048">&#9670;&#160;</a></span>SetWindowLongPtr64()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1101,7 +1098,7 @@ Static Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">IntPtr Easy_Copier.Infrastructure.NativeWindowHelper.SetWindowLongPtr64 </td>
+          <td class="memname">partial IntPtr Easy_Copier.Infrastructure.NativeWindowHelper.SetWindowLongPtr64 </td>
           <td>(</td>
           <td class="paramtype">IntPtr</td>          <td class="paramname"><span class="paramname"><em>hWnd</em></span>, </td>
         </tr>
@@ -1118,23 +1115,23 @@ Static Private Attributes</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel private">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="_native_window_helper_8cs_source.html#l00101">SetOwner()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_native_window_helper_8cs_source.html#l00104">SetOwner()</a>.</p>
 <div id="dynsection-28" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
 <div id="dynsection-28-summary" class="dynsummary">
 </div>
 <div id="dynsection-28-content" class="dyncontent hidden">
-<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="class_easy___copier_1_1_infrastructure_1_1_native_window_helper_a4b3d096d98e73ebad341dba4feadd8bc_icgraph.svg" width="100%" height="502"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="class_easy___copier_1_1_infrastructure_1_1_native_window_helper_a543062cf731d87ec98a5fe3026945048_icgraph.svg" width="100%" height="502"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
 </div>
-<a id="a079a35793d02e114041c8d6820953e6f" name="a079a35793d02e114041c8d6820953e6f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a079a35793d02e114041c8d6820953e6f">&#9670;&#160;</a></span>SetWindowPos()</h2>
+<a id="a7360d0d9cc4a75176e40dcbee62e1f16" name="a7360d0d9cc4a75176e40dcbee62e1f16"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7360d0d9cc4a75176e40dcbee62e1f16">&#9670;&#160;</a></span>SetWindowPos()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1143,7 +1140,7 @@ Static Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool Easy_Copier.Infrastructure.NativeWindowHelper.SetWindowPos </td>
+          <td class="memname">partial bool Easy_Copier.Infrastructure.NativeWindowHelper.SetWindowPos </td>
           <td>(</td>
           <td class="paramtype">IntPtr</td>          <td class="paramname"><span class="paramname"><em>hWnd</em></span>, </td>
         </tr>
@@ -1180,17 +1177,17 @@ Static Private Attributes</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel private">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="_native_window_helper_8cs_source.html#l00123">CenterWindow()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_native_window_helper_8cs_source.html#l00126">CenterWindow()</a>.</p>
 <div id="dynsection-29" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
 <div id="dynsection-29-summary" class="dynsummary">
 </div>
 <div id="dynsection-29-content" class="dyncontent hidden">
-<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="class_easy___copier_1_1_infrastructure_1_1_native_window_helper_a079a35793d02e114041c8d6820953e6f_icgraph.svg" width="100%" height="502"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="class_easy___copier_1_1_infrastructure_1_1_native_window_helper_a7360d0d9cc4a75176e40dcbee62e1f16_icgraph.svg" width="100%" height="502"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -1237,11 +1234,11 @@ Static Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_native_window_helper_8cs_source.html#l00248">248</a> of file <a class="el" href="_native_window_helper_8cs_source.html">NativeWindowHelper.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_native_window_helper_8cs_source.html#l00251">251</a> of file <a class="el" href="_native_window_helper_8cs_source.html">NativeWindowHelper.cs</a>.</p>
 
-<p class="reference">References <a class="el" href="_native_window_helper_8cs_source.html#l00123">CenterWindow()</a>, <a class="el" href="_native_window_helper_8cs_source.html#l00113">EnableWindowInput()</a>, and <a class="el" href="_native_window_helper_8cs_source.html#l00101">SetOwner()</a>.</p>
+<p class="reference">References <a class="el" href="_native_window_helper_8cs_source.html#l00126">CenterWindow()</a>, <a class="el" href="_native_window_helper_8cs_source.html#l00116">EnableWindowInput()</a>, and <a class="el" href="_native_window_helper_8cs_source.html#l00104">SetOwner()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_native_window_helper_8cs_source.html#l00286">InitializeModalWindow()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_native_window_helper_8cs_source.html#l00289">InitializeModalWindow()</a>.</p>
 <div id="dynsection-30" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-30-summary" class="dynsummary">
 </div>
@@ -1280,7 +1277,7 @@ Static Private Attributes</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="_native_window_helper_8cs_source.html#l00015">15</a> of file <a class="el" href="_native_window_helper_8cs_source.html">NativeWindowHelper.cs</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_native_window_helper_8cs_source.html#l00101">SetOwner()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_native_window_helper_8cs_source.html#l00104">SetOwner()</a>.</p>
 
 </div>
 </div>
@@ -1306,7 +1303,7 @@ Static Private Attributes</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="_native_window_helper_8cs_source.html#l00016">16</a> of file <a class="el" href="_native_window_helper_8cs_source.html">NativeWindowHelper.cs</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_native_window_helper_8cs_source.html#l00123">CenterWindow()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_native_window_helper_8cs_source.html#l00126">CenterWindow()</a>.</p>
 
 </div>
 </div>
@@ -1332,7 +1329,7 @@ Static Private Attributes</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="_native_window_helper_8cs_source.html#l00017">17</a> of file <a class="el" href="_native_window_helper_8cs_source.html">NativeWindowHelper.cs</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_native_window_helper_8cs_source.html#l00123">CenterWindow()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_native_window_helper_8cs_source.html#l00126">CenterWindow()</a>.</p>
 
 </div>
 </div>

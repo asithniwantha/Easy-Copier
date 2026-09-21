@@ -1,6 +1,6 @@
 <map id="Easy_Copier.Views.SmartAdderControl.OnViewModelChanged" name="Easy_Copier.Views.SmartAdderControl.OnViewModelChanged">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,215,48"/>
-<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_views_1_1_smart_adder_control.html#a2c074f1f8ed5a955e43fde641eaf1772" title=" " alt="" coords="263,5,472,48"/>
+<area shape="rect" id="Node000001" title="Callback invoked when the ViewModelProperty dependency property value changes." alt="" coords="5,5,215,48"/>
+<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_views_1_1_smart_adder_control.html#a2c074f1f8ed5a955e43fde641eaf1772" title="Initializes a new instance of the SmartAdderControl class." alt="" coords="263,5,472,48"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="215,24,250,27,245,27,215,29"/>
 <area shape="rect" id="Node000003" href="$class_easy___copier_1_1_views_1_1_smart_adder_control.html#adddddaa1f9694f2a768afba2399bebe7" title="InitializeComponent()." alt="" coords="520,5,729,48"/>
 <area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="473,24,507,27,502,27,473,29"/>

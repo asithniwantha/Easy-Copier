@@ -1,0 +1,9 @@
+<map id="Easy_Copier.Services.RufusService.LaunchWithIsoAsync" name="Easy_Copier.Services.RufusService.LaunchWithIsoAsync">
+<area shape="rect" id="Node000001" title="Resolves the Rufus executable path and launches Rufus with the specified ISO file path...." alt="" coords="5,13,199,56"/>
+<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_infrastructure_1_1_rufus_resolution_helper.html#a99c0f58c87b73206f2635dbc1e95a235" title="Given a configured Rufus path (with optional environment variables), expands environment variables,..." alt="" coords="247,5,491,64"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="199,32,234,34,228,35,199,37"/>
+<area shape="rect" id="Node000003" href="$class_easy___copier_1_1_infrastructure_1_1_rufus_resolution_helper.html#a86bc01b0f77e23145af9cac4b03c01a2" title="Attempts to parse a Version object from a Rufus filename (e.g., rufus&#45;4.7.exe =&gt; Version 4...." alt="" coords="539,5,795,64"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="491,32,526,35,521,35,491,37"/>
+<area shape="rect" id="Node000004" href="$class_easy___copier_1_1_infrastructure_1_1_rufus_resolution_helper.html#aff74fa2f29453c47964c6d4e5ef6de2a" title=" " alt="" coords="843,13,1120,56"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="796,32,830,35,825,35,796,37"/>
+</map>

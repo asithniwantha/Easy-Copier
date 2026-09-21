@@ -12,19 +12,19 @@
 <g id="Node000001" class="node">
 <title>Node1</title>
 <g id="a_Node000001"><a xlink:title="Brings the specified window handle to the foreground.">
-<polygon fill="#999999" stroke="#666666" points="820.75,-119 645.75,-119 645.75,-87 820.75,-87 820.75,-119"/>
-<text xml:space="preserve" text-anchor="start" x="653.75" y="-105.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Infrastructure.</text>
-<text xml:space="preserve" text-anchor="middle" x="733.25" y="-93.5" font-family="Helvetica,sans-Serif" font-size="10.00">NativeWindowHelper.SetForeground</text>
+<polygon fill="#999999" stroke="#666666" points="820.75,-144 645.75,-144 645.75,-112 820.75,-112 820.75,-144"/>
+<text xml:space="preserve" text-anchor="start" x="653.75" y="-130.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Infrastructure.</text>
+<text xml:space="preserve" text-anchor="middle" x="733.25" y="-118.5" font-family="Helvetica,sans-Serif" font-size="10.00">NativeWindowHelper.SetForeground</text>
 </a>
 </g>
 </g>
 <!-- Node2 -->
 <g id="Node000002" class="node">
 <title>Node2</title>
-<g id="a_Node000002"><a xlink:href="class_easy___copier_1_1_infrastructure_1_1_native_window_helper.html#afda73520a4a05ae69313906202e7c369" target="_top" xlink:title="Re&#45;enables input interaction and restores foreground focus for an owner window after a modal window c...">
-<polygon fill="white" stroke="#666666" points="609.75,-119 413.75,-119 413.75,-87 609.75,-87 609.75,-119"/>
-<text xml:space="preserve" text-anchor="start" x="421.75" y="-105.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Infrastructure.</text>
-<text xml:space="preserve" text-anchor="middle" x="511.75" y="-93.5" font-family="Helvetica,sans-Serif" font-size="10.00">NativeWindowHelper.RestoreOwnerInput</text>
+<g id="a_Node000002"><a xlink:href="class_easy___copier_1_1_program.html#a9d85cb2db15488b2dda4028ab26108de" target="_top" xlink:title=" ">
+<polygon fill="white" stroke="#666666" points="579.75,-169 443.75,-169 443.75,-137 579.75,-137 579.75,-169"/>
+<text xml:space="preserve" text-anchor="start" x="451.75" y="-155.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Program.Main</text>
+<text xml:space="preserve" text-anchor="middle" x="511.75" y="-143.5" font-family="Helvetica,sans-Serif" font-size="10.00">Instance_Activated</text>
 </a>
 </g>
 </g>
@@ -32,19 +32,36 @@
 <g id="edge1_Node000001_Node000002" class="edge">
 <title>Node1&#45;&gt;Node2</title>
 <g id="a_edge1_Node000001_Node000002"><a xlink:title=" ">
-<path fill="none" stroke="#63b8ff" d="M634.24,-103C626.22,-103 618.11,-103 610.1,-103"/>
-<polygon fill="#63b8ff" stroke="#63b8ff" points="633.98,-106.5 643.98,-103 633.98,-99.5 633.98,-106.5"/>
+<path fill="none" stroke="#63b8ff" d="M634.16,-139.17C615.83,-141.26 597.05,-143.4 579.92,-145.35"/>
+<polygon fill="#63b8ff" stroke="#63b8ff" points="634.45,-142.66 643.99,-138.05 633.66,-135.71 634.45,-142.66"/>
+</a>
+</g>
+</g>
+<!-- Node4 -->
+<g id="Node000004" class="node">
+<title>Node4</title>
+<g id="a_Node000004"><a xlink:href="class_easy___copier_1_1_infrastructure_1_1_native_window_helper.html#afda73520a4a05ae69313906202e7c369" target="_top" xlink:title="Re&#45;enables input interaction and restores foreground focus for an owner window after a modal window c...">
+<polygon fill="white" stroke="#666666" points="609.75,-119 413.75,-119 413.75,-87 609.75,-87 609.75,-119"/>
+<text xml:space="preserve" text-anchor="start" x="421.75" y="-105.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Infrastructure.</text>
+<text xml:space="preserve" text-anchor="middle" x="511.75" y="-93.5" font-family="Helvetica,sans-Serif" font-size="10.00">NativeWindowHelper.RestoreOwnerInput</text>
+</a>
+</g>
+</g>
+<!-- Node1&#45;&gt;Node4 -->
+<g id="edge3_Node000001_Node000004" class="edge">
+<title>Node1&#45;&gt;Node4</title>
+<g id="a_edge3_Node000001_Node000004"><a xlink:title=" ">
+<path fill="none" stroke="#63b8ff" d="M634.24,-116.84C626.22,-115.92 618.11,-115 610.1,-114.09"/>
+<polygon fill="#63b8ff" stroke="#63b8ff" points="633.66,-120.29 643.99,-117.95 634.45,-113.34 633.66,-120.29"/>
 </a>
 </g>
 </g>
 <!-- Node3 -->
 <g id="Node000003" class="node">
 <title>Node3</title>
-<g id="a_Node000003"><a xlink:href="class_easy___copier_1_1_infrastructure_1_1_native_window_helper.html#a3d287dd8cb064cde0c403d6692cb4a67" target="_top" xlink:title="Centralized helper method to initialize a modal dialog window, setting data context,...">
-<polygon fill="white" stroke="#666666" points="377.75,-125 204.25,-125 204.25,-81 377.75,-81 377.75,-125"/>
-<text xml:space="preserve" text-anchor="start" x="212.25" y="-111.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Infrastructure.</text>
-<text xml:space="preserve" text-anchor="start" x="212.25" y="-99.5" font-family="Helvetica,sans-Serif" font-size="10.00">NativeWindowHelper.InitializeModal</text>
-<text xml:space="preserve" text-anchor="middle" x="291" y="-87.5" font-family="Helvetica,sans-Serif" font-size="10.00">Window</text>
+<g id="a_Node000003"><a xlink:href="class_easy___copier_1_1_program.html#ae266f31436203f55515e73e30be2a495" target="_top" xlink:title=" ">
+<polygon fill="white" stroke="#666666" points="359,-163 223,-163 223,-143 359,-143 359,-163"/>
+<text xml:space="preserve" text-anchor="middle" x="291" y="-149.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Program.Main</text>
 </a>
 </g>
 </g>
@@ -52,72 +69,92 @@
 <g id="edge2_Node000002_Node000003" class="edge">
 <title>Node2&#45;&gt;Node3</title>
 <g id="a_edge2_Node000002_Node000003"><a xlink:title=" ">
-<path fill="none" stroke="#63b8ff" d="M402.08,-103C393.97,-103 385.86,-103 377.92,-103"/>
-<polygon fill="#63b8ff" stroke="#63b8ff" points="402.02,-106.5 412.02,-103 402.02,-99.5 402.02,-106.5"/>
-</a>
-</g>
-</g>
-<!-- Node4 -->
-<g id="Node000004" class="node">
-<title>Node4</title>
-<g id="a_Node000004"><a xlink:href="class_easy___copier_1_1_views_1_1_about_window.html#a86b76c2eb0d7e9e24bc276a20207a95e" target="_top" xlink:title=" ">
-<polygon fill="white" stroke="#666666" points="168.25,-194 0,-194 0,-162 168.25,-162 168.25,-194"/>
-<text xml:space="preserve" text-anchor="start" x="8" y="-180.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Views.AboutWindow.</text>
-<text xml:space="preserve" text-anchor="middle" x="84.12" y="-168.5" font-family="Helvetica,sans-Serif" font-size="10.00">AboutWindow</text>
-</a>
-</g>
-</g>
-<!-- Node3&#45;&gt;Node4 -->
-<g id="edge3_Node000003_Node000004" class="edge">
-<title>Node3&#45;&gt;Node4</title>
-<g id="a_edge3_Node000003_Node000004"><a xlink:title=" ">
-<path fill="none" stroke="#63b8ff" d="M227.97,-129.84C208.95,-137.7 187.87,-146.04 168.25,-153 160.01,-155.92 151.24,-158.8 142.6,-161.51"/>
-<polygon fill="#63b8ff" stroke="#63b8ff" points="229.31,-133.07 237.2,-126 226.62,-126.61 229.31,-133.07"/>
+<path fill="none" stroke="#63b8ff" d="M431.84,-153C408.04,-153 382.15,-153 359.19,-153"/>
+<polygon fill="#63b8ff" stroke="#63b8ff" points="431.82,-156.5 441.82,-153 431.82,-149.5 431.82,-156.5"/>
 </a>
 </g>
 </g>
 <!-- Node5 -->
 <g id="Node000005" class="node">
 <title>Node5</title>
-<g id="a_Node000005"><a xlink:href="class_easy___copier_1_1_views_1_1_history_window.html#a4665b9acd85137846e61b539bd7c0815" target="_top" xlink:title=" ">
-<polygon fill="white" stroke="#666666" points="152.5,-144 15.75,-144 15.75,-112 152.5,-112 152.5,-144"/>
-<text xml:space="preserve" text-anchor="start" x="23.75" y="-130.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Views.History</text>
-<text xml:space="preserve" text-anchor="middle" x="84.12" y="-118.5" font-family="Helvetica,sans-Serif" font-size="10.00">Window.HistoryWindow</text>
+<g id="a_Node000005"><a xlink:href="class_easy___copier_1_1_infrastructure_1_1_native_window_helper.html#a3d287dd8cb064cde0c403d6692cb4a67" target="_top" xlink:title="Centralized helper method to initialize a modal dialog window, setting data context,...">
+<polygon fill="white" stroke="#666666" points="377.75,-125 204.25,-125 204.25,-81 377.75,-81 377.75,-125"/>
+<text xml:space="preserve" text-anchor="start" x="212.25" y="-111.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Infrastructure.</text>
+<text xml:space="preserve" text-anchor="start" x="212.25" y="-99.5" font-family="Helvetica,sans-Serif" font-size="10.00">NativeWindowHelper.InitializeModal</text>
+<text xml:space="preserve" text-anchor="middle" x="291" y="-87.5" font-family="Helvetica,sans-Serif" font-size="10.00">Window</text>
 </a>
 </g>
 </g>
-<!-- Node3&#45;&gt;Node5 -->
-<g id="edge4_Node000003_Node000005" class="edge">
-<title>Node3&#45;&gt;Node5</title>
-<g id="a_edge4_Node000003_Node000005"><a xlink:title=" ">
-<path fill="none" stroke="#63b8ff" d="M192.73,-114.87C179.24,-116.52 165.63,-118.18 152.85,-119.74"/>
-<polygon fill="#63b8ff" stroke="#63b8ff" points="193,-118.36 202.5,-113.68 192.15,-111.41 193,-118.36"/>
+<!-- Node4&#45;&gt;Node5 -->
+<g id="edge4_Node000004_Node000005" class="edge">
+<title>Node4&#45;&gt;Node5</title>
+<g id="a_edge4_Node000004_Node000005"><a xlink:title=" ">
+<path fill="none" stroke="#63b8ff" d="M402.08,-103C393.97,-103 385.86,-103 377.92,-103"/>
+<polygon fill="#63b8ff" stroke="#63b8ff" points="402.02,-106.5 412.02,-103 402.02,-99.5 402.02,-106.5"/>
 </a>
 </g>
 </g>
 <!-- Node6 -->
 <g id="Node000006" class="node">
 <title>Node6</title>
-<g id="a_Node000006"><a xlink:href="class_easy___copier_1_1_views_1_1_settings_window.html#aa5c96a3985044d8ebabe043cd105e570" target="_top" xlink:title=" ">
-<polygon fill="white" stroke="#666666" points="154.75,-94 13.5,-94 13.5,-62 154.75,-62 154.75,-94"/>
-<text xml:space="preserve" text-anchor="start" x="21.5" y="-80.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Views.Settings</text>
-<text xml:space="preserve" text-anchor="middle" x="84.12" y="-68.5" font-family="Helvetica,sans-Serif" font-size="10.00">Window.SettingsWindow</text>
+<g id="a_Node000006"><a xlink:href="class_easy___copier_1_1_views_1_1_about_window.html#a86b76c2eb0d7e9e24bc276a20207a95e" target="_top" xlink:title="Initializes a new instance of the AboutWindow class.">
+<polygon fill="white" stroke="#666666" points="168.25,-194 0,-194 0,-162 168.25,-162 168.25,-194"/>
+<text xml:space="preserve" text-anchor="start" x="8" y="-180.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Views.AboutWindow.</text>
+<text xml:space="preserve" text-anchor="middle" x="84.12" y="-168.5" font-family="Helvetica,sans-Serif" font-size="10.00">AboutWindow</text>
 </a>
 </g>
 </g>
-<!-- Node3&#45;&gt;Node6 -->
-<g id="edge5_Node000003_Node000006" class="edge">
-<title>Node3&#45;&gt;Node6</title>
-<g id="a_edge5_Node000003_Node000006"><a xlink:title=" ">
-<path fill="none" stroke="#63b8ff" d="M192.85,-91.14C180.1,-89.59 167.23,-88.02 155.06,-86.53"/>
-<polygon fill="#63b8ff" stroke="#63b8ff" points="192.15,-94.59 202.5,-92.32 193,-87.64 192.15,-94.59"/>
+<!-- Node5&#45;&gt;Node6 -->
+<g id="edge5_Node000005_Node000006" class="edge">
+<title>Node5&#45;&gt;Node6</title>
+<g id="a_edge5_Node000005_Node000006"><a xlink:title=" ">
+<path fill="none" stroke="#63b8ff" d="M214.48,-129.64C211,-131.07 207.58,-132.53 204.25,-134 187.7,-141.32 184.99,-146.14 168.25,-153 160.72,-156.09 152.67,-158.98 144.65,-161.63"/>
+<polygon fill="#63b8ff" stroke="#63b8ff" points="215.62,-132.95 223.6,-125.98 213.02,-126.45 215.62,-132.95"/>
 </a>
 </g>
 </g>
 <!-- Node7 -->
 <g id="Node000007" class="node">
 <title>Node7</title>
-<g id="a_Node000007"><a xlink:href="class_easy___copier_1_1_views_1_1_smart_adder_history_window.html#a79e38193ee6ab739bd498202f49a3bb1" target="_top" xlink:title=" ">
+<g id="a_Node000007"><a xlink:href="class_easy___copier_1_1_views_1_1_history_window.html#a4665b9acd85137846e61b539bd7c0815" target="_top" xlink:title="Initializes a new instance of the HistoryWindow class.">
+<polygon fill="white" stroke="#666666" points="152.5,-144 15.75,-144 15.75,-112 152.5,-112 152.5,-144"/>
+<text xml:space="preserve" text-anchor="start" x="23.75" y="-130.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Views.History</text>
+<text xml:space="preserve" text-anchor="middle" x="84.12" y="-118.5" font-family="Helvetica,sans-Serif" font-size="10.00">Window.HistoryWindow</text>
+</a>
+</g>
+</g>
+<!-- Node5&#45;&gt;Node7 -->
+<g id="edge6_Node000005_Node000007" class="edge">
+<title>Node5&#45;&gt;Node7</title>
+<g id="a_edge6_Node000005_Node000007"><a xlink:title=" ">
+<path fill="none" stroke="#63b8ff" d="M192.73,-114.87C179.24,-116.52 165.63,-118.18 152.85,-119.74"/>
+<polygon fill="#63b8ff" stroke="#63b8ff" points="193,-118.36 202.5,-113.68 192.15,-111.41 193,-118.36"/>
+</a>
+</g>
+</g>
+<!-- Node8 -->
+<g id="Node000008" class="node">
+<title>Node8</title>
+<g id="a_Node000008"><a xlink:href="class_easy___copier_1_1_views_1_1_settings_window.html#aa5c96a3985044d8ebabe043cd105e570" target="_top" xlink:title=" ">
+<polygon fill="white" stroke="#666666" points="154.75,-94 13.5,-94 13.5,-62 154.75,-62 154.75,-94"/>
+<text xml:space="preserve" text-anchor="start" x="21.5" y="-80.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Views.Settings</text>
+<text xml:space="preserve" text-anchor="middle" x="84.12" y="-68.5" font-family="Helvetica,sans-Serif" font-size="10.00">Window.SettingsWindow</text>
+</a>
+</g>
+</g>
+<!-- Node5&#45;&gt;Node8 -->
+<g id="edge7_Node000005_Node000008" class="edge">
+<title>Node5&#45;&gt;Node8</title>
+<g id="a_edge7_Node000005_Node000008"><a xlink:title=" ">
+<path fill="none" stroke="#63b8ff" d="M192.85,-91.14C180.1,-89.59 167.23,-88.02 155.06,-86.53"/>
+<polygon fill="#63b8ff" stroke="#63b8ff" points="192.15,-94.59 202.5,-92.32 193,-87.64 192.15,-94.59"/>
+</a>
+</g>
+</g>
+<!-- Node9 -->
+<g id="Node000009" class="node">
+<title>Node9</title>
+<g id="a_Node000009"><a xlink:href="class_easy___copier_1_1_views_1_1_smart_adder_history_window.html#a79e38193ee6ab739bd498202f49a3bb1" target="_top" xlink:title="Initializes a new instance of the SmartAdderHistoryWindow class.">
 <polygon fill="white" stroke="#666666" points="168.25,-44 0,-44 0,0 168.25,0 168.25,-44"/>
 <text xml:space="preserve" text-anchor="start" x="8" y="-30.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Views.SmartAdder</text>
 <text xml:space="preserve" text-anchor="start" x="8" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">HistoryWindow.SmartAdderHistory</text>
@@ -125,10 +162,10 @@
 </a>
 </g>
 </g>
-<!-- Node3&#45;&gt;Node7 -->
-<g id="edge6_Node000003_Node000007" class="edge">
-<title>Node3&#45;&gt;Node7</title>
-<g id="a_edge6_Node000003_Node000007"><a xlink:title=" ">
+<!-- Node5&#45;&gt;Node9 -->
+<g id="edge8_Node000005_Node000009" class="edge">
+<title>Node5&#45;&gt;Node9</title>
+<g id="a_edge8_Node000005_Node000009"><a xlink:title=" ">
 <path fill="none" stroke="#63b8ff" d="M226.09,-76.29C207.49,-68.65 187.1,-60.38 168.25,-53 161.08,-50.19 153.54,-47.3 146.05,-44.46"/>
 <polygon fill="#63b8ff" stroke="#63b8ff" points="224.53,-79.44 235.11,-80.02 227.2,-72.97 224.53,-79.44"/>
 </a>

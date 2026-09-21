@@ -1,11 +1,13 @@
 <map id="Easy_Copier.App.App" name="Easy_Copier.App.App">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,113,156,140"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,147,156,173"/>
 <area shape="rect" id="Node000002" href="$class_easy___copier_1_1_app.html#ae71efec3121752e104971bb41f6e80a2" title=" " alt="" coords="236,5,386,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="102,111,148,84,203,58,224,52,219,54,205,62,151,89,106,115"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="93,144,139,102,170,78,202,58,224,50,220,53,205,62,173,83,143,106,97,148"/>
 <area shape="rect" id="Node000003" href="$class_easy___copier_1_1_app.html#a4190d363a2ee41844c16ca66e4d82c87" title=" " alt="" coords="220,72,403,115"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="155,113,207,107,202,110,157,118"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="128,144,222,118,219,121,131,148"/>
 <area shape="rect" id="Node000004" href="$class_easy___copier_1_1_app.html#a1b3677ab966f4883699e99f15da82a6a" title=" " alt="" coords="204,139,419,181"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="156,135,191,141,186,143,156,140"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="155,157,191,159,186,161,157,163"/>
 <area shape="rect" id="Node000005" href="$class_easy___copier_1_1_app.html#a13e643ace1dbd4dd00a745fcbc0f9e98" title="InitializeComponent()." alt="" coords="224,205,399,248"/>
-<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="104,138,151,164,205,191,222,200,217,200,203,196,148,169,104,143"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="130,171,223,199,218,202,130,177"/>
+<area shape="rect" id="Node000006" href="$class_easy___copier_1_1_app.html#aebfb9a350502857e15ed56c03d408ff1" title=" " alt="" coords="205,272,418,315"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="96,171,143,214,173,237,205,258,217,266,212,265,202,262,170,242,139,218,95,177"/>
 </map>

@@ -53,7 +53,7 @@
 <!-- Node1 -->
 <g id="Node000001" class="node">
 <title>Node1</title>
-<g id="a_Node000001"><a xlink:title=" ">
+<g id="a_Node000001"><a xlink:title="Represents a request to transfer a batch of items to a designated removable drive.">
 <polygon fill="#999999" stroke="#666666" points="1041.5,-82 895.75,-82 895.75,-50 1041.5,-50 1041.5,-82"/>
 <text xml:space="preserve" text-anchor="start" x="903.75" y="-68.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Models.Transfer</text>
 <text xml:space="preserve" text-anchor="middle" x="968.62" y="-56.5" font-family="Helvetica,sans-Serif" font-size="10.00">Request</text>

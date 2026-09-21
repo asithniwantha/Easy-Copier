@@ -11,6 +11,7 @@ var class_easy___copier_1_1_view_models_1_1_settings_view_model =
     [ "LoadSettings", "class_easy___copier_1_1_view_models_1_1_settings_view_model.html#a16be136196686750451c7d2ff1a56c78", null ],
     [ "LoadSettingsAsync", "class_easy___copier_1_1_view_models_1_1_settings_view_model.html#a6348434751494a82036ccfef6961f24c", null ],
     [ "OnSelectedNavTagChanged", "class_easy___copier_1_1_view_models_1_1_settings_view_model.html#a836c33298de276a788e0d6590ec473b1", null ],
+    [ "OnStartOnLogonChanged", "class_easy___copier_1_1_view_models_1_1_settings_view_model.html#af2305806b5d52d24a4bbdd5869f537d9", null ],
     [ "OpenDataFolder", "class_easy___copier_1_1_view_models_1_1_settings_view_model.html#a4805cb88f5f21f526b96c3c43ec7aa46", null ],
     [ "OpenLogsFolder", "class_easy___copier_1_1_view_models_1_1_settings_view_model.html#ac1e4d186af27b9e1529ac7fd3f9431a9", null ],
     [ "RemoveSourceFolderByPathAsync", "class_easy___copier_1_1_view_models_1_1_settings_view_model.html#acbabf2902402ba4583fc25a2f2f69185", null ],

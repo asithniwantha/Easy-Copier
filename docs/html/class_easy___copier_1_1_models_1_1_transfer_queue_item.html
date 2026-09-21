@@ -112,6 +112,9 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('class_easy___c
   <div class="headertitle"><div class="title">Easy_Copier.Models.TransferQueueItem(IReadOnlyList&lt; TransferItem &gt; items, RemovableDrive targetDrive, string destinationPath, int totalPrice) Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Represents a queued transfer job batch in the queue UI with progress monitoring and status tracking.  
+ <a href="#details">More...</a></p>
 <div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Inheritance diagram for Easy_Copier.Models.TransferQueueItem:</div>
 <div id="dynsection-0-summary" class="dynsummary">
 </div>
@@ -128,29 +131,56 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('class_easy___c
 <tr class="heading"><td colspan="2"><h2 id="header-properties" class="groupheader"><a id="properties" name="properties"></a>
 Properties</h2></td></tr>
 <tr class="memitem:a33778b45b7c4f2b896efe03f209d44ea" id="r_a33778b45b7c4f2b896efe03f209d44ea"><td class="memItemLeft">string&#160;</td><td class="memItemRight"><a class="el" href="#a33778b45b7c4f2b896efe03f209d44ea">Id</a> = Guid.NewGuid().ToString()<code> [get]</code></td></tr>
+<tr class="memdesc:a33778b45b7c4f2b896efe03f209d44ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the unique identifier for this queue item job.  <br /></td></tr>
 <tr class="memitem:a23d9074d4aac0b675bb7e1fcf2d68e4e" id="r_a23d9074d4aac0b675bb7e1fcf2d68e4e"><td class="memItemLeft">IReadOnlyList&lt; <a class="el" href="namespace_easy___copier_1_1_models.html#a36bba191a5fad0b0ca63ed787ae607d8">TransferItem</a> &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a23d9074d4aac0b675bb7e1fcf2d68e4e">Items</a> = items<code> [get]</code></td></tr>
+<tr class="memdesc:a23d9074d4aac0b675bb7e1fcf2d68e4e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the list of transfer items included in this batch.  <br /></td></tr>
 <tr class="memitem:a2756f829d018931633b07358420b74f2" id="r_a2756f829d018931633b07358420b74f2"><td class="memItemLeft"><a class="el" href="namespace_easy___copier_1_1_models.html#af8f0175620d1cdd9a06d3e52ae12ba12">RemovableDrive</a>&#160;</td><td class="memItemRight"><a class="el" href="#a2756f829d018931633b07358420b74f2">TargetDrive</a> = targetDrive<code> [get]</code></td></tr>
+<tr class="memdesc:a2756f829d018931633b07358420b74f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the target drive destination details.  <br /></td></tr>
 <tr class="memitem:a3f30a83644e58960327b932e92859466" id="r_a3f30a83644e58960327b932e92859466"><td class="memItemLeft">string&#160;</td><td class="memItemRight"><a class="el" href="#a3f30a83644e58960327b932e92859466">DestinationPath</a> = destinationPath<code> [get]</code></td></tr>
+<tr class="memdesc:a3f30a83644e58960327b932e92859466"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the destination directory path on the target volume.  <br /></td></tr>
 <tr class="memitem:a821c0f8c82e163c940ac8000f94c596f" id="r_a821c0f8c82e163c940ac8000f94c596f"><td class="memItemLeft">DateTime&#160;</td><td class="memItemRight"><a class="el" href="#a821c0f8c82e163c940ac8000f94c596f">EnqueuedAt</a> = DateTime.Now<code> [get]</code></td></tr>
+<tr class="memdesc:a821c0f8c82e163c940ac8000f94c596f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the timestamp when this batch was added to the transfer queue.  <br /></td></tr>
 <tr class="memitem:ad612cbf251bcaeab86c0f97fbdfc6df2" id="r_ad612cbf251bcaeab86c0f97fbdfc6df2"><td class="memItemLeft">long&#160;</td><td class="memItemRight"><a class="el" href="#ad612cbf251bcaeab86c0f97fbdfc6df2">TotalBytes</a> = items.Sum(i =&gt; i.Game.TotalBytes)<code> [get]</code></td></tr>
+<tr class="memdesc:ad612cbf251bcaeab86c0f97fbdfc6df2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the total byte size of all items in this transfer batch.  <br /></td></tr>
 <tr class="memitem:a4f557efc8f180a7a62ac87b87dfbd561" id="r_a4f557efc8f180a7a62ac87b87dfbd561"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="#a4f557efc8f180a7a62ac87b87dfbd561">TotalPrice</a> = totalPrice<code> [get]</code></td></tr>
+<tr class="memdesc:a4f557efc8f180a7a62ac87b87dfbd561"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the total calculated price for this batch transfer.  <br /></td></tr>
 <tr class="memitem:a1de6634af1a766282785a87d10b9c157" id="r_a1de6634af1a766282785a87d10b9c157"><td class="memItemLeft">partial <a class="el" href="namespace_easy___copier_1_1_models.html#a547068732d5055bc88341585bcf7e092">TransferQueueItemStatus</a>&#160;</td><td class="memItemRight"><a class="el" href="#a1de6634af1a766282785a87d10b9c157">Status</a> = <a class="el" href="namespace_easy___copier_1_1_models.html#a547068732d5055bc88341585bcf7e092a7b2f31b90fe1c2cc33a52233c1925df3">TransferQueueItemStatus.Queued</a><code> [get, set]</code></td></tr>
+<tr class="memdesc:a1de6634af1a766282785a87d10b9c157"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets or sets the current execution status of the queue item.  <br /></td></tr>
 <tr class="memitem:aa49fdd8a6c9add423b4886e91ab67605" id="r_aa49fdd8a6c9add423b4886e91ab67605"><td class="memItemLeft">partial string&#160;</td><td class="memItemRight"><a class="el" href="#aa49fdd8a6c9add423b4886e91ab67605">StatusMessage</a> = &quot;Waiting in queue...&quot;<code> [get, set]</code></td></tr>
+<tr class="memdesc:aa49fdd8a6c9add423b4886e91ab67605"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets or sets a user-visible message describing the current queue status or error reason.  <br /></td></tr>
 <tr class="memitem:a7fea62580c2303b76d0e4f8f99095dc6" id="r_a7fea62580c2303b76d0e4f8f99095dc6"><td class="memItemLeft">partial double&#160;</td><td class="memItemRight"><a class="el" href="#a7fea62580c2303b76d0e4f8f99095dc6">ProgressPercentage</a><code> [get, set]</code></td></tr>
+<tr class="memdesc:a7fea62580c2303b76d0e4f8f99095dc6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets or sets the overall completion percentage of the active transfer (0 to 100).  <br /></td></tr>
 <tr class="memitem:ac61cdd9969984032eb51940b2d25f9b4" id="r_ac61cdd9969984032eb51940b2d25f9b4"><td class="memItemLeft">partial string&#160;</td><td class="memItemRight"><a class="el" href="#ac61cdd9969984032eb51940b2d25f9b4">SpeedText</a> = string.Empty<code> [get, set]</code></td></tr>
+<tr class="memdesc:ac61cdd9969984032eb51940b2d25f9b4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets or sets the formatted real-time transfer speed string (e.g. "25 MB/s").  <br /></td></tr>
 <tr class="memitem:a74d4735c49256a215b9f5ce8889069a6" id="r_a74d4735c49256a215b9f5ce8889069a6"><td class="memItemLeft">partial string&#160;</td><td class="memItemRight"><a class="el" href="#a74d4735c49256a215b9f5ce8889069a6">RemainingTimeText</a> = string.Empty<code> [get, set]</code></td></tr>
+<tr class="memdesc:a74d4735c49256a215b9f5ce8889069a6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets or sets the formatted estimated remaining transfer time string.  <br /></td></tr>
 <tr class="memitem:a2e1c42665022fb559787d6deb2f2a34e" id="r_a2e1c42665022fb559787d6deb2f2a34e"><td class="memItemLeft">partial? DateTime&#160;</td><td class="memItemRight"><a class="el" href="#a2e1c42665022fb559787d6deb2f2a34e">CompletedAt</a><code> [get, set]</code></td></tr>
+<tr class="memdesc:a2e1c42665022fb559787d6deb2f2a34e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets or sets the timestamp when the transfer completed or failed.  <br /></td></tr>
 <tr class="memitem:aa616d35d72d45c6f010d42362ad8555b" id="r_aa616d35d72d45c6f010d42362ad8555b"><td class="memItemLeft">string&#160;</td><td class="memItemRight"><a class="el" href="#aa616d35d72d45c6f010d42362ad8555b">ItemsSummary</a><code> [get]</code></td></tr>
+<tr class="memdesc:aa616d35d72d45c6f010d42362ad8555b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets a summary text describing the items in the batch (either single item name or count).  <br /></td></tr>
 <tr class="memitem:a5bb1c34374cac24bee899adab5c97f61" id="r_a5bb1c34374cac24bee899adab5c97f61"><td class="memItemLeft">string&#160;</td><td class="memItemRight"><a class="el" href="#a5bb1c34374cac24bee899adab5c97f61">StatusGlyph</a><code> [get]</code></td></tr>
+<tr class="memdesc:a5bb1c34374cac24bee899adab5c97f61"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the Segoe MDL2 Assets icon glyph matching the current transfer status.  <br /></td></tr>
 <tr class="memitem:ab1d165afe5fecf42bcfd99d79887d14b" id="r_ab1d165afe5fecf42bcfd99d79887d14b"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#ab1d165afe5fecf42bcfd99d79887d14b">IsActive</a><code> [get]</code></td></tr>
+<tr class="memdesc:ab1d165afe5fecf42bcfd99d79887d14b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets a value indicating whether this item is currently queued or in progress.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pri-methods" class="groupheader"><a id="pri-methods" name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
 <tr class="memitem:a9745f7acba75a5691ce6ab0036885aa3" id="r_a9745f7acba75a5691ce6ab0036885aa3"><td class="memItemLeft">partial void&#160;</td><td class="memItemRight"><a class="el" href="#a9745f7acba75a5691ce6ab0036885aa3">OnStatusChanged</a> (<a class="el" href="namespace_easy___copier_1_1_models.html#a547068732d5055bc88341585bcf7e092">TransferQueueItemStatus</a> value)</td></tr>
+<tr class="memdesc:a9745f7acba75a5691ce6ab0036885aa3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Partial method invoked when Status changes to notify UI of dependent property changes.  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="_transfer_queue_item_8cs_source.html#l00017">17</a> of file <a class="el" href="_transfer_queue_item_8cs_source.html">TransferQueueItem.cs</a>.</p>
+<div class="textblock"><p>Represents a queued transfer job batch in the queue UI with progress monitoring and status tracking. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">items</td><td>The items included in this transfer batch.</td></tr>
+    <tr><td class="paramname">targetDrive</td><td>The target removable drive destination.</td></tr>
+    <tr><td class="paramname">destinationPath</td><td>The destination root path on the target drive.</td></tr>
+    <tr><td class="paramname">totalPrice</td><td>The total calculated price for all items in the batch.</td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="_transfer_queue_item_8cs_source.html#l00036">36</a> of file <a class="el" href="_transfer_queue_item_8cs_source.html">TransferQueueItem.cs</a>.</p>
 </div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
 <a id="a9745f7acba75a5691ce6ab0036885aa3" name="a9745f7acba75a5691ce6ab0036885aa3"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a9745f7acba75a5691ce6ab0036885aa3">&#9670;&#160;</a></span>OnStatusChanged()</h2>
@@ -175,11 +205,19 @@ Private Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_transfer_queue_item_8cs_source.html#l00061">61</a> of file <a class="el" href="_transfer_queue_item_8cs_source.html">TransferQueueItem.cs</a>.</p>
+<p>Partial method invoked when Status changes to notify UI of dependent property changes. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value</td><td>The new status value.</td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p class="reference">References <a class="el" href="_transfer_queue_item_8cs_source.html#l00059">IsActive</a>, <a class="el" href="_transfer_queue_item_8cs_source.html#l00061">OnStatusChanged()</a>, and <a class="el" href="_transfer_queue_item_8cs_source.html#l00049">StatusGlyph</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_transfer_queue_item_8cs_source.html#l00138">138</a> of file <a class="el" href="_transfer_queue_item_8cs_source.html">TransferQueueItem.cs</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_transfer_queue_item_8cs_source.html#l00061">OnStatusChanged()</a>.</p>
+<p class="reference">References <a class="el" href="_transfer_queue_item_8cs_source.html#l00132">IsActive</a>, <a class="el" href="_transfer_queue_item_8cs_source.html#l00138">OnStatusChanged()</a>, and <a class="el" href="_transfer_queue_item_8cs_source.html#l00119">StatusGlyph</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_transfer_queue_item_8cs_source.html#l00138">OnStatusChanged()</a>.</p>
 <div id="dynsection-2" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-2-summary" class="dynsummary">
 </div>
@@ -216,7 +254,9 @@ Private Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_transfer_queue_item_8cs_source.html#l00043">43</a> of file <a class="el" href="_transfer_queue_item_8cs_source.html">TransferQueueItem.cs</a>.</p>
+<p>Gets or sets the timestamp when the transfer completed or failed. </p>
+
+<p class="definition">Definition at line <a class="el" href="_transfer_queue_item_8cs_source.html#l00107">107</a> of file <a class="el" href="_transfer_queue_item_8cs_source.html">TransferQueueItem.cs</a>.</p>
 
 </div>
 </div>
@@ -240,9 +280,11 @@ Private Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_transfer_queue_item_8cs_source.html#l00022">22</a> of file <a class="el" href="_transfer_queue_item_8cs_source.html">TransferQueueItem.cs</a>.</p>
+<p>Gets the destination directory path on the target volume. </p>
 
-<p class="reference">Referenced by <a class="el" href="_transfer_queue_service_8cs_source.html#l00238">Easy_Copier.Services.TransferQueueService.ProcessItemAsync()</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_transfer_queue_item_8cs_source.html#l00056">56</a> of file <a class="el" href="_transfer_queue_item_8cs_source.html">TransferQueueItem.cs</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_transfer_queue_service_8cs_source.html#l00237">Easy_Copier.Services.TransferQueueService.ProcessItemAsync()</a>.</p>
 
 </div>
 </div>
@@ -266,7 +308,9 @@ Private Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_transfer_queue_item_8cs_source.html#l00023">23</a> of file <a class="el" href="_transfer_queue_item_8cs_source.html">TransferQueueItem.cs</a>.</p>
+<p>Gets the timestamp when this batch was added to the transfer queue. </p>
+
+<p class="definition">Definition at line <a class="el" href="_transfer_queue_item_8cs_source.html#l00061">61</a> of file <a class="el" href="_transfer_queue_item_8cs_source.html">TransferQueueItem.cs</a>.</p>
 
 </div>
 </div>
@@ -290,7 +334,9 @@ Private Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_transfer_queue_item_8cs_source.html#l00019">19</a> of file <a class="el" href="_transfer_queue_item_8cs_source.html">TransferQueueItem.cs</a>.</p>
+<p>Gets the unique identifier for this queue item job. </p>
+
+<p class="definition">Definition at line <a class="el" href="_transfer_queue_item_8cs_source.html#l00041">41</a> of file <a class="el" href="_transfer_queue_item_8cs_source.html">TransferQueueItem.cs</a>.</p>
 
 </div>
 </div>
@@ -314,9 +360,11 @@ Private Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_transfer_queue_item_8cs_source.html#l00059">59</a> of file <a class="el" href="_transfer_queue_item_8cs_source.html">TransferQueueItem.cs</a>.</p>
+<p>Gets a value indicating whether this item is currently queued or in progress. </p>
 
-<p class="reference">Referenced by <a class="el" href="_transfer_queue_item_8cs_source.html#l00061">OnStatusChanged()</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_transfer_queue_item_8cs_source.html#l00132">132</a> of file <a class="el" href="_transfer_queue_item_8cs_source.html">TransferQueueItem.cs</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_transfer_queue_item_8cs_source.html#l00138">OnStatusChanged()</a>.</p>
 
 </div>
 </div>
@@ -340,9 +388,11 @@ Private Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_transfer_queue_item_8cs_source.html#l00020">20</a> of file <a class="el" href="_transfer_queue_item_8cs_source.html">TransferQueueItem.cs</a>.</p>
+<p>Gets the list of transfer items included in this batch. </p>
 
-<p class="reference">Referenced by <a class="el" href="_transfer_queue_service_8cs_source.html#l00238">Easy_Copier.Services.TransferQueueService.ProcessItemAsync()</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_transfer_queue_item_8cs_source.html#l00046">46</a> of file <a class="el" href="_transfer_queue_item_8cs_source.html">TransferQueueItem.cs</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_transfer_queue_service_8cs_source.html#l00237">Easy_Copier.Services.TransferQueueService.ProcessItemAsync()</a>.</p>
 
 </div>
 </div>
@@ -366,7 +416,9 @@ Private Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_transfer_queue_item_8cs_source.html#l00045">45</a> of file <a class="el" href="_transfer_queue_item_8cs_source.html">TransferQueueItem.cs</a>.</p>
+<p>Gets a summary text describing the items in the batch (either single item name or count). </p>
+
+<p class="definition">Definition at line <a class="el" href="_transfer_queue_item_8cs_source.html#l00112">112</a> of file <a class="el" href="_transfer_queue_item_8cs_source.html">TransferQueueItem.cs</a>.</p>
 
 </div>
 </div>
@@ -390,7 +442,9 @@ Private Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_transfer_queue_item_8cs_source.html#l00034">34</a> of file <a class="el" href="_transfer_queue_item_8cs_source.html">TransferQueueItem.cs</a>.</p>
+<p>Gets or sets the overall completion percentage of the active transfer (0 to 100). </p>
+
+<p class="definition">Definition at line <a class="el" href="_transfer_queue_item_8cs_source.html#l00089">89</a> of file <a class="el" href="_transfer_queue_item_8cs_source.html">TransferQueueItem.cs</a>.</p>
 
 </div>
 </div>
@@ -414,7 +468,9 @@ Private Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_transfer_queue_item_8cs_source.html#l00040">40</a> of file <a class="el" href="_transfer_queue_item_8cs_source.html">TransferQueueItem.cs</a>.</p>
+<p>Gets or sets the formatted estimated remaining transfer time string. </p>
+
+<p class="definition">Definition at line <a class="el" href="_transfer_queue_item_8cs_source.html#l00101">101</a> of file <a class="el" href="_transfer_queue_item_8cs_source.html">TransferQueueItem.cs</a>.</p>
 
 </div>
 </div>
@@ -438,7 +494,9 @@ Private Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_transfer_queue_item_8cs_source.html#l00037">37</a> of file <a class="el" href="_transfer_queue_item_8cs_source.html">TransferQueueItem.cs</a>.</p>
+<p>Gets or sets the formatted real-time transfer speed string (e.g. "25 MB/s"). </p>
+
+<p class="definition">Definition at line <a class="el" href="_transfer_queue_item_8cs_source.html#l00095">95</a> of file <a class="el" href="_transfer_queue_item_8cs_source.html">TransferQueueItem.cs</a>.</p>
 
 </div>
 </div>
@@ -462,9 +520,11 @@ Private Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_transfer_queue_item_8cs_source.html#l00028">28</a> of file <a class="el" href="_transfer_queue_item_8cs_source.html">TransferQueueItem.cs</a>.</p>
+<p>Gets or sets the current execution status of the queue item. </p>
 
-<p class="reference">Referenced by <a class="el" href="_main_view_model_8_scanning_8cs_source.html#l00385">Easy_Copier.ViewModels.MainViewModel.OnQueueItemCompleted()</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_transfer_queue_item_8cs_source.html#l00077">77</a> of file <a class="el" href="_transfer_queue_item_8cs_source.html">TransferQueueItem.cs</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_main_view_model_8_scanning_8cs_source.html#l00320">Easy_Copier.ViewModels.MainViewModel.OnQueueItemCompleted()</a>.</p>
 
 </div>
 </div>
@@ -488,9 +548,11 @@ Private Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_transfer_queue_item_8cs_source.html#l00049">49</a> of file <a class="el" href="_transfer_queue_item_8cs_source.html">TransferQueueItem.cs</a>.</p>
+<p>Gets the Segoe MDL2 Assets icon glyph matching the current transfer status. </p>
 
-<p class="reference">Referenced by <a class="el" href="_transfer_queue_item_8cs_source.html#l00061">OnStatusChanged()</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_transfer_queue_item_8cs_source.html#l00119">119</a> of file <a class="el" href="_transfer_queue_item_8cs_source.html">TransferQueueItem.cs</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_transfer_queue_item_8cs_source.html#l00138">OnStatusChanged()</a>.</p>
 
 </div>
 </div>
@@ -514,7 +576,9 @@ Private Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_transfer_queue_item_8cs_source.html#l00031">31</a> of file <a class="el" href="_transfer_queue_item_8cs_source.html">TransferQueueItem.cs</a>.</p>
+<p>Gets or sets a user-visible message describing the current queue status or error reason. </p>
+
+<p class="definition">Definition at line <a class="el" href="_transfer_queue_item_8cs_source.html#l00083">83</a> of file <a class="el" href="_transfer_queue_item_8cs_source.html">TransferQueueItem.cs</a>.</p>
 
 </div>
 </div>
@@ -538,9 +602,11 @@ Private Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_transfer_queue_item_8cs_source.html#l00021">21</a> of file <a class="el" href="_transfer_queue_item_8cs_source.html">TransferQueueItem.cs</a>.</p>
+<p>Gets the target drive destination details. </p>
 
-<p class="reference">Referenced by <a class="el" href="_transfer_queue_service_8cs_source.html#l00238">Easy_Copier.Services.TransferQueueService.ProcessItemAsync()</a>, and <a class="el" href="_transfer_queue_service_8cs_source.html#l00201">Easy_Copier.Services.TransferQueueService.ProcessQueueAsync()</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_transfer_queue_item_8cs_source.html#l00051">51</a> of file <a class="el" href="_transfer_queue_item_8cs_source.html">TransferQueueItem.cs</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_transfer_queue_service_8cs_source.html#l00237">Easy_Copier.Services.TransferQueueService.ProcessItemAsync()</a>, <a class="el" href="_transfer_queue_service_8cs_source.html#l00200">Easy_Copier.Services.TransferQueueService.ProcessQueueAsync()</a>, and <a class="el" href="_transfer_queue_service_8cs_source.html#l00347">Easy_Copier.Services.TransferQueueService.ShowDesktopNotification()</a>.</p>
 
 </div>
 </div>
@@ -564,7 +630,9 @@ Private Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_transfer_queue_item_8cs_source.html#l00024">24</a> of file <a class="el" href="_transfer_queue_item_8cs_source.html">TransferQueueItem.cs</a>.</p>
+<p>Gets the total byte size of all items in this transfer batch. </p>
+
+<p class="definition">Definition at line <a class="el" href="_transfer_queue_item_8cs_source.html#l00066">66</a> of file <a class="el" href="_transfer_queue_item_8cs_source.html">TransferQueueItem.cs</a>.</p>
 
 </div>
 </div>
@@ -588,7 +656,9 @@ Private Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_transfer_queue_item_8cs_source.html#l00025">25</a> of file <a class="el" href="_transfer_queue_item_8cs_source.html">TransferQueueItem.cs</a>.</p>
+<p>Gets the total calculated price for this batch transfer. </p>
+
+<p class="definition">Definition at line <a class="el" href="_transfer_queue_item_8cs_source.html#l00071">71</a> of file <a class="el" href="_transfer_queue_item_8cs_source.html">TransferQueueItem.cs</a>.</p>
 
 </div>
 </div>

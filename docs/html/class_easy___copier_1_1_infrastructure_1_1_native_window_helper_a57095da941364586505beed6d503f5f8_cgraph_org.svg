@@ -21,7 +21,7 @@
 <!-- Node2 -->
 <g id="Node000002" class="node">
 <title>Node2</title>
-<g id="a_Node000002"><a xlink:href="class_easy___copier_1_1_infrastructure_1_1_native_window_helper.html#a4362cdd56869526572895640e2bbed50" target="_top" xlink:title=" ">
+<g id="a_Node000002"><a xlink:href="class_easy___copier_1_1_infrastructure_1_1_native_window_helper.html#a24df81dd6869ac538f152a76346e232b" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="#666666" points="395,-82 211.75,-82 211.75,-50 395,-50 395,-82"/>
 <text xml:space="preserve" text-anchor="start" x="219.75" y="-68.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Infrastructure.</text>
 <text xml:space="preserve" text-anchor="middle" x="303.38" y="-56.5" font-family="Helvetica,sans-Serif" font-size="10.00">NativeWindowHelper.GetWindowRect</text>
@@ -40,7 +40,7 @@
 <!-- Node3 -->
 <g id="Node000003" class="node">
 <title>Node3</title>
-<g id="a_Node000003"><a xlink:href="class_easy___copier_1_1_infrastructure_1_1_native_window_helper.html#a079a35793d02e114041c8d6820953e6f" target="_top" xlink:title=" ">
+<g id="a_Node000003"><a xlink:href="class_easy___copier_1_1_infrastructure_1_1_native_window_helper.html#a7360d0d9cc4a75176e40dcbee62e1f16" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="#666666" points="392.75,-32 214,-32 214,0 392.75,0 392.75,-32"/>
 <text xml:space="preserve" text-anchor="start" x="222" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Infrastructure.</text>
 <text xml:space="preserve" text-anchor="middle" x="303.38" y="-6.5" font-family="Helvetica,sans-Serif" font-size="10.00">NativeWindowHelper.SetWindowPos</text>

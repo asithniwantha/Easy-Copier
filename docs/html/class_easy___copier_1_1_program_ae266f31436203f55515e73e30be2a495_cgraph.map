@@ -1,13 +1,21 @@
 <map id="Easy_Copier.Program.Main" name="Easy_Copier.Program.Main">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,113,187,140"/>
-<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_app.html#ac87772e615c45c04880b62d94507f70b" title=" " alt="" coords="235,113,385,140"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="186,124,221,126,216,128,187,129"/>
-<area shape="rect" id="Node000003" href="$class_easy___copier_1_1_app.html#ae71efec3121752e104971bb41f6e80a2" title=" " alt="" coords="466,5,616,48"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="332,110,377,84,432,58,453,52,448,54,434,62,380,89,335,115"/>
-<area shape="rect" id="Node000004" href="$class_easy___copier_1_1_app.html#a4190d363a2ee41844c16ca66e4d82c87" title=" " alt="" coords="449,72,632,115"/>
-<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="385,113,436,108,431,109,386,118"/>
-<area shape="rect" id="Node000005" href="$class_easy___copier_1_1_app.html#a1b3677ab966f4883699e99f15da82a6a" title=" " alt="" coords="433,139,648,181"/>
-<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="385,135,420,142,415,142,385,140"/>
-<area shape="rect" id="Node000006" href="$class_easy___copier_1_1_app.html#a13e643ace1dbd4dd00a745fcbc0f9e98" title="InitializeComponent()." alt="" coords="453,205,628,248"/>
-<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="334,138,380,164,434,191,451,200,446,199,432,196,377,169,333,143"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,247,187,273"/>
+<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_app.html#ac87772e615c45c04880b62d94507f70b" title=" " alt="" coords="250,180,400,207"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="144,244,264,210,260,214,146,248"/>
+<area shape="rect" id="Node000008" href="$class_easy___copier_1_1_program.html#a9d85cb2db15488b2dda4028ab26108de" title=" " alt="" coords="235,268,416,311"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="187,269,222,275,217,277,187,274"/>
+<area shape="rect" id="Node000003" href="$class_easy___copier_1_1_app.html#ae71efec3121752e104971bb41f6e80a2" title=" " alt="" coords="506,5,656,48"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="335,177,386,120,422,86,463,58,493,46,489,49,465,62,425,91,389,124,339,181"/>
+<area shape="rect" id="Node000004" href="$class_easy___copier_1_1_app.html#a4190d363a2ee41844c16ca66e4d82c87" title=" " alt="" coords="489,72,672,115"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="351,177,402,151,463,124,485,119,480,121,465,129,404,156,353,182"/>
+<area shape="rect" id="Node000005" href="$class_easy___copier_1_1_app.html#a1b3677ab966f4883699e99f15da82a6a" title=" " alt="" coords="473,139,688,181"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="400,181,460,175,455,177,402,186"/>
+<area shape="rect" id="Node000006" href="$class_easy___copier_1_1_app.html#a13e643ace1dbd4dd00a745fcbc0f9e98" title="InitializeComponent()." alt="" coords="493,205,668,248"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="401,200,480,213,475,214,401,206"/>
+<area shape="rect" id="Node000007" href="$class_easy___copier_1_1_app.html#aebfb9a350502857e15ed56c03d408ff1" title=" " alt="" coords="474,272,687,315"/>
+<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="352,205,404,231,465,258,485,267,480,267,463,262,402,236,352,210"/>
+<area shape="rect" id="Node000009" href="$class_easy___copier_1_1_infrastructure_1_1_native_window_helper.html#a0866d3ff5ff5b806f9f86c5c9aaa412f" title="Brings the specified window handle to the foreground." alt="" coords="464,339,697,381"/>
+<area shape="poly" id="edge8_Node000008_Node000009" title=" " alt="" coords="406,309,489,334,484,334,405,314"/>
+<area shape="rect" id="Node000010" href="$class_easy___copier_1_1_infrastructure_1_1_native_window_helper.html#a8ddfd36499035568510b6cb9e4b88459" title=" " alt="" coords="745,331,979,389"/>
+<area shape="poly" id="edge9_Node000009_Node000010" title=" " alt="" coords="698,357,732,360,727,360,698,363"/>
 </map>

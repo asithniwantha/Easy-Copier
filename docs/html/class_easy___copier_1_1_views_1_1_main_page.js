@@ -26,6 +26,7 @@ var class_easy___copier_1_1_views_1_1_main_page =
     [ "GetBindingConnector", "class_easy___copier_1_1_views_1_1_main_page.html#a7e6abe4297637894234516b8c3e9cc92", null ],
     [ "GetBindingConnector", "class_easy___copier_1_1_views_1_1_main_page.html#a7e6abe4297637894234516b8c3e9cc92", null ],
     [ "GetBindingConnector", "class_easy___copier_1_1_views_1_1_main_page.html#a7e6abe4297637894234516b8c3e9cc92", null ],
+    [ "GetTabViews", "class_easy___copier_1_1_views_1_1_main_page.html#ad0e15ac7d556d08bd9493e5221ddd5b3", null ],
     [ "InitializeComponent", "class_easy___copier_1_1_views_1_1_main_page.html#ab202714835348807eb0e28484b165645", null ],
     [ "InitializeComponent", "class_easy___copier_1_1_views_1_1_main_page.html#ab202714835348807eb0e28484b165645", null ],
     [ "InitializeComponent", "class_easy___copier_1_1_views_1_1_main_page.html#ab202714835348807eb0e28484b165645", null ],

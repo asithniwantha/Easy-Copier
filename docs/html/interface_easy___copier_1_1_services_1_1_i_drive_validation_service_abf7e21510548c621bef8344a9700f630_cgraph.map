@@ -1,6 +1,6 @@
 <map id="Easy_Copier.Services.IDriveValidationService.ValidateTransferAsync" name="Easy_Copier.Services.IDriveValidationService.ValidateTransferAsync">
 <area shape="rect" id="Node000001" title="Validates whether the selected games can be safely copied to the specified target drive and path." alt="" coords="5,29,262,72"/>
-<area shape="rect" id="Node000002" href="$namespace_easy___copier_1_1_models.html#af8f0175620d1cdd9a06d3e52ae12ba12" title=" " alt="" coords="310,29,522,72"/>
+<area shape="rect" id="Node000002" href="$namespace_easy___copier_1_1_models.html#af8f0175620d1cdd9a06d3e52ae12ba12" title="Represents information about a detected removable drive or storage volume." alt="" coords="310,29,522,72"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="262,48,296,51,291,51,262,53"/>
 <area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="363,27,361,19,370,10,388,5,416,3,446,5,466,14,461,14,445,10,416,8,389,10,372,15,366,21,368,30"/>
 </map>

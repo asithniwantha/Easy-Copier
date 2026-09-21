@@ -32,7 +32,7 @@
 <!-- Node2 -->
 <g id="Node000002" class="node">
 <title>Node2</title>
-<g id="a_Node000002"><a xlink:href="namespace_easy___copier_1_1_models.html#abf1613443f307029b23c31269e85160d" target="_top" xlink:title=" ">
+<g id="a_Node000002"><a xlink:href="namespace_easy___copier_1_1_models.html#abf1613443f307029b23c31269e85160d" target="_top" xlink:title="Represents a monitored source folder for library content scanning.">
 <polygon fill="white" stroke="#666666" points="383,-32 242.5,-32 242.5,0 383,0 383,-32"/>
 <text xml:space="preserve" text-anchor="start" x="250.5" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Models.Source</text>
 <text xml:space="preserve" text-anchor="middle" x="312.75" y="-6.5" font-family="Helvetica,sans-Serif" font-size="10.00">Folder</text>

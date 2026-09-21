@@ -1,0 +1,5 @@
+<map id="Easy_Copier.ViewModels.TvAndFilmsTabViewModel.OnParentPropertyChanged" name="Easy_Copier.ViewModels.TvAndFilmsTabViewModel.OnParentPropertyChanged">
+<area shape="rect" id="Node000001" title="Derived classes override this method to handle parent ViewModel property change notifications." alt="" coords="5,5,275,64"/>
+<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_view_models_1_1_library_tab_view_model_base.html#aadf49aa562009a2fa215c741bdc9ba30" title="Evaluates parent property change notifications and raises ObservableObject.OnPropertyChanged(string?..." alt="" coords="323,5,597,64"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="275,32,310,35,304,35,275,37"/>
+</map>

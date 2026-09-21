@@ -1,24 +1,17 @@
 <map id="Easy_Copier.ViewModels.MainViewModel.ValidateAndRefreshCacheAsync" name="Easy_Copier.ViewModels.MainViewModel.ValidateAndRefreshCacheAsync">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,117,285,160"/>
-<area shape="rect" id="Node000002" href="$namespace_easy___copier_1_1_models.html#a63b99d96f6d7e71a96281be9501fa569" title=" " alt="" coords="343,29,527,72"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="217,114,350,75,346,79,219,119"/>
-<area shape="rect" id="Node000003" href="$namespace_easy___copier_1_1_models.html#a6ce72bb145c4b6a2a691fff265751706" title=" " alt="" coords="906,99,1092,141"/>
-<area shape="poly" id="edge3_Node000001_Node000003" title=" " alt="" coords="285,133,892,120,890,125,285,138"/>
-<area shape="rect" id="Node000004" href="$class_easy___copier_1_1_view_models_1_1_main_view_model.html#acd3c0e03514b0d481cb8e21f4eaec06e" title=" " alt="" coords="333,147,536,189"/>
-<area shape="poly" id="edge5_Node000001_Node000004" title=" " alt="" coords="285,150,320,156,315,157,286,155"/>
-<area shape="rect" id="Node000009" href="$class_easy___copier_1_1_view_models_1_1_main_view_model.html#aba772e9714e4c42652a4862d24618c25" title=" " alt="" coords="333,213,537,256"/>
-<area shape="poly" id="edge13_Node000001_Node000009" title=" " alt="" coords="212,158,334,199,356,208,350,208,332,204,211,163"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,153,285,196"/>
+<area shape="rect" id="Node000002" href="$namespace_easy___copier_1_1_models.html#a63b99d96f6d7e71a96281be9501fa569" title="Holds the detailed outcome of a cache validation check." alt="" coords="343,29,527,72"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="186,150,254,116,332,82,351,76,347,79,334,86,256,121,189,155"/>
+<area shape="rect" id="Node000003" href="$namespace_easy___copier_1_1_models.html#a6ce72bb145c4b6a2a691fff265751706" title="Represents a serialized snapshot of cached library entries and metadata." alt="" coords="342,120,528,163"/>
+<area shape="poly" id="edge3_Node000001_Node000003" title=" " alt="" coords="285,156,329,153,324,155,286,161"/>
+<area shape="rect" id="Node000004" href="$class_easy___copier_1_1_view_models_1_1_main_view_model.html#acd3c0e03514b0d481cb8e21f4eaec06e" title=" " alt="" coords="333,187,536,229"/>
+<area shape="poly" id="edge5_Node000001_Node000004" title=" " alt="" coords="285,188,320,194,315,195,286,193"/>
+<area shape="rect" id="Node000007" href="$class_easy___copier_1_1_view_models_1_1_main_view_model.html#aba772e9714e4c42652a4862d24618c25" title=" " alt="" coords="333,253,537,296"/>
+<area shape="poly" id="edge8_Node000001_Node000007" title=" " alt="" coords="207,194,334,239,355,248,350,248,332,244,206,199"/>
 <area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="383,28,381,19,390,10,408,5,435,3,464,5,484,14,478,14,463,10,435,8,409,10,393,15,386,21,388,30"/>
-<area shape="poly" id="edge4_Node000003_Node000003" title=" " alt="" coords="945,97,943,89,952,79,971,74,999,72,1030,74,1050,83,1045,83,1029,80,999,77,971,79,954,84,948,90,950,99"/>
-<area shape="rect" id="Node000005" href="$class_easy___copier_1_1_view_models_1_1_main_view_model.html#a286873562c6f74c8d888eed23483b758" title=" " alt="" coords="608,147,811,189"/>
-<area shape="poly" id="edge6_Node000004_Node000005" title=" " alt="" coords="537,165,595,168,590,168,537,171"/>
-<area shape="rect" id="Node000006" href="$class_easy___copier_1_1_view_models_1_1_main_view_model.html#a0a4e7c95db133be566b2ad84541fe257" title=" " alt="" coords="585,213,834,256"/>
-<area shape="poly" id="edge7_Node000004_Node000006" title=" " alt="" coords="526,187,607,209,602,209,526,193"/>
-<area shape="poly" id="edge12_Node000006_Node000003" title=" " alt="" coords="801,210,833,199,857,186,881,172,933,149,939,148,884,177,860,191,835,204,803,215"/>
-<area shape="rect" id="Node000007" href="$namespace_easy___copier_1_1_models.html#a9c2abd1d64352c07d3085ba499cf2aae" title=" " alt="" coords="893,211,1105,237"/>
-<area shape="poly" id="edge8_Node000006_Node000007" title=" " alt="" coords="834,227,880,228,875,229,835,233"/>
-<area shape="rect" id="Node000008" href="$namespace_easy___copier_1_1_models.html#aae2a352ac1ad9a55ae8b37e300153431" title=" " alt="" coords="882,285,1116,312"/>
-<area shape="poly" id="edge10_Node000006_Node000008" title=" " alt="" coords="810,254,923,282,918,281,809,259"/>
-<area shape="poly" id="edge9_Node000007_Node000007" title=" " alt="" coords="950,209,942,202,948,192,968,186,999,184,1034,187,1053,196,1048,195,1032,192,999,189,968,191,951,196,947,201,955,211"/>
-<area shape="poly" id="edge11_Node000008_Node000008" title=" " alt="" coords="950,284,942,276,948,267,968,261,999,259,1034,261,1053,271,1048,270,1032,266,999,264,968,266,951,271,947,276,955,286"/>
+<area shape="poly" id="edge4_Node000003_Node000003" title=" " alt="" coords="383,118,381,110,390,101,408,95,435,93,464,96,484,104,478,105,463,101,435,99,409,101,393,105,386,111,388,121"/>
+<area shape="rect" id="Node000005" href="$class_easy___copier_1_1_view_models_1_1_main_view_model.html#a286873562c6f74c8d888eed23483b758" title=" " alt="" coords="608,153,811,196"/>
+<area shape="poly" id="edge6_Node000004_Node000005" title=" " alt="" coords="537,193,595,188,590,189,538,198"/>
+<area shape="rect" id="Node000006" href="$class_easy___copier_1_1_view_models_1_1_main_view_model.html#a0a4e7c95db133be566b2ad84541fe257" title=" " alt="" coords="585,220,834,263"/>
+<area shape="poly" id="edge7_Node000004_Node000006" title=" " alt="" coords="537,218,572,224,567,224,537,223"/>
 </map>

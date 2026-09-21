@@ -1,6 +1,6 @@
 var class_easy___copier_1_1_view_models_1_1_main_view_model =
 [
-    [ "MainViewModel", "class_easy___copier_1_1_view_models_1_1_main_view_model.html#a49d26234b1ab293a2a162a851905fca8", null ],
+    [ "MainViewModel", "class_easy___copier_1_1_view_models_1_1_main_view_model.html#a6830d696738ef2c2694eca4f3cfb2e1e", null ],
     [ "AddSourceFolder", "class_easy___copier_1_1_view_models_1_1_main_view_model.html#ab510c1e6a9cf59ba4dca545667572e25", null ],
     [ "ApplyFilter", "class_easy___copier_1_1_view_models_1_1_main_view_model.html#a286873562c6f74c8d888eed23483b758", null ],
     [ "CanCopyGames", "class_easy___copier_1_1_view_models_1_1_main_view_model.html#ad98916ac8f30a3bf1606c6d8e08312fc", null ],
@@ -52,10 +52,12 @@ var class_easy___copier_1_1_view_models_1_1_main_view_model =
     [ "_isCheckingForUpdates", "class_easy___copier_1_1_view_models_1_1_main_view_model.html#a936778649530a3c898e9a75ef3c567df", null ],
     [ "_isDisposed", "class_easy___copier_1_1_view_models_1_1_main_view_model.html#af02fff37429b65502b8cbce41e06a742", null ],
     [ "_libraryCacheService", "class_easy___copier_1_1_view_models_1_1_main_view_model.html#a200ec6369146fd910dfc25622af39104", null ],
+    [ "_libraryFilterService", "class_easy___copier_1_1_view_models_1_1_main_view_model.html#aeb65170483414480583286e990d7c59a", null ],
     [ "_libraryScannerService", "class_easy___copier_1_1_view_models_1_1_main_view_model.html#a3658fde08767844a290ec56b9df205bf", null ],
     [ "_logger", "class_easy___copier_1_1_view_models_1_1_main_view_model.html#ad4f7017dd6445012be509c36ab03f0d0", null ],
     [ "_notificationCancellationTokenSource", "class_easy___copier_1_1_view_models_1_1_main_view_model.html#a51e70b2819a3bcf954bc02c17afcc459", null ],
     [ "_processService", "class_easy___copier_1_1_view_models_1_1_main_view_model.html#a19df44de96e540aecf811ab7eed8d92f", null ],
+    [ "_rufusService", "class_easy___copier_1_1_view_models_1_1_main_view_model.html#ad3296fcb5f35e4be1551ad9076c5475c", null ],
     [ "_scanCancellationTokenSource", "class_easy___copier_1_1_view_models_1_1_main_view_model.html#a196cd0f7e53e2b4b1b0e935bd9b5b20f", null ],
     [ "_selectedGames", "class_easy___copier_1_1_view_models_1_1_main_view_model.html#a2b13e87b918d0c5d5d26d8bf90e0d787", null ],
     [ "_settingsService", "class_easy___copier_1_1_view_models_1_1_main_view_model.html#a6c836a1d9c9d29532e37fda056bb9dc0", null ],

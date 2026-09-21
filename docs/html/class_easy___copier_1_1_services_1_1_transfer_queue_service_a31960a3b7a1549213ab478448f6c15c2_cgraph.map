@@ -12,15 +12,15 @@
 <area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="1028,130,1144,74,1157,71,1162,69,1146,78,1029,135"/>
 <area shape="rect" id="Node000008" href="$class_easy___copier_1_1_services_1_1_transfer_queue_service.html#a7c3c07a217ea001a005714d570176bd2" title="Executes an action on the UI thread using Infrastructure.IDispatcherService." alt="" coords="1162,88,1365,131"/>
 <area shape="poly" id="edge7_Node000005_Node000008" title=" " alt="" coords="1097,134,1144,129,1149,128,1098,139"/>
-<area shape="rect" id="Node000009" href="$namespace_easy___copier_1_1_models.html#a0f254e810a60e913105ca1898e396f4c" title=" " alt="" coords="1166,179,1360,221"/>
+<area shape="rect" id="Node000009" href="$namespace_easy___copier_1_1_models.html#a0f254e810a60e913105ca1898e396f4c" title="Represents the final outcome of a completed transfer batch." alt="" coords="1166,179,1360,221"/>
 <area shape="poly" id="edge8_Node000005_Node000009" title=" " alt="" coords="1097,170,1154,182,1148,182,1097,175"/>
-<area shape="rect" id="Node000010" href="$namespace_easy___copier_1_1_models.html#a361f45ad4ad4f48588e380daa766a5fa" title=" " alt="" coords="1166,269,1360,312"/>
+<area shape="rect" id="Node000010" href="$namespace_easy___copier_1_1_models.html#a361f45ad4ad4f48588e380daa766a5fa" title="Represents a request to transfer a batch of items to a designated removable drive." alt="" coords="1166,269,1360,312"/>
 <area shape="poly" id="edge10_Node000005_Node000010" title=" " alt="" coords="1032,174,1146,231,1206,263,1201,262,1143,236,1031,179"/>
 <area shape="rect" id="Node000007" href="$class_easy___copier_1_1_services_1_1_transfer_queue_service.html#a609a297676ded43e4cae11d0c7b0eb04" title="Builds and displays a Windows AppNotification toast message summarizing batch transfer completion." alt="" coords="1430,13,1685,56"/>
 <area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="1382,32,1417,34,1412,35,1383,37"/>
 <area shape="poly" id="edge9_Node000009_Node000009" title=" " alt="" coords="1212,177,1209,169,1218,160,1236,154,1263,152,1293,154,1312,164,1307,163,1292,160,1263,157,1237,159,1221,164,1215,170,1216,180"/>
 <area shape="poly" id="edge13_Node000010_Node000010" title=" " alt="" coords="1212,267,1209,259,1218,250,1236,245,1263,243,1293,245,1312,254,1307,254,1292,250,1263,248,1237,250,1221,255,1215,261,1216,270"/>
-<area shape="rect" id="Node000011" href="$namespace_easy___copier_1_1_models.html#af8f0175620d1cdd9a06d3e52ae12ba12" title=" " alt="" coords="1452,269,1664,312"/>
+<area shape="rect" id="Node000011" href="$namespace_easy___copier_1_1_models.html#af8f0175620d1cdd9a06d3e52ae12ba12" title="Represents information about a detected removable drive or storage volume." alt="" coords="1452,269,1664,312"/>
 <area shape="poly" id="edge11_Node000010_Node000011" title=" " alt="" coords="1361,288,1439,291,1433,291,1361,293"/>
 <area shape="poly" id="edge12_Node000011_Node000011" title=" " alt="" coords="1503,267,1500,259,1510,250,1529,245,1558,243,1589,245,1610,254,1604,254,1588,250,1558,248,1530,250,1512,255,1505,261,1507,270"/>
 </map>

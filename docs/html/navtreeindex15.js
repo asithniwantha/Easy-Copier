@@ -1,5 +1,15 @@
 var NAVTREEINDEX15 =
 {
+"class_easy___copier_1_1_easy___copier___xaml_type_info_1_1_xaml_type_info_provider.html#aa85c41f7090f0a6995eddaffbdb6d62a":[1,0,0,2,1,20],
+"class_easy___copier_1_1_easy___copier___xaml_type_info_1_1_xaml_type_info_provider.html#aa8b84601a438faff58e391eda0cc3344":[0,0,0,2,1,213],
+"class_easy___copier_1_1_easy___copier___xaml_type_info_1_1_xaml_type_info_provider.html#aa8b84601a438faff58e391eda0cc3344":[0,0,0,2,1,214],
+"class_easy___copier_1_1_easy___copier___xaml_type_info_1_1_xaml_type_info_provider.html#aa8b84601a438faff58e391eda0cc3344":[1,0,0,2,1,213],
+"class_easy___copier_1_1_easy___copier___xaml_type_info_1_1_xaml_type_info_provider.html#aa8b84601a438faff58e391eda0cc3344":[1,0,0,2,1,214],
+"class_easy___copier_1_1_easy___copier___xaml_type_info_1_1_xaml_type_info_provider.html#aa8f7c88538b2b92c01c229c764a1fdc0":[0,0,0,2,1,1806],
+"class_easy___copier_1_1_easy___copier___xaml_type_info_1_1_xaml_type_info_provider.html#aa8f7c88538b2b92c01c229c764a1fdc0":[0,0,0,2,1,1807],
+"class_easy___copier_1_1_easy___copier___xaml_type_info_1_1_xaml_type_info_provider.html#aa8f7c88538b2b92c01c229c764a1fdc0":[1,0,0,2,1,1806],
+"class_easy___copier_1_1_easy___copier___xaml_type_info_1_1_xaml_type_info_provider.html#aa8f7c88538b2b92c01c229c764a1fdc0":[1,0,0,2,1,1807],
+"class_easy___copier_1_1_easy___copier___xaml_type_info_1_1_xaml_type_info_provider.html#aa8f7d8792b7560b30250d10572d99581":[0,0,0,2,1,1341],
 "class_easy___copier_1_1_easy___copier___xaml_type_info_1_1_xaml_type_info_provider.html#aa8f7d8792b7560b30250d10572d99581":[0,0,0,2,1,1342],
 "class_easy___copier_1_1_easy___copier___xaml_type_info_1_1_xaml_type_info_provider.html#aa8f7d8792b7560b30250d10572d99581":[1,0,0,2,1,1341],
 "class_easy___copier_1_1_easy___copier___xaml_type_info_1_1_xaml_type_info_provider.html#aa8f7d8792b7560b30250d10572d99581":[1,0,0,2,1,1342],
@@ -239,15 +249,5 @@ var NAVTREEINDEX15 =
 "class_easy___copier_1_1_easy___copier___xaml_type_info_1_1_xaml_type_info_provider.html#ab664f1d3ffd0f5767cbfed80361c6e6e":[0,0,0,2,1,279],
 "class_easy___copier_1_1_easy___copier___xaml_type_info_1_1_xaml_type_info_provider.html#ab664f1d3ffd0f5767cbfed80361c6e6e":[1,0,0,2,1,278],
 "class_easy___copier_1_1_easy___copier___xaml_type_info_1_1_xaml_type_info_provider.html#ab664f1d3ffd0f5767cbfed80361c6e6e":[1,0,0,2,1,279],
-"class_easy___copier_1_1_easy___copier___xaml_type_info_1_1_xaml_type_info_provider.html#ab6883a8c52c8884f14e30b1256043a92":[0,0,0,2,1,1534],
-"class_easy___copier_1_1_easy___copier___xaml_type_info_1_1_xaml_type_info_provider.html#ab6883a8c52c8884f14e30b1256043a92":[0,0,0,2,1,1535],
-"class_easy___copier_1_1_easy___copier___xaml_type_info_1_1_xaml_type_info_provider.html#ab6883a8c52c8884f14e30b1256043a92":[1,0,0,2,1,1534],
-"class_easy___copier_1_1_easy___copier___xaml_type_info_1_1_xaml_type_info_provider.html#ab6883a8c52c8884f14e30b1256043a92":[1,0,0,2,1,1535],
-"class_easy___copier_1_1_easy___copier___xaml_type_info_1_1_xaml_type_info_provider.html#ab69503b4bbeecc0877a0d5b0f7fa99fc":[0,0,0,2,1,2273],
-"class_easy___copier_1_1_easy___copier___xaml_type_info_1_1_xaml_type_info_provider.html#ab69503b4bbeecc0877a0d5b0f7fa99fc":[0,0,0,2,1,2274],
-"class_easy___copier_1_1_easy___copier___xaml_type_info_1_1_xaml_type_info_provider.html#ab69503b4bbeecc0877a0d5b0f7fa99fc":[1,0,0,2,1,2273],
-"class_easy___copier_1_1_easy___copier___xaml_type_info_1_1_xaml_type_info_provider.html#ab69503b4bbeecc0877a0d5b0f7fa99fc":[1,0,0,2,1,2274],
-"class_easy___copier_1_1_easy___copier___xaml_type_info_1_1_xaml_type_info_provider.html#ab6b05c9c989855f89d2ded99653f1d48":[0,0,0,2,1,1105],
-"class_easy___copier_1_1_easy___copier___xaml_type_info_1_1_xaml_type_info_provider.html#ab6b05c9c989855f89d2ded99653f1d48":[0,0,0,2,1,1106],
-"class_easy___copier_1_1_easy___copier___xaml_type_info_1_1_xaml_type_info_provider.html#ab6b05c9c989855f89d2ded99653f1d48":[0,0,0,2,1,1107]
+"class_easy___copier_1_1_easy___copier___xaml_type_info_1_1_xaml_type_info_provider.html#ab6883a8c52c8884f14e30b1256043a92":[0,0,0,2,1,1534]
 };

@@ -170,14 +170,25 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('_os_image_deta
 <div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>            }</div>
 <div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
 <div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>            <span class="keyword">const</span> <span class="keywordtype">string</span> dateFormat = <span class="stringliteral">&quot;dd/MM/yyyy hh:mm tt&quot;</span>;</div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>            <span class="keywordflow">if</span> (created.HasValue) <a class="code hl_property" href="class_easy___copier_1_1_view_models_1_1_os_image_details_view_model.html#af2cd33396953c7ff6c1cc42b11894ef6">DateCreatedFormatted</a> = created.Value.ToString(dateFormat, CultureInfo.InvariantCulture);</div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>            <span class="keywordflow">if</span> (modified.HasValue) <a class="code hl_property" href="class_easy___copier_1_1_view_models_1_1_os_image_details_view_model.html#a68451694eb330ebc99a5043919890de1">DateModifiedFormatted</a> = modified.Value.ToString(dateFormat, CultureInfo.InvariantCulture);</div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>            <span class="keywordflow">if</span> (accessed.HasValue) <a class="code hl_property" href="class_easy___copier_1_1_view_models_1_1_os_image_details_view_model.html#aae841e8977320c717b48895c754785f4">DateAccessedFormatted</a> = accessed.Value.ToString(dateFormat, CultureInfo.InvariantCulture);</div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>        }</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>            <span class="keywordflow">if</span> (created.HasValue)</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>            {</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>                <a class="code hl_property" href="class_easy___copier_1_1_view_models_1_1_os_image_details_view_model.html#af2cd33396953c7ff6c1cc42b11894ef6">DateCreatedFormatted</a> = created.Value.ToString(dateFormat, CultureInfo.InvariantCulture);</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>            }</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> </div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>            <span class="keywordflow">if</span> (modified.HasValue)</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>            {</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>                <a class="code hl_property" href="class_easy___copier_1_1_view_models_1_1_os_image_details_view_model.html#a68451694eb330ebc99a5043919890de1">DateModifiedFormatted</a> = modified.Value.ToString(dateFormat, CultureInfo.InvariantCulture);</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>            }</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>            <span class="keywordflow">if</span> (accessed.HasValue)</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>            {</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>                <a class="code hl_property" href="class_easy___copier_1_1_view_models_1_1_os_image_details_view_model.html#aae841e8977320c717b48895c754785f4">DateAccessedFormatted</a> = accessed.Value.ToString(dateFormat, CultureInfo.InvariantCulture);</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>            }</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>        }</div>
 </div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    }</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    }</div>
 </div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>}</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>}</div>
 <div class="ttc" id="aclass_easy___copier_1_1_view_models_1_1_os_image_details_view_model_html"><div class="ttname"><a href="class_easy___copier_1_1_view_models_1_1_os_image_details_view_model.html">Easy_Copier.ViewModels.OsImageDetailsViewModel</a></div><div class="ttdef"><b>Definition</b> <a href="#l00008">OsImageDetailsViewModel.cs:9</a></div></div>
 <div class="ttc" id="aclass_easy___copier_1_1_view_models_1_1_os_image_details_view_model_html_a4da5a2ff8f4938af03fe4c9322dd53f5"><div class="ttname"><a href="class_easy___copier_1_1_view_models_1_1_os_image_details_view_model.html#a4da5a2ff8f4938af03fe4c9322dd53f5">Easy_Copier.ViewModels.OsImageDetailsViewModel.Initialize</a></div><div class="ttdeci">void Initialize(string name, string path)</div><div class="ttdef"><b>Definition</b> <a href="#l00028">OsImageDetailsViewModel.cs:28</a></div></div>
 <div class="ttc" id="aclass_easy___copier_1_1_view_models_1_1_os_image_details_view_model_html_a68451694eb330ebc99a5043919890de1"><div class="ttname"><a href="class_easy___copier_1_1_view_models_1_1_os_image_details_view_model.html#a68451694eb330ebc99a5043919890de1">Easy_Copier.ViewModels.OsImageDetailsViewModel.DateModifiedFormatted</a></div><div class="ttdeci">partial string DateModifiedFormatted</div><div class="ttdef"><b>Definition</b> <a href="#l00017">OsImageDetailsViewModel.cs:17</a></div></div>

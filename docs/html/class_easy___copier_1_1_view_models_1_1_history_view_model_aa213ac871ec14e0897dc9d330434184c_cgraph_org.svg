@@ -21,7 +21,7 @@
 <!-- Node2 -->
 <g id="Node000002" class="node">
 <title>Node2</title>
-<g id="a_Node000002"><a xlink:href="namespace_easy___copier_1_1_models.html#a22cad9581ea699aafef9d310c84f0836" target="_top" xlink:title=" ">
+<g id="a_Node000002"><a xlink:href="namespace_easy___copier_1_1_models.html#a22cad9581ea699aafef9d310c84f0836" target="_top" xlink:title="Represents a persistent database history entry recording a completed transfer.">
 <polygon fill="white" stroke="#666666" points="371.75,-100 207.25,-100 207.25,-68 371.75,-68 371.75,-100"/>
 <text xml:space="preserve" text-anchor="start" x="215.25" y="-86.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Models.CopyHistory</text>
 <text xml:space="preserve" text-anchor="middle" x="289.5" y="-74.5" font-family="Helvetica,sans-Serif" font-size="10.00">Record</text>

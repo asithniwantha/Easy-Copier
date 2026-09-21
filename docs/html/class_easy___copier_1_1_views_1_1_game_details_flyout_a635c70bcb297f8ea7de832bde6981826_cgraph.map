@@ -1,5 +1,5 @@
 <map id="Easy_Copier.Views.GameDetailsFlyout.PopulateSysReqs" name="Easy_Copier.Views.GameDetailsFlyout.PopulateSysReqs">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,222,48"/>
-<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_views_1_1_game_details_flyout.html#ac80be7a32068240c7121d08d99627a7c" title=" " alt="" coords="270,5,486,48"/>
+<area shape="rect" id="Node000001" title="Populates the system requirements text block with formatted and colorized paragraphs." alt="" coords="5,5,222,48"/>
+<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_views_1_1_game_details_flyout.html#ac80be7a32068240c7121d08d99627a7c" title="Constructs a rich text Paragraph with color&#45;coded category labels (CPU, GPU, RAM, Storage,..." alt="" coords="270,5,486,48"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="222,24,257,27,251,27,222,29"/>
 </map>

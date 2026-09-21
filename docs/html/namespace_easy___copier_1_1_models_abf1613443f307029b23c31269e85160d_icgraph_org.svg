@@ -11,7 +11,7 @@
 <!-- Node1 -->
 <g id="Node000001" class="node">
 <title>Node1</title>
-<g id="a_Node000001"><a xlink:title=" ">
+<g id="a_Node000001"><a xlink:title="Represents a monitored source folder for library content scanning.">
 <polygon fill="#999999" stroke="#666666" points="383,-32 242.5,-32 242.5,0 383,0 383,-32"/>
 <text xml:space="preserve" text-anchor="start" x="250.5" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Models.Source</text>
 <text xml:space="preserve" text-anchor="middle" x="312.75" y="-6.5" font-family="Helvetica,sans-Serif" font-size="10.00">Folder</text>

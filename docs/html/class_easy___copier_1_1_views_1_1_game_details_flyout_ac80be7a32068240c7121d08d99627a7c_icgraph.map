@@ -1,7 +1,7 @@
 <map id="Easy_Copier.Views.GameDetailsFlyout.CreateColoredParagraph" name="Easy_Copier.Views.GameDetailsFlyout.CreateColoredParagraph">
-<area shape="rect" id="Node000001" title=" " alt="" coords="534,5,750,48"/>
-<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_views_1_1_game_details_flyout.html#a635c70bcb297f8ea7de832bde6981826" title=" " alt="" coords="270,5,486,48"/>
+<area shape="rect" id="Node000001" title="Constructs a rich text Paragraph with color&#45;coded category labels (CPU, GPU, RAM, Storage,..." alt="" coords="534,5,750,48"/>
+<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_views_1_1_game_details_flyout.html#a635c70bcb297f8ea7de832bde6981826" title="Populates the system requirements text block with formatted and colorized paragraphs." alt="" coords="270,5,486,48"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="516,27,487,29,487,24,521,27"/>
-<area shape="rect" id="Node000003" href="$class_easy___copier_1_1_views_1_1_game_details_flyout.html#ac5b43b93f1b9316f0799d4cd0f060793" title=" " alt="" coords="5,5,222,48"/>
+<area shape="rect" id="Node000003" href="$class_easy___copier_1_1_views_1_1_game_details_flyout.html#ac5b43b93f1b9316f0799d4cd0f060793" title="Initializes a new instance of the GameDetailsFlyout class." alt="" coords="5,5,222,48"/>
 <area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="252,27,222,29,222,24,257,27"/>
 </map>

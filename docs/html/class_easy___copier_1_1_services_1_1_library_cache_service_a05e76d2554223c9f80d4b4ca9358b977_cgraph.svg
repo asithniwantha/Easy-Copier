@@ -47,7 +47,7 @@
   </g>
 </defs>
 <script type="application/ecmascript" xlink:href="svg.min.js"/>
-<svg id="graph" class="graph" data-view-width="640" data-view-height="358" data-section-id="dynsection-11">
+<svg id="graph" class="graph" data-view-width="640" data-view-height="358" data-section-id="dynsection-13">
 <g id="viewport">
 <title>Easy_Copier.Services.LibraryCacheService.ValidateCacheAsync</title>
 <!-- Node1 -->
@@ -63,7 +63,7 @@
 <!-- Node2 -->
 <g id="Node000002" class="node">
 <title>Node2</title>
-<g id="a_Node000002"><a xlink:href="namespace_easy___copier_1_1_models.html#a63b99d96f6d7e71a96281be9501fa569" target="_top" xlink:title=" ">
+<g id="a_Node000002"><a xlink:href="namespace_easy___copier_1_1_models.html#a63b99d96f6d7e71a96281be9501fa569" target="_top" xlink:title="Holds the detailed outcome of a cache validation check.">
 <polygon fill="white" stroke="#666666" points="383,-332 244.75,-332 244.75,-300 383,-300 383,-332"/>
 <text xml:space="preserve" text-anchor="start" x="252.75" y="-318.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Models.Cache</text>
 <text xml:space="preserve" text-anchor="middle" x="313.88" y="-306.5" font-family="Helvetica,sans-Serif" font-size="10.00">ValidationOutcome</text>
@@ -101,7 +101,7 @@
 <!-- Node4 -->
 <g id="Node000004" class="node">
 <title>Node4</title>
-<g id="a_Node000004"><a xlink:href="namespace_easy___copier_1_1_models.html#aae2a352ac1ad9a55ae8b37e300153431" target="_top" xlink:title=" ">
+<g id="a_Node000004"><a xlink:href="namespace_easy___copier_1_1_models.html#aae2a352ac1ad9a55ae8b37e300153431" target="_top" xlink:title="Represents a unique file system item state fingerprint used for cache validity checks.">
 <polygon fill="white" stroke="#666666" points="631.5,-238 456.5,-238 456.5,-218 631.5,-218 631.5,-238"/>
 <text xml:space="preserve" text-anchor="middle" x="544" y="-224.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Models.ItemFingerprint</text>
 </a>
@@ -157,7 +157,7 @@
 <!-- Node7 -->
 <g id="Node000007" class="node">
 <title>Node7</title>
-<g id="a_Node000007"><a xlink:href="namespace_easy___copier_1_1_models.html#a9c2abd1d64352c07d3085ba499cf2aae" target="_top" xlink:title=" ">
+<g id="a_Node000007"><a xlink:href="namespace_easy___copier_1_1_models.html#a9c2abd1d64352c07d3085ba499cf2aae" target="_top" xlink:title="Represents a single scanned library entry (game, app, TV/film, or OS image).">
 <polygon fill="white" stroke="#666666" points="393.5,-88 234.25,-88 234.25,-68 393.5,-68 393.5,-88"/>
 <text xml:space="preserve" text-anchor="middle" x="313.88" y="-74.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Models.GameEntry</text>
 </a>
@@ -175,7 +175,7 @@
 <!-- Node8 -->
 <g id="Node000008" class="node">
 <title>Node8</title>
-<g id="a_Node000008"><a xlink:href="namespace_easy___copier_1_1_models.html#a6ce72bb145c4b6a2a691fff265751706" target="_top" xlink:title=" ">
+<g id="a_Node000008"><a xlink:href="namespace_easy___copier_1_1_models.html#a6ce72bb145c4b6a2a691fff265751706" target="_top" xlink:title="Represents a serialized snapshot of cached library entries and metadata.">
 <polygon fill="white" stroke="#666666" points="383.38,-32 244.38,-32 244.38,0 383.38,0 383.38,-32"/>
 <text xml:space="preserve" text-anchor="start" x="252.38" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Models.Library</text>
 <text xml:space="preserve" text-anchor="middle" x="313.88" y="-6.5" font-family="Helvetica,sans-Serif" font-size="10.00">CacheSnapshot</text>

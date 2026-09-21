@@ -1,5 +1,5 @@
 <map id="Easy_Copier.Models.CacheValidationOutcome" name="Easy_Copier.Models.CacheValidationOutcome">
-<area shape="rect" id="Node000001" title=" " alt="" coords="834,39,1019,81"/>
+<area shape="rect" id="Node000001" title="Holds the detailed outcome of a cache validation check." alt="" coords="834,39,1019,81"/>
 <area shape="poly" id="edge1_Node000001_Node000001" title=" " alt="" coords="971,23,955,20,926,17,900,19,883,24,877,30,879,40,874,37,872,29,881,20,899,14,927,12,957,14,976,24"/>
 <area shape="rect" id="Node000002" href="$class_easy___copier_1_1_view_models_1_1_main_view_model.html#ad071bc3d0e0120cfa4f180eca785ddd4" title=" " alt="" coords="507,5,786,48"/>
 <area shape="poly" id="edge2_Node000001_Node000002" title=" " alt="" coords="816,47,787,46,787,41,822,47"/>

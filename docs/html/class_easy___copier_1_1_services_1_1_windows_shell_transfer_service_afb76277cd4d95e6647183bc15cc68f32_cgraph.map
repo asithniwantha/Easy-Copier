@@ -12,8 +12,10 @@
 <area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="235,287,293,295,289,297,237,292"/>
 <area shape="rect" id="Node000007" href="$interface_easy___copier_1_1_interop_1_1_i_file_operation.html#a5da7eb05bf07a208ed0a69e26d83ae95" title=" " alt="" coords="307,355,496,397"/>
 <area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="190,303,285,340,307,349,302,350,283,345,190,309"/>
-<area shape="rect" id="Node000008" href="$class_easy___copier_1_1_interop_1_1_file_operation_interop.html#a46cbdab096a70f7230f376b081472bd4" title="Creates and initializes a Shell item object from a parsing name." alt="" coords="299,421,504,480"/>
+<area shape="rect" id="Node000008" href="$class_easy___copier_1_1_interop_1_1_file_operation_interop.html#a6bd3e4ca5b8054602689422cea59441c" title="Creates and initializes a Shell item object from a parsing name, throwing an exception if the native ..." alt="" coords="299,421,504,480"/>
 <area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="151,303,211,356,247,383,285,407,296,414,290,414,282,412,244,387,208,360,151,308"/>
-<area shape="rect" id="Node000009" href="$interface_easy___copier_1_1_interop_1_1_i_file_operation.html#a07cad60257aa8e5f2ad201afdd5c5cc4" title=" " alt="" coords="317,504,486,547"/>
-<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="136,303,161,346,194,396,236,447,285,490,306,503,300,503,282,494,232,451,190,400,157,349,136,308"/>
+<area shape="rect" id="Node000010" href="$interface_easy___copier_1_1_interop_1_1_i_file_operation.html#a07cad60257aa8e5f2ad201afdd5c5cc4" title=" " alt="" coords="317,504,486,547"/>
+<area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="136,303,161,346,194,396,236,447,285,490,306,503,300,503,282,494,232,451,190,400,157,349,136,308"/>
+<area shape="rect" id="Node000009" href="$class_easy___copier_1_1_interop_1_1_file_operation_interop.html#a40ec621d5b8248f80dba077aaebb3c21" title="Creates and initializes a Shell item object from a parsing name." alt="" coords="568,421,773,480"/>
+<area shape="poly" id="edge8_Node000008_Node000009" title=" " alt="" coords="505,448,555,450,550,451,505,453"/>
 </map>

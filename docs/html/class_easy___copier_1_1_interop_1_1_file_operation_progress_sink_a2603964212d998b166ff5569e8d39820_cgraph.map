@@ -1,6 +1,6 @@
 <map id="Easy_Copier.Interop.FileOperationProgressSink.FinishOperations" name="Easy_Copier.Interop.FileOperationProgressSink.FinishOperations">
 <area shape="rect" id="Node000001" title=" " alt="" coords="5,21,200,80"/>
-<area shape="rect" id="Node000002" href="$namespace_easy___copier_1_1_models.html#a5bc746b080509d1e3821a7f7fd82aa9f" title=" " alt="" coords="248,29,442,72"/>
+<area shape="rect" id="Node000002" href="$namespace_easy___copier_1_1_models.html#a5bc746b080509d1e3821a7f7fd82aa9f" title="Represents the progress of an active file copy or transfer operation." alt="" coords="248,29,442,72"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="200,48,235,50,230,51,200,53"/>
 <area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="299,27,297,19,305,10,321,5,345,3,371,5,388,14,383,14,369,10,345,8,322,10,308,15,302,21,304,30"/>
 </map>

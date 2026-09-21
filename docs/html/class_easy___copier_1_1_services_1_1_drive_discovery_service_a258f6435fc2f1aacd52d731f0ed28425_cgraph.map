@@ -2,7 +2,7 @@
 <area shape="rect" id="Node000001" title="Asynchronously retrieves all connected drives that are classified as removable or USB&#45;connected stora..." alt="" coords="5,51,296,93"/>
 <area shape="rect" id="Node000002" href="$class_easy___copier_1_1_services_1_1_drive_discovery_service.html#a40c9d26a86373808632f9df8bd4aa434" title=" " alt="" coords="344,5,592,48"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="296,49,331,46,326,47,297,54"/>
-<area shape="rect" id="Node000004" href="$namespace_easy___copier_1_1_models.html#af8f0175620d1cdd9a06d3e52ae12ba12" title=" " alt="" coords="362,96,574,139"/>
+<area shape="rect" id="Node000004" href="$namespace_easy___copier_1_1_models.html#af8f0175620d1cdd9a06d3e52ae12ba12" title="Represents information about a detected removable drive or storage volume." alt="" coords="362,96,574,139"/>
 <area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="296,90,349,100,344,100,296,95"/>
 <area shape="rect" id="Node000003" href="$class_easy___copier_1_1_services_1_1_drive_discovery_service.html#a93558750a3717c2c2abbb645a07b9291" title="Queries the MSFT_PhysicalDisk WMI class in the root\Microsoft\Windows\Storage namespace to verify Bus..." alt="" coords="640,5,854,48"/>
 <area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="592,24,627,26,622,27,593,29"/>

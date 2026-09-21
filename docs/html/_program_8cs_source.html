@@ -121,49 +121,67 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('_program_8cs_s
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span>{</div>
 <div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span>    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">class </span><a class="code hl_class" href="class_easy___copier_1_1_program.html">Program</a></div>
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>    {</div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>        <span class="comment">// [System.Runtime.InteropServices.DllImport(&quot;shell32.dll&quot;, SetLastError = true)]</span></div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>        <span class="comment">// [System.Runtime.InteropServices.DefaultDllImportSearchPaths(System.Runtime.InteropServices.DllImportSearchPath.System32)]</span></div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>        <span class="comment">// private static extern int SetCurrentProcessExplicitAppUserModelID([System.Runtime.InteropServices.MarshalAs(System.Runtime.InteropServices.UnmanagedType.LPWStr)] string AppID);</span></div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>        [STAThread]</div>
-<div class="foldopen" id="foldopen00015" data-start="{" data-end="}">
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="class_easy___copier_1_1_program.html#ae266f31436203f55515e73e30be2a495">   15</a></span>        <span class="keyword">private</span> <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code hl_function" href="class_easy___copier_1_1_program.html#ae266f31436203f55515e73e30be2a495">Main</a>(<span class="keywordtype">string</span>[] args)</div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>        {</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>            <span class="comment">// Velopack initialization must run before any UI code is created.</span></div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>            VelopackApp.Build().Run();</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>        <span class="comment">// private static extern int SetCurrentProcessExplicitAppUserModelID([System.Runtime.InteropServices.MarshalAs(System.Runtime.InteropServices.UnmanagedType.LPWStr)] string AppID);</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>        [STAThread]</div>
+<div class="foldopen" id="foldopen00013" data-start="{" data-end="}">
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="class_easy___copier_1_1_program.html#ae266f31436203f55515e73e30be2a495">   13</a></span>        <span class="keyword">private</span> <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code hl_function" href="class_easy___copier_1_1_program.html#ae266f31436203f55515e73e30be2a495">Main</a>(<span class="keywordtype">string</span>[] args)</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>        {</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>            <span class="comment">// Velopack initialization must run before any UI code is created.</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>            VelopackApp.Build().Run();</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>            WinRT.ComWrappersSupport.InitializeComWrappers();</div>
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>            WinRT.ComWrappersSupport.InitializeComWrappers();</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>            <span class="comment">// No longer explicitly setting AppUserModelID; relying on Windows App SDK bootstrapper and NotificationInvoked.</span></div>
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>            <span class="comment">// No longer explicitly setting AppUserModelID; relying on Windows App SDK bootstrapper and NotificationInvoked.</span></div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>            <span class="keywordtype">bool</span> isRedirect = <span class="keyword">false</span>;</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>            <span class="keywordflow">try</span></div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>            {</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>                <span class="comment">// This call might throw if another instance has already redirected activation,</span></div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>                <span class="comment">// but we typically don&#39;t use AppInstance redirection in this simple app right now.</span></div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>                <span class="comment">// We keep standard initialization.</span></div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>                _ = Microsoft.Windows.AppLifecycle.AppInstance.GetCurrent().GetActivatedEventArgs();</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>            }</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>            <span class="keywordflow">catch</span> { }</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>            <span class="keywordflow">if</span> (!isRedirect)</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>            {</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>                Microsoft.UI.Xaml.Application.Start((p) =&gt;</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>                {</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>                    DispatcherQueueSynchronizationContext context = <span class="keyword">new</span>(</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>                        DispatcherQueue.GetForCurrentThread());</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>                    SynchronizationContext.SetSynchronizationContext(context);</div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>                    _ = <span class="keyword">new</span> <a class="code hl_function" href="class_easy___copier_1_1_app.html#ac87772e615c45c04880b62d94507f70b">App</a>();</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>                });</div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>            }</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>            <span class="keywordflow">try</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>            {</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>                Microsoft.Windows.AppLifecycle.AppInstance mainInstance = Microsoft.Windows.AppLifecycle.AppInstance.FindOrRegisterForKey(<span class="stringliteral">&quot;EasyCopierMainInstance&quot;</span>);</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>                <span class="keywordflow">if</span> (!mainInstance.IsCurrent)</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>                {</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>                    Microsoft.Windows.AppLifecycle.AppActivationArguments argsActivated = Microsoft.Windows.AppLifecycle.AppInstance.GetCurrent().GetActivatedEventArgs();</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>                    mainInstance.RedirectActivationToAsync(argsActivated).AsTask().Wait();</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>                    <span class="keywordflow">return</span>;</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>                }</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>                mainInstance.Activated += <a class="code hl_function" href="class_easy___copier_1_1_program.html#a9d85cb2db15488b2dda4028ab26108de">MainInstance_Activated</a>;</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>            }</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>            <span class="keywordflow">catch</span> { }</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>            Microsoft.UI.Xaml.Application.Start((p) =&gt;</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>            {</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>                DispatcherQueueSynchronizationContext context = <span class="keyword">new</span>(</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>                    DispatcherQueue.GetForCurrentThread());</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>                SynchronizationContext.SetSynchronizationContext(context);</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>                _ = <span class="keyword">new</span> <a class="code hl_function" href="class_easy___copier_1_1_app.html#ac87772e615c45c04880b62d94507f70b">App</a>();</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>            });</div>
 <div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>        }</div>
 </div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    }</div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>}</div>
-<div class="ttc" id="aclass_easy___copier_1_1_app_html_ac87772e615c45c04880b62d94507f70b"><div class="ttname"><a href="class_easy___copier_1_1_app.html#ac87772e615c45c04880b62d94507f70b">Easy_Copier.App.App</a></div><div class="ttdeci">App()</div><div class="ttdef"><b>Definition</b> <a href="_app_8xaml_8cs_source.html#l00020">App.xaml.cs:20</a></div></div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
+<div class="foldopen" id="foldopen00046" data-start="{" data-end="}">
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno"><a class="line" href="class_easy___copier_1_1_program.html#a9d85cb2db15488b2dda4028ab26108de">   46</a></span>        <span class="keyword">private</span> <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code hl_function" href="class_easy___copier_1_1_program.html#a9d85cb2db15488b2dda4028ab26108de">MainInstance_Activated</a>(<span class="keywordtype">object</span>? sender, Microsoft.Windows.AppLifecycle.AppActivationArguments e)</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>        {</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>            _ = (<a class="code hl_class" href="class_easy___copier_1_1_app.html">App</a>.<a class="code hl_property" href="class_easy___copier_1_1_app.html#a718af7bc6f85416e7e53fdfaa8f44bf3">MainWindow</a>?.DispatcherQueue.TryEnqueue(() =&gt;</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>                {</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>                    <a class="code hl_class" href="class_easy___copier_1_1_app.html">App</a>.<a class="code hl_property" href="class_easy___copier_1_1_app.html#a718af7bc6f85416e7e53fdfaa8f44bf3">MainWindow</a>.Activate();</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>                    IntPtr hwnd = WinRT.Interop.WindowNative.GetWindowHandle(<a class="code hl_class" href="class_easy___copier_1_1_app.html">App</a>.<a class="code hl_property" href="class_easy___copier_1_1_app.html#a718af7bc6f85416e7e53fdfaa8f44bf3">MainWindow</a>);</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>                    <a class="code hl_namespace" href="namespace_easy___copier.html">Easy_Copier</a>.<a class="code hl_namespace" href="namespace_easy___copier_1_1_infrastructure.html">Infrastructure</a>.<a class="code hl_class" href="class_easy___copier_1_1_infrastructure_1_1_native_window_helper.html">NativeWindowHelper</a>.<a class="code hl_function" href="class_easy___copier_1_1_infrastructure_1_1_native_window_helper.html#a0866d3ff5ff5b806f9f86c5c9aaa412f">SetForeground</a>(hwnd);</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>                }));</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>        }</div>
+</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    }</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>}</div>
+<div class="ttc" id="aclass_easy___copier_1_1_app_html"><div class="ttname"><a href="class_easy___copier_1_1_app.html">Easy_Copier.App</a></div><div class="ttdef"><b>Definition</b> <a href="_app_8xaml_8cs_source.html#l00012">App.xaml.cs:13</a></div></div>
+<div class="ttc" id="aclass_easy___copier_1_1_app_html_a718af7bc6f85416e7e53fdfaa8f44bf3"><div class="ttname"><a href="class_easy___copier_1_1_app.html#a718af7bc6f85416e7e53fdfaa8f44bf3">Easy_Copier.App.MainWindow</a></div><div class="ttdeci">static ? Window MainWindow</div><div class="ttdef"><b>Definition</b> <a href="_app_8xaml_8cs_source.html#l00020">App.xaml.cs:20</a></div></div>
+<div class="ttc" id="aclass_easy___copier_1_1_app_html_ac87772e615c45c04880b62d94507f70b"><div class="ttname"><a href="class_easy___copier_1_1_app.html#ac87772e615c45c04880b62d94507f70b">Easy_Copier.App.App</a></div><div class="ttdeci">App()</div><div class="ttdef"><b>Definition</b> <a href="_app_8xaml_8cs_source.html#l00022">App.xaml.cs:22</a></div></div>
+<div class="ttc" id="aclass_easy___copier_1_1_infrastructure_1_1_native_window_helper_html"><div class="ttname"><a href="class_easy___copier_1_1_infrastructure_1_1_native_window_helper.html">Easy_Copier.Infrastructure.NativeWindowHelper</a></div><div class="ttdoc">Provides Win32 P/Invoke utilities and WinUI 3 AppWindow helpers for managing windows,...</div><div class="ttdef"><b>Definition</b> <a href="_native_window_helper_8cs_source.html#l00013">NativeWindowHelper.cs:14</a></div></div>
+<div class="ttc" id="aclass_easy___copier_1_1_infrastructure_1_1_native_window_helper_html_a0866d3ff5ff5b806f9f86c5c9aaa412f"><div class="ttname"><a href="class_easy___copier_1_1_infrastructure_1_1_native_window_helper.html#a0866d3ff5ff5b806f9f86c5c9aaa412f">Easy_Copier.Infrastructure.NativeWindowHelper.SetForeground</a></div><div class="ttdeci">static void SetForeground(IntPtr hwnd)</div><div class="ttdoc">Brings the specified window handle to the foreground.</div><div class="ttdef"><b>Definition</b> <a href="_native_window_helper_8cs_source.html#l00148">NativeWindowHelper.cs:148</a></div></div>
 <div class="ttc" id="aclass_easy___copier_1_1_program_html"><div class="ttname"><a href="class_easy___copier_1_1_program.html">Easy_Copier.Program</a></div><div class="ttdoc">Program class.</div><div class="ttdef"><b>Definition</b> <a href="_debug_2net10_80-windows10_80_826100_80_2win-x64_2_app_8g_8i_8cs_source.html#l00018">App.g.i.cs:22</a></div></div>
-<div class="ttc" id="aclass_easy___copier_1_1_program_html_ae266f31436203f55515e73e30be2a495"><div class="ttname"><a href="class_easy___copier_1_1_program.html#ae266f31436203f55515e73e30be2a495">Easy_Copier.Program.Main</a></div><div class="ttdeci">static void Main(string[] args)</div><div class="ttdef"><b>Definition</b> <a href="#l00015">Program.cs:15</a></div></div>
-<div class="ttc" id="anamespace_easy___copier_html"><div class="ttname"><a href="namespace_easy___copier.html">Easy_Copier</a></div><div class="ttdef"><b>Definition</b> <a href="_app_8xaml_8cs_source.html#l00008">App.xaml.cs:9</a></div></div>
+<div class="ttc" id="aclass_easy___copier_1_1_program_html_a9d85cb2db15488b2dda4028ab26108de"><div class="ttname"><a href="class_easy___copier_1_1_program.html#a9d85cb2db15488b2dda4028ab26108de">Easy_Copier.Program.MainInstance_Activated</a></div><div class="ttdeci">static void MainInstance_Activated(object? sender, Microsoft.Windows.AppLifecycle.AppActivationArguments e)</div><div class="ttdef"><b>Definition</b> <a href="#l00046">Program.cs:46</a></div></div>
+<div class="ttc" id="aclass_easy___copier_1_1_program_html_ae266f31436203f55515e73e30be2a495"><div class="ttname"><a href="class_easy___copier_1_1_program.html#ae266f31436203f55515e73e30be2a495">Easy_Copier.Program.Main</a></div><div class="ttdeci">static void Main(string[] args)</div><div class="ttdef"><b>Definition</b> <a href="#l00013">Program.cs:13</a></div></div>
+<div class="ttc" id="anamespace_easy___copier_1_1_infrastructure_html"><div class="ttname"><a href="namespace_easy___copier_1_1_infrastructure.html">Easy_Copier.Infrastructure</a></div><div class="ttdef"><b>Definition</b> <a href="_app_window_context_8cs_source.html#l00003">AppWindowContext.cs:4</a></div></div>
+<div class="ttc" id="anamespace_easy___copier_html"><div class="ttname"><a href="namespace_easy___copier.html">Easy_Copier</a></div><div class="ttdef"><b>Definition</b> <a href="_app_8xaml_8cs_source.html#l00010">App.xaml.cs:11</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->

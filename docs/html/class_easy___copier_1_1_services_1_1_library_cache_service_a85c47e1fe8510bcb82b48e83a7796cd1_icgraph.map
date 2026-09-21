@@ -1,0 +1,5 @@
+<map id="Easy_Copier.Services.LibraryCacheService.SaveCacheAsync" name="Easy_Copier.Services.LibraryCacheService.SaveCacheAsync">
+<area shape="rect" id="Node000001" title="Asynchronously writes the library cache snapshot to disk using a temporary file and atomic swap." alt="" coords="345,5,557,48"/>
+<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_services_1_1_library_cache_service.html#aeabb97a2863de8f7c7adf124366631c3" title="Computes item fingerprints and creates/saves a library cache snapshot from scanned items and active s..." alt="" coords="5,5,297,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="326,27,297,29,297,24,332,27"/>
+</map>

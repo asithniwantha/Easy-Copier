@@ -8,7 +8,7 @@
 <area shape="poly" id="edge10_Node000001_Node000009" title=" " alt="" coords="182,130,250,151,245,153,182,135"/>
 <area shape="rect" id="Node000003" href="$class_easy___copier_1_1_infrastructure_1_1_flyout_helper.html#a7129d8af4e5b49e0b85728bbf84bc228" title="Displays the OS image details flyout when right&#45;tapping an OS image card." alt="" coords="524,84,751,143"/>
 <area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="471,109,511,112,506,112,472,114"/>
-<area shape="rect" id="Node000004" href="$namespace_easy___copier_1_1_models.html#a9c2abd1d64352c07d3085ba499cf2aae" title=" " alt="" coords="805,29,1018,56"/>
+<area shape="rect" id="Node000004" href="$namespace_easy___copier_1_1_models.html#a9c2abd1d64352c07d3085ba499cf2aae" title="Represents a single scanned library entry (game, app, TV/film, or OS image)." alt="" coords="805,29,1018,56"/>
 <area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="751,81,839,61,844,60,752,87"/>
 <area shape="rect" id="Node000005" href="$class_easy___copier_1_1_view_models_1_1_os_image_details_view_model.html#a4da5a2ff8f4938af03fe4c9322dd53f5" title=" " alt="" coords="804,88,1019,131"/>
 <area shape="poly" id="edge5_Node000003_Node000005" title=" " alt="" coords="751,109,792,111,786,111,751,114"/>

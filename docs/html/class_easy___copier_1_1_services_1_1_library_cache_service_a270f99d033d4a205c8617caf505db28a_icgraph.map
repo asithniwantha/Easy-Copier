@@ -1,9 +1,11 @@
 <map id="Easy_Copier.Services.LibraryCacheService.GetCacheFilePath" name="Easy_Copier.Services.LibraryCacheService.GetCacheFilePath">
-<area shape="rect" id="Node000001" title="Resolves the absolute path to the local library cache file in AppData." alt="" coords="292,72,506,115"/>
-<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_services_1_1_library_cache_service.html#a28508b1cd4dc6e586b314f7cbae10ace" title="Deletes the cached snapshot file if present on disk." alt="" coords="5,5,244,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="291,69,215,51,215,46,296,67"/>
-<area shape="rect" id="Node000003" href="$class_easy___copier_1_1_services_1_1_library_cache_service.html#a0803da77cac9887ad4dd36e5a47b0ee8" title="Asynchronously deserializes and verifies the cached library snapshot file." alt="" coords="19,72,230,115"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="273,94,231,96,230,91,279,93"/>
-<area shape="rect" id="Node000004" href="$class_easy___copier_1_1_services_1_1_library_cache_service.html#a85c47e1fe8510bcb82b48e83a7796cd1" title="Asynchronously writes the library cache snapshot to disk using a temporary file and atomic swap." alt="" coords="18,139,231,181"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="296,118,216,141,215,135,291,119"/>
+<area shape="rect" id="Node000001" title="Resolves the absolute path to the local library cache file in AppData." alt="" coords="631,72,845,115"/>
+<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_services_1_1_library_cache_service.html#a28508b1cd4dc6e586b314f7cbae10ace" title="Deletes the cached snapshot file if present on disk." alt="" coords="345,5,583,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="630,68,554,51,555,46,636,68"/>
+<area shape="rect" id="Node000003" href="$class_easy___copier_1_1_services_1_1_library_cache_service.html#a0803da77cac9887ad4dd36e5a47b0ee8" title="Asynchronously deserializes and verifies the cached library snapshot file." alt="" coords="359,72,569,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="613,94,570,96,569,91,618,93"/>
+<area shape="rect" id="Node000004" href="$class_easy___copier_1_1_services_1_1_library_cache_service.html#a85c47e1fe8510bcb82b48e83a7796cd1" title="Asynchronously writes the library cache snapshot to disk using a temporary file and atomic swap." alt="" coords="358,139,570,181"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="636,118,555,141,554,135,630,119"/>
+<area shape="rect" id="Node000005" href="$class_easy___copier_1_1_services_1_1_library_cache_service.html#aeabb97a2863de8f7c7adf124366631c3" title="Computes item fingerprints and creates/saves a library cache snapshot from scanned items and active s..." alt="" coords="5,139,297,181"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="339,160,297,163,297,157,345,160"/>
 </map>

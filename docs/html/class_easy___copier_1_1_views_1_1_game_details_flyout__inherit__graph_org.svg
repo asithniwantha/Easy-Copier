@@ -11,7 +11,7 @@
 <!-- Node1 -->
 <g id="Node000001" class="node">
 <title>Node1</title>
-<g id="a_Node000001"><a xlink:title=" ">
+<g id="a_Node000001"><a xlink:title="User control displaying detailed information, system requirements, and folder contents for a game ent...">
 <polygon fill="#999999" stroke="#666666" points="347.75,-120 185.5,-120 185.5,-88 347.75,-88 347.75,-120"/>
 <text xml:space="preserve" text-anchor="start" x="193.5" y="-106.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Views.GameDetails</text>
 <text xml:space="preserve" text-anchor="middle" x="266.62" y="-94.5" font-family="Helvetica,sans-Serif" font-size="10.00">Flyout</text>

@@ -112,6 +112,9 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('class_easy___c
   <div class="headertitle"><div class="title">Easy_Copier.Views.HistoryWindow Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Modal host window displaying file transfer operation history.  
+ <a href="#details">More...</a></p>
 <div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Inheritance diagram for Easy_Copier.Views.HistoryWindow:</div>
 <div id="dynsection-0-summary" class="dynsummary">
 </div>
@@ -158,14 +161,17 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a3b87dcb9b8d701bbfbacb46b9c86618e" id="r_a3b87dcb9b8d701bbfbacb46b9c86618e"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a3b87dcb9b8d701bbfbacb46b9c86618e">InitializeComponent</a> ()</td></tr>
 <tr class="memdesc:a3b87dcb9b8d701bbfbacb46b9c86618e"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="#a3b87dcb9b8d701bbfbacb46b9c86618e" title="InitializeComponent().">InitializeComponent()</a>.  <br /></td></tr>
 <tr class="memitem:a4665b9acd85137846e61b539bd7c0815" id="r_a4665b9acd85137846e61b539bd7c0815"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a4665b9acd85137846e61b539bd7c0815">HistoryWindow</a> (<a class="el" href="class_easy___copier_1_1_view_models_1_1_history_view_model.html">HistoryViewModel</a> viewModel, Window owner)</td></tr>
+<tr class="memdesc:a4665b9acd85137846e61b539bd7c0815"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes a new instance of the HistoryWindow class.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-properties" class="groupheader"><a id="properties" name="properties"></a>
 Properties</h2></td></tr>
 <tr class="memitem:af3799d9d304f3ab93380010c1ac45a2e" id="r_af3799d9d304f3ab93380010c1ac45a2e"><td class="memItemLeft"><a class="el" href="class_easy___copier_1_1_view_models_1_1_history_view_model.html">HistoryViewModel</a>&#160;</td><td class="memItemRight"><a class="el" href="#af3799d9d304f3ab93380010c1ac45a2e">ViewModel</a><code> [get]</code></td></tr>
+<tr class="memdesc:af3799d9d304f3ab93380010c1ac45a2e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the HistoryViewModel associated with this window.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-events" class="groupheader"><a id="events" name="events"></a>
 Events</h2></td></tr>
 <tr class="memitem:aca931a6f83d2364b5565ecedd54d2cd7" id="r_aca931a6f83d2364b5565ecedd54d2cd7"><td class="memItemLeft">EventHandler?&#160;</td><td class="memItemRight"><a class="el" href="#aca931a6f83d2364b5565ecedd54d2cd7">HistoryClosed</a></td></tr>
+<tr class="memdesc:aca931a6f83d2364b5565ecedd54d2cd7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Event raised when the history window is closed.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pri-methods" class="groupheader"><a id="pri-methods" name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
@@ -180,9 +186,11 @@ Private Attributes</h2></td></tr>
 <tr class="memitem:a7c1c4658f241b9b65d4b0ac39f388627" id="r_a7c1c4658f241b9b65d4b0ac39f388627"><td class="memItemLeft">global::Microsoft.UI.Xaml.Controls.Frame&#160;</td><td class="memItemRight"><a class="el" href="#a7c1c4658f241b9b65d4b0ac39f388627">RootFrame</a></td></tr>
 <tr class="memitem:ada3e5141f9ea93bd7f466c4e0477f37a" id="r_ada3e5141f9ea93bd7f466c4e0477f37a"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#ada3e5141f9ea93bd7f466c4e0477f37a">_contentLoaded</a></td></tr>
 <tr class="memitem:ac582ec0eeeb2525f0adf27ec85e20b47" id="r_ac582ec0eeeb2525f0adf27ec85e20b47"><td class="memItemLeft">readonly Window&#160;</td><td class="memItemRight"><a class="el" href="#ac582ec0eeeb2525f0adf27ec85e20b47">_owner</a></td></tr>
+<tr class="memdesc:ac582ec0eeeb2525f0adf27ec85e20b47"><td class="mdescLeft">&#160;</td><td class="mdescRight">The owner window used for modal positioning and centering.  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
-<div class="textblock">
+<div class="textblock"><p>Modal host window displaying file transfer operation history. </p>
+
 <p class="definition">Definition at line <a class="el" href="_debug_2net10_80-windows10_80_826100_80_2win-x64_2_views_2_history_window_8g_8cs_source.html#l00013">13</a> of file <a class="el" href="_debug_2net10_80-windows10_80_826100_80_2win-x64_2_views_2_history_window_8g_8cs_source.html">HistoryWindow.g.cs</a>.</p>
 </div><a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a4665b9acd85137846e61b539bd7c0815" name="a4665b9acd85137846e61b539bd7c0815"></a>
@@ -204,9 +212,18 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_history_window_8xaml_8cs_source.html#l00015">15</a> of file <a class="el" href="_history_window_8xaml_8cs_source.html">HistoryWindow.xaml.cs</a>.</p>
+<p>Initializes a new instance of the HistoryWindow class. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">viewModel</td><td>The view model for history data.</td></tr>
+    <tr><td class="paramname">owner</td><td>The parent owner window for modal placement.</td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p class="reference">References <a class="el" href="_history_window_8xaml_8cs_source.html#l00011">_owner</a>, <a class="el" href="_history_window_8xaml_8cs_source.html#l00013">HistoryClosed</a>, <a class="el" href="_debug_2net10_80-windows10_80_826100_80_2win-x64_2_views_2_history_window_8g_8i_8cs_source.html#l00031">InitializeComponent()</a>, <a class="el" href="_native_window_helper_8cs_source.html#l00286">Easy_Copier.Infrastructure.NativeWindowHelper.InitializeModalWindow()</a>, <a class="el" href="_debug_2net10_80-windows10_80_826100_80_2win-x64_2_views_2_history_window_8g_8i_8cs_source.html#l00020">RootFrame</a>, and <a class="el" href="_history_window_8xaml_8cs_source.html#l00010">ViewModel</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_history_window_8xaml_8cs_source.html#l00033">33</a> of file <a class="el" href="_history_window_8xaml_8cs_source.html">HistoryWindow.xaml.cs</a>.</p>
+
+<p class="reference">References <a class="el" href="_history_window_8xaml_8cs_source.html#l00021">_owner</a>, <a class="el" href="_history_window_8xaml_8cs_source.html#l00026">HistoryClosed</a>, <a class="el" href="_debug_2net10_80-windows10_80_826100_80_2win-x64_2_views_2_history_window_8g_8i_8cs_source.html#l00031">InitializeComponent()</a>, <a class="el" href="_native_window_helper_8cs_source.html#l00289">Easy_Copier.Infrastructure.NativeWindowHelper.InitializeModalWindow()</a>, <a class="el" href="_debug_2net10_80-windows10_80_826100_80_2win-x64_2_views_2_history_window_8g_8i_8cs_source.html#l00020">RootFrame</a>, and <a class="el" href="_history_window_8xaml_8cs_source.html#l00016">ViewModel</a>.</p>
 <div id="dynsection-2" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-2-summary" class="dynsummary">
 </div>
@@ -488,7 +505,7 @@ Private Attributes</h2></td></tr>
 
 <p class="reference">References <a class="el" href="_debug_2net10_80-windows10_80_826100_80_2win-x64_2_views_2_history_window_8g_8i_8cs_source.html#l00024">_contentLoaded</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_history_window_8xaml_8cs_source.html#l00015">HistoryWindow()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_history_window_8xaml_8cs_source.html#l00033">HistoryWindow()</a>.</p>
 <div id="dynsection-3" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
 <div id="dynsection-3-summary" class="dynsummary">
 </div>
@@ -762,9 +779,11 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_history_window_8xaml_8cs_source.html#l00011">11</a> of file <a class="el" href="_history_window_8xaml_8cs_source.html">HistoryWindow.xaml.cs</a>.</p>
+<p>The owner window used for modal positioning and centering. </p>
 
-<p class="reference">Referenced by <a class="el" href="_history_window_8xaml_8cs_source.html#l00015">HistoryWindow()</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_history_window_8xaml_8cs_source.html#l00021">21</a> of file <a class="el" href="_history_window_8xaml_8cs_source.html">HistoryWindow.xaml.cs</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_history_window_8xaml_8cs_source.html#l00033">HistoryWindow()</a>.</p>
 
 </div>
 </div>
@@ -790,7 +809,7 @@ Private Attributes</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="_debug_2net10_80-windows10_80_826100_80_2win-x64_2_views_2_history_window_8g_8i_8cs_source.html#l00020">20</a> of file <a class="el" href="_debug_2net10_80-windows10_80_826100_80_2win-x64_2_views_2_history_window_8g_8i_8cs_source.html">HistoryWindow.g.i.cs</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_history_window_8xaml_8cs_source.html#l00015">HistoryWindow()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_history_window_8xaml_8cs_source.html#l00033">HistoryWindow()</a>.</p>
 
 </div>
 </div>
@@ -815,9 +834,11 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_history_window_8xaml_8cs_source.html#l00010">10</a> of file <a class="el" href="_history_window_8xaml_8cs_source.html">HistoryWindow.xaml.cs</a>.</p>
+<p>Gets the HistoryViewModel associated with this window. </p>
 
-<p class="reference">Referenced by <a class="el" href="_history_window_8xaml_8cs_source.html#l00015">HistoryWindow()</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_history_window_8xaml_8cs_source.html#l00016">16</a> of file <a class="el" href="_history_window_8xaml_8cs_source.html">HistoryWindow.xaml.cs</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_history_window_8xaml_8cs_source.html#l00033">HistoryWindow()</a>.</p>
 
 </div>
 </div>
@@ -834,9 +855,11 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_history_window_8xaml_8cs_source.html#l00013">13</a> of file <a class="el" href="_history_window_8xaml_8cs_source.html">HistoryWindow.xaml.cs</a>.</p>
+<p>Event raised when the history window is closed. </p>
 
-<p class="reference">Referenced by <a class="el" href="_history_window_8xaml_8cs_source.html#l00015">HistoryWindow()</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_history_window_8xaml_8cs_source.html#l00026">26</a> of file <a class="el" href="_history_window_8xaml_8cs_source.html">HistoryWindow.xaml.cs</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_history_window_8xaml_8cs_source.html#l00033">HistoryWindow()</a>.</p>
 
 </div>
 </div>

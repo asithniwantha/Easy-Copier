@@ -11,20 +11,20 @@
 <!-- Node0 -->
 <g id="Node000000" class="node">
 <title>Node0</title>
-<g id="a_Node000000"><a xlink:href="interface_easy___copier_1_1_services_1_1_i_smart_adder_history_service.html" target="_top" xlink:title="Defines operations for persisting and retrieving Smart Adder calculations in SQLite storage.">
+<g id="a_Node000000"><a xlink:href="interface_easy___copier_1_1_services_1_1_i_rufus_service.html" target="_top" xlink:title="Contract for Rufus integration and ISO image launching operations.">
 <polygon fill="white" stroke="#666666" points="145.75,-32 0,-32 0,0 145.75,0 145.75,-32"/>
-<text xml:space="preserve" text-anchor="start" x="8" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Services.ISmart</text>
-<text xml:space="preserve" text-anchor="middle" x="72.88" y="-6.5" font-family="Helvetica,sans-Serif" font-size="10.00">AdderHistoryService</text>
+<text xml:space="preserve" text-anchor="start" x="8" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Services.IRufus</text>
+<text xml:space="preserve" text-anchor="middle" x="72.88" y="-6.5" font-family="Helvetica,sans-Serif" font-size="10.00">Service</text>
 </a>
 </g>
 </g>
 <!-- Node1 -->
 <g id="Node000001" class="node">
 <title>Node1</title>
-<g id="a_Node000001"><a xlink:href="class_easy___copier_1_1_services_1_1_smart_adder_history_service.html" target="_top" xlink:title="Service for persisting Smart Adder calculator history to the local SQLite database (SmartAdderHistory...">
+<g id="a_Node000001"><a xlink:href="class_easy___copier_1_1_services_1_1_rufus_service.html" target="_top" xlink:title="Service responsible for discovering Rufus executable updates and launching ISO image files in Rufus.">
 <polygon fill="white" stroke="#666666" points="324.5,-32 181.75,-32 181.75,0 324.5,0 324.5,-32"/>
-<text xml:space="preserve" text-anchor="start" x="189.75" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Services.Smart</text>
-<text xml:space="preserve" text-anchor="middle" x="253.12" y="-6.5" font-family="Helvetica,sans-Serif" font-size="10.00">AdderHistoryService</text>
+<text xml:space="preserve" text-anchor="start" x="189.75" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Services.Rufus</text>
+<text xml:space="preserve" text-anchor="middle" x="253.12" y="-6.5" font-family="Helvetica,sans-Serif" font-size="10.00">Service</text>
 </a>
 </g>
 </g>

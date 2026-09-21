@@ -1,6 +1,6 @@
 <map id="Easy_Copier.ViewModels.HistoryViewModel.ProcessLoadedRecords" name="Easy_Copier.ViewModels.HistoryViewModel.ProcessLoadedRecords">
 <area shape="rect" id="Node000001" title=" " alt="" coords="5,75,234,117"/>
-<area shape="rect" id="Node000002" href="$namespace_easy___copier_1_1_models.html#a22cad9581ea699aafef9d310c84f0836" title=" " alt="" coords="282,29,501,72"/>
+<area shape="rect" id="Node000002" href="$namespace_easy___copier_1_1_models.html#a22cad9581ea699aafef9d310c84f0836" title="Represents a persistent database history entry recording a completed transfer." alt="" coords="282,29,501,72"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="234,74,269,71,264,72,235,79"/>
 <area shape="rect" id="Node000003" href="$namespace_easy___copier_1_1_view_models.html#adba81577e9747d96266b616b1a51b680" title=" " alt="" coords="283,120,500,163"/>
 <area shape="poly" id="edge3_Node000001_Node000003" title=" " alt="" coords="234,112,270,121,265,121,234,118"/>

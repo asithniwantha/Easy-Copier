@@ -1,8 +1,8 @@
 <map id="Easy_Copier.Services.DriveValidationService.ValidateTransferAsync" name="Easy_Copier.Services.DriveValidationService.ValidateTransferAsync">
 <area shape="rect" id="Node000001" title="Asynchronously validates selected games against target drive storage capacity, file system limitation..." alt="" coords="5,104,262,147"/>
-<area shape="rect" id="Node000002" href="$namespace_easy___copier_1_1_models.html#a9c2abd1d64352c07d3085ba499cf2aae" title=" " alt="" coords="310,29,522,56"/>
+<area shape="rect" id="Node000002" href="$namespace_easy___copier_1_1_models.html#a9c2abd1d64352c07d3085ba499cf2aae" title="Represents a single scanned library entry (game, app, TV/film, or OS image)." alt="" coords="310,29,522,56"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="197,101,309,65,341,59,336,61,310,71,199,106"/>
-<area shape="rect" id="Node000003" href="$namespace_easy___copier_1_1_models.html#af8f0175620d1cdd9a06d3e52ae12ba12" title=" " alt="" coords="310,104,522,147"/>
+<area shape="rect" id="Node000003" href="$namespace_easy___copier_1_1_models.html#af8f0175620d1cdd9a06d3e52ae12ba12" title="Represents information about a detected removable drive or storage volume." alt="" coords="310,104,522,147"/>
 <area shape="poly" id="edge3_Node000001_Node000003" title=" " alt="" coords="262,123,296,125,291,126,262,128"/>
 <area shape="rect" id="Node000004" href="$namespace_easy___copier_1_1_models.html#aa394743cccca298523ee415d124c3cbf" title="Represents the result of a validation operation, including whether it is valid, the severity of the v..." alt="" coords="315,195,517,237"/>
 <area shape="poly" id="edge5_Node000001_Node000004" title=" " alt="" coords="203,145,335,188,330,190,202,150"/>

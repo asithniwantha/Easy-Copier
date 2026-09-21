@@ -97,10 +97,10 @@
 <!-- Node6 -->
 <g id="Node000006" class="node">
 <title>Node6</title>
-<g id="a_Node000006"><a xlink:href="class_easy___copier_1_1_view_models_1_1_main_view_model.html#ac6ff8ed6c0a7a8d2998d5dd4c97b49f3" target="_top" xlink:title=" ">
-<polygon fill="white" stroke="#666666" points="744.25,-57 563.25,-57 563.25,-25 744.25,-25 744.25,-57"/>
-<text xml:space="preserve" text-anchor="start" x="571.25" y="-43.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.ViewModels.Main</text>
-<text xml:space="preserve" text-anchor="middle" x="653.75" y="-31.5" font-family="Helvetica,sans-Serif" font-size="10.00">ViewModel.UpdateSelectionSummary</text>
+<g id="a_Node000006"><a xlink:href="class_easy___copier_1_1_views_1_1_os_images_tab_view.html#ac902e9029a9045732526d167c3338652" target="_top" xlink:title="Retrieves the collection of currently selected GameEntry items in this view.An enumerable of selected...">
+<polygon fill="white" stroke="#666666" points="728.88,-82 578.62,-82 578.62,-50 728.88,-50 728.88,-82"/>
+<text xml:space="preserve" text-anchor="start" x="586.62" y="-68.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Views.OsImages</text>
+<text xml:space="preserve" text-anchor="middle" x="653.75" y="-56.5" font-family="Helvetica,sans-Serif" font-size="10.00">TabView.GetSelectedEntries</text>
 </a>
 </g>
 </g>
@@ -108,18 +108,36 @@
 <g id="edge5_Node000005_Node000006" class="edge">
 <title>Node5&#45;&gt;Node6</title>
 <g id="a_edge5_Node000005_Node000006"><a xlink:title=" ">
-<path fill="none" stroke="#63b8ff" d="M527.56,-41C535.41,-41 543.48,-41 551.55,-41"/>
-<polygon fill="#63b8ff" stroke="#63b8ff" points="551.44,-44.5 561.44,-41 551.44,-37.5 551.44,-44.5"/>
+<path fill="none" stroke="#63b8ff" d="M527.56,-50.38C540.35,-51.98 553.73,-53.65 566.78,-55.27"/>
+<polygon fill="#63b8ff" stroke="#63b8ff" points="566.29,-58.74 576.64,-56.5 567.15,-51.79 566.29,-58.74"/>
+</a>
+</g>
+</g>
+<!-- Node8 -->
+<g id="Node000008" class="node">
+<title>Node8</title>
+<g id="a_Node000008"><a xlink:href="class_easy___copier_1_1_view_models_1_1_main_view_model.html#ac6ff8ed6c0a7a8d2998d5dd4c97b49f3" target="_top" xlink:title=" ">
+<polygon fill="white" stroke="#666666" points="744.25,-32 563.25,-32 563.25,0 744.25,0 744.25,-32"/>
+<text xml:space="preserve" text-anchor="start" x="571.25" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.ViewModels.Main</text>
+<text xml:space="preserve" text-anchor="middle" x="653.75" y="-6.5" font-family="Helvetica,sans-Serif" font-size="10.00">ViewModel.UpdateSelectionSummary</text>
+</a>
+</g>
+</g>
+<!-- Node5&#45;&gt;Node8 -->
+<g id="edge8_Node000005_Node000008" class="edge">
+<title>Node5&#45;&gt;Node8</title>
+<g id="a_edge8_Node000005_Node000008"><a xlink:title=" ">
+<path fill="none" stroke="#63b8ff" d="M527.56,-31.62C535.41,-30.64 543.48,-29.63 551.55,-28.63"/>
+<polygon fill="#63b8ff" stroke="#63b8ff" points="551.96,-32.1 561.45,-27.39 551.1,-25.16 551.96,-32.1"/>
 </a>
 </g>
 </g>
 <!-- Node7 -->
 <g id="Node000007" class="node">
 <title>Node7</title>
-<g id="a_Node000007"><a xlink:href="class_easy___copier_1_1_infrastructure_1_1_formatting_helpers.html#afa356a97196bfd4bed7acd3c1a83bcea" target="_top" xlink:title="Calculates the price tier based on size in gigabytes and configured pricing tiers.">
-<polygon fill="white" stroke="#666666" points="943.25,-88 780.25,-88 780.25,-56 943.25,-56 943.25,-88"/>
-<text xml:space="preserve" text-anchor="start" x="788.25" y="-74.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Infrastructure.</text>
-<text xml:space="preserve" text-anchor="middle" x="861.75" y="-62.5" font-family="Helvetica,sans-Serif" font-size="10.00">FormattingHelpers.CalculatePrice</text>
+<g id="a_Node000007"><a xlink:href="namespace_easy___copier_1_1_models.html#a9c2abd1d64352c07d3085ba499cf2aae" target="_top" xlink:title="Represents a single scanned library entry (game, app, TV/film, or OS image).">
+<polygon fill="white" stroke="#666666" points="941.38,-73 782.12,-73 782.12,-53 941.38,-53 941.38,-73"/>
+<text xml:space="preserve" text-anchor="middle" x="861.75" y="-59.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Models.GameEntry</text>
 </a>
 </g>
 </g>
@@ -127,35 +145,45 @@
 <g id="edge6_Node000006_Node000007" class="edge">
 <title>Node6&#45;&gt;Node7</title>
 <g id="a_edge6_Node000006_Node000007"><a xlink:title=" ">
-<path fill="none" stroke="#63b8ff" d="M744.51,-54.51C752.54,-55.72 760.68,-56.94 768.73,-58.15"/>
-<polygon fill="#63b8ff" stroke="#63b8ff" points="768.13,-61.6 778.54,-59.63 769.17,-54.68 768.13,-61.6"/>
+<path fill="none" stroke="#63b8ff" d="M729.12,-64.92C742.54,-64.72 756.66,-64.52 770.47,-64.31"/>
+<polygon fill="#63b8ff" stroke="#63b8ff" points="770.51,-67.81 780.46,-64.17 770.41,-60.82 770.51,-67.81"/>
 </a>
 </g>
 </g>
-<!-- Node8 -->
-<g id="Node000008" class="node">
-<title>Node8</title>
-<g id="a_Node000008"><a xlink:href="namespace_easy___copier_1_1_models.html#a9c2abd1d64352c07d3085ba499cf2aae" target="_top" xlink:title=" ">
-<polygon fill="white" stroke="#666666" points="941.38,-20 782.12,-20 782.12,0 941.38,0 941.38,-20"/>
-<text xml:space="preserve" text-anchor="middle" x="861.75" y="-6.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Models.GameEntry</text>
+<!-- Node7&#45;&gt;Node7 -->
+<g id="edge7_Node000007_Node000007" class="edge">
+<title>Node7&#45;&gt;Node7</title>
+<g id="a_edge7_Node000007_Node000007"><a xlink:title=" ">
+<path fill="none" stroke="#63b8ff" d="M828.7,-73.34C814.58,-81.98 825.59,-91 861.75,-91 882.65,-91 895.15,-87.98 899.25,-83.77"/>
+<polygon fill="#63b8ff" stroke="#63b8ff" points="902.54,-82.55 895.39,-74.73 896.1,-85.3 902.54,-82.55"/>
 </a>
 </g>
 </g>
-<!-- Node6&#45;&gt;Node8 -->
-<g id="edge7_Node000006_Node000008" class="edge">
-<title>Node6&#45;&gt;Node8</title>
-<g id="a_edge7_Node000006_Node000008"><a xlink:title=" ">
-<path fill="none" stroke="#63b8ff" d="M744.51,-27.49C756.34,-25.71 768.41,-23.9 780.07,-22.14"/>
-<polygon fill="#63b8ff" stroke="#63b8ff" points="780.25,-25.65 789.62,-20.7 779.21,-18.73 780.25,-25.65"/>
+<!-- Node8&#45;&gt;Node7 -->
+<g id="edge10_Node000008_Node000007" class="edge">
+<title>Node8&#45;&gt;Node7</title>
+<g id="a_edge10_Node000008_Node000007"><a xlink:title=" ">
+<path fill="none" stroke="#63b8ff" d="M726.8,-32.44C752.04,-38.2 780.01,-44.58 803.84,-50.02"/>
+<polygon fill="#63b8ff" stroke="#63b8ff" points="802.82,-53.37 813.35,-52.19 804.38,-46.55 802.82,-53.37"/>
 </a>
 </g>
 </g>
-<!-- Node8&#45;&gt;Node8 -->
-<g id="edge8_Node000008_Node000008" class="edge">
-<title>Node8&#45;&gt;Node8</title>
-<g id="a_edge8_Node000008_Node000008"><a xlink:title=" ">
-<path fill="none" stroke="#63b8ff" d="M828.7,-20.34C814.58,-28.98 825.59,-38 861.75,-38 882.65,-38 895.15,-34.98 899.25,-30.77"/>
-<polygon fill="#63b8ff" stroke="#63b8ff" points="902.54,-29.55 895.39,-21.73 896.1,-32.3 902.54,-29.55"/>
+<!-- Node9 -->
+<g id="Node000009" class="node">
+<title>Node9</title>
+<g id="a_Node000009"><a xlink:href="class_easy___copier_1_1_infrastructure_1_1_formatting_helpers.html#afa356a97196bfd4bed7acd3c1a83bcea" target="_top" xlink:title="Calculates the price tier based on size in gigabytes and configured pricing tiers.">
+<polygon fill="white" stroke="#666666" points="943.25,-32 780.25,-32 780.25,0 943.25,0 943.25,-32"/>
+<text xml:space="preserve" text-anchor="start" x="788.25" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Infrastructure.</text>
+<text xml:space="preserve" text-anchor="middle" x="861.75" y="-6.5" font-family="Helvetica,sans-Serif" font-size="10.00">FormattingHelpers.CalculatePrice</text>
+</a>
+</g>
+</g>
+<!-- Node8&#45;&gt;Node9 -->
+<g id="edge9_Node000008_Node000009" class="edge">
+<title>Node8&#45;&gt;Node9</title>
+<g id="a_edge9_Node000008_Node000009"><a xlink:title=" ">
+<path fill="none" stroke="#63b8ff" d="M744.51,-16C752.54,-16 760.68,-16 768.73,-16"/>
+<polygon fill="#63b8ff" stroke="#63b8ff" points="768.52,-19.5 778.52,-16 768.52,-12.5 768.52,-19.5"/>
 </a>
 </g>
 </g>

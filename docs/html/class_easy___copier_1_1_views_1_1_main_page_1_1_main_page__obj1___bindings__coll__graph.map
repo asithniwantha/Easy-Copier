@@ -28,7 +28,7 @@
 <area shape="poly" id="edge51_Node000016_Node000004" title=" " alt="" coords="138,206,183,272,203,312,218,354,227,406,230,471,226,623,224,774,230,838,242,887,259,920,279,951,328,1006,377,1050,419,1082,413,1083,374,1054,324,1010,275,954,254,922,237,889,224,839,219,775,220,623,224,471,222,406,213,355,198,314,178,275,139,211"/>
 <area shape="rect" id="Node000018" href="$class_easy___copier_1_1_views_1_1_games_tab_view.html" title="UserControl representing the Games tab in the library view." alt="" coords="322,939,554,965"/>
 <area shape="poly" id="edge58_Node000018_Node000004" title=" " alt="" coords="137,206,182,273,203,312,218,354,226,399,227,457,222,592,220,661,221,725,228,780,242,821,274,862,314,894,358,918,398,937,393,939,355,923,311,898,270,865,237,824,222,781,216,726,214,661,217,592,222,457,220,400,213,355,198,314,178,275,138,211"/>
-<area shape="rect" id="Node000020" href="$class_easy___copier_1_1_views_1_1_smart_adder_control.html" title=" " alt="" coords="333,527,542,569"/>
+<area shape="rect" id="Node000020" href="$class_easy___copier_1_1_views_1_1_smart_adder_control.html" title="User control providing the SmartAdder grid overlay UI for interactive price calculation." alt="" coords="333,527,542,569"/>
 <area shape="poly" id="edge65_Node000020_Node000004" title=" " alt="" coords="123,208,156,256,200,310,300,425,387,526,382,527,296,428,195,313,152,259,124,213"/>
 <area shape="poly" id="edge68_Node000020_Node000004" title=" " alt="" coords="129,205,206,295,300,401,407,526,401,527,296,404,202,298,131,211"/>
 <area shape="poly" id="edge71_Node000020_Node000004" title=" " alt="" coords="142,205,300,377,422,526,417,527,296,380,143,210"/>

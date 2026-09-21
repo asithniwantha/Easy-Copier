@@ -2,7 +2,7 @@
 <area shape="rect" id="Node000001" title="Asynchronously computes summary statistics for copy operations within the specified date range." alt="" coords="5,29,206,72"/>
 <area shape="rect" id="Node000002" href="$class_easy___copier_1_1_services_1_1_copy_history_service.html#adb2b5883ce370a33757bd5764bc96228" title="Helper method that reads all history records stored in the database." alt="" coords="254,29,487,72"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="206,48,241,50,236,51,206,53"/>
-<area shape="rect" id="Node000003" href="$namespace_easy___copier_1_1_models.html#a22cad9581ea699aafef9d310c84f0836" title=" " alt="" coords="535,29,754,72"/>
+<area shape="rect" id="Node000003" href="$namespace_easy___copier_1_1_models.html#a22cad9581ea699aafef9d310c84f0836" title="Represents a persistent database history entry recording a completed transfer." alt="" coords="535,29,754,72"/>
 <area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="488,48,522,51,517,51,488,53"/>
 <area shape="poly" id="edge3_Node000003_Node000003" title=" " alt="" coords="594,27,591,19,600,10,618,5,645,3,674,5,693,14,688,14,673,10,645,8,619,10,602,15,596,21,598,30"/>
 </map>

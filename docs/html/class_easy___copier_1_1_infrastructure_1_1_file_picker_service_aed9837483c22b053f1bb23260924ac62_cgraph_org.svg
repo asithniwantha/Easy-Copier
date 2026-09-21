@@ -41,7 +41,7 @@
 <!-- Node3 -->
 <g id="Node000003" class="node">
 <title>Node3</title>
-<g id="a_Node000003"><a xlink:href="class_easy___copier_1_1_infrastructure_1_1_native_window_helper.html#af2f00cbed90ce376200eee60352abd69" target="_top" xlink:title=" ">
+<g id="a_Node000003"><a xlink:href="class_easy___copier_1_1_infrastructure_1_1_native_window_helper.html#aa41f651ed2638a01a8d01d585ca19def" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="#666666" points="634.88,-156 444.88,-156 444.88,-124 634.88,-124 634.88,-156"/>
 <text xml:space="preserve" text-anchor="start" x="452.88" y="-142.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Infrastructure.</text>
 <text xml:space="preserve" text-anchor="middle" x="539.88" y="-130.5" font-family="Helvetica,sans-Serif" font-size="10.00">NativeWindowHelper.GetActiveWindow</text>
@@ -60,7 +60,7 @@
 <!-- Node4 -->
 <g id="Node000004" class="node">
 <title>Node4</title>
-<g id="a_Node000004"><a xlink:href="class_easy___copier_1_1_infrastructure_1_1_native_window_helper.html#a8410a554f5ec231149291a296a81111c" target="_top" xlink:title=" ">
+<g id="a_Node000004"><a xlink:href="class_easy___copier_1_1_infrastructure_1_1_native_window_helper.html#a97a55ddb0af9e915e73a6f5cc39b1489" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="#666666" points="627.75,-106 452,-106 452,-62 627.75,-62 627.75,-106"/>
 <text xml:space="preserve" text-anchor="start" x="460" y="-92.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Infrastructure.</text>
 <text xml:space="preserve" text-anchor="start" x="460" y="-80.5" font-family="Helvetica,sans-Serif" font-size="10.00">NativeWindowHelper.GetForeground</text>
@@ -80,7 +80,7 @@
 <!-- Node5 -->
 <g id="Node000005" class="node">
 <title>Node5</title>
-<g id="a_Node000005"><a xlink:href="class_easy___copier_1_1_infrastructure_1_1_native_window_helper.html#a03d05ba8fabbfa7651a02695d3b1a4e4" target="_top" xlink:title=" ">
+<g id="a_Node000005"><a xlink:href="class_easy___copier_1_1_infrastructure_1_1_native_window_helper.html#a6789d02bd742b33c13db95e29dc4ec51" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="#666666" points="636,-44 443.75,-44 443.75,0 636,0 636,-44"/>
 <text xml:space="preserve" text-anchor="start" x="451.75" y="-30.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Infrastructure.</text>
 <text xml:space="preserve" text-anchor="start" x="451.75" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">NativeWindowHelper.GetWindowThread</text>

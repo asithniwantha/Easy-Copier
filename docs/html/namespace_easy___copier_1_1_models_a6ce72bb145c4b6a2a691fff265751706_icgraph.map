@@ -1,27 +1,24 @@
 <map id="Easy_Copier.Models.LibraryCacheSnapshot" name="Easy_Copier.Models.LibraryCacheSnapshot">
-<area shape="rect" id="Node000001" title=" " alt="" coords="1383,242,1568,285"/>
-<area shape="poly" id="edge3_Node000001_Node000001" title=" " alt="" coords="1517,226,1503,223,1476,221,1450,222,1435,227,1429,233,1431,243,1426,240,1424,232,1432,223,1449,217,1476,215,1504,218,1523,227"/>
-<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_view_models_1_1_main_view_model.html#a7ec049730d16773f05f8c87da648d961" title=" " alt="" coords="256,246,459,289"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="1459,226,1441,188,1414,142,1378,99,1357,80,1334,66,1269,38,1203,20,1134,10,1064,9,993,14,923,24,854,40,786,60,659,108,548,160,457,209,393,248,391,243,454,204,545,155,657,103,785,55,853,35,922,19,993,8,1064,3,1134,5,1204,15,1271,33,1336,61,1360,76,1382,95,1418,139,1445,185,1464,228"/>
-<area shape="rect" id="Node000004" href="$class_easy___copier_1_1_services_1_1_library_cache_service.html#a0803da77cac9887ad4dd36e5a47b0ee8" title="Asynchronously deserializes and verifies the cached library snapshot file." alt="" coords="1105,75,1316,118"/>
-<area shape="poly" id="edge4_Node000001_Node000004" title=" " alt="" coords="1445,229,1397,180,1367,154,1334,132,1310,121,1311,116,1336,128,1370,150,1401,176,1450,230"/>
-<area shape="rect" id="Node000005" href="$interface_easy___copier_1_1_services_1_1_i_library_cache_service.html#af6d9e8159cbbd841975e73a34ddce367" title="Asynchronously saves the library cache snapshot to local disk storage using atomic write patterns." alt="" coords="1104,142,1316,185"/>
-<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="1418,234,1334,199,1300,188,1301,183,1336,194,1423,235"/>
-<area shape="rect" id="Node000006" href="$class_easy___copier_1_1_services_1_1_library_cache_service.html#a85c47e1fe8510bcb82b48e83a7796cd1" title="Asynchronously writes the library cache snapshot to disk using a temporary file and atomic swap." alt="" coords="1104,209,1316,251"/>
-<area shape="poly" id="edge6_Node000001_Node000006" title=" " alt="" coords="1365,250,1317,246,1317,241,1370,250"/>
-<area shape="rect" id="Node000007" href="$class_easy___copier_1_1_view_models_1_1_main_view_model.html#a0a4e7c95db133be566b2ad84541fe257" title=" " alt="" coords="1086,275,1335,318"/>
-<area shape="poly" id="edge7_Node000001_Node000007" title=" " alt="" coords="1365,277,1336,284,1335,278,1370,276"/>
-<area shape="rect" id="Node000009" href="$class_easy___copier_1_1_view_models_1_1_main_view_model.html#ad071bc3d0e0120cfa4f180eca785ddd4" title=" " alt="" coords="507,305,786,347"/>
-<area shape="poly" id="edge12_Node000001_Node000009" title=" " alt="" coords="1429,292,1384,316,1336,333,1264,346,1191,355,1044,362,905,358,787,348,787,342,906,352,1044,356,1190,350,1263,341,1334,327,1382,311,1424,293"/>
-<area shape="rect" id="Node000010" href="$interface_easy___copier_1_1_services_1_1_i_library_cache_service.html#a767b09540d7984e9563a00b516bd4609" title="Validates whether the cached snapshot matches current application settings source folders and directo..." alt="" coords="1096,393,1324,435"/>
-<area shape="poly" id="edge13_Node000001_Node000010" title=" " alt="" coords="1443,294,1394,338,1336,376,1294,395,1292,390,1334,372,1391,334,1439,296"/>
-<area shape="rect" id="Node000011" href="$class_easy___copier_1_1_services_1_1_library_cache_service.html#a05e76d2554223c9f80d4b4ca9358b977" title="Compares the cached snapshot against active source folder settings and inspects modified files to eva..." alt="" coords="1096,459,1324,502"/>
-<area shape="poly" id="edge14_Node000001_Node000011" title=" " alt="" coords="1459,297,1439,336,1411,376,1377,416,1337,449,1315,461,1314,456,1333,445,1373,412,1407,373,1434,333,1455,300"/>
-<area shape="rect" id="Node000003" href="$class_easy___copier_1_1_views_1_1_main_page.html#a1892f28feb0fd22b9cff5ebb690f1bea" title=" " alt="" coords="5,246,208,289"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="237,268,209,270,207,265,242,266"/>
-<area shape="rect" id="Node000008" href="$class_easy___copier_1_1_view_models_1_1_main_view_model.html#acd3c0e03514b0d481cb8e21f4eaec06e" title=" " alt="" coords="834,275,1038,318"/>
-<area shape="poly" id="edge8_Node000007_Node000008" title=" " alt="" coords="1067,297,1039,299,1038,294,1073,296"/>
-<area shape="poly" id="edge9_Node000008_Node000002" title=" " alt="" coords="816,292,460,275,459,270,821,289"/>
-<area shape="poly" id="edge10_Node000008_Node000009" title=" " alt="" coords="816,309,787,314,786,309,822,308"/>
-<area shape="poly" id="edge11_Node000009_Node000002" title=" " alt="" coords="521,301,460,291,459,285,526,301"/>
+<area shape="rect" id="Node000001" title="Represents a serialized snapshot of cached library entries and metadata." alt="" coords="922,226,1108,269"/>
+<area shape="poly" id="edge4_Node000001_Node000001" title=" " alt="" coords="1059,211,1044,207,1015,205,988,207,972,212,965,218,967,227,963,224,960,216,969,207,987,202,1015,200,1045,202,1065,211"/>
+<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_services_1_1_library_cache_service.html#aeabb97a2863de8f7c7adf124366631c3" title="Computes item fingerprints and creates/saves a library cache snapshot from scanned items and active s..." alt="" coords="256,30,547,73"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="998,211,980,172,953,126,917,83,896,65,873,50,825,30,773,17,721,10,668,8,567,16,482,32,480,27,566,11,667,3,721,5,774,11,826,25,876,45,900,60,921,79,957,123,985,170,1003,213"/>
+<area shape="rect" id="Node000003" href="$class_easy___copier_1_1_view_models_1_1_main_view_model.html#a7ec049730d16773f05f8c87da648d961" title=" " alt="" coords="300,289,503,332"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="968,276,923,301,875,317,777,332,678,337,584,334,504,327,503,322,585,329,678,331,777,327,874,312,921,296,963,278"/>
+<area shape="rect" id="Node000005" href="$class_easy___copier_1_1_services_1_1_library_cache_service.html#a0803da77cac9887ad4dd36e5a47b0ee8" title="Asynchronously deserializes and verifies the cached library snapshot file." alt="" coords="630,126,840,169"/>
+<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="958,219,873,183,838,172,838,167,875,178,963,219"/>
+<area shape="rect" id="Node000006" href="$interface_easy___copier_1_1_services_1_1_i_library_cache_service.html#af6d9e8159cbbd841975e73a34ddce367" title="Asynchronously saves the library cache snapshot to local disk storage using atomic write patterns." alt="" coords="628,193,841,236"/>
+<area shape="poly" id="edge6_Node000001_Node000006" title=" " alt="" coords="905,235,841,230,841,224,910,235"/>
+<area shape="rect" id="Node000007" href="$class_easy___copier_1_1_services_1_1_library_cache_service.html#a85c47e1fe8510bcb82b48e83a7796cd1" title="Asynchronously writes the library cache snapshot to disk using a temporary file and atomic swap." alt="" coords="628,60,841,102"/>
+<area shape="poly" id="edge7_Node000001_Node000007" title=" " alt="" coords="985,214,937,164,906,138,873,117,841,103,841,97,876,112,909,134,940,160,990,215"/>
+<area shape="rect" id="Node000008" href="$class_easy___copier_1_1_view_models_1_1_main_view_model.html#ad071bc3d0e0120cfa4f180eca785ddd4" title=" " alt="" coords="595,260,874,302"/>
+<area shape="poly" id="edge9_Node000001_Node000008" title=" " alt="" coords="904,261,875,267,874,262,909,260"/>
+<area shape="rect" id="Node000009" href="$interface_easy___copier_1_1_services_1_1_i_library_cache_service.html#a767b09540d7984e9563a00b516bd4609" title="Validates whether the cached snapshot matches current application settings source folders and directo..." alt="" coords="620,377,849,420"/>
+<area shape="poly" id="edge11_Node000001_Node000009" title=" " alt="" coords="983,279,934,323,876,361,831,379,830,374,873,356,931,318,979,281"/>
+<area shape="rect" id="Node000010" href="$class_easy___copier_1_1_services_1_1_library_cache_service.html#a05e76d2554223c9f80d4b4ca9358b977" title="Compares the cached snapshot against active source folder settings and inspects modified files to eva..." alt="" coords="620,444,849,486"/>
+<area shape="poly" id="edge12_Node000001_Node000010" title=" " alt="" coords="999,281,979,320,951,360,916,400,876,434,850,447,849,442,873,429,913,397,947,357,974,317,994,284"/>
+<area shape="rect" id="Node000004" href="$class_easy___copier_1_1_views_1_1_main_page.html#a1892f28feb0fd22b9cff5ebb690f1bea" title=" " alt="" coords="5,289,208,332"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="281,311,209,313,208,308,286,309"/>
+<area shape="poly" id="edge8_Node000007_Node000002" title=" " alt="" coords="611,71,548,67,547,62,616,69"/>
+<area shape="poly" id="edge10_Node000008_Node000003" title=" " alt="" coords="577,295,504,304,503,299,582,294"/>
 </map>

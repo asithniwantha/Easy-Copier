@@ -27,6 +27,7 @@ var class_easy___copier_1_1_app =
     [ "InitializeComponent", "class_easy___copier_1_1_app.html#a13e643ace1dbd4dd00a745fcbc0f9e98", null ],
     [ "InitializeComponent", "class_easy___copier_1_1_app.html#a13e643ace1dbd4dd00a745fcbc0f9e98", null ],
     [ "OnLaunched", "class_easy___copier_1_1_app.html#a2215b402a1259b14104abc0193765f8a", null ],
+    [ "TaskScheduler_UnobservedTaskException", "class_easy___copier_1_1_app.html#aebfb9a350502857e15ed56c03d408ff1", null ],
     [ "__appProvider", "class_easy___copier_1_1_app.html#a87b4e29bb7f070332617fb362bb3c9f0", null ],
     [ "_contentLoaded", "class_easy___copier_1_1_app.html#a01c059a3421db50bf89b7bcc1aed8e97", null ],
     [ "_serviceProvider", "class_easy___copier_1_1_app.html#aa6ccd9fd4d6e29779a5cb81963d8c790", null ],

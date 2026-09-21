@@ -1,5 +1,5 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="Node000000" href="$interface_easy___copier_1_1_services_1_1_i_source_library_service.html" title="Defines operations for validating source folder paths and reading game system requirements documents." alt="" coords="5,5,206,48"/>
-<area shape="rect" id="Node000001" href="$class_easy___copier_1_1_services_1_1_source_library_service.html" title="Service for validating source folder paths and reading local game metadata files." alt="" coords="254,5,450,48"/>
-<area shape="poly" id="edge23_Node000000_Node000001" title=" " alt="" coords="221,24,256,27,251,27,221,29"/>
+<area shape="rect" id="Node000000" href="$interface_easy___copier_1_1_services_1_1_i_settings_service.html" title="Defines operations for loading, saving, and retrieving application configuration settings." alt="" coords="5,5,213,48"/>
+<area shape="rect" id="Node000001" href="$class_easy___copier_1_1_services_1_1_settings_service.html" title="Service for reading and persisting application configuration settings to appsettings...." alt="" coords="261,5,464,48"/>
+<area shape="poly" id="edge23_Node000000_Node000001" title=" " alt="" coords="228,24,263,27,257,27,228,29"/>
 </map>

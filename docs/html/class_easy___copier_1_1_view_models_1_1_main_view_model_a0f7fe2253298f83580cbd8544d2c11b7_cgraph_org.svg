@@ -21,7 +21,7 @@
 <!-- Node2 -->
 <g id="Node000002" class="node">
 <title>Node2</title>
-<g id="a_Node000002"><a xlink:href="namespace_easy___copier_1_1_models.html#a9c2abd1d64352c07d3085ba499cf2aae" target="_top" xlink:title=" ">
+<g id="a_Node000002"><a xlink:href="namespace_easy___copier_1_1_models.html#a9c2abd1d64352c07d3085ba499cf2aae" target="_top" xlink:title="Represents a single scanned library entry (game, app, TV/film, or OS image).">
 <polygon fill="white" stroke="#666666" points="615.75,-107 456.5,-107 456.5,-87 615.75,-87 615.75,-107"/>
 <text xml:space="preserve" text-anchor="middle" x="536.12" y="-93.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Models.GameEntry</text>
 </a>
@@ -39,7 +39,7 @@
 <!-- Node3 -->
 <g id="Node000003" class="node">
 <title>Node3</title>
-<g id="a_Node000003"><a xlink:href="namespace_easy___copier_1_1_models.html#af8f0175620d1cdd9a06d3e52ae12ba12" target="_top" xlink:title=" ">
+<g id="a_Node000003"><a xlink:href="namespace_easy___copier_1_1_models.html#af8f0175620d1cdd9a06d3e52ae12ba12" target="_top" xlink:title="Represents information about a detected removable drive or storage volume.">
 <polygon fill="white" stroke="#666666" points="401.75,-138 242.5,-138 242.5,-106 401.75,-106 401.75,-138"/>
 <text xml:space="preserve" text-anchor="start" x="250.5" y="-124.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Models.Removable</text>
 <text xml:space="preserve" text-anchor="middle" x="322.12" y="-112.5" font-family="Helvetica,sans-Serif" font-size="10.00">Drive</text>
@@ -77,7 +77,7 @@
 <!-- Node5 -->
 <g id="Node000005" class="node">
 <title>Node5</title>
-<g id="a_Node000005"><a xlink:href="namespace_easy___copier_1_1_models.html#a36bba191a5fad0b0ca63ed787ae607d8" target="_top" xlink:title=" ">
+<g id="a_Node000005"><a xlink:href="namespace_easy___copier_1_1_models.html#a36bba191a5fad0b0ca63ed787ae607d8" target="_top" xlink:title="Represents an individual item in a transfer batch along with its assigned copy action.">
 <polygon fill="white" stroke="#666666" points="404.75,-20 239.5,-20 239.5,0 404.75,0 404.75,-20"/>
 <text xml:space="preserve" text-anchor="middle" x="322.12" y="-6.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Models.TransferItem</text>
 </a>

@@ -152,7 +152,7 @@
 <!-- Node6 -->
 <g id="Node000006" class="node">
 <title>Node6</title>
-<g id="a_Node000006"><a xlink:href="class_easy___copier_1_1_views_1_1_about_window.html" target="_top" xlink:title=" ">
+<g id="a_Node000006"><a xlink:href="class_easy___copier_1_1_views_1_1_about_window.html" target="_top" xlink:title="Displays application version, license, and copyright information in a modal window.">
 <polygon fill="white" stroke="#666666" points="434,-126 268,-126 268,-106 434,-106 434,-126"/>
 <text xml:space="preserve" text-anchor="middle" x="351" y="-112.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Views.AboutWindow</text>
 </a>

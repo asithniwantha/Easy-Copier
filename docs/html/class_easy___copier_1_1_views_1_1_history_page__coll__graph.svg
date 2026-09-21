@@ -22,7 +22,7 @@
 <!-- Node1 -->
 <g id="Node000001" class="node">
 <title>Node1</title>
-<g id="a_Node000001"><a xlink:title=" ">
+<g id="a_Node000001"><a xlink:title="Page content displaying transfer history entries within the history window.">
 <polygon fill="#999999" stroke="#666666" points="388.25,-273 229,-273 229,-253 388.25,-253 388.25,-273"/>
 <text xml:space="preserve" text-anchor="middle" x="308.62" y="-259.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Views.HistoryPage</text>
 </a>

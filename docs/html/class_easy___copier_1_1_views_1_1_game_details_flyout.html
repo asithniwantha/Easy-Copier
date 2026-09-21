@@ -112,6 +112,9 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('class_easy___c
   <div class="headertitle"><div class="title">Easy_Copier.Views.GameDetailsFlyout Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>User control displaying detailed information, system requirements, and folder contents for a game entry in a flyout.  
+ <a href="#details">More...</a></p>
 <div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Inheritance diagram for Easy_Copier.Views.GameDetailsFlyout:</div>
 <div id="dynsection-0-summary" class="dynsummary">
 </div>
@@ -154,10 +157,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:afdfc62c307aba4ee4aa7299eeac42673" id="r_afdfc62c307aba4ee4aa7299eeac42673"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#afdfc62c307aba4ee4aa7299eeac42673">InitializeComponent</a> ()</td></tr>
 <tr class="memdesc:afdfc62c307aba4ee4aa7299eeac42673"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="#afdfc62c307aba4ee4aa7299eeac42673" title="InitializeComponent().">InitializeComponent()</a>.  <br /></td></tr>
 <tr class="memitem:ac5b43b93f1b9316f0799d4cd0f060793" id="r_ac5b43b93f1b9316f0799d4cd0f060793"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ac5b43b93f1b9316f0799d4cd0f060793">GameDetailsFlyout</a> (<a class="el" href="class_easy___copier_1_1_view_models_1_1_game_details_view_model.html">ViewModels.GameDetailsViewModel</a> viewModel, string formattedSysReqText, string folderPath)</td></tr>
+<tr class="memdesc:ac5b43b93f1b9316f0799d4cd0f060793"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes a new instance of the GameDetailsFlyout class.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-properties" class="groupheader"><a id="properties" name="properties"></a>
 Properties</h2></td></tr>
 <tr class="memitem:a5dc300a217f99fc932cc1753734368ad" id="r_a5dc300a217f99fc932cc1753734368ad"><td class="memItemLeft"><a class="el" href="class_easy___copier_1_1_view_models_1_1_game_details_view_model.html">ViewModels.GameDetailsViewModel</a>&#160;</td><td class="memItemRight"><a class="el" href="#a5dc300a217f99fc932cc1753734368ad">ViewModel</a><code> [get]</code></td></tr>
+<tr class="memdesc:a5dc300a217f99fc932cc1753734368ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the ViewModels.GameDetailsViewModel backing this details view.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pri-methods" class="groupheader"><a id="pri-methods" name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
@@ -165,10 +170,12 @@ Private Member Functions</h2></td></tr>
 <tr class="memitem:a2044e3645e5c07f96d46133d9fbcb9bb" id="r_a2044e3645e5c07f96d46133d9fbcb9bb"><td class="memItemLeft">partial void&#160;</td><td class="memItemRight"><a class="el" href="#a2044e3645e5c07f96d46133d9fbcb9bb">UnloadObject</a> (global::Microsoft.UI.Xaml.DependencyObject unloadableObject)</td></tr>
 <tr class="memitem:a2044e3645e5c07f96d46133d9fbcb9bb" id="r_a2044e3645e5c07f96d46133d9fbcb9bb"><td class="memItemLeft">partial void&#160;</td><td class="memItemRight"><a class="el" href="#a2044e3645e5c07f96d46133d9fbcb9bb">UnloadObject</a> (global::Microsoft.UI.Xaml.DependencyObject unloadableObject)</td></tr>
 <tr class="memitem:a635c70bcb297f8ea7de832bde6981826" id="r_a635c70bcb297f8ea7de832bde6981826"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a635c70bcb297f8ea7de832bde6981826">PopulateSysReqs</a> (string formattedText)</td></tr>
+<tr class="memdesc:a635c70bcb297f8ea7de832bde6981826"><td class="mdescLeft">&#160;</td><td class="mdescRight">Populates the system requirements text block with formatted and colorized paragraphs.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pri-static-methods" class="groupheader"><a id="pri-static-methods" name="pri-static-methods"></a>
 Static Private Member Functions</h2></td></tr>
 <tr class="memitem:ac80be7a32068240c7121d08d99627a7c" id="r_ac80be7a32068240c7121d08d99627a7c"><td class="memItemLeft">static Paragraph&#160;</td><td class="memItemRight"><a class="el" href="#ac80be7a32068240c7121d08d99627a7c">CreateColoredParagraph</a> (string text)</td></tr>
+<tr class="memdesc:ac80be7a32068240c7121d08d99627a7c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a rich text Paragraph with color-coded category labels (CPU, GPU, RAM, Storage, OS).  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pri-attribs" class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -177,7 +184,8 @@ Private Attributes</h2></td></tr>
 <tr class="memitem:ad7d23b49991fa3081f69cb26c09cdbd3" id="r_ad7d23b49991fa3081f69cb26c09cdbd3"><td class="memItemLeft"><a class="el" href="interface_easy___copier_1_1_views_1_1_game_details_flyout_1_1_i_game_details_flyout___bindings.html">IGameDetailsFlyout_Bindings</a>&#160;</td><td class="memItemRight"><a class="el" href="#ad7d23b49991fa3081f69cb26c09cdbd3">Bindings</a></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
-<div class="textblock">
+<div class="textblock"><p>User control displaying detailed information, system requirements, and folder contents for a game entry in a flyout. </p>
+
 <p class="definition">Definition at line <a class="el" href="_release_2net10_80-windows10_80_826100_80_2win-x64_2_views_2_game_details_flyout_8g_8cs_source.html#l00013">13</a> of file <a class="el" href="_release_2net10_80-windows10_80_826100_80_2win-x64_2_views_2_game_details_flyout_8g_8cs_source.html">GameDetailsFlyout.g.cs</a>.</p>
 </div><a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ac5b43b93f1b9316f0799d4cd0f060793" name="ac5b43b93f1b9316f0799d4cd0f060793"></a>
@@ -204,9 +212,19 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_game_details_flyout_8xaml_8cs_source.html#l00016">16</a> of file <a class="el" href="_game_details_flyout_8xaml_8cs_source.html">GameDetailsFlyout.xaml.cs</a>.</p>
+<p>Initializes a new instance of the GameDetailsFlyout class. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">viewModel</td><td>The view model backing the game details.</td></tr>
+    <tr><td class="paramname">formattedSysReqText</td><td>The formatted system requirements text to present.</td></tr>
+    <tr><td class="paramname">folderPath</td><td>The root directory path of the game to list contents for.</td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p class="reference">References <a class="el" href="_release_2net10_80-windows10_80_826100_80_2win-x64_2_views_2_game_details_flyout_8g_8i_8cs_source.html#l00031">InitializeComponent()</a>, <a class="el" href="_game_details_flyout_8xaml_8cs_source.html#l00024">PopulateSysReqs()</a>, and <a class="el" href="_game_details_flyout_8xaml_8cs_source.html#l00014">ViewModel</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_game_details_flyout_8xaml_8cs_source.html#l00025">25</a> of file <a class="el" href="_game_details_flyout_8xaml_8cs_source.html">GameDetailsFlyout.xaml.cs</a>.</p>
+
+<p class="reference">References <a class="el" href="_release_2net10_80-windows10_80_826100_80_2win-x64_2_views_2_game_details_flyout_8g_8i_8cs_source.html#l00031">InitializeComponent()</a>, <a class="el" href="_game_details_flyout_8xaml_8cs_source.html#l00037">PopulateSysReqs()</a>, and <a class="el" href="_game_details_flyout_8xaml_8cs_source.html#l00017">ViewModel</a>.</p>
 <div id="dynsection-2" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-2-summary" class="dynsummary">
 </div>
@@ -315,9 +333,18 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_game_details_flyout_8xaml_8cs_source.html#l00030">30</a> of file <a class="el" href="_game_details_flyout_8xaml_8cs_source.html">GameDetailsFlyout.xaml.cs</a>.</p>
+<p>Constructs a rich text Paragraph with color-coded category labels (CPU, GPU, RAM, Storage, OS). </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">text</td><td>The formatted multi-line system requirements string.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A Paragraph containing styled inline text runs.</dd></dl>
 
-<p class="reference">Referenced by <a class="el" href="_game_details_flyout_8xaml_8cs_source.html#l00024">PopulateSysReqs()</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_game_details_flyout_8xaml_8cs_source.html#l00048">48</a> of file <a class="el" href="_game_details_flyout_8xaml_8cs_source.html">GameDetailsFlyout.xaml.cs</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_game_details_flyout_8xaml_8cs_source.html#l00037">PopulateSysReqs()</a>.</p>
 <div id="dynsection-3" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
 <div id="dynsection-3-summary" class="dynsummary">
 </div>
@@ -447,7 +474,7 @@ Private Attributes</h2></td></tr>
 
 <p class="reference">References <a class="el" href="_release_2net10_80-windows10_80_826100_80_2win-x64_2_views_2_game_details_flyout_8g_8i_8cs_source.html#l00024">_contentLoaded</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_game_details_flyout_8xaml_8cs_source.html#l00016">GameDetailsFlyout()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_game_details_flyout_8xaml_8cs_source.html#l00025">GameDetailsFlyout()</a>.</p>
 <div id="dynsection-7" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
 <div id="dynsection-7-summary" class="dynsummary">
 </div>
@@ -526,11 +553,19 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_game_details_flyout_8xaml_8cs_source.html#l00024">24</a> of file <a class="el" href="_game_details_flyout_8xaml_8cs_source.html">GameDetailsFlyout.xaml.cs</a>.</p>
+<p>Populates the system requirements text block with formatted and colorized paragraphs. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">formattedText</td><td>The raw system requirements text to parse and display.</td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p class="reference">References <a class="el" href="_game_details_flyout_8xaml_8cs_source.html#l00030">CreateColoredParagraph()</a>, and <a class="el" href="_release_2net10_80-windows10_80_826100_80_2win-x64_2_views_2_game_details_flyout_8g_8i_8cs_source.html#l00020">SysReqTextBlock</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_game_details_flyout_8xaml_8cs_source.html#l00037">37</a> of file <a class="el" href="_game_details_flyout_8xaml_8cs_source.html">GameDetailsFlyout.xaml.cs</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_game_details_flyout_8xaml_8cs_source.html#l00016">GameDetailsFlyout()</a>.</p>
+<p class="reference">References <a class="el" href="_game_details_flyout_8xaml_8cs_source.html#l00048">CreateColoredParagraph()</a>, and <a class="el" href="_release_2net10_80-windows10_80_826100_80_2win-x64_2_views_2_game_details_flyout_8g_8i_8cs_source.html#l00020">SysReqTextBlock</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_game_details_flyout_8xaml_8cs_source.html#l00025">GameDetailsFlyout()</a>.</p>
 <div id="dynsection-8" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-8-summary" class="dynsummary">
 </div>
@@ -694,7 +729,7 @@ Private Attributes</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="_release_2net10_80-windows10_80_826100_80_2win-x64_2_views_2_game_details_flyout_8g_8i_8cs_source.html#l00020">20</a> of file <a class="el" href="_release_2net10_80-windows10_80_826100_80_2win-x64_2_views_2_game_details_flyout_8g_8i_8cs_source.html">GameDetailsFlyout.g.i.cs</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_game_details_flyout_8xaml_8cs_source.html#l00024">PopulateSysReqs()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_game_details_flyout_8xaml_8cs_source.html#l00037">PopulateSysReqs()</a>.</p>
 
 </div>
 </div>
@@ -719,9 +754,11 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_game_details_flyout_8xaml_8cs_source.html#l00014">14</a> of file <a class="el" href="_game_details_flyout_8xaml_8cs_source.html">GameDetailsFlyout.xaml.cs</a>.</p>
+<p>Gets the ViewModels.GameDetailsViewModel backing this details view. </p>
 
-<p class="reference">Referenced by <a class="el" href="_game_details_flyout_8xaml_8cs_source.html#l00016">GameDetailsFlyout()</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_game_details_flyout_8xaml_8cs_source.html#l00017">17</a> of file <a class="el" href="_game_details_flyout_8xaml_8cs_source.html">GameDetailsFlyout.xaml.cs</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_game_details_flyout_8xaml_8cs_source.html#l00025">GameDetailsFlyout()</a>.</p>
 
 </div>
 </div>

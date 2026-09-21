@@ -1,5 +1,5 @@
 <map id="Easy_Copier.Views.HistoryPage.HistoryPage" name="Easy_Copier.Views.HistoryPage.HistoryPage">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,188,48"/>
+<area shape="rect" id="Node000001" title="Initializes a new instance of the HistoryPage class." alt="" coords="5,5,188,48"/>
 <area shape="rect" id="Node000002" href="$class_easy___copier_1_1_views_1_1_history_page.html#ac5b835b9a9d702b12ddfa3746a267ba2" title="InitializeComponent()." alt="" coords="236,5,418,48"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="188,24,223,26,217,27,188,29"/>
 </map>

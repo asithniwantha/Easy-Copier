@@ -1,5 +1,5 @@
 <map id="Easy_Copier.Models.TransferItem" name="Easy_Copier.Models.TransferItem">
-<area shape="rect" id="Node000001" title=" " alt="" coords="327,47,547,73"/>
+<area shape="rect" id="Node000001" title="Represents an individual item in a transfer batch along with its assigned copy action." alt="" coords="327,47,547,73"/>
 <area shape="poly" id="edge3_Node000001_Node000001" title=" " alt="" coords="487,32,471,28,437,25,406,27,388,32,384,37,392,47,387,45,379,38,385,28,405,22,437,20,472,23,492,32"/>
 <area shape="rect" id="Node000002" href="$class_easy___copier_1_1_view_models_1_1_main_view_model.html#a0f7fe2253298f83580cbd8544d2c11b7" title=" " alt="" coords="17,5,267,48"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="309,46,268,44,268,38,314,46"/>

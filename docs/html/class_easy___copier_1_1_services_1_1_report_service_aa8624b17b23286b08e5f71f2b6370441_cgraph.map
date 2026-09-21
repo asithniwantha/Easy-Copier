@@ -1,6 +1,6 @@
 <map id="Easy_Copier.Services.ReportService.ExportHistoryToCsvAsync" name="Easy_Copier.Services.ReportService.ExportHistoryToCsvAsync">
 <area shape="rect" id="Node000001" title="Asynchronously exports copy history records to a UTF&#45;8 encoded CSV file." alt="" coords="5,63,230,105"/>
-<area shape="rect" id="Node000002" href="$namespace_easy___copier_1_1_models.html#a22cad9581ea699aafef9d310c84f0836" title=" " alt="" coords="278,29,497,72"/>
+<area shape="rect" id="Node000002" href="$namespace_easy___copier_1_1_models.html#a22cad9581ea699aafef9d310c84f0836" title="Represents a persistent database history entry recording a completed transfer." alt="" coords="278,29,497,72"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="230,67,265,66,260,67,231,73"/>
 <area shape="rect" id="Node000003" href="$class_easy___copier_1_1_services_1_1_report_service.html#a654899ea6c0c5e4fc3432a34b021c5c7" title="Escapes a CSV field value according to RFC 4180 rules if it contains commas, quotes,..." alt="" coords="290,96,484,139"/>
 <area shape="poly" id="edge3_Node000001_Node000003" title=" " alt="" coords="230,95,277,103,272,104,230,101"/>

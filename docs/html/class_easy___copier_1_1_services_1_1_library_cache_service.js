@@ -2,6 +2,7 @@ var class_easy___copier_1_1_services_1_1_library_cache_service =
 [
     [ "LibraryCacheService", "class_easy___copier_1_1_services_1_1_library_cache_service.html#aa53a2d77261809e7e5e5f1d404f3a4ac", null ],
     [ "ComputeItemFingerprintAsync", "class_easy___copier_1_1_services_1_1_library_cache_service.html#a2abaf39099e322db7d5f78d9c2ff8363", null ],
+    [ "CreateAndSaveSnapshotAsync", "class_easy___copier_1_1_services_1_1_library_cache_service.html#aeabb97a2863de8f7c7adf124366631c3", null ],
     [ "FingerprintsMatch", "class_easy___copier_1_1_services_1_1_library_cache_service.html#a104e5be4abc7061e4a3d5bca37655bff", null ],
     [ "GetCacheFilePath", "class_easy___copier_1_1_services_1_1_library_cache_service.html#a270f99d033d4a205c8617caf505db28a", null ],
     [ "InvalidateCacheAsync", "class_easy___copier_1_1_services_1_1_library_cache_service.html#a28508b1cd4dc6e586b314f7cbae10ace", null ],

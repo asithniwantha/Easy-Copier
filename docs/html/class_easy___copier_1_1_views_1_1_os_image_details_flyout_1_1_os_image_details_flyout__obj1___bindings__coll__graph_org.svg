@@ -79,7 +79,7 @@
 <!-- Node6 -->
 <g id="Node000006" class="node">
 <title>Node6</title>
-<g id="a_Node000006"><a xlink:href="class_easy___copier_1_1_views_1_1_os_image_details_flyout.html" target="_top" xlink:title=" ">
+<g id="a_Node000006"><a xlink:href="class_easy___copier_1_1_views_1_1_os_image_details_flyout.html" target="_top" xlink:title="User control displaying detailed information and folder contents for an OS image item in a flyout.">
 <polygon fill="white" stroke="#666666" points="420.5,-200 275.5,-200 275.5,-168 420.5,-168 420.5,-200"/>
 <text xml:space="preserve" text-anchor="start" x="283.5" y="-186.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Views.OsImage</text>
 <text xml:space="preserve" text-anchor="middle" x="348" y="-174.5" font-family="Helvetica,sans-Serif" font-size="10.00">DetailsFlyout</text>

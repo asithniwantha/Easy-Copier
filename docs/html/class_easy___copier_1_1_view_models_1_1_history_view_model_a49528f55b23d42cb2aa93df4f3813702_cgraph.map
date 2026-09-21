@@ -6,7 +6,7 @@
 <area shape="poly" id="edge7_Node000001_Node000006" title=" " alt="" coords="251,157,308,168,303,169,251,163"/>
 <area shape="rect" id="Node000003" href="$class_easy___copier_1_1_view_models_1_1_history_view_model.html#aa213ac871ec14e0897dc9d330434184c" title=" " alt="" coords="602,75,830,117"/>
 <area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="554,93,589,96,583,96,555,99"/>
-<area shape="rect" id="Node000004" href="$namespace_easy___copier_1_1_models.html#a22cad9581ea699aafef9d310c84f0836" title=" " alt="" coords="878,29,1098,72"/>
+<area shape="rect" id="Node000004" href="$namespace_easy___copier_1_1_models.html#a22cad9581ea699aafef9d310c84f0836" title="Represents a persistent database history entry recording a completed transfer." alt="" coords="878,29,1098,72"/>
 <area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="830,74,860,72,865,71,831,80"/>
 <area shape="rect" id="Node000005" href="$namespace_easy___copier_1_1_view_models.html#adba81577e9747d96266b616b1a51b680" title=" " alt="" coords="879,120,1097,163"/>
 <area shape="poly" id="edge5_Node000003_Node000005" title=" " alt="" coords="831,112,867,121,861,121,831,118"/>

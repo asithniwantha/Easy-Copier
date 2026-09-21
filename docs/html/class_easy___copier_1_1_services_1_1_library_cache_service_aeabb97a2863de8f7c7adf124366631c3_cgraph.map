@@ -1,0 +1,23 @@
+<map id="Easy_Copier.Services.LibraryCacheService.CreateAndSaveSnapshotAsync" name="Easy_Copier.Services.LibraryCacheService.CreateAndSaveSnapshotAsync">
+<area shape="rect" id="Node000001" title="Computes item fingerprints and creates/saves a library cache snapshot from scanned items and active s..." alt="" coords="5,147,297,189"/>
+<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_services_1_1_library_cache_service.html#a2abaf39099e322db7d5f78d9c2ff8363" title="Calculates total size and latest modified timestamp for a directory or file." alt="" coords="345,51,629,93"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="226,144,344,109,396,97,391,99,345,115,228,149"/>
+<area shape="rect" id="Node000003" href="$namespace_easy___copier_1_1_models.html#aae2a352ac1ad9a55ae8b37e300153431" title="Represents a unique file system item state fingerprint used for cache validity checks." alt="" coords="677,29,910,56"/>
+<area shape="poly" id="edge7_Node000001_Node000003" title=" " alt="" coords="173,144,245,87,292,58,344,36,390,24,438,17,535,11,626,15,706,26,701,27,625,20,535,17,439,22,391,30,346,41,295,62,248,91,177,148"/>
+<area shape="rect" id="Node000004" href="$class_easy___copier_1_1_services_1_1_library_cache_service.html#aaf6b234dce07569f9f44378ce18cef7a" title="Normalizes file and directory paths by resolving full paths and trimming trailing directory separator..." alt="" coords="696,80,891,123"/>
+<area shape="poly" id="edge10_Node000001_Node000004" title=" " alt="" coords="297,150,683,110,680,115,298,156"/>
+<area shape="rect" id="Node000005" href="$namespace_easy___copier_1_1_models.html#a9c2abd1d64352c07d3085ba499cf2aae" title="Represents a single scanned library entry (game, app, TV/film, or OS image)." alt="" coords="381,192,593,219"/>
+<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="297,182,368,191,362,193,297,187"/>
+<area shape="rect" id="Node000006" href="$namespace_easy___copier_1_1_models.html#a6ce72bb145c4b6a2a691fff265751706" title="Represents a serialized snapshot of cached library entries and metadata." alt="" coords="701,235,886,277"/>
+<area shape="poly" id="edge8_Node000001_Node000006" title=" " alt="" coords="207,187,273,210,345,228,434,241,524,249,688,257,683,258,524,255,433,247,344,233,271,215,207,193"/>
+<area shape="rect" id="Node000007" href="$class_easy___copier_1_1_services_1_1_library_cache_service.html#a85c47e1fe8510bcb82b48e83a7796cd1" title="Asynchronously writes the library cache snapshot to disk using a temporary file and atomic swap." alt="" coords="381,293,593,336"/>
+<area shape="poly" id="edge11_Node000001_Node000007" title=" " alt="" coords="187,187,259,230,346,272,385,288,379,288,344,277,256,234,186,193"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="629,56,664,55,659,56,630,61"/>
+<area shape="poly" id="edge4_Node000002_Node000004" title=" " alt="" coords="629,83,684,90,678,91,630,88"/>
+<area shape="poly" id="edge3_Node000003_Node000003" title=" " alt="" coords="742,28,734,20,740,11,760,5,794,3,830,5,851,14,846,15,829,10,794,8,761,10,743,15,739,20,747,29"/>
+<area shape="poly" id="edge6_Node000005_Node000005" title=" " alt="" coords="435,191,427,183,433,173,453,167,487,165,523,168,544,177,539,177,522,173,487,171,454,173,436,178,432,183,440,192"/>
+<area shape="poly" id="edge9_Node000006_Node000006" title=" " alt="" coords="737,233,734,225,744,215,764,210,794,208,826,210,848,219,842,219,825,216,794,213,764,215,746,220,739,226,741,236"/>
+<area shape="poly" id="edge13_Node000007_Node000006" title=" " alt="" coords="593,292,683,277,688,276,594,297"/>
+<area shape="rect" id="Node000008" href="$class_easy___copier_1_1_services_1_1_library_cache_service.html#a270f99d033d4a205c8617caf505db28a" title="Resolves the absolute path to the local library cache file in AppData." alt="" coords="686,301,901,344"/>
+<area shape="poly" id="edge12_Node000007_Node000008" title=" " alt="" coords="593,315,674,319,669,320,593,320"/>
+</map>

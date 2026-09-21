@@ -82,7 +82,7 @@
 <!-- Node4 -->
 <g id="Node000004" class="node">
 <title>Node4</title>
-<g id="a_Node000004"><a xlink:href="namespace_easy___copier_1_1_models.html#af8f0175620d1cdd9a06d3e52ae12ba12" target="_top" xlink:title=" ">
+<g id="a_Node000004"><a xlink:href="namespace_easy___copier_1_1_models.html#af8f0175620d1cdd9a06d3e52ae12ba12" target="_top" xlink:title="Represents information about a detected removable drive or storage volume.">
 <polygon fill="white" stroke="#666666" points="426.5,-32 267.25,-32 267.25,0 426.5,0 426.5,-32"/>
 <text xml:space="preserve" text-anchor="start" x="275.25" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Models.Removable</text>
 <text xml:space="preserve" text-anchor="middle" x="346.88" y="-6.5" font-family="Helvetica,sans-Serif" font-size="10.00">Drive</text>

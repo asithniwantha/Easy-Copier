@@ -8,11 +8,14 @@
 <area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="458,24,493,26,488,27,459,29"/>
 <area shape="rect" id="Node000005" href="$class_easy___copier_1_1_views_1_1_main_page.html#ae7f49e65e70c8792555d54e61f49dc77" title=" " alt="" coords="506,72,708,115"/>
 <area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="458,91,493,93,488,94,459,96"/>
-<area shape="rect" id="Node000006" href="$class_easy___copier_1_1_view_models_1_1_main_view_model.html#ac6ff8ed6c0a7a8d2998d5dd4c97b49f3" title=" " alt="" coords="756,72,998,115"/>
-<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="709,91,743,93,738,93,709,96"/>
-<area shape="rect" id="Node000007" href="$class_easy___copier_1_1_infrastructure_1_1_formatting_helpers.html#afa356a97196bfd4bed7acd3c1a83bcea" title="Calculates the price tier based on size in gigabytes and configured pricing tiers." alt="" coords="1046,31,1263,73"/>
-<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="998,73,1028,71,1033,70,998,78"/>
-<area shape="rect" id="Node000008" href="$namespace_easy___copier_1_1_models.html#a9c2abd1d64352c07d3085ba499cf2aae" title=" " alt="" coords="1048,121,1260,148"/>
-<area shape="poly" id="edge7_Node000006_Node000008" title=" " alt="" coords="998,109,1048,119,1043,118,998,114"/>
-<area shape="poly" id="edge8_Node000008_Node000008" title=" " alt="" coords="1108,120,1100,113,1106,103,1124,97,1154,95,1188,97,1207,107,1202,107,1187,103,1154,100,1125,102,1109,107,1105,112,1113,122"/>
+<area shape="rect" id="Node000006" href="$class_easy___copier_1_1_views_1_1_os_images_tab_view.html#ac902e9029a9045732526d167c3338652" title="Retrieves the collection of currently selected GameEntry items in this view.An enumerable of selected..." alt="" coords="777,39,977,81"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="708,78,758,75,764,74,709,83"/>
+<area shape="rect" id="Node000008" href="$class_easy___copier_1_1_view_models_1_1_main_view_model.html#ac6ff8ed6c0a7a8d2998d5dd4c97b49f3" title=" " alt="" coords="756,105,998,148"/>
+<area shape="poly" id="edge8_Node000005_Node000008" title=" " alt="" coords="709,103,743,110,738,110,709,109"/>
+<area shape="rect" id="Node000007" href="$namespace_easy___copier_1_1_models.html#a9c2abd1d64352c07d3085ba499cf2aae" title="Represents a single scanned library entry (game, app, TV/film, or OS image)." alt="" coords="1048,51,1260,77"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="977,59,1035,62,1030,62,978,64"/>
+<area shape="poly" id="edge7_Node000007_Node000007" title=" " alt="" coords="1108,49,1100,42,1106,32,1124,26,1154,24,1188,27,1207,37,1202,36,1187,32,1154,29,1125,31,1109,36,1105,41,1113,51"/>
+<area shape="poly" id="edge10_Node000008_Node000007" title=" " alt="" coords="974,102,1074,82,1080,81,975,107"/>
+<area shape="rect" id="Node000009" href="$class_easy___copier_1_1_infrastructure_1_1_formatting_helpers.html#afa356a97196bfd4bed7acd3c1a83bcea" title="Calculates the price tier based on size in gigabytes and configured pricing tiers." alt="" coords="1046,105,1263,148"/>
+<area shape="poly" id="edge9_Node000008_Node000009" title=" " alt="" coords="998,124,1033,127,1028,127,998,129"/>
 </map>

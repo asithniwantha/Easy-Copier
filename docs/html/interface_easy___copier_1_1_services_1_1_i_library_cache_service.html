@@ -134,6 +134,8 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a767b09540d7984e9563a00b516bd4609"><td class="mdescLeft">&#160;</td><td class="mdescRight">Validates whether the cached snapshot matches current application settings source folders and directory fingerprints.  <br /></td></tr>
 <tr class="memitem:ad575f108654f524baf65dbec4da90b71" id="r_ad575f108654f524baf65dbec4da90b71"><td class="memItemLeft">Task&lt; <a class="el" href="namespace_easy___copier_1_1_models.html#aae2a352ac1ad9a55ae8b37e300153431">ItemFingerprint</a> &gt;&#160;</td><td class="memItemRight"><a class="el" href="#ad575f108654f524baf65dbec4da90b71">ComputeItemFingerprintAsync</a> (string folderPath, CancellationToken cancellationToken=default)</td></tr>
 <tr class="memdesc:ad575f108654f524baf65dbec4da90b71"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes a lightweight size and modification fingerprint for a given file or folder path.  <br /></td></tr>
+<tr class="memitem:a2d4bf258de5dbf7dae7c92ca1b0435d3" id="r_a2d4bf258de5dbf7dae7c92ca1b0435d3"><td class="memItemLeft">Task&lt; string?&gt;&#160;</td><td class="memItemRight"><a class="el" href="#a2d4bf258de5dbf7dae7c92ca1b0435d3">CreateAndSaveSnapshotAsync</a> (IEnumerable&lt; <a class="el" href="namespace_easy___copier_1_1_models.html#a9c2abd1d64352c07d3085ba499cf2aae">GameEntry</a> &gt; allEntries, <a class="el" href="class_easy___copier_1_1_models_1_1_app_settings.html">AppSettings</a> settings)</td></tr>
+<tr class="memdesc:a2d4bf258de5dbf7dae7c92ca1b0435d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes item fingerprints and creates/saves a library cache snapshot from scanned items and active settings.  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Defines operations for managing persistent JSON library caching and checking cache validity against directory fingerprints. </p>
@@ -170,6 +172,39 @@ Public Member Functions</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>A task returning the computed ItemFingerprint.</dd></dl>
 
 <p>Implemented in <a class="el" href="class_easy___copier_1_1_services_1_1_library_cache_service.html#a2abaf39099e322db7d5f78d9c2ff8363">Easy_Copier.Services.LibraryCacheService</a>.</p>
+
+</div>
+</div>
+<a id="a2d4bf258de5dbf7dae7c92ca1b0435d3" name="a2d4bf258de5dbf7dae7c92ca1b0435d3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2d4bf258de5dbf7dae7c92ca1b0435d3">&#9670;&#160;</a></span>CreateAndSaveSnapshotAsync()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Task&lt; string?&gt; Easy_Copier.Services.ILibraryCacheService.CreateAndSaveSnapshotAsync </td>
+          <td>(</td>
+          <td class="paramtype">IEnumerable&lt; <a class="el" href="namespace_easy___copier_1_1_models.html#a9c2abd1d64352c07d3085ba499cf2aae">GameEntry</a> &gt;</td>          <td class="paramname"><span class="paramname"><em>allEntries</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_easy___copier_1_1_models_1_1_app_settings.html">AppSettings</a></td>          <td class="paramname"><span class="paramname"><em>settings</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Computes item fingerprints and creates/saves a library cache snapshot from scanned items and active settings. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">allEntries</td><td>All scanned game, app, TV/film, and OS image entries.</td></tr>
+    <tr><td class="paramname">settings</td><td>The current application settings.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A task returning a status message describing the snapshot result.</dd></dl>
+
+<p>Implemented in <a class="el" href="class_easy___copier_1_1_services_1_1_library_cache_service.html#aeabb97a2863de8f7c7adf124366631c3">Easy_Copier.Services.LibraryCacheService</a>.</p>
 
 </div>
 </div>
@@ -243,7 +278,7 @@ Public Member Functions</h2></td></tr>
 
 <p>Implemented in <a class="el" href="class_easy___copier_1_1_services_1_1_library_cache_service.html#a85c47e1fe8510bcb82b48e83a7796cd1">Easy_Copier.Services.LibraryCacheService</a>.</p>
 
-<p class="reference">References <a class="el" href="_domain_models_8cs_source.html#l00136">Easy_Copier.Models.LibraryCacheSnapshot()</a>.</p>
+<p class="reference">References <a class="el" href="_domain_models_8cs_source.html#l00320">Easy_Copier.Models.LibraryCacheSnapshot()</a>.</p>
 <div id="dynsection-1" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-1-summary" class="dynsummary">
 </div>
@@ -290,7 +325,7 @@ Public Member Functions</h2></td></tr>
 
 <p>Implemented in <a class="el" href="class_easy___copier_1_1_services_1_1_library_cache_service.html#a05e76d2554223c9f80d4b4ca9358b977">Easy_Copier.Services.LibraryCacheService</a>.</p>
 
-<p class="reference">References <a class="el" href="_domain_models_8cs_source.html#l00136">Easy_Copier.Models.LibraryCacheSnapshot()</a>.</p>
+<p class="reference">References <a class="el" href="_domain_models_8cs_source.html#l00320">Easy_Copier.Models.LibraryCacheSnapshot()</a>.</p>
 <div id="dynsection-2" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-2-summary" class="dynsummary">
 </div>

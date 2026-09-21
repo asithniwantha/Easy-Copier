@@ -1,6 +1,6 @@
 <map id="Easy_Copier.Services.LibraryCacheService.ComputeItemFingerprintAsync" name="Easy_Copier.Services.LibraryCacheService.ComputeItemFingerprintAsync">
 <area shape="rect" id="Node000001" title="Calculates total size and latest modified timestamp for a directory or file." alt="" coords="5,51,290,93"/>
-<area shape="rect" id="Node000002" href="$namespace_easy___copier_1_1_models.html#aae2a352ac1ad9a55ae8b37e300153431" title=" " alt="" coords="338,29,571,56"/>
+<area shape="rect" id="Node000002" href="$namespace_easy___copier_1_1_models.html#aae2a352ac1ad9a55ae8b37e300153431" title="Represents a unique file system item state fingerprint used for cache validity checks." alt="" coords="338,29,571,56"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="290,56,324,55,319,56,291,61"/>
 <area shape="rect" id="Node000003" href="$class_easy___copier_1_1_services_1_1_library_cache_service.html#aaf6b234dce07569f9f44378ce18cef7a" title="Normalizes file and directory paths by resolving full paths and trimming trailing directory separator..." alt="" coords="357,80,552,123"/>
 <area shape="poly" id="edge3_Node000001_Node000003" title=" " alt="" coords="290,83,344,90,339,91,290,88"/>

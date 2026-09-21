@@ -40,7 +40,7 @@
 <!-- Node3 -->
 <g id="Node000003" class="node">
 <title>Node3</title>
-<g id="a_Node000003"><a xlink:href="class_easy___copier_1_1_infrastructure_1_1_native_window_helper.html#a910d924eeafa293537c93b6081a87f19" target="_top" xlink:title=" ">
+<g id="a_Node000003"><a xlink:href="class_easy___copier_1_1_infrastructure_1_1_native_window_helper.html#a1fc73b66e5307797eba4e1b88ef3e4e7" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="#666666" points="658.5,-32 467,-32 467,0 658.5,0 658.5,-32"/>
 <text xml:space="preserve" text-anchor="start" x="475" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Infrastructure.</text>
 <text xml:space="preserve" text-anchor="middle" x="562.75" y="-6.5" font-family="Helvetica,sans-Serif" font-size="10.00">NativeWindowHelper.GetDpiForWindow</text>

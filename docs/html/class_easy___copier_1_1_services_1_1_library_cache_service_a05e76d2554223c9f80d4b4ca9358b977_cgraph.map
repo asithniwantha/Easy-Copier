@@ -1,18 +1,18 @@
 <map id="Easy_Copier.Services.LibraryCacheService.ValidateCacheAsync" name="Easy_Copier.Services.LibraryCacheService.ValidateCacheAsync">
 <area shape="rect" id="Node000001" title="Compares the cached snapshot against active source folder settings and inspects modified files to eva..." alt="" coords="5,213,234,256"/>
-<area shape="rect" id="Node000002" href="$namespace_easy___copier_1_1_models.html#a63b99d96f6d7e71a96281be9501fa569" title=" " alt="" coords="332,29,516,72"/>
+<area shape="rect" id="Node000002" href="$namespace_easy___copier_1_1_models.html#a63b99d96f6d7e71a96281be9501fa569" title="Holds the detailed outcome of a cache validation check." alt="" coords="332,29,516,72"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="137,211,197,150,237,117,280,88,319,73,315,77,283,93,240,121,201,154,141,214"/>
 <area shape="rect" id="Node000003" href="$class_easy___copier_1_1_services_1_1_library_cache_service.html#a2abaf39099e322db7d5f78d9c2ff8363" title="Calculates total size and latest modified timestamp for a directory or file." alt="" coords="282,213,566,256"/>
 <area shape="poly" id="edge3_Node000001_Node000003" title=" " alt="" coords="233,232,268,234,264,236,235,237"/>
-<area shape="rect" id="Node000004" href="$namespace_easy___copier_1_1_models.html#aae2a352ac1ad9a55ae8b37e300153431" title=" " alt="" coords="614,155,847,181"/>
+<area shape="rect" id="Node000004" href="$namespace_easy___copier_1_1_models.html#aae2a352ac1ad9a55ae8b37e300153431" title="Represents a unique file system item state fingerprint used for cache validity checks." alt="" coords="614,155,847,181"/>
 <area shape="poly" id="edge11_Node000001_Node000004" title=" " alt="" coords="144,211,204,168,241,147,281,132,333,121,386,115,440,114,493,117,590,130,671,150,665,151,589,136,492,122,440,120,386,120,334,126,282,137,243,152,207,172,148,215"/>
 <area shape="rect" id="Node000005" href="$class_easy___copier_1_1_services_1_1_library_cache_service.html#aaf6b234dce07569f9f44378ce18cef7a" title="Normalizes file and directory paths by resolving full paths and trimming trailing directory separator..." alt="" coords="634,243,828,285"/>
 <area shape="poly" id="edge14_Node000001_Node000005" title=" " alt="" coords="210,254,282,265,370,272,459,273,621,271,616,273,459,279,370,277,281,271,211,259"/>
 <area shape="rect" id="Node000006" href="$class_easy___copier_1_1_services_1_1_library_cache_service.html#a104e5be4abc7061e4a3d5bca37655bff" title="Compares two fingerprints to check if total byte size and write timestamp match." alt="" coords="318,147,530,189"/>
 <area shape="poly" id="edge7_Node000001_Node000006" title=" " alt="" coords="219,210,310,192,306,195,221,215"/>
-<area shape="rect" id="Node000007" href="$namespace_easy___copier_1_1_models.html#a9c2abd1d64352c07d3085ba499cf2aae" title=" " alt="" coords="318,355,530,381"/>
+<area shape="rect" id="Node000007" href="$namespace_easy___copier_1_1_models.html#a9c2abd1d64352c07d3085ba499cf2aae" title="Represents a single scanned library entry (game, app, TV/film, or OS image)." alt="" coords="318,355,530,381"/>
 <area shape="poly" id="edge9_Node000001_Node000007" title=" " alt="" coords="164,254,283,310,374,348,369,349,281,314,164,259"/>
-<area shape="rect" id="Node000008" href="$namespace_easy___copier_1_1_models.html#a6ce72bb145c4b6a2a691fff265751706" title=" " alt="" coords="331,429,516,472"/>
+<area shape="rect" id="Node000008" href="$namespace_easy___copier_1_1_models.html#a6ce72bb145c4b6a2a691fff265751706" title="Represents a serialized snapshot of cached library entries and metadata." alt="" coords="331,429,516,472"/>
 <area shape="poly" id="edge12_Node000001_Node000008" title=" " alt="" coords="139,254,199,321,239,358,283,391,342,423,337,423,280,396,236,362,196,324,137,259"/>
 <area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="367,28,365,19,374,10,394,5,424,3,456,5,477,13,472,15,455,10,424,8,395,10,377,15,370,21,372,29"/>
 <area shape="poly" id="edge4_Node000003_Node000004" title=" " alt="" coords="524,210,653,184,648,186,526,215"/>

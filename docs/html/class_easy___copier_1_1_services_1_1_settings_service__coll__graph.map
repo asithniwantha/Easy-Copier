@@ -2,6 +2,6 @@
 <area shape="rect" id="Node000001" title="Service for reading and persisting application configuration settings to appsettings...." alt="" coords="125,120,328,163"/>
 <area shape="rect" id="Node000002" href="$interface_easy___copier_1_1_services_1_1_i_settings_service.html" title="Defines operations for loading, saving, and retrieving application configuration settings." alt="" coords="5,5,213,48"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="142,56,208,119,202,120,140,61"/>
-<area shape="rect" id="Node000003" href="$class_easy___copier_1_1_models_1_1_app_settings.html" title=" " alt="" coords="236,13,454,40"/>
+<area shape="rect" id="Node000003" href="$class_easy___copier_1_1_models_1_1_app_settings.html" title="Holds application configuration and user preference settings." alt="" coords="236,13,454,40"/>
 <area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="324,50,249,122,246,117,319,51"/>
 </map>

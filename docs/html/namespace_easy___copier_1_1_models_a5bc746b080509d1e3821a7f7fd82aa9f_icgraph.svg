@@ -22,7 +22,7 @@
 <!-- Node1 -->
 <g id="Node000001" class="node">
 <title>Node1</title>
-<g id="a_Node000001"><a xlink:title=" ">
+<g id="a_Node000001"><a xlink:title="Represents the progress of an active file copy or transfer operation.">
 <polygon fill="#999999" stroke="#666666" points="332.75,-69 187,-69 187,-37 332.75,-37 332.75,-69"/>
 <text xml:space="preserve" text-anchor="start" x="195" y="-55.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Models.Transfer</text>
 <text xml:space="preserve" text-anchor="middle" x="259.88" y="-43.5" font-family="Helvetica,sans-Serif" font-size="10.00">Progress</text>

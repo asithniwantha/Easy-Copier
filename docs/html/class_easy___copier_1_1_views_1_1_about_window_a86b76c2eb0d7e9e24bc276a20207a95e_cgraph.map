@@ -1,5 +1,5 @@
 <map id="Easy_Copier.Views.AboutWindow.AboutWindow" name="Easy_Copier.Views.AboutWindow.AboutWindow">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,51,230,93"/>
+<area shape="rect" id="Node000001" title="Initializes a new instance of the AboutWindow class." alt="" coords="5,51,230,93"/>
 <area shape="rect" id="Node000002" href="$class_easy___copier_1_1_views_1_1_about_window.html#aef5f7774c5fd6c20285dc9557fcbb23b" title="InitializeComponent()." alt="" coords="281,13,506,56"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="229,54,268,50,263,53,231,59"/>
 <area shape="rect" id="Node000003" href="$class_easy___copier_1_1_infrastructure_1_1_native_window_helper.html#a3d287dd8cb064cde0c403d6692cb4a67" title="Centralized helper method to initialize a modal dialog window, setting data context,..." alt="" coords="278,80,509,139"/>
@@ -14,21 +14,21 @@
 <area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="818,107,854,109,848,110,819,112"/>
 <area shape="rect" id="Node000008" href="$class_easy___copier_1_1_infrastructure_1_1_native_window_helper.html#a0866d3ff5ff5b806f9f86c5c9aaa412f" title="Brings the specified window handle to the foreground." alt="" coords="882,17,1115,60"/>
 <area shape="poly" id="edge7_Node000005_Node000008" title=" " alt="" coords="784,85,889,63,884,65,786,90"/>
-<area shape="rect" id="Node000007" href="$class_easy___copier_1_1_infrastructure_1_1_native_window_helper.html#a1f21b6ba7d46d506d55916c65b7e7e72" title=" " alt="" coords="1198,88,1434,131"/>
+<area shape="rect" id="Node000007" href="$class_easy___copier_1_1_infrastructure_1_1_native_window_helper.html#a46e4f01bcb389c5e85ff7f526ffecc75" title=" " alt="" coords="1198,88,1434,131"/>
 <area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="1131,107,1185,109,1180,110,1131,112"/>
-<area shape="rect" id="Node000009" href="$class_easy___copier_1_1_infrastructure_1_1_native_window_helper.html#a7ed8415bbce33a1bab54e3805d4be70b" title=" " alt="" coords="1199,5,1432,64"/>
+<area shape="rect" id="Node000009" href="$class_easy___copier_1_1_infrastructure_1_1_native_window_helper.html#a8ddfd36499035568510b6cb9e4b88459" title=" " alt="" coords="1199,5,1432,64"/>
 <area shape="poly" id="edge8_Node000008_Node000009" title=" " alt="" coords="1115,35,1187,36,1181,37,1116,40"/>
 <area shape="poly" id="edge13_Node000010_Node000006" title=" " alt="" coords="790,151,883,134,878,135,791,157"/>
 <area shape="rect" id="Node000011" href="$class_easy___copier_1_1_infrastructure_1_1_native_window_helper.html#a57095da941364586505beed6d503f5f8" title="Centers a child window over its owner window on screen." alt="" coords="881,155,1116,197"/>
 <area shape="poly" id="edge10_Node000010_Node000011" title=" " alt="" coords="804,173,869,176,864,176,805,179"/>
 <area shape="rect" id="Node000014" href="$class_easy___copier_1_1_infrastructure_1_1_native_window_helper.html#a0fc9a1d529a9a4f81c43415a4cc755ae" title="Sets the parent/owner window for a child window handle using Win32 SetWindowLongPtr." alt="" coords="895,288,1102,331"/>
 <area shape="poly" id="edge14_Node000010_Node000014" title=" " alt="" coords="740,195,935,281,930,281,739,200"/>
-<area shape="rect" id="Node000012" href="$class_easy___copier_1_1_infrastructure_1_1_native_window_helper.html#a4362cdd56869526572895640e2bbed50" title=" " alt="" coords="1194,155,1438,197"/>
+<area shape="rect" id="Node000012" href="$class_easy___copier_1_1_infrastructure_1_1_native_window_helper.html#a24df81dd6869ac538f152a76346e232b" title=" " alt="" coords="1194,155,1438,197"/>
 <area shape="poly" id="edge11_Node000011_Node000012" title=" " alt="" coords="1116,173,1181,176,1176,176,1116,179"/>
-<area shape="rect" id="Node000013" href="$class_easy___copier_1_1_infrastructure_1_1_native_window_helper.html#a079a35793d02e114041c8d6820953e6f" title=" " alt="" coords="1197,221,1435,264"/>
+<area shape="rect" id="Node000013" href="$class_easy___copier_1_1_infrastructure_1_1_native_window_helper.html#a7360d0d9cc4a75176e40dcbee62e1f16" title=" " alt="" coords="1197,221,1435,264"/>
 <area shape="poly" id="edge12_Node000011_Node000013" title=" " alt="" coords="1103,195,1199,218,1194,218,1103,201"/>
-<area shape="rect" id="Node000015" href="$class_easy___copier_1_1_infrastructure_1_1_native_window_helper.html#a1d25097e344173987487626f3edc0210" title=" " alt="" coords="1187,288,1444,331"/>
+<area shape="rect" id="Node000015" href="$class_easy___copier_1_1_infrastructure_1_1_native_window_helper.html#accb5a28d072b25b841ac31c7b1837a29" title=" " alt="" coords="1187,288,1444,331"/>
 <area shape="poly" id="edge15_Node000014_Node000015" title=" " alt="" coords="1102,307,1174,309,1169,309,1102,312"/>
-<area shape="rect" id="Node000016" href="$class_easy___copier_1_1_infrastructure_1_1_native_window_helper.html#a4b3d096d98e73ebad341dba4feadd8bc" title=" " alt="" coords="1179,355,1453,397"/>
+<area shape="rect" id="Node000016" href="$class_easy___copier_1_1_infrastructure_1_1_native_window_helper.html#a543062cf731d87ec98a5fe3026945048" title=" " alt="" coords="1179,355,1453,397"/>
 <area shape="poly" id="edge16_Node000014_Node000016" title=" " alt="" coords="1102,328,1198,351,1193,351,1102,334"/>
 </map>

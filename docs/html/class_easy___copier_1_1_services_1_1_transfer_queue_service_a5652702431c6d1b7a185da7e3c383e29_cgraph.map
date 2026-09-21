@@ -2,7 +2,7 @@
 <area shape="rect" id="Node000001" title="Enqueues a batch transfer request targeting a specific drive." alt="" coords="5,51,209,93"/>
 <area shape="rect" id="Node000002" href="$class_easy___copier_1_1_infrastructure_1_1_formatting_helpers.html#afa356a97196bfd4bed7acd3c1a83bcea" title="Calculates the price tier based on size in gigabytes and configured pricing tiers." alt="" coords="257,5,474,48"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="208,52,244,48,239,49,210,57"/>
-<area shape="rect" id="Node000003" href="$namespace_easy___copier_1_1_models.html#af8f0175620d1cdd9a06d3e52ae12ba12" title=" " alt="" coords="259,96,472,139"/>
+<area shape="rect" id="Node000003" href="$namespace_easy___copier_1_1_models.html#af8f0175620d1cdd9a06d3e52ae12ba12" title="Represents information about a detected removable drive or storage volume." alt="" coords="259,96,472,139"/>
 <area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="209,87,247,96,241,96,209,93"/>
 <area shape="poly" id="edge3_Node000003_Node000003" title=" " alt="" coords="317,94,315,86,323,77,340,71,365,69,393,72,411,81,406,80,392,77,365,75,341,77,326,81,320,87,321,97"/>
 </map>

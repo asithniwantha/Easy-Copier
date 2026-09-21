@@ -40,7 +40,7 @@
 <!-- Node3 -->
 <g id="Node000003" class="node">
 <title>Node3</title>
-<g id="a_Node000003"><a xlink:href="namespace_easy___copier_1_1_models.html#a6ce72bb145c4b6a2a691fff265751706" target="_top" xlink:title=" ">
+<g id="a_Node000003"><a xlink:href="namespace_easy___copier_1_1_models.html#a6ce72bb145c4b6a2a691fff265751706" target="_top" xlink:title="Represents a serialized snapshot of cached library entries and metadata.">
 <polygon fill="white" stroke="#666666" points="343.62,-32 204.62,-32 204.62,0 343.62,0 343.62,-32"/>
 <text xml:space="preserve" text-anchor="start" x="212.62" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Models.Library</text>
 <text xml:space="preserve" text-anchor="middle" x="274.12" y="-6.5" font-family="Helvetica,sans-Serif" font-size="10.00">CacheSnapshot</text>

@@ -1,5 +1,5 @@
 <map id="Easy_Copier.Views.AboutWindow" name="Easy_Copier.Views.AboutWindow">
-<area shape="rect" id="Node000001" title=" " alt="" coords="253,73,474,100"/>
+<area shape="rect" id="Node000001" title="Displays application version, license, and copyright information in a modal window." alt="" coords="253,73,474,100"/>
 <area shape="rect" id="Node000002" title=" " alt="" coords="22,65,188,108"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="118,119,142,142,173,156,210,164,249,165,287,158,320,145,345,126,358,102,363,99,349,129,323,150,289,164,250,170,210,169,171,161,139,146,117,125"/>
 <area shape="poly" id="edge3_Node000001_Node000002" title=" " alt="" coords="123,117,148,132,180,142,215,146,253,146,288,142,320,132,343,118,357,102,362,99,347,122,322,137,289,147,253,152,215,152,178,147,146,137,123,122"/>

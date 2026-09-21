@@ -1,5 +1,5 @@
 <map id="Easy_Copier.Views.OsImageDetailsFlyout" name="Easy_Copier.Views.OsImageDetailsFlyout">
-<area shape="rect" id="Node000001" title=" " alt="" coords="348,72,541,115"/>
+<area shape="rect" id="Node000001" title="User control displaying detailed information and folder contents for an OS image item in a flyout." alt="" coords="348,72,541,115"/>
 <area shape="rect" id="Node000002" title=" " alt="" coords="41,5,206,48"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="208,49,350,80,345,83,208,55"/>
 <area shape="poly" id="edge3_Node000001_Node000002" title=" " alt="" coords="222,36,377,70,372,73,222,41"/>

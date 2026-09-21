@@ -117,7 +117,7 @@
 <!-- Node8 -->
 <g id="Node000008" class="node">
 <title>Node8</title>
-<g id="a_Node000008"><a xlink:href="namespace_easy___copier_1_1_models.html#a0f254e810a60e913105ca1898e396f4c" target="_top" xlink:title=" ">
+<g id="a_Node000008"><a xlink:href="namespace_easy___copier_1_1_models.html#a0f254e810a60e913105ca1898e396f4c" target="_top" xlink:title="Represents the final outcome of a completed transfer batch.">
 <polygon fill="white" stroke="#666666" points="802.38,-100 656.62,-100 656.62,-68 802.38,-68 802.38,-100"/>
 <text xml:space="preserve" text-anchor="start" x="664.62" y="-86.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Models.Transfer</text>
 <text xml:space="preserve" text-anchor="middle" x="729.5" y="-74.5" font-family="Helvetica,sans-Serif" font-size="10.00">Outcome</text>
@@ -136,7 +136,7 @@
 <!-- Node9 -->
 <g id="Node000009" class="node">
 <title>Node9</title>
-<g id="a_Node000009"><a xlink:href="namespace_easy___copier_1_1_models.html#a361f45ad4ad4f48588e380daa766a5fa" target="_top" xlink:title=" ">
+<g id="a_Node000009"><a xlink:href="namespace_easy___copier_1_1_models.html#a361f45ad4ad4f48588e380daa766a5fa" target="_top" xlink:title="Represents a request to transfer a batch of items to a designated removable drive.">
 <polygon fill="white" stroke="#666666" points="802.38,-32 656.62,-32 656.62,0 802.38,0 802.38,-32"/>
 <text xml:space="preserve" text-anchor="start" x="664.62" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Models.Transfer</text>
 <text xml:space="preserve" text-anchor="middle" x="729.5" y="-6.5" font-family="Helvetica,sans-Serif" font-size="10.00">Request</text>
@@ -192,7 +192,7 @@
 <!-- Node10 -->
 <g id="Node000010" class="node">
 <title>Node10</title>
-<g id="a_Node000010"><a xlink:href="namespace_easy___copier_1_1_models.html#af8f0175620d1cdd9a06d3e52ae12ba12" target="_top" xlink:title=" ">
+<g id="a_Node000010"><a xlink:href="namespace_easy___copier_1_1_models.html#af8f0175620d1cdd9a06d3e52ae12ba12" target="_top" xlink:title="Represents information about a detected removable drive or storage volume.">
 <polygon fill="white" stroke="#666666" points="1029.88,-32 870.62,-32 870.62,0 1029.88,0 1029.88,-32"/>
 <text xml:space="preserve" text-anchor="start" x="878.62" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Models.Removable</text>
 <text xml:space="preserve" text-anchor="middle" x="950.25" y="-6.5" font-family="Helvetica,sans-Serif" font-size="10.00">Drive</text>
