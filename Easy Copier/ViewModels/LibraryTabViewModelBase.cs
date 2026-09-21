@@ -46,5 +46,26 @@ namespace Easy_Copier.ViewModels
         protected virtual void OnParentPropertyChanged(string? propertyName)
         {
         }
+
+        /// <summary>
+        /// Evaluates parent property change notifications and raises <see cref="ObservableObject.OnPropertyChanged(string?)"/> for matching mapped child properties.
+        /// </summary>
+        /// <param name="changedPropertyName">The parent property name that changed.</param>
+        /// <param name="mappings">Tuples mapping parent property names to child property names.</param>
+        protected void ForwardParentPropertyChanges(string? changedPropertyName, params (string ParentPropName, string ChildPropName)[] mappings)
+        {
+            if (string.IsNullOrEmpty(changedPropertyName) || mappings == null)
+            {
+                return;
+            }
+
+            foreach (var (parentPropName, childPropName) in mappings)
+            {
+                if (string.Equals(changedPropertyName, parentPropName, StringComparison.Ordinal))
+                {
+                    OnPropertyChanged(childPropName);
+                }
+            }
+        }
     }
 }

@@ -63,6 +63,7 @@ namespace Easy_Copier.Infrastructure
             _ = services.AddSingleton<Services.IUpdateService, Services.UpdateService>();
             _ = services.AddSingleton<Services.ISmartAdderHistoryService, Services.SmartAdderHistoryService>();
             _ = services.AddSingleton<Services.IAudioPlaybackService, Services.AudioPlaybackService>();
+            _ = services.AddSingleton<Services.IRufusService, Services.RufusService>();
 
             return services;
         }

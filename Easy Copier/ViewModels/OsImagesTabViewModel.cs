@@ -66,22 +66,11 @@ namespace Easy_Copier.ViewModels
         /// <inheritdoc />
         protected override void OnParentPropertyChanged(string? propertyName)
         {
-            if (propertyName == nameof(MainViewModel.IsOsImagesEmpty))
-            {
-                OnPropertyChanged(nameof(IsOsImagesEmpty));
-            }
-            else if (propertyName == nameof(MainViewModel.EmptyOsImagesMessage))
-            {
-                OnPropertyChanged(nameof(EmptyOsImagesMessage));
-            }
-            else if (propertyName == nameof(MainViewModel.SelectedOsImageSortOption))
-            {
-                OnPropertyChanged(nameof(SelectedOsImageSortOption));
-            }
-            else if (propertyName == nameof(MainViewModel.IsOsImageSortAscending))
-            {
-                OnPropertyChanged(nameof(IsOsImageSortAscending));
-            }
+            ForwardParentPropertyChanges(propertyName,
+                (nameof(MainViewModel.IsOsImagesEmpty), nameof(IsOsImagesEmpty)),
+                (nameof(MainViewModel.EmptyOsImagesMessage), nameof(EmptyOsImagesMessage)),
+                (nameof(MainViewModel.SelectedOsImageSortOption), nameof(SelectedOsImageSortOption)),
+                (nameof(MainViewModel.IsOsImageSortAscending), nameof(IsOsImageSortAscending)));
         }
     }
 }

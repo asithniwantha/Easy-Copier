@@ -36,14 +36,9 @@ namespace Easy_Copier.ViewModels
         /// <inheritdoc />
         protected override void OnParentPropertyChanged(string? propertyName)
         {
-            if (propertyName == nameof(MainViewModel.IsTvAndFilmsEmpty))
-            {
-                OnPropertyChanged(nameof(IsTvAndFilmsEmpty));
-            }
-            else if (propertyName == nameof(MainViewModel.EmptyTvAndFilmsMessage))
-            {
-                OnPropertyChanged(nameof(EmptyTvAndFilmsMessage));
-            }
+            ForwardParentPropertyChanges(propertyName,
+                (nameof(MainViewModel.IsTvAndFilmsEmpty), nameof(IsTvAndFilmsEmpty)),
+                (nameof(MainViewModel.EmptyTvAndFilmsMessage), nameof(EmptyTvAndFilmsMessage)));
         }
     }
 }

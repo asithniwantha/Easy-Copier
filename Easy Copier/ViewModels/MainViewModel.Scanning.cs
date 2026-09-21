@@ -109,8 +109,8 @@ namespace Easy_Copier.ViewModels
             IsOsImageSortAscending = newValue switch
             {
                 OsImageSortOption.Name => true,
-                OsImageSortOption.DateCreated => true,
-                OsImageSortOption.Size => true,
+                OsImageSortOption.DateCreated => false,
+                OsImageSortOption.Size => false,
                 _ => true
             };
             ApplyFilter();
@@ -412,45 +412,8 @@ namespace Easy_Copier.ViewModels
             }
 
             GameEntry selectedImage = _selectedGames[0];
-            string isoPath = selectedImage.FolderPath;
-
-            if (!System.IO.File.Exists(isoPath))
-            {
-                StatusMessage = $"ISO file not found: {isoPath}";
-                return;
-            }
-
-            try
-            {
-                AppSettings settings = await _settingsService.LoadSettingsAsync();
-                string latestRufusPath = RufusResolutionHelper.ResolveLatestRufusPath(settings.RufusExecutablePath);
-
-                if (!string.Equals(latestRufusPath, settings.RufusExecutablePath, StringComparison.OrdinalIgnoreCase))
-                {
-                    settings.RufusExecutablePath = latestRufusPath;
-                    await _settingsService.SaveSettingsAsync(settings);
-                }
-
-                if (!System.IO.File.Exists(latestRufusPath))
-                {
-                    StatusMessage = $"Rufus executable not found at: {latestRufusPath}";
-                    return;
-                }
-
-                System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo
-                {
-                    FileName = latestRufusPath,
-                    Arguments = $"-i \"{isoPath}\"",
-                    UseShellExecute = true
-                });
-
-                StatusMessage = $"Opened {selectedImage.Name} in Rufus.";
-            }
-            catch (Exception ex)
-            {
-                StatusMessage = $"Error opening Rufus: {ex.Message}";
-                _logger.LogError(ex, "Failed to open Rufus.");
-            }
+            (bool _, string message) = await _rufusService.LaunchWithIsoAsync(selectedImage.FolderPath);
+            StatusMessage = message;
         }
 
         public async Task<string> GetFormattedSystemRequirementsAsync(string folderPath)
