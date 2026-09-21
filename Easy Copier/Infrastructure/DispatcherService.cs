@@ -63,7 +63,7 @@ namespace Easy_Copier.Infrastructure
                     {
                         await action();
                     }
-                    catch (Exception ex) when (ex is TaskCanceledException || ex is OperationCanceledException)
+                    catch (Exception ex) when (ex is TaskCanceledException or OperationCanceledException)
                     {
                         // Ignore expected cancellation exceptions on the dispatcher to prevent application crash during shutdown
                     }

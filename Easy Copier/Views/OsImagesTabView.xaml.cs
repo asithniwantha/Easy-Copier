@@ -60,10 +60,7 @@ namespace Easy_Copier.Views
         /// <inheritdoc />
         public void ClearSelection()
         {
-            if (OsImagesGridView != null)
-            {
-                OsImagesGridView.SelectedItem = null;
-            }
+            OsImagesGridView?.SelectedItem = null;
         }
 
         private void OsImagesGridView_SelectionChanged(object sender, SelectionChangedEventArgs e)

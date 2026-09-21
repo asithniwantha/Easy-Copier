@@ -50,7 +50,7 @@ namespace Easy_Copier
 
         private void TaskScheduler_UnobservedTaskException(object? sender, UnobservedTaskExceptionEventArgs e)
         {
-            if (e.Exception.InnerExceptions.Any(ex => ex is TaskCanceledException || ex is OperationCanceledException))
+            if (e.Exception.InnerExceptions.Any(ex => ex is TaskCanceledException or OperationCanceledException))
             {
                 e.SetObserved();
             }

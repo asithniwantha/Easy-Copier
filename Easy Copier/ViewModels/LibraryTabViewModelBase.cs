@@ -59,7 +59,7 @@ namespace Easy_Copier.ViewModels
                 return;
             }
 
-            foreach (var (parentPropName, childPropName) in mappings)
+            foreach ((string? parentPropName, string? childPropName) in mappings)
             {
                 if (string.Equals(changedPropertyName, parentPropName, StringComparison.Ordinal))
                 {
