@@ -1,5 +1,5 @@
-using Easy_Copier.Infrastructure;
 using Easy_Copier.Models;
+using Easy_Copier.Services;
 using Easy_Copier.ViewModels;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
@@ -14,6 +14,8 @@ namespace Easy_Copier.Views
     /// </summary>
     public sealed partial class GamesTabView : UserControl, ILibraryTabView
     {
+        private readonly IFlyoutService _flyoutService;
+
         /// <summary>
         /// Identifies the <see cref="ViewModel"/> dependency property.
         /// </summary>
@@ -49,6 +51,7 @@ namespace Easy_Copier.Views
         public GamesTabView()
         {
             InitializeComponent();
+            _flyoutService = new FlyoutService();
         }
 
         /// <inheritdoc />
@@ -73,12 +76,12 @@ namespace Easy_Copier.Views
 
         private void OpenFolderButton_Click(object sender, RoutedEventArgs e)
         {
-            FlyoutHelper.HandleOpenFolderClick(sender, ViewModel?.MainViewModel);
+            _flyoutService.HandleOpenFolderClick(sender, ViewModel?.MainViewModel);
         }
 
         private async void GameCard_RightTapped(object sender, RightTappedRoutedEventArgs e)
         {
-            await FlyoutHelper.ShowGameDetailsFlyoutAsync(sender, e, ViewModel?.MainViewModel);
+            await _flyoutService.ShowGameDetailsFlyoutAsync(sender, e, ViewModel?.MainViewModel);
         }
     }
 }

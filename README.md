@@ -115,7 +115,7 @@ The selected-drive panel also shows a usage bar, free space, total capacity, and
 | **Framework** | WinUI 3 / Windows App SDK |
 | **Language** | C# 14 with .NET 10 |
 | **Pattern** | MVVM with CommunityToolkit.Mvvm (Strict adherence to SOLID principles, dependency injection, and clean view-model separation). Optimized clean code removing inefficient operations. Asynchronous database reads with `IsDBNullAsync`. MVVMTK0045 naturally resolved using preview `partial` properties. |
-| **Architecture** | High UI decoupling using `ILibraryTabView` contracts, `ILibraryFilterService` for clean query filtering and sorting, and `ConflictDialogContent` views, safely bridging UI-specific operations via abstractions like `IWindowService`. |
+| **Architecture** | High UI decoupling using `ILibraryTabView` contracts, `ILibraryFilterService` for clean query filtering and sorting, `IFileSystemService` for disk abstraction, `IHistoryAnalysisService` for history analytics, `IFlyoutService` for card flyout handling, and `ConflictDialogContent` views, safely bridging UI-specific operations via abstractions like `IWindowService`. |
 | **Storage Discovery** | `DriveInfo` and Windows Management Instrumentation (WMI) |
 | **CI/CD** | GitHub Actions |
 | **Target Platform** | x64 |
@@ -124,7 +124,7 @@ The selected-drive panel also shows a usage bar, free space, total capacity, and
 ### What each folder is for
 * **ViewModels/**: UI behavior/state and commands (example: `SettingsViewModel`, `SmartAdderViewModel`).
 * **Views/**: Windows/pages, user controls, and code-behind (example: `AboutWindow.xaml.cs`, `ConflictDialogContent.xaml`).
-* **Services/**: Business/application logic and service contracts (copying, scanning, queueing, settings, etc.; example: `TransferQueueService`).
+* **Services/**: Business/application logic and service contracts (copying, scanning, queueing, settings, filesystem abstractions, history analysis; example: `FileSystemService`, `HistoryAnalysisService`, `FlyoutService`).
 * **Infrastructure/**: Platform/framework glue: picker wrappers, dispatcher, window helpers, DI registration (example: `FolderPickerService`, `ServiceCollectionExtensions`).
 * **Models/**: Domain/data types shared across app layers (example: `GameEntry`, `RemovableDrive`, `AppSettings`).
 * **Easy Copier.Tests/**: Unit/integration tests for services/viewmodels/helpers (example: `PickerServicesTests`).
@@ -178,12 +178,14 @@ Distributed under the MIT License. See `LICENSE` for more information.
 ---
 
 ## 🏗️ Updated Architecture
+* Extracted `IFileSystemService` / `FileSystemService` to encapsulate folder contents listing, directory size calculations, and file/directory metadata inspection, enabling unit testing of ViewModels without direct disk I/O. 📁
+* Extracted `IHistoryAnalysisService` / `HistoryAnalysisService` to encapsulate history record clustering (15-minute drive window grouping) and statistic calculations (`TodayStats`, `WeekStats`, `MonthStats`, `SelectedFilterStats`). 📊
+* Introduced `IFlyoutService` / `FlyoutService` in `Services/` to decouple flyout creation and presentation from infrastructure layers. 🪟
 * Extracted `IRufusService` / `RufusService` to encapsulate Rufus executable resolution and ISO launching, eliminating process management from `MainViewModel`. 📀
 * Streamlined child tab ViewModels (`GamesTabViewModel`, `AppsTabViewModel`, `TvAndFilmsTabViewModel`, `OsImagesTabViewModel`) by introducing `ForwardParentPropertyChanges` in `LibraryTabViewModelBase`. 🔄
 * Extracted `ILibraryFilterService` to encapsulate search text filtering, `GameCategory` filtering, and OS image sorting options into a focused, testable service. 🔍
 * Refactored cache snapshot creation out of `MainViewModel` into `ILibraryCacheService.CreateAndSaveSnapshotAsync` to reduce ViewModel complexity and improve SOLID single responsibility. 📦
 * Introduced `ILibraryTabView` contract implemented across `GamesTabView`, `AppsTabView`, `TvAndFilmsTabView`, and `OsImagesTabView`, eliminating view-to-view tight coupling in `MainPage.xaml.cs`. 🧩
 * Replaced programmatic imperative C# UI construction in `DialogService.ShowConflictDialogAsync` with a dedicated XAML UserControl `ConflictDialogContent.xaml` and clean data bindings. 🎨
-* Centralized flyout setup, positioning, and style configuration in `FlyoutHelper.cs` with clean pattern-matching guard clauses. 🛠️
-* Applied modern C# features including pattern matching, switch expressions, and collection expressions across `MainViewModel` and `SettingsViewModel`. ⚡
-* Eliminated code-behind event handlers in Windows and Pages (e.g., `Click="Close_Click"`) and replaced them with strongly-typed `ICommand` bindings utilizing the `CommunityToolkit.Mvvm` framework. Event callbacks like `CloseRequested` decouple the ViewModel logic from direct UI window management. 🧹
+* Applied modern C# 13 features including primary constructors, pattern matching, switch expressions, and collection expressions across ViewModels and Services. ⚡
+* Eliminated code-behind event handlers in Windows and Pages (e.g., `Click="Close_Click"`) and replaced them with strongly-typed `ICommand` bindings utilizing the `CommunityToolkit.Mvvm` framework. Event callbacks like `CloseRequested` decouple ViewModel logic from direct UI window management. 🧹

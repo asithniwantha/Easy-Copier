@@ -1,32 +1,41 @@
 using CommunityToolkit.Mvvm.ComponentModel;
 using Easy_Copier.Infrastructure;
 using Easy_Copier.Models;
+using Easy_Copier.Services;
 using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.IO;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace Easy_Copier.ViewModels
 {
-    public partial class GameDetailsViewModel : ObservableObject
+    /// <summary>
+    /// ViewModel managing folder contents listing and folder size calculations for selected library items.
+    /// Uses <see cref="IFileSystemService"/> for abstracted filesystem operations.
+    /// </summary>
+    public partial class GameDetailsViewModel(
+        IDispatcherService dispatcherService,
+        IFileSystemService fileSystemService) : ObservableObject
     {
-        private readonly IDispatcherService _dispatcherService;
+        private readonly IDispatcherService _dispatcherService = dispatcherService ?? throw new ArgumentNullException(nameof(dispatcherService));
+        private readonly IFileSystemService _fileSystemService = fileSystemService ?? throw new ArgumentNullException(nameof(fileSystemService));
 
+        /// <summary>
+        /// Gets the collection of child file system items (files and subdirectories) inside the target folder.
+        /// </summary>
         public ObservableCollection<FileSystemItem> FolderContents { get; } = [];
 
-        // Partial properties used for [ObservableProperty] to ensure CsWinRT/AOT compatibility (MVVMTK0045)
         [ObservableProperty]
         public partial string FolderStatusMessage { get; set; } = string.Empty;
 
         [ObservableProperty]
         public partial bool IsFolderStatusVisible { get; set; }
 
-        public GameDetailsViewModel(IDispatcherService dispatcherService)
-        {
-            _dispatcherService = dispatcherService;
-        }
-
+        /// <summary>
+        /// Asynchronously loads the directory contents for the specified folder path.
+        /// </summary>
+        /// <param name="folderPath">The path of the folder to inspect.</param>
+        /// <returns>A task representing the asynchronous operation.</returns>
         public async Task LoadFolderContentsAsync(string folderPath)
         {
             FolderContents.Clear();
@@ -34,32 +43,31 @@ namespace Easy_Copier.ViewModels
 
             try
             {
-                if (Directory.Exists(folderPath))
-                {
-                    IOrderedEnumerable<string> dirs = Directory.GetDirectories(folderPath).OrderBy(d => d);
-                    IOrderedEnumerable<string> files = Directory.GetFiles(folderPath).OrderBy(f => f);
-
-                    foreach (string dir in dirs)
-                    {
-                        FileSystemItem item = new(dir, true);
-                        FolderContents.Add(item);
-                        _ = CalculateFolderSizeAsync(item);
-                    }
-
-                    foreach (string file in files)
-                    {
-                        FolderContents.Add(new FileSystemItem(file, false));
-                    }
-
-                    if (FolderContents.Count == 0)
-                    {
-                        FolderStatusMessage = "Empty folder";
-                        IsFolderStatusVisible = true;
-                    }
-                }
-                else
+                FileSystemMetadata metadata = _fileSystemService.GetMetadata(folderPath);
+                if (!metadata.Exists || !metadata.IsDirectory)
                 {
                     FolderStatusMessage = "Folder not found";
+                    IsFolderStatusVisible = true;
+                    return;
+                }
+
+                (IReadOnlyList<string> dirs, IReadOnlyList<string> files) = _fileSystemService.GetFolderContents(folderPath);
+
+                foreach (string dir in dirs)
+                {
+                    FileSystemItem item = new(dir, true);
+                    FolderContents.Add(item);
+                    _ = CalculateFolderSizeAsync(item);
+                }
+
+                foreach (string file in files)
+                {
+                    FolderContents.Add(new FileSystemItem(file, false));
+                }
+
+                if (FolderContents.Count == 0)
+                {
+                    FolderStatusMessage = "Empty folder";
                     IsFolderStatusVisible = true;
                 }
             }
@@ -68,6 +76,8 @@ namespace Easy_Copier.ViewModels
                 FolderStatusMessage = $"Error loading folder: {ex.Message}";
                 IsFolderStatusVisible = true;
             }
+
+            await Task.CompletedTask;
         }
 
         private async Task CalculateFolderSizeAsync(FileSystemItem item)
@@ -77,24 +87,21 @@ namespace Easy_Copier.ViewModels
                 return;
             }
 
-            await Task.Run(() =>
+            try
             {
-                try
+                long size = await _fileSystemService.CalculateDirectorySizeAsync(item.Path);
+                _ = _dispatcherService.TryEnqueue(() =>
                 {
-                    long size = FileSystemHelpers.CalculateDirectorySize(new DirectoryInfo(item.Path));
-                    _ = _dispatcherService.TryEnqueue(() =>
-                    {
-                        item.SizeFormatted = FormattingHelpers.FormatBytes(size);
-                    });
-                }
-                catch
+                    item.SizeFormatted = FormattingHelpers.FormatBytes(size);
+                });
+            }
+            catch
+            {
+                _ = _dispatcherService.TryEnqueue(() =>
                 {
-                    _ = _dispatcherService.TryEnqueue(() =>
-                    {
-                        item.SizeFormatted = "Unknown";
-                    });
-                }
-            });
+                    item.SizeFormatted = "Unknown";
+                });
+            }
         }
     }
 }

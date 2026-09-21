@@ -41,6 +41,9 @@ namespace Easy_Copier.Infrastructure
 
             _ = services.AddSingleton<Services.ISettingsService, Services.SettingsService>();
             _ = services.AddSingleton<Services.ICopyHistoryService, Services.CopyHistoryService>();
+            _ = services.AddSingleton<Services.IFileSystemService, Services.FileSystemService>();
+            _ = services.AddSingleton<Services.IHistoryAnalysisService, Services.HistoryAnalysisService>();
+            _ = services.AddSingleton<Services.IFlyoutService, Services.FlyoutService>();
             _ = services.AddSingleton<Services.IReportService, Services.ReportService>();
             _ = services.AddSingleton<Services.ILibraryFilterService, Services.LibraryFilterService>();
             _ = services.AddSingleton<Services.ILibraryCacheService, Services.LibraryCacheService>();

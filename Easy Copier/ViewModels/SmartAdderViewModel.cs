@@ -14,6 +14,9 @@ using System.Threading.Tasks;
 
 namespace Easy_Copier.ViewModels
 {
+    /// <summary>
+    /// ViewModel managing the Smart Adder interactive calculation panel, cell value tracking, and history logging.
+    /// </summary>
     public sealed partial class SmartAdderViewModel : ObservableObject
     {
         private readonly IWindowService _windowService;
@@ -31,17 +34,30 @@ namespace Easy_Copier.ViewModels
         [NotifyPropertyChangedFor(nameof(IsPanelVisible))]
         public partial bool IsListFocused { get; set; }
 
+        /// <summary>
+        /// Gets a value indicating whether the Smart Adder flyout panel is visible.
+        /// </summary>
         public bool IsPanelVisible => IsHovering || IsListFocused;
+
+        /// <summary>
+        /// Gets the collection of dynamic number entry cells.
+        /// </summary>
         public ObservableCollection<NumberCell> Cells { get; } = [];
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="SmartAdderViewModel"/> class.
+        /// </summary>
+        /// <param name="windowService">The window service used to launch calculation history.</param>
+        /// <param name="smartAdderHistoryService">The repository service for logging calculation records.</param>
+        /// <param name="logger">The logger instance.</param>
         public SmartAdderViewModel(
             IWindowService windowService,
             ISmartAdderHistoryService smartAdderHistoryService,
             ILogger<SmartAdderViewModel> logger)
         {
-            _windowService = windowService;
-            _smartAdderHistoryService = smartAdderHistoryService;
-            _logger = logger;
+            _windowService = windowService ?? throw new ArgumentNullException(nameof(windowService));
+            _smartAdderHistoryService = smartAdderHistoryService ?? throw new ArgumentNullException(nameof(smartAdderHistoryService));
+            _logger = logger ?? throw new ArgumentNullException(nameof(logger));
 
             AddNewCell();
         }
@@ -88,7 +104,7 @@ namespace Easy_Copier.ViewModels
             double sum = 0;
             foreach (NumberCell cell in Cells)
             {
-                if (double.TryParse(cell.InputValue, out double val))
+                if (double.TryParse(cell.InputValue, CultureInfo.InvariantCulture, out double val))
                 {
                     sum += val;
                 }
@@ -96,6 +112,10 @@ namespace Easy_Copier.ViewModels
             TotalSum = sum;
         }
 
+        /// <summary>
+        /// Deletes the specified cell from the collection.
+        /// </summary>
+        /// <param name="cell">The cell to remove.</param>
         [RelayCommand]
         public void DeleteCell(NumberCell cell)
         {

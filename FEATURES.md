@@ -18,7 +18,7 @@
 - Fallback icon for entries without cover images.
 - Item size display with human-readable formatting.
 - Large-file indicator badge for FAT32 incompatibility risk.
-- Right-click context flyout displaying color-formatted system requirements and scrollable folder contents via `FlyoutHelper`.
+- Right-click context flyout displaying color-formatted system requirements and scrollable folder contents via `IFlyoutService`.
 - Game pricing tags displayed in the library based on file size thresholds configured in App Settings.
 - Total price of selected games shown in the library view based on configured price tiers.
 - Smart Adder tool for quick Excel-like calculations during selection and pricing workflows.
@@ -61,6 +61,7 @@
 ## 📊 History and Reporting
 - View detailed history of all past copy operations.
 - Track success and failure states, including transfer times.
+- Aggregate statistical summaries and cluster records using `IHistoryAnalysisService`.
 - Play sound notifications (success/failure) when an entire drive's queue batch completes. Toggleable via settings.
 - Generate and export detailed reports (e.g., CSV) for completed and failed operations.
 - Automatically track transfer metrics like operation timestamps and destination details.
@@ -82,13 +83,15 @@
 
 ## 🏗️ Architecture & Code Quality
 - Clean view-model separation enforcing zero View-to-ViewModel UI coupling through rigorous Dependency Injection (completely removing AppServiceLocator).
+- Extracted `IFileSystemService` / `FileSystemService` to encapsulate file and directory operations, eliminating direct static disk access from ViewModels and enabling unit testing.
+- Extracted `IHistoryAnalysisService` / `HistoryAnalysisService` to process history clustering and compute summary metrics (`TodayStats`, `WeekStats`, `MonthStats`, `SelectedFilterStats`).
+- Extracted `IFlyoutService` / `FlyoutService` to manage right-click item details flyouts and folder launches cleanly outside infrastructure logic.
 - Extracted `IRufusService` / `RufusService` into `Services/` to encapsulate Rufus executable path discovery and ISO launching, keeping `MainViewModel` lean.
 - Streamlined child tab ViewModels (`GamesTabViewModel`, `AppsTabViewModel`, `TvAndFilmsTabViewModel`, `OsImagesTabViewModel`) using `ForwardParentPropertyChanges` in `LibraryTabViewModelBase`.
 - Extracted `ILibraryFilterService` to handle text search query filtering, `GameCategory` matching, and OS image sorting in a dedicated service.
 - Refactored `ILibraryCacheService` to encapsulate snapshot fingerprinting and JSON cache file creation (`CreateAndSaveSnapshotAsync`).
 - Decoupled library tab views using `ILibraryTabView` interface to eliminate view-to-view tight coupling.
 - Replaced imperative C# UI construction in `DialogService.cs` with declarative `ConflictDialogContent.xaml` XAML controls.
-- Centralized flyout logic in `FlyoutHelper.cs` for right-click details flyouts.
 - Strict adherence to SOLID principles through decoupled, highly-focused service abstractions.
 - Proper Dependency Injection flow used to instantiate View Models across pages and windows, eliminating service-locator anti-patterns.
 - UI elements decoupled from Services by leveraging `IDispatcherService` and `IWindowService` interfaces.
@@ -99,7 +102,7 @@
 ## 🛠️ Technical Stack
 - WinUI 3 + Windows App SDK.
 - C# 14 with .NET 10.
-- MVVM pattern via `CommunityToolkit.Mvvm` utilizing source generators (`partial` property observables).
+- MVVM pattern via `CommunityToolkit.Mvvm` utilizing source generators (`partial` property observables and C# 13 primary constructors).
 - DI and logging via `Microsoft.Extensions.*` and `Serilog`.
 - Storage discovery via `DriveInfo` + WMI.
 - GitHub Actions for CI/CD workflows, update and release automation.
