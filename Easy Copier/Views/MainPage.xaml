@@ -20,7 +20,7 @@
                  IsOpen="{x:Bind ViewModel.IsGlobalNotificationVisible, Mode=TwoWay}"
                  Title="{x:Bind ViewModel.GlobalNotificationTitle, Mode=OneWay}"
                  Message="{x:Bind ViewModel.GlobalNotificationMessage, Mode=OneWay}"
-                 Severity="Success"
+                 Severity="{x:Bind ViewModel.GlobalNotificationSeverity, Mode=OneWay, Converter={StaticResource SeverityConverter}}"
                  IsClosable="True"
                  Margin="0,0,0,0"/>
 

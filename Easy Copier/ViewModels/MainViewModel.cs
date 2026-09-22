@@ -42,6 +42,8 @@ namespace Easy_Copier.ViewModels
 
         [ObservableProperty]
         public partial bool IsGlobalNotificationVisible { get; set; }
+        [ObservableProperty]
+        public partial ValidationSeverity GlobalNotificationSeverity { get; set; } = ValidationSeverity.Info;
 
         [ObservableProperty]
         public partial string GlobalNotificationTitle { get; set; } = string.Empty;

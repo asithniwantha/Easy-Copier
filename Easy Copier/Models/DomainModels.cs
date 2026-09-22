@@ -164,6 +164,9 @@ namespace Easy_Copier.Models
     /// </summary>
     public enum ValidationSeverity
     {
+        /// <summary>Success condition.</summary>
+        Success,
+
         /// <summary>Informational validation message.</summary>
         Info,
 

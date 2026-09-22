@@ -160,6 +160,7 @@ namespace Easy_Copier.Converters
             return value is ValidationSeverity severity
                 ? severity switch
                 {
+                    ValidationSeverity.Success => InfoBarSeverity.Success,
                     ValidationSeverity.Error => InfoBarSeverity.Error,
                     ValidationSeverity.Warning => InfoBarSeverity.Warning,
                     ValidationSeverity.Info => InfoBarSeverity.Informational,
