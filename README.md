@@ -115,7 +115,7 @@ The selected-drive panel also shows a usage bar, free space, total capacity, and
 | **Framework** | WinUI 3 / Windows App SDK |
 | **Language** | C# 14 with .NET 10 |
 | **Pattern** | MVVM with CommunityToolkit.Mvvm (Strict adherence to SOLID principles, dependency injection, and clean view-model separation). Optimized clean code removing inefficient operations. Asynchronous database reads with `IsDBNullAsync`. MVVMTK0045 naturally resolved using preview `partial` properties. |
-| **Architecture** | High UI decoupling using `ILibraryTabView` contracts, `ILibraryFilterService` for clean query filtering and sorting, and `ConflictDialogContent` views, safely bridging UI-specific operations via abstractions like `IWindowService`. |
+* **Architecture** | High UI decoupling using `ILibraryTabView` contracts, `ILibraryFilterService` for clean query filtering and sorting, `IFileSystemService` for file system metadata and directory inspection, `IFlyoutService` for UI flyout presentation, and `ConflictDialogContent` views, safely bridging UI-specific operations via abstractions like `IWindowService`. |
 | **Storage Discovery** | `DriveInfo` and Windows Management Instrumentation (WMI) |
 | **CI/CD** | GitHub Actions |
 | **Target Platform** | x64 |
@@ -180,6 +180,8 @@ Distributed under the MIT License. See `LICENSE` for more information.
 ## 🏗️ Updated Architecture
 * Extracted `IRufusService` / `RufusService` to encapsulate Rufus executable resolution and ISO launching, eliminating process management from `MainViewModel`. 📀
 * Streamlined child tab ViewModels (`GamesTabViewModel`, `AppsTabViewModel`, `TvAndFilmsTabViewModel`, `OsImagesTabViewModel`) by introducing `ForwardParentPropertyChanges` in `LibraryTabViewModelBase`. 🔄
+* Introduced `IFileSystemService` and `FileSystemService` to encapsulate directory listing, size calculations, and path existence checks, removing direct disk I/O calls from ViewModels. 📁
+* Introduced `IFlyoutService` and `FlyoutService` to encapsulate right-click item details flyout presentation (`GameDetailsFlyout`, `OsImageDetailsFlyout`) and folder launch interactions. 🪟
 * Extracted `ILibraryFilterService` to encapsulate search text filtering, `GameCategory` filtering, and OS image sorting options into a focused, testable service. 🔍
 * Refactored cache snapshot creation out of `MainViewModel` into `ILibraryCacheService.CreateAndSaveSnapshotAsync` to reduce ViewModel complexity and improve SOLID single responsibility. 📦
 * Introduced `ILibraryTabView` contract implemented across `GamesTabView`, `AppsTabView`, `TvAndFilmsTabView`, and `OsImagesTabView`, eliminating view-to-view tight coupling in `MainPage.xaml.cs`. 🧩

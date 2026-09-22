@@ -98,6 +98,9 @@ namespace Easy_Copier
             }
             logger.LogInformation("Easy Copier application starting up.");
 
+            IFlyoutService flyoutService = Services.GetRequiredService<IFlyoutService>();
+            FlyoutHelper.Initialize(flyoutService);
+
             ViewModels.MainViewModel mainViewModel = Services.GetRequiredService<ViewModels.MainViewModel>();
             _window = new MainWindow(mainViewModel);
             MainWindow = _window;
