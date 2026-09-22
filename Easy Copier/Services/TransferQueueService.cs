@@ -51,7 +51,7 @@ namespace Easy_Copier.Services
         /// <summary>
         /// Event raised when an entire drive batch queue finishes processing, providing title and message details.
         /// </summary>
-        event EventHandler<(string Title, string Message)>? BatchCompleted;
+        event EventHandler<(string Title, string Message, bool IsSuccess)>? BatchCompleted;
     }
 
     /// <summary>
@@ -97,7 +97,7 @@ namespace Easy_Copier.Services
         /// <summary>
         /// Event raised when all items for a target drive complete.
         /// </summary>
-        public event EventHandler<(string Title, string Message)>? BatchCompleted;
+        public event EventHandler<(string Title, string Message, bool IsSuccess)>? BatchCompleted;
 
         /// <summary>
         /// Settings service for loading notification and pricing settings.
@@ -363,7 +363,7 @@ namespace Easy_Copier.Services
                     : $"{totalItems} items: {string.Join(", ", allGames)}.";
                 string body = $"{namesText} Size: {Infrastructure.FormattingHelpers.FormatBytes(totalBytes)}. Price: Rs. {totalPrice}";
 
-                BatchCompleted?.Invoke(this, (title, body));
+                BatchCompleted?.Invoke(this, (title, body, isSuccess));
 
                 AppNotificationBuilder builder = new AppNotificationBuilder()
                     .AddText(title)

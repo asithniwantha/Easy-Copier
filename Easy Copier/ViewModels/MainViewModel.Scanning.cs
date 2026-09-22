@@ -275,13 +275,14 @@ namespace Easy_Copier.ViewModels
             }
         }
 
-        public void ShowGlobalNotification(string title, string message)
+        public void ShowGlobalNotification(string title, string message, bool isSuccess = true)
         {
             _dispatcherService.TryEnqueue(async () =>
             {
                 GlobalNotificationTitle = title;
                 GlobalNotificationMessage = message;
                 IsGlobalNotificationVisible = true;
+                GlobalNotificationSeverity = isSuccess ? ValidationSeverity.Success : ValidationSeverity.Error;
 
                 if (_notificationCancellationTokenSource != null)
                 {
@@ -307,14 +308,14 @@ namespace Easy_Copier.ViewModels
             });
         }
 
-        private void OnBatchCompleted(object? sender, (string Title, string Message) args)
+        private void OnBatchCompleted(object? sender, (string Title, string Message, bool IsSuccess) args)
         {
             if (IsDisposed)
             {
                 return;
             }
 
-            ShowGlobalNotification(args.Title, args.Message);
+            ShowGlobalNotification(args.Title, args.Message, args.IsSuccess);
         }
 
         private void OnQueueItemCompleted(object? sender, TransferQueueItem completedItem)
