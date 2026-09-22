@@ -14,7 +14,7 @@ namespace Easy_Copier.Interop
         /// <summary>
         /// Creates and initializes a Shell item object from a parsing name.
         /// </summary>
-        [LibraryImport("shell32.dll", StringMarshalling = StringMarshalling.Utf16)]
+        [LibraryImport("shell32.dll", EntryPoint = "SHCreateItemFromParsingName", StringMarshalling = StringMarshalling.Utf16)]
         private static partial int SHCreateItemFromParsingNameNative(
             string pszPath,
             IntPtr pbc,

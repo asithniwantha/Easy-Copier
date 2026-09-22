@@ -7,15 +7,25 @@ using System.Reflection;
 
 namespace Easy_Copier.ViewModels
 {
+    /// <summary>
+    /// ViewModel backing the About dialog, presenting application version info, author details, and GitHub links.
+    /// </summary>
     public partial class AboutViewModel : ObservableObject
     {
         private readonly IProcessService _processService;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="AboutViewModel"/> class.
+        /// </summary>
+        /// <param name="processService">The process service for opening external URLs.</param>
         public AboutViewModel(IProcessService processService)
         {
             _processService = processService;
         }
 
+        /// <summary>
+        /// Event raised when the view requests the containing dialog or window to close.
+        /// </summary>
         public event EventHandler? CloseRequested;
 
         [RelayCommand]
@@ -24,6 +34,9 @@ namespace Easy_Copier.ViewModels
             CloseRequested?.Invoke(this, EventArgs.Empty);
         }
 
+        /// <summary>
+        /// Gets the displayable application version string retrieved from assembly attributes.
+        /// </summary>
         [SuppressMessage("Performance", "CA1822:Mark members as static", Justification = "ViewModel properties are bound by instance references in XAML.")]
         public string AppVersion
         {
@@ -42,6 +55,9 @@ namespace Easy_Copier.ViewModels
             }
         }
 
+        /// <summary>
+        /// Gets the developer/author information string.
+        /// </summary>
         [SuppressMessage("Performance", "CA1822:Mark members as static", Justification = "ViewModel properties are bound by instance references in XAML.")]
         public string DeveloperInfo => "Asith Niwantha";
 
