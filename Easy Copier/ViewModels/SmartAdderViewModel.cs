@@ -14,26 +14,51 @@ using System.Threading.Tasks;
 
 namespace Easy_Copier.ViewModels
 {
+    /// <summary>
+    /// ViewModel that drives the SmartAdder calculator panel for computing sequential totals and recording history.
+    /// </summary>
     public sealed partial class SmartAdderViewModel : ObservableObject
     {
         private readonly IWindowService _windowService;
         private readonly ISmartAdderHistoryService _smartAdderHistoryService;
         private readonly ILogger<SmartAdderViewModel> _logger;
 
+        /// <summary>
+        /// Gets or sets the total sum computed from all numeric input cells.
+        /// </summary>
         [ObservableProperty]
         public partial double TotalSum { get; set; }
 
+        /// <summary>
+        /// Gets or sets a value indicating whether the pointer is hovering over the SmartAdder UI.
+        /// </summary>
         [ObservableProperty]
         [NotifyPropertyChangedFor(nameof(IsPanelVisible))]
         public partial bool IsHovering { get; set; }
 
+        /// <summary>
+        /// Gets or sets a value indicating whether an input field in the cell list currently holds focus.
+        /// </summary>
         [ObservableProperty]
         [NotifyPropertyChangedFor(nameof(IsPanelVisible))]
         public partial bool IsListFocused { get; set; }
 
+        /// <summary>
+        /// Gets a value indicating whether the SmartAdder panel should remain visible based on hover or focus state.
+        /// </summary>
         public bool IsPanelVisible => IsHovering || IsListFocused;
+
+        /// <summary>
+        /// Gets the collection of dynamic numeric input cells.
+        /// </summary>
         public ObservableCollection<NumberCell> Cells { get; } = [];
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="SmartAdderViewModel"/> class with necessary infrastructure services.
+        /// </summary>
+        /// <param name="windowService">The service for managing application window presentation.</param>
+        /// <param name="smartAdderHistoryService">The service for persisting calculation history records.</param>
+        /// <param name="logger">The logger instance for logging operation warnings and errors.</param>
         public SmartAdderViewModel(
             IWindowService windowService,
             ISmartAdderHistoryService smartAdderHistoryService,
@@ -96,6 +121,10 @@ namespace Easy_Copier.ViewModels
             TotalSum = sum;
         }
 
+        /// <summary>
+        /// Deletes the specified cell from the collection and updates the calculation total.
+        /// </summary>
+        /// <param name="cell">The <see cref="NumberCell"/> instance to remove.</param>
         [RelayCommand]
         public void DeleteCell(NumberCell cell)
         {
@@ -126,6 +155,10 @@ namespace Easy_Copier.ViewModels
             _windowService.ShowSmartAdderHistoryWindow();
         }
 
+        /// <summary>
+        /// Asynchronously logs the current valid non-zero entry list to history storage and resets all cells.
+        /// </summary>
+        /// <returns>A task representing the asynchronous clear and history recording operation.</returns>
         [RelayCommand]
         private async Task ClearAllAsync()
         {
