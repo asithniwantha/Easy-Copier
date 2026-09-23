@@ -1,9 +1,9 @@
 using CommunityToolkit.Mvvm.ComponentModel;
 using Easy_Copier.Infrastructure;
 using Easy_Copier.Models;
+using Easy_Copier.Services;
 using System;
 using System.Collections.ObjectModel;
-using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -15,13 +15,13 @@ namespace Easy_Copier.ViewModels
     public partial class GameDetailsViewModel : ObservableObject
     {
         private readonly IDispatcherService _dispatcherService;
+        private readonly IFileSystemService _fileSystemService;
 
         /// <summary>
         /// Gets the collection of file system items contained in the target game folder.
         /// </summary>
         public ObservableCollection<FileSystemItem> FolderContents { get; } = [];
 
-        // Partial properties used for [ObservableProperty] to ensure CsWinRT/AOT compatibility (MVVMTK0045)
         /// <summary>
         /// Gets or sets the folder status message displayed when loading or when folder errors occur.
         /// </summary>
@@ -38,9 +38,11 @@ namespace Easy_Copier.ViewModels
         /// Initializes a new instance of the <see cref="GameDetailsViewModel"/> class.
         /// </summary>
         /// <param name="dispatcherService">The dispatcher service for marshaling UI updates.</param>
-        public GameDetailsViewModel(IDispatcherService dispatcherService)
+        /// <param name="fileSystemService">The file system service for directory and file enumeration.</param>
+        public GameDetailsViewModel(IDispatcherService dispatcherService, IFileSystemService fileSystemService)
         {
-            _dispatcherService = dispatcherService;
+            _dispatcherService = dispatcherService ?? throw new ArgumentNullException(nameof(dispatcherService));
+            _fileSystemService = fileSystemService ?? throw new ArgumentNullException(nameof(fileSystemService));
         }
 
         /// <summary>
@@ -55,10 +57,10 @@ namespace Easy_Copier.ViewModels
 
             try
             {
-                if (Directory.Exists(folderPath))
+                if (_fileSystemService.DirectoryExists(folderPath))
                 {
-                    IOrderedEnumerable<string> dirs = Directory.GetDirectories(folderPath).OrderBy(d => d);
-                    IOrderedEnumerable<string> files = Directory.GetFiles(folderPath).OrderBy(f => f);
+                    IOrderedEnumerable<string> dirs = _fileSystemService.GetDirectories(folderPath).OrderBy(d => d);
+                    IOrderedEnumerable<string> files = _fileSystemService.GetFiles(folderPath).OrderBy(f => f);
 
                     foreach (string dir in dirs)
                     {
@@ -89,6 +91,8 @@ namespace Easy_Copier.ViewModels
                 FolderStatusMessage = $"Error loading folder: {ex.Message}";
                 IsFolderStatusVisible = true;
             }
+
+            await Task.CompletedTask;
         }
 
         private async Task CalculateFolderSizeAsync(FileSystemItem item)
@@ -102,7 +106,7 @@ namespace Easy_Copier.ViewModels
             {
                 try
                 {
-                    long size = FileSystemHelpers.CalculateDirectorySize(new DirectoryInfo(item.Path));
+                    long size = _fileSystemService.CalculateDirectorySize(item.Path);
                     _ = _dispatcherService.TryEnqueue(() =>
                     {
                         item.SizeFormatted = FormattingHelpers.FormatBytes(size);

@@ -64,6 +64,8 @@ namespace Easy_Copier.Infrastructure
             _ = services.AddSingleton<Services.ISmartAdderHistoryService, Services.SmartAdderHistoryService>();
             _ = services.AddSingleton<Services.IAudioPlaybackService, Services.AudioPlaybackService>();
             _ = services.AddSingleton<Services.IRufusService, Services.RufusService>();
+            _ = services.AddSingleton<Services.IFileSystemService, Services.FileSystemService>();
+            _ = services.AddSingleton<Services.IFlyoutService, Services.FlyoutService>();
 
             return services;
         }
@@ -82,8 +84,10 @@ namespace Easy_Copier.Infrastructure
             _ = services.AddTransient<ViewModels.SmartAdderHistoryViewModel>();
             _ = services.AddTransient<ViewModels.AboutViewModel>();
             _ = services.AddTransient<ViewModels.GameDetailsViewModel>();
+            _ = services.AddTransient<ViewModels.OsImageDetailsViewModel>();
 
             _ = services.AddSingleton<Func<ViewModels.GameDetailsViewModel>>(provider => () => provider.GetRequiredService<ViewModels.GameDetailsViewModel>());
+            _ = services.AddSingleton<Func<ViewModels.OsImageDetailsViewModel>>(provider => () => provider.GetRequiredService<ViewModels.OsImageDetailsViewModel>());
 
             return services;
         }

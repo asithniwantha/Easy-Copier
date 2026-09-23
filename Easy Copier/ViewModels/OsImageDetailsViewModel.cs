@@ -1,7 +1,7 @@
 using CommunityToolkit.Mvvm.ComponentModel;
+using Easy_Copier.Services;
 using System;
 using System.Globalization;
-using System.IO;
 
 namespace Easy_Copier.ViewModels
 {
@@ -10,6 +10,8 @@ namespace Easy_Copier.ViewModels
     /// </summary>
     public partial class OsImageDetailsViewModel : ObservableObject
     {
+        private readonly IFileSystemService _fileSystemService;
+
         /// <summary>
         /// Gets or sets the name of the OS image file or directory.
         /// </summary>
@@ -47,6 +49,15 @@ namespace Easy_Copier.ViewModels
         public partial bool IsStatusVisible { get; set; }
 
         /// <summary>
+        /// Initializes a new instance of the <see cref="OsImageDetailsViewModel"/> class.
+        /// </summary>
+        /// <param name="fileSystemService">The file system service used for path metadata inspection.</param>
+        public OsImageDetailsViewModel(IFileSystemService fileSystemService)
+        {
+            _fileSystemService = fileSystemService ?? throw new ArgumentNullException(nameof(fileSystemService));
+        }
+
+        /// <summary>
         /// Initializes the ViewModel details by reading file/directory metadata from the specified file system path.
         /// </summary>
         /// <param name="name">The display name of the OS image item.</param>
@@ -55,45 +66,33 @@ namespace Easy_Copier.ViewModels
         {
             ImageName = name;
 
-            DateTime? created = null;
-            DateTime? modified = null;
-            DateTime? accessed = null;
+            (DateTime? created, DateTime? modified, DateTime? accessed) = _fileSystemService.GetPathMetadata(path);
 
-            if (File.Exists(path))
-            {
-                FileInfo fi = new(path);
-                created = fi.CreationTime;
-                modified = fi.LastWriteTime;
-                accessed = fi.LastAccessTime;
-            }
-            else if (Directory.Exists(path))
-            {
-                DirectoryInfo di = new(path);
-                created = di.CreationTime;
-                modified = di.LastWriteTime;
-                accessed = di.LastAccessTime;
-            }
-            else
+            if (!created.HasValue && !modified.HasValue && !accessed.HasValue)
             {
                 StatusMessage = "File or folder not found";
                 IsStatusVisible = true;
+                DateCreatedFormatted = "N/A";
+                DateModifiedFormatted = "N/A";
+                DateAccessedFormatted = "N/A";
+                return;
             }
 
+            IsStatusVisible = false;
+            StatusMessage = string.Empty;
             const string dateFormat = "dd/MM/yyyy hh:mm tt";
-            if (created.HasValue)
-            {
-                DateCreatedFormatted = created.Value.ToString(dateFormat, CultureInfo.InvariantCulture);
-            }
 
-            if (modified.HasValue)
-            {
-                DateModifiedFormatted = modified.Value.ToString(dateFormat, CultureInfo.InvariantCulture);
-            }
+            DateCreatedFormatted = created.HasValue
+                ? created.Value.ToString(dateFormat, CultureInfo.InvariantCulture)
+                : "N/A";
 
-            if (accessed.HasValue)
-            {
-                DateAccessedFormatted = accessed.Value.ToString(dateFormat, CultureInfo.InvariantCulture);
-            }
+            DateModifiedFormatted = modified.HasValue
+                ? modified.Value.ToString(dateFormat, CultureInfo.InvariantCulture)
+                : "N/A";
+
+            DateAccessedFormatted = accessed.HasValue
+                ? accessed.Value.ToString(dateFormat, CultureInfo.InvariantCulture)
+                : "N/A";
         }
     }
 }

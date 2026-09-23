@@ -1,19 +1,27 @@
 using Easy_Copier.Models;
+using Easy_Copier.Services;
 using Easy_Copier.ViewModels;
-using Microsoft.UI.Xaml;
-using Microsoft.UI.Xaml.Controls;
-using Microsoft.UI.Xaml.Controls.Primitives;
 using Microsoft.UI.Xaml.Input;
-using System;
 using System.Threading.Tasks;
 
 namespace Easy_Copier.Infrastructure
 {
     /// <summary>
-    /// Encapsulates shared flyout and card interaction behaviors for library item views.
+    /// Encapsulates shared flyout and card interaction behaviors for library item views, delegating to <see cref="IFlyoutService"/>.
     /// </summary>
     public static class FlyoutHelper
     {
+        private static IFlyoutService? s_flyoutService;
+
+        /// <summary>
+        /// Configures the static helper with an <see cref="IFlyoutService"/> instance for UI views that use static helper methods.
+        /// </summary>
+        /// <param name="flyoutService">The flyout service instance.</param>
+        public static void Initialize(IFlyoutService flyoutService)
+        {
+            s_flyoutService = flyoutService;
+        }
+
         /// <summary>
         /// Handles the click event for opening an item's folder in File Explorer.
         /// </summary>
@@ -21,7 +29,11 @@ namespace Easy_Copier.Infrastructure
         /// <param name="mainViewModel">The main ViewModel containing the open folder command.</param>
         public static void HandleOpenFolderClick(object sender, MainViewModel? mainViewModel)
         {
-            if (sender is Button { DataContext: GameEntry gameEntry } && mainViewModel != null)
+            if (s_flyoutService != null)
+            {
+                s_flyoutService.HandleOpenFolderClick(sender, mainViewModel);
+            }
+            else if (sender is Microsoft.UI.Xaml.Controls.Button { DataContext: GameEntry gameEntry } && mainViewModel != null)
             {
                 mainViewModel.OpenItemFolderCommand.Execute(gameEntry.FolderPath);
             }
@@ -35,21 +47,10 @@ namespace Easy_Copier.Infrastructure
         /// <param name="mainViewModel">The main ViewModel providing system requirement formatting and factory methods.</param>
         public static async Task ShowGameDetailsFlyoutAsync(object sender, RightTappedRoutedEventArgs e, MainViewModel? mainViewModel)
         {
-            ArgumentNullException.ThrowIfNull(e);
-
-            if (sender is not FrameworkElement fe || fe.DataContext is not GameEntry gameEntry || mainViewModel == null)
+            if (s_flyoutService != null)
             {
-                return;
+                await s_flyoutService.ShowGameDetailsFlyoutAsync(sender, e, mainViewModel);
             }
-
-            string formattedText = await mainViewModel.GetFormattedSystemRequirementsAsync(gameEntry.FolderPath);
-            GameDetailsViewModel gameDetailsViewModel = mainViewModel.CreateGameDetailsViewModel();
-            Views.GameDetailsFlyout detailsFlyout = new(gameDetailsViewModel, formattedText, gameEntry.FolderPath);
-
-            Style flyoutStyle = new(typeof(FlyoutPresenter));
-            flyoutStyle.Setters.Add(new Setter(FrameworkElement.MaxWidthProperty, double.PositiveInfinity));
-
-            PresentFlyout(fe, e, detailsFlyout, flyoutStyle);
         }
 
         /// <summary>
@@ -59,34 +60,7 @@ namespace Easy_Copier.Infrastructure
         /// <param name="e">The right-tapped routed event args.</param>
         public static void ShowOsImageDetailsFlyout(object sender, RightTappedRoutedEventArgs e)
         {
-            ArgumentNullException.ThrowIfNull(e);
-
-            if (sender is not FrameworkElement fe || fe.DataContext is not GameEntry gameEntry)
-            {
-                return;
-            }
-
-            OsImageDetailsViewModel osImageVm = new();
-            osImageVm.Initialize(gameEntry.Name, gameEntry.FolderPath);
-            Views.OsImageDetailsFlyout osImageFlyout = new(osImageVm);
-
-            PresentFlyout(fe, e, osImageFlyout, null);
-        }
-
-        private static void PresentFlyout(FrameworkElement targetElement, RightTappedRoutedEventArgs e, UIElement content, Style? presenterStyle)
-        {
-            Flyout flyout = new()
-            {
-                Content = content,
-                Placement = FlyoutPlacementMode.RightEdgeAlignedTop
-            };
-
-            if (presenterStyle != null)
-            {
-                flyout.FlyoutPresenterStyle = presenterStyle;
-            }
-
-            flyout.ShowAt(targetElement, new FlyoutShowOptions { Position = e.GetPosition(targetElement) });
+            s_flyoutService?.ShowOsImageDetailsFlyout(sender, e);
         }
     }
 }
