@@ -83,7 +83,7 @@ namespace Easy_Copier.Infrastructure
                     _logger.LogError(ex, "Error occurred while showing FolderPicker.");
                     tcs.SetException(ex);
                 }
-            });
+            }));
 
             if (!enqueued)
             {

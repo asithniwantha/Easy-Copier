@@ -297,7 +297,7 @@ namespace Easy_Copier.ViewModels
                 }
 
                 await action();
-            });
+            }));
         }
 
         private async Task CheckForUpdatesIfActiveAsync()

@@ -305,7 +305,7 @@ namespace Easy_Copier.ViewModels
                 {
                     // Ignore, another notification replaced this one
                 }
-            });
+            }));
         }
 
         private void OnBatchCompleted(object? sender, (string Title, string Message, bool IsSuccess) args)
