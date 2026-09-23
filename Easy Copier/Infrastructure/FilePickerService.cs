@@ -68,7 +68,7 @@ namespace Easy_Copier.Infrastructure
 
             TaskCompletionSource<string?> tcs = new();
 
-            bool enqueued = _dispatcherService.TryEnqueue(async () =>
+            bool enqueued = _dispatcherService.TryEnqueue((Func<Task>)(async () =>
             {
                 try
                 {
@@ -104,7 +104,7 @@ namespace Easy_Copier.Infrastructure
                 {
                     tcs.SetException(ex);
                 }
-            });
+            }));
 
             if (!enqueued)
             {
@@ -127,7 +127,7 @@ namespace Easy_Copier.Infrastructure
 
             TaskCompletionSource<string?> tcs = new();
 
-            bool enqueued = _dispatcherService.TryEnqueue(async () =>
+            bool enqueued = _dispatcherService.TryEnqueue((Func<Task>)(async () =>
             {
                 try
                 {
@@ -169,7 +169,7 @@ namespace Easy_Copier.Infrastructure
                     _logger.LogError(ex, "Error occurred while showing FileSavePicker.");
                     tcs.SetException(ex);
                 }
-            });
+            }));
 
             if (!enqueued)
             {

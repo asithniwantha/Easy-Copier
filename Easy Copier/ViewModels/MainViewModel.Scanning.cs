@@ -277,7 +277,7 @@ namespace Easy_Copier.ViewModels
 
         public void ShowGlobalNotification(string title, string message, bool isSuccess = true)
         {
-            _dispatcherService.TryEnqueue(async () =>
+            _dispatcherService.TryEnqueue((Func<Task>)(async () =>
             {
                 GlobalNotificationTitle = title;
                 GlobalNotificationMessage = message;
@@ -305,7 +305,7 @@ namespace Easy_Copier.ViewModels
                 {
                     // Ignore, another notification replaced this one
                 }
-            });
+            }));
         }
 
         private void OnBatchCompleted(object? sender, (string Title, string Message, bool IsSuccess) args)
