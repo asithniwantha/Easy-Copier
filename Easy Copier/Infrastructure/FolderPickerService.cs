@@ -44,7 +44,7 @@ namespace Easy_Copier.Infrastructure
         {
             TaskCompletionSource<string?> tcs = new();
 
-            bool enqueued = _dispatcherService.TryEnqueue(async () =>
+            bool enqueued = _dispatcherService.TryEnqueue((Func<Task>)(async () =>
             {
                 try
                 {
