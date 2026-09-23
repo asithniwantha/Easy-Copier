@@ -40,13 +40,29 @@ namespace Easy_Copier.Views
             {
                 ViewModel = viewModel;
                 DataContext = ViewModel;
-                ViewModel.ItemQueued += (s, args) => ClearGameSelection();
-                ViewModel.ClearSelectionRequested += (s, args) => ClearGameSelection();
+                ViewModel.ItemQueued += OnItemQueued;
+                ViewModel.ClearSelectionRequested += OnClearSelectionRequested;
                 Bindings.Update();
                 UpdateSearchBoxBackground(ViewModel.SearchText);
                 _ = ViewModel.InitializeAsync();
             }
         }
+
+        /// <inheritdoc />
+        protected override void OnNavigatedFrom(Microsoft.UI.Xaml.Navigation.NavigationEventArgs e)
+        {
+            base.OnNavigatedFrom(e);
+
+            if (ViewModel != null)
+            {
+                ViewModel.ItemQueued -= OnItemQueued;
+                ViewModel.ClearSelectionRequested -= OnClearSelectionRequested;
+            }
+        }
+
+        private void OnItemQueued(object? sender, EventArgs e) => ClearGameSelection();
+
+        private void OnClearSelectionRequested(object? sender, EventArgs e) => ClearGameSelection();
 
         /// <summary>
         /// Handles text change events in the search box to dynamically update its background color.

@@ -183,15 +183,9 @@ namespace Easy_Copier.ViewModels
 
             try
             {
-
                 string destinationPath = $"{SelectedDrive.DriveLetter}\\";
 
-                // Account for bytes already reserved by other queued/in-progress transfers
-                // targeting the same drive, so validation reflects true remaining space.
-                long reservedBytes = _transferQueueService.GetReservedBytes(SelectedDrive.DriveLetter);
-                RemovableDrive driveForValidation = reservedBytes > 0
-                    ? SelectedDrive with { FreeBytes = Math.Max(0, SelectedDrive.FreeBytes - reservedBytes) }
-                    : SelectedDrive;
+                RemovableDrive driveForValidation = GetDriveForValidation(SelectedDrive);
 
                 IReadOnlyList<ValidationResult> validation = await _driveValidationService.ValidateTransferAsync(
                     _selectedGames, driveForValidation, destinationPath);
@@ -204,58 +198,7 @@ namespace Easy_Copier.ViewModels
                     return;
                 }
 
-                List<TransferItem> itemsToQueue = [];
-                bool applyToAll = false;
-                CopyAction globalAction = CopyAction.Default;
-
-                foreach (GameEntry game in _selectedGames)
-                {
-                    string destItemPath = Path.Combine(destinationPath, game.Name);
-                    if (System.IO.File.Exists(game.FolderPath))
-                    {
-                        destItemPath = Path.Combine(destinationPath, Path.GetFileName(game.FolderPath));
-                    }
-
-                    bool destExists = System.IO.Directory.Exists(destItemPath) || System.IO.File.Exists(destItemPath);
-
-                    if (destExists)
-                    {
-                        if (applyToAll)
-                        {
-                            if (globalAction != CopyAction.Skip)
-                            {
-                                itemsToQueue.Add(new TransferItem(game, globalAction));
-                            }
-                        }
-                        else
-                        {
-                            (long Size, int Count) = await _fileTransferService.GetFolderStatsAsync(game.FolderPath);
-                            (long Size, int Count) destStats = await _fileTransferService.GetFolderStatsAsync(destItemPath);
-
-                            (CopyAction Action, bool ApplyToAll) dialogResult = await _dialogService.ShowConflictDialogAsync(
-                                game.Name,
-                                Size,
-                                Count,
-                                destStats.Size,
-                                destStats.Count);
-
-                            if (dialogResult.ApplyToAll)
-                            {
-                                applyToAll = true;
-                                globalAction = dialogResult.Action;
-                            }
-
-                            if (dialogResult.Action != CopyAction.Skip)
-                            {
-                                itemsToQueue.Add(new TransferItem(game, dialogResult.Action));
-                            }
-                        }
-                    }
-                    else
-                    {
-                        itemsToQueue.Add(new TransferItem(game, CopyAction.Default));
-                    }
-                }
+                List<TransferItem> itemsToQueue = await BuildItemsToQueueAsync(destinationPath);
 
                 if (itemsToQueue.Count > 0)
                 {
@@ -273,6 +216,70 @@ namespace Easy_Copier.ViewModels
             {
                 StatusMessage = $"Queue error: {ex.Message}";
             }
+        }
+
+        private RemovableDrive GetDriveForValidation(RemovableDrive drive)
+        {
+            long reservedBytes = _transferQueueService.GetReservedBytes(drive.DriveLetter);
+            return reservedBytes > 0
+                ? drive with { FreeBytes = Math.Max(0, drive.FreeBytes - reservedBytes) }
+                : drive;
+        }
+
+        private async Task<List<TransferItem>> BuildItemsToQueueAsync(string destinationPath)
+        {
+            List<TransferItem> itemsToQueue = [];
+            bool applyToAll = false;
+            CopyAction globalAction = CopyAction.Default;
+
+            foreach (GameEntry game in _selectedGames)
+            {
+                string destItemPath = System.IO.File.Exists(game.FolderPath)
+                    ? Path.Combine(destinationPath, Path.GetFileName(game.FolderPath))
+                    : Path.Combine(destinationPath, game.Name);
+
+                bool destExists = System.IO.Directory.Exists(destItemPath) || System.IO.File.Exists(destItemPath);
+
+                if (destExists)
+                {
+                    if (applyToAll)
+                    {
+                        if (globalAction != CopyAction.Skip)
+                        {
+                            itemsToQueue.Add(new TransferItem(game, globalAction));
+                        }
+                    }
+                    else
+                    {
+                        (long Size, int Count) = await _fileTransferService.GetFolderStatsAsync(game.FolderPath);
+                        (long Size, int Count) destStats = await _fileTransferService.GetFolderStatsAsync(destItemPath);
+
+                        (CopyAction Action, bool ApplyToAll) dialogResult = await _dialogService.ShowConflictDialogAsync(
+                            game.Name,
+                            Size,
+                            Count,
+                            destStats.Size,
+                            destStats.Count);
+
+                        if (dialogResult.ApplyToAll)
+                        {
+                            applyToAll = true;
+                            globalAction = dialogResult.Action;
+                        }
+
+                        if (dialogResult.Action != CopyAction.Skip)
+                        {
+                            itemsToQueue.Add(new TransferItem(game, dialogResult.Action));
+                        }
+                    }
+                }
+                else
+                {
+                    itemsToQueue.Add(new TransferItem(game, CopyAction.Default));
+                }
+            }
+
+            return itemsToQueue;
         }
 
         public void ShowGlobalNotification(string title, string message, bool isSuccess = true)
