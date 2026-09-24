@@ -29,73 +29,160 @@ namespace Easy_Copier.ViewModels
         private readonly ILibraryScannerService _libraryScannerService;
         private readonly IProcessService _processService;
 
+        /// <summary>
+        /// Gets or sets a value indicating whether library scanning executes automatically on startup.
+        /// </summary>
         [ObservableProperty]
         public partial bool AutoScanOnStartup { get; set; } = true;
 
+        /// <summary>
+        /// Gets or sets a value indicating whether the application launches automatically on Windows logon.
+        /// </summary>
         [ObservableProperty]
         public partial bool StartOnLogon { get; set; } = false;
 
+        /// <summary>
+        /// Gets or sets a value indicating whether application updates are downloaded automatically in the background.
+        /// </summary>
         [ObservableProperty]
         public partial bool AutoDownloadUpdates { get; set; } = true;
 
+        /// <summary>
+        /// Gets or sets a value indicating whether sound effects play upon completion or failure of transfer operations.
+        /// </summary>
         [ObservableProperty]
         public partial bool PlayNotificationSounds { get; set; } = true;
 
+        /// <summary>
+        /// Gets or sets a value indicating whether Windows toast notifications are displayed.
+        /// </summary>
         [ObservableProperty]
         public partial bool ShowDesktopNotifications { get; set; } = true;
 
+        /// <summary>
+        /// Gets or sets the price string for tier 1 (&lt; 10 GB).
+        /// </summary>
         [ObservableProperty]
         public partial string PriceTier1 { get; set; } = "100";
 
+        /// <summary>
+        /// Gets or sets the price string for tier 2 (&lt; 30 GB).
+        /// </summary>
         [ObservableProperty]
         public partial string PriceTier2 { get; set; } = "200";
 
+        /// <summary>
+        /// Gets or sets the price string for tier 3 (&lt; 60 GB).
+        /// </summary>
         [ObservableProperty]
         public partial string PriceTier3 { get; set; } = "300";
 
+        /// <summary>
+        /// Gets or sets the price string for tier 4 (&gt;= 60 GB).
+        /// </summary>
         [ObservableProperty]
         public partial string PriceTier4 { get; set; } = "400";
 
+        /// <summary>
+        /// Gets or sets the status or feedback message displayed to the user in the Settings window.
+        /// </summary>
         [ObservableProperty]
         public partial string StatusMessage { get; set; } = string.Empty;
 
+        /// <summary>
+        /// Gets the collection of configured game source folder paths.
+        /// </summary>
         public ObservableCollection<string> GameSourceFolders { get; } = [];
+
+        /// <summary>
+        /// Gets the collection of configured application source folder paths.
+        /// </summary>
         public ObservableCollection<string> AppSourceFolders { get; } = [];
+
+        /// <summary>
+        /// Gets the collection of configured film and TV series source folder paths.
+        /// </summary>
         public ObservableCollection<string> TvAndFilmSourceFolders { get; } = [];
+
+        /// <summary>
+        /// Gets the collection of configured OS image source folder paths.
+        /// </summary>
         public ObservableCollection<string> OsImageSourceFolders { get; } = [];
 
+        /// <summary>
+        /// Gets or sets the configured path to the Rufus executable file.
+        /// </summary>
         [ObservableProperty]
         public partial string RufusExecutablePath { get; set; } = @"%USERPROFILE%\Downloads\Programs\rufus.exe";
 
+        /// <summary>
+        /// Gets or sets the comma-separated list of recognized video file extensions.
+        /// </summary>
         [ObservableProperty]
         public partial string VideoFileExtensions { get; set; } = ".mp4,.mkv,.avi";
 
+        /// <summary>
+        /// Gets or sets the tag string identifying the active navigation section in the Settings window.
+        /// </summary>
         [ObservableProperty]
         public partial string SelectedNavTag { get; set; } = "General";
 
+        /// <summary>
+        /// Gets or sets a value indicating whether the General settings panel is visible.
+        /// </summary>
         [ObservableProperty]
         public partial bool IsGeneralPanelVisible { get; set; } = true;
 
+        /// <summary>
+        /// Gets or sets a value indicating whether the Games settings panel is visible.
+        /// </summary>
         [ObservableProperty]
         public partial bool IsGamesPanelVisible { get; set; }
 
+        /// <summary>
+        /// Gets or sets a value indicating whether the Apps settings panel is visible.
+        /// </summary>
         [ObservableProperty]
         public partial bool IsAppsPanelVisible { get; set; }
 
+        /// <summary>
+        /// Gets or sets a value indicating whether the Film &amp; TV settings panel is visible.
+        /// </summary>
         [ObservableProperty]
         public partial bool IsFilmAndTvPanelVisible { get; set; }
 
+        /// <summary>
+        /// Gets or sets a value indicating whether the OS Images settings panel is visible.
+        /// </summary>
         [ObservableProperty]
         public partial bool IsOsImagesPanelVisible { get; set; }
 
+        /// <summary>
+        /// Gets or sets a value indicating whether the Logs panel is visible.
+        /// </summary>
         [ObservableProperty]
         public partial bool IsLogsPanelVisible { get; set; }
 
+        /// <summary>
+        /// Event raised when the Settings window requests to be closed.
+        /// </summary>
         public event EventHandler? CloseRequested;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="SettingsViewModel"/> class.
         /// </summary>
+        /// <param name="logger">The logger instance.</param>
+        /// <param name="settingsService">The settings persistence service.</param>
+        /// <param name="folderPickerService">The folder picker dialog service.</param>
+        /// <param name="filePickerService">The file picker dialog service.</param>
+        /// <param name="sourceLibraryService">The source library service.</param>
+        /// <param name="processService">The process service.</param>
+        /// <param name="gameInfoDownloadService">The game info download service.</param>
+        /// <param name="startupService">The startup registration service.</param>
+        /// <param name="dispatcherService">The dispatcher service.</param>
+        /// <param name="updateService">The update service.</param>
+        /// <param name="dialogService">The dialog service.</param>
+        /// <param name="libraryScannerService">The library scanner service.</param>
         public SettingsViewModel(
             ILogger<SettingsViewModel> logger,
             ISettingsService settingsService,

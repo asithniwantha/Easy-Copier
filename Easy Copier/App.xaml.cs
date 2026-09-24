@@ -1,4 +1,4 @@
-﻿using Easy_Copier.Infrastructure;
+using Easy_Copier.Infrastructure;
 using Easy_Copier.Services;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
@@ -9,16 +9,29 @@ using System.Threading.Tasks;
 
 namespace Easy_Copier
 {
+    /// <summary>
+    /// Provides application-specific behavior to supplement the default Application class.
+    /// </summary>
     public partial class App : Application
     {
         private Window? _window;
         private IServiceProvider? _serviceProvider;
         private bool _servicesDisposed;
 
+        /// <summary>
+        /// Gets the dependency injection service provider configured for the application.
+        /// </summary>
+        /// <exception cref="InvalidOperationException">Thrown when services have not been initialized.</exception>
         public IServiceProvider Services => _serviceProvider ?? throw new InvalidOperationException("Services not initialized");
 
+        /// <summary>
+        /// Gets the main application window instance.
+        /// </summary>
         public static Window? MainWindow { get; private set; }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="App"/> class and sets up dependency injection and global exception handlers.
+        /// </summary>
         public App()
         {
             InitializeComponent();
@@ -75,6 +88,10 @@ namespace Easy_Copier
             _serviceProvider = services.BuildServiceProvider();
         }
 
+        /// <summary>
+        /// Invoked when the application is launched normally by the end user.
+        /// </summary>
+        /// <param name="args">Details about the launch request and process.</param>
         protected override async void OnLaunched(Microsoft.UI.Xaml.LaunchActivatedEventArgs args)
         {
             ILogger<App> logger = Services.GetRequiredService<ILogger<App>>();
@@ -134,6 +151,9 @@ namespace Easy_Copier
             }
         }
 
+        /// <summary>
+        /// Disposes active application services and flushes pending logging output.
+        /// </summary>
         public void DisposeServices()
         {
             if (_servicesDisposed)

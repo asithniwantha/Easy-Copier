@@ -11,43 +11,87 @@ using System.Threading.Tasks;
 
 namespace Easy_Copier.ViewModels
 {
+    /// <summary>
+    /// ViewModel managing historical copy operations, statistics summaries, time-window filtering, and report exports.
+    /// </summary>
+    /// <param name="copyHistoryService">The copy history data service.</param>
+    /// <param name="reportService">The report export service.</param>
+    /// <param name="filePickerService">The file picker dialog service.</param>
     public partial class HistoryViewModel(ICopyHistoryService copyHistoryService, IReportService reportService,
                             Infrastructure.IFilePickerService filePickerService) : ObservableObject
     {
+        /// <summary>
+        /// Gets or sets the transfer statistics for today.
+        /// </summary>
         [ObservableProperty]
         public partial HistoryStats TodayStats { get; set; } = new HistoryStats(0, 0, 0, 0);
 
+        /// <summary>
+        /// Gets or sets the transfer statistics for the current week.
+        /// </summary>
         [ObservableProperty]
         public partial HistoryStats WeekStats { get; set; } = new HistoryStats(0, 0, 0, 0);
 
+        /// <summary>
+        /// Gets or sets the transfer statistics for the current month.
+        /// </summary>
         [ObservableProperty]
         public partial HistoryStats MonthStats { get; set; } = new HistoryStats(0, 0, 0, 0);
 
+        /// <summary>
+        /// Gets or sets the transfer statistics for the currently selected filter period.
+        /// </summary>
         [ObservableProperty]
         public partial HistoryStats SelectedFilterStats { get; set; } = new HistoryStats(0, 0, 0, 0);
 
+        /// <summary>
+        /// Gets or sets the display title for the currently active filter range.
+        /// </summary>
         [ObservableProperty]
         public partial string SelectedFilterName { get; set; } = string.Empty;
 
+        /// <summary>
+        /// Gets or sets the collection of copy history records displayed in the UI.
+        /// </summary>
         [ObservableProperty]
         public partial ObservableCollection<CopyHistoryRecord> Records { get; set; } = [];
+
+        /// <summary>
+        /// Gets or sets the collection of available week filter options.
+        /// </summary>
         [ObservableProperty]
         public partial ObservableCollection<WeekOption> AvailableWeeks { get; set; } = [];
 
+        /// <summary>
+        /// Gets or sets the collection of available month filter options.
+        /// </summary>
         [ObservableProperty]
         public partial ObservableCollection<MonthOption> AvailableMonths { get; set; } = [];
 
+        /// <summary>
+        /// Gets or sets the currently selected week filter option.
+        /// </summary>
         [ObservableProperty]
         public partial WeekOption? SelectedWeek { get; set; }
 
+        /// <summary>
+        /// Gets or sets the currently selected month filter option.
+        /// </summary>
         [ObservableProperty]
         public partial MonthOption? SelectedMonth { get; set; }
 
+        /// <summary>
+        /// Gets or sets the current status or progress message displayed to the user.
+        /// </summary>
         [ObservableProperty]
         public partial string StatusMessage { get; set; } = string.Empty;
 
         private bool _isClearingSelection;
 
+        /// <summary>
+        /// Initializes history statistics and loads available filtering options asynchronously.
+        /// </summary>
+        /// <returns>A task representing the asynchronous operation.</returns>
         public async Task InitializeAsync()
         {
             await LoadStatsAsync();
@@ -216,9 +260,28 @@ namespace Easy_Copier.ViewModels
         }
     }
 
+    /// <summary>
+    /// Represents a weekly filter option displaying start and end dates.
+    /// </summary>
+    /// <param name="StartOfWeek">The start date of the week.</param>
+    /// <param name="EndOfWeek">The end date of the week.</param>
+    /// <param name="DisplayName">The formatted display text for the week range.</param>
     public record WeekOption(DateTime StartOfWeek, DateTime EndOfWeek, string DisplayName);
 
+    /// <summary>
+    /// Represents a monthly filter option displaying year, month, and formatted display name.
+    /// </summary>
+    /// <param name="Year">The year component.</param>
+    /// <param name="Month">The month component (1–12).</param>
+    /// <param name="DisplayName">The formatted display text for the month.</param>
     public record MonthOption(int Year, int Month, string DisplayName);
 
+    /// <summary>
+    /// Encapsulates calculated summary metrics for a history period.
+    /// </summary>
+    /// <param name="TotalItems">Total number of transfer records.</param>
+    /// <param name="SuccessfulItems">Number of successful transfer records.</param>
+    /// <param name="TotalBytes">Total bytes transferred across all records.</param>
+    /// <param name="TotalAmount">Total calculated monetary amount across all records.</param>
     public record HistoryStats(int TotalItems, int SuccessfulItems, long TotalBytes, int TotalAmount);
 }
