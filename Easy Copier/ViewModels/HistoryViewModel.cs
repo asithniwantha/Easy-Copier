@@ -91,9 +91,11 @@ namespace Easy_Copier.ViewModels
             // Depending on dataset size, this could be refactored to fetch only the required date range.
             List<CopyHistoryRecord> records = [];
 
-            // Temporary solution to load all records
-            // To get all records, we can request records from 10 years ago to 10 years from now
-            records = await _copyHistoryService.GetRecordsByWeekAsync(DateTime.MinValue.Date, DateTime.MaxValue.Date);
+            // Workaround for SQLite / C# DateTime.MaxValue parsing errors in SQLite queries.
+            // Some databases struggle with Date <= DateTime.MaxValue. Let's use a safe ceiling and floor.
+            DateTime minDate = new DateTime(2000, 1, 1);
+            DateTime maxDate = new DateTime(2100, 1, 1);
+            records = await _copyHistoryService.GetRecordsByWeekAsync(minDate, maxDate);
             _allRecords = records;
             _isInitialized = true;
             ApplyFilters();
@@ -110,7 +112,7 @@ namespace Easy_Copier.ViewModels
                 SelectedRecordSubFiles.Clear();
                 try
                 {
-                    if (!string.IsNullOrWhiteSpace(value.SubFilesJson))
+                    if (!string.IsNullOrWhiteSpace(value.SubFilesJson) && value.SubFilesJson != "[]")
                     {
                         var files = JsonSerializer.Deserialize<List<string>>(value.SubFilesJson);
                         if (files != null)
