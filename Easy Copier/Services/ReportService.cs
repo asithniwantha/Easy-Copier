@@ -45,7 +45,7 @@ namespace Easy_Copier.Services
             try
             {
                 using StreamWriter writer = new(filePath, false, Encoding.UTF8);
-                await writer.WriteLineAsync("Id,Timestamp,GameName,TargetDriveLetter,TargetDriveLabel,BytesTransferred,IsSuccess,Amount");
+                await writer.WriteLineAsync("Id,Timestamp,GameName,TargetDriveLetter,TargetDriveLabel,BytesTransferred,IsSuccess,Amount,SourcePath,DestinationPath,ErrorLog,SubFilesJson");
 
                 foreach (CopyHistoryRecord record in records)
                 {
@@ -57,8 +57,12 @@ namespace Easy_Copier.Services
                     string bytesTransferred = record.BytesTransferred.ToString(System.Globalization.CultureInfo.InvariantCulture);
                     string isSuccess = record.IsSuccess.ToString();
                     string amount = record.Amount.ToString(System.Globalization.CultureInfo.InvariantCulture);
+                    string sourcePath = EscapeCsv(record.SourcePath);
+                    string destinationPath = EscapeCsv(record.DestinationPath);
+                    string errorLog = EscapeCsv(record.ErrorLog);
+                    string subFilesJson = EscapeCsv(record.SubFilesJson);
 
-                    await writer.WriteLineAsync($"{id},{timestamp},{gameName},{targetDriveLetter},{targetDriveLabel},{bytesTransferred},{isSuccess},{amount}");
+                    await writer.WriteLineAsync($"{id},{timestamp},{gameName},{targetDriveLetter},{targetDriveLabel},{bytesTransferred},{isSuccess},{amount},{sourcePath},{destinationPath},{errorLog},{subFilesJson}");
                 }
 
                 _logger.LogInformation("Successfully exported history to {FilePath}", filePath);

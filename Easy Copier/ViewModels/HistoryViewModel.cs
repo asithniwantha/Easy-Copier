@@ -8,150 +8,180 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Text.Json;
 
 namespace Easy_Copier.ViewModels
 {
-    public partial class HistoryViewModel(ICopyHistoryService copyHistoryService, IReportService reportService,
-                            Infrastructure.IFilePickerService filePickerService) : ObservableObject
+    public enum DateFilter
     {
-        [ObservableProperty]
-        public partial HistoryStats TodayStats { get; set; } = new HistoryStats(0, 0, 0, 0);
+        Today,
+        Last7Days,
+        ThisMonth,
+        Custom
+    }
+
+    public enum StatusFilter
+    {
+        All,
+        Completed,
+        Failed
+    }
+
+    public partial class HistoryViewModel : ObservableObject
+    {
+        private readonly ICopyHistoryService _copyHistoryService;
+        private readonly IReportService _reportService;
+        private readonly Infrastructure.IFilePickerService _filePickerService;
+        private List<CopyHistoryRecord> _allRecords = [];
+
+        public HistoryViewModel(ICopyHistoryService copyHistoryService, IReportService reportService, Infrastructure.IFilePickerService filePickerService)
+        {
+            _copyHistoryService = copyHistoryService;
+            _reportService = reportService;
+            _filePickerService = filePickerService;
+
+            // Initialize default filter options
+            AvailableDateFilters = new ObservableCollection<string> { "Today", "Last 7 Days", "This Month", "All Time" };
+            AvailableStatusFilters = new ObservableCollection<string> { "All", "Completed", "Failed" };
+            SelectedDateFilterString = "Last 7 Days";
+            SelectedStatusFilterString = "All";
+        }
 
         [ObservableProperty]
-        public partial HistoryStats WeekStats { get; set; } = new HistoryStats(0, 0, 0, 0);
-
-        [ObservableProperty]
-        public partial HistoryStats MonthStats { get; set; } = new HistoryStats(0, 0, 0, 0);
-
-        [ObservableProperty]
-        public partial HistoryStats SelectedFilterStats { get; set; } = new HistoryStats(0, 0, 0, 0);
-
-        [ObservableProperty]
-        public partial string SelectedFilterName { get; set; } = string.Empty;
+        public partial HistoryStats SelectedFilterStats { get; set; } = new HistoryStats(0, 0, 0, 0, "0%");
 
         [ObservableProperty]
         public partial ObservableCollection<CopyHistoryRecord> Records { get; set; } = [];
-        [ObservableProperty]
-        public partial ObservableCollection<WeekOption> AvailableWeeks { get; set; } = [];
 
         [ObservableProperty]
-        public partial ObservableCollection<MonthOption> AvailableMonths { get; set; } = [];
-
-        [ObservableProperty]
-        public partial WeekOption? SelectedWeek { get; set; }
-
-        [ObservableProperty]
-        public partial MonthOption? SelectedMonth { get; set; }
+        public partial CopyHistoryRecord? SelectedRecord { get; set; }
 
         [ObservableProperty]
         public partial string StatusMessage { get; set; } = string.Empty;
 
-        private bool _isClearingSelection;
+        [ObservableProperty]
+        public partial string SearchQuery { get; set; } = string.Empty;
+
+        [ObservableProperty]
+        public partial ObservableCollection<string> AvailableDateFilters { get; set; }
+
+        [ObservableProperty]
+        public partial ObservableCollection<string> AvailableStatusFilters { get; set; }
+
+        [ObservableProperty]
+        public partial string SelectedDateFilterString { get; set; }
+
+        [ObservableProperty]
+        public partial string SelectedStatusFilterString { get; set; }
+
+        [ObservableProperty]
+        public partial bool IsDrawerOpen { get; set; }
+
+        [ObservableProperty]
+        public partial ObservableCollection<string> SelectedRecordSubFiles { get; set; } = [];
+
+        private bool _isInitialized;
 
         public async Task InitializeAsync()
         {
-            await LoadStatsAsync();
+            if (_isInitialized) return;
 
-            List<DateTime> startOfWeeks = await copyHistoryService.GetAvailableWeeksAsync();
-            AvailableWeeks.UpdateFrom(startOfWeeks.Select(w => new WeekOption(w, w.AddDays(6), $"{w:MMM dd, yyyy} - {w.AddDays(6):MMM dd, yyyy}")));
-
-            List<(int Year, int Month)> months = await copyHistoryService.GetAvailableMonthsAsync();
-            AvailableMonths.UpdateFrom(months.Select(m => new MonthOption(m.Year, m.Month, new DateTime(m.Year, m.Month, 1).ToString("MMMM yyyy", System.Globalization.CultureInfo.CurrentCulture))));
-
-            if (AvailableWeeks.Count > 0)
-            {
-                SelectedWeek = AvailableWeeks.First();
-            }
-            else if (AvailableMonths.Count > 0)
-            {
-                SelectedMonth = AvailableMonths.First();
-            }
-        }
-
-        private async Task LoadStatsAsync()
-        {
-            DateTime today = DateTime.Today;
-
-            // Today
-            DateTime todayStart = today;
-            DateTime todayEnd = today.AddDays(1);
-            (int todayTotal, int todaySuccess, long todayBytes, int todayAmount) = await copyHistoryService.GetStatsAsync(todayStart, todayEnd);
-            TodayStats = new HistoryStats(todayTotal, todaySuccess, todayBytes, todayAmount);
-
-            // Week (Starting Sunday)
-            int diff = (7 + (today.DayOfWeek - DayOfWeek.Sunday)) % 7;
-            DateTime weekStart = today.AddDays(-1 * diff).Date;
-            DateTime weekEnd = weekStart.AddDays(7);
-            (int weekTotal, int weekSuccess, long weekBytes, int weekAmount) = await copyHistoryService.GetStatsAsync(weekStart, weekEnd);
-            WeekStats = new HistoryStats(weekTotal, weekSuccess, weekBytes, weekAmount);
-
-            // Month
-            DateTime monthStart = new(today.Year, today.Month, 1);
-            DateTime monthEnd = monthStart.AddMonths(1);
-            (int monthTotal, int monthSuccess, long monthBytes, int monthAmount) = await copyHistoryService.GetStatsAsync(monthStart, monthEnd);
-            MonthStats = new HistoryStats(monthTotal, monthSuccess, monthBytes, monthAmount);
-        }
-
-        partial void OnSelectedWeekChanged(WeekOption? oldValue, WeekOption? newValue)
-        {
-            if (_isClearingSelection) return;
-
-            if (newValue != null)
-            {
-                _isClearingSelection = true;
-                SelectedMonth = null;
-                _isClearingSelection = false;
-
-                _ = LoadRecordsByWeekAsync(newValue.StartOfWeek, newValue.EndOfWeek);
-            }
-            else if (SelectedMonth == null)
-            {
-                Records.Clear();
-            }
-        }
-
-        partial void OnSelectedMonthChanged(MonthOption? oldValue, MonthOption? newValue)
-        {
-            if (_isClearingSelection) return;
-
-            if (newValue != null)
-            {
-                _isClearingSelection = true;
-                SelectedWeek = null;
-                _isClearingSelection = false;
-
-                _ = LoadRecordsByMonthAsync(newValue.Year, newValue.Month);
-            }
-            else if (SelectedWeek == null)
-            {
-                Records.Clear();
-            }
-        }
-
-        private async Task LoadRecordsByWeekAsync(DateTime startOfWeek, DateTime endOfWeek)
-        {
             StatusMessage = "Loading records...";
-            List<CopyHistoryRecord> records = await copyHistoryService.GetRecordsByWeekAsync(startOfWeek, endOfWeek);
-            ProcessLoadedRecords(records);
+            // We load all records here and then filter in memory for responsive UI
+            // Depending on dataset size, this could be refactored to fetch only the required date range.
+            List<CopyHistoryRecord> records = [];
 
-            SelectedFilterName = $"Stats for {startOfWeek:MMM dd, yyyy} - {endOfWeek:MMM dd, yyyy}";
+            // Temporary solution to load all records
+            // To get all records, we can request records from 10 years ago to 10 years from now
+            records = await _copyHistoryService.GetRecordsByWeekAsync(DateTime.MinValue.Date, DateTime.MaxValue.Date);
+            _allRecords = records;
+            _isInitialized = true;
+            ApplyFilters();
         }
 
-        private async Task LoadRecordsByMonthAsync(int year, int month)
+        partial void OnSearchQueryChanged(string value) => ApplyFilters();
+        partial void OnSelectedDateFilterStringChanged(string value) => ApplyFilters();
+        partial void OnSelectedStatusFilterStringChanged(string value) => ApplyFilters();
+        partial void OnSelectedRecordChanged(CopyHistoryRecord? value)
         {
-            StatusMessage = "Loading records...";
-            List<CopyHistoryRecord> records = await copyHistoryService.GetRecordsByMonthAsync(year, month);
-            ProcessLoadedRecords(records);
-
-            SelectedFilterName = $"Stats for {new DateTime(year, month, 1).ToString("MMMM yyyy", System.Globalization.CultureInfo.CurrentCulture)}";
+            if (value != null)
+            {
+                IsDrawerOpen = true;
+                SelectedRecordSubFiles.Clear();
+                try
+                {
+                    if (!string.IsNullOrWhiteSpace(value.SubFilesJson))
+                    {
+                        var files = JsonSerializer.Deserialize<List<string>>(value.SubFilesJson);
+                        if (files != null)
+                        {
+                            SelectedRecordSubFiles.UpdateFrom(files);
+                        }
+                    }
+                }
+                catch
+                {
+                    // Ignore parsing errors
+                }
+            }
+            else
+            {
+                IsDrawerOpen = false;
+            }
         }
 
-        private void ProcessLoadedRecords(List<CopyHistoryRecord> records)
+        [RelayCommand]
+        private void CloseDrawer()
         {
-            // First sort descending so latest are on top
-            List<CopyHistoryRecord> sortedRecords = [.. records.OrderByDescending(r => r.Timestamp)];
+            SelectedRecord = null;
+        }
 
-            // Group records by drive and approximate time to calculate batch amount
+        private void ApplyFilters()
+        {
+            if (!_isInitialized) return;
+
+            IEnumerable<CopyHistoryRecord> filtered = _allRecords;
+
+            // Apply Date Filter
+            DateTime now = DateTime.Now;
+            if (SelectedDateFilterString == "Today")
+            {
+                filtered = filtered.Where(r => r.Timestamp.Date == now.Date);
+            }
+            else if (SelectedDateFilterString == "Last 7 Days")
+            {
+                DateTime sevenDaysAgo = now.AddDays(-7).Date;
+                filtered = filtered.Where(r => r.Timestamp.Date >= sevenDaysAgo);
+            }
+            else if (SelectedDateFilterString == "This Month")
+            {
+                filtered = filtered.Where(r => r.Timestamp.Year == now.Year && r.Timestamp.Month == now.Month);
+            }
+
+            // Apply Status Filter
+            if (SelectedStatusFilterString == "Completed")
+            {
+                filtered = filtered.Where(r => r.IsSuccess);
+            }
+            else if (SelectedStatusFilterString == "Failed")
+            {
+                filtered = filtered.Where(r => !r.IsSuccess);
+            }
+
+            // Apply Search Query
+            if (!string.IsNullOrWhiteSpace(SearchQuery))
+            {
+                string query = SearchQuery.ToLowerInvariant();
+                filtered = filtered.Where(r =>
+                    r.GameName.ToLowerInvariant().Contains(query) ||
+                    r.TargetDriveLetter.ToLowerInvariant().Contains(query) ||
+                    r.TargetDriveLabel.ToLowerInvariant().Contains(query)
+                );
+            }
+
+            List<CopyHistoryRecord> sortedRecords = filtered.OrderByDescending(r => r.Timestamp).ToList();
+
+            // Compute batch amount (same as before)
             List<List<CopyHistoryRecord>> clusters = [];
             foreach (CopyHistoryRecord record in sortedRecords)
             {
@@ -168,7 +198,6 @@ namespace Easy_Copier.ViewModels
                 cluster.Add(record);
             }
 
-            // Assign the computed sum back to each record
             foreach (List<CopyHistoryRecord> cluster in clusters)
             {
                 int clusterTotal = cluster.Sum(r => r.Amount);
@@ -180,45 +209,40 @@ namespace Easy_Copier.ViewModels
 
             Records.UpdateFrom(sortedRecords);
 
-            // Calculate filtered stats based on loaded records
-            int totalItems = records.Count;
-            int successfulItems = records.Count(r => r.IsSuccess);
-            long totalBytes = records.Sum(r => r.BytesTransferred);
-            int totalAmount = records.Sum(r => r.Amount);
-            SelectedFilterStats = new HistoryStats(totalItems, successfulItems, totalBytes, totalAmount);
+            // Compute Stats
+            int totalItems = sortedRecords.Count;
+            int successfulItems = sortedRecords.Count(r => r.IsSuccess);
+            long totalBytes = sortedRecords.Sum(r => r.BytesTransferred);
+            int totalAmount = sortedRecords.Sum(r => r.Amount);
+            string successRate = totalItems == 0 ? "0%" : $"{Math.Round((double)successfulItems / totalItems * 100)}%";
 
-            StatusMessage = $"Loaded {records.Count} records.";
+            SelectedFilterStats = new HistoryStats(totalItems, successfulItems, totalBytes, totalAmount, successRate);
+            StatusMessage = $"Showing {totalItems} records.";
         }
 
         [RelayCommand]
         private async Task ExportToCsvAsync()
         {
-            if ((SelectedWeek == null && SelectedMonth == null) || Records.Count == 0)
+            if (Records.Count == 0)
             {
                 StatusMessage = "No records to export.";
                 return;
             }
 
-            string fileName = SelectedWeek != null
-                ? $"EasyCopier_History_{SelectedWeek.StartOfWeek:yyyy_MM_dd}.csv"
-                : $"EasyCopier_History_{SelectedMonth!.Year}_{SelectedMonth.Month:D2}.csv";
+            string fileName = $"EasyCopier_History_Export_{DateTime.Now:yyyy_MM_dd}.csv";
             Dictionary<string, IList<string>> choices = new()
             { { "CSV File", new List<string> { ".csv" } } };
 
-            string? filePath = await filePickerService.PickSaveFileAsync(fileName, choices);
+            string? filePath = await _filePickerService.PickSaveFileAsync(fileName, choices);
 
             if (filePath != null)
             {
                 StatusMessage = "Exporting...";
-                bool success = await reportService.ExportHistoryToCsvAsync(filePath, Records);
+                bool success = await _reportService.ExportHistoryToCsvAsync(filePath, Records);
                 StatusMessage = success ? $"Exported successfully to {System.IO.Path.GetFileName(filePath)}" : "Export failed. Check logs.";
             }
         }
     }
 
-    public record WeekOption(DateTime StartOfWeek, DateTime EndOfWeek, string DisplayName);
-
-    public record MonthOption(int Year, int Month, string DisplayName);
-
-    public record HistoryStats(int TotalItems, int SuccessfulItems, long TotalBytes, int TotalAmount);
+    public record HistoryStats(int TotalItems, int SuccessfulItems, long TotalBytes, int TotalAmount, string SuccessRate);
 }

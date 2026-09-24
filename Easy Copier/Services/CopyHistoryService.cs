@@ -119,7 +119,11 @@ namespace Easy_Copier.Services
                         TargetDriveLabel TEXT NOT NULL,
                         BytesTransferred INTEGER NOT NULL,
                         IsSuccess INTEGER NOT NULL,
-                        Amount INTEGER NOT NULL DEFAULT 0
+                        Amount INTEGER NOT NULL DEFAULT 0,
+                        SourcePath TEXT NOT NULL DEFAULT '',
+                        DestinationPath TEXT NOT NULL DEFAULT '',
+                        ErrorLog TEXT NOT NULL DEFAULT '',
+                        SubFilesJson TEXT NOT NULL DEFAULT ''
                     )";
 
                 _ = await command.ExecuteNonQueryAsync();
@@ -146,6 +150,33 @@ namespace Easy_Copier.Services
                     _logger.LogInformation("Added 'Amount' column to CopyHistory table via schema migration.");
                 }
 
+                // Schema migration for details
+                command.CommandText = "PRAGMA table_info(CopyHistory)";
+                bool hasDetails = false;
+                using (SqliteDataReader reader = await command.ExecuteReaderAsync())
+                {
+                    while (await reader.ReadAsync())
+                    {
+                        if (reader.GetString(1).Equals("SourcePath", StringComparison.OrdinalIgnoreCase))
+                        {
+                            hasDetails = true;
+                            break;
+                        }
+                    }
+                }
+                if (!hasDetails)
+                {
+                    command.CommandText = "ALTER TABLE CopyHistory ADD COLUMN SourcePath TEXT NOT NULL DEFAULT ''";
+                    _ = await command.ExecuteNonQueryAsync();
+                    command.CommandText = "ALTER TABLE CopyHistory ADD COLUMN DestinationPath TEXT NOT NULL DEFAULT ''";
+                    _ = await command.ExecuteNonQueryAsync();
+                    command.CommandText = "ALTER TABLE CopyHistory ADD COLUMN ErrorLog TEXT NOT NULL DEFAULT ''";
+                    _ = await command.ExecuteNonQueryAsync();
+                    command.CommandText = "ALTER TABLE CopyHistory ADD COLUMN SubFilesJson TEXT NOT NULL DEFAULT ''";
+                    _ = await command.ExecuteNonQueryAsync();
+                    _logger.LogInformation("Added details columns to CopyHistory table via schema migration.");
+                }
+
                 _logger.LogInformation("CopyHistory DB initialized at {Path}", _dbPath);
             }
             catch (Exception ex)
@@ -170,8 +201,8 @@ namespace Easy_Copier.Services
 
                 SqliteCommand command = connection.CreateCommand();
                 command.CommandText = @"
-                    INSERT INTO CopyHistory (Timestamp, GameName, TargetDriveLetter, TargetDriveLabel, BytesTransferred, IsSuccess, Amount)
-                    VALUES ($timestamp, $gameName, $targetDriveLetter, $targetDriveLabel, $bytesTransferred, $isSuccess, $amount)";
+                    INSERT INTO CopyHistory (Timestamp, GameName, TargetDriveLetter, TargetDriveLabel, BytesTransferred, IsSuccess, Amount, SourcePath, DestinationPath, ErrorLog, SubFilesJson)
+                    VALUES ($timestamp, $gameName, $targetDriveLetter, $targetDriveLabel, $bytesTransferred, $isSuccess, $amount, $sourcePath, $destinationPath, $errorLog, $subFilesJson)";
 
                 // Use ISO 8601 string for reliable SQLite sorting/filtering
                 _ = command.Parameters.AddWithValue("$timestamp", record.Timestamp.ToString("O"));
@@ -181,6 +212,10 @@ namespace Easy_Copier.Services
                 _ = command.Parameters.AddWithValue("$bytesTransferred", record.BytesTransferred);
                 _ = command.Parameters.AddWithValue("$isSuccess", record.IsSuccess ? 1 : 0);
                 _ = command.Parameters.AddWithValue("$amount", record.Amount);
+                _ = command.Parameters.AddWithValue("$sourcePath", record.SourcePath);
+                _ = command.Parameters.AddWithValue("$destinationPath", record.DestinationPath);
+                _ = command.Parameters.AddWithValue("$errorLog", record.ErrorLog);
+                _ = command.Parameters.AddWithValue("$subFilesJson", record.SubFilesJson);
 
                 _ = await command.ExecuteNonQueryAsync();
             }
@@ -203,7 +238,7 @@ namespace Easy_Copier.Services
                 await connection.OpenAsync();
 
                 SqliteCommand command = connection.CreateCommand();
-                command.CommandText = "SELECT Id, Timestamp, GameName, TargetDriveLetter, TargetDriveLabel, BytesTransferred, IsSuccess, Amount FROM CopyHistory";
+                command.CommandText = "SELECT Id, Timestamp, GameName, TargetDriveLetter, TargetDriveLabel, BytesTransferred, IsSuccess, Amount, SourcePath, DestinationPath, ErrorLog, SubFilesJson FROM CopyHistory";
 
                 using SqliteDataReader reader = await command.ExecuteReaderAsync();
                 while (await reader.ReadAsync())
@@ -219,7 +254,11 @@ namespace Easy_Copier.Services
                             reader.GetString(4),
                             reader.GetInt64(5),
                             reader.GetInt32(6) == 1,
-                            await reader.IsDBNullAsync(7) ? 0 : reader.GetInt32(7)
+                            await reader.IsDBNullAsync(7) ? 0 : reader.GetInt32(7),
+                            await reader.IsDBNullAsync(8) ? string.Empty : reader.GetString(8),
+                            await reader.IsDBNullAsync(9) ? string.Empty : reader.GetString(9),
+                            await reader.IsDBNullAsync(10) ? string.Empty : reader.GetString(10),
+                            await reader.IsDBNullAsync(11) ? string.Empty : reader.GetString(11)
                         ));
                     }
                     else
