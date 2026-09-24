@@ -11,6 +11,9 @@ using System.Threading.Tasks;
 
 namespace Easy_Copier.Services
 {
+    /// <summary>
+    /// Partial class implementation of <see cref="GameInfoDownloadService"/> handling game category downloading and mapping.
+    /// </summary>
     public sealed partial class GameInfoDownloadService
     {
         /// <summary>

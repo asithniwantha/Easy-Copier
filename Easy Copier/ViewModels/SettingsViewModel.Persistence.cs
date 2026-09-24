@@ -7,8 +7,15 @@ using System.Threading.Tasks;
 
 namespace Easy_Copier.ViewModels
 {
+    /// <summary>
+    /// Partial class implementation of <see cref="SettingsViewModel"/> providing settings persistence and initialization routines.
+    /// </summary>
     public partial class SettingsViewModel
     {
+        /// <summary>
+        /// Asynchronously loads settings from persistent storage and validates configured source library folders.
+        /// </summary>
+        /// <returns>A task representing the asynchronous operation.</returns>
         public async Task LoadSettingsAsync()
         {
             AppSettings settings = await _settingsService.LoadSettingsAsync();
@@ -32,6 +39,11 @@ namespace Easy_Copier.ViewModels
             }
         }
 
+        /// <summary>
+        /// Populates the view model properties and collections from the provided <see cref="AppSettings"/> instance.
+        /// </summary>
+        /// <param name="settings">The application settings instance.</param>
+        /// <exception cref="ArgumentNullException">Thrown when <paramref name="settings"/> is <c>null</c>.</exception>
         public void LoadSettings(AppSettings settings)
         {
             ArgumentNullException.ThrowIfNull(settings);
@@ -53,6 +65,10 @@ namespace Easy_Copier.ViewModels
             OsImageSourceFolders.UpdateFrom(settings.OsImageSourceFolders ?? []);
         }
 
+        /// <summary>
+        /// Constructs a new <see cref="AppSettings"/> snapshot from the current view model state.
+        /// </summary>
+        /// <returns>A new <see cref="AppSettings"/> populated with active view model field values.</returns>
         public AppSettings GetSettings()
         {
             return new AppSettings

@@ -3,8 +3,15 @@ using Microsoft.UI.Xaml;
 
 namespace Easy_Copier
 {
+    /// <summary>
+    /// Represents the main top-level application window hosting the primary navigation and pages.
+    /// </summary>
     public sealed partial class MainWindow : Window
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="MainWindow"/> class.
+        /// </summary>
+        /// <param name="viewModel">The main view model for the application state.</param>
         public MainWindow(ViewModels.MainViewModel viewModel)
         {
             InitializeComponent();
