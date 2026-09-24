@@ -115,15 +115,12 @@
                       Width="120" Margin="0,0,12,0" VerticalAlignment="Bottom"/>
 
             <Button Grid.Column="4"
-                    Content="Export CSV"
                     Command="{x:Bind ViewModel.ExportToCsvCommand}"
                     VerticalAlignment="Bottom">
-                <Button.Content>
-                    <StackPanel Orientation="Horizontal" Spacing="8">
-                        <FontIcon Glyph="&#xE74E;" FontSize="14"/>
-                        <TextBlock Text="Export CSV"/>
-                    </StackPanel>
-                </Button.Content>
+                <StackPanel Orientation="Horizontal" Spacing="8">
+                    <FontIcon Glyph="&#xE74E;" FontSize="14"/>
+                    <TextBlock Text="Export CSV"/>
+                </StackPanel>
             </Button>
         </Grid>
 
