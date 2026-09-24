@@ -10,6 +10,9 @@ using System.Threading.Tasks;
 
 namespace Easy_Copier.Services
 {
+    /// <summary>
+    /// Partial class implementation of <see cref="GameInfoDownloadService"/> handling PC system requirements lookup and formatting.
+    /// </summary>
     public sealed partial class GameInfoDownloadService
     {
         /// <summary>

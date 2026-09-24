@@ -8,6 +8,9 @@ using System.Threading.Tasks;
 
 namespace Easy_Copier.Services
 {
+    /// <summary>
+    /// Partial class implementation of <see cref="GameInfoDownloadService"/> handling cover art retrieval routines from various online services.
+    /// </summary>
     public sealed partial class GameInfoDownloadService
     {
         /// <summary>
