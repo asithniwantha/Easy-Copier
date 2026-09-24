@@ -187,5 +187,5 @@ Distributed under the MIT License. See `LICENSE` for more information.
 * Introduced `ILibraryTabView` contract implemented across `GamesTabView`, `AppsTabView`, `TvAndFilmsTabView`, and `OsImagesTabView`, eliminating view-to-view tight coupling in `MainPage.xaml.cs`. 🧩
 * Replaced programmatic imperative C# UI construction in `DialogService.ShowConflictDialogAsync` with a dedicated XAML UserControl `ConflictDialogContent.xaml` and clean data bindings. 🎨
 * Centralized flyout setup, positioning, and style configuration in `FlyoutHelper.cs` with clean pattern-matching guard clauses. 🛠️
-* Applied modern C# features including pattern matching, switch expressions, and collection expressions across `MainViewModel` and `SettingsViewModel`. ⚡
+* Applied modern C# features including pattern matching, switch expressions, collection expressions, and event handler lifecycle safety in `MainPage` and `MainViewModel`. ⚡
 * Eliminated code-behind event handlers in Windows and Pages (e.g., `Click="Close_Click"`) and replaced them with strongly-typed `ICommand` bindings utilizing the `CommunityToolkit.Mvvm` framework. Event callbacks like `CloseRequested` decouple the ViewModel logic from direct UI window management. 🧹
