@@ -87,8 +87,9 @@
 - Extracted `ILibraryFilterService` to handle text search query filtering, `GameCategory` matching, and OS image sorting in a dedicated service.
 - Refactored `ILibraryCacheService` to encapsulate snapshot fingerprinting and JSON cache file creation (`CreateAndSaveSnapshotAsync`).
 - Introduced `IFileSystemService` and `FileSystemService` in `Services/` to encapsulate directory listing, size calculations, and path existence checks, decoupling ViewModels from direct disk I/O.
-- Introduced `IFlyoutService` and `FlyoutService` in `Services/` to encapsulate right-click item details flyout presentation (`GameDetailsFlyout`, `OsImageDetailsFlyout`) and folder launch interactions.
-- Decoupled library tab views using `ILibraryTabView` interface to eliminate view-to-view tight coupling and ensured event handler lifecycle safety on page navigation (`OnNavigatedFrom`).
+- Introduced `IFlyoutService` and `FlyoutService` in `Services/` to encapsulate right-click item details flyout presentation (`GameDetailsFlyout`, `OsImageDetailsFlyout`) and folder launch interactions, decoupled from WinUI XAML input types.
+- Decoupled library tab views using `ILibraryTabView` contract to eliminate view-to-view tight coupling, leveraging dynamic Pivot tab retrieval in `MainPage.xaml.cs`.
+- Extracted `LibraryViewExtensions` (`GetSelectedEntries` and `ClearMultiSelection`) to eliminate duplicated grid selection logic across all library tab views.
 - Replaced imperative C# UI construction in `DialogService.cs` with declarative `ConflictDialogContent.xaml` XAML controls.
 - Centralized flyout logic in `FlyoutHelper.cs` for right-click details flyouts.
 - Strict adherence to SOLID principles through decoupled, highly-focused service abstractions.

@@ -3,9 +3,9 @@ using Easy_Copier.ViewModels;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Controls.Primitives;
-using Microsoft.UI.Xaml.Input;
 using System;
 using System.Threading.Tasks;
+using Windows.Foundation;
 
 namespace Easy_Copier.Services
 {
@@ -35,10 +35,8 @@ namespace Easy_Copier.Services
         }
 
         /// <inheritdoc />
-        public async Task ShowGameDetailsFlyoutAsync(object sender, RightTappedRoutedEventArgs e, MainViewModel? mainViewModel)
+        public async Task ShowGameDetailsFlyoutAsync(object sender, Point? position, MainViewModel? mainViewModel)
         {
-            ArgumentNullException.ThrowIfNull(e);
-
             if (sender is not FrameworkElement fe || fe.DataContext is not GameEntry gameEntry || mainViewModel == null)
             {
                 return;
@@ -51,14 +49,12 @@ namespace Easy_Copier.Services
             Style flyoutStyle = new(typeof(FlyoutPresenter));
             flyoutStyle.Setters.Add(new Setter(FrameworkElement.MaxWidthProperty, double.PositiveInfinity));
 
-            PresentFlyout(fe, e, detailsFlyout, flyoutStyle);
+            PresentFlyout(fe, position, detailsFlyout, flyoutStyle);
         }
 
         /// <inheritdoc />
-        public void ShowOsImageDetailsFlyout(object sender, RightTappedRoutedEventArgs e)
+        public void ShowOsImageDetailsFlyout(object sender, Point? position)
         {
-            ArgumentNullException.ThrowIfNull(e);
-
             if (sender is not FrameworkElement fe || fe.DataContext is not GameEntry gameEntry)
             {
                 return;
@@ -68,10 +64,10 @@ namespace Easy_Copier.Services
             osImageVm.Initialize(gameEntry.Name, gameEntry.FolderPath);
             Views.OsImageDetailsFlyout osImageFlyout = new(osImageVm);
 
-            PresentFlyout(fe, e, osImageFlyout, null);
+            PresentFlyout(fe, position, osImageFlyout, null);
         }
 
-        private static void PresentFlyout(FrameworkElement targetElement, RightTappedRoutedEventArgs e, UIElement content, Style? presenterStyle)
+        private static void PresentFlyout(FrameworkElement targetElement, Point? position, UIElement content, Style? presenterStyle)
         {
             Flyout flyout = new()
             {
@@ -84,7 +80,8 @@ namespace Easy_Copier.Services
                 flyout.FlyoutPresenterStyle = presenterStyle;
             }
 
-            flyout.ShowAt(targetElement, new FlyoutShowOptions { Position = e.GetPosition(targetElement) });
+            FlyoutShowOptions? options = position.HasValue ? new FlyoutShowOptions { Position = position.Value } : null;
+            flyout.ShowAt(targetElement, options);
         }
     }
 }
