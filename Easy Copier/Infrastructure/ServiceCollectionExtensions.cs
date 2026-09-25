@@ -66,6 +66,7 @@ namespace Easy_Copier.Infrastructure
             _ = services.AddSingleton<Services.IRufusService, Services.RufusService>();
             _ = services.AddSingleton<Services.IFileSystemService, Services.FileSystemService>();
             _ = services.AddSingleton<Services.IFlyoutService, Services.FlyoutService>();
+            _ = services.AddSingleton<Services.IThumbnailService, Services.ThumbnailService>();
 
             return services;
         }
