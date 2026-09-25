@@ -5,7 +5,6 @@ using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Input;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace Easy_Copier.Views
 {
@@ -52,19 +51,10 @@ namespace Easy_Copier.Views
         }
 
         /// <inheritdoc />
-        public IEnumerable<GameEntry> GetSelectedEntries()
-        {
-            return AppsGridView?.SelectedItems?.OfType<GameEntry>() ?? Enumerable.Empty<GameEntry>();
-        }
+        public IEnumerable<GameEntry> GetSelectedEntries() => AppsGridView.GetSelectedEntries();
 
         /// <inheritdoc />
-        public void ClearSelection()
-        {
-            if (AppsGridView?.SelectedItems?.Count > 0)
-            {
-                AppsGridView.SelectedItems.Clear();
-            }
-        }
+        public void ClearSelection() => AppsGridView.ClearMultiSelection();
 
         private void AppsGridView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {

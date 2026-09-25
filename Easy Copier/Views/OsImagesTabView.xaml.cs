@@ -5,7 +5,6 @@ using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Input;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace Easy_Copier.Views
 {
@@ -52,15 +51,17 @@ namespace Easy_Copier.Views
         }
 
         /// <inheritdoc />
-        public IEnumerable<GameEntry> GetSelectedEntries()
-        {
-            return OsImagesGridView?.SelectedItems?.OfType<GameEntry>() ?? Enumerable.Empty<GameEntry>();
-        }
+        public IEnumerable<GameEntry> GetSelectedEntries() => OsImagesGridView.GetSelectedEntries();
 
         /// <inheritdoc />
         public void ClearSelection()
         {
-            OsImagesGridView?.SelectedItem = null;
+            // OsImagesGridView uses Single selection mode.
+            // In single selection mode, set SelectedItem to null instead of calling SelectedItems.Clear() to prevent COMExceptions.
+            if (OsImagesGridView != null)
+            {
+                OsImagesGridView.SelectedItem = null;
+            }
         }
 
         private void OsImagesGridView_SelectionChanged(object sender, SelectionChangedEventArgs e)

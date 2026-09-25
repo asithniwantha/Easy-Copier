@@ -12,6 +12,9 @@ namespace Easy_Copier.Views
     /// </summary>
     public sealed partial class MainPage : Page
     {
+        private static readonly Microsoft.UI.Xaml.Media.SolidColorBrush SearchHighlightBrush =
+            new(Microsoft.UI.ColorHelper.FromArgb(0x3C, 0xFF, 0xC1, 0x07));
+
         /// <summary>
         /// Gets the <see cref="MainViewModel"/> bound to this page.
         /// </summary>
@@ -24,11 +27,6 @@ namespace Easy_Copier.Views
         {
             InitializeComponent();
         }
-
-        /// <summary>
-        /// Gets the light yellow/amber brush (~23.5% opacity) used to highlight the SearchBox when search text is present.
-        /// </summary>
-        private static readonly Microsoft.UI.Xaml.Media.SolidColorBrush SearchHighlightBrush = new(Microsoft.UI.ColorHelper.FromArgb(0x3C, 0xFF, 0xC1, 0x07));
 
         /// <inheritdoc />
         protected override void OnNavigatedTo(Microsoft.UI.Xaml.Navigation.NavigationEventArgs e)
@@ -64,20 +62,11 @@ namespace Easy_Copier.Views
 
         private void OnClearSelectionRequested(object? sender, EventArgs e) => ClearGameSelection();
 
-        /// <summary>
-        /// Handles text change events in the search box to dynamically update its background color.
-        /// </summary>
-        /// <param name="sender">The AutoSuggestBox control.</param>
-        /// <param name="args">Event arguments.</param>
         private void SearchBox_TextChanged(AutoSuggestBox sender, AutoSuggestBoxTextChangedEventArgs args)
         {
             UpdateSearchBoxBackground(sender?.Text);
         }
 
-        /// <summary>
-        /// Updates the SearchBox background and resource dictionaries based on whether search text is present.
-        /// </summary>
-        /// <param name="text">The current search text.</param>
         private void UpdateSearchBoxBackground(string? text)
         {
             if (SearchBox == null)
@@ -108,28 +97,36 @@ namespace Easy_Copier.Views
 
         private IEnumerable<ILibraryTabView> GetTabViews()
         {
-            ILibraryTabView?[] tabs = [GamesTab, AppsTab, TvAndFilmsTab, OsImagesTab];
-            return tabs.OfType<ILibraryTabView>();
+            if (LibraryPivot == null)
+            {
+                return [];
+            }
+
+            return LibraryPivot.Items
+                .OfType<PivotItem>()
+                .Select(p => p.Content)
+                .OfType<ILibraryTabView>();
         }
 
         private void UpdateCombinedSelection()
         {
-            if (ViewModel == null)
+            if (ViewModel == null || LibraryPivot == null)
             {
                 return;
             }
 
             if (ViewModel.IsOsImagesTabActive)
             {
-                IEnumerable<GameEntry> osImageItems = OsImagesTab?.GetSelectedEntries() ?? [];
-                ViewModel.UpdateSelectionSummary(osImageItems);
+                if (LibraryPivot.SelectedItem is PivotItem activeItem && activeItem.Content is ILibraryTabView activeTab)
+                {
+                    ViewModel.UpdateSelectionSummary(activeTab.GetSelectedEntries());
+                }
             }
             else
             {
-                ILibraryTabView?[] gameTabs = [GamesTab, AppsTab, TvAndFilmsTab];
-                IEnumerable<GameEntry> selectedItems = gameTabs
-                    .OfType<ILibraryTabView>()
-                    .SelectMany(t => t.GetSelectedEntries());
+                IEnumerable<GameEntry> selectedItems = GetTabViews()
+                    .Where(tab => tab is not OsImagesTabView)
+                    .SelectMany(tab => tab.GetSelectedEntries());
                 ViewModel.UpdateSelectionSummary(selectedItems);
             }
         }

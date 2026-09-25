@@ -1,8 +1,10 @@
 using Easy_Copier.Models;
 using Easy_Copier.Services;
 using Easy_Copier.ViewModels;
+using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Input;
 using System.Threading.Tasks;
+using Windows.Foundation;
 
 namespace Easy_Copier.Infrastructure
 {
@@ -47,9 +49,10 @@ namespace Easy_Copier.Infrastructure
         /// <param name="mainViewModel">The main ViewModel providing system requirement formatting and factory methods.</param>
         public static async Task ShowGameDetailsFlyoutAsync(object sender, RightTappedRoutedEventArgs e, MainViewModel? mainViewModel)
         {
+            Point? position = sender is FrameworkElement fe && e != null ? e.GetPosition(fe) : null;
             if (s_flyoutService != null)
             {
-                await s_flyoutService.ShowGameDetailsFlyoutAsync(sender, e, mainViewModel);
+                await s_flyoutService.ShowGameDetailsFlyoutAsync(sender, position, mainViewModel);
             }
         }
 
@@ -60,7 +63,8 @@ namespace Easy_Copier.Infrastructure
         /// <param name="e">The right-tapped routed event args.</param>
         public static void ShowOsImageDetailsFlyout(object sender, RightTappedRoutedEventArgs e)
         {
-            s_flyoutService?.ShowOsImageDetailsFlyout(sender, e);
+            Point? position = sender is FrameworkElement fe && e != null ? e.GetPosition(fe) : null;
+            s_flyoutService?.ShowOsImageDetailsFlyout(sender, position);
         }
     }
 }

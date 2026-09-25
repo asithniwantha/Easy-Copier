@@ -5,7 +5,6 @@ using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Input;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace Easy_Copier.Views
 {
@@ -52,19 +51,10 @@ namespace Easy_Copier.Views
         }
 
         /// <inheritdoc />
-        public IEnumerable<GameEntry> GetSelectedEntries()
-        {
-            return TvAndFilmsGridView?.SelectedItems?.OfType<GameEntry>() ?? Enumerable.Empty<GameEntry>();
-        }
+        public IEnumerable<GameEntry> GetSelectedEntries() => TvAndFilmsGridView.GetSelectedEntries();
 
         /// <inheritdoc />
-        public void ClearSelection()
-        {
-            if (TvAndFilmsGridView?.SelectedItems?.Count > 0)
-            {
-                TvAndFilmsGridView.SelectedItems.Clear();
-            }
-        }
+        public void ClearSelection() => TvAndFilmsGridView.ClearMultiSelection();
 
         private void TvAndFilmsGridView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {

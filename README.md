@@ -181,10 +181,11 @@ Distributed under the MIT License. See `LICENSE` for more information.
 * Extracted `IRufusService` / `RufusService` to encapsulate Rufus executable resolution and ISO launching, eliminating process management from `MainViewModel`. 📀
 * Streamlined child tab ViewModels (`GamesTabViewModel`, `AppsTabViewModel`, `TvAndFilmsTabViewModel`, `OsImagesTabViewModel`) by introducing `ForwardParentPropertyChanges` in `LibraryTabViewModelBase`. 🔄
 * Introduced `IFileSystemService` and `FileSystemService` to encapsulate directory listing, size calculations, and path existence checks, removing direct disk I/O calls from ViewModels. 📁
-* Introduced `IFlyoutService` and `FlyoutService` to encapsulate right-click item details flyout presentation (`GameDetailsFlyout`, `OsImageDetailsFlyout`) and folder launch interactions. 🪟
+* Introduced `IFlyoutService` and `FlyoutService` to encapsulate right-click item details flyout presentation (`GameDetailsFlyout`, `OsImageDetailsFlyout`) and folder launch interactions, fully decoupled from WinUI input event types. 🪟
 * Extracted `ILibraryFilterService` to encapsulate search text filtering, `GameCategory` filtering, and OS image sorting options into a focused, testable service. 🔍
 * Refactored cache snapshot creation out of `MainViewModel` into `ILibraryCacheService.CreateAndSaveSnapshotAsync` to reduce ViewModel complexity and improve SOLID single responsibility. 📦
-* Introduced `ILibraryTabView` contract implemented across `GamesTabView`, `AppsTabView`, `TvAndFilmsTabView`, and `OsImagesTabView`, eliminating view-to-view tight coupling in `MainPage.xaml.cs`. 🧩
+* Introduced `ILibraryTabView` contract implemented across `GamesTabView`, `AppsTabView`, `TvAndFilmsTabView`, and `OsImagesTabView`, eliminating view-to-view tight coupling in `MainPage.xaml.cs` via dynamic Pivot tab retrieval. 🧩
+* Extracted `LibraryViewExtensions` (`GetSelectedEntries` and `ClearMultiSelection`) to eliminate duplicated selection and clearing boilerplate across all child library tab views. ⚡
 * Replaced programmatic imperative C# UI construction in `DialogService.ShowConflictDialogAsync` with a dedicated XAML UserControl `ConflictDialogContent.xaml` and clean data bindings. 🎨
 * Centralized flyout setup, positioning, and style configuration in `FlyoutHelper.cs` with clean pattern-matching guard clauses. 🛠️
 * Applied modern C# features including pattern matching, switch expressions, collection expressions, and event handler lifecycle safety in `MainPage` and `MainViewModel`. ⚡
