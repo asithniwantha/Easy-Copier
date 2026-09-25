@@ -5,6 +5,7 @@ using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Controls.Primitives;
 using System;
 using System.Threading.Tasks;
+using System.Windows.Input;
 using Windows.Foundation;
 
 namespace Easy_Copier.Services
@@ -14,36 +15,48 @@ namespace Easy_Copier.Services
     /// </summary>
     public class FlyoutService : IFlyoutService
     {
+        private readonly IGameRequirementsService _gameRequirementsService;
+        private readonly Func<GameDetailsViewModel> _gameDetailsViewModelFactory;
         private readonly Func<OsImageDetailsViewModel> _osImageDetailsViewModelFactory;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="FlyoutService"/> class.
         /// </summary>
+        /// <param name="gameRequirementsService">Service for retrieving and formatting system requirements.</param>
+        /// <param name="gameDetailsViewModelFactory">Factory delegate for resolving <see cref="GameDetailsViewModel"/> instances.</param>
         /// <param name="osImageDetailsViewModelFactory">Factory delegate for resolving <see cref="OsImageDetailsViewModel"/> instances.</param>
-        public FlyoutService(Func<OsImageDetailsViewModel> osImageDetailsViewModelFactory)
+        public FlyoutService(
+            IGameRequirementsService gameRequirementsService,
+            Func<GameDetailsViewModel> gameDetailsViewModelFactory,
+            Func<OsImageDetailsViewModel> osImageDetailsViewModelFactory)
         {
+            _gameRequirementsService = gameRequirementsService ?? throw new ArgumentNullException(nameof(gameRequirementsService));
+            _gameDetailsViewModelFactory = gameDetailsViewModelFactory ?? throw new ArgumentNullException(nameof(gameDetailsViewModelFactory));
             _osImageDetailsViewModelFactory = osImageDetailsViewModelFactory ?? throw new ArgumentNullException(nameof(osImageDetailsViewModelFactory));
         }
 
         /// <inheritdoc />
-        public void HandleOpenFolderClick(object sender, MainViewModel? mainViewModel)
+        public void HandleOpenFolderClick(object sender, ICommand? openFolderCommand)
         {
-            if (sender is Button { DataContext: GameEntry gameEntry } && mainViewModel != null)
+            if (sender is Button { DataContext: GameEntry gameEntry } && openFolderCommand != null)
             {
-                mainViewModel.OpenItemFolderCommand.Execute(gameEntry.FolderPath);
+                if (openFolderCommand.CanExecute(gameEntry.FolderPath))
+                {
+                    openFolderCommand.Execute(gameEntry.FolderPath);
+                }
             }
         }
 
         /// <inheritdoc />
-        public async Task ShowGameDetailsFlyoutAsync(object sender, Point? position, MainViewModel? mainViewModel)
+        public async Task ShowGameDetailsFlyoutAsync(object sender, Point? position)
         {
-            if (sender is not FrameworkElement fe || fe.DataContext is not GameEntry gameEntry || mainViewModel == null)
+            if (sender is not FrameworkElement fe || fe.DataContext is not GameEntry gameEntry)
             {
                 return;
             }
 
-            string formattedText = await mainViewModel.GetFormattedSystemRequirementsAsync(gameEntry.FolderPath);
-            GameDetailsViewModel gameDetailsViewModel = mainViewModel.CreateGameDetailsViewModel();
+            string formattedText = await _gameRequirementsService.GetFormattedSystemRequirementsAsync(gameEntry.FolderPath);
+            GameDetailsViewModel gameDetailsViewModel = _gameDetailsViewModelFactory();
             Views.GameDetailsFlyout detailsFlyout = new(gameDetailsViewModel, formattedText, gameEntry.FolderPath);
 
             Style flyoutStyle = new(typeof(FlyoutPresenter));

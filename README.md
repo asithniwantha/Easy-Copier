@@ -181,7 +181,8 @@ Distributed under the MIT License. See `LICENSE` for more information.
 * Extracted `IRufusService` / `RufusService` to encapsulate Rufus executable resolution and ISO launching, eliminating process management from `MainViewModel`. 📀
 * Streamlined child tab ViewModels (`GamesTabViewModel`, `AppsTabViewModel`, `TvAndFilmsTabViewModel`, `OsImagesTabViewModel`) by introducing `ForwardParentPropertyChanges` in `LibraryTabViewModelBase`. 🔄
 * Introduced `IFileSystemService` and `FileSystemService` to encapsulate directory listing, size calculations, and path existence checks, removing direct disk I/O calls from ViewModels. 📁
-* Introduced `IFlyoutService` and `FlyoutService` to encapsulate right-click item details flyout presentation (`GameDetailsFlyout`, `OsImageDetailsFlyout`) and folder launch interactions, fully decoupled from WinUI input event types. 🪟
+* Introduced `IGameRequirementsService` and `GameRequirementsService` to encapsulate system requirements parsing and formatting, removing formatting responsibility from `MainViewModel`. 🎮
+* Decoupled `IFlyoutService` and `FlyoutService` from `MainViewModel`, utilizing `ICommand` and `IGameRequirementsService` to manage flyouts and folder actions without ViewModel coupling. 🪟
 * Extracted `ILibraryFilterService` to encapsulate search text filtering, `GameCategory` filtering, and OS image sorting options into a focused, testable service. 🔍
 * Refactored cache snapshot creation out of `MainViewModel` into `ILibraryCacheService.CreateAndSaveSnapshotAsync` to reduce ViewModel complexity and improve SOLID single responsibility. 📦
 * Introduced `ILibraryTabView` contract implemented across `GamesTabView`, `AppsTabView`, `TvAndFilmsTabView`, and `OsImagesTabView`, eliminating view-to-view tight coupling in `MainPage.xaml.cs` via dynamic Pivot tab retrieval. 🧩

@@ -71,7 +71,7 @@ namespace Easy_Copier.Views
 
         private void OpenFolderButton_Click(object sender, RoutedEventArgs e)
         {
-            FlyoutHelper.HandleOpenFolderClick(sender, ViewModel?.MainViewModel);
+            FlyoutHelper.HandleOpenFolderClick(sender, ViewModel?.MainViewModel?.OpenItemFolderCommand);
         }
 
         private void GameCard_RightTapped(object sender, RightTappedRoutedEventArgs e)
