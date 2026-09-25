@@ -91,6 +91,45 @@ namespace Easy_Copier.Converters
     /// <summary>
     /// Converts a boolean value to a UI <see cref="Visibility"/> status, supporting optional inversion via the converter parameter ("Invert").
     /// </summary>
+    public class NullToVisibilityConverter : IValueConverter
+    {
+        public object Convert(object value, Type targetType, object parameter, string language)
+        {
+            bool isNull = value == null;
+            if (parameter is string param && param.Equals("Invert", StringComparison.OrdinalIgnoreCase))
+            {
+                isNull = !isNull;
+            }
+            return isNull ? Visibility.Collapsed : Visibility.Visible;
+        }
+
+        public object ConvertBack(object value, Type targetType, object parameter, string language)
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    public class BoolToStringConverter : IValueConverter
+    {
+        public object Convert(object value, Type targetType, object parameter, string language)
+        {
+            if (value is bool b && parameter is string param)
+            {
+                string[] parts = param.Split('|');
+                if (parts.Length == 2)
+                {
+                    return b ? parts[0] : parts[1];
+                }
+            }
+            return value?.ToString() ?? string.Empty;
+        }
+
+        public object ConvertBack(object value, Type targetType, object parameter, string language)
+        {
+            throw new NotImplementedException();
+        }
+    }
+
     public class BoolToVisibilityConverter : IValueConverter
     {
         /// <inheritdoc />

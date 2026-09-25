@@ -192,6 +192,21 @@ namespace Easy_Copier.Services
                             bool result = item.Action == CopyAction.Merge && Directory.Exists(destPath) && Directory.Exists(game.FolderPath)
                                 ? MergeDirectory(game.FolderPath, destPath)
                                 : CopyItemWithFileOperation(game.FolderPath, request.DestinationPath, destPath, progress, game.TotalBytes);
+                            string errorMsg = "";
+                            string subFilesJson = "";
+                            try
+                            {
+                                if (Directory.Exists(game.FolderPath))
+                                {
+                                    var files = Directory.GetFiles(game.FolderPath, "*", SearchOption.AllDirectories);
+                                    subFilesJson = System.Text.Json.JsonSerializer.Serialize(files);
+                                }
+                            }
+                            catch (Exception ex)
+                            {
+                                _logger.LogWarning(ex, "Failed to scan source directory for sub-files: {Path}", game.FolderPath);
+                            }
+
                             if (result)
                             {
                                 successCount++;
@@ -200,7 +215,8 @@ namespace Easy_Copier.Services
                             }
                             else
                             {
-                                errors.Add($"{game.Name}: Copy operation was cancelled or failed");
+                                errorMsg = "Copy operation was cancelled or failed";
+                                errors.Add($"{game.Name}: {errorMsg}");
                                 _logger.LogWarning("Copy failed or cancelled: {Game}", game.Name);
                             }
 
@@ -213,15 +229,23 @@ namespace Easy_Copier.Services
                                 TargetDriveLabel: request.TargetDrive.DriveLabel,
                                 BytesTransferred: result ? game.TotalBytes : 0,
                                 IsSuccess: result,
-                                Amount: result ? CalculateAmount(game.TotalBytes) : 0
+                                Amount: result ? CalculateAmount(game.TotalBytes) : 0,
+                                SourcePath: game.FolderPath,
+                                DestinationPath: destPath,
+                                ErrorLog: errorMsg,
+                                SubFilesJson: subFilesJson
                             )).GetAwaiter().GetResult();
                         }
                         catch (Exception ex)
                         {
+                            string errorMsg = ex.Message;
                             // Safely extract the game name using null-conditional access to handle cases where item is null
                             string itemName = item?.Game?.Name ?? "Unknown item";
-                            errors.Add($"{itemName}: {ex.Message}");
+                            errors.Add($"{itemName}: {errorMsg}");
                             _logger.LogError(ex, "Error copying game: {Game}", itemName);
+
+                            string srcPath = item?.Game?.FolderPath ?? "";
+                            string destPath = Path.Combine(request.DestinationPath, itemName);
 
                             // Log failure to history
                             _copyHistoryService.AddRecordAsync(new CopyHistoryRecord(
@@ -232,7 +256,11 @@ namespace Easy_Copier.Services
                                 TargetDriveLabel: request.TargetDrive.DriveLabel,
                                 BytesTransferred: 0,
                                 IsSuccess: false,
-                                Amount: 0
+                                Amount: 0,
+                                SourcePath: srcPath,
+                                DestinationPath: destPath,
+                                ErrorLog: errorMsg,
+                                SubFilesJson: ""
                             )).GetAwaiter().GetResult();
                         }
                     }

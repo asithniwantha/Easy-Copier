@@ -391,7 +391,11 @@ namespace Easy_Copier.Models
         string TargetDriveLabel,
         long BytesTransferred,
         bool IsSuccess,
-        int Amount)
+        int Amount,
+        string SourcePath = "",
+        string DestinationPath = "",
+        string ErrorLog = "",
+        string SubFilesJson = "")
     {
         /// <summary>
         /// Gets or sets the total batch price amount for grouped transfer operations.
