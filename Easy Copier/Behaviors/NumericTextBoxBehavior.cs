@@ -33,6 +33,11 @@ namespace Easy_Copier.Behaviors
             base.OnDetaching();
         }
 
+        /// <summary>
+        /// Handles text changing events to sanitize user input to numeric values.
+        /// </summary>
+        /// <param name="sender">The source <see cref="TextBox"/> control.</param>
+        /// <param name="args">The event arguments for the text change.</param>
         private void AssociatedObject_TextChanging(TextBox sender, TextBoxTextChangingEventArgs args)
         {
             string originalText = sender.Text;
@@ -48,6 +53,11 @@ namespace Easy_Copier.Behaviors
             }
         }
 
+        /// <summary>
+        /// Filters an input string to contain only valid numeric characters (digits, single optional leading minus, single decimal point).
+        /// </summary>
+        /// <param name="input">The raw string to sanitize.</param>
+        /// <returns>A sanitized string containing valid numeric characters.</returns>
         private static string SanitizeText(string input)
         {
             if (string.IsNullOrEmpty(input))
@@ -83,6 +93,11 @@ namespace Easy_Copier.Behaviors
             return new string(chars.ToArray());
         }
 
+        /// <summary>
+        /// Handles preview key down events to perform custom keyboard navigation across grid cells.
+        /// </summary>
+        /// <param name="sender">The event source.</param>
+        /// <param name="e">The key event arguments.</param>
         private void AssociatedObject_PreviewKeyDown(object sender, KeyRoutedEventArgs e)
         {
             switch (e.Key)
@@ -115,6 +130,10 @@ namespace Easy_Copier.Behaviors
             }
         }
 
+        /// <summary>
+        /// Handles subtraction key inputs for negation or advancing input to the next row with a negative sign.
+        /// </summary>
+        /// <param name="e">The key event arguments.</param>
         private void HandleMinusKey(KeyRoutedEventArgs e)
         {
             ItemsControl? itemsControl = AssociatedObject.FindAscendant<ItemsControl>();
@@ -166,6 +185,10 @@ namespace Easy_Copier.Behaviors
             }
         }
 
+        /// <summary>
+        /// Moves keyboard focus to the preceding or succeeding <see cref="TextBox"/> in the grid.
+        /// </summary>
+        /// <param name="forward"><see langword="true"/> to move to the next cell; <see langword="false"/> to move to the previous cell.</param>
         private void MoveFocus(bool forward)
         {
             ItemsControl? itemsControl = AssociatedObject.FindAscendant<ItemsControl>();
@@ -196,6 +219,9 @@ namespace Easy_Copier.Behaviors
             }
         }
 
+        /// <summary>
+        /// Removes the active cell entry via the ViewModel and moves keyboard focus to the preceding cell.
+        /// </summary>
         private void RemoveCurrentEntryAndFocusPrevious()
         {
             ItemsControl? itemsControl = AssociatedObject.FindAscendant<ItemsControl>();
@@ -225,6 +251,10 @@ namespace Easy_Copier.Behaviors
             }
         }
 
+        /// <summary>
+        /// Sets keyboard focus on the specified <see cref="TextBox"/> and positions the caret at the end of the text.
+        /// </summary>
+        /// <param name="textBox">The target text box control to focus.</param>
         private static void FocusTextBox(TextBox textBox)
         {
             _ = textBox.Focus(FocusState.Keyboard);

@@ -89,10 +89,11 @@ namespace Easy_Copier.Converters
     }
 
     /// <summary>
-    /// Converts a boolean value to a UI <see cref="Visibility"/> status, supporting optional inversion via the converter parameter ("Invert").
+    /// Converts an object reference (null vs non-null) to a UI <see cref="Visibility"/> status, supporting optional inversion via the converter parameter ("Invert").
     /// </summary>
     public class NullToVisibilityConverter : IValueConverter
     {
+        /// <inheritdoc />
         public object Convert(object value, Type targetType, object parameter, string language)
         {
             bool isNull = value == null;
@@ -103,14 +104,19 @@ namespace Easy_Copier.Converters
             return isNull ? Visibility.Collapsed : Visibility.Visible;
         }
 
+        /// <inheritdoc />
         public object ConvertBack(object value, Type targetType, object parameter, string language)
         {
             throw new NotImplementedException();
         }
     }
 
+    /// <summary>
+    /// Converts a boolean value to a formatted string using a pipe-separated string parameter ("TrueText|FalseText").
+    /// </summary>
     public class BoolToStringConverter : IValueConverter
     {
+        /// <inheritdoc />
         public object Convert(object value, Type targetType, object parameter, string language)
         {
             if (value is bool b && parameter is string param)
@@ -124,6 +130,7 @@ namespace Easy_Copier.Converters
             return value?.ToString() ?? string.Empty;
         }
 
+        /// <inheritdoc />
         public object ConvertBack(object value, Type targetType, object parameter, string language)
         {
             throw new NotImplementedException();
