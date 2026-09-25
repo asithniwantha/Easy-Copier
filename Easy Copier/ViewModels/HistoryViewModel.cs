@@ -173,11 +173,10 @@ namespace Easy_Copier.ViewModels
             // Apply Search Query
             if (!string.IsNullOrWhiteSpace(SearchQuery))
             {
-                string query = SearchQuery.ToLowerInvariant();
                 filtered = filtered.Where(r =>
-                    r.GameName.ToLowerInvariant().Contains(query) ||
-                    r.TargetDriveLetter.ToLowerInvariant().Contains(query) ||
-                    r.TargetDriveLabel.ToLowerInvariant().Contains(query)
+                    r.GameName.Contains(SearchQuery, StringComparison.OrdinalIgnoreCase) ||
+                    r.TargetDriveLetter.Contains(SearchQuery, StringComparison.OrdinalIgnoreCase) ||
+                    r.TargetDriveLabel.Contains(SearchQuery, StringComparison.OrdinalIgnoreCase)
                 );
             }
 
