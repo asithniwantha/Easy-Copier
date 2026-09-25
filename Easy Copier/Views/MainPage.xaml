@@ -124,6 +124,7 @@
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*"/>
                                 <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
                             </Grid.ColumnDefinitions>
 
                             <ComboBox Grid.Column="0"
@@ -173,6 +174,14 @@
                                     ToolTipService.ToolTip="Open drive in File Explorer">
                                 <FontIcon Glyph="&#xE838;" FontSize="14"/>
                             </Button>
+                            <Button Grid.Column="2" Margin="4,0,0,0"
+                                    Padding="8"
+                                    VerticalAlignment="Stretch"
+                                    IsEnabled="{x:Bind ViewModel.HasSelectedDrive, Mode=OneWay}"
+                                    Command="{x:Bind ViewModel.FormatDriveCommand}"
+                                    ToolTipService.ToolTip="Format drive">
+                                <FontIcon Glyph="&#xE75C;" FontSize="14"/>
+                            </Button>
                         </Grid>
 
                         <Button Content="Refresh Drives" Command="{x:Bind ViewModel.RefreshDrivesCommand}"
@@ -213,6 +222,7 @@
                         <Grid Grid.Row="1" Margin="0,8,0,4">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
                                 <ColumnDefinition Width="Auto"/>
                             </Grid.ColumnDefinitions>
                             <TextBlock Grid.Column="0" Text="Transfer Queue" FontWeight="SemiBold"/>

@@ -1,3 +1,4 @@
+using System;
 using System.Diagnostics;
 using System.Security.Principal;
 
@@ -19,6 +20,13 @@ namespace Easy_Copier.Infrastructure
         /// </summary>
         /// <returns><c>true</c> if running as Administrator; otherwise, <c>false</c>.</returns>
         bool IsRunningAsAdministrator();
+
+        /// <summary>
+        /// Opens the native Windows Format dialog for the specified drive.
+        /// </summary>
+        /// <param name="driveLetter">The drive letter (e.g., "D:" or "D").</param>
+        void OpenFormatDialog(string driveLetter);
+
     }
 
     /// <summary>
@@ -64,5 +72,29 @@ namespace Easy_Copier.Infrastructure
                 return false;
             }
         }
+
+        [System.Runtime.InteropServices.DllImport("shell32.dll")]
+        private static extern uint SHFormatDrive(IntPtr hwnd, uint drive, uint fmtID, uint options);
+
+        private const uint SHFMT_ID_DEFAULT = 0xFFFF;
+
+        /// <summary>
+        /// Opens the native Windows Format dialog for the specified drive.
+        /// </summary>
+        /// <param name="driveLetter">The drive letter (e.g., "D:" or "D").</param>
+        public void OpenFormatDialog(string driveLetter)
+        {
+            if (string.IsNullOrWhiteSpace(driveLetter))
+                return;
+
+            char letter = driveLetter[0];
+            if (!char.IsAsciiLetter(letter))
+                return;
+
+            uint driveIndex = (uint)(char.ToUpper(letter) - 'A');
+
+            _ = SHFormatDrive(IntPtr.Zero, driveIndex, SHFMT_ID_DEFAULT, 0);
+        }
+
     }
 }

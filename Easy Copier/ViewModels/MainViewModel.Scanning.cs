@@ -402,6 +402,15 @@ namespace Easy_Copier.ViewModels
         }
 
         [RelayCommand]
+        private void FormatDrive()
+        {
+            if (SelectedDrive != null)
+            {
+                _processService.OpenFormatDialog(SelectedDrive.DriveLetter);
+            }
+        }
+
+        [RelayCommand]
         private void OpenItemFolder(string folderPath)
         {
             if (!string.IsNullOrEmpty(folderPath))
