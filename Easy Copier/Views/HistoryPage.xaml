@@ -12,6 +12,9 @@
 
     <Page.Resources>
         <converters:BytesToSizeConverter x:Key="BytesToSizeConverter"/>
+        <converters:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter"/>
+        <converters:BoolToStringConverter x:Key="BoolToStringConverter"/>
+        <converters:NullToVisibilityConverter x:Key="NullToVisibilityConverter"/>
 
         <DataTemplate x:Key="StatusBadgeTemplate">
             <Border Padding="6,2" CornerRadius="4"
