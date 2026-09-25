@@ -424,15 +424,9 @@ namespace Easy_Copier.ViewModels
             StatusMessage = message;
         }
 
-        public async Task<string> GetFormattedSystemRequirementsAsync(string folderPath)
+        public Task<string> GetFormattedSystemRequirementsAsync(string folderPath)
         {
-            if (string.IsNullOrEmpty(folderPath))
-            {
-                return string.Empty;
-            }
-
-            string rawRequirementsText = await _sourceLibraryService.GetSystemRequirementsAsync(folderPath);
-            return SysReqFormatter.FormatText(rawRequirementsText);
+            return _gameRequirementsService.GetFormattedSystemRequirementsAsync(folderPath);
         }
 
         [RelayCommand]

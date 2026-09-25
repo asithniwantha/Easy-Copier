@@ -1,5 +1,5 @@
-using Easy_Copier.ViewModels;
 using System.Threading.Tasks;
+using System.Windows.Input;
 using Windows.Foundation;
 
 namespace Easy_Copier.Services
@@ -10,20 +10,19 @@ namespace Easy_Copier.Services
     public interface IFlyoutService
     {
         /// <summary>
-        /// Handles button click events to open an item's folder in File Explorer.
+        /// Handles button click events to open an item's folder in File Explorer using the provided open folder command.
         /// </summary>
         /// <param name="sender">The control triggering the click.</param>
-        /// <param name="mainViewModel">The main ViewModel providing the open item folder command.</param>
-        void HandleOpenFolderClick(object sender, MainViewModel? mainViewModel);
+        /// <param name="openFolderCommand">The command to execute for opening the item folder.</param>
+        void HandleOpenFolderClick(object sender, ICommand? openFolderCommand);
 
         /// <summary>
         /// Displays the game/app/media details flyout asynchronously when an item card is right-tapped.
         /// </summary>
         /// <param name="sender">The framework element triggering the right-tap.</param>
         /// <param name="position">The optional point coordinates relative to the sender for flyout placement.</param>
-        /// <param name="mainViewModel">The main ViewModel providing requirement formatting and ViewModel factory.</param>
         /// <returns>A task representing the asynchronous flyout presentation.</returns>
-        Task ShowGameDetailsFlyoutAsync(object sender, Point? position, MainViewModel? mainViewModel);
+        Task ShowGameDetailsFlyoutAsync(object sender, Point? position);
 
         /// <summary>
         /// Displays the OS image details flyout when an OS image card is right-tapped.
