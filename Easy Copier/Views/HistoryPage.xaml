@@ -63,7 +63,7 @@
                 <StackPanel>
                     <TextBlock Text="Total Revenue" Style="{ThemeResource CaptionTextBlockStyle}" Foreground="{ThemeResource TextFillColorSecondaryBrush}"/>
                     <TextBlock Style="{ThemeResource TitleTextBlockStyle}" FontWeight="Bold" Margin="0,4,0,0">
-                        <Run Text="$"/>
+                        <Run Text="Rs "/>
                         <Run Text="{x:Bind ViewModel.SelectedFilterStats.TotalAmount, Mode=OneWay}"/>
                     </TextBlock>
                 </StackPanel>
