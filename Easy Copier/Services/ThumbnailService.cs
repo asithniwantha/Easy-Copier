@@ -59,9 +59,10 @@ namespace Easy_Copier.Services
                     // Create IShellItem
                     Guid shellItemGuid = new("43826d1e-e718-42ee-bc55-a1e261c37bfe");
                     FileOperationInterop.SHCreateItemFromParsingName(sourceFilePath, IntPtr.Zero, shellItemGuid, out IShellItem shellItem);
-
-                    if (shellItem is IShellItemImageFactory imageFactory)
+                    try
                     {
+                        IShellItemImageFactory imageFactory = (IShellItemImageFactory)shellItem;
+
                         SIZE size = new() { cx = 256, cy = 256 };
                         SIIGBF flags = SIIGBF.SIIGBF_RESIZETOFIT;
 
@@ -87,6 +88,11 @@ namespace Easy_Copier.Services
                             _logger.LogWarning("Failed to extract thumbnail for {FilePath}. HRESULT: {HR}", sourceFilePath, hr);
                         }
                     }
+                    catch (InvalidCastException)
+                    {
+                        _logger.LogWarning("File {FilePath} does not support IShellItemImageFactory", sourceFilePath);
+                    }
+
                 }
                 catch (OperationCanceledException)
                 {
