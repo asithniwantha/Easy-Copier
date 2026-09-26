@@ -63,6 +63,7 @@ namespace Easy_Copier.Services
         /// Logger instance used for recording library scanning operations.
         /// </summary>
         private readonly ILogger<GameScannerService> _logger;
+        private readonly IThumbnailService _thumbnailService;
 
         /// <summary>
         /// Array of standard cover image file names checked when locating artwork.
@@ -78,9 +79,10 @@ namespace Easy_Copier.Services
         /// Initializes a new instance of the <see cref="GameScannerService"/> class.
         /// </summary>
         /// <param name="logger">Logger instance for diagnostic logging.</param>
-        public GameScannerService(ILogger<GameScannerService> logger)
+        public GameScannerService(ILogger<GameScannerService> logger, IThumbnailService thumbnailService)
         {
             _logger = logger;
+            _thumbnailService = thumbnailService;
         }
 
         /// <summary>
@@ -197,11 +199,18 @@ namespace Easy_Copier.Services
                                     long totalSize = fi.Length;
                                     bool hasLargeFiles = totalSize > RemovableDrive.Fat32MaxFileSize;
 
+                                    string? coverImage = null;
+                                    if (category == LibraryCategory.TvAndFilm)
+                                    {
+                                        string cacheDir = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "EasyCopier", "Thumbnails");
+                                        coverImage = await _thumbnailService.ExtractThumbnailAsync(file, cacheDir, cancellationToken).ConfigureAwait(false);
+                                    }
+
                                     GameEntry entry = new(
                                         Path.GetFileNameWithoutExtension(fileName),
                                         file,
                                         totalSize,
-                                        null, // Standalone files covers to be implemented later
+                                        coverImage,
                                         fi.LastWriteTime < fi.CreationTime && fi.LastWriteTime != DateTime.MinValue ? fi.LastWriteTime : fi.CreationTime,
                                         hasLargeFiles,
                                         category);

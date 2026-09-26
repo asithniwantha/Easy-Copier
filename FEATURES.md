@@ -16,6 +16,7 @@
 ## 🎨 Visual Presentation
 - Cover-art grid view for items.
 - Fallback icon for entries without cover images.
+- Automatic background thumbnail generation (via IShellItemImageFactory) for standalone TV & Film video files.
 - Item size display with human-readable formatting.
 - Large-file indicator badge for FAT32 incompatibility risk.
 - Right-click context flyout displaying color-formatted system requirements and scrollable folder contents via `FlyoutHelper`.
