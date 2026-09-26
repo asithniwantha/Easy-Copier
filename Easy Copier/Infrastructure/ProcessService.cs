@@ -91,7 +91,7 @@ namespace Easy_Copier.Infrastructure
             if (!char.IsAsciiLetter(letter))
                 return;
 
-            uint driveIndex = (uint)(char.ToUpper(letter) - 'A');
+            uint driveIndex = (uint)(char.ToUpperInvariant(letter) - 'A');
 
             _ = SHFormatDrive(IntPtr.Zero, driveIndex, SHFMT_ID_DEFAULT, 0);
         }
