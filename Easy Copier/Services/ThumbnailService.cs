@@ -29,36 +29,37 @@ namespace Easy_Copier.Services
         }
 
         /// <inheritdoc />
-        public async Task<string?> ExtractThumbnailAsync(string sourceFilePath, string cacheDirectoryPath, CancellationToken cancellationToken = default)
+        public Task<string?> ExtractThumbnailAsync(string sourceFilePath, string cacheDirectoryPath, CancellationToken cancellationToken = default)
         {
             if (string.IsNullOrWhiteSpace(sourceFilePath) || !File.Exists(sourceFilePath))
             {
-                return null;
+                return Task.FromResult<string?>(null);
             }
 
-            return await Task.Run(() =>
+            if (!Directory.Exists(cacheDirectoryPath))
+            {
+                _ = Directory.CreateDirectory(cacheDirectoryPath);
+            }
+
+            string fileNameHash = ComputeHash(sourceFilePath);
+            string cacheFilePath = Path.Combine(cacheDirectoryPath, $"{fileNameHash}.jpg");
+
+            if (File.Exists(cacheFilePath))
+            {
+                return Task.FromResult<string?>(cacheFilePath);
+            }
+
+            TaskCompletionSource<string?> tcs = new();
+
+            Thread staThread = new(() =>
             {
                 try
                 {
-                    if (!Directory.Exists(cacheDirectoryPath))
-                    {
-                        _ = Directory.CreateDirectory(cacheDirectoryPath);
-                    }
-
-                    // Generate a stable cache file name based on the source file path
-                    string fileNameHash = ComputeHash(sourceFilePath);
-                    string cacheFilePath = Path.Combine(cacheDirectoryPath, $"{fileNameHash}.jpg");
-
-                    if (File.Exists(cacheFilePath))
-                    {
-                        return cacheFilePath; // Already cached
-                    }
-
                     cancellationToken.ThrowIfCancellationRequested();
 
-                    // Create IShellItem
                     Guid shellItemGuid = new("43826d1e-e718-42ee-bc55-a1e261c37bfe");
                     FileOperationInterop.SHCreateItemFromParsingName(sourceFilePath, IntPtr.Zero, shellItemGuid, out IShellItem shellItem);
+
                     try
                     {
                         IShellItemImageFactory imageFactory = (IShellItemImageFactory)shellItem;
@@ -71,12 +72,11 @@ namespace Easy_Copier.Services
                         {
                             try
                             {
-                                // Convert HBITMAP to Image and save as JPEG
                                 using (Image image = Image.FromHbitmap(hbitmap))
                                 {
                                     image.Save(cacheFilePath, ImageFormat.Jpeg);
                                 }
-                                return cacheFilePath;
+                                tcs.TrySetResult(cacheFilePath);
                             }
                             finally
                             {
@@ -86,25 +86,36 @@ namespace Easy_Copier.Services
                         else
                         {
                             _logger.LogWarning("Failed to extract thumbnail for {FilePath}. HRESULT: {HR}", sourceFilePath, hr);
+                            tcs.TrySetResult(null);
                         }
                     }
                     catch (InvalidCastException)
                     {
                         _logger.LogWarning("File {FilePath} does not support IShellItemImageFactory", sourceFilePath);
+                        tcs.TrySetResult(null);
                     }
-
                 }
                 catch (OperationCanceledException)
                 {
-                    // Expected during shutdown/cancel
+                    tcs.TrySetCanceled(cancellationToken);
                 }
                 catch (Exception ex)
                 {
                     _logger.LogWarning(ex, "Error extracting thumbnail for {FilePath}", sourceFilePath);
+                    tcs.TrySetResult(null);
                 }
+            })
+            {
+                IsBackground = true
+            };
 
-                return null;
-            }, cancellationToken).ConfigureAwait(false);
+            staThread.SetApartmentState(ApartmentState.STA);
+            staThread.Start();
+
+            // Cancel the thread operation if token is cancelled
+            cancellationToken.Register(() => tcs.TrySetCanceled(cancellationToken));
+
+            return tcs.Task;
         }
 
         private static string ComputeHash(string input)
