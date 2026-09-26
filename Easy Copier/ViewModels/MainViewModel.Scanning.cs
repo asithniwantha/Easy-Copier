@@ -99,7 +99,6 @@ namespace Easy_Copier.ViewModels
         /// Handles changes to the SearchText property to re-apply library filtering.
         /// Uses nullable string? for oldValue to match the CommunityToolkit.Mvvm partial method declaration for reference types.
         /// </summary>
-
         partial void OnSearchTextChanged(string oldValue, string newValue) => ApplyFilter();
 
         partial void OnSelectedCategoryChanged(GameCategory oldValue, GameCategory newValue) => ApplyFilter();
@@ -123,7 +122,6 @@ namespace Easy_Copier.ViewModels
         {
             IsOsImageSortAscending = !IsOsImageSortAscending;
         }
-
 
         private void ApplyFilter()
         {
@@ -282,6 +280,12 @@ namespace Easy_Copier.ViewModels
             return itemsToQueue;
         }
 
+        /// <summary>
+        /// Displays a global in-app notification bar with the specified title and message.
+        /// </summary>
+        /// <param name="title">The title text of the notification.</param>
+        /// <param name="message">The body text message of the notification.</param>
+        /// <param name="isSuccess"><see langword="true"/> to display a success notification; <see langword="false"/> to display an error notification.</param>
         public void ShowGlobalNotification(string title, string message, bool isSuccess = true)
         {
             _dispatcherService.TryEnqueue((Func<Task>)(async () =>
@@ -356,6 +360,10 @@ namespace Easy_Copier.ViewModels
             return SelectedGamesCount > 0 && SelectedDrive != null;
         }
 
+        /// <summary>
+        /// Updates selected game entries and recalculates size, item count, and price summary values.
+        /// </summary>
+        /// <param name="selectedGames">The collection of selected library entries.</param>
         public void UpdateSelectionSummary(System.Collections.Generic.IEnumerable<GameEntry> selectedGames)
         {
             _selectedGames = [.. selectedGames];
@@ -433,6 +441,11 @@ namespace Easy_Copier.ViewModels
             StatusMessage = message;
         }
 
+        /// <summary>
+        /// Asynchronously retrieves and formats system requirements for a specified game item directory.
+        /// </summary>
+        /// <param name="folderPath">The file system directory path to inspect for system requirements.</param>
+        /// <returns>A task that represents the asynchronous operation. The task result contains the formatted system requirements text string.</returns>
         public async Task<string> GetFormattedSystemRequirementsAsync(string folderPath)
         {
             if (string.IsNullOrEmpty(folderPath))
@@ -455,6 +468,7 @@ namespace Easy_Copier.ViewModels
             _windowService.ShowSettingsWindow(null, openAction);
         }
 
+        /// <inheritdoc />
         public void Dispose()
         {
             if (Interlocked.Exchange(ref _isDisposed, 1) != 0)
