@@ -86,6 +86,7 @@ The selected-drive panel also shows a usage bar, free space, total capacity, and
 - Use Smart Adder for quick Excel-like calculations.
 
 ### 🚀 Copy Operations
+- Quickly open the native Windows Format dialog for a selected removable drive directly from the Action Center.
 - Ask for conflict resolution (Replace, Merge, Skip) before queuing if destination items exist, comparing size and file count using a dedicated `ConflictDialogContent` view.
 - Support "Merge" behavior by intelligently copying only missing files to the destination.
 - Copy multiple selected items asynchronously without blocking the UI.
