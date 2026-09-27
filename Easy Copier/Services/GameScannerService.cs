@@ -289,6 +289,24 @@ namespace Easy_Copier.Services
                                 (long TotalSize, bool HasLargeFiles) = await GetFolderStatsAsync(gameFolder, RemovableDrive.Fat32MaxFileSize, cancellationToken).ConfigureAwait(false);
 
                                 string? coverImage = FindCoverImage(gameFolder);
+                                if (category == LibraryCategory.TvAndFilm && coverImage == null && !string.IsNullOrWhiteSpace(videoExtensions))
+                                {
+                                    try
+                                    {
+                                        var extList = videoExtensions.Split(VideoExtensionSeparators, StringSplitOptions.RemoveEmptyEntries).Select(e => e.Trim().StartsWith('.') ? e.Trim() : "." + e.Trim()).ToList();
+                                        var allFiles = Directory.GetFiles(gameFolder, "*.*", SearchOption.TopDirectoryOnly);
+                                        var videoFile = allFiles.FirstOrDefault(f => extList.Contains(Path.GetExtension(f), StringComparer.OrdinalIgnoreCase));
+                                        if (videoFile != null)
+                                        {
+                                            string cacheDir = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "EasyCopier", "Thumbnails");
+                                            coverImage = await _thumbnailService.ExtractThumbnailAsync(videoFile, cacheDir, cancellationToken).ConfigureAwait(false);
+                                        }
+                                    }
+                                    catch (Exception ex)
+                                    {
+                                        _logger.LogWarning(ex, "Failed to extract thumbnail from video in folder: {Folder}", gameFolder);
+                                    }
+                                }
                                 IReadOnlyList<GameCategory> categoriesList = GetCategories(gameFolder);
 
                                 GameEntry game = new(
