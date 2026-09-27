@@ -1,4 +1,5 @@
 using System;
+using System.Diagnostics.CodeAnalysis;
 using System.Runtime.InteropServices;
 
 namespace Easy_Copier.Interop
@@ -7,19 +8,36 @@ namespace Easy_Copier.Interop
     /// Represents the native SIZE structure.
     /// </summary>
     [StructLayout(LayoutKind.Sequential)]
-    public struct SIZE
+    public struct SIZE : IEquatable<SIZE>
     {
         /// <summary>The x extent (width).</summary>
         public int cx;
 
         /// <summary>The y extent (height).</summary>
         public int cy;
+
+        /// <inheritdoc />
+        public readonly override bool Equals(object? obj) => obj is SIZE size && Equals(size);
+
+        /// <inheritdoc />
+        public readonly bool Equals(SIZE other) => cx == other.cx && cy == other.cy;
+
+        /// <inheritdoc />
+        public readonly override int GetHashCode() => HashCode.Combine(cx, cy);
+
+        /// <summary>Determines whether two specified instances of <see cref="SIZE"/> are equal.</summary>
+        public static bool operator ==(SIZE left, SIZE right) => left.Equals(right);
+
+        /// <summary>Determines whether two specified instances of <see cref="SIZE"/> are not equal.</summary>
+        public static bool operator !=(SIZE left, SIZE right) => !left.Equals(right);
     }
 
     /// <summary>
     /// Flags that specify how the image should be generated for IShellItemImageFactory.
     /// </summary>
     [Flags]
+    [SuppressMessage("Naming", "CA1712:Do not prefix enum values with type name", Justification = "Matches native Win32 Shell API enumeration SIIGBF.")]
+    [SuppressMessage("Design", "CA1008:Enums should have zero value", Justification = "Matches native Win32 Shell API enumeration SIIGBF where SIIGBF_RESIZETOFIT is 0.")]
     public enum SIIGBF
     {
         /// <summary>Shrink the bitmap as necessary to fit, preserving its aspect ratio.</summary>

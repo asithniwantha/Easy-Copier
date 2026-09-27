@@ -181,9 +181,9 @@ namespace Easy_Copier.Services
 
         private static string ComputeHash(string input)
         {
-            byte[] inputBytes = Encoding.UTF8.GetBytes(input.ToLowerInvariant());
+            byte[] inputBytes = Encoding.UTF8.GetBytes(input.ToUpperInvariant());
             byte[] hashBytes = SHA256.HashData(inputBytes);
-            return Convert.ToHexString(hashBytes).ToLowerInvariant();
+            return Convert.ToHexString(hashBytes).ToUpperInvariant();
         }
     }
 }
