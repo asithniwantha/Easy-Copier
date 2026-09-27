@@ -167,7 +167,12 @@ namespace Easy_Copier.Converters
                 {
                     if (System.IO.File.Exists(path) && Uri.TryCreate(path, UriKind.Absolute, out Uri? uri))
                     {
-                        return new Microsoft.UI.Xaml.Media.Imaging.BitmapImage(uri);
+                        return new Microsoft.UI.Xaml.Media.Imaging.BitmapImage(uri)
+                        {
+                            DecodePixelWidth = 200,
+                            DecodePixelHeight = 280,
+                            DecodePixelType = Microsoft.UI.Xaml.Media.Imaging.DecodePixelType.Logical
+                        };
                     }
                 }
                 catch

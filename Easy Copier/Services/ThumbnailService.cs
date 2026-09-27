@@ -65,7 +65,7 @@ namespace Easy_Copier.Services
 
                         IShellItemImageFactory imageFactory = (IShellItemImageFactory)shellItem;
 
-                        SIZE size = new() { cx = 256, cy = 256 };
+                        SIZE size = new() { cx = 200, cy = 280 };
                         SIIGBF flags = SIIGBF.SIIGBF_RESIZETOFIT;
 
                         int hr = imageFactory.GetImage(size, flags, out IntPtr hbitmap);
@@ -101,7 +101,7 @@ namespace Easy_Copier.Services
                         {
                             Windows.Storage.StorageFile storageFile = await Windows.Storage.StorageFile.GetFileFromPathAsync(sourceFilePath);
                             using Windows.Storage.FileProperties.StorageItemThumbnail thumbnail = await storageFile.GetThumbnailAsync(
-                                Windows.Storage.FileProperties.ThumbnailMode.VideosView, 256);
+                                Windows.Storage.FileProperties.ThumbnailMode.VideosView, 280);
 
                             if (thumbnail != null && thumbnail.Type == Windows.Storage.FileProperties.ThumbnailType.Image)
                             {
@@ -116,14 +116,44 @@ namespace Easy_Copier.Services
                             }
                             else
                             {
-                                _logger.LogWarning("Fallback failed to extract a valid thumbnail for {FilePath}.", sourceFilePath);
-                                tcs.TrySetResult(null);
+                                _logger.LogWarning("Fallback failed to extract a valid thumbnail for {FilePath}. Attempting NReco FFMpeg extraction...", sourceFilePath);
+                                try
+                                {
+                                    var ffMpeg = new NReco.VideoConverter.FFMpegConverter();
+                                    using var memoryStream = new MemoryStream();
+                                    ffMpeg.GetVideoThumbnail(sourceFilePath, memoryStream, 5f);
+                                    using (Image image = Image.FromStream(memoryStream))
+                                    {
+                                        image.Save(cacheFilePath, ImageFormat.Jpeg);
+                                    }
+                                    tcs.TrySetResult(cacheFilePath);
+                                }
+                                catch (Exception ffmpegEx)
+                                {
+                                    _logger.LogWarning(ffmpegEx, "NReco FFMpeg Fallback error extracting thumbnail for {FilePath}", sourceFilePath);
+                                    tcs.TrySetResult(null);
+                                }
                             }
                         }
                         catch (Exception winrtEx)
                         {
-                            _logger.LogWarning(winrtEx, "WinRT Fallback error extracting thumbnail for {FilePath}", sourceFilePath);
-                            tcs.TrySetResult(null);
+                            _logger.LogWarning(winrtEx, "WinRT Fallback error extracting thumbnail for {FilePath}. Attempting NReco FFMpeg extraction...", sourceFilePath);
+                            try
+                            {
+                                var ffMpeg = new NReco.VideoConverter.FFMpegConverter();
+                                using var memoryStream = new MemoryStream();
+                                ffMpeg.GetVideoThumbnail(sourceFilePath, memoryStream, 5f);
+                                using (Image image = Image.FromStream(memoryStream))
+                                {
+                                    image.Save(cacheFilePath, ImageFormat.Jpeg);
+                                }
+                                tcs.TrySetResult(cacheFilePath);
+                            }
+                            catch (Exception ffmpegEx)
+                            {
+                                _logger.LogWarning(ffmpegEx, "NReco FFMpeg Fallback error extracting thumbnail for {FilePath}", sourceFilePath);
+                                tcs.TrySetResult(null);
+                            }
                         }
                     }
                 }

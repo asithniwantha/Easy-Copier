@@ -1,5 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
+
     <LangVersion>preview</LangVersion>
     <OutputType>WinExe</OutputType>
     <TargetFramework>net10.0-windows10.0.26100.0</TargetFramework>
@@ -41,6 +42,7 @@
     <PackageReference Include="Microsoft.Extensions.Logging" Version="11.0.0-rc.1.26425.128" />
     <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="11.0.0-rc.1.26425.128" />
     <PackageReference Include="Microsoft.Xaml.Behaviors.WinUI.Managed" Version="3.0.1" />
+    <PackageReference Include="NReco.VideoConverter" Version="1.2.1" />
     <PackageReference Include="SQLitePCLRaw.lib.e_sqlite3" Version="3.53.3" />
     <PackageReference Include="System.Management" Version="11.0.0-rc.1.26425.128" />
     <PackageReference Include="System.Windows.Extensions" Version="11.0.0-rc.1.26425.128" />
@@ -63,6 +65,7 @@
   </ItemGroup>
 
   <PropertyGroup>
+
     <DefineConstants>DISABLE_XAML_GENERATED_MAIN</DefineConstants>
     <PublishReadyToRun>false</PublishReadyToRun>
     <PublishTrimmed>False</PublishTrimmed>
