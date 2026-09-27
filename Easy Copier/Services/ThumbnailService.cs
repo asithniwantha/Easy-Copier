@@ -51,17 +51,18 @@ namespace Easy_Copier.Services
 
             TaskCompletionSource<string?> tcs = new();
 
-            Thread staThread = new(() =>
+            Thread staThread = new(async () =>
             {
                 try
                 {
                     cancellationToken.ThrowIfCancellationRequested();
-
-                    Guid shellItemGuid = new("43826d1e-e718-42ee-bc55-a1e261c37bfe");
-                    FileOperationInterop.SHCreateItemFromParsingName(sourceFilePath, IntPtr.Zero, shellItemGuid, out IShellItem shellItem);
+                    bool shellExtractionSucceeded = false;
 
                     try
                     {
+                        Guid shellItemGuid = new("43826d1e-e718-42ee-bc55-a1e261c37bfe");
+                        FileOperationInterop.SHCreateItemFromParsingName(sourceFilePath, IntPtr.Zero, shellItemGuid, out IShellItem shellItem);
+
                         IShellItemImageFactory imageFactory = (IShellItemImageFactory)shellItem;
 
                         SIZE size = new() { cx = 256, cy = 256 };
@@ -76,6 +77,7 @@ namespace Easy_Copier.Services
                                 {
                                     image.Save(cacheFilePath, ImageFormat.Jpeg);
                                 }
+                                shellExtractionSucceeded = true;
                                 tcs.TrySetResult(cacheFilePath);
                             }
                             finally
@@ -83,16 +85,46 @@ namespace Easy_Copier.Services
                                 _ = Gdi32Interop.DeleteObject(hbitmap);
                             }
                         }
-                        else
-                        {
-                            _logger.LogWarning("Failed to extract thumbnail for {FilePath}. HRESULT: {HR}", sourceFilePath, hr);
-                            tcs.TrySetResult(null);
-                        }
                     }
                     catch (InvalidCastException)
                     {
-                        _logger.LogWarning("File {FilePath} does not support IShellItemImageFactory", sourceFilePath);
-                        tcs.TrySetResult(null);
+                        _logger.LogInformation("File {FilePath} does not support IShellItemImageFactory. Falling back to StorageFile.GetThumbnailAsync...", sourceFilePath);
+                    }
+                    catch (Exception ex)
+                    {
+                        _logger.LogWarning(ex, "Error during Shell extraction for {FilePath}. Falling back...", sourceFilePath);
+                    }
+
+                    if (!shellExtractionSucceeded)
+                    {
+                        try
+                        {
+                            Windows.Storage.StorageFile storageFile = await Windows.Storage.StorageFile.GetFileFromPathAsync(sourceFilePath);
+                            using Windows.Storage.FileProperties.StorageItemThumbnail thumbnail = await storageFile.GetThumbnailAsync(
+                                Windows.Storage.FileProperties.ThumbnailMode.VideosView, 256);
+
+                            if (thumbnail != null && thumbnail.Type == Windows.Storage.FileProperties.ThumbnailType.Image)
+                            {
+                                using (Stream stream = thumbnail.AsStream())
+                                {
+                                    using (Image image = Image.FromStream(stream))
+                                    {
+                                        image.Save(cacheFilePath, ImageFormat.Jpeg);
+                                    }
+                                }
+                                tcs.TrySetResult(cacheFilePath);
+                            }
+                            else
+                            {
+                                _logger.LogWarning("Fallback failed to extract a valid thumbnail for {FilePath}.", sourceFilePath);
+                                tcs.TrySetResult(null);
+                            }
+                        }
+                        catch (Exception winrtEx)
+                        {
+                            _logger.LogWarning(winrtEx, "WinRT Fallback error extracting thumbnail for {FilePath}", sourceFilePath);
+                            tcs.TrySetResult(null);
+                        }
                     }
                 }
                 catch (OperationCanceledException)
@@ -101,7 +133,7 @@ namespace Easy_Copier.Services
                 }
                 catch (Exception ex)
                 {
-                    _logger.LogWarning(ex, "Error extracting thumbnail for {FilePath}", sourceFilePath);
+                    _logger.LogWarning(ex, "General error extracting thumbnail for {FilePath}", sourceFilePath);
                     tcs.TrySetResult(null);
                 }
             })
@@ -112,7 +144,6 @@ namespace Easy_Copier.Services
             staThread.SetApartmentState(ApartmentState.STA);
             staThread.Start();
 
-            // Cancel the thread operation if token is cancelled
             cancellationToken.Register(() => tcs.TrySetCanceled(cancellationToken));
 
             return tcs.Task;
