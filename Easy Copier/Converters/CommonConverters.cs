@@ -137,6 +137,9 @@ namespace Easy_Copier.Converters
         }
     }
 
+    /// <summary>
+    /// Converts a boolean value to a UI <see cref="Visibility"/> status, supporting optional inversion via the converter parameter ("Invert").
+    /// </summary>
     public class BoolToVisibilityConverter : IValueConverter
     {
         /// <inheritdoc />
