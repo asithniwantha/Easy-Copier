@@ -59,7 +59,7 @@ namespace Easy_Copier.ViewModels
         /// <summary>Service for displaying save file picker dialogs.</summary>
         private readonly IFilePickerService _filePickerService;
 
-        /// <summary>Service for grouping history records and computing aggregate history statistics.</summary>
+        /// <summary>Service for analyzing and clustering history records.</summary>
         private readonly IHistoryAnalysisService _historyAnalysisService;
 
         /// <summary>Internal list holding all un-filtered copy history records loaded from storage.</summary>
@@ -140,7 +140,7 @@ namespace Easy_Copier.ViewModels
         /// <param name="copyHistoryService">The copy history service used to query past transfer records.</param>
         /// <param name="reportService">The report service used to export records.</param>
         /// <param name="filePickerService">The file picker service used to select export file destinations.</param>
-        /// <param name="historyAnalysisService">The history analysis service used to group records and compute summary statistics.</param>
+        /// <param name="historyAnalysisService">The history analysis service used to cluster records and calculate stats.</param>
         public HistoryViewModel(
             ICopyHistoryService copyHistoryService,
             IReportService reportService,
