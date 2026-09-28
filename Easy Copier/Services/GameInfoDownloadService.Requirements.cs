@@ -20,7 +20,7 @@ namespace Easy_Copier.Services
         /// </summary>
         /// <param name="gameName">The title of the game to query.</param>
         /// <param name="cancellationToken">Cancellation token.</param>
-        /// <returns>A task returning a nested dictionary of requirements (minimum and recommended), or <c>null</c> if not found.</returns>
+        /// <returns>A task that represents the asynchronous operation. The task result contains a nested dictionary of requirements (minimum and recommended), or <c>null</c> if not found.</returns>
         private async Task<Dictionary<string, Dictionary<string, string>>?> FetchSteamRequirementsAsync(string gameName, CancellationToken cancellationToken)
         {
             string? appId = await FetchSteamAppIdAsync(gameName, cancellationToken);
@@ -163,7 +163,7 @@ namespace Easy_Copier.Services
         /// </summary>
         /// <param name="gameName">The title of the game.</param>
         /// <param name="cancellationToken">Cancellation token.</param>
-        /// <returns>A task returning the Steam App ID string if found; otherwise, <c>null</c>.</returns>
+        /// <returns>A task that represents the asynchronous operation. The task result contains the Steam App ID string if found; otherwise, <c>null</c>.</returns>
         private async Task<string?> FetchSteamAppIdAsync(string gameName, CancellationToken cancellationToken)
         {
             Uri url = new($"https://steamcommunity.com/actions/SearchApps/{Uri.EscapeDataString(gameName)}");

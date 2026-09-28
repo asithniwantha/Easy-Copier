@@ -17,6 +17,9 @@ namespace Easy_Copier.Services
     /// </summary>
     public class ThumbnailService : IThumbnailService
     {
+        /// <summary>
+        /// Logger instance used for recording thumbnail extraction diagnostics and errors.
+        /// </summary>
         private readonly ILogger<ThumbnailService> _logger;
 
         /// <summary>
@@ -179,6 +182,11 @@ namespace Easy_Copier.Services
             return tcs.Task;
         }
 
+        /// <summary>
+        /// Computes an uppercase SHA256 hex string hash from an input string for unique cache file naming.
+        /// </summary>
+        /// <param name="input">The string input to hash (e.g., file path).</param>
+        /// <returns>The SHA256 hex digest string.</returns>
         private static string ComputeHash(string input)
         {
             byte[] inputBytes = Encoding.UTF8.GetBytes(input.ToUpperInvariant());
