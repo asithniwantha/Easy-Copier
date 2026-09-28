@@ -29,6 +29,7 @@ namespace Easy_Copier.ViewModels
         private readonly IDialogService _dialogService;
         private readonly ILibraryFilterService _libraryFilterService;
         private readonly IRufusService _rufusService;
+        private readonly IGameRequirementsService _gameRequirementsService;
         private readonly Func<GameDetailsViewModel> _gameDetailsViewModelFactory;
         private CancellationTokenSource? _scanCancellationTokenSource;
         private CancellationTokenSource? _validationCancellationTokenSource;
@@ -199,6 +200,7 @@ namespace Easy_Copier.ViewModels
             IDialogService dialogService,
             ILibraryFilterService libraryFilterService,
             IRufusService rufusService,
+            IGameRequirementsService gameRequirementsService,
             SmartAdderViewModel smartAdderViewModel,
             Func<GameDetailsViewModel> gameDetailsViewModelFactory)
         {
@@ -218,6 +220,7 @@ namespace Easy_Copier.ViewModels
             _dialogService = dialogService;
             _libraryFilterService = libraryFilterService;
             _rufusService = rufusService;
+            _gameRequirementsService = gameRequirementsService;
             SmartAdderViewModel = smartAdderViewModel;
             _gameDetailsViewModelFactory = gameDetailsViewModelFactory;
             GamesTabViewModel = new GamesTabViewModel(this);

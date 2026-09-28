@@ -191,3 +191,5 @@ Distributed under the MIT License. See `LICENSE` for more information.
 * Centralized flyout setup, positioning, and style configuration in `FlyoutHelper.cs` with clean pattern-matching guard clauses. 🛠️
 * Applied modern C# features including pattern matching, switch expressions, collection expressions, and event handler lifecycle safety in `MainPage` and `MainViewModel`. ⚡
 * Eliminated code-behind event handlers in Windows and Pages (e.g., `Click="Close_Click"`) and replaced them with strongly-typed `ICommand` bindings utilizing the `CommunityToolkit.Mvvm` framework. Event callbacks like `CloseRequested` decouple the ViewModel logic from direct UI window management. 🧹
+* Introduced `IGameRequirementsService` and `GameRequirementsService` to encapsulate retrieving and formatting game system requirements using `ISourceLibraryService` and `SysReqFormatter`, removing formatting responsibilities from `MainViewModel`. 🎮
+* Introduced `IHistoryAnalysisService` and `HistoryAnalysisService` to encapsulate history record drive-window clustering (15-minute grouping) and statistic summary calculations, decoupling analysis logic from `HistoryViewModel`. 📈

@@ -59,6 +59,9 @@ namespace Easy_Copier.ViewModels
         /// <summary>Service for displaying save file picker dialogs.</summary>
         private readonly IFilePickerService _filePickerService;
 
+        /// <summary>Service for grouping history records and computing aggregate history statistics.</summary>
+        private readonly IHistoryAnalysisService _historyAnalysisService;
+
         /// <summary>Internal list holding all un-filtered copy history records loaded from storage.</summary>
         private List<CopyHistoryRecord> _allRecords = [];
 
@@ -137,14 +140,17 @@ namespace Easy_Copier.ViewModels
         /// <param name="copyHistoryService">The copy history service used to query past transfer records.</param>
         /// <param name="reportService">The report service used to export records.</param>
         /// <param name="filePickerService">The file picker service used to select export file destinations.</param>
+        /// <param name="historyAnalysisService">The history analysis service used to group records and compute summary statistics.</param>
         public HistoryViewModel(
             ICopyHistoryService copyHistoryService,
             IReportService reportService,
-            IFilePickerService filePickerService)
+            IFilePickerService filePickerService,
+            IHistoryAnalysisService historyAnalysisService)
         {
             _copyHistoryService = copyHistoryService;
             _reportService = reportService;
             _filePickerService = filePickerService;
+            _historyAnalysisService = historyAnalysisService;
 
             // Initialize default filter options
             AvailableDateFilters = new ObservableCollection<string> { "Today", "Last 7 Days", "This Month", "All Time" };
@@ -282,43 +288,11 @@ namespace Easy_Copier.ViewModels
 
             List<CopyHistoryRecord> sortedRecords = filtered.OrderByDescending(r => r.Timestamp).ToList();
 
-            // Compute batch amount
-            List<List<CopyHistoryRecord>> clusters = [];
-            foreach (CopyHistoryRecord record in sortedRecords)
-            {
-                List<CopyHistoryRecord>? cluster = clusters.FirstOrDefault(c =>
-                    c.First().TargetDriveLetter == record.TargetDriveLetter &&
-                    Math.Abs((c.First().Timestamp - record.Timestamp).TotalMinutes) < 15);
-
-                if (cluster == null)
-                {
-                    cluster = [];
-                    clusters.Add(cluster);
-                }
-
-                cluster.Add(record);
-            }
-
-            foreach (List<CopyHistoryRecord> cluster in clusters)
-            {
-                int clusterTotal = cluster.Sum(r => r.Amount);
-                foreach (CopyHistoryRecord record in cluster)
-                {
-                    record.BatchAmount = clusterTotal;
-                }
-            }
-
+            _historyAnalysisService.ApplyBatchClustering(sortedRecords);
             Records.UpdateFrom(sortedRecords);
 
-            // Compute Stats
-            int totalItems = sortedRecords.Count;
-            int successfulItems = sortedRecords.Count(r => r.IsSuccess);
-            long totalBytes = sortedRecords.Sum(r => r.BytesTransferred);
-            int totalAmount = sortedRecords.Sum(r => r.Amount);
-            string successRate = totalItems == 0 ? "0%" : $"{Math.Round((double)successfulItems / totalItems * 100)}%";
-
-            SelectedFilterStats = new HistoryStats(totalItems, successfulItems, totalBytes, totalAmount, successRate);
-            StatusMessage = $"Showing {totalItems} records.";
+            SelectedFilterStats = _historyAnalysisService.CalculateStats(sortedRecords);
+            StatusMessage = $"Showing {sortedRecords.Count} records.";
         }
 
         /// <summary>
