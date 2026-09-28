@@ -61,21 +61,9 @@ namespace Easy_Copier.Views
         private async Task LoadAsync(SettingsOpenAction openAction)
         {
             await ViewModel.LoadSettingsAsync();
-            if (openAction == SettingsOpenAction.AddAppFolder)
+            if (openAction.ToFolderCategoryString() is string category)
             {
-                await ViewModel.AddNewSourceFolderCommand.ExecuteAsync("App");
-            }
-            else if (openAction == SettingsOpenAction.AddGameFolder)
-            {
-                await ViewModel.AddNewSourceFolderCommand.ExecuteAsync("Game");
-            }
-            else if (openAction == SettingsOpenAction.AddTvAndFilmFolder)
-            {
-                await ViewModel.AddNewSourceFolderCommand.ExecuteAsync("TvAndFilm");
-            }
-            else if (openAction == SettingsOpenAction.AddOsImageFolder)
-            {
-                await ViewModel.AddNewSourceFolderCommand.ExecuteAsync("OsImage");
+                await ViewModel.AddNewSourceFolderCommand.ExecuteAsync(category);
             }
         }
 

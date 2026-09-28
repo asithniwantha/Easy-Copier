@@ -2,7 +2,7 @@ using Easy_Copier.ViewModels;
 using System.Threading.Tasks;
 using Windows.Foundation;
 
-namespace Easy_Copier.Services
+namespace Easy_Copier.Infrastructure
 {
     /// <summary>
     /// Defines methods for presenting item detail flyouts and handling folder launch actions in library views.

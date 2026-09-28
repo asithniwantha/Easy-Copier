@@ -37,6 +37,26 @@ namespace Easy_Copier.Infrastructure
     }
 
     /// <summary>
+    /// Extension methods for <see cref="SettingsOpenAction"/>.
+    /// </summary>
+    public static class SettingsOpenActionExtensions
+    {
+        /// <summary>
+        /// Maps the <see cref="SettingsOpenAction"/> enum value to its corresponding folder category string parameter.
+        /// </summary>
+        /// <param name="action">The settings open action value.</param>
+        /// <returns>The category string if matching an add action, or <c>null</c> if no action is specified.</returns>
+        public static string? ToFolderCategoryString(this SettingsOpenAction action) => action switch
+        {
+            SettingsOpenAction.AddAppFolder => "App",
+            SettingsOpenAction.AddGameFolder => "Game",
+            SettingsOpenAction.AddTvAndFilmFolder => "TvAndFilm",
+            SettingsOpenAction.AddOsImageFolder => "OsImage",
+            _ => null
+        };
+    }
+
+    /// <summary>
     /// Provides abstract methods for creating and displaying secondary windows in the application.
     /// </summary>
     public interface IWindowService

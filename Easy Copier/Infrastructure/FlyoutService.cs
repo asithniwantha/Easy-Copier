@@ -1,4 +1,5 @@
 using Easy_Copier.Models;
+using Easy_Copier.Services;
 using Easy_Copier.ViewModels;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
@@ -7,10 +8,10 @@ using System;
 using System.Threading.Tasks;
 using Windows.Foundation;
 
-namespace Easy_Copier.Services
+namespace Easy_Copier.Infrastructure
 {
     /// <summary>
-    /// Implements <see cref="IFlyoutService"/> to present item details flyouts and handle folder launch interactions.
+    /// Implements <see cref="IFlyoutService"/> to present item details flyouts and handle folder launch interactions in UI infrastructure.
     /// </summary>
     public class FlyoutService : IFlyoutService
     {

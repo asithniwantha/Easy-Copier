@@ -42,6 +42,9 @@ namespace Easy_Copier.Views
         /// </summary>
         public IList<object> SelectedItems => TvAndFilmsGridView.SelectedItems;
 
+        /// <inheritdoc />
+        public bool IsOsImagesTab => false;
+
         /// <summary>
         /// Initializes a new instance of the <see cref="TvAndFilmsTabView"/> class.
         /// </summary>

@@ -125,7 +125,7 @@ namespace Easy_Copier.Views
             else
             {
                 IEnumerable<GameEntry> selectedItems = GetTabViews()
-                    .Where(tab => tab is not OsImagesTabView)
+                    .Where(tab => !tab.IsOsImagesTab)
                     .SelectMany(tab => tab.GetSelectedEntries());
                 ViewModel.UpdateSelectionSummary(selectedItems);
             }
