@@ -64,16 +64,31 @@ namespace Easy_Copier.Views
             }
         }
 
+        /// <summary>
+        /// Handles the <see cref="Selector.SelectionChanged"/> event for the OS Images grid.
+        /// </summary>
+        /// <param name="sender">The source of the selection changed event.</param>
+        /// <param name="e">The event data describing selection modifications.</param>
         private void OsImagesGridView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             SelectionChanged?.Invoke(this, e);
         }
 
+        /// <summary>
+        /// Handles the Click event for the Open Folder button on an OS image card.
+        /// </summary>
+        /// <param name="sender">The source of the click event.</param>
+        /// <param name="e">The event arguments.</param>
         private void OpenFolderButton_Click(object sender, RoutedEventArgs e)
         {
             FlyoutHelper.HandleOpenFolderClick(sender, ViewModel?.MainViewModel);
         }
 
+        /// <summary>
+        /// Handles the RightTapped event on an OS image card to present the details flyout.
+        /// </summary>
+        /// <param name="sender">The source of the right-tap event.</param>
+        /// <param name="e">The event arguments containing input position details.</param>
         private void GameCard_RightTapped(object sender, RightTappedRoutedEventArgs e)
         {
             FlyoutHelper.ShowOsImageDetailsFlyout(sender, e);

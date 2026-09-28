@@ -8,45 +8,87 @@ namespace Easy_Copier.Infrastructure
     /// </summary>
     public static partial class SysReqFormatter
     {
+        /// <summary>
+        /// Gets the compiled regular expression for matching processor headers not preceded by a newline.
+        /// </summary>
         [GeneratedRegex(@"(?<!\n)\s*Processor:")]
         private static partial Regex ProcessorRegex();
 
+        /// <summary>
+        /// Gets the compiled regular expression for matching graphics headers not preceded by a newline.
+        /// </summary>
         [GeneratedRegex(@"(?<!\n)\s*Graphics:")]
         private static partial Regex GraphicsRegex();
 
+        /// <summary>
+        /// Gets the compiled regular expression for matching memory headers not preceded by a newline.
+        /// </summary>
         [GeneratedRegex(@"(?<!\n)\s*Memory:")]
         private static partial Regex MemoryRegex();
 
+        /// <summary>
+        /// Gets the compiled regular expression for matching OS headers not preceded by a newline.
+        /// </summary>
         [GeneratedRegex(@"(?<!\n)\s*OS\s*\*?:")]
         private static partial Regex OsRegex();
 
+        /// <summary>
+        /// Gets the compiled regular expression for matching storage headers not preceded by a newline.
+        /// </summary>
         [GeneratedRegex(@"(?<!\n)\s*Storage:")]
         private static partial Regex StorageRegex();
 
+        /// <summary>
+        /// Gets the compiled regular expression for matching DirectX headers not preceded by a newline.
+        /// </summary>
         [GeneratedRegex(@"(?<!\n)\s*DirectX:")]
         private static partial Regex DirectXRegex();
 
+        /// <summary>
+        /// Gets the compiled regular expression for matching sound card headers not preceded by a newline.
+        /// </summary>
         [GeneratedRegex(@"(?<!\n)\s*Sound Card:")]
         private static partial Regex SoundCardRegex();
 
+        /// <summary>
+        /// Gets the compiled regular expression for matching VR support headers not preceded by a newline.
+        /// </summary>
         [GeneratedRegex(@"(?<!\n)\s*VR Support:")]
         private static partial Regex VrSupportRegex();
 
+        /// <summary>
+        /// Gets the compiled regular expression for matching additional notes headers not preceded by a newline.
+        /// </summary>
         [GeneratedRegex(@"(?<!\n)\s*Additional Notes:")]
         private static partial Regex AdditionalNotesRegex();
 
+        /// <summary>
+        /// Gets the compiled regular expression for matching 64-bit architecture requirement headers not preceded by a newline.
+        /// </summary>
         [GeneratedRegex(@"(?<!\n)\s*Requires a 64-bit processor and operating system")]
         private static partial Regex Requires64BitRegex();
 
+        /// <summary>
+        /// Gets the compiled regular expression for matching minimum CPU headers.
+        /// </summary>
         [GeneratedRegex(@"CPU:\s*Minimum:")]
         private static partial Regex CpuMinimumRegex();
 
+        /// <summary>
+        /// Gets the compiled regular expression for matching recommended CPU headers.
+        /// </summary>
         [GeneratedRegex(@"CPU:\s*Recommended:")]
         private static partial Regex CpuRecommendedRegex();
 
+        /// <summary>
+        /// Gets the compiled regular expression for matching minimum requirement headers not preceded by a newline.
+        /// </summary>
         [GeneratedRegex(@"(?<!\n)\s*Minimum:")]
         private static partial Regex MinimumRegex();
 
+        /// <summary>
+        /// Gets the compiled regular expression for matching recommended requirement headers not preceded by a newline.
+        /// </summary>
         [GeneratedRegex(@"(?<!\n)\s*Recommended:")]
         private static partial Regex RecommendedRegex();
 
