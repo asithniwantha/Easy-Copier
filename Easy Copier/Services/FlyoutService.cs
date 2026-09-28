@@ -15,14 +15,19 @@ namespace Easy_Copier.Services
     public class FlyoutService : IFlyoutService
     {
         private readonly Func<OsImageDetailsViewModel> _osImageDetailsViewModelFactory;
+        private readonly IGameRequirementsService _gameRequirementsService;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="FlyoutService"/> class.
         /// </summary>
         /// <param name="osImageDetailsViewModelFactory">Factory delegate for resolving <see cref="OsImageDetailsViewModel"/> instances.</param>
-        public FlyoutService(Func<OsImageDetailsViewModel> osImageDetailsViewModelFactory)
+        /// <param name="gameRequirementsService">Service for retrieving and formatting game system requirements.</param>
+        public FlyoutService(
+            Func<OsImageDetailsViewModel> osImageDetailsViewModelFactory,
+            IGameRequirementsService gameRequirementsService)
         {
             _osImageDetailsViewModelFactory = osImageDetailsViewModelFactory ?? throw new ArgumentNullException(nameof(osImageDetailsViewModelFactory));
+            _gameRequirementsService = gameRequirementsService ?? throw new ArgumentNullException(nameof(gameRequirementsService));
         }
 
         /// <inheritdoc />
@@ -42,7 +47,7 @@ namespace Easy_Copier.Services
                 return;
             }
 
-            string formattedText = await mainViewModel.GetFormattedSystemRequirementsAsync(gameEntry.FolderPath);
+            string formattedText = await _gameRequirementsService.GetFormattedRequirementsAsync(gameEntry.FolderPath);
             GameDetailsViewModel gameDetailsViewModel = mainViewModel.CreateGameDetailsViewModel();
             Views.GameDetailsFlyout detailsFlyout = new(gameDetailsViewModel, formattedText, gameEntry.FolderPath);
 

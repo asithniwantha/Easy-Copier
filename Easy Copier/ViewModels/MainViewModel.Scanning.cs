@@ -448,13 +448,7 @@ namespace Easy_Copier.ViewModels
         /// <returns>A task that represents the asynchronous operation. The task result contains the formatted system requirements text string.</returns>
         public async Task<string> GetFormattedSystemRequirementsAsync(string folderPath)
         {
-            if (string.IsNullOrEmpty(folderPath))
-            {
-                return string.Empty;
-            }
-
-            string rawRequirementsText = await _sourceLibraryService.GetSystemRequirementsAsync(folderPath);
-            return SysReqFormatter.FormatText(rawRequirementsText);
+            return await _gameRequirementsService.GetFormattedRequirementsAsync(folderPath);
         }
 
         [RelayCommand]

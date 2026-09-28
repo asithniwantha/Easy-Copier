@@ -67,6 +67,8 @@ namespace Easy_Copier.Infrastructure
             _ = services.AddSingleton<Services.IFileSystemService, Services.FileSystemService>();
             _ = services.AddSingleton<Services.IFlyoutService, Services.FlyoutService>();
             _ = services.AddSingleton<Services.IThumbnailService, Services.ThumbnailService>();
+            _ = services.AddSingleton<Services.IGameRequirementsService, Services.GameRequirementsService>();
+            _ = services.AddSingleton<Services.IHistoryAnalysisService, Services.HistoryAnalysisService>();
 
             return services;
         }
