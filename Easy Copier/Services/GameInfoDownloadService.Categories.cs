@@ -100,7 +100,7 @@ namespace Easy_Copier.Services
         /// </summary>
         /// <param name="appId">The Steam App ID.</param>
         /// <param name="cancellationToken">Cancellation token.</param>
-        /// <returns>A task returning a list of matched <see cref="GameCategory"/> values.</returns>
+        /// <returns>A task that represents the asynchronous operation. The task result contains a list of matched <see cref="GameCategory"/> values.</returns>
         private async Task<List<GameCategory>> FetchSteamCategoriesAsync(string appId, CancellationToken cancellationToken)
         {
             List<GameCategory> categories = [];
