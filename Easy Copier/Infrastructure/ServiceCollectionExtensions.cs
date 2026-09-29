@@ -65,7 +65,7 @@ namespace Easy_Copier.Infrastructure
             _ = services.AddSingleton<Services.IAudioPlaybackService, Services.AudioPlaybackService>();
             _ = services.AddSingleton<Services.IRufusService, Services.RufusService>();
             _ = services.AddSingleton<Services.IFileSystemService, Services.FileSystemService>();
-            _ = services.AddSingleton<Services.IFlyoutService, Services.FlyoutService>();
+            _ = services.AddSingleton<IFlyoutService, FlyoutService>();
             _ = services.AddSingleton<Services.IThumbnailService, Services.ThumbnailService>();
             _ = services.AddSingleton<Services.IGameRequirementsService, Services.GameRequirementsService>();
             _ = services.AddSingleton<Services.IHistoryAnalysisService, Services.HistoryAnalysisService>();

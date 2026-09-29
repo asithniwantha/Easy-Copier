@@ -9,6 +9,11 @@ namespace Easy_Copier.Views
     public interface ILibraryTabView
     {
         /// <summary>
+        /// Gets a value indicating whether this library tab represents OS Images.
+        /// </summary>
+        bool IsOsImagesTab { get; }
+
+        /// <summary>
         /// Retrieves the collection of currently selected <see cref="GameEntry"/> items in this view.
         /// </summary>
         /// <returns>An enumerable of selected game entries.</returns>

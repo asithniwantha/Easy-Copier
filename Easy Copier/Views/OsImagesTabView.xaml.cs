@@ -42,6 +42,9 @@ namespace Easy_Copier.Views
         /// </summary>
         public IList<object> SelectedItems => OsImagesGridView.SelectedItems;
 
+        /// <inheritdoc />
+        public bool IsOsImagesTab => true;
+
         /// <summary>
         /// Initializes a new instance of the <see cref="OsImagesTabView"/> class.
         /// </summary>
