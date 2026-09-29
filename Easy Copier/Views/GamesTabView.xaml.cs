@@ -76,7 +76,7 @@ namespace Easy_Copier.Views
         /// <param name="e">The event arguments.</param>
         private void OpenFolderButton_Click(object sender, RoutedEventArgs e)
         {
-            FlyoutHelper.HandleOpenFolderClick(sender, ViewModel?.MainViewModel);
+            FlyoutHelper.HandleOpenFolderClick(sender);
         }
 
         /// <summary>
@@ -86,7 +86,7 @@ namespace Easy_Copier.Views
         /// <param name="e">The event arguments containing input position details.</param>
         private async void GameCard_RightTapped(object sender, RightTappedRoutedEventArgs e)
         {
-            await FlyoutHelper.ShowGameDetailsFlyoutAsync(sender, e, ViewModel?.MainViewModel);
+            await FlyoutHelper.ShowGameDetailsFlyoutAsync(sender, e);
         }
     }
 }

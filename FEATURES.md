@@ -88,7 +88,8 @@
 - Extracted `ILibraryFilterService` to handle text search query filtering, `GameCategory` matching, and OS image sorting in a dedicated service.
 - Refactored `ILibraryCacheService` to encapsulate snapshot fingerprinting and JSON cache file creation (`CreateAndSaveSnapshotAsync`).
 - Introduced `IFileSystemService` and `FileSystemService` in `Services/` to encapsulate directory listing, size calculations, and path existence checks, decoupling ViewModels from direct disk I/O.
-- Relocated `IFlyoutService` and `FlyoutService` to `Infrastructure/` to encapsulate right-click item details flyout presentation (`GameDetailsFlyout`, `OsImageDetailsFlyout`) and folder launch interactions, decoupled from core application services.
+- Relocated and decoupled `IFlyoutService` and `FlyoutService` in `Infrastructure/` to encapsulate right-click item details flyout presentation (`GameDetailsFlyout`, `OsImageDetailsFlyout`) and folder launch interactions by injecting `IProcessService` and ViewModel factories directly, completely eliminating `MainViewModel` parameters from flyout contracts.
+- Refactored `MainViewModel` to use `IFileSystemService` for file and directory checks during queue item construction, and cached `AppSettings` in memory to eliminate synchronous disk I/O on UI selection summary updates.
 - Decoupled library tab views using `ILibraryTabView` contract with `IsOsImagesTab` property to eliminate view-to-view tight coupling, leveraging dynamic Pivot tab retrieval in `MainPage.xaml.cs`.
 - Extracted `LibraryViewExtensions` (`GetSelectedEntries` and `ClearMultiSelection`) to eliminate duplicated grid selection logic across all library tab views.
 - Replaced imperative C# UI construction in `DialogService.cs` with declarative `ConflictDialogContent.xaml` XAML controls.

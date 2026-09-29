@@ -37,6 +37,7 @@ namespace Easy_Copier.ViewModels
                 _scanCancellationTokenSource = new CancellationTokenSource();
 
                 AppSettings settings = await _settingsService.LoadSettingsAsync();
+                _cachedSettings = settings;
 
                 if (settings.GameSourceFolders.Count == 0 && settings.AppSourceFolders.Count == 0 && (settings.TvAndFilmSourceFolders == null || settings.TvAndFilmSourceFolders.Count == 0) && (settings.OsImageSourceFolders == null || settings.OsImageSourceFolders.Count == 0))
                 {
@@ -232,11 +233,11 @@ namespace Easy_Copier.ViewModels
 
             foreach (GameEntry game in _selectedGames)
             {
-                string destItemPath = System.IO.File.Exists(game.FolderPath)
+                string destItemPath = _fileSystemService.FileExists(game.FolderPath)
                     ? Path.Combine(destinationPath, Path.GetFileName(game.FolderPath))
                     : Path.Combine(destinationPath, game.Name);
 
-                bool destExists = System.IO.Directory.Exists(destItemPath) || System.IO.File.Exists(destItemPath);
+                bool destExists = _fileSystemService.DirectoryExists(destItemPath) || _fileSystemService.FileExists(destItemPath);
 
                 if (destExists)
                 {
@@ -370,7 +371,7 @@ namespace Easy_Copier.ViewModels
             SelectedGamesCount = _selectedGames.Count;
             SelectedGamesTotalBytes = _selectedGames.Sum(g => g.TotalBytes);
 
-            AppSettings settings = _settingsService.LoadSettingsSync();
+            AppSettings settings = _cachedSettings ??= _settingsService.LoadSettingsSync();
             SelectedGamesTotalPrice = _selectedGames.Sum(g => Infrastructure.FormattingHelpers.CalculatePrice(g.TotalBytes, settings));
 
             CopySelectedGamesCommand.NotifyCanExecuteChanged();

@@ -74,7 +74,8 @@ namespace Easy_Copier.Views
                 return;
             }
 
-            if (!string.IsNullOrEmpty(text))
+            bool hasText = !string.IsNullOrEmpty(text);
+            if (hasText)
             {
                 SearchBox.Resources["TextControlBackground"] = SearchHighlightBrush;
                 SearchBox.Resources["TextControlBackgroundPointerOver"] = SearchHighlightBrush;
@@ -83,9 +84,9 @@ namespace Easy_Copier.Views
             }
             else
             {
-                _ = SearchBox.Resources.Remove("TextControlBackground");
-                _ = SearchBox.Resources.Remove("TextControlBackgroundPointerOver");
-                _ = SearchBox.Resources.Remove("TextControlBackgroundFocused");
+                SearchBox.Resources.Remove("TextControlBackground");
+                SearchBox.Resources.Remove("TextControlBackgroundPointerOver");
+                SearchBox.Resources.Remove("TextControlBackgroundFocused");
                 SearchBox.ClearValue(Control.BackgroundProperty);
             }
         }

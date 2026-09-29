@@ -15,41 +15,49 @@ namespace Easy_Copier.Infrastructure
     /// </summary>
     public class FlyoutService : IFlyoutService
     {
+        private readonly Func<GameDetailsViewModel> _gameDetailsViewModelFactory;
         private readonly Func<OsImageDetailsViewModel> _osImageDetailsViewModelFactory;
         private readonly IGameRequirementsService _gameRequirementsService;
+        private readonly IProcessService _processService;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="FlyoutService"/> class.
         /// </summary>
+        /// <param name="gameDetailsViewModelFactory">Factory delegate for resolving <see cref="GameDetailsViewModel"/> instances.</param>
         /// <param name="osImageDetailsViewModelFactory">Factory delegate for resolving <see cref="OsImageDetailsViewModel"/> instances.</param>
         /// <param name="gameRequirementsService">Service for retrieving and formatting game system requirements.</param>
+        /// <param name="processService">Service for launching applications and opening folders in File Explorer.</param>
         public FlyoutService(
+            Func<GameDetailsViewModel> gameDetailsViewModelFactory,
             Func<OsImageDetailsViewModel> osImageDetailsViewModelFactory,
-            IGameRequirementsService gameRequirementsService)
+            IGameRequirementsService gameRequirementsService,
+            IProcessService processService)
         {
+            _gameDetailsViewModelFactory = gameDetailsViewModelFactory ?? throw new ArgumentNullException(nameof(gameDetailsViewModelFactory));
             _osImageDetailsViewModelFactory = osImageDetailsViewModelFactory ?? throw new ArgumentNullException(nameof(osImageDetailsViewModelFactory));
             _gameRequirementsService = gameRequirementsService ?? throw new ArgumentNullException(nameof(gameRequirementsService));
+            _processService = processService ?? throw new ArgumentNullException(nameof(processService));
         }
 
         /// <inheritdoc />
-        public void HandleOpenFolderClick(object sender, MainViewModel? mainViewModel)
+        public void HandleOpenFolderClick(object sender)
         {
-            if (sender is Button { DataContext: GameEntry gameEntry } && mainViewModel != null)
+            if (sender is Button { DataContext: GameEntry gameEntry } && !string.IsNullOrEmpty(gameEntry.FolderPath))
             {
-                mainViewModel.OpenItemFolderCommand.Execute(gameEntry.FolderPath);
+                _processService.OpenInExplorer(gameEntry.FolderPath);
             }
         }
 
         /// <inheritdoc />
-        public async Task ShowGameDetailsFlyoutAsync(object sender, Point? position, MainViewModel? mainViewModel)
+        public async Task ShowGameDetailsFlyoutAsync(object sender, Point? position)
         {
-            if (sender is not FrameworkElement fe || fe.DataContext is not GameEntry gameEntry || mainViewModel == null)
+            if (sender is not FrameworkElement fe || fe.DataContext is not GameEntry gameEntry)
             {
                 return;
             }
 
             string formattedText = await _gameRequirementsService.GetFormattedRequirementsAsync(gameEntry.FolderPath);
-            GameDetailsViewModel gameDetailsViewModel = mainViewModel.CreateGameDetailsViewModel();
+            GameDetailsViewModel gameDetailsViewModel = _gameDetailsViewModelFactory();
             Views.GameDetailsFlyout detailsFlyout = new(gameDetailsViewModel, formattedText, gameEntry.FolderPath);
 
             Style flyoutStyle = new(typeof(FlyoutPresenter));
