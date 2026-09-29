@@ -73,9 +73,20 @@ namespace Easy_Copier.Infrastructure
             }
         }
 
+        /// <summary>
+        /// Native Shell32 method to launch the Windows Format Drive dialog.
+        /// </summary>
+        /// <param name="hwnd">The window handle of the parent window.</param>
+        /// <param name="drive">The zero-based index of the drive to format (0 = A:, 1 = B:, 2 = C:, etc.).</param>
+        /// <param name="fmtID">The format ID descriptor, or default format ID.</param>
+        /// <param name="options">Formatting options or zero for default.</param>
+        /// <returns>Zero on success, or an error/status code.</returns>
         [System.Runtime.InteropServices.DllImport("shell32.dll")]
         private static extern uint SHFormatDrive(IntPtr hwnd, uint drive, uint fmtID, uint options);
 
+        /// <summary>
+        /// Default format ID constant used with <see cref="SHFormatDrive(IntPtr, uint, uint, uint)"/>.
+        /// </summary>
         private const uint SHFMT_ID_DEFAULT = 0xFFFF;
 
         /// <summary>

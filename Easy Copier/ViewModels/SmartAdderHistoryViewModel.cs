@@ -12,8 +12,14 @@ namespace Easy_Copier.ViewModels
     /// </summary>
     public sealed partial class SmartAdderHistoryViewModel : ObservableObject
     {
+        /// <summary>
+        /// Specifies the maximum number of history records retrieved from persistent storage.
+        /// </summary>
         private const int MaxRecords = 200;
 
+        /// <summary>
+        /// The service responsible for reading and managing SmartAdder history records.
+        /// </summary>
         private readonly ISmartAdderHistoryService _smartAdderHistoryService;
 
         /// <summary>
@@ -41,6 +47,9 @@ namespace Easy_Copier.ViewModels
         /// </summary>
         public event System.EventHandler? CloseRequested;
 
+        /// <summary>
+        /// Invokes the <see cref="CloseRequested"/> event to notify the view to close the window.
+        /// </summary>
         [CommunityToolkit.Mvvm.Input.RelayCommand]
         private void CloseWindow()
         {
