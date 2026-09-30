@@ -27,13 +27,7 @@ namespace Easy_Copier.Services
             _gameScannerService = gameScannerService;
         }
 
-        /// <summary>
-        /// Asynchronously scans all configured library directories specified in <paramref name="settings"/>.
-        /// </summary>
-        /// <param name="settings">Application settings containing source directory configurations.</param>
-        /// <param name="progress">Optional progress reporter.</param>
-        /// <param name="cancellationToken">Cancellation token.</param>
-        /// <returns>A tuple containing lists for each content category (Games, Apps, TvAndFilms, OsImages).</returns>
+        /// <inheritdoc />
         public async Task<(IReadOnlyList<GameEntry> Games, IReadOnlyList<GameEntry> Apps, IReadOnlyList<GameEntry> TvAndFilms, IReadOnlyList<GameEntry> OsImages)> ScanAllLibrariesAsync(
             AppSettings settings,
             IProgress<string>? progress = null,
@@ -94,13 +88,7 @@ namespace Easy_Copier.Services
             return (allGames, allApps, allTvAndFilms, allOsImages);
         }
 
-        /// <summary>
-        /// Asynchronously scans all libraries and formats a duplicate items report.
-        /// </summary>
-        /// <param name="settings">Application settings containing source library folders.</param>
-        /// <param name="progress">Optional progress reporter.</param>
-        /// <param name="cancellationToken">Cancellation token.</param>
-        /// <returns>A formatted string summarizing duplicate titles and their file system paths.</returns>
+        /// <inheritdoc />
         public async Task<string> FindDuplicatesReportAsync(
             AppSettings settings,
             IProgress<string>? progress = null,
