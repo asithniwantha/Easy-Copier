@@ -204,6 +204,11 @@ namespace Easy_Copier.Infrastructure
             }
         }
 
+        /// <summary>
+        /// Retrieves the DPI rasterization scale factor for the specified window handle.
+        /// </summary>
+        /// <param name="hwnd">The window handle to inspect.</param>
+        /// <returns>The rasterization scale factor relative to standard 96 DPI.</returns>
         private static double GetRasterizationScale(nint hwnd)
         {
             const int defaultDpi = 96;
