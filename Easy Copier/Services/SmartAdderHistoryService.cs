@@ -17,14 +17,14 @@ namespace Easy_Copier.Services
         /// <summary>
         /// Asynchronously initializes the SmartAdderHistory table in SQLite database.
         /// </summary>
-        /// <returns>A task representing the asynchronous operation.</returns>
+        /// <returns>A task representing the asynchronous initialization operation.</returns>
         Task InitializeAsync();
 
         /// <summary>
         /// Asynchronously inserts a Smart Adder calculation record into SQLite database.
         /// </summary>
         /// <param name="record">The <see cref="SmartAdderHistoryRecord"/> to insert.</param>
-        /// <returns>A task representing the asynchronous operation.</returns>
+        /// <returns>A task representing the asynchronous insert operation.</returns>
         Task AddRecordAsync(SmartAdderHistoryRecord record);
 
         /// <summary>
@@ -36,7 +36,7 @@ namespace Easy_Copier.Services
     }
 
     /// <summary>
-    /// Service for persisting Smart Adder calculator history to the local SQLite database (`SmartAdderHistory` table).
+    /// Service for persisting Smart Adder calculator history to the local SQLite database (<c>SmartAdderHistory</c> table).
     /// </summary>
     public class SmartAdderHistoryService : ISmartAdderHistoryService
     {
@@ -58,7 +58,7 @@ namespace Easy_Copier.Services
         /// <summary>
         /// Initializes a new instance of the <see cref="SmartAdderHistoryService"/> class and sets up database connection properties.
         /// </summary>
-        /// <param name="logger">Logger instance.</param>
+        /// <param name="logger">Logger instance for operational diagnostic output.</param>
         public SmartAdderHistoryService(ILogger<SmartAdderHistoryService> logger)
         {
             _logger = logger;
@@ -69,10 +69,7 @@ namespace Easy_Copier.Services
             _connectionString = $"Data Source={_dbPath}";
         }
 
-        /// <summary>
-        /// Asynchronously creates the <c>SmartAdderHistory</c> table in SQLite if it does not exist.
-        /// </summary>
-        /// <returns>A task representing the asynchronous operation.</returns>
+        /// <inheritdoc />
         public async Task InitializeAsync()
         {
             try
@@ -99,11 +96,7 @@ namespace Easy_Copier.Services
             }
         }
 
-        /// <summary>
-        /// Asynchronously inserts a new calculation record into the <c>SmartAdderHistory</c> table.
-        /// </summary>
-        /// <param name="record">The record containing Smart Adder calculation entries and total sum.</param>
-        /// <returns>A task representing the asynchronous operation.</returns>
+        /// <inheritdoc />
         public async Task AddRecordAsync(SmartAdderHistoryRecord record)
         {
             ArgumentNullException.ThrowIfNull(record);
@@ -129,11 +122,7 @@ namespace Easy_Copier.Services
             }
         }
 
-        /// <summary>
-        /// Asynchronously retrieves recent calculation history records, sorted by ID descending.
-        /// </summary>
-        /// <param name="count">Maximum number of records to return.</param>
-        /// <returns>A task returning a list of <see cref="SmartAdderHistoryRecord"/> instances.</returns>
+        /// <inheritdoc />
         public async Task<List<SmartAdderHistoryRecord>> GetRecentRecordsAsync(int count)
         {
             List<SmartAdderHistoryRecord> records = [];

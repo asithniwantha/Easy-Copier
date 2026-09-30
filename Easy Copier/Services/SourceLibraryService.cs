@@ -16,7 +16,7 @@ namespace Easy_Copier.Services
         /// <summary>
         /// Prompts the user to select a folder from the operating system folder selection dialog.
         /// </summary>
-        /// <returns>A task returning the chosen directory folder path, or <c>null</c> if cancelled.</returns>
+        /// <returns>A task that represents the asynchronous operation. The task result contains the chosen directory folder path, or <see langword="null"/> if cancelled.</returns>
         Task<string?> PickFolderAsync();
     }
 
@@ -29,21 +29,21 @@ namespace Easy_Copier.Services
         /// Asynchronously checks a list of source folder paths and returns accessibility status for each folder.
         /// </summary>
         /// <param name="folderPaths">The list of folder directory paths to check.</param>
-        /// <returns>A task returning a list of <see cref="SourceFolder"/> validation instances.</returns>
+        /// <returns>A task that represents the asynchronous operation. The task result contains a list of <see cref="SourceFolder"/> validation instances.</returns>
         Task<IReadOnlyList<SourceFolder>> ValidateSourceFoldersAsync(IEnumerable<string> folderPaths);
 
         /// <summary>
         /// Asynchronously verifies whether a directory folder path exists on disk.
         /// </summary>
         /// <param name="folderPath">The directory path to check.</param>
-        /// <returns>A task returning <c>true</c> if the folder exists; otherwise, <c>false</c>.</returns>
+        /// <returns>A task that represents the asynchronous operation. The task result contains <see langword="true"/> if the folder exists; otherwise, <see langword="false"/>.</returns>
         Task<bool> FolderExistsAsync(string folderPath);
 
         /// <summary>
         /// Reads system requirements content from <c>system_requirements.txt</c> in the specified folder if present.
         /// </summary>
         /// <param name="folderPath">The target game folder path.</param>
-        /// <returns>A task returning the system requirements text content or status message.</returns>
+        /// <returns>A task that represents the asynchronous operation. The task result contains the system requirements text content or status message.</returns>
         Task<string> GetSystemRequirementsAsync(string folderPath);
     }
 
@@ -58,11 +58,7 @@ namespace Easy_Copier.Services
         /// </summary>
         private readonly ILogger<SourceLibraryService> _logger = logger;
 
-        /// <summary>
-        /// Asynchronously checks a collection of folder paths for accessibility and existence.
-        /// </summary>
-        /// <param name="folderPaths">Collection of folder paths to check.</param>
-        /// <returns>A task returning a read-only list of <see cref="SourceFolder"/> items.</returns>
+        /// <inheritdoc />
         public async Task<IReadOnlyList<SourceFolder>> ValidateSourceFoldersAsync(IEnumerable<string> folderPaths)
         {
             ArgumentNullException.ThrowIfNull(folderPaths);
@@ -91,21 +87,13 @@ namespace Easy_Copier.Services
             return validatedFolders;
         }
 
-        /// <summary>
-        /// Asynchronously checks if a folder directory exists on disk.
-        /// </summary>
-        /// <param name="folderPath">The directory path to evaluate.</param>
-        /// <returns>A task returning <c>true</c> if the folder exists; otherwise, <c>false</c>.</returns>
+        /// <inheritdoc />
         public async Task<bool> FolderExistsAsync(string folderPath)
         {
             return await Task.Run(() => Directory.Exists(folderPath));
         }
 
-        /// <summary>
-        /// Asynchronously reads system requirements text from <c>system_requirements.txt</c> in the target folder.
-        /// </summary>
-        /// <param name="folderPath">The local game folder path.</param>
-        /// <returns>A task returning file contents or a user-friendly status message.</returns>
+        /// <inheritdoc />
         public async Task<string> GetSystemRequirementsAsync(string folderPath)
         {
             return await Task.Run(() =>
