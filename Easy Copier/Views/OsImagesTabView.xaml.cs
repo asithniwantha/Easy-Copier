@@ -84,7 +84,7 @@ namespace Easy_Copier.Views
         /// <param name="e">The event arguments.</param>
         private void OpenFolderButton_Click(object sender, RoutedEventArgs e)
         {
-            FlyoutHelper.HandleOpenFolderClick(sender, ViewModel?.MainViewModel);
+            FlyoutHelper.HandleOpenFolderClick(sender);
         }
 
         /// <summary>

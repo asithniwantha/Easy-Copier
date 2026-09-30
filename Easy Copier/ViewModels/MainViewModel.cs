@@ -30,11 +30,13 @@ namespace Easy_Copier.ViewModels
         private readonly ILibraryFilterService _libraryFilterService;
         private readonly IRufusService _rufusService;
         private readonly IGameRequirementsService _gameRequirementsService;
+        private readonly IFileSystemService _fileSystemService;
         private readonly Func<GameDetailsViewModel> _gameDetailsViewModelFactory;
         private CancellationTokenSource? _scanCancellationTokenSource;
         private CancellationTokenSource? _validationCancellationTokenSource;
         private CancellationTokenSource? _notificationCancellationTokenSource;
         private List<GameEntry> _selectedGames = [];
+        private AppSettings? _cachedSettings;
         private System.Threading.Timer? _updateCheckTimer;
         private bool _isCheckingForUpdates;
         private int _isDisposed;
@@ -201,6 +203,7 @@ namespace Easy_Copier.ViewModels
             ILibraryFilterService libraryFilterService,
             IRufusService rufusService,
             IGameRequirementsService gameRequirementsService,
+            IFileSystemService fileSystemService,
             SmartAdderViewModel smartAdderViewModel,
             Func<GameDetailsViewModel> gameDetailsViewModelFactory)
         {
@@ -221,6 +224,7 @@ namespace Easy_Copier.ViewModels
             _libraryFilterService = libraryFilterService;
             _rufusService = rufusService;
             _gameRequirementsService = gameRequirementsService;
+            _fileSystemService = fileSystemService;
             SmartAdderViewModel = smartAdderViewModel;
             _gameDetailsViewModelFactory = gameDetailsViewModelFactory;
             GamesTabViewModel = new GamesTabViewModel(this);
@@ -340,6 +344,7 @@ namespace Easy_Copier.ViewModels
                 StatusMessage = "Loading settings...";
 
                 AppSettings settings = await _settingsService.LoadSettingsAsync();
+                _cachedSettings = settings;
 
                 _driveDiscoveryService.StartWatching();
                 await RefreshDrivesAsync();

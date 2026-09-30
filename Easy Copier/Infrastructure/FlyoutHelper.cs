@@ -1,6 +1,3 @@
-using Easy_Copier.Models;
-using Easy_Copier.Services;
-using Easy_Copier.ViewModels;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Input;
 using System.Threading.Tasks;
@@ -28,17 +25,9 @@ namespace Easy_Copier.Infrastructure
         /// Handles the click event for opening an item's folder in File Explorer.
         /// </summary>
         /// <param name="sender">The button control triggering the click.</param>
-        /// <param name="mainViewModel">The main ViewModel containing the open folder command.</param>
-        public static void HandleOpenFolderClick(object sender, MainViewModel? mainViewModel)
+        public static void HandleOpenFolderClick(object sender)
         {
-            if (s_flyoutService != null)
-            {
-                s_flyoutService.HandleOpenFolderClick(sender, mainViewModel);
-            }
-            else if (sender is Microsoft.UI.Xaml.Controls.Button { DataContext: GameEntry gameEntry } && mainViewModel != null)
-            {
-                mainViewModel.OpenItemFolderCommand.Execute(gameEntry.FolderPath);
-            }
+            s_flyoutService?.HandleOpenFolderClick(sender);
         }
 
         /// <summary>
@@ -46,13 +35,12 @@ namespace Easy_Copier.Infrastructure
         /// </summary>
         /// <param name="sender">The framework element triggering the right-tap.</param>
         /// <param name="e">The right-tapped routed event args.</param>
-        /// <param name="mainViewModel">The main ViewModel providing system requirement formatting and factory methods.</param>
-        public static async Task ShowGameDetailsFlyoutAsync(object sender, RightTappedRoutedEventArgs e, MainViewModel? mainViewModel)
+        public static async Task ShowGameDetailsFlyoutAsync(object sender, RightTappedRoutedEventArgs e)
         {
             Point? position = sender is FrameworkElement fe && e != null ? e.GetPosition(fe) : null;
             if (s_flyoutService != null)
             {
-                await s_flyoutService.ShowGameDetailsFlyoutAsync(sender, position, mainViewModel);
+                await s_flyoutService.ShowGameDetailsFlyoutAsync(sender, position);
             }
         }
 
