@@ -339,16 +339,19 @@ namespace Easy_Copier.ViewModels
         [RelayCommand]
         private async Task AddNewSourceFolderAsync(string folderType)
         {
-            Task addFolderTask = folderType switch
+            (ObservableCollection<string>? targetFolders, string categoryLabel) = folderType switch
             {
-                "Game" => AddSourceFolderAsync(GameSourceFolders, "game"),
-                "App" => AddSourceFolderAsync(AppSourceFolders, "app"),
-                "TvAndFilm" => AddSourceFolderAsync(TvAndFilmSourceFolders, "film/tv"),
-                "OsImage" => AddSourceFolderAsync(OsImageSourceFolders, "OS image"),
-                _ => Task.CompletedTask
+                "Game" => (GameSourceFolders, "game"),
+                "App" => (AppSourceFolders, "app"),
+                "TvAndFilm" => (TvAndFilmSourceFolders, "film/tv"),
+                "OsImage" => (OsImageSourceFolders, "OS image"),
+                _ => (null, string.Empty)
             };
 
-            await addFolderTask;
+            if (targetFolders != null)
+            {
+                await AddSourceFolderAsync(targetFolders, categoryLabel);
+            }
         }
 
         /// <summary>
@@ -462,12 +465,15 @@ namespace Easy_Copier.ViewModels
         /// <param name="value">The new navigation tag string.</param>
         partial void OnSelectedNavTagChanged(string value)
         {
-            IsGeneralPanelVisible = value is "General";
-            IsGamesPanelVisible = value is "Games";
-            IsAppsPanelVisible = value is "Apps";
-            IsFilmAndTvPanelVisible = value is "FilmAndTv";
-            IsOsImagesPanelVisible = value is "OsImages";
-            IsLogsPanelVisible = value is "Logs";
+            (IsGeneralPanelVisible, IsGamesPanelVisible, IsAppsPanelVisible, IsFilmAndTvPanelVisible, IsOsImagesPanelVisible, IsLogsPanelVisible) = value switch
+            {
+                "Games" => (false, true, false, false, false, false),
+                "Apps" => (false, false, true, false, false, false),
+                "FilmAndTv" => (false, false, false, true, false, false),
+                "OsImages" => (false, false, false, false, true, false),
+                "Logs" => (false, false, false, false, false, true),
+                _ => (true, false, false, false, false, false)
+            };
         }
 
         /// <summary>

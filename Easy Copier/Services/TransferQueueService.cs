@@ -105,14 +105,9 @@ namespace Easy_Copier.Services
         private readonly ISettingsService _settingsService;
 
         /// <summary>
-        /// Audio playback service for sound notifications.
+        /// Batch notification service for evaluating batch completions and showing alerts/toasts.
         /// </summary>
-        private readonly IAudioPlaybackService _audioPlaybackService;
-
-        /// <summary>
-        /// Process service for checking privilege levels.
-        /// </summary>
-        private readonly Infrastructure.IProcessService _processService;
+        private readonly IBatchNotificationService _batchNotificationService;
 
         /// <summary>
         /// Dialog service for prompting user dialogs.
@@ -126,18 +121,24 @@ namespace Easy_Copier.Services
         /// <param name="logger">Logger instance.</param>
         /// <param name="dispatcherService">UI dispatcher service.</param>
         /// <param name="settingsService">Settings service.</param>
-        /// <param name="audioPlaybackService">Audio playback service.</param>
-        /// <param name="processService">Process privilege service.</param>
+        /// <param name="batchNotificationService">Batch notification service.</param>
         /// <param name="dialogService">Dialog prompt service.</param>
-        public TransferQueueService(IFileTransferService fileTransferService, ILogger<TransferQueueService> logger, Infrastructure.IDispatcherService dispatcherService, ISettingsService settingsService, IAudioPlaybackService audioPlaybackService, Infrastructure.IProcessService processService, Infrastructure.IDialogService dialogService)
+        public TransferQueueService(
+            IFileTransferService fileTransferService,
+            ILogger<TransferQueueService> logger,
+            Infrastructure.IDispatcherService dispatcherService,
+            ISettingsService settingsService,
+            IBatchNotificationService batchNotificationService,
+            Infrastructure.IDialogService dialogService)
         {
             _fileTransferService = fileTransferService;
             _logger = logger;
             _dispatcherService = dispatcherService;
             _settingsService = settingsService;
-            _audioPlaybackService = audioPlaybackService;
-            _processService = processService;
+            _batchNotificationService = batchNotificationService;
             _dialogService = dialogService;
+
+            _batchNotificationService.BatchCompleted += (sender, args) => BatchCompleted?.Invoke(sender, args);
 
             _ = Task.Run(ProcessQueueAsync);
         }
@@ -287,138 +288,8 @@ namespace Easy_Copier.Services
                 item.CompletedAt = DateTime.Now;
                 ItemCompleted?.Invoke(this, item);
 
-                CheckAndNotifyBatchCompletion(item.TargetDrive.DriveLetter);
+                _batchNotificationService.EvaluateAndNotifyBatchCompletion(item.TargetDrive.DriveLetter, QueueItems);
             });
-        }
-
-        /// <summary>
-        /// Checks if all queued items targeting a drive have finished and triggers completion sounds and toast notifications.
-        /// </summary>
-        /// <param name="driveLetter">Target drive letter.</param>
-        private void CheckAndNotifyBatchCompletion(string driveLetter)
-        {
-            AppSettings settings = _settingsService.LoadSettingsSync();
-
-            // Check if there are any active items left for this specific drive
-            int activeItemsForDrive = QueueItems.Count(i =>
-                i.IsActive && string.Equals(i.TargetDrive.DriveLetter, driveLetter, StringComparison.OrdinalIgnoreCase));
-
-            if (activeItemsForDrive == 0)
-            {
-                List<TransferQueueItem> batchItems = QueueItems.Where(i =>
-                    !i.IsActive &&
-                    string.Equals(i.TargetDrive.DriveLetter, driveLetter, StringComparison.OrdinalIgnoreCase))
-                    .ToList();
-
-                if (batchItems.Count == 0)
-                {
-                    return;
-                }
-
-                // We consider it a "failure" if ANY item in the queue for this drive has a Failed or Cancelled status.
-                // NOTE: Once a user hits 'Clear Finished', those items are gone, so this evaluates only the currently visible batch.
-                bool anyFailedOrCancelled = batchItems.Any(i => i.Status is TransferQueueItemStatus.Failed or TransferQueueItemStatus.Cancelled);
-
-                if (settings.PlayNotificationSounds)
-                {
-                    if (anyFailedOrCancelled)
-                    {
-                        _audioPlaybackService.PlayFailureSound();
-                    }
-                    else
-                    {
-                        _audioPlaybackService.PlaySuccessSound();
-                    }
-                }
-
-                if (settings.ShowDesktopNotifications)
-                {
-                    ShowDesktopNotification(driveLetter, batchItems, !anyFailedOrCancelled);
-                }
-            }
-        }
-
-        /// <summary>
-        /// Builds and displays a Windows AppNotification toast message summarizing batch transfer completion.
-        /// </summary>
-        /// <param name="driveLetter">Target drive letter.</param>
-        /// <param name="batchItems">List of batch transfer queue items.</param>
-        /// <param name="isSuccess"><c>true</c> if all batch items succeeded; otherwise, <c>false</c>.</param>
-        private void ShowDesktopNotification(string driveLetter, List<TransferQueueItem> batchItems, bool isSuccess)
-        {
-            try
-            {
-                TransferQueueItem firstItem = batchItems.First();
-                long totalDriveCapacity = firstItem.TargetDrive.TotalBytes;
-                string statusText = isSuccess ? "Complete" : "Failed";
-                string title = $"{firstItem.TargetDrive.DriveLetter} - {Infrastructure.FormattingHelpers.FormatBytes(totalDriveCapacity)} Capacity - {statusText}";
-
-                long totalBytes = batchItems.Sum(x => x.TotalBytes);
-                int totalPrice = batchItems.Sum(x => x.TotalPrice);
-                List<string> allGames = batchItems.SelectMany(x => x.Items).Select(x => x.Game.Name).ToList();
-                int totalItems = allGames.Count;
-
-                string namesText = totalItems > 3
-                    ? $"{totalItems} items: {string.Join(", ", allGames.Take(3))} and {totalItems - 3} more."
-                    : $"{totalItems} items: {string.Join(", ", allGames)}.";
-                string body = $"{namesText} Size: {Infrastructure.FormattingHelpers.FormatBytes(totalBytes)}. Price: Rs. {totalPrice}";
-
-                BatchCompleted?.Invoke(this, (title, body, isSuccess));
-
-                AppNotificationBuilder builder = new AppNotificationBuilder()
-                    .AddText(title)
-                    .AddText(body);
-
-                _logger.LogInformation("Attempting to show desktop notification: {Title}", title);
-                AppNotification notification = builder.BuildNotification();
-                if (!AppNotificationManager.IsSupported())
-                {
-                    _logger.LogWarning("AppNotificationManager.IsSupported() returned false. Skipping toast display.");
-
-                    if (_processService.IsRunningAsAdministrator())
-                    {
-                        _logger.LogWarning("Application is running as Administrator (elevated). Toast notifications are officially not supported by the Windows App SDK in elevated contexts.");
-                    }
-                    else
-                    {
-                        _logger.LogWarning("AppNotificationManager is not supported on this OS configuration, but the app is NOT elevated. This usually indicates the Windows App SDK Singleton package is missing or not registered for this self-contained deployment.");
-                    }
-
-                    return;
-                }
-
-                if (AppNotificationManager.Default.Setting == AppNotificationSetting.DisabledForApplication)
-                {
-                    _logger.LogWarning("Desktop notifications are disabled for this application by the user or system.");
-                }
-                else if (AppNotificationManager.Default.Setting == AppNotificationSetting.DisabledForUser)
-                {
-                    _logger.LogWarning("Desktop notifications are disabled globally for this user profile.");
-                }
-                else if (AppNotificationManager.Default.Setting == AppNotificationSetting.DisabledByGroupPolicy)
-                {
-                    _logger.LogWarning("Desktop notifications are disabled by Group Policy.");
-                }
-                else if (AppNotificationManager.Default.Setting == AppNotificationSetting.DisabledByManifest)
-                {
-                    _logger.LogWarning("Desktop notifications are disabled by the application manifest.");
-                }
-
-                AppNotificationManager.Default.Show(notification);
-
-                if (notification.Id != 0)
-                {
-                    _logger.LogInformation("Desktop notification shown successfully with ID: {Id}", notification.Id);
-                }
-                else
-                {
-                    _logger.LogWarning("AppNotificationManager.Default.Show returned without throwing, but the notification ID is 0 (it may have been silently dropped).");
-                }
-            }
-            catch (Exception ex)
-            {
-                _logger.LogError(ex, "Failed to show desktop notification.");
-            }
         }
 
         /// <summary>
