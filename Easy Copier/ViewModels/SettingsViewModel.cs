@@ -149,18 +149,18 @@ namespace Easy_Copier.ViewModels
             IDialogService dialogService,
             ILibraryScannerService libraryScannerService)
         {
-            _settingsService = settingsService;
-            _folderPickerService = folderPickerService;
-            _filePickerService = filePickerService;
-            _sourceLibraryService = sourceLibraryService;
-            _processService = processService;
-            _gameInfoDownloadService = gameInfoDownloadService;
-            _startupService = startupService;
-            _dispatcherService = dispatcherService;
-            _logger = logger;
-            _updateService = updateService;
-            _dialogService = dialogService;
-            _libraryScannerService = libraryScannerService;
+            _settingsService = settingsService ?? throw new ArgumentNullException(nameof(settingsService));
+            _folderPickerService = folderPickerService ?? throw new ArgumentNullException(nameof(folderPickerService));
+            _filePickerService = filePickerService ?? throw new ArgumentNullException(nameof(filePickerService));
+            _sourceLibraryService = sourceLibraryService ?? throw new ArgumentNullException(nameof(sourceLibraryService));
+            _processService = processService ?? throw new ArgumentNullException(nameof(processService));
+            _gameInfoDownloadService = gameInfoDownloadService ?? throw new ArgumentNullException(nameof(gameInfoDownloadService));
+            _startupService = startupService ?? throw new ArgumentNullException(nameof(startupService));
+            _dispatcherService = dispatcherService ?? throw new ArgumentNullException(nameof(dispatcherService));
+            _logger = logger ?? throw new ArgumentNullException(nameof(logger));
+            _updateService = updateService ?? throw new ArgumentNullException(nameof(updateService));
+            _dialogService = dialogService ?? throw new ArgumentNullException(nameof(dialogService));
+            _libraryScannerService = libraryScannerService ?? throw new ArgumentNullException(nameof(libraryScannerService));
         }
 
         /// <summary>
@@ -260,32 +260,7 @@ namespace Easy_Copier.ViewModels
             try
             {
                 bool hasUpdate = await _updateService.CheckForUpdatesAsync();
-
-                if (hasUpdate)
-                {
-                    _logger.LogInformation("Manual update check found an update. Starting download...");
-                    StatusMessage = "Downloading update...";
-
-                    await _updateService.DownloadUpdateAsync();
-
-                    _logger.LogInformation("Manual update download completed.");
-                    StatusMessage = "Update ready! Please restart the app to apply.";
-
-                    await _dialogService.ShowMessageDialogAsync(
-                        "Update Ready",
-                        "The update has been downloaded successfully. Please close and restart the application to apply the update.",
-                        "OK");
-                }
-                else
-                {
-                    _logger.LogInformation("Manual update check found no updates.");
-                    StatusMessage = "App is up to date.";
-
-                    await _dialogService.ShowMessageDialogAsync(
-                        "No Updates",
-                        "The application is up to date.",
-                        "OK");
-                }
+                await ProcessUpdateCheckResultAsync(hasUpdate);
             }
             catch (Exception ex)
             {
@@ -295,6 +270,35 @@ namespace Easy_Copier.ViewModels
                 await _dialogService.ShowMessageDialogAsync(
                     "Error",
                     "Failed to check for updates. Please try again later.",
+                    "OK");
+            }
+        }
+
+        private async Task ProcessUpdateCheckResultAsync(bool hasUpdate)
+        {
+            if (hasUpdate)
+            {
+                _logger.LogInformation("Manual update check found an update. Starting download...");
+                StatusMessage = "Downloading update...";
+
+                await _updateService.DownloadUpdateAsync();
+
+                _logger.LogInformation("Manual update download completed.");
+                StatusMessage = "Update ready! Please restart the app to apply.";
+
+                await _dialogService.ShowMessageDialogAsync(
+                    "Update Ready",
+                    "The update has been downloaded successfully. Please close and restart the application to apply the update.",
+                    "OK");
+            }
+            else
+            {
+                _logger.LogInformation("Manual update check found no updates.");
+                StatusMessage = "App is up to date.";
+
+                await _dialogService.ShowMessageDialogAsync(
+                    "No Updates",
+                    "The application is up to date.",
                     "OK");
             }
         }
@@ -334,7 +338,7 @@ namespace Easy_Copier.ViewModels
         /// <summary>
         /// Asynchronously prompts the user to select and append a new source folder for the specified library category type.
         /// </summary>
-        /// <param name="folderType">The folder category category string ("Game", "App", "TvAndFilm", or "OsImage").</param>
+        /// <param name="folderType">The folder category string ("Game", "App", "TvAndFilm", or "OsImage").</param>
         /// <returns>A task representing the asynchronous operation.</returns>
         [RelayCommand]
         private async Task AddNewSourceFolderAsync(string folderType)
@@ -351,12 +355,6 @@ namespace Easy_Copier.ViewModels
             await addFolderTask;
         }
 
-        /// <summary>
-        /// Internal helper method to display a folder picker and add the chosen path to the specified collection.
-        /// </summary>
-        /// <param name="targetFolders">The collection to add the new folder path to.</param>
-        /// <param name="categoryLabel">Display label describing the folder category.</param>
-        /// <returns>A task representing the asynchronous operation.</returns>
         private async Task AddSourceFolderAsync(ObservableCollection<string> targetFolders, string categoryLabel)
         {
             StatusMessage = "Opening folder picker...";
@@ -456,10 +454,6 @@ namespace Easy_Copier.ViewModels
             CloseRequested?.Invoke(this, EventArgs.Empty);
         }
 
-        /// <summary>
-        /// Partial notification handler invoked when <see cref="SelectedNavTag"/> changes to toggle active panel visibility.
-        /// </summary>
-        /// <param name="value">The new navigation tag string.</param>
         partial void OnSelectedNavTagChanged(string value)
         {
             IsGeneralPanelVisible = value is "General";
@@ -470,10 +464,6 @@ namespace Easy_Copier.ViewModels
             IsLogsPanelVisible = value is "Logs";
         }
 
-        /// <summary>
-        /// Partial notification handler invoked when <see cref="StartOnLogon"/> changes to validate application executable directory location.
-        /// </summary>
-        /// <param name="value">The new start on logon boolean flag.</param>
         partial void OnStartOnLogonChanged(bool value)
         {
             if (value)
