@@ -80,7 +80,7 @@ namespace Easy_Copier.Services
         {
             try
             {
-                TransferQueueItem firstItem = batchItems.First();
+                TransferQueueItem firstItem = batchItems[0];
                 long totalDriveCapacity = firstItem.TargetDrive.TotalBytes;
                 string statusText = isSuccess ? "Complete" : "Failed";
                 string title = $"{firstItem.TargetDrive.DriveLetter} - {Infrastructure.FormattingHelpers.FormatBytes(totalDriveCapacity)} Capacity - {statusText}";
