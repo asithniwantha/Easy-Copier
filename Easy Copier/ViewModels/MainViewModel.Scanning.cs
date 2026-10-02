@@ -11,8 +11,15 @@ using System.Threading.Tasks;
 
 namespace Easy_Copier.ViewModels
 {
+    /// <summary>
+    /// Partial class implementation of <see cref="MainViewModel"/> handling library scanning, filtering, drive actions, and background update checks.
+    /// </summary>
     public sealed partial class MainViewModel
     {
+        /// <summary>
+        /// Asynchronously scans configured source library folders for games, applications, TV/films, and OS images.
+        /// </summary>
+        /// <returns>A task representing the asynchronous scanning operation.</returns>
         [RelayCommand]
         private async Task ScanLibraryAsync()
         {
@@ -86,6 +93,11 @@ namespace Easy_Copier.ViewModels
             }
         }
 
+        /// <summary>
+        /// Saves a library cache JSON snapshot of all discovered entries using the active settings.
+        /// </summary>
+        /// <param name="settings">The application settings to save with the snapshot.</param>
+        /// <returns>A task representing the asynchronous snapshot saving operation.</returns>
         private async Task SaveCacheSnapshotAsync(AppSettings settings)
         {
             List<GameEntry> allEntries = [.. _allGames, .. _allApps, .. _allTvAndFilms, .. _allOsImages];
@@ -100,10 +112,22 @@ namespace Easy_Copier.ViewModels
         /// Handles changes to the SearchText property to re-apply library filtering.
         /// Uses nullable string? for oldValue to match the CommunityToolkit.Mvvm partial method declaration for reference types.
         /// </summary>
+        /// <param name="oldValue">The previous search string.</param>
+        /// <param name="newValue">The new search string.</param>
         partial void OnSearchTextChanged(string oldValue, string newValue) => ApplyFilter();
 
+        /// <summary>
+        /// Handles changes to the SelectedCategory property to re-apply library filtering.
+        /// </summary>
+        /// <param name="oldValue">The previous category value.</param>
+        /// <param name="newValue">The new category value.</param>
         partial void OnSelectedCategoryChanged(GameCategory oldValue, GameCategory newValue) => ApplyFilter();
 
+        /// <summary>
+        /// Handles changes to the SelectedOsImageSortOption property to re-apply OS image sorting.
+        /// </summary>
+        /// <param name="oldValue">The previous sort option.</param>
+        /// <param name="newValue">The new sort option.</param>
         partial void OnSelectedOsImageSortOptionChanged(OsImageSortOption oldValue, OsImageSortOption newValue)
         {
             IsOsImageSortAscending = newValue switch
@@ -116,14 +140,25 @@ namespace Easy_Copier.ViewModels
             ApplyFilter();
         }
 
+        /// <summary>
+        /// Handles changes to the IsOsImageSortAscending property to re-apply OS image sorting.
+        /// </summary>
+        /// <param name="oldValue">The previous sort direction value.</param>
+        /// <param name="newValue">The new sort direction value.</param>
         partial void OnIsOsImageSortAscendingChanged(bool oldValue, bool newValue) => ApplyFilter();
 
+        /// <summary>
+        /// Toggles the OS image sorting direction between ascending and descending.
+        /// </summary>
         [RelayCommand]
         private void ToggleOsImageSortDirection()
         {
             IsOsImageSortAscending = !IsOsImageSortAscending;
         }
 
+        /// <summary>
+        /// Filters and sorts active library collections based on current search query, category, and OS image sort parameters.
+        /// </summary>
         private void ApplyFilter()
         {
             Games.UpdateFrom(_libraryFilterService.FilterEntries(_allGames, SearchText, SelectedCategory));
@@ -140,6 +175,10 @@ namespace Easy_Copier.ViewModels
             OnPropertyChanged(nameof(IsOsImagesEmpty));
         }
 
+        /// <summary>
+        /// Asynchronously queries connected removable storage devices and updates <see cref="MainViewModel.AvailableDrives"/>.
+        /// </summary>
+        /// <returns>A task representing the asynchronous drive discovery operation.</returns>
         [RelayCommand]
         private async Task RefreshDrivesAsync()
         {
@@ -172,6 +211,10 @@ namespace Easy_Copier.ViewModels
             }
         }
 
+        /// <summary>
+        /// Validates selected items and target drive space, resolves folder conflicts, and enqueues new transfer jobs into the queue.
+        /// </summary>
+        /// <returns>A task representing the asynchronous copy queuing operation.</returns>
         [RelayCommand(CanExecute = nameof(CanCopyGames))]
         private async Task CopySelectedGamesAsync()
         {
@@ -217,6 +260,11 @@ namespace Easy_Copier.ViewModels
             }
         }
 
+        /// <summary>
+        /// Calculates remaining free drive bytes after subtracting currently reserved queue byte allocations for validation.
+        /// </summary>
+        /// <param name="drive">The target drive to adjust.</param>
+        /// <returns>An updated <see cref="RemovableDrive"/> instance with adjusted free byte capacity.</returns>
         private RemovableDrive GetDriveForValidation(RemovableDrive drive)
         {
             long reservedBytes = _transferQueueService.GetReservedBytes(drive.DriveLetter);
@@ -225,6 +273,11 @@ namespace Easy_Copier.ViewModels
                 : drive;
         }
 
+        /// <summary>
+        /// Builds the list of transfer items to queue, prompting the user for conflict resolution decisions when target files or folders exist.
+        /// </summary>
+        /// <param name="destinationPath">The destination root directory path on the target volume.</param>
+        /// <returns>A task that represents the asynchronous operation. The task result contains the list of <see cref="TransferItem"/> instances to queue.</returns>
         private async Task<List<TransferItem>> BuildItemsToQueueAsync(string destinationPath)
         {
             List<TransferItem> itemsToQueue = [];
@@ -320,6 +373,11 @@ namespace Easy_Copier.ViewModels
             }));
         }
 
+        /// <summary>
+        /// Event handler triggered when a transfer queue batch operation completes to display a global notification.
+        /// </summary>
+        /// <param name="sender">The event source.</param>
+        /// <param name="args">Batch completion arguments containing title, message, and success status.</param>
         private void OnBatchCompleted(object? sender, (string Title, string Message, bool IsSuccess) args)
         {
             if (IsDisposed)
@@ -330,6 +388,11 @@ namespace Easy_Copier.ViewModels
             ShowGlobalNotification(args.Title, args.Message, args.IsSuccess);
         }
 
+        /// <summary>
+        /// Event handler triggered when a single queue item finishes transferring.
+        /// </summary>
+        /// <param name="sender">The event source.</param>
+        /// <param name="completedItem">The completed queue item details.</param>
         private void OnQueueItemCompleted(object? sender, TransferQueueItem completedItem)
         {
             if (IsDisposed)
@@ -350,12 +413,19 @@ namespace Easy_Copier.ViewModels
             }
         }
 
+        /// <summary>
+        /// Clears all completed, failed, or cancelled items from the transfer queue.
+        /// </summary>
         [RelayCommand]
         private void ClearFinishedQueueItems()
         {
             _transferQueueService.ClearFinished();
         }
 
+        /// <summary>
+        /// Determines whether the copy command can execute based on selection and target drive availability.
+        /// </summary>
+        /// <returns><c>true</c> if at least one item is selected and a target drive is chosen; otherwise, <c>false</c>.</returns>
         private bool CanCopyGames()
         {
             return SelectedGamesCount > 0 && SelectedDrive != null;
@@ -377,30 +447,45 @@ namespace Easy_Copier.ViewModels
             CopySelectedGamesCommand.NotifyCanExecuteChanged();
         }
 
+        /// <summary>
+        /// Displays the settings window.
+        /// </summary>
         [RelayCommand]
         private void OpenSettings()
         {
             _windowService.ShowSettingsWindow(async () => await ScanLibraryCommand.ExecuteAsync(null));
         }
 
+        /// <summary>
+        /// Displays the operation history window.
+        /// </summary>
         [RelayCommand]
         private void OpenHistory()
         {
             _windowService.ShowHistoryWindow();
         }
 
+        /// <summary>
+        /// Displays the application About dialog window.
+        /// </summary>
         [RelayCommand]
         private void OpenAbout()
         {
             _windowService.ShowAboutWindow();
         }
 
+        /// <summary>
+        /// Triggers the <see cref="ClearSelectionRequested"/> event to unselect active items in library tabs.
+        /// </summary>
         [RelayCommand]
         private void ClearSelection()
         {
             ClearSelectionRequested?.Invoke(this, EventArgs.Empty);
         }
 
+        /// <summary>
+        /// Opens the root directory of the selected drive in Windows File Explorer.
+        /// </summary>
         [RelayCommand]
         private void OpenDriveInExplorer()
         {
@@ -410,6 +495,9 @@ namespace Easy_Copier.ViewModels
             }
         }
 
+        /// <summary>
+        /// Opens the Windows native format dialog for the selected drive letter.
+        /// </summary>
         [RelayCommand]
         private void FormatDrive()
         {
@@ -419,6 +507,10 @@ namespace Easy_Copier.ViewModels
             }
         }
 
+        /// <summary>
+        /// Opens the specified item folder path in Windows File Explorer.
+        /// </summary>
+        /// <param name="folderPath">The target directory path to open.</param>
         [RelayCommand]
         private void OpenItemFolder(string folderPath)
         {
@@ -428,6 +520,10 @@ namespace Easy_Copier.ViewModels
             }
         }
 
+        /// <summary>
+        /// Launches Rufus with the selected OS image ISO file.
+        /// </summary>
+        /// <returns>A task representing the asynchronous Rufus launch operation.</returns>
         [RelayCommand]
         private async Task OpenInRufusAsync()
         {
@@ -452,6 +548,9 @@ namespace Easy_Copier.ViewModels
             return await _gameRequirementsService.GetFormattedRequirementsAsync(folderPath);
         }
 
+        /// <summary>
+        /// Opens the settings window configured to add a new source folder for the active tab category.
+        /// </summary>
         [RelayCommand]
         private void AddSourceFolder()
         {
@@ -505,6 +604,10 @@ namespace Easy_Copier.ViewModels
             GC.SuppressFinalize(this);
         }
 
+        /// <summary>
+        /// Checks for application updates in the background and optionally triggers automatic download if enabled.
+        /// </summary>
+        /// <returns>A task representing the asynchronous background update check.</returns>
         private async Task CheckForUpdatesBackgroundAsync()
         {
             if (IsDisposed || _isCheckingForUpdates)
@@ -566,6 +669,10 @@ namespace Easy_Copier.ViewModels
             }
         }
 
+        /// <summary>
+        /// Initiates manual download of an available application update.
+        /// </summary>
+        /// <returns>A task representing the asynchronous update download operation.</returns>
         [RelayCommand]
         private async Task DownloadUpdateAsync()
         {
