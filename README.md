@@ -19,7 +19,7 @@ Easy Copier helps shop environments prepare customer drives without guessing whi
 * **⚡ High-Speed Transfers:** Optimized file I/O operations tailored for handling massive game files and nested directories using native Windows Shell `IFileOperation`.
 * **🎨 Modern UI:** A beautiful, responsive interface built with WinUI 3 that feels right at home on Windows 11.
 * **📐 Dynamic View Resizing:** The application cleanly abstracts responsive window resizing and UI teardowns (e.g., Settings, History) directly to a unified `NativeWindowHelper`.
-* **🔔 Completion Sounds & Notifications:** Plays audio notifications and shows native Windows desktop toast notifications upon success or failure of a transfer queue batch via decoupled `IBatchNotificationService` (configurable in settings).
+* **🔔 Completion Sounds & Notifications:** Plays audio notifications and shows native Windows desktop toast notifications upon success or failure of a transfer queue batch (configurable in settings).
 * **🏗️ MVVM Architecture:** A clean, maintainable codebase with strong separation of logic and presentation using decoupled Services, Dependency Properties, and decoupled windowing.
 * **📊 Progress Tracking:** Real-time transfer status and queue visibility with per-item details.
 * **🛡️ Reliability:** Built-in validation and conflict resolution (Replace, Merge, Skip) for safer transfers with dedicated XAML dialog controls.
@@ -116,7 +116,7 @@ The selected-drive panel also shows a usage bar, free space, total capacity, and
 | **Framework** | WinUI 3 / Windows App SDK |
 | **Language** | C# 14 with .NET 10 |
 | **Pattern** | MVVM with CommunityToolkit.Mvvm (Strict adherence to SOLID principles, dependency injection, and clean view-model separation). Optimized clean code removing inefficient operations. Asynchronous database reads with `IsDBNullAsync`. MVVMTK0045 naturally resolved using preview `partial` properties. |
-| **Architecture** | High UI decoupling using `ILibraryTabView` contracts (with `IsOsImagesTab` property eliminating view-to-view coupling), `IBatchNotificationService` for batch completion notifications and audio playback, `ILibraryFilterService` for clean query filtering and sorting, `IFileSystemService` for file system metadata and directory inspection, `IFlyoutService` in `Infrastructure` for UI flyout presentation, and `ConflictDialogContent` views, safely bridging UI-specific operations via abstractions like `IWindowService`. |
+| **Architecture** | High UI decoupling using `ILibraryTabView` contracts (with `IsOsImagesTab` property eliminating view-to-view coupling), `ILibraryFilterService` for clean query filtering and sorting, `IFileSystemService` for file system metadata and directory inspection, `IFlyoutService` in `Infrastructure` for UI flyout presentation, and `ConflictDialogContent` views, safely bridging UI-specific operations via abstractions like `IWindowService`. |
 | **Storage Discovery** | `DriveInfo` and Windows Management Instrumentation (WMI) |
 | **CI/CD** | GitHub Actions |
 | **Target Platform** | x64 |
@@ -125,7 +125,7 @@ The selected-drive panel also shows a usage bar, free space, total capacity, and
 ### What each folder is for
 * **ViewModels/**: UI behavior/state and commands (example: `SettingsViewModel`, `SmartAdderViewModel`).
 * **Views/**: Windows/pages, user controls, and code-behind (example: `AboutWindow.xaml.cs`, `ConflictDialogContent.xaml`).
-* **Services/**: Domain/application logic and service contracts (copying, scanning, queueing, settings, notification dispatching, etc.; example: `TransferQueueService`, `BatchNotificationService`).
+* **Services/**: Domain/application logic and service contracts (copying, scanning, queueing, settings, etc.; example: `TransferQueueService`).
 * **Infrastructure/**: Platform/framework glue: UI presentation flyout services, picker wrappers, dispatcher, window helpers, DI registration (example: `FlyoutService`, `FolderPickerService`, `ServiceCollectionExtensions`).
 * **Models/**: Domain/data types shared across app layers (example: `GameEntry`, `RemovableDrive`, `AppSettings`).
 * **Easy Copier.Tests/**: Unit/integration tests for services/viewmodels/helpers (example: `PickerServicesTests`).
@@ -179,7 +179,6 @@ Distributed under the MIT License. See `LICENSE` for more information.
 ---
 
 ## 🏗️ Updated Architecture
-* Introduced `IBatchNotificationService` and `BatchNotificationService` to decouple queue batch completion evaluation, audio feedback, and Windows desktop toast notifications from `TransferQueueService`. 🔔
 * Extracted `IRufusService` / `RufusService` to encapsulate Rufus executable resolution and ISO launching, eliminating process management from `MainViewModel`. 📀
 * Streamlined child tab ViewModels (`GamesTabViewModel`, `AppsTabViewModel`, `TvAndFilmsTabViewModel`, `OsImagesTabViewModel`) by introducing `ForwardParentPropertyChanges` in `LibraryTabViewModelBase`. 🔄
 * Introduced `IFileSystemService` and `FileSystemService` to encapsulate directory listing, size calculations, and path existence checks, removing direct disk I/O calls from ViewModels. 📁

@@ -68,7 +68,7 @@ namespace Easy_Copier.Views
         }
 
         /// <summary>
-        /// Handles the SelectionChanged event for the OS Images grid.
+        /// Handles the <see cref="Selector.SelectionChanged"/> event for the OS Images grid.
         /// </summary>
         /// <param name="sender">The source of the selection changed event.</param>
         /// <param name="e">The event data describing selection modifications.</param>

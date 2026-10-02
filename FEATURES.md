@@ -62,7 +62,7 @@
 ## 📊 History and Reporting
 - View detailed history of all past copy operations.
 - Track success and failure states, including transfer times.
-- Play sound notifications (success/failure) when an entire drive's queue batch completes, handled via `IBatchNotificationService`. Toggleable via settings.
+- Play sound notifications (success/failure) when an entire drive's queue batch completes. Toggleable via settings.
 - Generate and export detailed reports (e.g., CSV) for completed and failed operations.
 - Automatically track transfer metrics like operation timestamps and destination details.
 
@@ -83,7 +83,6 @@
 
 ## 🏗️ Architecture & Code Quality
 - Clean view-model separation enforcing zero View-to-ViewModel UI coupling through rigorous Dependency Injection (completely removing AppServiceLocator).
-- Extracted `IBatchNotificationService` / `BatchNotificationService` into `Services/` to handle audio alerts and desktop toast notifications upon queue batch completion.
 - Extracted `IRufusService` / `RufusService` into `Services/` to encapsulate Rufus executable path discovery and ISO launching, keeping `MainViewModel` lean.
 - Streamlined child tab ViewModels (`GamesTabViewModel`, `AppsTabViewModel`, `TvAndFilmsTabViewModel`, `OsImagesTabViewModel`) using `ForwardParentPropertyChanges` in `LibraryTabViewModelBase`.
 - Extracted `ILibraryFilterService` to handle text search query filtering, `GameCategory` matching, and OS image sorting in a dedicated service.

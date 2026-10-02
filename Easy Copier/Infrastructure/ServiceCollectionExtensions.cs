@@ -48,10 +48,10 @@ namespace Easy_Copier.Infrastructure
             _ = services.AddSingleton<Services.IFolderPickerService, FolderPickerService>();
             _ = services.AddSingleton<Services.IGameScannerService, Services.GameScannerService>();
             _ = services.AddSingleton<Services.ILibraryScannerService, Services.LibraryScannerService>();
+            _ = services.AddSingleton<Services.IBatchNotificationService, Services.BatchNotificationService>();
             _ = services.AddSingleton<Services.IDriveDiscoveryService, Services.DriveDiscoveryService>();
             _ = services.AddSingleton<Services.IDriveValidationService, Services.DriveValidationService>();
             _ = services.AddSingleton<Services.IFileTransferService, Services.WindowsShellTransferService>();
-            _ = services.AddSingleton<Services.IBatchNotificationService, Services.BatchNotificationService>();
             _ = services.AddSingleton<Services.ITransferQueueService, Services.TransferQueueService>();
             _ = services.AddSingleton<Services.IStartupService, Services.StartupService>();
             _ = services.AddSingleton<IProcessService, ProcessService>();
