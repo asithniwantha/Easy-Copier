@@ -35,13 +35,8 @@ namespace Easy_Copier.Infrastructure
     /// </summary>
     public class FilePickerService : IFilePickerService
     {
-        /// <summary>The UI thread dispatcher service.</summary>
         private readonly IDispatcherService _dispatcherService;
-
-        /// <summary>The application window context provider.</summary>
         private readonly IAppWindowContext _appWindowContext;
-
-        /// <summary>The logger instance for diagnostics.</summary>
         private readonly ILogger<FilePickerService> _logger;
 
         /// <summary>
@@ -61,7 +56,11 @@ namespace Easy_Copier.Infrastructure
             _logger = logger ?? NullLogger<FilePickerService>.Instance;
         }
 
-        /// <inheritdoc />
+        /// <summary>
+        /// Displays a file open picker modal dialog allowing the user to select an existing file.
+        /// </summary>
+        /// <param name="fileTypeFilters">A list of file extension filters (e.g., ".txt", ".iso") to allow.</param>
+        /// <returns>The full file path selected by the user, or <c>null</c> if canceled.</returns>
         /// <exception cref="ArgumentNullException">Thrown when <paramref name="fileTypeFilters"/> is null.</exception>
         public async Task<string?> PickOpenFileAsync(IList<string> fileTypeFilters)
         {
@@ -115,7 +114,12 @@ namespace Easy_Copier.Infrastructure
             return await tcs.Task;
         }
 
-        /// <inheritdoc />
+        /// <summary>
+        /// Displays a file save picker modal dialog allowing the user to select a destination path.
+        /// </summary>
+        /// <param name="suggestedFileName">The initial default file name suggested to the user.</param>
+        /// <param name="fileTypeChoices">A dictionary mapping file type names to lists of supported extension patterns.</param>
+        /// <returns>The full file path selected by the user, or <c>null</c> if canceled.</returns>
         /// <exception cref="ArgumentNullException">Thrown when <paramref name="fileTypeChoices"/> is null.</exception>
         public async Task<string?> PickSaveFileAsync(string suggestedFileName, IDictionary<string, IList<string>> fileTypeChoices)
         {

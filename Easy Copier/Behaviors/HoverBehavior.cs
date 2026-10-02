@@ -40,21 +40,11 @@ namespace Easy_Copier.Behaviors
             base.OnDetaching();
         }
 
-        /// <summary>
-        /// Handles the pointer entered event on the associated element to set <see cref="IsHovered"/> to <see langword="true"/>.
-        /// </summary>
-        /// <param name="sender">The event source.</param>
-        /// <param name="e">The pointer event arguments.</param>
         private void AssociatedObject_PointerEntered(object sender, Microsoft.UI.Xaml.Input.PointerRoutedEventArgs e)
         {
             IsHovered = true;
         }
 
-        /// <summary>
-        /// Handles the pointer exited event on the associated element to set <see cref="IsHovered"/> to <see langword="false"/>.
-        /// </summary>
-        /// <param name="sender">The event source.</param>
-        /// <param name="e">The pointer event arguments.</param>
         private void AssociatedObject_PointerExited(object sender, Microsoft.UI.Xaml.Input.PointerRoutedEventArgs e)
         {
             IsHovered = false;

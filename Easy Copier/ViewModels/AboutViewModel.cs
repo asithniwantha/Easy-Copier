@@ -12,9 +12,6 @@ namespace Easy_Copier.ViewModels
     /// </summary>
     public partial class AboutViewModel : ObservableObject
     {
-        /// <summary>
-        /// Process service dependency used to launch external browser links.
-        /// </summary>
         private readonly IProcessService _processService;
 
         /// <summary>
@@ -31,9 +28,6 @@ namespace Easy_Copier.ViewModels
         /// </summary>
         public event EventHandler? CloseRequested;
 
-        /// <summary>
-        /// Raises the <see cref="CloseRequested"/> event to request closing the containing dialog window.
-        /// </summary>
         [RelayCommand]
         private void CloseWindow()
         {
@@ -67,18 +61,12 @@ namespace Easy_Copier.ViewModels
         [SuppressMessage("Performance", "CA1822:Mark members as static", Justification = "ViewModel properties are bound by instance references in XAML.")]
         public string DeveloperInfo => "Asith Niwantha";
 
-        /// <summary>
-        /// Opens the application GitHub repository web page in the default web browser.
-        /// </summary>
         [RelayCommand]
         private void OpenGitHubRepo()
         {
             _processService.OpenInExplorer("https://github.com/asithniwantha/Easy-Copier");
         }
 
-        /// <summary>
-        /// Opens the application GitHub issues web page in the default web browser.
-        /// </summary>
         [RelayCommand]
         private void OpenGitHubIssues()
         {

@@ -62,7 +62,7 @@
 ## 📊 History and Reporting
 - View detailed history of all past copy operations.
 - Track success and failure states, including transfer times.
-- Play sound notifications (success/failure) when an entire drive's queue batch completes, handled via `IBatchNotificationService`. Toggleable via settings.
+- Play sound notifications (success/failure) when an entire drive's queue batch completes. Toggleable via settings.
 - Generate and export detailed reports (e.g., CSV) for completed and failed operations.
 - Automatically track transfer metrics like operation timestamps and destination details.
 
@@ -83,7 +83,6 @@
 
 ## 🏗️ Architecture & Code Quality
 - Clean view-model separation enforcing zero View-to-ViewModel UI coupling through rigorous Dependency Injection (completely removing AppServiceLocator).
-- Extracted `IBatchNotificationService` / `BatchNotificationService` into `Services/` to handle audio alerts and desktop toast notifications upon queue batch completion.
 - Extracted `IRufusService` / `RufusService` into `Services/` to encapsulate Rufus executable path discovery and ISO launching, keeping `MainViewModel` lean.
 - Streamlined child tab ViewModels (`GamesTabViewModel`, `AppsTabViewModel`, `TvAndFilmsTabViewModel`, `OsImagesTabViewModel`) using `ForwardParentPropertyChanges` in `LibraryTabViewModelBase`.
 - Extracted `ILibraryFilterService` to handle text search query filtering, `GameCategory` matching, and OS image sorting in a dedicated service.
@@ -97,6 +96,7 @@
 - Centralized flyout logic in `FlyoutHelper.cs` for right-click details flyouts.
 - Extracted `IGameRequirementsService` and `GameRequirementsService` to handle retrieving and formatting game system requirements.
 - Extracted `IHistoryAnalysisService` and `HistoryAnalysisService` to handle 15-minute window drive clustering and statistic summary computations for history records.
+- Extracted `IBatchNotificationService` and `BatchNotificationService` to handle batch transfer status evaluation, sound alerts, and Windows desktop toast notifications.
 - Strict adherence to SOLID principles through decoupled, highly-focused service abstractions.
 - Proper Dependency Injection flow used to instantiate View Models across pages and windows, eliminating service-locator anti-patterns.
 - UI elements decoupled from Services by leveraging `IDispatcherService` and `IWindowService` interfaces.

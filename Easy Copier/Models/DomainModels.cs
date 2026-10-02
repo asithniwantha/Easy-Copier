@@ -383,10 +383,6 @@ namespace Easy_Copier.Models
     /// <param name="BytesTransferred">The total volume of data transferred in bytes.</param>
     /// <param name="IsSuccess">Indicates whether the transfer completed successfully.</param>
     /// <param name="Amount">The price charged or calculated for the transfer.</param>
-    /// <param name="SourcePath">The source file or directory path of the transfer item.</param>
-    /// <param name="DestinationPath">The destination file or directory path where the item was copied.</param>
-    /// <param name="ErrorLog">The detailed error message or log if the transfer encountered issues.</param>
-    /// <param name="SubFilesJson">The serialized JSON string representing sub-files included in the batch transfer.</param>
     public record CopyHistoryRecord(
         int Id,
         DateTime Timestamp,

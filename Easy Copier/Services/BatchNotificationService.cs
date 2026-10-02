@@ -1,3 +1,4 @@
+using Easy_Copier.Infrastructure;
 using Easy_Copier.Models;
 using Microsoft.Extensions.Logging;
 using Microsoft.Windows.AppNotifications;
@@ -9,26 +10,29 @@ using System.Linq;
 namespace Easy_Copier.Services
 {
     /// <summary>
-    /// Provides functionality for handling audio alerts and desktop toast notifications when file transfer batches complete.
+    /// Encapsulates evaluating completed drive transfer batches, executing audio alerts, and formatting/displaying Windows desktop toast notifications.
     /// </summary>
     public class BatchNotificationService : IBatchNotificationService
     {
         private readonly ISettingsService _settingsService;
         private readonly IAudioPlaybackService _audioPlaybackService;
-        private readonly Infrastructure.IProcessService _processService;
+        private readonly IProcessService _processService;
         private readonly ILogger<BatchNotificationService> _logger;
+
+        /// <inheritdoc />
+        public event EventHandler<(string Title, string Message, bool IsSuccess)>? BatchCompleted;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="BatchNotificationService"/> class.
         /// </summary>
-        /// <param name="settingsService">Service for loading application notification settings.</param>
-        /// <param name="audioPlaybackService">Service for playing notification sound effects.</param>
-        /// <param name="processService">Service for inspecting process privilege levels.</param>
-        /// <param name="logger">Logger for operational and diagnostic outputs.</param>
+        /// <param name="settingsService">The settings service for reading notification preferences.</param>
+        /// <param name="audioPlaybackService">The audio playback service for playing success/failure sounds.</param>
+        /// <param name="processService">The process service for checking process privilege levels.</param>
+        /// <param name="logger">The logger instance for operational diagnostic output.</param>
         public BatchNotificationService(
             ISettingsService settingsService,
             IAudioPlaybackService audioPlaybackService,
-            Infrastructure.IProcessService processService,
+            IProcessService processService,
             ILogger<BatchNotificationService> logger)
         {
             _settingsService = settingsService ?? throw new ArgumentNullException(nameof(settingsService));
@@ -38,52 +42,64 @@ namespace Easy_Copier.Services
         }
 
         /// <inheritdoc />
-        public void NotifyBatchCompletion(
-            string driveLetter,
-            IReadOnlyList<TransferQueueItem> batchItems,
-            Action<(string Title, string Message, bool IsSuccess)>? batchCompletedCallback = null)
+        public void EvaluateAndNotifyBatchCompletion(string driveLetter, IEnumerable<TransferQueueItem> queueItems)
         {
-            if (batchItems == null || batchItems.Count == 0)
+            ArgumentNullException.ThrowIfNull(queueItems);
+
+            if (string.IsNullOrWhiteSpace(driveLetter))
             {
                 return;
             }
 
             AppSettings settings = _settingsService.LoadSettingsSync();
 
-            // Evaluate batch failure state
+            List<TransferQueueItem> itemsList = [.. queueItems];
+
+            int activeItemsForDrive = itemsList.Count(i =>
+                i.IsActive && string.Equals(i.TargetDrive.DriveLetter, driveLetter, StringComparison.OrdinalIgnoreCase));
+
+            if (activeItemsForDrive > 0)
+            {
+                return;
+            }
+
+            List<TransferQueueItem> batchItems = itemsList.Where(i =>
+                !i.IsActive && string.Equals(i.TargetDrive.DriveLetter, driveLetter, StringComparison.OrdinalIgnoreCase))
+                .ToList();
+
+            if (batchItems.Count == 0)
+            {
+                return;
+            }
+
             bool anyFailedOrCancelled = batchItems.Any(i => i.Status is TransferQueueItemStatus.Failed or TransferQueueItemStatus.Cancelled);
-            bool isSuccess = !anyFailedOrCancelled;
 
             if (settings.PlayNotificationSounds)
             {
-                if (isSuccess)
+                if (anyFailedOrCancelled)
                 {
-                    _audioPlaybackService.PlaySuccessSound();
+                    _audioPlaybackService.PlayFailureSound();
                 }
                 else
                 {
-                    _audioPlaybackService.PlayFailureSound();
+                    _audioPlaybackService.PlaySuccessSound();
                 }
             }
 
             if (settings.ShowDesktopNotifications)
             {
-                ShowDesktopNotification(driveLetter, batchItems, isSuccess, batchCompletedCallback);
+                ShowDesktopNotification(driveLetter, batchItems, !anyFailedOrCancelled);
             }
         }
 
-        private void ShowDesktopNotification(
-            string driveLetter,
-            IReadOnlyList<TransferQueueItem> batchItems,
-            bool isSuccess,
-            Action<(string Title, string Message, bool IsSuccess)>? batchCompletedCallback)
+        private void ShowDesktopNotification(string driveLetter, List<TransferQueueItem> batchItems, bool isSuccess)
         {
             try
             {
                 TransferQueueItem firstItem = batchItems.First();
                 long totalDriveCapacity = firstItem.TargetDrive.TotalBytes;
                 string statusText = isSuccess ? "Complete" : "Failed";
-                string title = $"{firstItem.TargetDrive.DriveLetter} - {Infrastructure.FormattingHelpers.FormatBytes(totalDriveCapacity)} Capacity - {statusText}";
+                string title = $"{firstItem.TargetDrive.DriveLetter} - {FormattingHelpers.FormatBytes(totalDriveCapacity)} Capacity - {statusText}";
 
                 long totalBytes = batchItems.Sum(x => x.TotalBytes);
                 int totalPrice = batchItems.Sum(x => x.TotalPrice);
@@ -93,9 +109,9 @@ namespace Easy_Copier.Services
                 string namesText = totalItems > 3
                     ? $"{totalItems} items: {string.Join(", ", allGames.Take(3))} and {totalItems - 3} more."
                     : $"{totalItems} items: {string.Join(", ", allGames)}.";
-                string body = $"{namesText} Size: {Infrastructure.FormattingHelpers.FormatBytes(totalBytes)}. Price: Rs. {totalPrice}";
+                string body = $"{namesText} Size: {FormattingHelpers.FormatBytes(totalBytes)}. Price: Rs. {totalPrice}";
 
-                batchCompletedCallback?.Invoke((title, body, isSuccess));
+                BatchCompleted?.Invoke(this, (title, body, isSuccess));
 
                 AppNotificationBuilder builder = new AppNotificationBuilder()
                     .AddText(title)
@@ -103,7 +119,6 @@ namespace Easy_Copier.Services
 
                 _logger.LogInformation("Attempting to show desktop notification: {Title}", title);
                 AppNotification notification = builder.BuildNotification();
-
                 if (!AppNotificationManager.IsSupported())
                 {
                     _logger.LogWarning("AppNotificationManager.IsSupported() returned false. Skipping toast display.");
@@ -145,7 +160,7 @@ namespace Easy_Copier.Services
                 }
                 else
                 {
-                    _logger.LogWarning("AppNotificationManager.Default.Show returned without throwing, but the notification ID is 0.");
+                    _logger.LogWarning("AppNotificationManager.Default.Show returned without throwing, but notification ID is 0.");
                 }
             }
             catch (Exception ex)

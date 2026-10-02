@@ -34,7 +34,10 @@ namespace Easy_Copier.Infrastructure
     /// </summary>
     public class ProcessService : IProcessService
     {
-        /// <inheritdoc />
+        /// <summary>
+        /// Opens Windows File Explorer to the specified directory or file path.
+        /// </summary>
+        /// <param name="path">The folder or file path to display.</param>
         public void OpenInExplorer(string path)
         {
             try
@@ -52,7 +55,10 @@ namespace Easy_Copier.Infrastructure
             }
         }
 
-        /// <inheritdoc />
+        /// <summary>
+        /// Checks whether the current application process is executing with Administrator privileges.
+        /// </summary>
+        /// <returns><c>true</c> if running as Administrator; otherwise, <c>false</c>.</returns>
         public bool IsRunningAsAdministrator()
         {
             try
@@ -83,7 +89,10 @@ namespace Easy_Copier.Infrastructure
         /// </summary>
         private const uint SHFMT_ID_DEFAULT = 0xFFFF;
 
-        /// <inheritdoc />
+        /// <summary>
+        /// Opens the native Windows Format dialog for the specified drive.
+        /// </summary>
+        /// <param name="driveLetter">The drive letter (e.g., "D:" or "D").</param>
         public void OpenFormatDialog(string driveLetter)
         {
             if (string.IsNullOrWhiteSpace(driveLetter))
