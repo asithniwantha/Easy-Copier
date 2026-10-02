@@ -21,6 +21,9 @@ namespace Easy_Copier.Views
         /// </summary>
         public event EventHandler? SettingsClosed;
 
+        /// <summary>
+        /// The owner window used for modal positioning and centering.
+        /// </summary>
         private readonly Window _owner;
 
         /// <summary>

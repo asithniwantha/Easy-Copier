@@ -60,7 +60,7 @@ namespace Easy_Copier.Views
         public void ClearSelection() => AppsGridView.ClearMultiSelection();
 
         /// <summary>
-        /// Handles the <see cref="Selector.SelectionChanged"/> event for the applications grid.
+        /// Handles the SelectionChanged event for the applications grid.
         /// </summary>
         /// <param name="sender">The source of the selection changed event.</param>
         /// <param name="e">The event data describing selection modifications.</param>

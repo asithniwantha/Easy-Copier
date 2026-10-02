@@ -1,7 +1,5 @@
 using Easy_Copier.Models;
 using Microsoft.Extensions.Logging;
-using Microsoft.Windows.AppNotifications;
-using Microsoft.Windows.AppNotifications.Builder;
 using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
@@ -55,7 +53,7 @@ namespace Easy_Copier.Services
     }
 
     /// <summary>
-    /// Service managing background asynchronous file transfer queues with per-drive channels, sound alerts, and toast notifications.
+    /// Service managing background asynchronous file transfer queues with per-drive channels, delegating notifications to <see cref="IBatchNotificationService"/>.
     /// </summary>
     public class TransferQueueService : ITransferQueueService
     {
@@ -85,6 +83,16 @@ namespace Easy_Copier.Services
         private readonly Infrastructure.IDispatcherService _dispatcherService;
 
         /// <summary>
+        /// Settings service for loading notification and pricing settings.
+        /// </summary>
+        private readonly ISettingsService _settingsService;
+
+        /// <summary>
+        /// Batch notification service for audio and desktop notification dispatching.
+        /// </summary>
+        private readonly IBatchNotificationService _batchNotificationService;
+
+        /// <summary>
         /// Observable collection of queued transfer items bound to UI views.
         /// </summary>
         public ObservableCollection<TransferQueueItem> QueueItems { get; } = [];
@@ -100,21 +108,6 @@ namespace Easy_Copier.Services
         public event EventHandler<(string Title, string Message, bool IsSuccess)>? BatchCompleted;
 
         /// <summary>
-        /// Settings service for loading notification and pricing settings.
-        /// </summary>
-        private readonly ISettingsService _settingsService;
-
-        /// <summary>
-        /// Batch notification service for evaluating batch completions and showing alerts/toasts.
-        /// </summary>
-        private readonly IBatchNotificationService _batchNotificationService;
-
-        /// <summary>
-        /// Dialog service for prompting user dialogs.
-        /// </summary>
-        private readonly Infrastructure.IDialogService _dialogService;
-
-        /// <summary>
         /// Initializes a new instance of the <see cref="TransferQueueService"/> class and starts background consumer tasks.
         /// </summary>
         /// <param name="fileTransferService">File transfer service implementation.</param>
@@ -122,34 +115,25 @@ namespace Easy_Copier.Services
         /// <param name="dispatcherService">UI dispatcher service.</param>
         /// <param name="settingsService">Settings service.</param>
         /// <param name="batchNotificationService">Batch notification service.</param>
-        /// <param name="dialogService">Dialog prompt service.</param>
         public TransferQueueService(
             IFileTransferService fileTransferService,
             ILogger<TransferQueueService> logger,
             Infrastructure.IDispatcherService dispatcherService,
             ISettingsService settingsService,
-            IBatchNotificationService batchNotificationService,
-            Infrastructure.IDialogService dialogService)
+            IBatchNotificationService batchNotificationService)
         {
-            _fileTransferService = fileTransferService;
-            _logger = logger;
-            _dispatcherService = dispatcherService;
-            _settingsService = settingsService;
-            _batchNotificationService = batchNotificationService;
-            _dialogService = dialogService;
+            _fileTransferService = fileTransferService ?? throw new ArgumentNullException(nameof(fileTransferService));
+            _logger = logger ?? throw new ArgumentNullException(nameof(logger));
+            _dispatcherService = dispatcherService ?? throw new ArgumentNullException(nameof(dispatcherService));
+            _settingsService = settingsService ?? throw new ArgumentNullException(nameof(settingsService));
+            _batchNotificationService = batchNotificationService ?? throw new ArgumentNullException(nameof(batchNotificationService));
 
             _batchNotificationService.BatchCompleted += (sender, args) => BatchCompleted?.Invoke(sender, args);
 
             _ = Task.Run(ProcessQueueAsync);
         }
 
-        /// <summary>
-        /// Enqueues a batch transfer request targeting a specific drive.
-        /// </summary>
-        /// <param name="items">List of items to transfer.</param>
-        /// <param name="targetDrive">Target drive details.</param>
-        /// <param name="destinationPath">Root path on target drive.</param>
-        /// <returns>The created <see cref="TransferQueueItem"/> instance.</returns>
+        /// <inheritdoc />
         public TransferQueueItem Enqueue(IReadOnlyList<TransferItem> items, RemovableDrive targetDrive, string destinationPath)
         {
             ArgumentNullException.ThrowIfNull(items);
@@ -170,11 +154,7 @@ namespace Easy_Copier.Services
             return item;
         }
 
-        /// <summary>
-        /// Gets total bytes allocated by active transfers targeting the specified drive letter.
-        /// </summary>
-        /// <param name="driveLetter">Target drive letter.</param>
-        /// <returns>Total active reserved bytes.</returns>
+        /// <inheritdoc />
         public long GetReservedBytes(string driveLetter)
         {
             return QueueItems
@@ -182,9 +162,7 @@ namespace Easy_Copier.Services
                 .Sum(i => i.TotalBytes);
         }
 
-        /// <summary>
-        /// Removes completed, failed, or cancelled items from the visible queue collection.
-        /// </summary>
+        /// <inheritdoc />
         public void ClearFinished()
         {
             List<TransferQueueItem> toRemove = [.. QueueItems.Where(i => !i.IsActive)];
@@ -194,10 +172,6 @@ namespace Easy_Copier.Services
             }
         }
 
-        /// <summary>
-        /// Main background loop reading items from the primary channel and routing them to per-drive execution channels.
-        /// </summary>
-        /// <returns>A task representing the background queue processing operation.</returns>
         private async Task ProcessQueueAsync()
         {
             await foreach (TransferQueueItem item in _channel.Reader.ReadAllAsync())
@@ -214,12 +188,6 @@ namespace Easy_Copier.Services
             }
         }
 
-        /// <summary>
-        /// Per-drive loop processing queued transfers sequentially for a single drive letter.
-        /// </summary>
-        /// <param name="driveKey">Drive letter identifier key.</param>
-        /// <param name="driveChannel">Drive-specific channel.</param>
-        /// <returns>A task representing the processing loop.</returns>
         private async Task ProcessDriveQueueAsync(string driveKey, Channel<TransferQueueItem> driveChannel)
         {
             await foreach (TransferQueueItem item in driveChannel.Reader.ReadAllAsync())
@@ -230,11 +198,6 @@ namespace Easy_Copier.Services
             _ = _driveChannels.TryRemove(driveKey, out _);
         }
 
-        /// <summary>
-        /// Executes an individual transfer item and updates its status and progress properties on the UI thread.
-        /// </summary>
-        /// <param name="item">The transfer queue item to process.</param>
-        /// <returns>A task representing the execution.</returns>
         private async Task ProcessItemAsync(TransferQueueItem item)
         {
             RunOnUiThread(() =>
@@ -302,10 +265,6 @@ namespace Easy_Copier.Services
             return (driveLetter ?? string.Empty).Trim().TrimEnd('\\').ToUpperInvariant();
         }
 
-        /// <summary>
-        /// Executes an action on the UI thread using <see cref="Infrastructure.IDispatcherService"/>.
-        /// </summary>
-        /// <param name="action">Action delegate to execute.</param>
         private void RunOnUiThread(Action action)
         {
             if (!_dispatcherService.HasThreadAccess)
