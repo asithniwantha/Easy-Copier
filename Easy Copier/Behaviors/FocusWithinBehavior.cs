@@ -40,11 +40,21 @@ namespace Easy_Copier.Behaviors
             base.OnDetaching();
         }
 
+        /// <summary>
+        /// Handles the <see cref="UIElement.GotFocus"/> event to set <see cref="IsFocusWithin"/> to <see langword="true"/>.
+        /// </summary>
+        /// <param name="sender">The event source.</param>
+        /// <param name="e">The event data.</param>
         private void AssociatedObject_GotFocus(object sender, RoutedEventArgs e)
         {
             IsFocusWithin = true;
         }
 
+        /// <summary>
+        /// Handles the <see cref="UIElement.LostFocus"/> event to set <see cref="IsFocusWithin"/> to <see langword="false"/>.
+        /// </summary>
+        /// <param name="sender">The event source.</param>
+        /// <param name="e">The event data.</param>
         private void AssociatedObject_LostFocus(object sender, RoutedEventArgs e)
         {
             IsFocusWithin = false;
