@@ -95,8 +95,9 @@
 - Replaced imperative C# UI construction in `DialogService.cs` with declarative `ConflictDialogContent.xaml` XAML controls.
 - Centralized flyout logic in `FlyoutHelper.cs` for right-click details flyouts.
 - Extracted `IGameRequirementsService` and `GameRequirementsService` to handle retrieving and formatting game system requirements.
-- Extracted `IHistoryAnalysisService` and `HistoryAnalysisService` to handle 15-minute window drive clustering and statistic summary computations for history records.
+- Extracted `IHistoryAnalysisService` and `HistoryAnalysisService` to handle 15-minute window drive clustering and statistic summary computations (`HistoryStats`) for history records, with `HistoryStats` moved to `DomainModels.cs` to fully decouple Services from ViewModels.
 - Extracted `IBatchNotificationService` and `BatchNotificationService` to handle batch transfer status evaluation, sound alerts, and Windows desktop toast notifications.
+- Implemented `IDisposable` event unsubscription cleanup in `LibraryTabViewModelBase` to prevent memory leaks during child tab ViewModel lifecycle transitions.
 - Strict adherence to SOLID principles through decoupled, highly-focused service abstractions.
 - Proper Dependency Injection flow used to instantiate View Models across pages and windows, eliminating service-locator anti-patterns.
 - UI elements decoupled from Services by leveraging `IDispatcherService` and `IWindowService` interfaces.

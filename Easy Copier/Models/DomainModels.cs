@@ -402,4 +402,14 @@ namespace Easy_Copier.Models
         /// </summary>
         public int BatchAmount { get; set; }
     }
+
+    /// <summary>
+    /// Represents aggregated summary statistics calculated for a subset of copy history records.
+    /// </summary>
+    /// <param name="TotalItems">The total count of matching transfer records.</param>
+    /// <param name="SuccessfulItems">The count of successfully completed transfer records.</param>
+    /// <param name="TotalBytes">The cumulative data volume in bytes.</param>
+    /// <param name="TotalAmount">The cumulative monetary amount charged.</param>
+    /// <param name="SuccessRate">The calculated success rate percentage string.</param>
+    public record HistoryStats(int TotalItems, int SuccessfulItems, long TotalBytes, int TotalAmount, string SuccessRate);
 }
