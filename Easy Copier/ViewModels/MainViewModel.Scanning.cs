@@ -108,26 +108,10 @@ namespace Easy_Copier.ViewModels
             }
         }
 
-        /// <summary>
-        /// Handles changes to the SearchText property to re-apply library filtering.
-        /// Uses nullable string? for oldValue to match the CommunityToolkit.Mvvm partial method declaration for reference types.
-        /// </summary>
-        /// <param name="oldValue">The previous search string.</param>
-        /// <param name="newValue">The new search string.</param>
         partial void OnSearchTextChanged(string oldValue, string newValue) => ApplyFilter();
 
-        /// <summary>
-        /// Handles changes to the SelectedCategory property to re-apply library filtering.
-        /// </summary>
-        /// <param name="oldValue">The previous category value.</param>
-        /// <param name="newValue">The new category value.</param>
         partial void OnSelectedCategoryChanged(GameCategory oldValue, GameCategory newValue) => ApplyFilter();
 
-        /// <summary>
-        /// Handles changes to the SelectedOsImageSortOption property to re-apply OS image sorting.
-        /// </summary>
-        /// <param name="oldValue">The previous sort option.</param>
-        /// <param name="newValue">The new sort option.</param>
         partial void OnSelectedOsImageSortOptionChanged(OsImageSortOption oldValue, OsImageSortOption newValue)
         {
             IsOsImageSortAscending = newValue switch
@@ -140,11 +124,6 @@ namespace Easy_Copier.ViewModels
             ApplyFilter();
         }
 
-        /// <summary>
-        /// Handles changes to the IsOsImageSortAscending property to re-apply OS image sorting.
-        /// </summary>
-        /// <param name="oldValue">The previous sort direction value.</param>
-        /// <param name="newValue">The new sort direction value.</param>
         partial void OnIsOsImageSortAscendingChanged(bool oldValue, bool newValue) => ApplyFilter();
 
         /// <summary>
@@ -426,10 +405,7 @@ namespace Easy_Copier.ViewModels
         /// Determines whether the copy command can execute based on selection and target drive availability.
         /// </summary>
         /// <returns><c>true</c> if at least one item is selected and a target drive is chosen; otherwise, <c>false</c>.</returns>
-        private bool CanCopyGames()
-        {
-            return SelectedGamesCount > 0 && SelectedDrive != null;
-        }
+        private bool CanCopyGames() => SelectedGamesCount > 0 && SelectedDrive != null;
 
         /// <summary>
         /// Updates selected game entries and recalculates size, item count, and price summary values.
@@ -554,10 +530,13 @@ namespace Easy_Copier.ViewModels
         [RelayCommand]
         private void AddSourceFolder()
         {
-            SettingsOpenAction openAction = CurrentTabIndex == 0 ? Infrastructure.SettingsOpenAction.AddGameFolder :
-                                            CurrentTabIndex == 1 ? Infrastructure.SettingsOpenAction.AddAppFolder :
-                                            CurrentTabIndex == 2 ? Infrastructure.SettingsOpenAction.AddTvAndFilmFolder :
-                                            Infrastructure.SettingsOpenAction.AddOsImageFolder;
+            SettingsOpenAction openAction = CurrentTabIndex switch
+            {
+                0 => Infrastructure.SettingsOpenAction.AddGameFolder,
+                1 => Infrastructure.SettingsOpenAction.AddAppFolder,
+                2 => Infrastructure.SettingsOpenAction.AddTvAndFilmFolder,
+                _ => Infrastructure.SettingsOpenAction.AddOsImageFolder
+            };
 
             _windowService.ShowSettingsWindow(null, openAction);
         }

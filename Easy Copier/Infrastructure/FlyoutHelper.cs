@@ -1,5 +1,6 @@
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Input;
+using System;
 using System.Threading.Tasks;
 using Windows.Foundation;
 
@@ -18,7 +19,7 @@ namespace Easy_Copier.Infrastructure
         /// <param name="flyoutService">The flyout service instance.</param>
         public static void Initialize(IFlyoutService flyoutService)
         {
-            s_flyoutService = flyoutService;
+            s_flyoutService = flyoutService ?? throw new ArgumentNullException(nameof(flyoutService));
         }
 
         /// <summary>
@@ -35,9 +36,10 @@ namespace Easy_Copier.Infrastructure
         /// </summary>
         /// <param name="sender">The framework element triggering the right-tap.</param>
         /// <param name="e">The right-tapped routed event args.</param>
+        /// <returns>A task representing the asynchronous flyout display.</returns>
         public static async Task ShowGameDetailsFlyoutAsync(object sender, RightTappedRoutedEventArgs e)
         {
-            Point? position = sender is FrameworkElement fe && e != null ? e.GetPosition(fe) : null;
+            Point? position = GetPosition(sender, e);
             if (s_flyoutService != null)
             {
                 await s_flyoutService.ShowGameDetailsFlyoutAsync(sender, position);
@@ -51,8 +53,13 @@ namespace Easy_Copier.Infrastructure
         /// <param name="e">The right-tapped routed event args.</param>
         public static void ShowOsImageDetailsFlyout(object sender, RightTappedRoutedEventArgs e)
         {
-            Point? position = sender is FrameworkElement fe && e != null ? e.GetPosition(fe) : null;
+            Point? position = GetPosition(sender, e);
             s_flyoutService?.ShowOsImageDetailsFlyout(sender, position);
+        }
+
+        private static Point? GetPosition(object sender, RightTappedRoutedEventArgs? e)
+        {
+            return sender is FrameworkElement fe && e != null ? e.GetPosition(fe) : null;
         }
     }
 }
