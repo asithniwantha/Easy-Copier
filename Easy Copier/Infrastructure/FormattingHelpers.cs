@@ -8,9 +8,9 @@ namespace Easy_Copier.Infrastructure
     public static class FormattingHelpers
     {
         /// <summary>
-        /// Formats a byte size into a human-readable string with units (e.g. KB, MB, GB).
+        /// Formats a byte size into a human-readable string with units (e.g., KB, MB, GB, TB).
         /// </summary>
-        /// <param name="bytes">The size in bytes.</param>
+        /// <param name="bytes">The size in bytes to format.</param>
         /// <returns>A formatted string representation of the byte size.</returns>
         public static string FormatBytes(long bytes)
         {
@@ -31,7 +31,7 @@ namespace Easy_Copier.Infrastructure
         /// <param name="bytes">The size of the game or file in bytes.</param>
         /// <param name="settings">The application settings containing pricing tier values.</param>
         /// <returns>The calculated price tier value.</returns>
-        /// <exception cref="ArgumentNullException">Thrown when <paramref name="settings"/> is null.</exception>
+        /// <exception cref="ArgumentNullException">Thrown when <paramref name="settings"/> is <c>null</c>.</exception>
         public static int CalculatePrice(long bytes, Models.AppSettings settings)
         {
             // Validate non-null settings parameter to satisfy Roslyn CA1062 and prevent NullReferenceException

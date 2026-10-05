@@ -1,3 +1,4 @@
+using System;
 using System.IO;
 
 namespace Easy_Copier.Infrastructure
@@ -12,10 +13,10 @@ namespace Easy_Copier.Infrastructure
         /// </summary>
         /// <param name="directoryInfo">The directory to measure.</param>
         /// <returns>The total size in bytes.</returns>
-        /// <exception cref="System.ArgumentNullException">Thrown when <paramref name="directoryInfo"/> is null.</exception>
+        /// <exception cref="ArgumentNullException">Thrown when <paramref name="directoryInfo"/> is <c>null</c>.</exception>
         public static long CalculateDirectorySize(DirectoryInfo directoryInfo)
         {
-            System.ArgumentNullException.ThrowIfNull(directoryInfo);
+            ArgumentNullException.ThrowIfNull(directoryInfo);
 
             long size = 0;
             try

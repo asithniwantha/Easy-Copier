@@ -15,7 +15,7 @@ namespace Easy_Copier.Infrastructure
         /// <typeparam name="T">The type of elements in the collection.</typeparam>
         /// <param name="collection">The target collection to update.</param>
         /// <param name="newItems">The sequence of new items to add.</param>
-        /// <exception cref="ArgumentNullException">Thrown when <paramref name="collection"/> or <paramref name="newItems"/> is null.</exception>
+        /// <exception cref="ArgumentNullException">Thrown when <paramref name="collection"/> or <paramref name="newItems"/> is <c>null</c>.</exception>
         public static void UpdateFrom<T>(this ObservableCollection<T> collection, IEnumerable<T> newItems)
         {
             ArgumentNullException.ThrowIfNull(collection);

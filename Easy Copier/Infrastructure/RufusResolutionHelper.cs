@@ -10,12 +10,15 @@ namespace Easy_Copier.Infrastructure
     /// </summary>
     public static partial class RufusResolutionHelper
     {
-        // Regex matches filenames like rufus-4.7.exe, rufus-4.10.exe, rufus_4.8_arm64.exe, rufus-4.7p.exe, etc.
+        /// <summary>
+        /// Gets a generated regular expression used to match Rufus executable file names containing version numbers.
+        /// </summary>
+        /// <returns>A <see cref="Regex"/> instance matching Rufus file names.</returns>
         [GeneratedRegex(@"rufus[^\d]*(?<version>\d+(?:\.\d+)+)", RegexOptions.IgnoreCase)]
         private static partial Regex RufusVersionRegex();
 
         /// <summary>
-        /// Attempts to parse a <see cref="Version"/> object from a Rufus filename (e.g., rufus-4.7.exe => Version 4.7).
+        /// Attempts to parse a <see cref="Version"/> object from a Rufus filename (e.g., <c>rufus-4.7.exe</c> &gt; Version 4.7).
         /// </summary>
         /// <param name="fileName">The file name or path to parse.</param>
         /// <returns>A parsed <see cref="Version"/> object if successful; otherwise, <c>null</c>.</returns>
@@ -41,7 +44,7 @@ namespace Easy_Copier.Infrastructure
 
         /// <summary>
         /// Given a configured Rufus path (with optional environment variables), expands environment variables,
-        /// scans the directory for all rufus*.exe files with valid version numbers, and returns the path to the
+        /// scans the directory for all <c>rufus*.exe</c> files with valid version numbers, and returns the path to the
         /// executable with the highest version. If no newer versioned file exists or directory is invalid, returns
         /// the expanded current path.
         /// </summary>
