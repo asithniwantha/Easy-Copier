@@ -7,8 +7,10 @@ namespace Easy_Copier.ViewModels
     /// <summary>
     /// Abstract base ViewModel for tab-specific child ViewModels that synchronize state with <see cref="MainViewModel"/>.
     /// </summary>
-    public abstract class LibraryTabViewModelBase : ObservableObject
+    public abstract class LibraryTabViewModelBase : ObservableObject, IDisposable
     {
+        private bool _isDisposed;
+
         /// <summary>
         /// Gets the parent <see cref="MainViewModel"/> instance.
         /// </summary>
@@ -66,6 +68,34 @@ namespace Easy_Copier.ViewModels
                     OnPropertyChanged(childPropName);
                 }
             }
+        }
+
+        /// <summary>
+        /// Unsubscribes from parent property change notifications and disposes resources.
+        /// </summary>
+        public void Dispose()
+        {
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+
+        /// <summary>
+        /// Disposes resources held by this instance.
+        /// </summary>
+        /// <param name="disposing"><c>true</c> to release managed resources; <c>false</c> if invoked from a finalizer.</param>
+        protected virtual void Dispose(bool disposing)
+        {
+            if (_isDisposed)
+            {
+                return;
+            }
+
+            if (disposing)
+            {
+                MainViewModel.PropertyChanged -= OnMainViewModelPropertyChanged;
+            }
+
+            _isDisposed = true;
         }
     }
 }
