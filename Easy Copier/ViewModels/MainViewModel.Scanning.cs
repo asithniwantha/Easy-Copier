@@ -1,3 +1,4 @@
+using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using Easy_Copier.Infrastructure;
 using Easy_Copier.Models;
@@ -100,7 +101,12 @@ namespace Easy_Copier.ViewModels
         /// <returns>A task representing the asynchronous snapshot saving operation.</returns>
         private async Task SaveCacheSnapshotAsync(AppSettings settings)
         {
-            List<GameEntry> allEntries = [.. _allGames, .. _allApps, .. _allTvAndFilms, .. _allOsImages];
+            List<GameEntry> allEntries = _allGames
+                .Concat(_allApps)
+                .Concat(_allTvAndFilms)
+                .Concat(_allOsImages)
+                .ToList();
+
             string? resultMessage = await _libraryCacheService.CreateAndSaveSnapshotAsync(allEntries, settings);
             if (!string.IsNullOrEmpty(resultMessage))
             {
@@ -229,7 +235,7 @@ namespace Easy_Copier.ViewModels
             {
                 // Verify the selected folder is on the selected drive
                 string rootDrive = Path.GetPathRoot(selectedFolder) ?? string.Empty;
-                if (!rootDrive.Equals($"{SelectedDrive.DriveLetter}\", StringComparison.OrdinalIgnoreCase))
+                if (!rootDrive.Equals($"{SelectedDrive.DriveLetter}\\", StringComparison.OrdinalIgnoreCase))
                 {
                     StatusMessage = $"Selected destination must be on the target drive ({SelectedDrive.DriveLetter}).";
                     return;
@@ -314,7 +320,7 @@ namespace Easy_Copier.ViewModels
         /// <returns>A task that represents the asynchronous operation. The task result contains the list of <see cref="TransferItem"/> instances to queue.</returns>
         private async Task<List<TransferItem>> BuildItemsToQueueAsync(string destinationPath)
         {
-            List<TransferItem> itemsToQueue = [];
+            var itemsToQueue = new List<TransferItem>();
             bool applyToAll = false;
             CopyAction globalAction = CopyAction.Default;
 
@@ -337,13 +343,13 @@ namespace Easy_Copier.ViewModels
                     }
                     else
                     {
-                        (long Size, int Count) = await _fileTransferService.GetFolderStatsAsync(game.FolderPath);
-                        (long Size, int Count) destStats = await _fileTransferService.GetFolderStatsAsync(destItemPath);
+                        var srcStats = await _fileTransferService.GetFolderStatsAsync(game.FolderPath);
+                        var destStats = await _fileTransferService.GetFolderStatsAsync(destItemPath);
 
                         (CopyAction Action, bool ApplyToAll) dialogResult = await _dialogService.ShowConflictDialogAsync(
                             game.Name,
-                            Size,
-                            Count,
+                            srcStats.Size,
+                            srcStats.Count,
                             destStats.Size,
                             destStats.Count);
 
@@ -471,7 +477,7 @@ namespace Easy_Copier.ViewModels
         /// <param name="selectedGames">The collection of selected library entries.</param>
         public void UpdateSelectionSummary(System.Collections.Generic.IEnumerable<GameEntry> selectedGames)
         {
-            _selectedGames = [.. selectedGames];
+            _selectedGames = selectedGames.ToList();
             SelectedGamesCount = _selectedGames.Count;
             SelectedGamesTotalBytes = _selectedGames.Sum(g => g.TotalBytes);
 
