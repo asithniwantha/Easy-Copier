@@ -198,7 +198,7 @@ namespace Easy_Copier.Services
                             {
                                 if (Directory.Exists(game.FolderPath))
                                 {
-                                    var files = Directory.GetFiles(game.FolderPath, "*", SearchOption.AllDirectories);
+                                    string[] files = Directory.GetFiles(game.FolderPath, "*", SearchOption.AllDirectories);
                                     subFilesJson = System.Text.Json.JsonSerializer.Serialize(files);
                                 }
                             }

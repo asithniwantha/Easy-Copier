@@ -58,9 +58,15 @@ namespace Easy_Copier.Views
             }
         }
 
-        private void OnItemQueued(object? sender, EventArgs e) => ClearGameSelection();
+        private void OnItemQueued(object? sender, EventArgs e)
+        {
+            ClearGameSelection();
+        }
 
-        private void OnClearSelectionRequested(object? sender, EventArgs e) => ClearGameSelection();
+        private void OnClearSelectionRequested(object? sender, EventArgs e)
+        {
+            ClearGameSelection();
+        }
 
         private void SearchBox_TextChanged(AutoSuggestBox sender, AutoSuggestBoxTextChangedEventArgs args)
         {
@@ -84,9 +90,9 @@ namespace Easy_Copier.Views
             }
             else
             {
-                SearchBox.Resources.Remove("TextControlBackground");
-                SearchBox.Resources.Remove("TextControlBackgroundPointerOver");
-                SearchBox.Resources.Remove("TextControlBackgroundFocused");
+                _ = SearchBox.Resources.Remove("TextControlBackground");
+                _ = SearchBox.Resources.Remove("TextControlBackgroundPointerOver");
+                _ = SearchBox.Resources.Remove("TextControlBackgroundFocused");
                 SearchBox.ClearValue(Control.BackgroundProperty);
             }
         }
@@ -98,12 +104,9 @@ namespace Easy_Copier.Views
 
         private IEnumerable<ILibraryTabView> GetTabViews()
         {
-            if (LibraryPivot == null)
-            {
-                return [];
-            }
-
-            return LibraryPivot.Items
+            return LibraryPivot == null
+                ? []
+                : LibraryPivot.Items
                 .OfType<PivotItem>()
                 .Select(p => p.Content)
                 .OfType<ILibraryTabView>();

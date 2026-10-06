@@ -1,7 +1,7 @@
 # 🚀 Easy Copier - Features
 
 ## 📚 Library Management
-- Scan configured source folders for **Games**, **Apps**, **Film & TV**, and **OS Images**.
+- Scan configured source folders for **Games**, **Apps**, and **Film & TV**.
 - Automatically expand folders ending in "collection" to scan their subdirectories.
 - Support automatic scanning at startup and on-demand rescanning.
 - Display library items in separate tabs (Games / Apps / Film & TV / OS Images) implementing `ILibraryTabView` with `IsOsImagesTab` abstraction for decoupled selection handling.
@@ -98,7 +98,6 @@
 - Extracted `IHistoryAnalysisService` and `HistoryAnalysisService` to handle 15-minute window drive clustering and statistic summary computations (`HistoryStats`) for history records, with `HistoryStats` moved to `DomainModels.cs` to fully decouple Services from ViewModels.
 - Extracted `IBatchNotificationService` and `BatchNotificationService` to handle batch transfer status evaluation, sound alerts, and Windows desktop toast notifications.
 - Implemented `IDisposable` event unsubscription cleanup in `LibraryTabViewModelBase` to prevent memory leaks during child tab ViewModel lifecycle transitions.
-- Applied modern C# 13/14 language features including collection expressions (`[]`), pattern matching, switch expressions, and expression-bodied members across ViewModels, Views, and Services.
 - Strict adherence to SOLID principles through decoupled, highly-focused service abstractions.
 - Proper Dependency Injection flow used to instantiate View Models across pages and windows, eliminating service-locator anti-patterns.
 - UI elements decoupled from Services by leveraging `IDispatcherService` and `IWindowService` interfaces.

@@ -17,19 +17,34 @@ namespace Easy_Copier.Interop
         public int cy;
 
         /// <inheritdoc />
-        public readonly override bool Equals(object? obj) => obj is SIZE size && Equals(size);
+        public override readonly bool Equals(object? obj)
+        {
+            return obj is SIZE size && Equals(size);
+        }
 
         /// <inheritdoc />
-        public readonly bool Equals(SIZE other) => cx == other.cx && cy == other.cy;
+        public readonly bool Equals(SIZE other)
+        {
+            return cx == other.cx && cy == other.cy;
+        }
 
         /// <inheritdoc />
-        public readonly override int GetHashCode() => HashCode.Combine(cx, cy);
+        public override readonly int GetHashCode()
+        {
+            return HashCode.Combine(cx, cy);
+        }
 
         /// <summary>Determines whether two specified instances of <see cref="SIZE"/> are equal.</summary>
-        public static bool operator ==(SIZE left, SIZE right) => left.Equals(right);
+        public static bool operator ==(SIZE left, SIZE right)
+        {
+            return left.Equals(right);
+        }
 
         /// <summary>Determines whether two specified instances of <see cref="SIZE"/> are not equal.</summary>
-        public static bool operator !=(SIZE left, SIZE right) => !left.Equals(right);
+        public static bool operator !=(SIZE left, SIZE right)
+        {
+            return !left.Equals(right);
+        }
     }
 
     /// <summary>
