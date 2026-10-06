@@ -137,7 +137,7 @@ namespace Easy_Copier.Services
             ArgumentNullException.ThrowIfNull(sourceFolders);
 
             List<GameEntry> games = [];
-            HashSet<string> processedPaths = [with(StringComparer.OrdinalIgnoreCase)];
+            HashSet<string> processedPaths = new(StringComparer.OrdinalIgnoreCase);
 
             string categoryLabel = category == LibraryCategory.App ? "app" :
                                    (category == LibraryCategory.TvAndFilm ? "film/tv" :
@@ -290,9 +290,9 @@ namespace Easy_Copier.Services
                                 {
                                     try
                                     {
-                                        List<string> extList = videoExtensions.Split(VideoExtensionSeparators, StringSplitOptions.RemoveEmptyEntries).Select(e => e.Trim().StartsWith('.') ? e.Trim() : "." + e.Trim()).ToList();
-                                        string[] allFiles = Directory.GetFiles(gameFolder, "*.*", SearchOption.TopDirectoryOnly);
-                                        string? videoFile = allFiles.FirstOrDefault(f => extList.Contains(Path.GetExtension(f), StringComparer.OrdinalIgnoreCase));
+                                        var extList = videoExtensions.Split(VideoExtensionSeparators, StringSplitOptions.RemoveEmptyEntries).Select(e => e.Trim().StartsWith('.') ? e.Trim() : "." + e.Trim()).ToList();
+                                        var allFiles = Directory.GetFiles(gameFolder, "*.*", SearchOption.TopDirectoryOnly);
+                                        var videoFile = allFiles.FirstOrDefault(f => extList.Contains(Path.GetExtension(f), StringComparer.OrdinalIgnoreCase));
                                         if (videoFile != null)
                                         {
                                             string cacheDir = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "EasyCopier", "Thumbnails");
