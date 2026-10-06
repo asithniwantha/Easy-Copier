@@ -137,21 +137,25 @@ namespace Easy_Copier.ViewModels
         /// Gets or sets the count of currently selected library items.
         /// </summary>
         [ObservableProperty]
-        [NotifyPropertyChangedFor(nameof(SelectionSummary))]
+        [NotifyPropertyChangedFor(nameof(HasSelectedGames))]
         public partial int SelectedGamesCount { get; set; }
+
+        /// <summary>
+        /// Gets a value indicating whether any library items are currently selected.
+        /// </summary>
+        public bool HasSelectedGames => SelectedGamesCount > 0;
+
 
         /// <summary>
         /// Gets or sets the aggregate byte size of currently selected library items.
         /// </summary>
         [ObservableProperty]
-        [NotifyPropertyChangedFor(nameof(SelectionSummary))]
         public partial long SelectedGamesTotalBytes { get; set; }
 
         /// <summary>
         /// Gets or sets the total calculated monetary price of currently selected library items.
         /// </summary>
         [ObservableProperty]
-        [NotifyPropertyChangedFor(nameof(SelectionSummary))]
         public partial int SelectedGamesTotalPrice { get; set; }
 
         /// <summary>
@@ -267,13 +271,6 @@ namespace Easy_Copier.ViewModels
         public string DriveDetailsSummary => SelectedDrive == null
             ? string.Empty
             : $"{SelectedDrive.DriveLetter} \u2022 {SelectedDrive.Brand} \u2022 {SelectedDrive.FileSystem}";
-
-        /// <summary>
-        /// Gets a formatted summary string describing item count, total byte size, and price for selected items.
-        /// </summary>
-        public string SelectionSummary => SelectedGamesCount == 0
-            ? "No items selected"
-            : $"{SelectedGamesCount} item(s) selected \u2022 {FormattingHelpers.FormatBytes(SelectedGamesTotalBytes)} \u2022 Rs. {SelectedGamesTotalPrice}";
 
         /// <summary>
         /// Gets or sets the active tab index in the main view Pivot control.
