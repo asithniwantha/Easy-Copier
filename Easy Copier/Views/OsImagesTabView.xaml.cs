@@ -54,17 +54,17 @@ namespace Easy_Copier.Views
         }
 
         /// <inheritdoc />
-        public IEnumerable<GameEntry> GetSelectedEntries() => OsImagesGridView.GetSelectedEntries();
+        public IEnumerable<GameEntry> GetSelectedEntries()
+        {
+            return OsImagesGridView.GetSelectedEntries();
+        }
 
         /// <inheritdoc />
         public void ClearSelection()
         {
             // OsImagesGridView uses Single selection mode.
             // In single selection mode, set SelectedItem to null instead of calling SelectedItems.Clear() to prevent COMExceptions.
-            if (OsImagesGridView != null)
-            {
-                OsImagesGridView.SelectedItem = null;
-            }
+            OsImagesGridView?.SelectedItem = null;
         }
 
         /// <summary>

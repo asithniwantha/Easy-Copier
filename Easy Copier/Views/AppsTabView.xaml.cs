@@ -54,10 +54,16 @@ namespace Easy_Copier.Views
         }
 
         /// <inheritdoc />
-        public IEnumerable<GameEntry> GetSelectedEntries() => AppsGridView.GetSelectedEntries();
+        public IEnumerable<GameEntry> GetSelectedEntries()
+        {
+            return AppsGridView.GetSelectedEntries();
+        }
 
         /// <inheritdoc />
-        public void ClearSelection() => AppsGridView.ClearMultiSelection();
+        public void ClearSelection()
+        {
+            AppsGridView.ClearMultiSelection();
+        }
 
         /// <summary>
         /// Handles the <see cref="Selector.SelectionChanged"/> event for the applications grid.

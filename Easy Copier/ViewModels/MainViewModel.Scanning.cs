@@ -223,7 +223,9 @@ namespace Easy_Copier.ViewModels
         private async Task SelectCustomDestinationAsync()
         {
             if (SelectedDrive == null)
+            {
                 return;
+            }
 
             string? selectedFolder = await _folderPickerService.PickFolderAsync($"{SelectedDrive.DriveLetter}\\");
             if (!string.IsNullOrEmpty(selectedFolder))
@@ -377,7 +379,7 @@ namespace Easy_Copier.ViewModels
         /// <param name="isSuccess"><see langword="true"/> to display a success notification; <see langword="false"/> to display an error notification.</param>
         public void ShowGlobalNotification(string title, string message, bool isSuccess = true)
         {
-            _dispatcherService.TryEnqueue((Func<Task>)(async () =>
+            _ = _dispatcherService.TryEnqueue(async () =>
             {
                 GlobalNotificationTitle = title;
                 GlobalNotificationMessage = message;
@@ -405,7 +407,7 @@ namespace Easy_Copier.ViewModels
                 {
                     // Ignore, another notification replaced this one
                 }
-            }));
+            });
         }
 
         /// <summary>
@@ -611,7 +613,7 @@ namespace Easy_Copier.ViewModels
             _transferQueueService.BatchCompleted -= OnBatchCompleted;
             _driveDiscoveryService.StopWatching();
 
-            _updateCheckTimer?.Change(Timeout.Infinite, Timeout.Infinite);
+            _ = (_updateCheckTimer?.Change(Timeout.Infinite, Timeout.Infinite));
             _updateCheckTimer?.Dispose();
             _updateCheckTimer = null;
 

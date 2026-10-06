@@ -153,8 +153,8 @@ namespace Easy_Copier.ViewModels
             _historyAnalysisService = historyAnalysisService;
 
             // Initialize default filter options
-            AvailableDateFilters = new ObservableCollection<string> { "Today", "Last 7 Days", "This Month", "All Time" };
-            AvailableStatusFilters = new ObservableCollection<string> { "All", "Completed", "Failed" };
+            AvailableDateFilters = ["Today", "Last 7 Days", "This Month", "All Time"];
+            AvailableStatusFilters = ["All", "Completed", "Failed"];
             SelectedDateFilterString = "Last 7 Days";
             SelectedStatusFilterString = "All";
         }
