@@ -17,7 +17,7 @@ namespace Easy_Copier.Services
         /// Prompts the user to select a folder from the operating system folder selection dialog.
         /// </summary>
         /// <returns>A task that represents the asynchronous operation. The task result contains the chosen directory folder path, or <see langword="null"/> if cancelled.</returns>
-        Task<string?> PickFolderAsync();
+        Task<string?> PickFolderAsync(string? startingDirectory = null);
     }
 
     /// <summary>

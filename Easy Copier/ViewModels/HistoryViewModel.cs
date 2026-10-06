@@ -142,6 +142,7 @@ namespace Easy_Copier.ViewModels
             _filePickerService = filePickerService ?? throw new ArgumentNullException(nameof(filePickerService));
             _historyAnalysisService = historyAnalysisService ?? throw new ArgumentNullException(nameof(historyAnalysisService));
 
+            // Initialize default filter options
             AvailableDateFilters = ["Today", "Last 7 Days", "This Month", "All Time"];
             AvailableStatusFilters = ["All", "Completed", "Failed"];
             SelectedDateFilterString = "Last 7 Days";

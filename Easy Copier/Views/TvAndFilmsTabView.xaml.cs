@@ -54,10 +54,16 @@ namespace Easy_Copier.Views
         }
 
         /// <inheritdoc />
-        public IEnumerable<GameEntry> GetSelectedEntries() => TvAndFilmsGridView.GetSelectedEntries();
+        public IEnumerable<GameEntry> GetSelectedEntries()
+        {
+            return TvAndFilmsGridView.GetSelectedEntries();
+        }
 
         /// <inheritdoc />
-        public void ClearSelection() => TvAndFilmsGridView.ClearMultiSelection();
+        public void ClearSelection()
+        {
+            TvAndFilmsGridView.ClearMultiSelection();
+        }
 
         private void TvAndFilmsGridView_SelectionChanged(object sender, SelectionChangedEventArgs e) => SelectionChanged?.Invoke(this, e);
 
