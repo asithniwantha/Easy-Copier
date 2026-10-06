@@ -21,6 +21,7 @@ namespace Easy_Copier.Services
         /// </summary>
         /// <param name="settingsService">The application settings management service.</param>
         /// <param name="logger">The logger instance.</param>
+        /// <exception cref="ArgumentNullException">Thrown when <paramref name="settingsService"/> or <paramref name="logger"/> is <see langword="null"/>.</exception>
         public RufusService(ISettingsService settingsService, ILogger<RufusService> logger)
         {
             _settingsService = settingsService ?? throw new ArgumentNullException(nameof(settingsService));

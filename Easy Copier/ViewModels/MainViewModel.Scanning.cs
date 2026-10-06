@@ -213,10 +213,16 @@ namespace Easy_Copier.ViewModels
         }
 
 
+        /// <summary>
+        /// Gets or sets the custom destination folder path selected by the user for file transfer operations.
+        /// </summary>
         [ObservableProperty]
         [NotifyPropertyChangedFor(nameof(HasCustomDestination))]
         public partial string? CustomDestinationPath { get; set; }
 
+        /// <summary>
+        /// Gets a value indicating whether a valid custom destination folder path has been specified.
+        /// </summary>
         public bool HasCustomDestination => !string.IsNullOrEmpty(CustomDestinationPath);
 
         [RelayCommand]

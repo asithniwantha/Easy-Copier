@@ -15,6 +15,7 @@ namespace Easy_Copier.Services
         /// Initializes a new instance of the <see cref="GameRequirementsService"/> class.
         /// </summary>
         /// <param name="sourceLibraryService">The source library service used to retrieve system requirements text.</param>
+        /// <exception cref="ArgumentNullException">Thrown when <paramref name="sourceLibraryService"/> is <see langword="null"/>.</exception>
         public GameRequirementsService(ISourceLibraryService sourceLibraryService)
         {
             _sourceLibraryService = sourceLibraryService ?? throw new ArgumentNullException(nameof(sourceLibraryService));
