@@ -201,6 +201,19 @@
                             <TextBlock Grid.Row="2" FontSize="12" Opacity="0.7"
                                        Text="{x:Bind ViewModel.DriveDetailsSummary, Mode=OneWay}"/>
                         </Grid>
+<<<<<<< HEAD
+=======
+                        <Grid Visibility="{x:Bind ViewModel.HasCustomDestination, Mode=OneWay}" Margin="0,4,0,0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Column="0" Text="{x:Bind ViewModel.CustomDestinationPath, Mode=OneWay}" FontSize="12" Foreground="{ThemeResource SystemFillColorCautionBrush}" TextWrapping="Wrap" VerticalAlignment="Center" ToolTipService.ToolTip="Custom Destination Path"/>
+                            <Button Grid.Column="1" Command="{x:Bind ViewModel.ClearCustomDestinationCommand}" Background="Transparent" BorderThickness="0" Padding="4" Margin="4,0,0,0" ToolTipService.ToolTip="Clear custom destination">
+                                <FontIcon Glyph="&#xE711;" FontSize="10" />
+                            </Button>
+                        </Grid>
+>>>>>>> ca513a68 (feat: Add custom destination folder override for file transfers)
                     </StackPanel>
 
                     <Grid Grid.Row="2">
@@ -281,15 +294,77 @@
                         </ScrollViewer>
                     </Grid>
 
-                    <StackPanel Grid.Row="3" Spacing="4" Margin="0,8,0,8">
-                        <TextBlock Text="{x:Bind ViewModel.SelectionSummary, Mode=OneWay}" FontWeight="SemiBold"/>
-                    </StackPanel>
+                    <Grid Grid.Row="3" Margin="0,8,0,8">
+                        <!-- Empty State -->
+                        <TextBlock Text="No items selected"
+                                   FontWeight="SemiBold"
+                                   VerticalAlignment="Center"
+                                   Visibility="{x:Bind ViewModel.HasSelectedGames, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}, ConverterParameter=Invert}"/>
 
-                    <Button Grid.Row="4" Content="Add to Copy Queue" Style="{StaticResource AccentButtonStyle}"
-                            Command="{x:Bind ViewModel.CopySelectedGamesCommand}"
-                            Visibility="{x:Bind ViewModel.IsOsImagesTabActive, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}, ConverterParameter=Invert}"
-                            HorizontalAlignment="Stretch" Margin="0,0,0,8"/>
+                        <!-- Highlighted Card State -->
+                        <Grid Visibility="{x:Bind ViewModel.HasSelectedGames, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}">
+                            <!-- Background Tint Border (15% opacity accent) -->
+                            <Border Background="{ThemeResource SystemAccentColor}" Opacity="0.15" CornerRadius="4"/>
+                            <!-- Stroke Border (1px accent) -->
+                            <Border BorderBrush="{ThemeResource SystemAccentColor}" BorderThickness="1" CornerRadius="4" Padding="8,4">
+                                <StackPanel Orientation="Horizontal" Spacing="8" VerticalAlignment="Center">
+                                    <!-- Status Emoji/Icon -->
+                                    <TextBlock Text="🟢" VerticalAlignment="Center"/>
 
+                                    <!-- Count Badge / Chip -->
+                                    <Border Background="{ThemeResource SystemAccentColor}" CornerRadius="12" Padding="8,2" VerticalAlignment="Center">
+                                        <TextBlock Foreground="{ThemeResource TextOnAccentFillColorPrimaryBrush}"
+                                                   FontWeight="SemiBold"
+                                                   FontSize="12"
+                                                   VerticalAlignment="Center">
+                                            <Run Text="{x:Bind ViewModel.SelectedGamesCount, Mode=OneWay}"/>
+                                            <Run Text="Selected"/>
+                                        </TextBlock>
+                                    </Border>
+
+                                    <!-- Size Highlighter -->
+                                    <StackPanel Orientation="Horizontal" Spacing="4" VerticalAlignment="Center" Margin="8,0,0,0">
+                                        <TextBlock Text="💾" VerticalAlignment="Center"/>
+                                        <TextBlock Text="{x:Bind ViewModel.SelectedGamesTotalBytes, Mode=OneWay, Converter={StaticResource BytesToSizeConverter}}"
+                                                   FontFamily="Consolas"
+                                                   FontWeight="Bold"
+                                                   VerticalAlignment="Center"/>
+                                    </StackPanel>
+
+                                    <TextBlock Text="•" Opacity="0.5" VerticalAlignment="Center" Margin="4,0"/>
+
+                                    <!-- Price Highlighter -->
+                                    <StackPanel Orientation="Horizontal" Spacing="4" VerticalAlignment="Center">
+                                        <TextBlock Text="🏷️" VerticalAlignment="Center"/>
+                                        <TextBlock FontFamily="Consolas"
+                                                   FontWeight="Bold"
+                                                   VerticalAlignment="Center">
+                                            <Run Text="Rs."/>
+                                            <Run Text="{x:Bind ViewModel.SelectedGamesTotalPrice, Mode=OneWay}"/>
+                                        </TextBlock>
+                                    </StackPanel>
+                                </StackPanel>
+                            </Border>
+                        </Grid>
+                    </Grid>
+
+                    <Grid Grid.Row="4" Margin="0,0,0,8" Visibility="{x:Bind ViewModel.IsOsImagesTabActive, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}, ConverterParameter=Invert}">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Button Grid.Column="0" Content="Add to Copy Queue" Style="{StaticResource AccentButtonStyle}"
+                                Command="{x:Bind ViewModel.CopySelectedGamesCommand}"
+                                HorizontalAlignment="Stretch" Margin="0,0,4,0"/>
+
+                        <Button Grid.Column="1" Padding="8" VerticalAlignment="Stretch"
+                                Command="{x:Bind ViewModel.SelectCustomDestinationCommand}"
+                                IsEnabled="{x:Bind ViewModel.HasSelectedDrive, Mode=OneWay}"
+                                ToolTipService.ToolTip="Define destination folder">
+                            <FontIcon Glyph="&#xE8D5;" FontSize="14"/>
+                        </Button>
+                    </Grid>
                     <Button Grid.Row="4" Content="Open in Rufus" Style="{StaticResource AccentButtonStyle}"
                             Command="{x:Bind ViewModel.OpenInRufusCommand}"
                             Visibility="{x:Bind ViewModel.IsOsImagesTabActive, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}"

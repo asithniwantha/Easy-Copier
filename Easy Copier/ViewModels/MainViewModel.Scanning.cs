@@ -108,10 +108,39 @@ namespace Easy_Copier.ViewModels
             }
         }
 
+<<<<<<< HEAD
+<<<<<<< HEAD
         partial void OnSearchTextChanged(string oldValue, string newValue) => ApplyFilter();
 
         partial void OnSelectedCategoryChanged(GameCategory oldValue, GameCategory newValue) => ApplyFilter();
 
+=======
+=======
+>>>>>>> ca513a68 (feat: Add custom destination folder override for file transfers)
+        /// <summary>
+        /// Handles changes to the SearchText property to re-apply library filtering.
+        /// Uses nullable string? for oldValue to match the CommunityToolkit.Mvvm partial method declaration for reference types.
+        /// </summary>
+        /// <param name="oldValue">The previous search string.</param>
+        /// <param name="newValue">The new search string.</param>
+        partial void OnSearchTextChanged(string oldValue, string newValue) => ApplyFilter();
+
+        /// <summary>
+        /// Handles changes to the SelectedCategory property to re-apply library filtering.
+        /// </summary>
+        /// <param name="oldValue">The previous category value.</param>
+        /// <param name="newValue">The new category value.</param>
+        partial void OnSelectedCategoryChanged(GameCategory oldValue, GameCategory newValue) => ApplyFilter();
+
+        /// <summary>
+        /// Handles changes to the SelectedOsImageSortOption property to re-apply OS image sorting.
+        /// </summary>
+        /// <param name="oldValue">The previous sort option.</param>
+        /// <param name="newValue">The new sort option.</param>
+<<<<<<< HEAD
+>>>>>>> 3fb6729d (feat: redesign bottom selection summary bar)
+=======
+>>>>>>> ca513a68 (feat: Add custom destination folder override for file transfers)
         partial void OnSelectedOsImageSortOptionChanged(OsImageSortOption oldValue, OsImageSortOption newValue)
         {
             IsOsImageSortAscending = newValue switch
@@ -124,6 +153,20 @@ namespace Easy_Copier.ViewModels
             ApplyFilter();
         }
 
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> ca513a68 (feat: Add custom destination folder override for file transfers)
+        /// <summary>
+        /// Handles changes to the IsOsImageSortAscending property to re-apply OS image sorting.
+        /// </summary>
+        /// <param name="oldValue">The previous sort direction value.</param>
+        /// <param name="newValue">The new sort direction value.</param>
+<<<<<<< HEAD
+>>>>>>> 3fb6729d (feat: redesign bottom selection summary bar)
+=======
+>>>>>>> ca513a68 (feat: Add custom destination folder override for file transfers)
         partial void OnIsOsImageSortAscendingChanged(bool oldValue, bool newValue) => ApplyFilter();
 
         /// <summary>
@@ -190,6 +233,42 @@ namespace Easy_Copier.ViewModels
             }
         }
 
+<<<<<<< HEAD
+=======
+
+        [ObservableProperty]
+        [NotifyPropertyChangedFor(nameof(HasCustomDestination))]
+        public partial string? CustomDestinationPath { get; set; }
+
+        public bool HasCustomDestination => !string.IsNullOrEmpty(CustomDestinationPath);
+
+        [RelayCommand]
+        private async Task SelectCustomDestinationAsync()
+        {
+            if (SelectedDrive == null)
+                return;
+
+            string? selectedFolder = await _folderPickerService.PickFolderAsync($"{SelectedDrive.DriveLetter}\\");
+            if (!string.IsNullOrEmpty(selectedFolder))
+            {
+                // Verify the selected folder is on the selected drive
+                string rootDrive = Path.GetPathRoot(selectedFolder) ?? string.Empty;
+                if (!rootDrive.Equals($"{SelectedDrive.DriveLetter}\", StringComparison.OrdinalIgnoreCase))
+                {
+                    StatusMessage = $"Selected destination must be on the target drive ({SelectedDrive.DriveLetter}).";
+                    return;
+                }
+                CustomDestinationPath = selectedFolder;
+            }
+        }
+
+        [RelayCommand]
+        private void ClearCustomDestination()
+        {
+            CustomDestinationPath = null;
+        }
+
+>>>>>>> ca513a68 (feat: Add custom destination folder override for file transfers)
         /// <summary>
         /// Validates selected items and target drive space, resolves folder conflicts, and enqueues new transfer jobs into the queue.
         /// </summary>
@@ -204,7 +283,11 @@ namespace Easy_Copier.ViewModels
 
             try
             {
+<<<<<<< HEAD
                 string destinationPath = $"{SelectedDrive.DriveLetter}\\";
+=======
+                string destinationPath = CustomDestinationPath ?? $"{SelectedDrive.DriveLetter}\\";
+>>>>>>> ca513a68 (feat: Add custom destination folder override for file transfers)
 
                 RemovableDrive driveForValidation = GetDriveForValidation(SelectedDrive);
 
@@ -227,6 +310,10 @@ namespace Easy_Copier.ViewModels
                     StatusMessage = $"Queued {itemsToQueue.Count} item(s) for {SelectedDrive.DriveLetter} ({TransferQueue.Count} in queue)";
                     IsTransferring = TransferQueue.Any(i => i.IsActive);
                     ItemQueued?.Invoke(this, EventArgs.Empty);
+<<<<<<< HEAD
+=======
+                    ClearCustomDestination();
+>>>>>>> ca513a68 (feat: Add custom destination folder override for file transfers)
                 }
                 else
                 {
@@ -405,7 +492,20 @@ namespace Easy_Copier.ViewModels
         /// Determines whether the copy command can execute based on selection and target drive availability.
         /// </summary>
         /// <returns><c>true</c> if at least one item is selected and a target drive is chosen; otherwise, <c>false</c>.</returns>
+<<<<<<< HEAD
+<<<<<<< HEAD
         private bool CanCopyGames() => SelectedGamesCount > 0 && SelectedDrive != null;
+=======
+=======
+>>>>>>> ca513a68 (feat: Add custom destination folder override for file transfers)
+        private bool CanCopyGames()
+        {
+            return SelectedGamesCount > 0 && SelectedDrive != null;
+        }
+<<<<<<< HEAD
+>>>>>>> 3fb6729d (feat: redesign bottom selection summary bar)
+=======
+>>>>>>> ca513a68 (feat: Add custom destination folder override for file transfers)
 
         /// <summary>
         /// Updates selected game entries and recalculates size, item count, and price summary values.
@@ -536,9 +636,7 @@ namespace Easy_Copier.ViewModels
                 1 => Infrastructure.SettingsOpenAction.AddAppFolder,
                 2 => Infrastructure.SettingsOpenAction.AddTvAndFilmFolder,
                 _ => Infrastructure.SettingsOpenAction.AddOsImageFolder
-            };
-
-            _windowService.ShowSettingsWindow(null, openAction);
+            };            _windowService.ShowSettingsWindow(null, openAction);
         }
 
         /// <inheritdoc />
