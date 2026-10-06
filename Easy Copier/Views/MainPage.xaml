@@ -201,8 +201,6 @@
                             <TextBlock Grid.Row="2" FontSize="12" Opacity="0.7"
                                        Text="{x:Bind ViewModel.DriveDetailsSummary, Mode=OneWay}"/>
                         </Grid>
-<<<<<<< HEAD
-=======
                         <Grid Visibility="{x:Bind ViewModel.HasCustomDestination, Mode=OneWay}" Margin="0,4,0,0">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*" />
@@ -213,7 +211,6 @@
                                 <FontIcon Glyph="&#xE711;" FontSize="10" />
                             </Button>
                         </Grid>
->>>>>>> ca513a68 (feat: Add custom destination folder override for file transfers)
                     </StackPanel>
 
                     <Grid Grid.Row="2">

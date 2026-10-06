@@ -59,42 +59,10 @@ namespace Easy_Copier.Views
         /// <inheritdoc />
         public void ClearSelection() => TvAndFilmsGridView.ClearMultiSelection();
 
-<<<<<<< HEAD
         private void TvAndFilmsGridView_SelectionChanged(object sender, SelectionChangedEventArgs e) => SelectionChanged?.Invoke(this, e);
 
         private void OpenFolderButton_Click(object sender, RoutedEventArgs e) => FlyoutHelper.HandleOpenFolderClick(sender);
 
         private async void GameCard_RightTapped(object sender, RightTappedRoutedEventArgs e) => await FlyoutHelper.ShowGameDetailsFlyoutAsync(sender, e);
-=======
-        /// <summary>
-        /// Handles the <see cref="Selector.SelectionChanged"/> event for the TV and films grid.
-        /// </summary>
-        /// <param name="sender">The source of the selection changed event.</param>
-        /// <param name="e">The event data describing selection modifications.</param>
-        private void TvAndFilmsGridView_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            SelectionChanged?.Invoke(this, e);
-        }
-
-        /// <summary>
-        /// Handles the Click event for the Open Folder button on a TV/film card.
-        /// </summary>
-        /// <param name="sender">The source of the click event.</param>
-        /// <param name="e">The event arguments.</param>
-        private void OpenFolderButton_Click(object sender, RoutedEventArgs e)
-        {
-            FlyoutHelper.HandleOpenFolderClick(sender);
-        }
-
-        /// <summary>
-        /// Handles the RightTapped event on a TV/film card to present the details flyout.
-        /// </summary>
-        /// <param name="sender">The source of the right-tap event.</param>
-        /// <param name="e">The event arguments containing input position details.</param>
-        private async void GameCard_RightTapped(object sender, RightTappedRoutedEventArgs e)
-        {
-            await FlyoutHelper.ShowGameDetailsFlyoutAsync(sender, e);
-        }
->>>>>>> ca513a68 (feat: Add custom destination folder override for file transfers)
     }
 }
