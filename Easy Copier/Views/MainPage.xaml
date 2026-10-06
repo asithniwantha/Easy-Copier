@@ -201,6 +201,16 @@
                             <TextBlock Grid.Row="2" FontSize="12" Opacity="0.7"
                                        Text="{x:Bind ViewModel.DriveDetailsSummary, Mode=OneWay}"/>
                         </Grid>
+                        <Grid Visibility="{x:Bind ViewModel.HasCustomDestination, Mode=OneWay}" Margin="0,4,0,0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Column="0" Text="{x:Bind ViewModel.CustomDestinationPath, Mode=OneWay}" FontSize="12" Foreground="{ThemeResource SystemFillColorCautionBrush}" TextWrapping="Wrap" VerticalAlignment="Center" ToolTipService.ToolTip="Custom Destination Path"/>
+                            <Button Grid.Column="1" Command="{x:Bind ViewModel.ClearCustomDestinationCommand}" Background="Transparent" BorderThickness="0" Padding="4" Margin="4,0,0,0" ToolTipService.ToolTip="Clear custom destination">
+                                <FontIcon Glyph="&#xE711;" FontSize="10" />
+                            </Button>
+                        </Grid>
                     </StackPanel>
 
                     <Grid Grid.Row="2">
@@ -335,10 +345,23 @@
                         </Grid>
                     </Grid>
 
-                    <Button Grid.Row="4" Content="Add to Copy Queue" Style="{StaticResource AccentButtonStyle}"
-                            Command="{x:Bind ViewModel.CopySelectedGamesCommand}"
-                            Visibility="{x:Bind ViewModel.IsOsImagesTabActive, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}, ConverterParameter=Invert}"
-                            HorizontalAlignment="Stretch" Margin="0,0,0,8"/>
+                                        <Grid Grid.Row="4" Margin="0,0,0,8" Visibility="{x:Bind ViewModel.IsOsImagesTabActive, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}, ConverterParameter=Invert}">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Button Grid.Column="0" Content="Add to Copy Queue" Style="{StaticResource AccentButtonStyle}"
+                                Command="{x:Bind ViewModel.CopySelectedGamesCommand}"
+                                HorizontalAlignment="Stretch" Margin="0,0,4,0"/>
+
+                        <Button Grid.Column="1" Padding="8" VerticalAlignment="Stretch"
+                                Command="{x:Bind ViewModel.SelectCustomDestinationCommand}"
+                                IsEnabled="{x:Bind ViewModel.HasSelectedDrive, Mode=OneWay}"
+                                ToolTipService.ToolTip="Select custom destination folder">
+                            <FontIcon Glyph="&#xE838;" FontSize="14"/>
+                        </Button>
+                    </Grid>
 
                     <Button Grid.Row="4" Content="Open in Rufus" Style="{StaticResource AccentButtonStyle}"
                             Command="{x:Bind ViewModel.OpenInRufusCommand}"

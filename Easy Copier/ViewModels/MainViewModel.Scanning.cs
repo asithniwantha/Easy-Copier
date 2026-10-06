@@ -211,6 +211,39 @@ namespace Easy_Copier.ViewModels
             }
         }
 
+
+        [ObservableProperty]
+        [NotifyPropertyChangedFor(nameof(HasCustomDestination))]
+        public partial string? CustomDestinationPath { get; set; }
+
+        public bool HasCustomDestination => !string.IsNullOrEmpty(CustomDestinationPath);
+
+        [RelayCommand]
+        private async Task SelectCustomDestinationAsync()
+        {
+            if (SelectedDrive == null)
+                return;
+
+            string? selectedFolder = await _folderPickerService.PickFolderAsync();
+            if (!string.IsNullOrEmpty(selectedFolder))
+            {
+                // Verify the selected folder is on the selected drive
+                string rootDrive = Path.GetPathRoot(selectedFolder) ?? string.Empty;
+                if (!rootDrive.Equals($"{SelectedDrive.DriveLetter}\", StringComparison.OrdinalIgnoreCase))
+                {
+                    StatusMessage = $"Selected destination must be on the target drive ({SelectedDrive.DriveLetter}).";
+                    return;
+                }
+                CustomDestinationPath = selectedFolder;
+            }
+        }
+
+        [RelayCommand]
+        private void ClearCustomDestination()
+        {
+            CustomDestinationPath = null;
+        }
+
         /// <summary>
         /// Validates selected items and target drive space, resolves folder conflicts, and enqueues new transfer jobs into the queue.
         /// </summary>
@@ -225,7 +258,7 @@ namespace Easy_Copier.ViewModels
 
             try
             {
-                string destinationPath = $"{SelectedDrive.DriveLetter}\\";
+                string destinationPath = CustomDestinationPath ?? $"{SelectedDrive.DriveLetter}\\";
 
                 RemovableDrive driveForValidation = GetDriveForValidation(SelectedDrive);
 
@@ -248,6 +281,7 @@ namespace Easy_Copier.ViewModels
                     StatusMessage = $"Queued {itemsToQueue.Count} item(s) for {SelectedDrive.DriveLetter} ({TransferQueue.Count} in queue)";
                     IsTransferring = TransferQueue.Any(i => i.IsActive);
                     ItemQueued?.Invoke(this, EventArgs.Empty);
+                    ClearCustomDestination();
                 }
                 else
                 {

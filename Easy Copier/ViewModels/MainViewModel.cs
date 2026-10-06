@@ -32,6 +32,7 @@ namespace Easy_Copier.ViewModels
         private readonly IDialogService _dialogService;
         private readonly ILibraryFilterService _libraryFilterService;
         private readonly IRufusService _rufusService;
+        private readonly IFolderPickerService _folderPickerService;
         private readonly IGameRequirementsService _gameRequirementsService;
         private readonly IFileSystemService _fileSystemService;
         private readonly Func<GameDetailsViewModel> _gameDetailsViewModelFactory;
@@ -385,6 +386,7 @@ namespace Easy_Copier.ViewModels
             ILibraryFilterService libraryFilterService,
             IRufusService rufusService,
             IGameRequirementsService gameRequirementsService,
+            IFolderPickerService folderPickerService,
             IFileSystemService fileSystemService,
             SmartAdderViewModel smartAdderViewModel,
             Func<GameDetailsViewModel> gameDetailsViewModelFactory)
@@ -405,6 +407,7 @@ namespace Easy_Copier.ViewModels
             _dialogService = dialogService;
             _libraryFilterService = libraryFilterService;
             _rufusService = rufusService;
+            _folderPickerService = folderPickerService;
             _gameRequirementsService = gameRequirementsService;
             _fileSystemService = fileSystemService;
             SmartAdderViewModel = smartAdderViewModel;
