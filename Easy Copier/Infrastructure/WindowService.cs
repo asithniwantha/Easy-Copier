@@ -46,14 +46,17 @@ namespace Easy_Copier.Infrastructure
         /// </summary>
         /// <param name="action">The settings open action value.</param>
         /// <returns>The category string if matching an add action, or <c>null</c> if no action is specified.</returns>
-        public static string? ToFolderCategoryString(this SettingsOpenAction action) => action switch
+        public static string? ToFolderCategoryString(this SettingsOpenAction action)
         {
-            SettingsOpenAction.AddAppFolder => "App",
-            SettingsOpenAction.AddGameFolder => "Game",
-            SettingsOpenAction.AddTvAndFilmFolder => "TvAndFilm",
-            SettingsOpenAction.AddOsImageFolder => "OsImage",
-            _ => null
-        };
+            return action switch
+            {
+                SettingsOpenAction.AddAppFolder => "App",
+                SettingsOpenAction.AddGameFolder => "Game",
+                SettingsOpenAction.AddTvAndFilmFolder => "TvAndFilm",
+                SettingsOpenAction.AddOsImageFolder => "OsImage",
+                _ => null
+            };
+        }
     }
 
     /// <summary>

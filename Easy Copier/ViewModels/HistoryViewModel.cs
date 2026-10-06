@@ -50,12 +50,22 @@ namespace Easy_Copier.ViewModels
     /// </summary>
     public partial class HistoryViewModel : ObservableObject
     {
+        /// <summary>Service for querying copy operation history records from storage.</summary>
         private readonly ICopyHistoryService _copyHistoryService;
+
+        /// <summary>Service for exporting operation records to external formats such as CSV.</summary>
         private readonly IReportService _reportService;
+
+        /// <summary>Service for displaying save file picker dialogs.</summary>
         private readonly IFilePickerService _filePickerService;
+
+        /// <summary>Service for grouping history records and computing aggregate history statistics.</summary>
         private readonly IHistoryAnalysisService _historyAnalysisService;
 
+        /// <summary>Internal list holding all un-filtered copy history records loaded from storage.</summary>
         private List<CopyHistoryRecord> _allRecords = [];
+
+        /// <summary>Flag indicating whether initial record loading has been executed.</summary>
         private bool _isInitialized;
 
         /// <summary>
@@ -137,11 +147,12 @@ namespace Easy_Copier.ViewModels
             IFilePickerService filePickerService,
             IHistoryAnalysisService historyAnalysisService)
         {
-            _copyHistoryService = copyHistoryService ?? throw new ArgumentNullException(nameof(copyHistoryService));
-            _reportService = reportService ?? throw new ArgumentNullException(nameof(reportService));
-            _filePickerService = filePickerService ?? throw new ArgumentNullException(nameof(filePickerService));
-            _historyAnalysisService = historyAnalysisService ?? throw new ArgumentNullException(nameof(historyAnalysisService));
+            _copyHistoryService = copyHistoryService;
+            _reportService = reportService;
+            _filePickerService = filePickerService;
+            _historyAnalysisService = historyAnalysisService;
 
+            // Initialize default filter options
             AvailableDateFilters = ["Today", "Last 7 Days", "This Month", "All Time"];
             AvailableStatusFilters = ["All", "Completed", "Failed"];
             SelectedDateFilterString = "Last 7 Days";
@@ -168,12 +179,28 @@ namespace Easy_Copier.ViewModels
             ApplyFilters();
         }
 
+        /// <summary>
+        /// Partial notification handler invoked when <see cref="SearchQuery"/> changes.
+        /// </summary>
+        /// <param name="value">The new search query value.</param>
         partial void OnSearchQueryChanged(string value) => ApplyFilters();
 
+        /// <summary>
+        /// Partial notification handler invoked when <see cref="SelectedDateFilterString"/> changes.
+        /// </summary>
+        /// <param name="value">The new date filter string value.</param>
         partial void OnSelectedDateFilterStringChanged(string value) => ApplyFilters();
 
+        /// <summary>
+        /// Partial notification handler invoked when <see cref="SelectedStatusFilterString"/> changes.
+        /// </summary>
+        /// <param name="value">The new status filter string value.</param>
         partial void OnSelectedStatusFilterStringChanged(string value) => ApplyFilters();
 
+        /// <summary>
+        /// Partial notification handler invoked when <see cref="SelectedRecord"/> changes to toggle drawer visibility and populate sub-files.
+        /// </summary>
+        /// <param name="value">The newly selected <see cref="CopyHistoryRecord"/> instance, or <c>null</c>.</param>
         partial void OnSelectedRecordChanged(CopyHistoryRecord? value)
         {
             if (value != null)
@@ -202,12 +229,18 @@ namespace Easy_Copier.ViewModels
             }
         }
 
+        /// <summary>
+        /// Closes the detail inspection drawer by clearing the active selection.
+        /// </summary>
         [RelayCommand]
         private void CloseDrawer()
         {
             SelectedRecord = null;
         }
 
+        /// <summary>
+        /// Filters and sorts in-memory records based on active date, status, and search query parameters.
+        /// </summary>
         private void ApplyFilters()
         {
             if (!_isInitialized)
@@ -216,32 +249,44 @@ namespace Easy_Copier.ViewModels
             }
 
             IEnumerable<CopyHistoryRecord> filtered = _allRecords;
+
+            // Apply Date Filter
             DateTime now = DateTime.Now;
-
-            filtered = SelectedDateFilterString switch
+            if (SelectedDateFilterString == "Today")
             {
-                "Today" => filtered.Where(r => r.Timestamp.Date == now.Date),
-                "Last 7 Days" => filtered.Where(r => r.Timestamp.Date >= now.AddDays(-7).Date),
-                "This Month" => filtered.Where(r => r.Timestamp.Year == now.Year && r.Timestamp.Month == now.Month),
-                _ => filtered
-            };
-
-            filtered = SelectedStatusFilterString switch
+                filtered = filtered.Where(r => r.Timestamp.Date == now.Date);
+            }
+            else if (SelectedDateFilterString == "Last 7 Days")
             {
-                "Completed" => filtered.Where(r => r.IsSuccess),
-                "Failed" => filtered.Where(r => !r.IsSuccess),
-                _ => filtered
-            };
+                DateTime sevenDaysAgo = now.AddDays(-7).Date;
+                filtered = filtered.Where(r => r.Timestamp.Date >= sevenDaysAgo);
+            }
+            else if (SelectedDateFilterString == "This Month")
+            {
+                filtered = filtered.Where(r => r.Timestamp.Year == now.Year && r.Timestamp.Month == now.Month);
+            }
 
+            // Apply Status Filter
+            if (SelectedStatusFilterString == "Completed")
+            {
+                filtered = filtered.Where(r => r.IsSuccess);
+            }
+            else if (SelectedStatusFilterString == "Failed")
+            {
+                filtered = filtered.Where(r => !r.IsSuccess);
+            }
+
+            // Apply Search Query
             if (!string.IsNullOrWhiteSpace(SearchQuery))
             {
                 filtered = filtered.Where(r =>
                     r.GameName.Contains(SearchQuery, StringComparison.OrdinalIgnoreCase) ||
                     r.TargetDriveLetter.Contains(SearchQuery, StringComparison.OrdinalIgnoreCase) ||
-                    r.TargetDriveLabel.Contains(SearchQuery, StringComparison.OrdinalIgnoreCase));
+                    r.TargetDriveLabel.Contains(SearchQuery, StringComparison.OrdinalIgnoreCase)
+                );
             }
 
-            List<CopyHistoryRecord> sortedRecords = [.. filtered.OrderByDescending(r => r.Timestamp)];
+            List<CopyHistoryRecord> sortedRecords = filtered.OrderByDescending(r => r.Timestamp).ToList();
 
             _historyAnalysisService.ApplyBatchClustering(sortedRecords);
             Records.UpdateFrom(sortedRecords);
@@ -266,7 +311,7 @@ namespace Easy_Copier.ViewModels
             string fileName = $"EasyCopier_History_Export_{DateTime.Now:yyyy_MM_dd}.csv";
             Dictionary<string, IList<string>> choices = new()
             {
-                { "CSV File", [".csv"] }
+                { "CSV File", new List<string> { ".csv" } }
             };
 
             string? filePath = await _filePickerService.PickSaveFileAsync(fileName, choices);

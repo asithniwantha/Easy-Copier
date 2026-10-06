@@ -54,15 +54,45 @@ namespace Easy_Copier.Views
         }
 
         /// <inheritdoc />
-        public IEnumerable<GameEntry> GetSelectedEntries() => AppsGridView.GetSelectedEntries();
+        public IEnumerable<GameEntry> GetSelectedEntries()
+        {
+            return AppsGridView.GetSelectedEntries();
+        }
 
         /// <inheritdoc />
-        public void ClearSelection() => AppsGridView.ClearMultiSelection();
+        public void ClearSelection()
+        {
+            AppsGridView.ClearMultiSelection();
+        }
 
-        private void AppsGridView_SelectionChanged(object sender, SelectionChangedEventArgs e) => SelectionChanged?.Invoke(this, e);
+        /// <summary>
+        /// Handles the <see cref="Selector.SelectionChanged"/> event for the applications grid.
+        /// </summary>
+        /// <param name="sender">The source of the selection changed event.</param>
+        /// <param name="e">The event data describing selection modifications.</param>
+        private void AppsGridView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            SelectionChanged?.Invoke(this, e);
+        }
 
-        private void OpenFolderButton_Click(object sender, RoutedEventArgs e) => FlyoutHelper.HandleOpenFolderClick(sender);
+        /// <summary>
+        /// Handles the Click event for the Open Folder button on an application card.
+        /// </summary>
+        /// <param name="sender">The source of the click event.</param>
+        /// <param name="e">The event arguments.</param>
+        private void OpenFolderButton_Click(object sender, RoutedEventArgs e)
+        {
+            FlyoutHelper.HandleOpenFolderClick(sender);
+        }
 
-        private async void GameCard_RightTapped(object sender, RightTappedRoutedEventArgs e) => await FlyoutHelper.ShowGameDetailsFlyoutAsync(sender, e);
+        /// <summary>
+        /// Handles the RightTapped event on an application card to present the details flyout.
+        /// </summary>
+        /// <param name="sender">The source of the right-tap event.</param>
+        /// <param name="e">The event arguments containing input position details.</param>
+        private async void GameCard_RightTapped(object sender, RightTappedRoutedEventArgs e)
+        {
+            await FlyoutHelper.ShowGameDetailsFlyoutAsync(sender, e);
+        }
     }
 }

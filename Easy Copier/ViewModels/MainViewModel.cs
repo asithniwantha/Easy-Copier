@@ -32,6 +32,7 @@ namespace Easy_Copier.ViewModels
         private readonly IDialogService _dialogService;
         private readonly ILibraryFilterService _libraryFilterService;
         private readonly IRufusService _rufusService;
+        private readonly IFolderPickerService _folderPickerService;
         private readonly IGameRequirementsService _gameRequirementsService;
         private readonly IFileSystemService _fileSystemService;
         private readonly Func<GameDetailsViewModel> _gameDetailsViewModelFactory;
@@ -137,21 +138,25 @@ namespace Easy_Copier.ViewModels
         /// Gets or sets the count of currently selected library items.
         /// </summary>
         [ObservableProperty]
-        [NotifyPropertyChangedFor(nameof(SelectionSummary))]
+        [NotifyPropertyChangedFor(nameof(HasSelectedGames))]
         public partial int SelectedGamesCount { get; set; }
+
+        /// <summary>
+        /// Gets a value indicating whether any library items are currently selected.
+        /// </summary>
+        public bool HasSelectedGames => SelectedGamesCount > 0;
+
 
         /// <summary>
         /// Gets or sets the aggregate byte size of currently selected library items.
         /// </summary>
         [ObservableProperty]
-        [NotifyPropertyChangedFor(nameof(SelectionSummary))]
         public partial long SelectedGamesTotalBytes { get; set; }
 
         /// <summary>
         /// Gets or sets the total calculated monetary price of currently selected library items.
         /// </summary>
         [ObservableProperty]
-        [NotifyPropertyChangedFor(nameof(SelectionSummary))]
         public partial int SelectedGamesTotalPrice { get; set; }
 
         /// <summary>
@@ -269,13 +274,6 @@ namespace Easy_Copier.ViewModels
             : $"{SelectedDrive.DriveLetter} \u2022 {SelectedDrive.Brand} \u2022 {SelectedDrive.FileSystem}";
 
         /// <summary>
-        /// Gets a formatted summary string describing item count, total byte size, and price for selected items.
-        /// </summary>
-        public string SelectionSummary => SelectedGamesCount == 0
-            ? "No items selected"
-            : $"{SelectedGamesCount} item(s) selected \u2022 {FormattingHelpers.FormatBytes(SelectedGamesTotalBytes)} \u2022 Rs. {SelectedGamesTotalPrice}";
-
-        /// <summary>
         /// Gets or sets the active tab index in the main view Pivot control.
         /// </summary>
         [ObservableProperty]
@@ -388,6 +386,7 @@ namespace Easy_Copier.ViewModels
             ILibraryFilterService libraryFilterService,
             IRufusService rufusService,
             IGameRequirementsService gameRequirementsService,
+            IFolderPickerService folderPickerService,
             IFileSystemService fileSystemService,
             SmartAdderViewModel smartAdderViewModel,
             Func<GameDetailsViewModel> gameDetailsViewModelFactory)
@@ -408,6 +407,7 @@ namespace Easy_Copier.ViewModels
             _dialogService = dialogService;
             _libraryFilterService = libraryFilterService;
             _rufusService = rufusService;
+            _folderPickerService = folderPickerService;
             _gameRequirementsService = gameRequirementsService;
             _fileSystemService = fileSystemService;
             SmartAdderViewModel = smartAdderViewModel;
@@ -481,7 +481,7 @@ namespace Easy_Copier.ViewModels
         {
             ArgumentNullException.ThrowIfNull(action);
 
-            return !IsDisposed && _dispatcherService.TryEnqueue((Func<Task>)(async () =>
+            return !IsDisposed && _dispatcherService.TryEnqueue(async () =>
             {
                 if (IsDisposed)
                 {
@@ -489,7 +489,7 @@ namespace Easy_Copier.ViewModels
                 }
 
                 await action();
-            }));
+            });
         }
 
         private async Task CheckForUpdatesIfActiveAsync()
