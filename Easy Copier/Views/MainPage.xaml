@@ -358,8 +358,8 @@
                         <Button Grid.Column="1" Padding="8" VerticalAlignment="Stretch"
                                 Command="{x:Bind ViewModel.SelectCustomDestinationCommand}"
                                 IsEnabled="{x:Bind ViewModel.HasSelectedDrive, Mode=OneWay}"
-                                ToolTipService.ToolTip="Select custom destination folder">
-                            <FontIcon Glyph="&#xE838;" FontSize="14"/>
+                                ToolTipService.ToolTip="Define destination folder">
+                            <FontIcon Glyph="&#xE8D5;" FontSize="14"/>
                         </Button>
                     </Grid>
 

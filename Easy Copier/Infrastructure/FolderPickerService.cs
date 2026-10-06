@@ -40,7 +40,7 @@ namespace Easy_Copier.Infrastructure
         /// also handles if the application is running in elevated mode or if the active window handle cannot be retrieved.
         /// </summary>
         /// <returns>The full path of the selected folder, or <c>null</c> if canceled.</returns>
-        public async Task<string?> PickFolderAsync()
+        public async Task<string?> PickFolderAsync(string? startingDirectory = null)
         {
             TaskCompletionSource<string?> tcs = new();
 
