@@ -229,7 +229,7 @@ namespace Easy_Copier.ViewModels
             {
                 // Verify the selected folder is on the selected drive
                 string rootDrive = Path.GetPathRoot(selectedFolder) ?? string.Empty;
-                if (!rootDrive.Equals($"{SelectedDrive.DriveLetter}\", StringComparison.OrdinalIgnoreCase))
+                if (!rootDrive.Equals($"{SelectedDrive.DriveLetter}\\", StringComparison.OrdinalIgnoreCase))
                 {
                     StatusMessage = $"Selected destination must be on the target drive ({SelectedDrive.DriveLetter}).";
                     return;
