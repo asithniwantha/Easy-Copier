@@ -137,21 +137,22 @@ namespace Easy_Copier.ViewModels
         /// Gets or sets the count of currently selected library items.
         /// </summary>
         [ObservableProperty]
-        [NotifyPropertyChangedFor(nameof(SelectionSummary))]
         public partial int SelectedGamesCount { get; set; }
+        /// <summary>
+        /// Gets a value indicating whether any library items are currently selected.
+        /// </summary>
+        public bool HasSelectedGames => SelectedGamesCount > 0;
 
         /// <summary>
         /// Gets or sets the aggregate byte size of currently selected library items.
         /// </summary>
         [ObservableProperty]
-        [NotifyPropertyChangedFor(nameof(SelectionSummary))]
         public partial long SelectedGamesTotalBytes { get; set; }
 
         /// <summary>
         /// Gets or sets the total calculated monetary price of currently selected library items.
         /// </summary>
         [ObservableProperty]
-        [NotifyPropertyChangedFor(nameof(SelectionSummary))]
         public partial int SelectedGamesTotalPrice { get; set; }
 
         /// <summary>
