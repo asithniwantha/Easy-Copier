@@ -96,15 +96,11 @@ namespace Easy_Copier.Infrastructure
         public void OpenFormatDialog(string driveLetter)
         {
             if (string.IsNullOrWhiteSpace(driveLetter))
-            {
                 return;
-            }
 
             char letter = driveLetter[0];
             if (!char.IsAsciiLetter(letter))
-            {
                 return;
-            }
 
             uint driveIndex = (uint)(char.ToUpperInvariant(letter) - 'A');
 
