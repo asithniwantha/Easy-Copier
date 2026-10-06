@@ -32,10 +32,7 @@ namespace Easy_Copier.ViewModels
         private readonly IDialogService _dialogService;
         private readonly ILibraryFilterService _libraryFilterService;
         private readonly IRufusService _rufusService;
-<<<<<<< HEAD
-=======
         private readonly IFolderPickerService _folderPickerService;
->>>>>>> ca513a68 (feat: Add custom destination folder override for file transfers)
         private readonly IGameRequirementsService _gameRequirementsService;
         private readonly IFileSystemService _fileSystemService;
         private readonly Func<GameDetailsViewModel> _gameDetailsViewModelFactory;
@@ -426,10 +423,7 @@ namespace Easy_Copier.ViewModels
             ILibraryFilterService libraryFilterService,
             IRufusService rufusService,
             IGameRequirementsService gameRequirementsService,
-<<<<<<< HEAD
-=======
             IFolderPickerService folderPickerService,
->>>>>>> ca513a68 (feat: Add custom destination folder override for file transfers)
             IFileSystemService fileSystemService,
             SmartAdderViewModel smartAdderViewModel,
             Func<GameDetailsViewModel> gameDetailsViewModelFactory)
