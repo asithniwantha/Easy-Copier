@@ -11,6 +11,7 @@ namespace Easy_Copier.Services
     public class LibraryFilterService : ILibraryFilterService
     {
         /// <inheritdoc />
+        /// <exception cref="ArgumentNullException">Thrown when <paramref name="source"/> is <see langword="null"/>.</exception>
         public IEnumerable<GameEntry> FilterEntries(IEnumerable<GameEntry> source, string? query, GameCategory categoryFilter)
         {
             ArgumentNullException.ThrowIfNull(source);
@@ -30,6 +31,7 @@ namespace Easy_Copier.Services
         }
 
         /// <inheritdoc />
+        /// <exception cref="ArgumentNullException">Thrown when <paramref name="entries"/> is <see langword="null"/>.</exception>
         public IEnumerable<GameEntry> SortOsImages(IEnumerable<GameEntry> entries, OsImageSortOption sortOption, bool isAscending)
         {
             ArgumentNullException.ThrowIfNull(entries);
