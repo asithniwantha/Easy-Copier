@@ -10,13 +10,13 @@ namespace Easy_Copier.Services
         /// <summary>
         /// Asynchronously checks if a newer version of the application is available from the update server or release releases feed.
         /// </summary>
-        /// <returns>A task returning <c>true</c> if an update is available; otherwise, <c>false</c>.</returns>
+        /// <returns>A task that represents the asynchronous operation. The task result contains <c>true</c> if an update is available; otherwise, <c>false</c>.</returns>
         Task<bool> CheckForUpdatesAsync();
 
         /// <summary>
         /// Asynchronously downloads the latest available application update package.
         /// </summary>
-        /// <returns>A task representing the download operation.</returns>
+        /// <returns>A task that represents the asynchronous operation.</returns>
         Task DownloadUpdateAsync();
 
         /// <summary>

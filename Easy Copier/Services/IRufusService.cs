@@ -11,7 +11,7 @@ namespace Easy_Copier.Services
         /// Resolves the Rufus executable path and launches Rufus with the specified ISO file path.
         /// </summary>
         /// <param name="isoPath">The full path to the target ISO file.</param>
-        /// <returns>A task returning a tuple containing a boolean success indicator and a status message.</returns>
+        /// <returns>A task that represents the asynchronous operation. The task result contains a tuple containing a boolean success indicator and a status message.</returns>
         Task<(bool Success, string Message)> LaunchWithIsoAsync(string isoPath);
     }
 }
