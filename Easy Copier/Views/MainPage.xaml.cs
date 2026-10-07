@@ -58,15 +58,9 @@ namespace Easy_Copier.Views
             }
         }
 
-        private void OnItemQueued(object? sender, EventArgs e)
-        {
-            ClearGameSelection();
-        }
+        private void OnItemQueued(object? sender, EventArgs e) => ClearGameSelection();
 
-        private void OnClearSelectionRequested(object? sender, EventArgs e)
-        {
-            ClearGameSelection();
-        }
+        private void OnClearSelectionRequested(object? sender, EventArgs e) => ClearGameSelection();
 
         private void SearchBox_TextChanged(AutoSuggestBox sender, AutoSuggestBoxTextChangedEventArgs args)
         {
@@ -80,8 +74,7 @@ namespace Easy_Copier.Views
                 return;
             }
 
-            bool hasText = !string.IsNullOrEmpty(text);
-            if (hasText)
+            if (!string.IsNullOrEmpty(text))
             {
                 SearchBox.Resources["TextControlBackground"] = SearchHighlightBrush;
                 SearchBox.Resources["TextControlBackgroundPointerOver"] = SearchHighlightBrush;
@@ -107,9 +100,9 @@ namespace Easy_Copier.Views
             return LibraryPivot == null
                 ? []
                 : LibraryPivot.Items
-                .OfType<PivotItem>()
-                .Select(p => p.Content)
-                .OfType<ILibraryTabView>();
+                    .OfType<PivotItem>()
+                    .Select(p => p.Content)
+                    .OfType<ILibraryTabView>();
         }
 
         private void UpdateCombinedSelection()

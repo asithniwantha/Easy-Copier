@@ -91,7 +91,8 @@
 - Relocated and decoupled `IFlyoutService` and `FlyoutService` in `Infrastructure/` to encapsulate right-click item details flyout presentation (`GameDetailsFlyout`, `OsImageDetailsFlyout`) and folder launch interactions by injecting `IProcessService` and ViewModel factories directly, completely eliminating `MainViewModel` parameters from flyout contracts.
 - Refactored `MainViewModel` to use `IFileSystemService` for file and directory checks during queue item construction, and cached `AppSettings` in memory to eliminate synchronous disk I/O on UI selection summary updates.
 - Decoupled library tab views using `ILibraryTabView` contract with `IsOsImagesTab` property to eliminate view-to-view tight coupling, leveraging dynamic Pivot tab retrieval in `MainPage.xaml.cs`.
-- Extracted `LibraryViewExtensions` (`GetSelectedEntries` and `ClearMultiSelection`) to eliminate duplicated grid selection logic across all library tab views.
+- Refactored child tab view code-behinds (`GamesTabView`, `AppsTabView`, `TvAndFilmsTabView`, `OsImagesTabView`) to use unified `LibraryViewExtensions` (`GetSelectedEntries`, `ClearMultiSelection`, `ClearSingleSelection`), eliminating selection clearing boilerplate across all library tab views.
+- Refactored `SettingsViewModel` navigation panel visibility toggles and source folder lookup/removal logic into clean, expressive, DRY methods using modern C# pattern matching.
 - Replaced imperative C# UI construction in `DialogService.cs` with declarative `ConflictDialogContent.xaml` XAML controls.
 - Centralized flyout logic in `FlyoutHelper.cs` for right-click details flyouts.
 - Extracted `IGameRequirementsService` and `GameRequirementsService` to handle retrieving and formatting game system requirements.

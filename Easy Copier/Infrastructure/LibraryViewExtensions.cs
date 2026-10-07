@@ -31,5 +31,17 @@ namespace Easy_Copier.Infrastructure
                 gridView.SelectedItems.Clear();
             }
         }
+
+        /// <summary>
+        /// Safely clears the active item selection from a single-select <see cref="GridView"/> by setting <see cref="Selector.SelectedItem"/> to <see langword="null"/>.
+        /// </summary>
+        /// <param name="gridView">The grid view instance.</param>
+        public static void ClearSingleSelection(this GridView? gridView)
+        {
+            if (gridView != null)
+            {
+                gridView.SelectedItem = null;
+            }
+        }
     }
 }

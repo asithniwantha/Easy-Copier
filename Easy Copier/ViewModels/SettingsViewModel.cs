@@ -334,7 +334,7 @@ namespace Easy_Copier.ViewModels
         /// <summary>
         /// Asynchronously prompts the user to select and append a new source folder for the specified library category type.
         /// </summary>
-        /// <param name="folderType">The folder category category string ("Game", "App", "TvAndFilm", or "OsImage").</param>
+        /// <param name="folderType">The folder category string ("Game", "App", "TvAndFilm", or "OsImage").</param>
         /// <returns>A task representing the asynchronous operation.</returns>
         [RelayCommand]
         private async Task AddNewSourceFolderAsync(string folderType)
@@ -465,15 +465,12 @@ namespace Easy_Copier.ViewModels
         /// <param name="value">The new navigation tag string.</param>
         partial void OnSelectedNavTagChanged(string value)
         {
-            (IsGeneralPanelVisible, IsGamesPanelVisible, IsAppsPanelVisible, IsFilmAndTvPanelVisible, IsOsImagesPanelVisible, IsLogsPanelVisible) = value switch
-            {
-                "Games" => (false, true, false, false, false, false),
-                "Apps" => (false, false, true, false, false, false),
-                "FilmAndTv" => (false, false, false, true, false, false),
-                "OsImages" => (false, false, false, false, true, false),
-                "Logs" => (false, false, false, false, false, true),
-                _ => (true, false, false, false, false, false)
-            };
+            IsGeneralPanelVisible = value == "General";
+            IsGamesPanelVisible = value == "Games";
+            IsAppsPanelVisible = value == "Apps";
+            IsFilmAndTvPanelVisible = value == "FilmAndTv";
+            IsOsImagesPanelVisible = value == "OsImages";
+            IsLogsPanelVisible = value == "Logs";
         }
 
         /// <summary>
