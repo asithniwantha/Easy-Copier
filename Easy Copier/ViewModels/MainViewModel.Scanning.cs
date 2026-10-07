@@ -597,10 +597,13 @@ namespace Easy_Copier.ViewModels
         [RelayCommand]
         private void AddSourceFolder()
         {
-            SettingsOpenAction openAction = CurrentTabIndex == 0 ? Infrastructure.SettingsOpenAction.AddGameFolder :
-                                            CurrentTabIndex == 1 ? Infrastructure.SettingsOpenAction.AddAppFolder :
-                                            CurrentTabIndex == 2 ? Infrastructure.SettingsOpenAction.AddTvAndFilmFolder :
-                                            Infrastructure.SettingsOpenAction.AddOsImageFolder;
+            SettingsOpenAction openAction = CurrentTabIndex switch
+            {
+                0 => SettingsOpenAction.AddGameFolder,
+                1 => SettingsOpenAction.AddAppFolder,
+                2 => SettingsOpenAction.AddTvAndFilmFolder,
+                _ => SettingsOpenAction.AddOsImageFolder
+            };
 
             _windowService.ShowSettingsWindow(null, openAction);
         }

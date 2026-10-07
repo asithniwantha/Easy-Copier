@@ -40,9 +40,13 @@ namespace Easy_Copier.Infrastructure
             // Convert total bytes to gigabytes for tier evaluation
             double gb = bytes / (1024.0 * 1024.0 * 1024.0);
 
-            return gb <= 5.0
-                ? settings.PriceTier1
-                : gb <= 10.0 ? settings.PriceTier2 : gb < 16.0 ? settings.PriceTier3 : settings.PriceTier4;
+            return gb switch
+            {
+                <= 5.0 => settings.PriceTier1,
+                <= 10.0 => settings.PriceTier2,
+                < 16.0 => settings.PriceTier3,
+                _ => settings.PriceTier4
+            };
         }
     }
 }

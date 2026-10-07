@@ -164,17 +164,21 @@ namespace Easy_Copier.ViewModels
         {
             try
             {
-                double[] values = Cells
-                    .Where(c => double.TryParse(c.InputValue, NumberStyles.Float | NumberStyles.AllowThousands, CultureInfo.InvariantCulture, out _))
-                    .Select(c => double.Parse(c.InputValue, CultureInfo.InvariantCulture))
-                    .ToArray();
+                List<double> parsedValues = [];
+                foreach (NumberCell cell in Cells)
+                {
+                    if (double.TryParse(cell.InputValue, NumberStyles.Float | NumberStyles.AllowThousands, CultureInfo.InvariantCulture, out double val))
+                    {
+                        parsedValues.Add(val);
+                    }
+                }
 
-                if (values.Length > 0)
+                if (parsedValues.Count > 0)
                 {
                     SmartAdderHistoryRecord record = new()
                     {
                         Timestamp = DateTime.Now,
-                        EntriesJson = JsonSerializer.Serialize(values),
+                        EntriesJson = JsonSerializer.Serialize(parsedValues),
                         TotalSum = TotalSum
                     };
                     await _smartAdderHistoryService.AddRecordAsync(record);

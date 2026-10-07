@@ -99,6 +99,8 @@
 - Extracted `IHistoryAnalysisService` and `HistoryAnalysisService` to handle 15-minute window drive clustering and statistic summary computations (`HistoryStats`) for history records, with `HistoryStats` moved to `DomainModels.cs` to fully decouple Services from ViewModels.
 - Extracted `IBatchNotificationService` and `BatchNotificationService` to handle batch transfer status evaluation, sound alerts, and Windows desktop toast notifications.
 - Implemented `IDisposable` event unsubscription cleanup in `LibraryTabViewModelBase` to prevent memory leaks during child tab ViewModel lifecycle transitions.
+- Refactored price tier calculation in `FormattingHelpers.CalculatePrice` using modern C# relational pattern matching (`gb switch { <= 5.0 => ... }`).
+- Refactored `MainViewModel.Scanning.cs` tab actions using C# switch expressions and `SmartAdderViewModel.ClearAllAsync` for single-pass numeric parsing.
 - Strict adherence to SOLID principles through decoupled, highly-focused service abstractions.
 - Proper Dependency Injection flow used to instantiate View Models across pages and windows, eliminating service-locator anti-patterns.
 - UI elements decoupled from Services by leveraging `IDispatcherService` and `IWindowService` interfaces.
