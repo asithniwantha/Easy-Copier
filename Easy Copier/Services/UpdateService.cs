@@ -59,7 +59,7 @@ namespace Easy_Copier.Services
         /// <summary>
         /// Asynchronously checks if a new version release is available on GitHub via Velopack.
         /// </summary>
-        /// <returns>A task returning <c>true</c> if a newer update package is available; otherwise, <c>false</c>.</returns>
+        /// <returns>A task that represents the asynchronous operation. The task result contains <c>true</c> if a newer update package is available; otherwise, <c>false</c>.</returns>
         public async Task<bool> CheckForUpdatesAsync()
         {
             if (_updateManager == null || !_updateManager.IsInstalled)
@@ -97,7 +97,7 @@ namespace Easy_Copier.Services
         /// <summary>
         /// Asynchronously downloads the latest update package files.
         /// </summary>
-        /// <returns>A task representing the download operation.</returns>
+        /// <returns>A task that represents the asynchronous operation.</returns>
         public async Task DownloadUpdateAsync()
         {
             if (_updateManager == null || _updateInfo == null)

@@ -14,7 +14,7 @@ namespace Easy_Copier.Services
         /// <param name="sourceFilePath">The full path of the source file (e.g., a video file).</param>
         /// <param name="cacheDirectoryPath">The full path of the directory where the thumbnail should be saved.</param>
         /// <param name="cancellationToken">A cancellation token to observe.</param>
-        /// <returns>A task that represents the asynchronous operation, returning the full path to the cached thumbnail if successful, or <c>null</c> otherwise.</returns>
+        /// <returns>A task that represents the asynchronous operation. The task result contains the full path to the cached thumbnail if successful; otherwise, <c>null</c>.</returns>
         Task<string?> ExtractThumbnailAsync(string sourceFilePath, string cacheDirectoryPath, CancellationToken cancellationToken = default);
     }
 }
