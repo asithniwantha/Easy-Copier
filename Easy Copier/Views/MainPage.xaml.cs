@@ -58,15 +58,34 @@ namespace Easy_Copier.Views
             }
         }
 
+        /// <summary>
+        /// Handles the <see cref="MainViewModel.ItemQueued"/> event by clearing active library selections.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">Event args.</param>
         private void OnItemQueued(object? sender, EventArgs e) => ClearGameSelection();
 
+        /// <summary>
+        /// Handles the <see cref="MainViewModel.ClearSelectionRequested"/> event by clearing active library selections.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">Event args.</param>
         private void OnClearSelectionRequested(object? sender, EventArgs e) => ClearGameSelection();
 
+        /// <summary>
+        /// Handles text changes in the search box to dynamically update visual background highlights.
+        /// </summary>
+        /// <param name="sender">The auto-suggest box control.</param>
+        /// <param name="args">Event args containing text change details.</param>
         private void SearchBox_TextChanged(AutoSuggestBox sender, AutoSuggestBoxTextChangedEventArgs args)
         {
             UpdateSearchBoxBackground(sender?.Text);
         }
 
+        /// <summary>
+        /// Updates the background styling resources for the search box based on whether search text is populated.
+        /// </summary>
+        /// <param name="text">The current search text string.</param>
         private void UpdateSearchBoxBackground(string? text)
         {
             if (SearchBox == null)
@@ -90,11 +109,20 @@ namespace Easy_Copier.Views
             }
         }
 
+        /// <summary>
+        /// Handles pivot tab selection changes to recalculate and aggregate entry selections.
+        /// </summary>
+        /// <param name="sender">The selection control.</param>
+        /// <param name="e">Event args containing selection change info.</param>
         private void TabOrPivot_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             UpdateCombinedSelection();
         }
 
+        /// <summary>
+        /// Retrieves instantiated library tab views from the Pivot item collection.
+        /// </summary>
+        /// <returns>An enumeration of active <see cref="ILibraryTabView"/> instances.</returns>
         private IEnumerable<ILibraryTabView> GetTabViews()
         {
             return LibraryPivot == null
@@ -105,6 +133,9 @@ namespace Easy_Copier.Views
                     .OfType<ILibraryTabView>();
         }
 
+        /// <summary>
+        /// Recalculates combined library selection across tabs and updates the View Models selection summary.
+        /// </summary>
         private void UpdateCombinedSelection()
         {
             if (ViewModel == null || LibraryPivot == null)
@@ -128,6 +159,9 @@ namespace Easy_Copier.Views
             }
         }
 
+        /// <summary>
+        /// Clears entry selections across all loaded library tab views.
+        /// </summary>
         private void ClearGameSelection()
         {
             foreach (ILibraryTabView tab in GetTabViews())
