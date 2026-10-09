@@ -9,6 +9,9 @@ namespace Easy_Copier.Infrastructure
     /// </summary>
     public class DispatcherService : IDispatcherService
     {
+        /// <summary>
+        /// The UI thread dispatcher queue instance.
+        /// </summary>
         private readonly DispatcherQueue _dispatcherQueue;
 
         /// <summary>

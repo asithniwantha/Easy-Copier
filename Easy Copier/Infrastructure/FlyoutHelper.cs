@@ -10,6 +10,9 @@ namespace Easy_Copier.Infrastructure
     /// </summary>
     public static class FlyoutHelper
     {
+        /// <summary>
+        /// The active flyout service instance used by static helper methods.
+        /// </summary>
         private static IFlyoutService? s_flyoutService;
 
         /// <summary>

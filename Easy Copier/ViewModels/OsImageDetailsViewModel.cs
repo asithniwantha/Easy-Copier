@@ -10,6 +10,9 @@ namespace Easy_Copier.ViewModels
     /// </summary>
     public partial class OsImageDetailsViewModel : ObservableObject
     {
+        /// <summary>
+        /// The file system service used for path metadata inspection.
+        /// </summary>
         private readonly IFileSystemService _fileSystemService;
 
         /// <summary>
