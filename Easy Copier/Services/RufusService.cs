@@ -13,7 +13,14 @@ namespace Easy_Copier.Services
     /// </summary>
     public class RufusService : IRufusService
     {
+        /// <summary>
+        /// The settings service used to load and persist application preferences including Rufus configuration.
+        /// </summary>
         private readonly ISettingsService _settingsService;
+
+        /// <summary>
+        /// The logger instance for diagnostic logging.
+        /// </summary>
         private readonly ILogger<RufusService> _logger;
 
         /// <summary>
