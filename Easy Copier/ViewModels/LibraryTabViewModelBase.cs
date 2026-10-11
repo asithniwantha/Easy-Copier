@@ -9,6 +9,9 @@ namespace Easy_Copier.ViewModels
     /// </summary>
     public abstract class LibraryTabViewModelBase : ObservableObject, IDisposable
     {
+        /// <summary>
+        /// Tracks whether the object has been disposed to prevent double disposal.
+        /// </summary>
         private bool _isDisposed;
 
         /// <summary>
@@ -31,6 +34,11 @@ namespace Easy_Copier.ViewModels
             MainViewModel.PropertyChanged += OnMainViewModelPropertyChanged;
         }
 
+        /// <summary>
+        /// Handles property change events from the parent <see cref="MainViewModel"/>.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">A <see cref="PropertyChangedEventArgs"/> that contains the event data.</param>
         private void OnMainViewModelPropertyChanged(object? sender, PropertyChangedEventArgs e)
         {
             if (e.PropertyName == nameof(MainViewModel.IsScanning))

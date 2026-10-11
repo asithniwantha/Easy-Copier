@@ -9,6 +9,9 @@ namespace Easy_Copier.Services
     /// </summary>
     public class GameRequirementsService : IGameRequirementsService
     {
+        /// <summary>
+        /// The source library service used to retrieve raw system requirements text for game items.
+        /// </summary>
         private readonly ISourceLibraryService _sourceLibraryService;
 
         /// <summary>
