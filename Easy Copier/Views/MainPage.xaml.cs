@@ -120,17 +120,13 @@ namespace Easy_Copier.Views
         }
 
         /// <summary>
-        /// Retrieves instantiated library tab views from the Pivot item collection.
+        /// Retrieves instantiated library tab views from direct control references.
         /// </summary>
         /// <returns>An enumeration of active <see cref="ILibraryTabView"/> instances.</returns>
         private IEnumerable<ILibraryTabView> GetTabViews()
         {
-            return LibraryPivot == null
-                ? []
-                : LibraryPivot.Items
-                    .OfType<PivotItem>()
-                    .Select(p => p.Content)
-                    .OfType<ILibraryTabView>();
+            ILibraryTabView?[] tabs = [GamesTab, AppsTab, TvAndFilmsTab, OsImagesTab];
+            return tabs.OfType<ILibraryTabView>();
         }
 
         /// <summary>
@@ -138,17 +134,15 @@ namespace Easy_Copier.Views
         /// </summary>
         private void UpdateCombinedSelection()
         {
-            if (ViewModel == null || LibraryPivot == null)
+            if (ViewModel == null)
             {
                 return;
             }
 
             if (ViewModel.IsOsImagesTabActive)
             {
-                if (LibraryPivot.SelectedItem is PivotItem activeItem && activeItem.Content is ILibraryTabView activeTab)
-                {
-                    ViewModel.UpdateSelectionSummary(activeTab.GetSelectedEntries());
-                }
+                IEnumerable<GameEntry> selectedItems = OsImagesTab?.GetSelectedEntries() ?? [];
+                ViewModel.UpdateSelectionSummary(selectedItems);
             }
             else
             {

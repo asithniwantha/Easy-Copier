@@ -542,7 +542,7 @@ namespace Easy_Copier.ViewModels
                 _driveDiscoveryService.StartWatching();
                 await RefreshDrivesAsync();
 
-                if (settings.GameSourceFolders.Count == 0 && settings.AppSourceFolders.Count == 0 && (settings.TvAndFilmSourceFolders == null || settings.TvAndFilmSourceFolders.Count == 0) && (settings.OsImageSourceFolders == null || settings.OsImageSourceFolders.Count == 0))
+                if (!HasAnySourceFolders(settings))
                 {
                     StatusMessage = "Ready - No source folders configured";
                     return;
@@ -604,6 +604,19 @@ namespace Easy_Copier.ViewModels
             {
                 IsLoading = false;
             }
+        }
+
+        /// <summary>
+        /// Determines whether any source library folders are configured in settings.
+        /// </summary>
+        /// <param name="settings">The application settings to evaluate.</param>
+        /// <returns><c>true</c> if at least one source folder is configured; otherwise, <c>false</c>.</returns>
+        private static bool HasAnySourceFolders(AppSettings settings)
+        {
+            return settings.GameSourceFolders.Count > 0
+                || settings.AppSourceFolders.Count > 0
+                || (settings.TvAndFilmSourceFolders?.Count > 0)
+                || (settings.OsImageSourceFolders?.Count > 0);
         }
 
         private async Task ValidateAndRefreshCacheAsync(LibraryCacheSnapshot cache, AppSettings settings)

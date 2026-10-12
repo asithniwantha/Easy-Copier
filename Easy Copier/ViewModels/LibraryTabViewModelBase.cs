@@ -62,9 +62,9 @@ namespace Easy_Copier.ViewModels
         /// </summary>
         /// <param name="changedPropertyName">The parent property name that changed.</param>
         /// <param name="mappings">Tuples mapping parent property names to child property names.</param>
-        protected void ForwardParentPropertyChanges(string? changedPropertyName, params (string ParentPropName, string ChildPropName)[] mappings)
+        protected void ForwardParentPropertyChanges(string? changedPropertyName, params ReadOnlySpan<(string ParentPropName, string ChildPropName)> mappings)
         {
-            if (string.IsNullOrEmpty(changedPropertyName) || mappings == null)
+            if (string.IsNullOrEmpty(changedPropertyName))
             {
                 return;
             }

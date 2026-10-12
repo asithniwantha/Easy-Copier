@@ -47,7 +47,7 @@ namespace Easy_Copier.ViewModels
                 AppSettings settings = await _settingsService.LoadSettingsAsync();
                 _cachedSettings = settings;
 
-                if (settings.GameSourceFolders.Count == 0 && settings.AppSourceFolders.Count == 0 && (settings.TvAndFilmSourceFolders == null || settings.TvAndFilmSourceFolders.Count == 0) && (settings.OsImageSourceFolders == null || settings.OsImageSourceFolders.Count == 0))
+                if (!HasAnySourceFolders(settings))
                 {
                     await _libraryCacheService.InvalidateCacheAsync();
                     StatusMessage = "No source folders configured. Please add folders in Settings.";
