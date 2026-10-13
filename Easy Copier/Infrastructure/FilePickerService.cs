@@ -4,8 +4,8 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Windows.Storage;
-using Windows.Storage.Pickers;
-using WinRT.Interop;
+using Microsoft.Windows.Storage.Pickers;
+using Microsoft.UI;
 
 namespace Easy_Copier.Infrastructure
 {
@@ -68,17 +68,6 @@ namespace Easy_Copier.Infrastructure
             {
                 try
                 {
-                    FileOpenPicker openPicker = new()
-                    {
-                        SuggestedStartLocation = PickerLocationId.ComputerFolder,
-                        ViewMode = PickerViewMode.List
-                    };
-
-                    foreach (string filter in fileTypeFilters)
-                    {
-                        openPicker.FileTypeFilter.Add(filter);
-                    }
-
                     nint windowHandle = NativeWindowHelper.GetActiveWindowHandle();
                     if (windowHandle == IntPtr.Zero && _appWindowContext.MainWindow is Microsoft.UI.Xaml.Window mainWindow)
                     {
@@ -91,10 +80,21 @@ namespace Easy_Copier.Infrastructure
                         return;
                     }
 
-                    WinRT.Interop.InitializeWithWindow.Initialize(openPicker, windowHandle);
+                    WindowId windowId = Win32Interop.GetWindowIdFromWindow(windowHandle);
 
-                    StorageFile file = await openPicker.PickSingleFileAsync();
-                    tcs.SetResult(file?.Path);
+                    FileOpenPicker openPicker = new(windowId)
+                    {
+                        SuggestedStartLocation = PickerLocationId.ComputerFolder,
+                        ViewMode = PickerViewMode.List
+                    };
+
+                    foreach (string filter in fileTypeFilters)
+                    {
+                        openPicker.FileTypeFilter.Add(filter);
+                    }
+
+                    var result = await openPicker.PickSingleFileAsync();
+                    tcs.SetResult(result?.Path);
                 }
                 catch (Exception ex)
                 {
@@ -128,7 +128,7 @@ namespace Easy_Copier.Infrastructure
                         _logger.LogWarning("NativeWindowHelper.GetActiveWindowHandle() returned IntPtr.Zero (likely elevated or inactive window). Attempting fallback to AppWindowContext.MainWindow handle.");
                         if (_appWindowContext.MainWindow is Microsoft.UI.Xaml.Window mainWindow)
                         {
-                            windowHandle = WindowNative.GetWindowHandle(mainWindow);
+                            windowHandle = WinRT.Interop.WindowNative.GetWindowHandle(mainWindow);
                         }
                     }
 
@@ -139,7 +139,9 @@ namespace Easy_Copier.Infrastructure
                         return;
                     }
 
-                    FileSavePicker savePicker = new()
+                    WindowId windowId = Win32Interop.GetWindowIdFromWindow(windowHandle);
+
+                    FileSavePicker savePicker = new(windowId)
                     {
                         SuggestedStartLocation = PickerLocationId.DocumentsLibrary,
                         SuggestedFileName = suggestedFileName
@@ -150,10 +152,8 @@ namespace Easy_Copier.Infrastructure
                         savePicker.FileTypeChoices.Add(kvp.Key, kvp.Value);
                     }
 
-                    InitializeWithWindow.Initialize(savePicker, windowHandle);
-
-                    StorageFile file = await savePicker.PickSaveFileAsync();
-                    tcs.SetResult(file?.Path);
+                    var result = await savePicker.PickSaveFileAsync();
+                    tcs.SetResult(result?.Path);
                 }
                 catch (Exception ex)
                 {
