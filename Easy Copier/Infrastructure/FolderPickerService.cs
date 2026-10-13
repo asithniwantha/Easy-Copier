@@ -74,7 +74,6 @@ namespace Easy_Copier.Infrastructure
                         ViewMode = PickerViewMode.List
                     };
 
-                    folderPicker.FileTypeFilter.Add("*");
 
                     var result = await folderPicker.PickSingleFolderAsync();
                     tcs.SetResult(result?.Path);
