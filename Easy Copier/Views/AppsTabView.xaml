@@ -15,34 +15,6 @@
                     Height="{StaticResource GameCardHeight}"
                     RightTapped="GameCard_RightTapped">
                 <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
-
-        <AutoSuggestBox x:Name="SearchBox" Grid.Row="0" Margin="0,0,0,8"
-                        PlaceholderText="Search apps..."
-                        QueryIcon="Find"
-                        FontSize="24" MinHeight="40"
-                        Text="{x:Bind ViewModel.SearchText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                        TextChanged="SearchBox_TextChanged"
-                        SuggestionChosen="SearchBox_SuggestionChosen"
-                        QuerySubmitted="SearchBox_QuerySubmitted"
-                        HorizontalAlignment="Stretch">
-            <AutoSuggestBox.Resources>
-                <x:Double x:Key="AutoSuggestBoxDeleteButtonFontSize">24</x:Double>
-                <x:Double x:Key="AutoSuggestBoxDeleteButtonMinWidth">40</x:Double>
-                <x:Double x:Key="AutoSuggestBoxDeleteButtonMinHeight">40</x:Double>
-                <Style TargetType="Button">
-                    <Setter Property="FontSize" Value="24" />
-                    <Setter Property="MinWidth" Value="40" />
-                    <Setter Property="MinHeight" Value="40" />
-                </Style>
-            </AutoSuggestBox.Resources>
-        </AutoSuggestBox>
-
-        <Grid Grid.Row="2">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="*"/>
                         <RowDefinition Height="Auto"/>
@@ -105,7 +77,6 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
@@ -130,8 +101,8 @@
             </AutoSuggestBox.Resources>
         </AutoSuggestBox>
 
-        <Grid Grid.Row="2">
-        <ProgressRing IsActive="{x:Bind ViewModel.IsScanning, Mode=OneWay}"
+        <Grid Grid.Row="1">
+            <ProgressRing IsActive="{x:Bind ViewModel.IsScanning, Mode=OneWay}"
                       Width="48" Height="48"
                       HorizontalAlignment="Center" VerticalAlignment="Center"/>
 
@@ -146,8 +117,6 @@
                   SelectionMode="Multiple"
                   SelectionChanged="AppsGridView_SelectionChanged"
                   IsItemClickEnabled="False"/>
-    </Grid>
-    </Grid>
     </Grid>
         </Grid>
     </Grid>
