@@ -4,8 +4,8 @@ using Microsoft.Extensions.Logging.Abstractions;
 using System;
 using System.Threading.Tasks;
 using Windows.Storage;
-using Windows.Storage.Pickers;
-using WinRT.Interop;
+using Microsoft.Windows.Storage.Pickers;
+using Microsoft.UI;
 
 namespace Easy_Copier.Infrastructure
 {
@@ -55,7 +55,7 @@ namespace Easy_Copier.Infrastructure
                         _logger.LogWarning("NativeWindowHelper.GetActiveWindowHandle() returned IntPtr.Zero (likely elevated or inactive window). Attempting fallback to AppWindowContext.MainWindow handle.");
                         if (_appWindowContext.MainWindow is Microsoft.UI.Xaml.Window mainWindow)
                         {
-                            windowHandle = WindowNative.GetWindowHandle(mainWindow);
+                            windowHandle = WinRT.Interop.WindowNative.GetWindowHandle(mainWindow);
                         }
                     }
 
@@ -66,15 +66,15 @@ namespace Easy_Copier.Infrastructure
                         return;
                     }
 
-                    FolderPicker folderPicker = new()
+                    WindowId windowId = Win32Interop.GetWindowIdFromWindow(windowHandle);
+
+                    FolderPicker folderPicker = new(windowId)
                     {
                         SuggestedStartLocation = PickerLocationId.ComputerFolder,
                         ViewMode = PickerViewMode.List
                     };
 
                     folderPicker.FileTypeFilter.Add("*");
-
-                    InitializeWithWindow.Initialize(folderPicker, windowHandle);
 
                     StorageFolder folder = await folderPicker.PickSingleFolderAsync();
                     tcs.SetResult(folder?.Path);
