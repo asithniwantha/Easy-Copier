@@ -101,6 +101,9 @@
 - Implemented `IDisposable` event unsubscription cleanup in `LibraryTabViewModelBase` to prevent memory leaks during child tab ViewModel lifecycle transitions.
 - Refactored price tier calculation in `FormattingHelpers.CalculatePrice` using modern C# relational pattern matching (`gb switch { <= 5.0 => ... }`).
 - Refactored `MainViewModel.Scanning.cs` tab actions using C# switch expressions and `SmartAdderViewModel.ClearAllAsync` for single-pass numeric parsing.
+- Optimized `LibraryTabViewModelBase.ForwardParentPropertyChanges` using C# `ReadOnlySpan` params to eliminate array heap allocations during parent ViewModel property change forwarding.
+- Encapsulated source folder configuration checks in `MainViewModel` and `MainViewModel.Scanning.cs` using `HasAnySourceFolders` helper routines.
+- Refactored `MainPage.xaml.cs` selection management to query `ILibraryTabView` direct control references in `GetTabViews`, completely removing fragile `PivotItem` collection reflection and decoupling view interactions.
 - Strict adherence to SOLID principles through decoupled, highly-focused service abstractions.
 - Proper Dependency Injection flow used to instantiate View Models across pages and windows, eliminating service-locator anti-patterns.
 - UI elements decoupled from Services by leveraging `IDispatcherService` and `IWindowService` interfaces.

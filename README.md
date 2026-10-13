@@ -199,3 +199,6 @@ Distributed under the MIT License. See `LICENSE` for more information.
 * Implemented `IDisposable` in `LibraryTabViewModelBase` to safely unsubscribe from `MainViewModel.PropertyChanged` events, preventing memory leaks across view lifecycle transitions. 🧹
 * Refactored price tier calculation in `FormattingHelpers.CalculatePrice` using modern C# relational pattern matching (`gb switch { <= 5.0 => ... }`). 🧮
 * Applied C# switch expressions in `MainViewModel.Scanning.cs` for clean tab action resolution (`CurrentTabIndex switch`) and refactored `SmartAdderViewModel.ClearAllAsync` for single-pass numeric entry processing. ⚡
+* Streamlined `LibraryTabViewModelBase.ForwardParentPropertyChanges` using C# `ReadOnlySpan` params to eliminate array heap allocations during parent ViewModel property sync. 🚀
+* Encapsulated source folder configuration checks in `MainViewModel` and `MainViewModel.Scanning.cs` using `HasAnySourceFolders` helper routines. 📁
+* Refactored `MainPage.xaml.cs` selection management to query `ILibraryTabView` direct control references in `GetTabViews`, completely removing fragile `PivotItem` collection reflection and decoupling view interactions. 🧩
