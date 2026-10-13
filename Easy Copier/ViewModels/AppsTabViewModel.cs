@@ -1,3 +1,4 @@
+using System.Linq;
 using Easy_Copier.Models;
 using System.Collections.ObjectModel;
 
@@ -24,6 +25,13 @@ namespace Easy_Copier.ViewModels
         /// </summary>
         public bool IsAppsEmpty => MainViewModel.IsAppsEmpty;
 
+
+        public string SearchText
+        {
+            get => MainViewModel.AppsSearchText;
+            set => MainViewModel.AppsSearchText = value;
+        }
+
         /// <summary>
         /// Initializes a new instance of the <see cref="AppsTabViewModel"/> class.
         /// </summary>
@@ -38,7 +46,20 @@ namespace Easy_Copier.ViewModels
         {
             ForwardParentPropertyChanges(propertyName,
                 (nameof(MainViewModel.IsAppsEmpty), nameof(IsAppsEmpty)),
-                (nameof(MainViewModel.EmptyAppsMessage), nameof(EmptyAppsMessage)));
+                (nameof(MainViewModel.EmptyAppsMessage), nameof(EmptyAppsMessage)),
+                (nameof(MainViewModel.AppsSearchText), nameof(SearchText)));
+        }
+
+        public IEnumerable<string> GetSuggestions(string query)
+        {
+            if (string.IsNullOrWhiteSpace(query))
+            {
+                return [];
+            }
+            return MainViewModel.Apps.Select(i => i.Name)
+                .Where(n => n.Contains(query, System.StringComparison.OrdinalIgnoreCase))
+                .Distinct()
+                .Take(10);
         }
     }
 }

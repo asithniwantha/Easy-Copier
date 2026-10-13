@@ -1,3 +1,4 @@
+using System.Linq;
 using Easy_Copier.Models;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -39,6 +40,13 @@ namespace Easy_Copier.ViewModels
             set => MainViewModel.SelectedCategory = value;
         }
 
+
+        public string SearchText
+        {
+            get => MainViewModel.GamesSearchText;
+            set => MainViewModel.GamesSearchText = value;
+        }
+
         /// <summary>
         /// Initializes a new instance of the <see cref="GamesTabViewModel"/> class.
         /// </summary>
@@ -54,7 +62,20 @@ namespace Easy_Copier.ViewModels
             ForwardParentPropertyChanges(propertyName,
                 (nameof(MainViewModel.IsGamesEmpty), nameof(IsGamesEmpty)),
                 (nameof(MainViewModel.EmptyGamesMessage), nameof(EmptyGamesMessage)),
-                (nameof(MainViewModel.SelectedCategory), nameof(SelectedCategory)));
+                (nameof(MainViewModel.SelectedCategory), nameof(SelectedCategory)),
+                (nameof(MainViewModel.GamesSearchText), nameof(SearchText)));
+        }
+
+        public IEnumerable<string> GetSuggestions(string query)
+        {
+            if (string.IsNullOrWhiteSpace(query))
+            {
+                return [];
+            }
+            return MainViewModel.Games.Select(i => i.Name)
+                .Where(n => n.Contains(query, System.StringComparison.OrdinalIgnoreCase))
+                .Distinct()
+                .Take(10);
         }
     }
 }

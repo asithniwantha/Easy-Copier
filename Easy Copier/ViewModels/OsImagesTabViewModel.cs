@@ -1,3 +1,4 @@
+using System.Linq;
 using CommunityToolkit.Mvvm.Input;
 using Easy_Copier.Models;
 using System.Collections.Generic;
@@ -54,6 +55,13 @@ namespace Easy_Copier.ViewModels
         /// </summary>
         public IRelayCommand ToggleOsImageSortDirectionCommand => MainViewModel.ToggleOsImageSortDirectionCommand;
 
+
+        public string SearchText
+        {
+            get => MainViewModel.OsImagesSearchText;
+            set => MainViewModel.OsImagesSearchText = value;
+        }
+
         /// <summary>
         /// Initializes a new instance of the <see cref="OsImagesTabViewModel"/> class.
         /// </summary>
@@ -70,7 +78,20 @@ namespace Easy_Copier.ViewModels
                 (nameof(MainViewModel.IsOsImagesEmpty), nameof(IsOsImagesEmpty)),
                 (nameof(MainViewModel.EmptyOsImagesMessage), nameof(EmptyOsImagesMessage)),
                 (nameof(MainViewModel.SelectedOsImageSortOption), nameof(SelectedOsImageSortOption)),
-                (nameof(MainViewModel.IsOsImageSortAscending), nameof(IsOsImageSortAscending)));
+                (nameof(MainViewModel.IsOsImageSortAscending), nameof(IsOsImageSortAscending)),
+                (nameof(MainViewModel.OsImagesSearchText), nameof(SearchText)));
+        }
+
+        public IEnumerable<string> GetSuggestions(string query)
+        {
+            if (string.IsNullOrWhiteSpace(query))
+            {
+                return [];
+            }
+            return MainViewModel.OsImages.Select(i => i.Name)
+                .Where(n => n.Contains(query, System.StringComparison.OrdinalIgnoreCase))
+                .Distinct()
+                .Take(10);
         }
     }
 }

@@ -109,20 +109,19 @@ namespace Easy_Copier.ViewModels
             }
         }
 
-        /// <summary>
-        /// Handles changes to the SearchText property to re-apply library filtering.
-        /// Uses nullable string? for oldValue to match the CommunityToolkit.Mvvm partial method declaration for reference types.
-        /// </summary>
-        /// <param name="oldValue">The previous search string.</param>
-        /// <param name="newValue">The new search string.</param>
-        partial void OnSearchTextChanged(string oldValue, string newValue) => ApplyFilter();
+
 
         /// <summary>
         /// Handles changes to the SelectedCategory property to re-apply library filtering.
         /// </summary>
         /// <param name="oldValue">The previous category value.</param>
         /// <param name="newValue">The new category value.</param>
-        partial void OnSelectedCategoryChanged(GameCategory oldValue, GameCategory newValue) => ApplyFilter();
+
+        partial void OnGamesSearchTextChanged(string oldValue, string newValue) => ApplyGamesFilter();
+        partial void OnAppsSearchTextChanged(string oldValue, string newValue) => ApplyAppsFilter();
+        partial void OnTvAndFilmsSearchTextChanged(string oldValue, string newValue) => ApplyTvAndFilmsFilter();
+        partial void OnOsImagesSearchTextChanged(string oldValue, string newValue) => ApplyOsImagesFilter();
+partial void OnSelectedCategoryChanged(GameCategory oldValue, GameCategory newValue) => ApplyFilter();
 
         /// <summary>
         /// Handles changes to the SelectedOsImageSortOption property to re-apply OS image sorting.
@@ -192,24 +191,49 @@ namespace Easy_Copier.ViewModels
         /// <summary>
         /// Filters and sorts active library collections based on current search query, category, and OS image sort parameters.
         /// </summary>
+
         private void ApplyFilter()
         {
-            Games.UpdateFrom(_libraryFilterService.FilterEntries(_allGames, SearchText, SelectedCategory));
-            Apps.UpdateFrom(_libraryFilterService.FilterEntries(_allApps, SearchText, SelectedCategory));
+            ApplyGamesFilter();
+            ApplyAppsFilter();
+            ApplyTvAndFilmsFilter();
+            ApplyOsImagesFilter();
+        }
+
+        private void ApplyGamesFilter()
+        {
+            Games.UpdateFrom(_libraryFilterService.FilterEntries(_allGames, GamesSearchText, SelectedCategory));
+            OnPropertyChanged(nameof(IsGamesEmpty));
+            OnPropertyChanged(nameof(EmptyGamesMessage));
+        }
+
+        private void ApplyAppsFilter()
+        {
+            Apps.UpdateFrom(_libraryFilterService.FilterEntries(_allApps, AppsSearchText, SelectedCategory));
+            OnPropertyChanged(nameof(IsAppsEmpty));
+            OnPropertyChanged(nameof(EmptyAppsMessage));
+        }
+
+        private void ApplyTvAndFilmsFilter()
+        {
             TvAndFilms.UpdateFrom(_libraryFilterService.SortTvAndFilms(
-                _libraryFilterService.FilterEntries(_allTvAndFilms, SearchText, SelectedCategory),
+                _libraryFilterService.FilterEntries(_allTvAndFilms, TvAndFilmsSearchText, SelectedCategory),
                 SelectedTvAndFilmsSortOption,
                 IsTvAndFilmsSortAscending));
+            OnPropertyChanged(nameof(IsTvAndFilmsEmpty));
+            OnPropertyChanged(nameof(EmptyTvAndFilmsMessage));
+        }
+
+        private void ApplyOsImagesFilter()
+        {
             OsImages.UpdateFrom(_libraryFilterService.SortOsImages(
-                _libraryFilterService.FilterEntries(_allOsImages, SearchText, SelectedCategory),
+                _libraryFilterService.FilterEntries(_allOsImages, OsImagesSearchText, SelectedCategory),
                 SelectedOsImageSortOption,
                 IsOsImageSortAscending));
-
-            OnPropertyChanged(nameof(IsGamesEmpty));
-            OnPropertyChanged(nameof(IsAppsEmpty));
-            OnPropertyChanged(nameof(IsTvAndFilmsEmpty));
             OnPropertyChanged(nameof(IsOsImagesEmpty));
+            OnPropertyChanged(nameof(EmptyOsImagesMessage));
         }
+
 
         /// <summary>
         /// Asynchronously queries connected removable storage devices and updates <see cref="MainViewModel.AvailableDrives"/>.

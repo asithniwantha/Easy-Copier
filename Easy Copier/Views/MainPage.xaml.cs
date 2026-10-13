@@ -12,8 +12,6 @@ namespace Easy_Copier.Views
     /// </summary>
     public sealed partial class MainPage : Page
     {
-        private static readonly Microsoft.UI.Xaml.Media.SolidColorBrush SearchHighlightBrush =
-            new(Microsoft.UI.ColorHelper.FromArgb(0x3C, 0xFF, 0xC1, 0x07));
 
         /// <summary>
         /// Gets the <see cref="MainViewModel"/> bound to this page.
@@ -41,7 +39,7 @@ namespace Easy_Copier.Views
                 ViewModel.ItemQueued += OnItemQueued;
                 ViewModel.ClearSelectionRequested += OnClearSelectionRequested;
                 Bindings.Update();
-                UpdateSearchBoxBackground(ViewModel.SearchText);
+
                 _ = ViewModel.InitializeAsync();
             }
         }
@@ -72,44 +70,7 @@ namespace Easy_Copier.Views
         /// <param name="e">Event args.</param>
         private void OnClearSelectionRequested(object? sender, EventArgs e) => ClearGameSelection();
 
-        /// <summary>
-        /// Handles text changes in the search box to dynamically update visual background highlights.
-        /// </summary>
-        /// <param name="sender">The auto-suggest box control.</param>
-        /// <param name="args">Event args containing text change details.</param>
-        private void SearchBox_TextChanged(AutoSuggestBox sender, AutoSuggestBoxTextChangedEventArgs args)
-        {
-            UpdateSearchBoxBackground(sender?.Text);
-        }
-
-        /// <summary>
-        /// Updates the background styling resources for the search box based on whether search text is populated.
-        /// </summary>
-        /// <param name="text">The current search text string.</param>
-        private void UpdateSearchBoxBackground(string? text)
-        {
-            if (SearchBox == null)
-            {
-                return;
-            }
-
-            if (!string.IsNullOrEmpty(text))
-            {
-                SearchBox.Resources["TextControlBackground"] = SearchHighlightBrush;
-                SearchBox.Resources["TextControlBackgroundPointerOver"] = SearchHighlightBrush;
-                SearchBox.Resources["TextControlBackgroundFocused"] = SearchHighlightBrush;
-                SearchBox.Background = SearchHighlightBrush;
-            }
-            else
-            {
-                _ = SearchBox.Resources.Remove("TextControlBackground");
-                _ = SearchBox.Resources.Remove("TextControlBackgroundPointerOver");
-                _ = SearchBox.Resources.Remove("TextControlBackgroundFocused");
-                SearchBox.ClearValue(Control.BackgroundProperty);
-            }
-        }
-
-        /// <summary>
+                        /// <summary>
         /// Handles pivot tab selection changes to recalculate and aggregate entry selections.
         /// </summary>
         /// <param name="sender">The selection control.</param>
