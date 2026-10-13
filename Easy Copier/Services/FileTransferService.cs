@@ -70,10 +70,10 @@ namespace Easy_Copier.Services
         /// Calculates the monetary price for transferring a specific byte volume based on current settings.
         /// </summary>
         /// <param name="bytes">The total bytes transferred.</param>
+        /// <param name="settings">The application settings snapshot containing pricing rules.</param>
         /// <returns>The calculated monetary amount.</returns>
-        private int CalculateAmount(long bytes)
+        private static int CalculateAmount(long bytes, AppSettings settings)
         {
-            AppSettings settings = _settingsService.LoadSettingsSync();
             return Infrastructure.FormattingHelpers.CalculatePrice(bytes, settings);
         }
 
@@ -156,6 +156,7 @@ namespace Easy_Copier.Services
                     int successCount = 0;
                     long totalBytes = 0;
                     List<string> errors = [];
+                    AppSettings settings = _settingsService.LoadSettingsSync();
 
                     foreach (TransferItem item in request.Items)
                     {
@@ -229,7 +230,7 @@ namespace Easy_Copier.Services
                                 TargetDriveLabel: request.TargetDrive.DriveLabel,
                                 BytesTransferred: result ? game.TotalBytes : 0,
                                 IsSuccess: result,
-                                Amount: result ? CalculateAmount(game.TotalBytes) : 0,
+                                Amount: result ? CalculateAmount(game.TotalBytes, settings) : 0,
                                 SourcePath: game.FolderPath,
                                 DestinationPath: destPath,
                                 ErrorLog: errorMsg,

@@ -114,7 +114,7 @@ namespace Easy_Copier.ViewModels
             double sum = 0;
             foreach (NumberCell cell in Cells)
             {
-                if (double.TryParse(cell.InputValue, out double val))
+                if (cell.TryGetNumericValue(out double val))
                 {
                     sum += val;
                 }
@@ -168,7 +168,7 @@ namespace Easy_Copier.ViewModels
                 List<double> parsedValues = [];
                 foreach (NumberCell cell in Cells)
                 {
-                    if (double.TryParse(cell.InputValue, NumberStyles.Float | NumberStyles.AllowThousands, CultureInfo.InvariantCulture, out double val))
+                    if (cell.TryGetNumericValue(out double val))
                     {
                         parsedValues.Add(val);
                     }

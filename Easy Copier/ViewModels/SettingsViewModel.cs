@@ -28,6 +28,7 @@ namespace Easy_Copier.ViewModels
         private readonly IDialogService _dialogService;
         private readonly ILibraryScannerService _libraryScannerService;
         private readonly IProcessService _processService;
+        private readonly ObservableCollection<string>[] _allFolderCollections;
 
         /// <summary>Gets or sets a value indicating whether library scanning automatically runs at application startup.</summary>
         [ObservableProperty]
@@ -161,6 +162,8 @@ namespace Easy_Copier.ViewModels
             _updateService = updateService;
             _dialogService = dialogService;
             _libraryScannerService = libraryScannerService;
+
+            _allFolderCollections = [GameSourceFolders, AppSourceFolders, TvAndFilmSourceFolders, OsImageSourceFolders];
         }
 
         /// <summary>
@@ -334,23 +337,36 @@ namespace Easy_Copier.ViewModels
         /// <summary>
         /// Asynchronously prompts the user to select and append a new source folder for the specified library category type.
         /// </summary>
-        /// <param name="folderType">The folder category string ("Game", "App", "TvAndFilm", or "OsImage").</param>
+        /// <param name="category">The folder category enum value.</param>
         /// <returns>A task representing the asynchronous operation.</returns>
-        [RelayCommand]
-        private async Task AddNewSourceFolderAsync(string folderType)
+        public async Task AddNewSourceFolderAsync(SourceFolderCategory category)
         {
-            (ObservableCollection<string>? targetFolders, string categoryLabel) = folderType switch
+            (ObservableCollection<string>? targetFolders, string categoryLabel) = category switch
             {
-                "Game" => (GameSourceFolders, "game"),
-                "App" => (AppSourceFolders, "app"),
-                "TvAndFilm" => (TvAndFilmSourceFolders, "film/tv"),
-                "OsImage" => (OsImageSourceFolders, "OS image"),
+                SourceFolderCategory.Game => (GameSourceFolders, "game"),
+                SourceFolderCategory.App => (AppSourceFolders, "app"),
+                SourceFolderCategory.TvAndFilm => (TvAndFilmSourceFolders, "film/tv"),
+                SourceFolderCategory.OsImage => (OsImageSourceFolders, "OS image"),
                 _ => (null, string.Empty)
             };
 
             if (targetFolders != null)
             {
                 await AddSourceFolderAsync(targetFolders, categoryLabel);
+            }
+        }
+
+        /// <summary>
+        /// Command handler accepting a category string (e.g. from XAML bindings) and delegating to <see cref="AddNewSourceFolderAsync(SourceFolderCategory)"/>.
+        /// </summary>
+        /// <param name="folderType">The folder category string ("Game", "App", "TvAndFilm", or "OsImage").</param>
+        /// <returns>A task representing the asynchronous operation.</returns>
+        [RelayCommand]
+        private async Task AddNewSourceFolderAsync(string folderType)
+        {
+            if (Enum.TryParse(folderType, true, out SourceFolderCategory category))
+            {
+                await AddNewSourceFolderAsync(category);
             }
         }
 
@@ -393,9 +409,7 @@ namespace Easy_Copier.ViewModels
         [RelayCommand]
         private async Task RemoveSourceFolderByPathAsync(string folderPath)
         {
-            ObservableCollection<string>[] allFolderCollections = [GameSourceFolders, AppSourceFolders, TvAndFilmSourceFolders, OsImageSourceFolders];
-
-            foreach (ObservableCollection<string> collection in allFolderCollections)
+            foreach (ObservableCollection<string> collection in _allFolderCollections)
             {
                 if (collection.Remove(folderPath))
                 {

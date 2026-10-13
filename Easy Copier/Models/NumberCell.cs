@@ -27,5 +27,25 @@ namespace Easy_Copier.Models
         {
             IsNegative = !string.IsNullOrEmpty(value) && value.StartsWith('-');
         }
+
+        /// <summary>
+        /// Attempts to parse the numeric value from <see cref="InputValue"/> using standard invariant float formatting.
+        /// </summary>
+        /// <param name="value">When this method returns, contains the parsed numeric value if successful; otherwise 0.</param>
+        /// <returns><c>true</c> if <see cref="InputValue"/> was successfully parsed; otherwise <c>false</c>.</returns>
+        public bool TryGetNumericValue(out double value)
+        {
+            if (string.IsNullOrWhiteSpace(InputValue))
+            {
+                value = 0;
+                return false;
+            }
+
+            return double.TryParse(
+                InputValue,
+                System.Globalization.NumberStyles.Float | System.Globalization.NumberStyles.AllowThousands,
+                System.Globalization.CultureInfo.InvariantCulture,
+                out value);
+        }
     }
 }

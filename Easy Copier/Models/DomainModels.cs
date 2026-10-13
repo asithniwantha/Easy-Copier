@@ -12,6 +12,42 @@ namespace Easy_Copier.Models
     public record SourceFolder(string FolderPath, bool IsValid, DateTime LastScanned);
 
     /// <summary>
+    /// Specifies the active library tab index in the main application layout.
+    /// </summary>
+    public enum LibraryTabIndex
+    {
+        /// <summary>Games tab view (index 0).</summary>
+        Games = 0,
+
+        /// <summary>Applications tab view (index 1).</summary>
+        Apps = 1,
+
+        /// <summary>TV and films tab view (index 2).</summary>
+        TvAndFilms = 2,
+
+        /// <summary>OS images tab view (index 3).</summary>
+        OsImages = 3
+    }
+
+    /// <summary>
+    /// Specifies source folder category types for settings configuration.
+    /// </summary>
+    public enum SourceFolderCategory
+    {
+        /// <summary>Games source folder category.</summary>
+        Game,
+
+        /// <summary>Applications source folder category.</summary>
+        App,
+
+        /// <summary>TV and films source folder category.</summary>
+        TvAndFilm,
+
+        /// <summary>OS images source folder category.</summary>
+        OsImage
+    }
+
+    /// <summary>
     /// Represents genres/categories for classifying games.
     /// </summary>
     public enum GameCategory
