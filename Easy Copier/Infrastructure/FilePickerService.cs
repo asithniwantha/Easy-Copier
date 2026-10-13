@@ -93,8 +93,8 @@ namespace Easy_Copier.Infrastructure
                         openPicker.FileTypeFilter.Add(filter);
                     }
 
-                    StorageFile file = await openPicker.PickSingleFileAsync();
-                    tcs.SetResult(file?.Path);
+                    var result = await openPicker.PickSingleFileAsync();
+                    tcs.SetResult(result?.Path);
                 }
                 catch (Exception ex)
                 {
@@ -152,8 +152,8 @@ namespace Easy_Copier.Infrastructure
                         savePicker.FileTypeChoices.Add(kvp.Key, kvp.Value);
                     }
 
-                    StorageFile file = await savePicker.PickSaveFileAsync();
-                    tcs.SetResult(file?.Path);
+                    var result = await savePicker.PickSaveFileAsync();
+                    tcs.SetResult(result?.Path);
                 }
                 catch (Exception ex)
                 {

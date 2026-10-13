@@ -76,8 +76,8 @@ namespace Easy_Copier.Infrastructure
 
                     folderPicker.FileTypeFilter.Add("*");
 
-                    StorageFolder folder = await folderPicker.PickSingleFolderAsync();
-                    tcs.SetResult(folder?.Path);
+                    var result = await folderPicker.PickSingleFolderAsync();
+                    tcs.SetResult(result?.Path);
                 }
                 catch (Exception ex)
                 {
