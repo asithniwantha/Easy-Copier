@@ -87,6 +87,18 @@ namespace Easy_Copier.Models
     }
 
     /// <summary>
+    /// Defines sort options available for TV and film items.
+    /// </summary>
+    public enum TvAndFilmsSortOption
+    {
+        /// <summary>Sort by name/title alphabetically.</summary>
+        Name,
+
+        /// <summary>Sort by recently downloaded/creation date.</summary>
+        DateCreated
+    }
+
+    /// <summary>
     /// Represents a single scanned library entry (game, app, TV/film, or OS image).
     /// </summary>
     /// <param name="Name">The display name of the item.</param>

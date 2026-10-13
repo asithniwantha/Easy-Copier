@@ -25,5 +25,14 @@ namespace Easy_Copier.Services
         /// <param name="isAscending">Whether sorting should be in ascending order.</param>
         /// <returns>An enumerable of sorted OS image entries.</returns>
         IEnumerable<GameEntry> SortOsImages(IEnumerable<GameEntry> entries, OsImageSortOption sortOption, bool isAscending);
+        /// <summary>
+        /// Sorts TV and film entries based on the specified sort option and direction.
+        /// </summary>
+        /// <param name="entries">The TV and film entries to sort.</param>
+        /// <param name="sortOption">The sorting option to apply.</param>
+        /// <param name="isAscending">Whether sorting should be in ascending order.</param>
+        /// <returns>An enumerable of sorted TV and film entries.</returns>
+        IEnumerable<GameEntry> SortTvAndFilms(IEnumerable<GameEntry> entries, TvAndFilmsSortOption sortOption, bool isAscending);
+
     }
 }

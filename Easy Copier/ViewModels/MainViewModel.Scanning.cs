@@ -149,6 +149,28 @@ namespace Easy_Copier.ViewModels
         partial void OnIsOsImageSortAscendingChanged(bool oldValue, bool newValue) => ApplyFilter();
 
         /// <summary>
+        /// Handles changes to the SelectedTvAndFilmsSortOption property to re-apply TV and film sorting.
+        /// </summary>
+        partial void OnSelectedTvAndFilmsSortOptionChanged(TvAndFilmsSortOption oldValue, TvAndFilmsSortOption newValue)
+        {
+            IsTvAndFilmsSortAscending = newValue switch
+            {
+                TvAndFilmsSortOption.Name => true,
+                TvAndFilmsSortOption.DateCreated => false,
+                _ => true
+            };
+            ApplyFilter();
+        }
+
+        /// <summary>
+        /// Handles changes to the IsTvAndFilmsSortAscending property to re-apply TV and film sorting.
+        /// </summary>
+        /// <param name="oldValue">The previous sort direction value.</param>
+        /// <param name="newValue">The new sort direction value.</param>
+        partial void OnIsTvAndFilmsSortAscendingChanged(bool oldValue, bool newValue) => ApplyFilter();
+
+
+        /// <summary>
         /// Toggles the OS image sorting direction between ascending and descending.
         /// </summary>
         [RelayCommand]
@@ -158,13 +180,26 @@ namespace Easy_Copier.ViewModels
         }
 
         /// <summary>
+        /// Toggles the TV and film sorting direction between ascending and descending.
+        /// </summary>
+        [RelayCommand]
+        private void ToggleTvAndFilmsSortDirection()
+        {
+            IsTvAndFilmsSortAscending = !IsTvAndFilmsSortAscending;
+        }
+
+
+        /// <summary>
         /// Filters and sorts active library collections based on current search query, category, and OS image sort parameters.
         /// </summary>
         private void ApplyFilter()
         {
             Games.UpdateFrom(_libraryFilterService.FilterEntries(_allGames, SearchText, SelectedCategory));
             Apps.UpdateFrom(_libraryFilterService.FilterEntries(_allApps, SearchText, SelectedCategory));
-            TvAndFilms.UpdateFrom(_libraryFilterService.FilterEntries(_allTvAndFilms, SearchText, SelectedCategory));
+            TvAndFilms.UpdateFrom(_libraryFilterService.SortTvAndFilms(
+                _libraryFilterService.FilterEntries(_allTvAndFilms, SearchText, SelectedCategory),
+                SelectedTvAndFilmsSortOption,
+                IsTvAndFilmsSortAscending));
             OsImages.UpdateFrom(_libraryFilterService.SortOsImages(
                 _libraryFilterService.FilterEntries(_allOsImages, SearchText, SelectedCategory),
                 SelectedOsImageSortOption,

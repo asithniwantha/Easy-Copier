@@ -6,9 +6,13 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:models="using:Easy_Copier.Models"
+    xmlns:converters="using:Easy_Copier.Converters"
     mc:Ignorable="d">
 
     <UserControl.Resources>
+        <converters:SortDirectionGlyphConverter x:Key="SortDirectionGlyphConverter"/>
+        <converters:SortDirectionToolTipConverter x:Key="SortDirectionToolTipConverter"/>
+
         <DataTemplate x:Key="LibraryItemTemplate" x:DataType="models:GameEntry">
             <Border Style="{StaticResource GameCardStyle}"
                     Width="{StaticResource GameCardWidth}"
@@ -75,20 +79,39 @@
     </UserControl.Resources>
 
     <Grid>
-        <ProgressRing IsActive="{x:Bind ViewModel.IsScanning, Mode=OneWay}"
-                      Width="48" Height="48"
-                      HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
 
-        <TextBlock Text="{x:Bind ViewModel.EmptyTvAndFilmsMessage, Mode=OneWay}"
-                   HorizontalAlignment="Center" VerticalAlignment="Center"
-                   TextWrapping="Wrap" MaxWidth="400" Opacity="0.7"
-                   Visibility="{x:Bind ViewModel.IsTvAndFilmsEmpty, Mode=OneWay}"/>
+        <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Right" Spacing="8" Margin="0,0,0,8">
+            <TextBlock Text="Sort by:" VerticalAlignment="Center" Opacity="0.8" />
+            <ComboBox ItemsSource="{x:Bind ViewModel.AvailableTvAndFilmsSortOptions}"
+                      SelectedItem="{x:Bind ViewModel.SelectedTvAndFilmsSortOption, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                      Width="170" VerticalAlignment="Center"/>
+            <Button Command="{x:Bind ViewModel.ToggleTvAndFilmsSortDirectionCommand}"
+                    Padding="8" VerticalAlignment="Center"
+                    ToolTipService.ToolTip="{x:Bind ViewModel.IsTvAndFilmsSortAscending, Mode=OneWay, Converter={StaticResource SortDirectionToolTipConverter}}">
+                <FontIcon Glyph="{x:Bind ViewModel.IsTvAndFilmsSortAscending, Mode=OneWay, Converter={StaticResource SortDirectionGlyphConverter}}" FontSize="12"/>
+            </Button>
+        </StackPanel>
 
-        <GridView x:Name="TvAndFilmsGridView"
-                  ItemsSource="{x:Bind ViewModel.TvAndFilms, Mode=OneWay}"
-                  ItemTemplate="{StaticResource LibraryItemTemplate}"
-                  SelectionMode="Multiple"
-                  SelectionChanged="TvAndFilmsGridView_SelectionChanged"
-                  IsItemClickEnabled="False"/>
+        <Grid Grid.Row="1">
+            <ProgressRing IsActive="{x:Bind ViewModel.IsScanning, Mode=OneWay}"
+                          Width="48" Height="48"
+                          HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
+            <TextBlock Text="{x:Bind ViewModel.EmptyTvAndFilmsMessage, Mode=OneWay}"
+                       HorizontalAlignment="Center" VerticalAlignment="Center"
+                       TextWrapping="Wrap" MaxWidth="400" Opacity="0.7"
+                       Visibility="{x:Bind ViewModel.IsTvAndFilmsEmpty, Mode=OneWay}"/>
+
+            <GridView x:Name="TvAndFilmsGridView"
+                      ItemsSource="{x:Bind ViewModel.TvAndFilms, Mode=OneWay}"
+                      ItemTemplate="{StaticResource LibraryItemTemplate}"
+                      SelectionMode="Multiple"
+                      SelectionChanged="TvAndFilmsGridView_SelectionChanged"
+                      IsItemClickEnabled="False"/>
+        </Grid>
     </Grid>
 </UserControl>
