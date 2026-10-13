@@ -86,7 +86,7 @@
         </Grid.RowDefinitions>
 
         <AutoSuggestBox x:Name="SearchBox" Grid.Row="0" Margin="0,0,0,8"
-                        PlaceholderText="Search films & TV..."
+                        PlaceholderText="Search films &amp; TV..."
                         QueryIcon="Find"
                         FontSize="24" MinHeight="40"
                         Text="{x:Bind ViewModel.SearchText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
