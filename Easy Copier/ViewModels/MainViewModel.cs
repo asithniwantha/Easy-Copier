@@ -167,7 +167,6 @@ namespace Easy_Copier.ViewModels
         [NotifyPropertyChangedFor(nameof(EmptyAppsMessage))]
         [NotifyPropertyChangedFor(nameof(EmptyTvAndFilmsMessage))]
         [NotifyPropertyChangedFor(nameof(EmptyOsImagesMessage))]
-        [ObservableProperty]
         public partial string GamesSearchText { get; set; } = string.Empty;
         [ObservableProperty]
         public partial string AppsSearchText { get; set; } = string.Empty;
