@@ -1,3 +1,5 @@
+using CommunityToolkit.Mvvm.Input;
+using System.Collections.Generic;
 using Easy_Copier.Models;
 using System.Collections.ObjectModel;
 
@@ -25,6 +27,35 @@ namespace Easy_Copier.ViewModels
         public bool IsTvAndFilmsEmpty => MainViewModel.IsTvAndFilmsEmpty;
 
         /// <summary>
+        /// Gets the list of available sorting options for TV and films.
+        /// </summary>
+        public IReadOnlyList<TvAndFilmsSortOption> AvailableTvAndFilmsSortOptions => MainViewModel.AvailableTvAndFilmsSortOptions;
+
+        /// <summary>
+        /// Gets or sets the selected sorting option for TV and films.
+        /// </summary>
+        public TvAndFilmsSortOption SelectedTvAndFilmsSortOption
+        {
+            get => MainViewModel.SelectedTvAndFilmsSortOption;
+            set => MainViewModel.SelectedTvAndFilmsSortOption = value;
+        }
+
+        /// <summary>
+        /// Gets or sets a value indicating whether TV and films are sorted in ascending order.
+        /// </summary>
+        public bool IsTvAndFilmsSortAscending
+        {
+            get => MainViewModel.IsTvAndFilmsSortAscending;
+            set => MainViewModel.IsTvAndFilmsSortAscending = value;
+        }
+
+        /// <summary>
+        /// Gets the command to toggle the sort direction for TV and films.
+        /// </summary>
+        public IRelayCommand ToggleTvAndFilmsSortDirectionCommand => MainViewModel.ToggleTvAndFilmsSortDirectionCommand;
+
+
+        /// <summary>
         /// Initializes a new instance of the <see cref="TvAndFilmsTabViewModel"/> class.
         /// </summary>
         /// <param name="mainViewModel">The main application ViewModel.</param>
@@ -38,7 +69,9 @@ namespace Easy_Copier.ViewModels
         {
             ForwardParentPropertyChanges(propertyName,
                 (nameof(MainViewModel.IsTvAndFilmsEmpty), nameof(IsTvAndFilmsEmpty)),
-                (nameof(MainViewModel.EmptyTvAndFilmsMessage), nameof(EmptyTvAndFilmsMessage)));
+                (nameof(MainViewModel.EmptyTvAndFilmsMessage), nameof(EmptyTvAndFilmsMessage)),
+                (nameof(MainViewModel.SelectedTvAndFilmsSortOption), nameof(SelectedTvAndFilmsSortOption)),
+                (nameof(MainViewModel.IsTvAndFilmsSortAscending), nameof(IsTvAndFilmsSortAscending)));
         }
     }
 }

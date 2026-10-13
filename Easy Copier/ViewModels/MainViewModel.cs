@@ -201,6 +201,24 @@ namespace Easy_Copier.ViewModels
         /// </summary>
         public IReadOnlyList<OsImageSortOption> AvailableOsImageSortOptions { get; } = Enum.GetValues<OsImageSortOption>();
 
+        /// <summary>
+        /// Gets or sets the selected sorting option for TV and film items.
+        /// </summary>
+        [ObservableProperty]
+        public partial TvAndFilmsSortOption SelectedTvAndFilmsSortOption { get; set; } = TvAndFilmsSortOption.DateCreated;
+
+        /// <summary>
+        /// Gets or sets a value indicating whether TV and film items are sorted in ascending order.
+        /// </summary>
+        [ObservableProperty]
+        public partial bool IsTvAndFilmsSortAscending { get; set; } = false;
+
+        /// <summary>
+        /// Gets the available sort options for TV and film items.
+        /// </summary>
+        public IReadOnlyList<TvAndFilmsSortOption> AvailableTvAndFilmsSortOptions { get; } = Enum.GetValues<TvAndFilmsSortOption>();
+
+
         private readonly List<GameEntry> _allGames = [];
         private readonly List<GameEntry> _allApps = [];
         private readonly List<GameEntry> _allTvAndFilms = [];
