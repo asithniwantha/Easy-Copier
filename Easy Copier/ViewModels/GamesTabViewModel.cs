@@ -41,6 +41,9 @@ namespace Easy_Copier.ViewModels
         }
 
 
+        /// <summary>
+        /// Gets or sets the search text query used to filter game entries.
+        /// </summary>
         public string SearchText
         {
             get => MainViewModel.GamesSearchText;
@@ -66,6 +69,11 @@ namespace Easy_Copier.ViewModels
                 (nameof(MainViewModel.GamesSearchText), nameof(SearchText)));
         }
 
+        /// <summary>
+        /// Filters game names to provide autocomplete suggestions matching the query text.
+        /// </summary>
+        /// <param name="query">The user input string used to filter game suggestions.</param>
+        /// <returns>An enumerable collection of distinct game name suggestions matching the search query.</returns>
         public IEnumerable<string> GetSuggestions(string query)
         {
             return string.IsNullOrWhiteSpace(query)

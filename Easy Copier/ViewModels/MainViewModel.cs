@@ -160,7 +160,7 @@ namespace Easy_Copier.ViewModels
         public partial int SelectedGamesTotalPrice { get; set; }
 
         /// <summary>
-        /// Gets or sets the search filter text query.
+        /// Gets or sets the search filter text query for games.
         /// </summary>
         [ObservableProperty]
         [NotifyPropertyChangedFor(nameof(EmptyGamesMessage))]
@@ -168,10 +168,22 @@ namespace Easy_Copier.ViewModels
         [NotifyPropertyChangedFor(nameof(EmptyTvAndFilmsMessage))]
         [NotifyPropertyChangedFor(nameof(EmptyOsImagesMessage))]
         public partial string GamesSearchText { get; set; } = string.Empty;
+
+        /// <summary>
+        /// Gets or sets the search filter text query for applications.
+        /// </summary>
         [ObservableProperty]
         public partial string AppsSearchText { get; set; } = string.Empty;
+
+        /// <summary>
+        /// Gets or sets the search filter text query for TV and film items.
+        /// </summary>
         [ObservableProperty]
         public partial string TvAndFilmsSearchText { get; set; } = string.Empty;
+
+        /// <summary>
+        /// Gets or sets the search filter text query for OS images.
+        /// </summary>
         [ObservableProperty]
         public partial string OsImagesSearchText { get; set; } = string.Empty;
 

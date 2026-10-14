@@ -57,6 +57,9 @@ namespace Easy_Copier.ViewModels
 
 
 
+        /// <summary>
+        /// Gets or sets the search text query used to filter film and TV series entries.
+        /// </summary>
         public string SearchText
         {
             get => MainViewModel.TvAndFilmsSearchText;
@@ -83,6 +86,11 @@ namespace Easy_Copier.ViewModels
                 (nameof(MainViewModel.TvAndFilmsSearchText), nameof(SearchText)));
         }
 
+        /// <summary>
+        /// Filters film and TV series names to provide autocomplete suggestions matching the query text.
+        /// </summary>
+        /// <param name="query">The user input string used to filter film and TV series suggestions.</param>
+        /// <returns>An enumerable collection of distinct film and TV series name suggestions matching the search query.</returns>
         public IEnumerable<string> GetSuggestions(string query)
         {
             return string.IsNullOrWhiteSpace(query)
