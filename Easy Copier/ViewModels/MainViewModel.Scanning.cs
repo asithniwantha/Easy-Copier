@@ -656,11 +656,12 @@ namespace Easy_Copier.ViewModels
         [RelayCommand]
         private void AddSourceFolder()
         {
-            SettingsOpenAction openAction = CurrentTabIndex switch
+            SettingsOpenAction openAction = (LibraryTabIndex)CurrentTabIndex switch
             {
-                0 => SettingsOpenAction.AddGameFolder,
-                1 => SettingsOpenAction.AddAppFolder,
-                2 => SettingsOpenAction.AddTvAndFilmFolder,
+                LibraryTabIndex.Games => SettingsOpenAction.AddGameFolder,
+                LibraryTabIndex.Apps => SettingsOpenAction.AddAppFolder,
+                LibraryTabIndex.TvAndFilms => SettingsOpenAction.AddTvAndFilmFolder,
+                LibraryTabIndex.OsImages => SettingsOpenAction.AddOsImageFolder,
                 _ => SettingsOpenAction.AddOsImageFolder
             };
 

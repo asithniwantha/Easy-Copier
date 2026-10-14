@@ -100,7 +100,10 @@
 - Extracted `IBatchNotificationService` and `BatchNotificationService` to handle batch transfer status evaluation, sound alerts, and Windows desktop toast notifications.
 - Implemented `IDisposable` event unsubscription cleanup in `LibraryTabViewModelBase` to prevent memory leaks during child tab ViewModel lifecycle transitions.
 - Refactored price tier calculation in `FormattingHelpers.CalculatePrice` using modern C# relational pattern matching (`gb switch { <= 5.0 => ... }`).
-- Refactored `MainViewModel.Scanning.cs` tab actions using C# switch expressions and `SmartAdderViewModel.ClearAllAsync` for single-pass numeric parsing.
+- Applied C# switch expressions in `MainViewModel.Scanning.cs` using strongly-typed `LibraryTabIndex` enum (`Games`, `Apps`, `TvAndFilms`, `OsImages`) to eliminate magic integers.
+- Refactored `SettingsViewModel` to use strongly-typed `SourceFolderCategory` enum (`Game`, `App`, `TvAndFilm`, `OsImage`) and cached collection arrays to prevent heap allocations during source folder removals.
+- Encapsulated invariant numeric parsing in `NumberCell.TryGetNumericValue` and refactored `SmartAdderViewModel` calculations to maintain strict parsing consistency across recalculation and history logging.
+- Optimized `WindowsShellTransferService` by snapshotting `AppSettings` once per transfer batch instead of reading settings synchronously from disk on every item transfer loop.
 - Optimized `LibraryTabViewModelBase.ForwardParentPropertyChanges` using C# `ReadOnlySpan` params to eliminate array heap allocations during parent ViewModel property change forwarding.
 - Encapsulated source folder configuration checks in `MainViewModel` and `MainViewModel.Scanning.cs` using `HasAnySourceFolders` helper routines.
 - Refactored `MainPage.xaml.cs` selection management to query `ILibraryTabView` direct control references in `GetTabViews`, completely removing fragile `PivotItem` collection reflection and decoupling view interactions.

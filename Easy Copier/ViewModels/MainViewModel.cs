@@ -305,9 +305,9 @@ namespace Easy_Copier.ViewModels
         public partial int CurrentTabIndex { get; set; }
 
         /// <summary>
-        /// Gets a value indicating whether the active tab is the OS Images tab (index 3).
+        /// Gets a value indicating whether the active tab is the OS Images tab.
         /// </summary>
-        public bool IsOsImagesTabActive => CurrentTabIndex == 3;
+        public bool IsOsImagesTabActive => CurrentTabIndex == (int)LibraryTabIndex.OsImages;
 
         /// <summary>
         /// Gets the observable collection of game items in the active library view.
