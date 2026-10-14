@@ -1,3 +1,4 @@
+using System.Linq;
 using CommunityToolkit.Mvvm.Input;
 using System.Collections.Generic;
 using Easy_Copier.Models;
@@ -55,6 +56,13 @@ namespace Easy_Copier.ViewModels
         public IRelayCommand ToggleTvAndFilmsSortDirectionCommand => MainViewModel.ToggleTvAndFilmsSortDirectionCommand;
 
 
+
+        public string SearchText
+        {
+            get => MainViewModel.TvAndFilmsSearchText;
+            set => MainViewModel.TvAndFilmsSearchText = value;
+        }
+
         /// <summary>
         /// Initializes a new instance of the <see cref="TvAndFilmsTabViewModel"/> class.
         /// </summary>
@@ -71,7 +79,20 @@ namespace Easy_Copier.ViewModels
                 (nameof(MainViewModel.IsTvAndFilmsEmpty), nameof(IsTvAndFilmsEmpty)),
                 (nameof(MainViewModel.EmptyTvAndFilmsMessage), nameof(EmptyTvAndFilmsMessage)),
                 (nameof(MainViewModel.SelectedTvAndFilmsSortOption), nameof(SelectedTvAndFilmsSortOption)),
-                (nameof(MainViewModel.IsTvAndFilmsSortAscending), nameof(IsTvAndFilmsSortAscending)));
+                (nameof(MainViewModel.IsTvAndFilmsSortAscending), nameof(IsTvAndFilmsSortAscending)),
+                (nameof(MainViewModel.TvAndFilmsSearchText), nameof(SearchText)));
+        }
+
+        public IEnumerable<string> GetSuggestions(string query)
+        {
+            if (string.IsNullOrWhiteSpace(query))
+            {
+                return [];
+            }
+            return MainViewModel.TvAndFilms.Select(i => i.Name)
+                .Where(n => n.Contains(query, System.StringComparison.OrdinalIgnoreCase))
+                .Distinct()
+                .Take(10);
         }
     }
 }

@@ -167,7 +167,13 @@ namespace Easy_Copier.ViewModels
         [NotifyPropertyChangedFor(nameof(EmptyAppsMessage))]
         [NotifyPropertyChangedFor(nameof(EmptyTvAndFilmsMessage))]
         [NotifyPropertyChangedFor(nameof(EmptyOsImagesMessage))]
-        public partial string SearchText { get; set; } = string.Empty;
+        public partial string GamesSearchText { get; set; } = string.Empty;
+        [ObservableProperty]
+        public partial string AppsSearchText { get; set; } = string.Empty;
+        [ObservableProperty]
+        public partial string TvAndFilmsSearchText { get; set; } = string.Empty;
+        [ObservableProperty]
+        public partial string OsImagesSearchText { get; set; } = string.Empty;
 
         /// <summary>
         /// Gets or sets the currently selected category filter option.
@@ -247,30 +253,30 @@ namespace Easy_Copier.ViewModels
         /// <summary>
         /// Gets the empty view status message for the games tab.
         /// </summary>
-        public string EmptyGamesMessage => string.IsNullOrWhiteSpace(SearchText)
+        public string EmptyGamesMessage => string.IsNullOrWhiteSpace(GamesSearchText)
             ? "No games found. Add a game folder in Settings and scan your library."
-            : $"No games match \"{SearchText}\".";
+            : $"No games match \"{GamesSearchText}\".";
 
         /// <summary>
         /// Gets the empty view status message for the applications tab.
         /// </summary>
-        public string EmptyAppsMessage => string.IsNullOrWhiteSpace(SearchText)
+        public string EmptyAppsMessage => string.IsNullOrWhiteSpace(AppsSearchText)
             ? "No apps found. Add an app folder in Settings and scan your library."
-            : $"No apps match \"{SearchText}\".";
+            : $"No apps match \"{AppsSearchText}\".";
 
         /// <summary>
         /// Gets the empty view status message for the TV and films tab.
         /// </summary>
-        public string EmptyTvAndFilmsMessage => string.IsNullOrWhiteSpace(SearchText)
+        public string EmptyTvAndFilmsMessage => string.IsNullOrWhiteSpace(TvAndFilmsSearchText)
             ? "No films/TV series found. Add a folder in Settings and scan your library."
-            : $"No films/TV series match \"{SearchText}\".";
+            : $"No films/TV series match \"{TvAndFilmsSearchText}\".";
 
         /// <summary>
         /// Gets the empty view status message for the OS images tab.
         /// </summary>
-        public string EmptyOsImagesMessage => string.IsNullOrWhiteSpace(SearchText)
+        public string EmptyOsImagesMessage => string.IsNullOrWhiteSpace(OsImagesSearchText)
             ? "No OS images found. Add an OS image folder in Settings and scan your library."
-            : $"No OS images match \"{SearchText}\".";
+            : $"No OS images match \"{OsImagesSearchText}\".";
 
         /// <summary>
         /// Gets a value indicating whether a target removable drive is currently selected.
