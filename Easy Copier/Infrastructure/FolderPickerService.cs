@@ -1,11 +1,10 @@
 using Easy_Copier.Services;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Logging.Abstractions;
+using Microsoft.UI;
+using Microsoft.Windows.Storage.Pickers;
 using System;
 using System.Threading.Tasks;
-using Windows.Storage;
-using Microsoft.Windows.Storage.Pickers;
-using Microsoft.UI;
 
 namespace Easy_Copier.Infrastructure
 {
@@ -75,7 +74,7 @@ namespace Easy_Copier.Infrastructure
                     };
 
 
-                    var result = await folderPicker.PickSingleFolderAsync();
+                    PickFolderResult result = await folderPicker.PickSingleFolderAsync();
                     tcs.SetResult(result?.Path);
                 }
                 catch (Exception ex)

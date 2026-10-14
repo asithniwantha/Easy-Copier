@@ -1,8 +1,8 @@
-using System.Linq;
 using CommunityToolkit.Mvvm.Input;
-using System.Collections.Generic;
 using Easy_Copier.Models;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 
 namespace Easy_Copier.ViewModels
 {
@@ -85,11 +85,9 @@ namespace Easy_Copier.ViewModels
 
         public IEnumerable<string> GetSuggestions(string query)
         {
-            if (string.IsNullOrWhiteSpace(query))
-            {
-                return [];
-            }
-            return MainViewModel.TvAndFilms.Select(i => i.Name)
+            return string.IsNullOrWhiteSpace(query)
+                ? []
+                : MainViewModel.TvAndFilms.Select(i => i.Name)
                 .Where(n => n.Contains(query, System.StringComparison.OrdinalIgnoreCase))
                 .Distinct()
                 .Take(10);

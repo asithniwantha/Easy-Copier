@@ -54,10 +54,16 @@ namespace Easy_Copier.Views
         }
 
         /// <inheritdoc />
-        public IEnumerable<GameEntry> GetSelectedEntries() => OsImagesGridView.GetSelectedEntries();
+        public IEnumerable<GameEntry> GetSelectedEntries()
+        {
+            return OsImagesGridView.GetSelectedEntries();
+        }
 
         /// <inheritdoc />
-        public void ClearSelection() => OsImagesGridView.ClearSingleSelection();
+        public void ClearSelection()
+        {
+            OsImagesGridView.ClearSingleSelection();
+        }
 
         /// <summary>
         /// Handles the <see cref="Selector.SelectionChanged"/> event for the OS Images grid.
@@ -121,10 +127,7 @@ namespace Easy_Copier.Views
         /// </summary>
         private void SearchBox_QuerySubmitted(Microsoft.UI.Xaml.Controls.AutoSuggestBox sender, Microsoft.UI.Xaml.Controls.AutoSuggestBoxQuerySubmittedEventArgs args)
         {
-            if (ViewModel != null)
-            {
-                ViewModel.SearchText = args.QueryText;
-            }
+            ViewModel?.SearchText = args.QueryText;
         }
 
         private static readonly Microsoft.UI.Xaml.Media.SolidColorBrush SearchHighlightBrush =
@@ -132,7 +135,10 @@ namespace Easy_Copier.Views
 
         private void UpdateSearchBoxBackground(string? text)
         {
-            if (SearchBox == null) return;
+            if (SearchBox == null)
+            {
+                return;
+            }
 
             if (!string.IsNullOrEmpty(text))
             {
@@ -149,5 +155,5 @@ namespace Easy_Copier.Views
                 SearchBox.ClearValue(Microsoft.UI.Xaml.Controls.Control.BackgroundProperty);
             }
         }
-}
+    }
 }

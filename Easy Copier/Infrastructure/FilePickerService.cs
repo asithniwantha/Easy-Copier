@@ -1,11 +1,10 @@
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Logging.Abstractions;
+using Microsoft.UI;
+using Microsoft.Windows.Storage.Pickers;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Windows.Storage;
-using Microsoft.Windows.Storage.Pickers;
-using Microsoft.UI;
 
 namespace Easy_Copier.Infrastructure
 {
@@ -93,7 +92,7 @@ namespace Easy_Copier.Infrastructure
                         openPicker.FileTypeFilter.Add(filter);
                     }
 
-                    var result = await openPicker.PickSingleFileAsync();
+                    PickFileResult result = await openPicker.PickSingleFileAsync();
                     tcs.SetResult(result?.Path);
                 }
                 catch (Exception ex)
@@ -152,7 +151,7 @@ namespace Easy_Copier.Infrastructure
                         savePicker.FileTypeChoices.Add(kvp.Key, kvp.Value);
                     }
 
-                    var result = await savePicker.PickSaveFileAsync();
+                    PickFileResult result = await savePicker.PickSaveFileAsync();
                     tcs.SetResult(result?.Path);
                 }
                 catch (Exception ex)

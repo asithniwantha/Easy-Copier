@@ -38,10 +38,7 @@ namespace Easy_Copier.Infrastructure
         /// <param name="gridView">The grid view instance.</param>
         public static void ClearSingleSelection(this GridView? gridView)
         {
-            if (gridView != null)
-            {
-                gridView.SelectedItem = null;
-            }
+            gridView?.SelectedItem = null;
         }
     }
 }

@@ -61,16 +61,22 @@ namespace Easy_Copier.Views
         /// </summary>
         /// <param name="sender">The source of the event.</param>
         /// <param name="e">Event args.</param>
-        private void OnItemQueued(object? sender, EventArgs e) => ClearGameSelection();
+        private void OnItemQueued(object? sender, EventArgs e)
+        {
+            ClearGameSelection();
+        }
 
         /// <summary>
         /// Handles the <see cref="MainViewModel.ClearSelectionRequested"/> event by clearing active library selections.
         /// </summary>
         /// <param name="sender">The source of the event.</param>
         /// <param name="e">Event args.</param>
-        private void OnClearSelectionRequested(object? sender, EventArgs e) => ClearGameSelection();
+        private void OnClearSelectionRequested(object? sender, EventArgs e)
+        {
+            ClearGameSelection();
+        }
 
-                        /// <summary>
+        /// <summary>
         /// Handles pivot tab selection changes to recalculate and aggregate entry selections.
         /// </summary>
         /// <param name="sender">The selection control.</param>

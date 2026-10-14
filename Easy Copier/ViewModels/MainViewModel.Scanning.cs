@@ -121,7 +121,7 @@ namespace Easy_Copier.ViewModels
         partial void OnAppsSearchTextChanged(string oldValue, string newValue) => ApplyAppsFilter();
         partial void OnTvAndFilmsSearchTextChanged(string oldValue, string newValue) => ApplyTvAndFilmsFilter();
         partial void OnOsImagesSearchTextChanged(string oldValue, string newValue) => ApplyOsImagesFilter();
-partial void OnSelectedCategoryChanged(GameCategory oldValue, GameCategory newValue) => ApplyFilter();
+        partial void OnSelectedCategoryChanged(GameCategory oldValue, GameCategory newValue) => ApplyFilter();
 
         /// <summary>
         /// Handles changes to the SelectedOsImageSortOption property to re-apply OS image sorting.
