@@ -116,17 +116,17 @@ The selected-drive panel also shows a usage bar, free space, total capacity, and
 | **Framework** | WinUI 3 / Windows App SDK |
 | **Language** | C# 14 with .NET 10 |
 | **Pattern** | MVVM with CommunityToolkit.Mvvm (Strict adherence to SOLID principles, dependency injection, and clean view-model separation). Optimized clean code removing inefficient operations. Asynchronous database reads with `IsDBNullAsync`. MVVMTK0045 naturally resolved using preview `partial` properties. |
-| **Architecture** | High UI decoupling using `ILibraryTabView` contracts (with `IsOsImagesTab` property eliminating view-to-view coupling), `ILibraryFilterService` for clean query filtering and sorting, `IFileSystemService` for file system metadata and directory inspection, `IFlyoutService` in `Infrastructure` for UI flyout presentation, and `ConflictDialogContent` views, safely bridging UI-specific operations via abstractions like `IWindowService`. |
+| **Architecture** | High UI decoupling using `ILibraryTabView` contracts (with `IsOsImagesTab` property eliminating view-to-view coupling), `ISearchableTabViewModel` contract for tab search query and suggestion support, `AutoSuggestBoxHelper` for search control handling, `ILibraryFilterService` for clean query filtering and sorting, `IFileSystemService` for file system metadata and directory inspection, `IFlyoutService` in `Infrastructure` for UI flyout presentation, and `ConflictDialogContent` views, safely bridging UI-specific operations via abstractions like `IWindowService`. |
 | **Storage Discovery** | `DriveInfo` and Windows Management Instrumentation (WMI) |
 | **CI/CD** | GitHub Actions |
 | **Target Platform** | x64 |
 
 ## Development Environment
 ### What each folder is for
-* **ViewModels/**: UI behavior/state and commands (example: `SettingsViewModel`, `SmartAdderViewModel`).
+* **ViewModels/**: UI behavior/state and commands (example: `SettingsViewModel`, `SmartAdderViewModel`, `ISearchableTabViewModel`).
 * **Views/**: Windows/pages, user controls, and code-behind (example: `AboutWindow.xaml.cs`, `ConflictDialogContent.xaml`).
 * **Services/**: Domain/application logic and service contracts (copying, scanning, queueing, settings, etc.; example: `TransferQueueService`).
-* **Infrastructure/**: Platform/framework glue: UI presentation flyout services, picker wrappers, dispatcher, window helpers, DI registration (example: `FlyoutService`, `FolderPickerService`, `ServiceCollectionExtensions`).
+* **Infrastructure/**: Platform/framework glue: UI presentation flyout services, search helpers (`AutoSuggestBoxHelper`), picker wrappers, dispatcher, window helpers, DI registration (example: `FlyoutService`, `FolderPickerService`, `ServiceCollectionExtensions`).
 * **Models/**: Domain/data types shared across app layers (example: `GameEntry`, `RemovableDrive`, `AppSettings`).
 * **Easy Copier.Tests/**: Unit/integration tests for services/viewmodels/helpers (example: `PickerServicesTests`).
 * **docs/**: Generated/static documentation assets.
@@ -181,6 +181,9 @@ Distributed under the MIT License. See `LICENSE` for more information.
 ## 🏗️ Updated Architecture
 * Extracted `IRufusService` / `RufusService` to encapsulate Rufus executable resolution and ISO launching, eliminating process management from `MainViewModel`. 📀
 * Streamlined child tab ViewModels (`GamesTabViewModel`, `AppsTabViewModel`, `TvAndFilmsTabViewModel`, `OsImagesTabViewModel`) by introducing `ForwardParentPropertyChanges` in `LibraryTabViewModelBase`. 🔄
+* Introduced `ISearchableTabViewModel` contract implemented across child tab ViewModels (`GamesTabViewModel`, `AppsTabViewModel`, `TvAndFilmsTabViewModel`, `OsImagesTabViewModel`) to standardize search query binding and autocomplete suggestions. 🔍
+* Centralized autocomplete suggestion calculation using static `GetSuggestionsFromEntries` helper in `LibraryTabViewModelBase`. ⚡
+* Created `AutoSuggestBoxHelper` in `Infrastructure` to eliminate duplicated search box text change, suggestion selection, query submission, and active search background brush formatting across all library tab views. 🎨
 * Introduced `IFileSystemService` and `FileSystemService` to encapsulate directory listing, size calculations, and path existence checks, removing direct disk I/O calls from ViewModels. 📁
 * Relocated and fully decoupled `IFlyoutService` and `FlyoutService` in `Infrastructure` to encapsulate right-click item details flyout presentation (`GameDetailsFlyout`, `OsImageDetailsFlyout`) and folder launch interactions by directly injecting `IProcessService` and ViewModel factories, eliminating `MainViewModel` parameters from flyout contracts. 🪟
 * Refactored `MainViewModel` to use `IFileSystemService` for transfer queue item file and directory checks, and cached settings in memory to eliminate synchronous disk I/O during selection summary updates. ⚡

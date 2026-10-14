@@ -98,62 +98,25 @@ namespace Easy_Copier.Views
         /// <summary>
         /// Handles text changes in the search box to provide suggestions and update background highlights.
         /// </summary>
-        private void SearchBox_TextChanged(Microsoft.UI.Xaml.Controls.AutoSuggestBox sender, Microsoft.UI.Xaml.Controls.AutoSuggestBoxTextChangedEventArgs args)
+        private void SearchBox_TextChanged(AutoSuggestBox sender, AutoSuggestBoxTextChangedEventArgs args)
         {
-            if (args.Reason == Microsoft.UI.Xaml.Controls.AutoSuggestionBoxTextChangeReason.UserInput)
-            {
-                if (ViewModel != null)
-                {
-                    // Update suggestions based on input
-                    sender.ItemsSource = ViewModel.GetSuggestions(sender.Text);
-                }
-            }
-            UpdateSearchBoxBackground(sender.Text);
+            AutoSuggestBoxHelper.HandleTextChanged(sender, args, ViewModel);
         }
 
         /// <summary>
         /// Handles the event when a suggestion is chosen from the AutoSuggestBox.
         /// </summary>
-        private void SearchBox_SuggestionChosen(Microsoft.UI.Xaml.Controls.AutoSuggestBox sender, Microsoft.UI.Xaml.Controls.AutoSuggestBoxSuggestionChosenEventArgs args)
+        private void SearchBox_SuggestionChosen(AutoSuggestBox sender, AutoSuggestBoxSuggestionChosenEventArgs args)
         {
-            if (ViewModel != null && args.SelectedItem is string chosenText)
-            {
-                ViewModel.SearchText = chosenText;
-            }
+            AutoSuggestBoxHelper.HandleSuggestionChosen(args, ViewModel);
         }
 
         /// <summary>
         /// Handles the event when the user submits a query from the AutoSuggestBox.
         /// </summary>
-        private void SearchBox_QuerySubmitted(Microsoft.UI.Xaml.Controls.AutoSuggestBox sender, Microsoft.UI.Xaml.Controls.AutoSuggestBoxQuerySubmittedEventArgs args)
+        private void SearchBox_QuerySubmitted(AutoSuggestBox sender, AutoSuggestBoxQuerySubmittedEventArgs args)
         {
-            ViewModel?.SearchText = args.QueryText;
-        }
-
-        private static readonly Microsoft.UI.Xaml.Media.SolidColorBrush SearchHighlightBrush =
-            new(Microsoft.UI.ColorHelper.FromArgb(0x3C, 0xFF, 0xC1, 0x07));
-
-        private void UpdateSearchBoxBackground(string? text)
-        {
-            if (SearchBox == null)
-            {
-                return;
-            }
-
-            if (!string.IsNullOrEmpty(text))
-            {
-                SearchBox.Resources["TextControlBackground"] = SearchHighlightBrush;
-                SearchBox.Resources["TextControlBackgroundPointerOver"] = SearchHighlightBrush;
-                SearchBox.Resources["TextControlBackgroundFocused"] = SearchHighlightBrush;
-                SearchBox.Background = SearchHighlightBrush;
-            }
-            else
-            {
-                _ = SearchBox.Resources.Remove("TextControlBackground");
-                _ = SearchBox.Resources.Remove("TextControlBackgroundPointerOver");
-                _ = SearchBox.Resources.Remove("TextControlBackgroundFocused");
-                SearchBox.ClearValue(Microsoft.UI.Xaml.Controls.Control.BackgroundProperty);
-            }
+            AutoSuggestBoxHelper.HandleQuerySubmitted(args, ViewModel);
         }
     }
 }
