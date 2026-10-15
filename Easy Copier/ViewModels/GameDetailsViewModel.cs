@@ -14,7 +14,14 @@ namespace Easy_Copier.ViewModels
     /// </summary>
     public partial class GameDetailsViewModel : ObservableObject
     {
+        /// <summary>
+        /// The dispatcher service used to marshal UI updates.
+        /// </summary>
         private readonly IDispatcherService _dispatcherService;
+
+        /// <summary>
+        /// The file system service used for file and folder enumeration and directory size calculations.
+        /// </summary>
         private readonly IFileSystemService _fileSystemService;
 
         /// <summary>
@@ -95,6 +102,11 @@ namespace Easy_Copier.ViewModels
             await Task.CompletedTask;
         }
 
+        /// <summary>
+        /// Asynchronously calculates the total directory size of a folder item in the background and updates its formatted size property on the UI thread.
+        /// </summary>
+        /// <param name="item">The file system item whose size will be calculated.</param>
+        /// <returns>A task representing the asynchronous size calculation operation.</returns>
         private async Task CalculateFolderSizeAsync(FileSystemItem item)
         {
             if (!item.IsFolder)
