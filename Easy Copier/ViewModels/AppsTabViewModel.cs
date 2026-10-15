@@ -27,6 +27,9 @@ namespace Easy_Copier.ViewModels
         public bool IsAppsEmpty => MainViewModel.IsAppsEmpty;
 
 
+        /// <summary>
+        /// Gets or sets the search text query used to filter application entries.
+        /// </summary>
         public string SearchText
         {
             get => MainViewModel.AppsSearchText;
@@ -51,6 +54,11 @@ namespace Easy_Copier.ViewModels
                 (nameof(MainViewModel.AppsSearchText), nameof(SearchText)));
         }
 
+        /// <summary>
+        /// Filters application names to provide autocomplete suggestions matching the query text.
+        /// </summary>
+        /// <param name="query">The user input string used to filter application suggestions.</param>
+        /// <returns>An enumerable collection of distinct application name suggestions matching the search query.</returns>
         public IEnumerable<string> GetSuggestions(string query)
         {
             return string.IsNullOrWhiteSpace(query)

@@ -56,6 +56,9 @@ namespace Easy_Copier.ViewModels
         public IRelayCommand ToggleOsImageSortDirectionCommand => MainViewModel.ToggleOsImageSortDirectionCommand;
 
 
+        /// <summary>
+        /// Gets or sets the search text query used to filter OS image entries.
+        /// </summary>
         public string SearchText
         {
             get => MainViewModel.OsImagesSearchText;
@@ -82,6 +85,11 @@ namespace Easy_Copier.ViewModels
                 (nameof(MainViewModel.OsImagesSearchText), nameof(SearchText)));
         }
 
+        /// <summary>
+        /// Filters OS image names to provide autocomplete suggestions matching the query text.
+        /// </summary>
+        /// <param name="query">The user input string used to filter OS image suggestions.</param>
+        /// <returns>An enumerable collection of distinct OS image name suggestions matching the search query.</returns>
         public IEnumerable<string> GetSuggestions(string query)
         {
             return string.IsNullOrWhiteSpace(query)
