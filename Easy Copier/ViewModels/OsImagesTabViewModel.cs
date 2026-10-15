@@ -55,7 +55,7 @@ namespace Easy_Copier.ViewModels
         public IRelayCommand ToggleOsImageSortDirectionCommand => MainViewModel.ToggleOsImageSortDirectionCommand;
 
         /// <summary>
-        /// Gets or sets the search filter text query.
+        /// Gets or sets the search text query used to filter OS image entries.
         /// </summary>
         public string SearchText
         {

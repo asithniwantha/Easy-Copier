@@ -40,7 +40,7 @@ namespace Easy_Copier.ViewModels
         }
 
         /// <summary>
-        /// Gets or sets the search filter text query.
+        /// Gets or sets the search text query used to filter game entries.
         /// </summary>
         public string SearchText
         {

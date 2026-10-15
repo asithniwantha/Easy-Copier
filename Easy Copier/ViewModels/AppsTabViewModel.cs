@@ -26,7 +26,7 @@ namespace Easy_Copier.ViewModels
         public bool IsAppsEmpty => MainViewModel.IsAppsEmpty;
 
         /// <summary>
-        /// Gets or sets the search filter text query.
+        /// Gets or sets the search text query used to filter application entries.
         /// </summary>
         public string SearchText
         {
