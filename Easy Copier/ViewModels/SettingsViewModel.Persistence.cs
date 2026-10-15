@@ -54,6 +54,7 @@ namespace Easy_Copier.ViewModels
             ShowDesktopNotifications = settings.ShowDesktopNotifications;
             RufusExecutablePath = settings.RufusExecutablePath ?? @"%USERPROFILE%\Downloads\Programs\rufus.exe";
             VideoFileExtensions = settings.VideoFileExtensions ?? ".mp4,.mkv,.avi";
+            AppFileExtensions = settings.AppFileExtensions ?? ".exe,.msi,.rar,.zip";
             PriceTier1 = settings.PriceTier1.ToString(System.Globalization.CultureInfo.InvariantCulture);
             PriceTier2 = settings.PriceTier2.ToString(System.Globalization.CultureInfo.InvariantCulture);
             PriceTier3 = settings.PriceTier3.ToString(System.Globalization.CultureInfo.InvariantCulture);
@@ -80,6 +81,7 @@ namespace Easy_Copier.ViewModels
                 ShowDesktopNotifications = ShowDesktopNotifications,
                 RufusExecutablePath = RufusExecutablePath,
                 VideoFileExtensions = VideoFileExtensions,
+                AppFileExtensions = AppFileExtensions,
                 PriceTier1 = int.TryParse(PriceTier1, out int p1) ? p1 : 100,
                 PriceTier2 = int.TryParse(PriceTier2, out int p2) ? p2 : 200,
                 PriceTier3 = int.TryParse(PriceTier3, out int p3) ? p3 : 300,

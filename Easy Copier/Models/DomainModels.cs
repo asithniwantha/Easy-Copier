@@ -309,6 +309,10 @@ namespace Easy_Copier.Models
         /// <summary>Gets or sets comma-separated video file extension filters.</summary>
         public string VideoFileExtensions { get; set; } = ".mp4,.mkv,.avi";
 
+        /// <summary>Gets or sets comma-separated app file extension filters.</summary>
+        public string AppFileExtensions { get; set; } = ".exe,.msi,.rar,.zip";
+
+
         /// <summary>Gets or sets a value indicating whether to auto-scan library folders at application startup.</summary>
         public bool AutoScanOnStartup { get; set; } = true;
 

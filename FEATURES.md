@@ -68,6 +68,7 @@
 
 ## ⚙️ Settings and Persistence
 - Manage source folders for Games, Apps, and Media (add/remove).
+- Scan for standalone app files (.exe, .msi, .rar, .zip, etc) within App Libraries, with configurable extensions in Settings.
 - Toggle auto-scan on startup.
 - Toggle application to start automatically on Windows log-on.
 - Persist settings in roaming app data (`%AppData%\EasyCopier`).
