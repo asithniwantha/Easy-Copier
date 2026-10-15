@@ -15,9 +15,24 @@ namespace Easy_Copier.Infrastructure
     /// </summary>
     public class FlyoutService : IFlyoutService
     {
+        /// <summary>
+        /// Factory delegate for creating instances of <see cref="GameDetailsViewModel"/>.
+        /// </summary>
         private readonly Func<GameDetailsViewModel> _gameDetailsViewModelFactory;
+
+        /// <summary>
+        /// Factory delegate for creating instances of <see cref="OsImageDetailsViewModel"/>.
+        /// </summary>
         private readonly Func<OsImageDetailsViewModel> _osImageDetailsViewModelFactory;
+
+        /// <summary>
+        /// Service for retrieving and formatting system requirements for games.
+        /// </summary>
         private readonly IGameRequirementsService _gameRequirementsService;
+
+        /// <summary>
+        /// Service for launching external processes and opening File Explorer folders.
+        /// </summary>
         private readonly IProcessService _processService;
 
         /// <summary>
@@ -81,6 +96,13 @@ namespace Easy_Copier.Infrastructure
             PresentFlyout(fe, position, osImageFlyout, null);
         }
 
+        /// <summary>
+        /// Displays a WinUI flyout anchored to the specified framework element with optional placement coordinates and presenter styling.
+        /// </summary>
+        /// <param name="targetElement">The target element to anchor the flyout to.</param>
+        /// <param name="position">Optional coordinates relative to the target element for flyout placement.</param>
+        /// <param name="content">The UI element content to display inside the flyout.</param>
+        /// <param name="presenterStyle">Optional custom presenter style to apply to the flyout.</param>
         private static void PresentFlyout(FrameworkElement targetElement, Point? position, UIElement content, Style? presenterStyle)
         {
             Flyout flyout = new()

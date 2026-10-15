@@ -189,9 +189,8 @@ namespace Easy_Copier.ViewModels
 
 
         /// <summary>
-        /// Filters and sorts active library collections based on current search query, category, and OS image sort parameters.
+        /// Filters and sorts active library collections based on current search queries, category, and sorting options.
         /// </summary>
-
         private void ApplyFilter()
         {
             ApplyGamesFilter();
@@ -200,6 +199,9 @@ namespace Easy_Copier.ViewModels
             ApplyOsImagesFilter();
         }
 
+        /// <summary>
+        /// Applies search text query and category filtering to the games library collection.
+        /// </summary>
         private void ApplyGamesFilter()
         {
             Games.UpdateFrom(_libraryFilterService.FilterEntries(_allGames, GamesSearchText, SelectedCategory));
@@ -207,6 +209,9 @@ namespace Easy_Copier.ViewModels
             OnPropertyChanged(nameof(EmptyGamesMessage));
         }
 
+        /// <summary>
+        /// Applies search text query and category filtering to the applications library collection.
+        /// </summary>
         private void ApplyAppsFilter()
         {
             Apps.UpdateFrom(_libraryFilterService.FilterEntries(_allApps, AppsSearchText, SelectedCategory));
@@ -214,6 +219,9 @@ namespace Easy_Copier.ViewModels
             OnPropertyChanged(nameof(EmptyAppsMessage));
         }
 
+        /// <summary>
+        /// Applies search text query, category filtering, and sorting to the TV and films library collection.
+        /// </summary>
         private void ApplyTvAndFilmsFilter()
         {
             TvAndFilms.UpdateFrom(_libraryFilterService.SortTvAndFilms(
@@ -224,6 +232,9 @@ namespace Easy_Copier.ViewModels
             OnPropertyChanged(nameof(EmptyTvAndFilmsMessage));
         }
 
+        /// <summary>
+        /// Applies search text query, category filtering, and sorting to the OS images library collection.
+        /// </summary>
         private void ApplyOsImagesFilter()
         {
             OsImages.UpdateFrom(_libraryFilterService.SortOsImages(
@@ -284,6 +295,10 @@ namespace Easy_Copier.ViewModels
         /// </summary>
         public bool HasCustomDestination => !string.IsNullOrEmpty(CustomDestinationPath);
 
+        /// <summary>
+        /// Prompts the user to pick a custom destination directory path on the selected target drive.
+        /// </summary>
+        /// <returns>A task representing the asynchronous directory selection operation.</returns>
         [RelayCommand]
         private async Task SelectCustomDestinationAsync()
         {
@@ -306,6 +321,9 @@ namespace Easy_Copier.ViewModels
             }
         }
 
+        /// <summary>
+        /// Clears the custom destination directory path override, reverting to the target drive root.
+        /// </summary>
         [RelayCommand]
         private void ClearCustomDestination()
         {
