@@ -2,7 +2,6 @@ using CommunityToolkit.Mvvm.Input;
 using Easy_Copier.Models;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
 
 namespace Easy_Copier.ViewModels
 {
@@ -10,7 +9,7 @@ namespace Easy_Copier.ViewModels
     /// ViewModel for managing the OS Images library tab view.
     /// Acts as a dedicated child ViewModel that delegates to and synchronizes with <see cref="MainViewModel"/>.
     /// </summary>
-    public sealed partial class OsImagesTabViewModel : LibraryTabViewModelBase
+    public sealed partial class OsImagesTabViewModel : LibraryTabViewModelBase, ISearchableTabViewModel
     {
         /// <summary>
         /// Gets the list of filtered OS Image entries.
@@ -55,9 +54,8 @@ namespace Easy_Copier.ViewModels
         /// </summary>
         public IRelayCommand ToggleOsImageSortDirectionCommand => MainViewModel.ToggleOsImageSortDirectionCommand;
 
-
         /// <summary>
-        /// Gets or sets the search text query used to filter OS image entries.
+        /// Gets or sets the search filter text query.
         /// </summary>
         public string SearchText
         {
@@ -85,19 +83,10 @@ namespace Easy_Copier.ViewModels
                 (nameof(MainViewModel.OsImagesSearchText), nameof(SearchText)));
         }
 
-        /// <summary>
-        /// Filters OS image names to provide autocomplete suggestions matching the query text.
-        /// </summary>
-        /// <param name="query">The user input string used to filter OS image suggestions.</param>
-        /// <returns>An enumerable collection of distinct OS image name suggestions matching the search query.</returns>
+        /// <inheritdoc />
         public IEnumerable<string> GetSuggestions(string query)
         {
-            return string.IsNullOrWhiteSpace(query)
-                ? []
-                : MainViewModel.OsImages.Select(i => i.Name)
-                .Where(n => n.Contains(query, System.StringComparison.OrdinalIgnoreCase))
-                .Distinct()
-                .Take(10);
+            return GetSuggestionsFromEntries(MainViewModel.OsImages, query);
         }
     }
 }

@@ -2,7 +2,6 @@ using CommunityToolkit.Mvvm.Input;
 using Easy_Copier.Models;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
 
 namespace Easy_Copier.ViewModels
 {
@@ -10,7 +9,7 @@ namespace Easy_Copier.ViewModels
     /// ViewModel for managing the Films &amp; TV series library tab view.
     /// Acts as a dedicated child ViewModel that delegates to and synchronizes with <see cref="MainViewModel"/>.
     /// </summary>
-    public sealed partial class TvAndFilmsTabViewModel : LibraryTabViewModelBase
+    public sealed partial class TvAndFilmsTabViewModel : LibraryTabViewModelBase, ISearchableTabViewModel
     {
         /// <summary>
         /// Gets the list of filtered film and TV series entries.
@@ -55,10 +54,8 @@ namespace Easy_Copier.ViewModels
         /// </summary>
         public IRelayCommand ToggleTvAndFilmsSortDirectionCommand => MainViewModel.ToggleTvAndFilmsSortDirectionCommand;
 
-
-
         /// <summary>
-        /// Gets or sets the search text query used to filter film and TV series entries.
+        /// Gets or sets the search filter text query.
         /// </summary>
         public string SearchText
         {
@@ -86,19 +83,10 @@ namespace Easy_Copier.ViewModels
                 (nameof(MainViewModel.TvAndFilmsSearchText), nameof(SearchText)));
         }
 
-        /// <summary>
-        /// Filters film and TV series names to provide autocomplete suggestions matching the query text.
-        /// </summary>
-        /// <param name="query">The user input string used to filter film and TV series suggestions.</param>
-        /// <returns>An enumerable collection of distinct film and TV series name suggestions matching the search query.</returns>
+        /// <inheritdoc />
         public IEnumerable<string> GetSuggestions(string query)
         {
-            return string.IsNullOrWhiteSpace(query)
-                ? []
-                : MainViewModel.TvAndFilms.Select(i => i.Name)
-                .Where(n => n.Contains(query, System.StringComparison.OrdinalIgnoreCase))
-                .Distinct()
-                .Take(10);
+            return GetSuggestionsFromEntries(MainViewModel.TvAndFilms, query);
         }
     }
 }

@@ -1,6 +1,9 @@
 using CommunityToolkit.Mvvm.ComponentModel;
+using Easy_Copier.Models;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq;
 
 namespace Easy_Copier.ViewModels
 {
@@ -32,6 +35,26 @@ namespace Easy_Copier.ViewModels
         {
             MainViewModel = mainViewModel ?? throw new ArgumentNullException(nameof(mainViewModel));
             MainViewModel.PropertyChanged += OnMainViewModelPropertyChanged;
+        }
+
+        /// <summary>
+        /// Filters item entries to generate a distinct list of up to 10 autocomplete suggestions matching the query string.
+        /// </summary>
+        /// <param name="entries">The collection of library entries to filter.</param>
+        /// <param name="query">The user input search query.</param>
+        /// <returns>An enumeration of up to 10 unique matching entry names.</returns>
+        public static IEnumerable<string> GetSuggestionsFromEntries(IEnumerable<GameEntry> entries, string query)
+        {
+            if (string.IsNullOrWhiteSpace(query))
+            {
+                return [];
+            }
+
+            return entries
+                .Select(i => i.Name)
+                .Where(n => n.Contains(query, StringComparison.OrdinalIgnoreCase))
+                .Distinct()
+                .Take(10);
         }
 
         /// <summary>

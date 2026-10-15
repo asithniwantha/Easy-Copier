@@ -479,12 +479,12 @@ namespace Easy_Copier.ViewModels
         /// <param name="value">The new navigation tag string.</param>
         partial void OnSelectedNavTagChanged(string value)
         {
-            IsGeneralPanelVisible = value == "General";
-            IsGamesPanelVisible = value == "Games";
-            IsAppsPanelVisible = value == "Apps";
-            IsFilmAndTvPanelVisible = value == "FilmAndTv";
-            IsOsImagesPanelVisible = value == "OsImages";
-            IsLogsPanelVisible = value == "Logs";
+            IsGeneralPanelVisible = value is "General";
+            IsGamesPanelVisible = value is "Games";
+            IsAppsPanelVisible = value is "Apps";
+            IsFilmAndTvPanelVisible = value is "FilmAndTv";
+            IsOsImagesPanelVisible = value is "OsImages";
+            IsLogsPanelVisible = value is "Logs";
         }
 
         /// <summary>

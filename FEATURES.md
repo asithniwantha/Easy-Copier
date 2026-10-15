@@ -85,6 +85,9 @@
 - Clean view-model separation enforcing zero View-to-ViewModel UI coupling through rigorous Dependency Injection (completely removing AppServiceLocator).
 - Extracted `IRufusService` / `RufusService` into `Services/` to encapsulate Rufus executable path discovery and ISO launching, keeping `MainViewModel` lean.
 - Streamlined child tab ViewModels (`GamesTabViewModel`, `AppsTabViewModel`, `TvAndFilmsTabViewModel`, `OsImagesTabViewModel`) using `ForwardParentPropertyChanges` in `LibraryTabViewModelBase`.
+- Introduced `ISearchableTabViewModel` contract implemented across child tab ViewModels (`GamesTabViewModel`, `AppsTabViewModel`, `TvAndFilmsTabViewModel`, `OsImagesTabViewModel`) to standardize search query binding and autocomplete suggestions.
+- Centralized autocomplete suggestion query evaluation via static `GetSuggestionsFromEntries` helper in `LibraryTabViewModelBase`.
+- Extracted `AutoSuggestBoxHelper` in `Infrastructure/` to handle search box text changes, suggestion updates, query submission, and active search background brush formatting across all child library tab views.
 - Extracted `ILibraryFilterService` to handle text search query filtering, `GameCategory` matching, and OS image sorting in a dedicated service.
 - Refactored `ILibraryCacheService` to encapsulate snapshot fingerprinting and JSON cache file creation (`CreateAndSaveSnapshotAsync`).
 - Introduced `IFileSystemService` and `FileSystemService` in `Services/` to encapsulate directory listing, size calculations, and path existence checks, decoupling ViewModels from direct disk I/O.
