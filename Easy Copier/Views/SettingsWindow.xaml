@@ -184,6 +184,12 @@
                             </ListView>
                             <Button Content="Add App Folder" Command="{x:Bind ViewModel.AddNewSourceFolderCommand}" CommandParameter="App"
                                     HorizontalAlignment="Left" Margin="0,8,0,0"/>
+
+                            <TextBox Header="App File Extensions"
+                                     Text="{x:Bind ViewModel.AppFileExtensions, Mode=TwoWay}"
+                                     PlaceholderText="e.g. .exe,.msi,.rar,.zip"
+                                     Margin="0,16,0,0"
+                                     ToolTipService.ToolTip="Comma-separated extensions to identify standalone app files" />
                         </StackPanel>
                     </StackPanel>
 

@@ -90,6 +90,10 @@ namespace Easy_Copier.ViewModels
         [ObservableProperty]
         public partial string VideoFileExtensions { get; set; } = ".mp4,.mkv,.avi";
 
+        /// <summary>Gets or sets the comma-separated list of app file extension filters.</summary>
+        [ObservableProperty]
+        public partial string AppFileExtensions { get; set; } = ".exe,.msi,.rar,.zip";
+
         /// <summary>Gets or sets the active navigation tag string determining which settings sub-panel is displayed.</summary>
         [ObservableProperty]
         public partial string SelectedNavTag { get; set; } = "General";

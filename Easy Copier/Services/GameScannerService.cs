@@ -21,6 +21,7 @@ namespace Easy_Copier.Services
         /// <param name="category">The content library category being scanned.</param>
         /// <param name="progress">Optional progress reporter for status updates.</param>
         /// <param name="videoExtensions">Optional video file extension filter string (e.g., ".mp4, .mkv") for video libraries.</param>
+        /// <param name="appFileExtensions">Optional app file extension filter string (e.g., ".exe, .msi") for app libraries.</param>
         /// <param name="cancellationToken">Cancellation token to observe while scanning.</param>
         /// <returns>A task that represents the asynchronous operation. The task result contains a read-only list of discovered <see cref="GameEntry"/> objects.</returns>
         Task<IReadOnlyList<GameEntry>> ScanLibraryAsync(
@@ -28,6 +29,7 @@ namespace Easy_Copier.Services
             LibraryCategory category,
             IProgress<string>? progress = null,
             string? videoExtensions = null,
+            string? appFileExtensions = null,
             CancellationToken cancellationToken = default);
 
         /// <summary>
@@ -132,6 +134,7 @@ namespace Easy_Copier.Services
             LibraryCategory category,
             IProgress<string>? progress = null,
             string? videoExtensions = null,
+            string? appFileExtensions = null,
             CancellationToken cancellationToken = default)
         {
             ArgumentNullException.ThrowIfNull(sourceFolders);
@@ -165,13 +168,20 @@ namespace Easy_Copier.Services
                         Directory.GetDirectories(sourceFolder, "*", SearchOption.TopDirectoryOnly),
                         cancellationToken).ConfigureAwait(false);
 
-                    if ((category == LibraryCategory.TvAndFilm && !string.IsNullOrWhiteSpace(videoExtensions)) || category == LibraryCategory.OsImage)
+                    if ((category == LibraryCategory.TvAndFilm && !string.IsNullOrWhiteSpace(videoExtensions)) ||
+                        (category == LibraryCategory.App && !string.IsNullOrWhiteSpace(appFileExtensions)) ||
+                        category == LibraryCategory.OsImage)
                     {
                         List<string> extList = [];
                         if (category == LibraryCategory.TvAndFilm)
                         {
                             ArgumentNullException.ThrowIfNull(videoExtensions);
                             extList = [.. videoExtensions.Split(VideoExtensionSeparators, StringSplitOptions.RemoveEmptyEntries).Select(e => e.Trim().StartsWith('.') ? e.Trim() : "." + e.Trim())];
+                        }
+                        else if (category == LibraryCategory.App)
+                        {
+                            ArgumentNullException.ThrowIfNull(appFileExtensions);
+                            extList = [.. appFileExtensions.Split(VideoExtensionSeparators, StringSplitOptions.RemoveEmptyEntries).Select(e => e.Trim().StartsWith('.') ? e.Trim() : "." + e.Trim())];
                         }
                         else
                         {

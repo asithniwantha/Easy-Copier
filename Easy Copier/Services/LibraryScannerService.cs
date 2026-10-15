@@ -57,6 +57,7 @@ namespace Easy_Copier.Services
                     settings.AppSourceFolders,
                     LibraryCategory.App,
                     progress,
+                    appFileExtensions: settings.AppFileExtensions,
                     cancellationToken: cancellationToken);
 
                 allApps.AddRange(apps);

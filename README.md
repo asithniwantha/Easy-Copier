@@ -186,6 +186,7 @@ Distributed under the MIT License. See `LICENSE` for more information.
 * Refactored `MainViewModel` to use `IFileSystemService` for transfer queue item file and directory checks, and cached settings in memory to eliminate synchronous disk I/O during selection summary updates. ⚡
 * Extracted `ILibraryFilterService` to encapsulate search text filtering, `GameCategory` filtering, and OS image sorting options into a focused, testable service. 🔍
 * Refactored cache snapshot creation out of `MainViewModel` into `ILibraryCacheService.CreateAndSaveSnapshotAsync` to reduce ViewModel complexity and improve SOLID single responsibility. 📦
+* Apps Library File Scanner: Enhanced the Library Scanner to support searching for specific app files (`.exe`, `.msi`, `.rar`, `.zip`, etc.) in the 'Apps' tab based on configurable `AppFileExtensions` in Settings. 🔎
 * Enhanced `ILibraryTabView` contract with `IsOsImagesTab` property implemented across `GamesTabView`, `AppsTabView`, `TvAndFilmsTabView`, and `OsImagesTabView`, eliminating view-to-view tight coupling in `MainPage.xaml.cs` via dynamic Pivot tab retrieval. 🧩
 * Extracted `LibraryViewExtensions` (`GetSelectedEntries`, `ClearMultiSelection`, `ClearSingleSelection`) to eliminate duplicated selection and clearing boilerplate across all child library tab views. ⚡
 * Refactored `SettingsViewModel` navigation panel visibility toggles and source folder operations to use clean, expressive C# pattern matching. ⚙️
