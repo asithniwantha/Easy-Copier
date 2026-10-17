@@ -250,31 +250,23 @@ namespace Easy_Copier.ViewModels
 
             IEnumerable<CopyHistoryRecord> filtered = _allRecords;
 
-            // Apply Date Filter
+            // Apply Date Filter using pattern matching switch expression
             DateTime now = DateTime.Now;
-            if (SelectedDateFilterString == "Today")
+            filtered = SelectedDateFilterString switch
             {
-                filtered = filtered.Where(r => r.Timestamp.Date == now.Date);
-            }
-            else if (SelectedDateFilterString == "Last 7 Days")
-            {
-                DateTime sevenDaysAgo = now.AddDays(-7).Date;
-                filtered = filtered.Where(r => r.Timestamp.Date >= sevenDaysAgo);
-            }
-            else if (SelectedDateFilterString == "This Month")
-            {
-                filtered = filtered.Where(r => r.Timestamp.Year == now.Year && r.Timestamp.Month == now.Month);
-            }
+                "Today" => filtered.Where(r => r.Timestamp.Date == now.Date),
+                "Last 7 Days" => filtered.Where(r => r.Timestamp.Date >= now.AddDays(-7).Date),
+                "This Month" => filtered.Where(r => r.Timestamp.Year == now.Year && r.Timestamp.Month == now.Month),
+                _ => filtered
+            };
 
-            // Apply Status Filter
-            if (SelectedStatusFilterString == "Completed")
+            // Apply Status Filter using pattern matching switch expression
+            filtered = SelectedStatusFilterString switch
             {
-                filtered = filtered.Where(r => r.IsSuccess);
-            }
-            else if (SelectedStatusFilterString == "Failed")
-            {
-                filtered = filtered.Where(r => !r.IsSuccess);
-            }
+                "Completed" => filtered.Where(r => r.IsSuccess),
+                "Failed" => filtered.Where(r => !r.IsSuccess),
+                _ => filtered
+            };
 
             // Apply Search Query
             if (!string.IsNullOrWhiteSpace(SearchQuery))

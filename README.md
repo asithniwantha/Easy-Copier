@@ -209,3 +209,5 @@ Distributed under the MIT License. See `LICENSE` for more information.
 * Streamlined `LibraryTabViewModelBase.ForwardParentPropertyChanges` using C# `ReadOnlySpan` params to eliminate array heap allocations during parent ViewModel property sync. 🚀
 * Encapsulated source folder configuration checks in `MainViewModel` and `MainViewModel.Scanning.cs` using `HasAnySourceFolders` helper routines. 📁
 * Refactored `MainPage.xaml.cs` selection management to query `ILibraryTabView` direct control references in `GetTabViews`, completely removing fragile `PivotItem` collection reflection and decoupling view interactions. 🧩
+* Optimized `CopyHistoryService` queries by delegating date range filtering (`GetRecordsByWeekAsync`, `GetRecordsByMonthAsync`, and `GetStatsAsync`) directly to SQLite database queries, significantly improving performance and memory efficiency. ⚡
+* Refactored `HistoryViewModel` date and status filter evaluations using modern C# pattern matching switch expressions for cleaner readability and maintainability. 🎨

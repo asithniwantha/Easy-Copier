@@ -479,6 +479,7 @@ namespace Easy_Copier.ViewModels
 
         /// <summary>
         /// Partial notification handler invoked when <see cref="SelectedNavTag"/> changes to toggle active panel visibility.
+        /// Uses C# string pattern matching to update boolean visibility flags for settings sections.
         /// </summary>
         /// <param name="value">The new navigation tag string.</param>
         partial void OnSelectedNavTagChanged(string value)

@@ -226,20 +226,15 @@ namespace Easy_Copier.Services
         }
 
         /// <summary>
-        /// Helper method that reads all history records stored in the database.
+        /// Executes the given SQLite command and deserializes the resulting data reader into a list of <see cref="CopyHistoryRecord"/> objects.
         /// </summary>
-        /// <returns>A task that returns a list of all <see cref="CopyHistoryRecord"/> items.</returns>
-        private async Task<List<CopyHistoryRecord>> GetAllRecordsAsync()
+        /// <param name="command">The configured SQLite command to execute.</param>
+        /// <returns>A task returning a list of deserialized history records.</returns>
+        private async Task<List<CopyHistoryRecord>> ReadRecordsFromCommandAsync(SqliteCommand command)
         {
             List<CopyHistoryRecord> records = [];
             try
             {
-                using SqliteConnection connection = new(_connectionString);
-                await connection.OpenAsync();
-
-                SqliteCommand command = connection.CreateCommand();
-                command.CommandText = "SELECT Id, Timestamp, GameName, TargetDriveLetter, TargetDriveLabel, BytesTransferred, IsSuccess, Amount, SourcePath, DestinationPath, ErrorLog, SubFilesJson FROM CopyHistory";
-
                 using SqliteDataReader reader = await command.ExecuteReaderAsync();
                 while (await reader.ReadAsync())
                 {
@@ -269,9 +264,32 @@ namespace Easy_Copier.Services
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "Failed to get all copy history records");
+                _logger.LogError(ex, "Failed to read copy history records");
             }
             return records;
+        }
+
+        /// <summary>
+        /// Helper method that reads all history records stored in the database.
+        /// </summary>
+        /// <returns>A task that returns a list of all <see cref="CopyHistoryRecord"/> items.</returns>
+        private async Task<List<CopyHistoryRecord>> GetAllRecordsAsync()
+        {
+            try
+            {
+                using SqliteConnection connection = new(_connectionString);
+                await connection.OpenAsync();
+
+                SqliteCommand command = connection.CreateCommand();
+                command.CommandText = "SELECT Id, Timestamp, GameName, TargetDriveLetter, TargetDriveLabel, BytesTransferred, IsSuccess, Amount, SourcePath, DestinationPath, ErrorLog, SubFilesJson FROM CopyHistory ORDER BY Timestamp DESC";
+
+                return await ReadRecordsFromCommandAsync(command);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Failed to get all copy history records");
+                return [];
+            }
         }
 
         /// <summary>
@@ -282,18 +300,30 @@ namespace Easy_Copier.Services
         /// <returns>A task that returns a list of matching <see cref="CopyHistoryRecord"/> items.</returns>
         public async Task<List<CopyHistoryRecord>> GetRecordsByWeekAsync(DateTime startOfWeek, DateTime endOfWeek)
         {
-            List<CopyHistoryRecord> allRecords = await GetAllRecordsAsync();
-
-            // Adjust endOfWeek to be exclusive for < comparison, since endOfWeek is currently the date (e.g. 23:59:59 implied, or start of next day)
-            // But since startOfWeek and endOfWeek logic usually uses >= and <=, let's just do inclusive if it's the exact day,
-            // but normally endOfWeek is startOfWeek.AddDays(6).
             DateTime start = startOfWeek.Date;
-            DateTime end = endOfWeek.Date.AddDays(1); // Make it exclusive
+            DateTime end = endOfWeek.Date.AddDays(1); // Make end boundary exclusive
 
-            return allRecords
-                .Where(r => r.Timestamp >= start && r.Timestamp < end)
-                .OrderByDescending(r => r.Timestamp)
-                .ToList();
+            try
+            {
+                using SqliteConnection connection = new(_connectionString);
+                await connection.OpenAsync();
+
+                SqliteCommand command = connection.CreateCommand();
+                command.CommandText = @"
+                    SELECT Id, Timestamp, GameName, TargetDriveLetter, TargetDriveLabel, BytesTransferred, IsSuccess, Amount, SourcePath, DestinationPath, ErrorLog, SubFilesJson
+                    FROM CopyHistory
+                    WHERE Timestamp >= $start AND Timestamp < $end
+                    ORDER BY Timestamp DESC";
+                _ = command.Parameters.AddWithValue("$start", start.ToString("O"));
+                _ = command.Parameters.AddWithValue("$end", end.ToString("O"));
+
+                return await ReadRecordsFromCommandAsync(command);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Failed to get records by week from {Start} to {End}", start, end);
+                return [];
+            }
         }
 
         /// <summary>
@@ -326,11 +356,30 @@ namespace Easy_Copier.Services
         /// <returns>A task that returns a list of matching <see cref="CopyHistoryRecord"/> items.</returns>
         public async Task<List<CopyHistoryRecord>> GetRecordsByMonthAsync(int year, int month)
         {
-            List<CopyHistoryRecord> allRecords = await GetAllRecordsAsync();
-            return allRecords
-                .Where(r => r.Timestamp.Year == year && r.Timestamp.Month == month)
-                .OrderByDescending(r => r.Timestamp)
-                .ToList();
+            DateTime start = new(year, month, 1);
+            DateTime end = start.AddMonths(1);
+
+            try
+            {
+                using SqliteConnection connection = new(_connectionString);
+                await connection.OpenAsync();
+
+                SqliteCommand command = connection.CreateCommand();
+                command.CommandText = @"
+                    SELECT Id, Timestamp, GameName, TargetDriveLetter, TargetDriveLabel, BytesTransferred, IsSuccess, Amount, SourcePath, DestinationPath, ErrorLog, SubFilesJson
+                    FROM CopyHistory
+                    WHERE Timestamp >= $start AND Timestamp < $end
+                    ORDER BY Timestamp DESC";
+                _ = command.Parameters.AddWithValue("$start", start.ToString("O"));
+                _ = command.Parameters.AddWithValue("$end", end.ToString("O"));
+
+                return await ReadRecordsFromCommandAsync(command);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Failed to get records for {Year}/{Month}", year, month);
+                return [];
+            }
         }
 
         /// <summary>
@@ -368,18 +417,40 @@ namespace Easy_Copier.Services
         /// </returns>
         public async Task<(int TotalItems, int SuccessfulItems, long TotalBytes, int TotalAmount)> GetStatsAsync(DateTime startDate, DateTime endDate)
         {
-            List<CopyHistoryRecord> allRecords = await GetAllRecordsAsync();
+            try
+            {
+                using SqliteConnection connection = new(_connectionString);
+                await connection.OpenAsync();
 
-            List<CopyHistoryRecord> filteredRecords = allRecords
-                .Where(r => r.Timestamp >= startDate && r.Timestamp < endDate)
-                .ToList();
+                SqliteCommand command = connection.CreateCommand();
+                command.CommandText = @"
+                    SELECT
+                        COUNT(*),
+                        TOTAL(CASE WHEN IsSuccess = 1 THEN 1 ELSE 0 END),
+                        TOTAL(BytesTransferred),
+                        TOTAL(Amount)
+                    FROM CopyHistory
+                    WHERE Timestamp >= $start AND Timestamp < $end";
+                _ = command.Parameters.AddWithValue("$start", startDate.ToString("O"));
+                _ = command.Parameters.AddWithValue("$end", endDate.ToString("O"));
 
-            int totalItems = filteredRecords.Count;
-            int successfulItems = filteredRecords.Count(r => r.IsSuccess);
-            long totalBytes = filteredRecords.Sum(r => r.BytesTransferred);
-            int totalAmount = filteredRecords.Sum(r => r.Amount);
+                using SqliteDataReader reader = await command.ExecuteReaderAsync();
+                if (await reader.ReadAsync())
+                {
+                    int totalItems = reader.GetInt32(0);
+                    int successfulItems = Convert.ToInt32(reader.GetDouble(1));
+                    long totalBytes = Convert.ToInt64(reader.GetDouble(2));
+                    int totalAmount = Convert.ToInt32(reader.GetDouble(3));
 
-            return (totalItems, successfulItems, totalBytes, totalAmount);
+                    return (totalItems, successfulItems, totalBytes, totalAmount);
+                }
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Failed to calculate stats from CopyHistory DB for {Start} to {End}", startDate, endDate);
+            }
+
+            return (0, 0, 0, 0);
         }
     }
 }

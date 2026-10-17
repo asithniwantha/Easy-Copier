@@ -111,6 +111,8 @@
 - Optimized `LibraryTabViewModelBase.ForwardParentPropertyChanges` using C# `ReadOnlySpan` params to eliminate array heap allocations during parent ViewModel property change forwarding.
 - Encapsulated source folder configuration checks in `MainViewModel` and `MainViewModel.Scanning.cs` using `HasAnySourceFolders` helper routines.
 - Refactored `MainPage.xaml.cs` selection management to query `ILibraryTabView` direct control references in `GetTabViews`, completely removing fragile `PivotItem` collection reflection and decoupling view interactions.
+- Pushed date range filtering in `CopyHistoryService` (`GetRecordsByWeekAsync`, `GetRecordsByMonthAsync`, and `GetStatsAsync`) directly to SQLite database queries rather than loading all history records in C# memory.
+- Refactored `HistoryViewModel` date and status filter evaluations using modern C# relational pattern matching switch expressions.
 - Strict adherence to SOLID principles through decoupled, highly-focused service abstractions.
 - Proper Dependency Injection flow used to instantiate View Models across pages and windows, eliminating service-locator anti-patterns.
 - UI elements decoupled from Services by leveraging `IDispatcherService` and `IWindowService` interfaces.
