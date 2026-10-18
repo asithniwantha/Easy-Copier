@@ -34,7 +34,7 @@ namespace Easy_Copier.Infrastructure
         /// <param name="srcCount">The total file count in the source item.</param>
         /// <param name="destSize">The total byte size of the existing destination item.</param>
         /// <param name="destCount">The total file count in the existing destination item.</param>
-        /// <returns>A tuple containing the selected <see cref="CopyAction"/> and a boolean indicating if the action applies to all subsequent conflicts.</returns>
+        /// <returns>A task that represents the asynchronous operation. The task result contains a tuple where <c>Action</c> specifies the selected <see cref="CopyAction"/> and <c>ApplyToAll</c> indicates if the selection applies to all remaining conflicts.</returns>
         public async Task<(CopyAction Action, bool ApplyToAll)> ShowConflictDialogAsync(string itemName, long srcSize, int srcCount, long destSize, int destCount)
         {
             if (_appWindowContext.MainXamlRoot is not XamlRoot xamlRoot)
