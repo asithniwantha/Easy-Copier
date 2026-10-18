@@ -14,9 +14,24 @@ namespace Easy_Copier.Services
     /// </summary>
     public class BatchNotificationService : IBatchNotificationService
     {
+        /// <summary>
+        /// The settings service used to load application notification preferences.
+        /// </summary>
         private readonly ISettingsService _settingsService;
+
+        /// <summary>
+        /// The audio playback service used to play audio alert sound effects.
+        /// </summary>
         private readonly IAudioPlaybackService _audioPlaybackService;
+
+        /// <summary>
+        /// The process service used to inspect process privilege levels.
+        /// </summary>
         private readonly IProcessService _processService;
+
+        /// <summary>
+        /// The logger instance for diagnostic output.
+        /// </summary>
         private readonly ILogger<BatchNotificationService> _logger;
 
         /// <inheritdoc />
@@ -92,6 +107,12 @@ namespace Easy_Copier.Services
             }
         }
 
+        /// <summary>
+        /// Formats and displays a Windows desktop toast notification for a completed drive transfer batch.
+        /// </summary>
+        /// <param name="driveLetter">The drive letter identifier for the target volume.</param>
+        /// <param name="batchItems">The collection of queue items in the completed transfer batch.</param>
+        /// <param name="isSuccess"><see langword="true"/> if all items in the batch completed successfully; otherwise, <see langword="false"/>.</param>
         private void ShowDesktopNotification(string driveLetter, List<TransferQueueItem> batchItems, bool isSuccess)
         {
             try
