@@ -12,10 +12,18 @@ namespace Easy_Copier.ViewModels
     /// </summary>
     public partial class AboutViewModel : ObservableObject
     {
+        private const string GitHubRepoUrl = "https://github.com/asithniwantha/Easy-Copier";
+        private const string GitHubIssuesUrl = "https://github.com/asithniwantha/Easy-Copier/issues";
+
         /// <summary>
         /// The process service used for opening external URLs in default applications.
         /// </summary>
         private readonly IProcessService _processService;
+
+        /// <summary>
+        /// Cached application version string evaluated once from assembly attributes.
+        /// </summary>
+        private readonly string _appVersion;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="AboutViewModel"/> class.
@@ -23,7 +31,8 @@ namespace Easy_Copier.ViewModels
         /// <param name="processService">The process service for opening external URLs.</param>
         public AboutViewModel(IProcessService processService)
         {
-            _processService = processService;
+            _processService = processService ?? throw new ArgumentNullException(nameof(processService));
+            _appVersion = ResolveAppVersion();
         }
 
         /// <summary>
@@ -43,23 +52,7 @@ namespace Easy_Copier.ViewModels
         /// <summary>
         /// Gets the displayable application version string retrieved from assembly attributes.
         /// </summary>
-        [SuppressMessage("Performance", "CA1822:Mark members as static", Justification = "ViewModel properties are bound by instance references in XAML.")]
-        public string AppVersion
-        {
-            get
-            {
-                string? version = Assembly.GetExecutingAssembly().GetCustomAttribute<AssemblyInformationalVersionAttribute>()?.InformationalVersion;
-                if (!string.IsNullOrEmpty(version))
-                {
-                    // Truncate git commit hash if present (e.g. 1.0.0+hash)
-                    int plusIndex = version.IndexOf('+', StringComparison.Ordinal);
-                    return plusIndex > 0 ? version[..plusIndex] : version;
-                }
-
-                Version? fallbackVersion = Assembly.GetExecutingAssembly().GetName().Version;
-                return fallbackVersion != null ? $"{fallbackVersion.Major}.{fallbackVersion.Minor}.{fallbackVersion.Build}" : "Unknown";
-            }
-        }
+        public string AppVersion => _appVersion;
 
         /// <summary>
         /// Gets the developer/author information string.
@@ -68,12 +61,29 @@ namespace Easy_Copier.ViewModels
         public string DeveloperInfo => "Asith Niwantha";
 
         /// <summary>
+        /// Resolves the application version string from assembly metadata.
+        /// </summary>
+        private static string ResolveAppVersion()
+        {
+            string? version = Assembly.GetExecutingAssembly().GetCustomAttribute<AssemblyInformationalVersionAttribute>()?.InformationalVersion;
+            if (!string.IsNullOrEmpty(version))
+            {
+                // Truncate git commit hash if present (e.g. 1.0.0+hash)
+                int plusIndex = version.IndexOf('+', StringComparison.Ordinal);
+                return plusIndex > 0 ? version[..plusIndex] : version;
+            }
+
+            Version? fallbackVersion = Assembly.GetExecutingAssembly().GetName().Version;
+            return fallbackVersion != null ? $"{fallbackVersion.Major}.{fallbackVersion.Minor}.{fallbackVersion.Build}" : "Unknown";
+        }
+
+        /// <summary>
         /// Opens the project GitHub repository in the user's default browser.
         /// </summary>
         [RelayCommand]
         private void OpenGitHubRepo()
         {
-            _processService.OpenInExplorer("https://github.com/asithniwantha/Easy-Copier");
+            _processService.OpenInExplorer(GitHubRepoUrl);
         }
 
         /// <summary>
@@ -82,7 +92,7 @@ namespace Easy_Copier.ViewModels
         [RelayCommand]
         private void OpenGitHubIssues()
         {
-            _processService.OpenInExplorer("https://github.com/asithniwantha/Easy-Copier/issues");
+            _processService.OpenInExplorer(GitHubIssuesUrl);
         }
     }
 }

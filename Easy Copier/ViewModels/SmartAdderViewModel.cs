@@ -171,6 +171,7 @@ namespace Easy_Copier.ViewModels
                     {
                         parsedValues.Add(val);
                     }
+                    cell.PropertyChanged -= Cell_PropertyChanged;
                 }
 
                 if (parsedValues.Count > 0)
@@ -189,10 +190,6 @@ namespace Easy_Copier.ViewModels
                 _logger.LogError(ex, "Failed to log SmartAdder history before clearing.");
             }
 
-            foreach (NumberCell cell in Cells)
-            {
-                cell.PropertyChanged -= Cell_PropertyChanged;
-            }
             Cells.Clear();
             TotalSum = 0;
 

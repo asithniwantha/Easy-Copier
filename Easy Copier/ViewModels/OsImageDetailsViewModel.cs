@@ -10,6 +10,8 @@ namespace Easy_Copier.ViewModels
     /// </summary>
     public partial class OsImageDetailsViewModel : ObservableObject
     {
+        private const string DateFormat = "dd/MM/yyyy hh:mm tt";
+
         /// <summary>
         /// The file system service used for path metadata inspection.
         /// </summary>
@@ -83,18 +85,17 @@ namespace Easy_Copier.ViewModels
 
             IsStatusVisible = false;
             StatusMessage = string.Empty;
-            const string dateFormat = "dd/MM/yyyy hh:mm tt";
 
             DateCreatedFormatted = created.HasValue
-                ? created.Value.ToString(dateFormat, CultureInfo.InvariantCulture)
+                ? created.Value.ToString(DateFormat, CultureInfo.InvariantCulture)
                 : "N/A";
 
             DateModifiedFormatted = modified.HasValue
-                ? modified.Value.ToString(dateFormat, CultureInfo.InvariantCulture)
+                ? modified.Value.ToString(DateFormat, CultureInfo.InvariantCulture)
                 : "N/A";
 
             DateAccessedFormatted = accessed.HasValue
-                ? accessed.Value.ToString(dateFormat, CultureInfo.InvariantCulture)
+                ? accessed.Value.ToString(DateFormat, CultureInfo.InvariantCulture)
                 : "N/A";
         }
     }

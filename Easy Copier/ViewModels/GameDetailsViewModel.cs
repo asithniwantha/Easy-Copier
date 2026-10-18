@@ -98,8 +98,6 @@ namespace Easy_Copier.ViewModels
                 FolderStatusMessage = $"Error loading folder: {ex.Message}";
                 IsFolderStatusVisible = true;
             }
-
-            await Task.CompletedTask;
         }
 
         /// <summary>

@@ -418,12 +418,19 @@ namespace Easy_Copier.Services
         private readonly ILogger<DriveValidationService> _logger;
 
         /// <summary>
+        /// File system service used to perform directory and file existence checks.
+        /// </summary>
+        private readonly IFileSystemService _fileSystemService;
+
+        /// <summary>
         /// Initializes a new instance of the <see cref="DriveValidationService"/> class.
         /// </summary>
         /// <param name="logger">The logger instance for validation logs.</param>
-        public DriveValidationService(ILogger<DriveValidationService> logger)
+        /// <param name="fileSystemService">The file system service for directory existence checking.</param>
+        public DriveValidationService(ILogger<DriveValidationService> logger, IFileSystemService fileSystemService)
         {
-            _logger = logger;
+            _logger = logger ?? throw new ArgumentNullException(nameof(logger));
+            _fileSystemService = fileSystemService ?? throw new ArgumentNullException(nameof(fileSystemService));
         }
 
         /// <summary>
@@ -471,12 +478,12 @@ namespace Easy_Copier.Services
                     }
                 }
 
-                if (Directory.Exists(destinationBasePath))
+                if (_fileSystemService.DirectoryExists(destinationBasePath))
                 {
                     foreach (GameEntry game in gamesList)
                     {
                         string destPath = Path.Combine(destinationBasePath, game.Name);
-                        if (Directory.Exists(destPath))
+                        if (_fileSystemService.DirectoryExists(destPath))
                         {
                             results.Add(new ValidationResult(
                                 true,
@@ -488,7 +495,7 @@ namespace Easy_Copier.Services
 
                 foreach (GameEntry game in gamesList)
                 {
-                    if (!Directory.Exists(game.FolderPath))
+                    if (!_fileSystemService.DirectoryExists(game.FolderPath))
                     {
                         results.Add(new ValidationResult(
                             false,

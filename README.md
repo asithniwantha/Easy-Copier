@@ -209,3 +209,6 @@ Distributed under the MIT License. See `LICENSE` for more information.
 * Streamlined `LibraryTabViewModelBase.ForwardParentPropertyChanges` using C# `ReadOnlySpan` params to eliminate array heap allocations during parent ViewModel property sync. 🚀
 * Encapsulated source folder configuration checks in `MainViewModel` and `MainViewModel.Scanning.cs` using `HasAnySourceFolders` helper routines. 📁
 * Refactored `MainPage.xaml.cs` selection management to query `ILibraryTabView` direct control references in `GetTabViews`, completely removing fragile `PivotItem` collection reflection and decoupling view interactions. 🧩
+* Refactored `DriveValidationService` and `SettingsViewModel` to inject and consume `IFileSystemService` for directory existence checks, decoupling services from direct disk I/O calls and promoting SOLID testability. 🧪
+* Optimized `AboutViewModel` performance by caching application version string resolution and extracting GitHub repository URLs into constants. ⚡
+* Streamlined `GameDetailsViewModel`, `OsImageDetailsViewModel`, and `SmartAdderViewModel` async operations and event cleanup routines. 🧹

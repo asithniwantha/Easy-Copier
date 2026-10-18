@@ -28,6 +28,7 @@ namespace Easy_Copier.ViewModels
         private readonly IDialogService _dialogService;
         private readonly ILibraryScannerService _libraryScannerService;
         private readonly IProcessService _processService;
+        private readonly IFileSystemService _fileSystemService;
         private readonly ObservableCollection<string>[] _allFolderCollections;
 
         /// <summary>Gets or sets a value indicating whether library scanning automatically runs at application startup.</summary>
@@ -140,6 +141,7 @@ namespace Easy_Copier.ViewModels
         /// <param name="updateService">The update service for checking and downloading software updates.</param>
         /// <param name="dialogService">The dialog service for displaying modal message dialogs.</param>
         /// <param name="libraryScannerService">The library scanner service for duplicate content detection.</param>
+        /// <param name="fileSystemService">The file system service for path existence checking.</param>
         public SettingsViewModel(
             ILogger<SettingsViewModel> logger,
             ISettingsService settingsService,
@@ -152,7 +154,8 @@ namespace Easy_Copier.ViewModels
             IDispatcherService dispatcherService,
             IUpdateService updateService,
             IDialogService dialogService,
-            ILibraryScannerService libraryScannerService)
+            ILibraryScannerService libraryScannerService,
+            IFileSystemService fileSystemService)
         {
             _settingsService = settingsService;
             _folderPickerService = folderPickerService;
@@ -166,6 +169,7 @@ namespace Easy_Copier.ViewModels
             _updateService = updateService;
             _dialogService = dialogService;
             _libraryScannerService = libraryScannerService;
+            _fileSystemService = fileSystemService ?? throw new ArgumentNullException(nameof(fileSystemService));
 
             _allFolderCollections = [GameSourceFolders, AppSourceFolders, TvAndFilmSourceFolders, OsImageSourceFolders];
         }
@@ -180,7 +184,7 @@ namespace Easy_Copier.ViewModels
             {
                 string appDataFolder = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
                 string logFolder = System.IO.Path.Combine(appDataFolder, "EasyCopier", "Logs");
-                if (System.IO.Directory.Exists(logFolder))
+                if (_fileSystemService.DirectoryExists(logFolder))
                 {
                     _processService.OpenInExplorer(logFolder);
                     _logger.LogInformation("Logs folder opened successfully.");
