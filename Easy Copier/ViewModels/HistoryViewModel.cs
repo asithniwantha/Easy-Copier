@@ -99,25 +99,47 @@ namespace Easy_Copier.ViewModels
         public partial string SearchQuery { get; set; } = string.Empty;
 
         /// <summary>
-        /// Gets or sets the collection of available date filter options for UI selection.
+        /// Gets the available date filter options for UI selection.
         /// </summary>
-        [ObservableProperty]
-        public partial ObservableCollection<string> AvailableDateFilters { get; set; }
+        public IReadOnlyList<DateFilter> AvailableDateFilters { get; } = Enum.GetValues<DateFilter>();
 
         /// <summary>
-        /// Gets or sets the collection of available status filter options for UI selection.
+        /// Gets the available status filter options for UI selection.
         /// </summary>
-        [ObservableProperty]
-        public partial ObservableCollection<string> AvailableStatusFilters { get; set; }
+        public IReadOnlyList<StatusFilter> AvailableStatusFilters { get; } = Enum.GetValues<StatusFilter>();
 
         /// <summary>
-        /// Gets or sets the currently selected date filter option string.
+        /// Gets or sets the currently selected date filter option.
+        /// </summary>
+        [ObservableProperty]
+        public partial DateFilter SelectedDateFilter { get; set; } = DateFilter.Last7Days;
+
+        /// <summary>
+        /// Gets or sets the currently selected status filter option.
+        /// </summary>
+        [ObservableProperty]
+        public partial StatusFilter SelectedStatusFilter { get; set; } = StatusFilter.All;
+
+        /// <summary>
+        /// Gets or sets the collection of available date filter option strings for UI binding compatibility.
+        /// </summary>
+        [ObservableProperty]
+        public partial ObservableCollection<string> AvailableDateFilterStrings { get; set; }
+
+        /// <summary>
+        /// Gets or sets the collection of available status filter option strings for UI binding compatibility.
+        /// </summary>
+        [ObservableProperty]
+        public partial ObservableCollection<string> AvailableStatusFilterStrings { get; set; }
+
+        /// <summary>
+        /// Gets or sets the currently selected date filter option string for UI dropdown binding.
         /// </summary>
         [ObservableProperty]
         public partial string SelectedDateFilterString { get; set; }
 
         /// <summary>
-        /// Gets or sets the currently selected status filter option string.
+        /// Gets or sets the currently selected status filter option string for UI dropdown binding.
         /// </summary>
         [ObservableProperty]
         public partial string SelectedStatusFilterString { get; set; }
@@ -152,9 +174,8 @@ namespace Easy_Copier.ViewModels
             _filePickerService = filePickerService;
             _historyAnalysisService = historyAnalysisService;
 
-            // Initialize default filter options
-            AvailableDateFilters = ["Today", "Last 7 Days", "This Month", "All Time"];
-            AvailableStatusFilters = ["All", "Completed", "Failed"];
+            AvailableDateFilterStrings = ["Today", "Last 7 Days", "This Month", "All Time"];
+            AvailableStatusFilterStrings = ["All", "Completed", "Failed"];
             SelectedDateFilterString = "Last 7 Days";
             SelectedStatusFilterString = "All";
         }
@@ -186,16 +207,45 @@ namespace Easy_Copier.ViewModels
         partial void OnSearchQueryChanged(string value) => ApplyFilters();
 
         /// <summary>
+        /// Partial notification handler invoked when <see cref="SelectedDateFilter"/> changes.
+        /// </summary>
+        partial void OnSelectedDateFilterChanged(DateFilter value) => ApplyFilters();
+
+        /// <summary>
+        /// Partial notification handler invoked when <see cref="SelectedStatusFilter"/> changes.
+        /// </summary>
+        partial void OnSelectedStatusFilterChanged(StatusFilter value) => ApplyFilters();
+
+        /// <summary>
         /// Partial notification handler invoked when <see cref="SelectedDateFilterString"/> changes.
         /// </summary>
         /// <param name="value">The new date filter string value.</param>
-        partial void OnSelectedDateFilterStringChanged(string value) => ApplyFilters();
+        partial void OnSelectedDateFilterStringChanged(string value)
+        {
+            SelectedDateFilter = value switch
+            {
+                "Today" => DateFilter.Today,
+                "Last 7 Days" => DateFilter.Last7Days,
+                "This Month" => DateFilter.ThisMonth,
+                _ => DateFilter.Custom
+            };
+            ApplyFilters();
+        }
 
         /// <summary>
         /// Partial notification handler invoked when <see cref="SelectedStatusFilterString"/> changes.
         /// </summary>
         /// <param name="value">The new status filter string value.</param>
-        partial void OnSelectedStatusFilterStringChanged(string value) => ApplyFilters();
+        partial void OnSelectedStatusFilterStringChanged(string value)
+        {
+            SelectedStatusFilter = value switch
+            {
+                "Completed" => StatusFilter.Completed,
+                "Failed" => StatusFilter.Failed,
+                _ => StatusFilter.All
+            };
+            ApplyFilters();
+        }
 
         /// <summary>
         /// Partial notification handler invoked when <see cref="SelectedRecord"/> changes to toggle drawer visibility and populate sub-files.
@@ -252,29 +302,21 @@ namespace Easy_Copier.ViewModels
 
             // Apply Date Filter
             DateTime now = DateTime.Now;
-            if (SelectedDateFilterString == "Today")
+            filtered = SelectedDateFilter switch
             {
-                filtered = filtered.Where(r => r.Timestamp.Date == now.Date);
-            }
-            else if (SelectedDateFilterString == "Last 7 Days")
-            {
-                DateTime sevenDaysAgo = now.AddDays(-7).Date;
-                filtered = filtered.Where(r => r.Timestamp.Date >= sevenDaysAgo);
-            }
-            else if (SelectedDateFilterString == "This Month")
-            {
-                filtered = filtered.Where(r => r.Timestamp.Year == now.Year && r.Timestamp.Month == now.Month);
-            }
+                DateFilter.Today => filtered.Where(r => r.Timestamp.Date == now.Date),
+                DateFilter.Last7Days => filtered.Where(r => r.Timestamp.Date >= now.AddDays(-7).Date),
+                DateFilter.ThisMonth => filtered.Where(r => r.Timestamp.Year == now.Year && r.Timestamp.Month == now.Month),
+                _ => filtered
+            };
 
             // Apply Status Filter
-            if (SelectedStatusFilterString == "Completed")
+            filtered = SelectedStatusFilter switch
             {
-                filtered = filtered.Where(r => r.IsSuccess);
-            }
-            else if (SelectedStatusFilterString == "Failed")
-            {
-                filtered = filtered.Where(r => !r.IsSuccess);
-            }
+                StatusFilter.Completed => filtered.Where(r => r.IsSuccess),
+                StatusFilter.Failed => filtered.Where(r => !r.IsSuccess),
+                _ => filtered
+            };
 
             // Apply Search Query
             if (!string.IsNullOrWhiteSpace(SearchQuery))

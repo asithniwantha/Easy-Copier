@@ -140,7 +140,7 @@ namespace Easy_Copier.Services
             ArgumentNullException.ThrowIfNull(sourceFolders);
 
             List<GameEntry> games = [];
-            HashSet<string> processedPaths = [with(StringComparer.OrdinalIgnoreCase)];
+            HashSet<string> processedPaths = new(StringComparer.OrdinalIgnoreCase);
 
             string categoryLabel = category == LibraryCategory.App ? "app" :
                                    (category == LibraryCategory.TvAndFilm ? "film/tv" :
@@ -172,21 +172,12 @@ namespace Easy_Copier.Services
                         (category == LibraryCategory.App && !string.IsNullOrWhiteSpace(appFileExtensions)) ||
                         category == LibraryCategory.OsImage)
                     {
-                        List<string> extList = [];
-                        if (category == LibraryCategory.TvAndFilm)
+                        List<string> extList = category switch
                         {
-                            ArgumentNullException.ThrowIfNull(videoExtensions);
-                            extList = [.. videoExtensions.Split(VideoExtensionSeparators, StringSplitOptions.RemoveEmptyEntries).Select(e => e.Trim().StartsWith('.') ? e.Trim() : "." + e.Trim())];
-                        }
-                        else if (category == LibraryCategory.App)
-                        {
-                            ArgumentNullException.ThrowIfNull(appFileExtensions);
-                            extList = [.. appFileExtensions.Split(VideoExtensionSeparators, StringSplitOptions.RemoveEmptyEntries).Select(e => e.Trim().StartsWith('.') ? e.Trim() : "." + e.Trim())];
-                        }
-                        else
-                        {
-                            extList.Add(".iso");
-                        }
+                            LibraryCategory.TvAndFilm => ParseExtensionList(videoExtensions),
+                            LibraryCategory.App => ParseExtensionList(appFileExtensions),
+                            _ => [".iso"]
+                        };
 
                         try
                         {
@@ -300,7 +291,7 @@ namespace Easy_Copier.Services
                                 {
                                     try
                                     {
-                                        List<string> extList = videoExtensions.Split(VideoExtensionSeparators, StringSplitOptions.RemoveEmptyEntries).Select(e => e.Trim().StartsWith('.') ? e.Trim() : "." + e.Trim()).ToList();
+                                        List<string> extList = ParseExtensionList(videoExtensions);
                                         string[] allFiles = Directory.GetFiles(gameFolder, "*.*", SearchOption.TopDirectoryOnly);
                                         string? videoFile = allFiles.FirstOrDefault(f => extList.Contains(Path.GetExtension(f), StringComparer.OrdinalIgnoreCase));
                                         if (videoFile != null)
@@ -432,6 +423,25 @@ namespace Easy_Copier.Services
                 _logger.LogWarning(ex, "Error reading categories for: {Path}", gameFolderPath);
             }
             return [GameCategory.Uncategorized];
+        }
+
+        /// <summary>
+        /// Parses a delimited string of file extensions into a normalized list of lowercase extension strings with leading dots.
+        /// </summary>
+        /// <param name="extensions">The raw extension string (e.g. ".mp4, .mkv").</param>
+        /// <returns>A list of normalized file extension strings.</returns>
+        private static List<string> ParseExtensionList(string? extensions)
+        {
+            if (string.IsNullOrWhiteSpace(extensions))
+            {
+                return [];
+            }
+
+            return extensions
+                .Split(VideoExtensionSeparators, StringSplitOptions.RemoveEmptyEntries)
+                .Select(e => e.Trim())
+                .Select(e => e.StartsWith('.') ? e : "." + e)
+                .ToList();
         }
 
         /// <inheritdoc />

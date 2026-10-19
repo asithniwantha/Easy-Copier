@@ -111,6 +111,10 @@
 - Optimized `LibraryTabViewModelBase.ForwardParentPropertyChanges` using C# `ReadOnlySpan` params to eliminate array heap allocations during parent ViewModel property change forwarding.
 - Encapsulated source folder configuration checks in `MainViewModel` and `MainViewModel.Scanning.cs` using `HasAnySourceFolders` helper routines.
 - Refactored `MainPage.xaml.cs` selection management to query `ILibraryTabView` direct control references in `GetTabViews`, completely removing fragile `PivotItem` collection reflection and decoupling view interactions.
+- Extracted `IFolderPickerService` into a standalone file (`Services/IFolderPickerService.cs`) for clean single responsibility.
+- Enhanced `MainViewModel.Dispose` lifecycle teardown to explicitly dispose child tab ViewModels (`GamesTabViewModel`, `AppsTabViewModel`, `TvAndFilmsTabViewModel`, `OsImagesTabViewModel`) and eliminate event listener memory leaks.
+- Streamlined `GameScannerService` extension string parsing into a clean static `ParseExtensionList` helper routine.
+- Refactored `HistoryViewModel` filtering using strongly-typed `DateFilter` and `StatusFilter` enums with C# switch expressions.
 - Strict adherence to SOLID principles through decoupled, highly-focused service abstractions.
 - Proper Dependency Injection flow used to instantiate View Models across pages and windows, eliminating service-locator anti-patterns.
 - UI elements decoupled from Services by leveraging `IDispatcherService` and `IWindowService` interfaces.

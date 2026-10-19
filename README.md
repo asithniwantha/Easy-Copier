@@ -116,7 +116,7 @@ The selected-drive panel also shows a usage bar, free space, total capacity, and
 | **Framework** | WinUI 3 / Windows App SDK |
 | **Language** | C# 14 with .NET 10 |
 | **Pattern** | MVVM with CommunityToolkit.Mvvm (Strict adherence to SOLID principles, dependency injection, and clean view-model separation). Optimized clean code removing inefficient operations. Asynchronous database reads with `IsDBNullAsync`. MVVMTK0045 naturally resolved using preview `partial` properties. |
-| **Architecture** | High UI decoupling using `ILibraryTabView` contracts (with `IsOsImagesTab` property eliminating view-to-view coupling), `ISearchableTabViewModel` contract for tab search query and suggestion support, `AutoSuggestBoxHelper` for search control handling, `ILibraryFilterService` for clean query filtering and sorting, `IFileSystemService` for file system metadata and directory inspection, `IFlyoutService` in `Infrastructure` for UI flyout presentation, and `ConflictDialogContent` views, safely bridging UI-specific operations via abstractions like `IWindowService`. |
+| **Architecture** | High UI decoupling using `ILibraryTabView` contracts (with `IsOsImagesTab` property eliminating view-to-view coupling), `ISearchableTabViewModel` contract for tab search query and suggestion support, `AutoSuggestBoxHelper` for search control handling, `ILibraryFilterService` for clean query filtering and sorting, `IFileSystemService` for file system metadata and directory inspection, `IFolderPickerService` extracted into dedicated service contract, `IFlyoutService` in `Infrastructure` for UI flyout presentation, and `ConflictDialogContent` views, safely bridging UI-specific operations via abstractions like `IWindowService`. |
 | **Storage Discovery** | `DriveInfo` and Windows Management Instrumentation (WMI) |
 | **CI/CD** | GitHub Actions |
 | **Target Platform** | x64 |
@@ -209,3 +209,7 @@ Distributed under the MIT License. See `LICENSE` for more information.
 * Streamlined `LibraryTabViewModelBase.ForwardParentPropertyChanges` using C# `ReadOnlySpan` params to eliminate array heap allocations during parent ViewModel property sync. 🚀
 * Encapsulated source folder configuration checks in `MainViewModel` and `MainViewModel.Scanning.cs` using `HasAnySourceFolders` helper routines. 📁
 * Refactored `MainPage.xaml.cs` selection management to query `ILibraryTabView` direct control references in `GetTabViews`, completely removing fragile `PivotItem` collection reflection and decoupling view interactions. 🧩
+* Extracted `IFolderPickerService` into a dedicated standalone file (`Services/IFolderPickerService.cs`) to strictly adhere to single responsibility per file. 📁
+* Enhanced `MainViewModel.Dispose` lifecycle teardown to explicitly dispose child tab ViewModels (`GamesTabViewModel`, `AppsTabViewModel`, `TvAndFilmsTabViewModel`, `OsImagesTabViewModel`) and eliminate event handler memory leaks. 🧹
+* Streamlined `GameScannerService` file extension parsing into a clean, reusable static `ParseExtensionList` helper routine. ⚡
+* Refactored `HistoryViewModel` date and status record filtering to use strongly-typed `DateFilter` and `StatusFilter` enums with C# switch expressions. 📈
