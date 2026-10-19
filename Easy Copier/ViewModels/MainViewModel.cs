@@ -168,10 +168,22 @@ namespace Easy_Copier.ViewModels
         [NotifyPropertyChangedFor(nameof(EmptyTvAndFilmsMessage))]
         [NotifyPropertyChangedFor(nameof(EmptyOsImagesMessage))]
         public partial string GamesSearchText { get; set; } = string.Empty;
+
+        /// <summary>
+        /// Gets or sets the application search filter text query.
+        /// </summary>
         [ObservableProperty]
         public partial string AppsSearchText { get; set; } = string.Empty;
+
+        /// <summary>
+        /// Gets or sets the TV and film search filter text query.
+        /// </summary>
         [ObservableProperty]
         public partial string TvAndFilmsSearchText { get; set; } = string.Empty;
+
+        /// <summary>
+        /// Gets or sets the OS image search filter text query.
+        /// </summary>
         [ObservableProperty]
         public partial string OsImagesSearchText { get; set; } = string.Empty;
 
