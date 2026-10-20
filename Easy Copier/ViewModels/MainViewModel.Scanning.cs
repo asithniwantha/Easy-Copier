@@ -725,6 +725,11 @@ namespace Easy_Copier.ViewModels
                 _notificationCancellationTokenSource = null;
             }
 
+            GamesTabViewModel.Dispose();
+            AppsTabViewModel.Dispose();
+            TvAndFilmsTabViewModel.Dispose();
+            OsImagesTabViewModel.Dispose();
+
             GC.SuppressFinalize(this);
         }
 
