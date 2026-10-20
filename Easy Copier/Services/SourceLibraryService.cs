@@ -8,7 +8,6 @@ using System.Threading.Tasks;
 
 namespace Easy_Copier.Services
 {
-    /// <summary>
     /// Defines operations for validating source folder paths and reading game system requirements documents.
     /// </summary>
     public interface ISourceLibraryService
