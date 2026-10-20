@@ -107,13 +107,13 @@
 
             <ComboBox Grid.Column="1"
                       Header="Date:"
-                      ItemsSource="{x:Bind ViewModel.AvailableDateFilters, Mode=OneWay}"
+                      ItemsSource="{x:Bind ViewModel.AvailableDateFilterStrings, Mode=OneWay}"
                       SelectedItem="{x:Bind ViewModel.SelectedDateFilterString, Mode=TwoWay}"
                       Width="150" Margin="0,0,12,0" VerticalAlignment="Bottom"/>
 
             <ComboBox Grid.Column="2"
                       Header="Status:"
-                      ItemsSource="{x:Bind ViewModel.AvailableStatusFilters, Mode=OneWay}"
+                      ItemsSource="{x:Bind ViewModel.AvailableStatusFilterStrings, Mode=OneWay}"
                       SelectedItem="{x:Bind ViewModel.SelectedStatusFilterString, Mode=TwoWay}"
                       Width="120" Margin="0,0,12,0" VerticalAlignment="Bottom"/>
 

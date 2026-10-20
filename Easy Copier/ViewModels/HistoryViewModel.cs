@@ -112,7 +112,7 @@ namespace Easy_Copier.ViewModels
         /// Gets or sets the currently selected date filter option.
         /// </summary>
         [ObservableProperty]
-        public partial DateFilter SelectedDateFilter { get; set; } = DateFilter.Last7Days;
+        public partial DateFilter SelectedDateFilter { get; set; } = DateFilter.Today;
 
         /// <summary>
         /// Gets or sets the currently selected status filter option.
@@ -176,7 +176,7 @@ namespace Easy_Copier.ViewModels
 
             AvailableDateFilterStrings = ["Today", "Last 7 Days", "This Month", "All Time"];
             AvailableStatusFilterStrings = ["All", "Completed", "Failed"];
-            SelectedDateFilterString = "Last 7 Days";
+            SelectedDateFilterString = "Today";
             SelectedStatusFilterString = "All";
         }
 

@@ -212,4 +212,4 @@ Distributed under the MIT License. See `LICENSE` for more information.
 * Extracted `IFolderPickerService` into a dedicated standalone file (`Services/IFolderPickerService.cs`) to strictly adhere to single responsibility per file. 📁
 * Enhanced `MainViewModel.Dispose` lifecycle teardown to explicitly dispose child tab ViewModels (`GamesTabViewModel`, `AppsTabViewModel`, `TvAndFilmsTabViewModel`, `OsImagesTabViewModel`) and eliminate event handler memory leaks. 🧹
 * Streamlined `GameScannerService` file extension parsing into a clean, reusable static `ParseExtensionList` helper routine. ⚡
-* Refactored `HistoryViewModel` date and status record filtering to use strongly-typed `DateFilter` and `StatusFilter` enums with C# switch expressions. 📈
+* Refactored `HistoryViewModel` date and status record filtering to use strongly-typed `DateFilter` and `StatusFilter` enums with C# switch expressions, defaulting history view filter selection to "Today" and status filter to "All". 📈
