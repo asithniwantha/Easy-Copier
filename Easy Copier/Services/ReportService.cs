@@ -18,7 +18,7 @@ namespace Easy_Copier.Services
         /// </summary>
         /// <param name="filePath">The target file path where CSV data will be saved.</param>
         /// <param name="records">The collection of <see cref="CopyHistoryRecord"/> items to export.</param>
-        /// <returns>A task returning <c>true</c> if export succeeded; otherwise, <c>false</c>.</returns>
+        /// <returns>A task that represents the asynchronous operation. The task result contains <c>true</c> if export succeeded; otherwise, <c>false</c>.</returns>
         Task<bool> ExportHistoryToCsvAsync(string filePath, IEnumerable<CopyHistoryRecord> records);
     }
 
@@ -38,7 +38,7 @@ namespace Easy_Copier.Services
         /// </summary>
         /// <param name="filePath">Destination file path.</param>
         /// <param name="records">Collection of history records to write.</param>
-        /// <returns>A task returning <c>true</c> if successful; otherwise, <c>false</c>.</returns>
+        /// <returns>A task that represents the asynchronous operation. The task result contains <c>true</c> if export succeeded; otherwise, <c>false</c>.</returns>
         public async Task<bool> ExportHistoryToCsvAsync(string filePath, IEnumerable<CopyHistoryRecord> records)
         {
             ArgumentNullException.ThrowIfNull(records);
