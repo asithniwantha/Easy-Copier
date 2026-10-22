@@ -35,12 +35,18 @@ namespace Easy_Copier.Interop
         }
 
         /// <summary>Determines whether two specified instances of <see cref="SIZE"/> are equal.</summary>
+        /// <param name="left">The first <see cref="SIZE"/> structure to compare.</param>
+        /// <param name="right">The second <see cref="SIZE"/> structure to compare.</param>
+        /// <returns><c>true</c> if the two structures are equal; otherwise, <c>false</c>.</returns>
         public static bool operator ==(SIZE left, SIZE right)
         {
             return left.Equals(right);
         }
 
         /// <summary>Determines whether two specified instances of <see cref="SIZE"/> are not equal.</summary>
+        /// <param name="left">The first <see cref="SIZE"/> structure to compare.</param>
+        /// <param name="right">The second <see cref="SIZE"/> structure to compare.</param>
+        /// <returns><c>true</c> if the two structures are not equal; otherwise, <c>false</c>.</returns>
         public static bool operator !=(SIZE left, SIZE right)
         {
             return !left.Equals(right);
