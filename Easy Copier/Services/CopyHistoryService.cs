@@ -32,13 +32,13 @@ namespace Easy_Copier.Services
         /// </summary>
         /// <param name="startOfWeek">The start boundary of the week (inclusive).</param>
         /// <param name="endOfWeek">The end boundary of the week.</param>
-        /// <returns>A task that returns a list of matching <see cref="CopyHistoryRecord"/> instances ordered descending by timestamp.</returns>
+        /// <returns>A task that represents the asynchronous operation. The task result contains a list of matching <see cref="CopyHistoryRecord"/> instances ordered descending by timestamp.</returns>
         Task<List<CopyHistoryRecord>> GetRecordsByWeekAsync(DateTime startOfWeek, DateTime endOfWeek);
 
         /// <summary>
         /// Retrieves distinct start dates of weeks for which history records exist.
         /// </summary>
-        /// <returns>A task that returns a list of Sunday start dates ordered descending.</returns>
+        /// <returns>A task that represents the asynchronous operation. The task result contains a list of Sunday start dates ordered descending.</returns>
         Task<List<DateTime>> GetAvailableWeeksAsync();
 
         /// <summary>
@@ -46,13 +46,13 @@ namespace Easy_Copier.Services
         /// </summary>
         /// <param name="year">The 4-digit year to filter by.</param>
         /// <param name="month">The month (1–12) to filter by.</param>
-        /// <returns>A task that returns a list of matching <see cref="CopyHistoryRecord"/> instances ordered descending by timestamp.</returns>
+        /// <returns>A task that represents the asynchronous operation. The task result contains a list of matching <see cref="CopyHistoryRecord"/> instances ordered descending by timestamp.</returns>
         Task<List<CopyHistoryRecord>> GetRecordsByMonthAsync(int year, int month);
 
         /// <summary>
         /// Asynchronously retrieves distinct year and month pairs for which history records exist.
         /// </summary>
-        /// <returns>A task that represents the asynchronous operation. The task result contains a list of tuples with Year and Month ordered descending.</returns>
+        /// <returns>A task that represents the asynchronous operation. The task result contains a list of tuples containing (Year, Month) ordered descending.</returns>
         Task<List<(int Year, int Month)>> GetAvailableMonthsAsync();
 
         /// <summary>
@@ -60,7 +60,7 @@ namespace Easy_Copier.Services
         /// </summary>
         /// <param name="startDate">The start boundary of the date range (inclusive).</param>
         /// <param name="endDate">The end boundary of the date range (exclusive).</param>
-        /// <returns>A task that represents the asynchronous operation. The task result contains a tuple containing TotalItems, SuccessfulItems, TotalBytes, and TotalAmount.</returns>
+        /// <returns>A task that represents the asynchronous operation. The task result contains a tuple containing total items, successful items, total bytes, and total monetary amount.</returns>
         Task<(int TotalItems, int SuccessfulItems, long TotalBytes, int TotalAmount)> GetStatsAsync(DateTime startDate, DateTime endDate);
     }
 
@@ -228,7 +228,7 @@ namespace Easy_Copier.Services
         /// <summary>
         /// Helper method that reads all history records stored in the database.
         /// </summary>
-        /// <returns>A task that returns a list of all <see cref="CopyHistoryRecord"/> items.</returns>
+        /// <returns>A task that represents the asynchronous operation. The task result contains a list of all <see cref="CopyHistoryRecord"/> items.</returns>
         private async Task<List<CopyHistoryRecord>> GetAllRecordsAsync()
         {
             List<CopyHistoryRecord> records = [];
@@ -279,7 +279,7 @@ namespace Easy_Copier.Services
         /// </summary>
         /// <param name="startOfWeek">The start date of the week.</param>
         /// <param name="endOfWeek">The end date of the week.</param>
-        /// <returns>A task that returns a list of matching <see cref="CopyHistoryRecord"/> items.</returns>
+        /// <returns>A task that represents the asynchronous operation. The task result contains a list of matching <see cref="CopyHistoryRecord"/> items.</returns>
         public async Task<List<CopyHistoryRecord>> GetRecordsByWeekAsync(DateTime startOfWeek, DateTime endOfWeek)
         {
             List<CopyHistoryRecord> allRecords = await GetAllRecordsAsync();
@@ -299,7 +299,7 @@ namespace Easy_Copier.Services
         /// <summary>
         /// Asynchronously determines all distinct week start dates present in the history database.
         /// </summary>
-        /// <returns>A task that returns a list of week start dates ordered descending.</returns>
+        /// <returns>A task that represents the asynchronous operation. The task result contains a list of week start dates ordered descending.</returns>
         public async Task<List<DateTime>> GetAvailableWeeksAsync()
         {
             List<CopyHistoryRecord> allRecords = await GetAllRecordsAsync();
@@ -323,7 +323,7 @@ namespace Easy_Copier.Services
         /// </summary>
         /// <param name="year">The target year.</param>
         /// <param name="month">The target month (1–12).</param>
-        /// <returns>A task that returns a list of matching <see cref="CopyHistoryRecord"/> items.</returns>
+        /// <returns>A task that represents the asynchronous operation. The task result contains a list of matching <see cref="CopyHistoryRecord"/> items.</returns>
         public async Task<List<CopyHistoryRecord>> GetRecordsByMonthAsync(int year, int month)
         {
             List<CopyHistoryRecord> allRecords = await GetAllRecordsAsync();
@@ -336,7 +336,7 @@ namespace Easy_Copier.Services
         /// <summary>
         /// Asynchronously determines all distinct year/month combinations present in the history database.
         /// </summary>
-        /// <returns>A task that represents the asynchronous operation. The task result contains a list of tuples with Year and Month ordered descending.</returns>
+        /// <returns>A task that represents the asynchronous operation. The task result contains a list of (Year, Month) tuples ordered descending.</returns>
         public async Task<List<(int Year, int Month)>> GetAvailableMonthsAsync()
         {
             List<CopyHistoryRecord> allRecords = await GetAllRecordsAsync();
@@ -358,7 +358,7 @@ namespace Easy_Copier.Services
         /// <param name="startDate">Start boundary date (inclusive).</param>
         /// <param name="endDate">End boundary date (exclusive).</param>
         /// <returns>
-        /// A task that represents the asynchronous operation. The task result contains a tuple of:
+        /// A task that represents the asynchronous operation. The task result contains a tuple containing:
         /// <list type="bullet">
         ///   <item><description><c>TotalItems</c>: Total number of recorded copy operations.</description></item>
         ///   <item><description><c>SuccessfulItems</c>: Count of operations that completed successfully.</description></item>

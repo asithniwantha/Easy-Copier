@@ -31,7 +31,7 @@ namespace Easy_Copier.Services
         /// Asynchronously retrieves the most recent Smart Adder calculation history records.
         /// </summary>
         /// <param name="count">The maximum number of recent records to retrieve.</param>
-        /// <returns>A task returning a list of recent <see cref="SmartAdderHistoryRecord"/> items.</returns>
+        /// <returns>A task that represents the asynchronous operation. The task result contains a list of recent <see cref="SmartAdderHistoryRecord"/> items.</returns>
         Task<List<SmartAdderHistoryRecord>> GetRecentRecordsAsync(int count);
     }
 
