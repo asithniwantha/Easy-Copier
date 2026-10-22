@@ -10,6 +10,9 @@ namespace Easy_Copier.Infrastructure
     /// </summary>
     public static class AutoSuggestBoxHelper
     {
+        /// <summary>
+        /// The semi-transparent highlight brush applied as background for active search boxes.
+        /// </summary>
         private static readonly SolidColorBrush SearchHighlightBrush =
             new(ColorHelper.FromArgb(0x3C, 0xFF, 0xC1, 0x07));
 

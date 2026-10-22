@@ -12,7 +12,14 @@ namespace Easy_Copier.Infrastructure
     /// </summary>
     public class DialogService : IDialogService
     {
+        /// <summary>
+        /// The window service used for modal window interactions.
+        /// </summary>
         private readonly IWindowService _windowService;
+
+        /// <summary>
+        /// The application window context provider used for retrieving XAML roots.
+        /// </summary>
         private readonly IAppWindowContext _appWindowContext;
 
         /// <summary>
