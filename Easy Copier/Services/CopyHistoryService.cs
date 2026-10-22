@@ -50,7 +50,7 @@ namespace Easy_Copier.Services
         Task<List<CopyHistoryRecord>> GetRecordsByMonthAsync(int year, int month);
 
         /// <summary>
-        /// Retrieves distinct year and month pairs for which history records exist.
+        /// Asynchronously retrieves distinct year and month pairs for which history records exist.
         /// </summary>
         /// <returns>A task that represents the asynchronous operation. The task result contains a list of tuples containing (Year, Month) ordered descending.</returns>
         Task<List<(int Year, int Month)>> GetAvailableMonthsAsync();
