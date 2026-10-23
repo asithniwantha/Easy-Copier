@@ -14,8 +14,19 @@ namespace Easy_Copier
     /// </summary>
     public partial class App : Application
     {
+        /// <summary>
+        /// The main window instance created upon application launch.
+        /// </summary>
         private Window? _window;
+
+        /// <summary>
+        /// The dependency injection service provider container for resolving application services and view models.
+        /// </summary>
         private IServiceProvider? _serviceProvider;
+
+        /// <summary>
+        /// Indicates whether application services have already been disposed.
+        /// </summary>
         private bool _servicesDisposed;
 
         /// <summary>

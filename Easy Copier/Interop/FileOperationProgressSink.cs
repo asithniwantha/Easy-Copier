@@ -10,9 +10,24 @@ namespace Easy_Copier.Interop
     /// </summary>
     public class FileOperationProgressSink : IFileOperationProgressSink
     {
+        /// <summary>
+        /// The progress callback delegate for reporting transfer updates.
+        /// </summary>
         private readonly IProgress<TransferProgress>? _progress;
+
+        /// <summary>
+        /// The total expected size in bytes of all items in the operation.
+        /// </summary>
         private readonly long _totalBytes;
+
+        /// <summary>
+        /// The stopwatch for tracking transfer elapsed duration.
+        /// </summary>
         private readonly Stopwatch _stopwatch;
+
+        /// <summary>
+        /// The cumulative count of bytes transferred so far.
+        /// </summary>
         private long _bytesTransferred;
 
         /// <summary>

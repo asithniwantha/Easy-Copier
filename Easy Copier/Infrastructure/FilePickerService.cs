@@ -34,8 +34,19 @@ namespace Easy_Copier.Infrastructure
     /// </summary>
     public class FilePickerService : IFilePickerService
     {
+        /// <summary>
+        /// The dispatcher service for marshaling operations to the UI thread.
+        /// </summary>
         private readonly IDispatcherService _dispatcherService;
+
+        /// <summary>
+        /// The application window context provider used for retrieving active window handles.
+        /// </summary>
         private readonly IAppWindowContext _appWindowContext;
+
+        /// <summary>
+        /// The logger instance for recording file picker operations and diagnostics.
+        /// </summary>
         private readonly ILogger<FilePickerService> _logger;
 
         /// <summary>

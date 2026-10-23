@@ -92,7 +92,14 @@ namespace Easy_Copier.Infrastructure
     /// </summary>
     public class WindowService : IWindowService
     {
+        /// <summary>
+        /// The service provider instance for resolving ViewModels and dependencies.
+        /// </summary>
         private readonly IServiceProvider _serviceProvider;
+
+        /// <summary>
+        /// The application window context provider used for retrieving the main window.
+        /// </summary>
         private readonly IAppWindowContext _appWindowContext;
 
         /// <summary>
@@ -106,6 +113,9 @@ namespace Easy_Copier.Infrastructure
             _appWindowContext = appWindowContext;
         }
 
+        /// <summary>
+        /// Gets the primary application window reference cast as a <see cref="Microsoft.UI.Xaml.Window"/>.
+        /// </summary>
         private Microsoft.UI.Xaml.Window? MainWindow => _appWindowContext.MainWindow as Microsoft.UI.Xaml.Window;
 
         /// <summary>
