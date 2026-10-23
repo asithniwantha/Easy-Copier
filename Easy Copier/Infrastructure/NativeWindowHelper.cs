@@ -12,10 +12,24 @@ namespace Easy_Copier.Infrastructure
     /// </summary>
     public static partial class NativeWindowHelper
     {
+        /// <summary>
+        /// Win32 index constant for setting the parent window handle via <c>SetWindowLongPtr</c>.
+        /// </summary>
         private const int GWLP_HWNDPARENT = -8;
+
+        /// <summary>
+        /// Win32 flag for <c>SetWindowPos</c> retaining current window size.
+        /// </summary>
         private const uint SWP_NOSIZE = 0x0001;
+
+        /// <summary>
+        /// Win32 flag for <c>SetWindowPos</c> retaining current Z-order position.
+        /// </summary>
         private const uint SWP_NOZORDER = 0x0004;
 
+        /// <summary>
+        /// Defines the coordinates of the upper-left and lower-right corners of a rectangle.
+        /// </summary>
         [StructLayout(LayoutKind.Sequential)]
         private struct RECT
         {
@@ -32,42 +46,98 @@ namespace Easy_Copier.Infrastructure
             public int Bottom;
         }
 
+        /// <summary>
+        /// Changes an attribute of the specified 64-bit window.
+        /// </summary>
+        /// <param name="hWnd">A handle to the window.</param>
+        /// <param name="nIndex">The zero-based offset to the value to be set.</param>
+        /// <param name="dwNewLong">The replacement value.</param>
+        /// <returns>The previous value of the specified offset.</returns>
         [LibraryImport("user32.dll", EntryPoint = "SetWindowLongPtrW", SetLastError = true)]
         [DefaultDllImportSearchPaths(DllImportSearchPath.System32)]
         private static partial IntPtr SetWindowLongPtr64(IntPtr hWnd, int nIndex, IntPtr dwNewLong);
 
+        /// <summary>
+        /// Changes an attribute of the specified 32-bit window.
+        /// </summary>
+        /// <param name="hWnd">A handle to the window.</param>
+        /// <param name="nIndex">The zero-based offset to the value to be set.</param>
+        /// <param name="dwNewLong">The replacement value.</param>
+        /// <returns>The previous value of the specified offset.</returns>
         [LibraryImport("user32.dll", EntryPoint = "SetWindowLongW", SetLastError = true)]
         [DefaultDllImportSearchPaths(DllImportSearchPath.System32)]
         private static partial int SetWindowLong32(IntPtr hWnd, int nIndex, int dwNewLong);
 
+        /// <summary>
+        /// Enables or disables mouse and keyboard input to the specified window or control.
+        /// </summary>
+        /// <param name="hWnd">A handle to the window to be enabled or disabled.</param>
+        /// <param name="bEnable">Indicates whether to enable or disable the window.</param>
+        /// <returns><see langword="true"/> if the window was previously disabled; otherwise, <see langword="false"/>.</returns>
         [LibraryImport("user32.dll", SetLastError = true)]
         [DefaultDllImportSearchPaths(DllImportSearchPath.System32)]
         [return: MarshalAs(UnmanagedType.Bool)]
         private static partial bool EnableWindow(IntPtr hWnd, [MarshalAs(UnmanagedType.Bool)] bool bEnable);
 
+        /// <summary>
+        /// Retrieves the dimensions of the bounding rectangle of the specified window.
+        /// </summary>
+        /// <param name="hWnd">A handle to the window.</param>
+        /// <param name="lpRect">A pointer to a <see cref="RECT"/> structure that receives the screen coordinates.</param>
+        /// <returns><see langword="true"/> if successful; otherwise, <see langword="false"/>.</returns>
         [LibraryImport("user32.dll")]
         [DefaultDllImportSearchPaths(DllImportSearchPath.System32)]
         [return: MarshalAs(UnmanagedType.Bool)]
         private static partial bool GetWindowRect(IntPtr hWnd, out RECT lpRect);
 
+        /// <summary>
+        /// Changes the size, position, and Z-order of a child, pop-up, or top-level window.
+        /// </summary>
+        /// <param name="hWnd">A handle to the window.</param>
+        /// <param name="hWndInsertAfter">A handle to the window to precede the positioned window in the Z order.</param>
+        /// <param name="X">The new position of the left side of the window.</param>
+        /// <param name="Y">The new position of the top of the window.</param>
+        /// <param name="cx">The new width of the window, in pixels.</param>
+        /// <param name="cy">The new height of the window, in pixels.</param>
+        /// <param name="uFlags">The window sizing and positioning flags.</param>
+        /// <returns><see langword="true"/> if successful; otherwise, <see langword="false"/>.</returns>
         [LibraryImport("user32.dll")]
         [DefaultDllImportSearchPaths(DllImportSearchPath.System32)]
         [return: MarshalAs(UnmanagedType.Bool)]
         private static partial bool SetWindowPos(IntPtr hWnd, IntPtr hWndInsertAfter, int X, int Y, int cx, int cy, uint uFlags);
 
+        /// <summary>
+        /// Brings the thread that created the specified window into the foreground and activates the window.
+        /// </summary>
+        /// <param name="hWnd">A handle to the window that should be activated and brought to the foreground.</param>
+        /// <returns><see langword="true"/> if the window was brought to the foreground; otherwise, <see langword="false"/>.</returns>
         [LibraryImport("user32.dll")]
         [DefaultDllImportSearchPaths(DllImportSearchPath.System32)]
         [return: MarshalAs(UnmanagedType.Bool)]
         private static partial bool SetForegroundWindow(IntPtr hWnd);
 
+        /// <summary>
+        /// Retrieves a handle to the foreground window (the window with which the user is currently working).
+        /// </summary>
+        /// <returns>The handle to the foreground window, or <see cref="IntPtr.Zero"/> if no foreground window exists.</returns>
         [LibraryImport("user32.dll")]
         [DefaultDllImportSearchPaths(DllImportSearchPath.System32)]
         private static partial IntPtr GetForegroundWindow();
 
+        /// <summary>
+        /// Retrieves the window handle to the active window attached to the calling thread's message queue.
+        /// </summary>
+        /// <returns>The handle to the active window, or <see cref="IntPtr.Zero"/> if no active window exists.</returns>
         [LibraryImport("user32.dll")]
         [DefaultDllImportSearchPaths(DllImportSearchPath.System32)]
         private static partial IntPtr GetActiveWindow();
 
+        /// <summary>
+        /// Retrieves the identifier of the thread and process that created the specified window.
+        /// </summary>
+        /// <param name="hWnd">A handle to the window.</param>
+        /// <param name="lpdwProcessId">When this method returns, contains the process identifier.</param>
+        /// <returns>The identifier of the thread that created the window.</returns>
         [LibraryImport("user32.dll", SetLastError = true)]
         [DefaultDllImportSearchPaths(DllImportSearchPath.System32)]
         private static partial uint GetWindowThreadProcessId(IntPtr hWnd, out uint lpdwProcessId);
@@ -211,6 +281,11 @@ namespace Easy_Copier.Infrastructure
             }
         }
 
+        /// <summary>
+        /// Calculates the display rasterization scale factor for the specified window handle based on system DPI.
+        /// </summary>
+        /// <param name="hwnd">The window handle to inspect.</param>
+        /// <returns>The DPI rasterization scaling factor (e.g., 1.0 for 96 DPI, 1.25 for 120 DPI, 1.5 for 144 DPI).</returns>
         private static double GetRasterizationScale(nint hwnd)
         {
             const int defaultDpi = 96;
@@ -218,6 +293,11 @@ namespace Easy_Copier.Infrastructure
             return dpi <= 0 ? 1.0 : dpi / (double)defaultDpi;
         }
 
+        /// <summary>
+        /// Returns the dots per inch (DPI) value for the specified window.
+        /// </summary>
+        /// <param name="hWnd">The window handle to query.</param>
+        /// <returns>The DPI value for the window.</returns>
         [LibraryImport("user32.dll")]
         [DefaultDllImportSearchPaths(DllImportSearchPath.System32)]
         private static partial uint GetDpiForWindow(IntPtr hWnd);
