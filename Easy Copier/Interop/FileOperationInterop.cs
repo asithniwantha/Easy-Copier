@@ -17,6 +17,11 @@ namespace Easy_Copier.Interop
         /// <summary>
         /// Creates and initializes a Shell item object from a parsing name.
         /// </summary>
+        /// <param name="pszPath">A pointer to a null-terminated display name.</param>
+        /// <param name="pbc">A pointer to a bind context that controls the parsing operation.</param>
+        /// <param name="riid">A reference to the IID of the requested interface.</param>
+        /// <param name="ppv">When this method returns, contains the interface pointer requested in <paramref name="riid"/>.</param>
+        /// <returns>An HRESULT success or failure code.</returns>
         [LibraryImport("shell32.dll", EntryPoint = "SHCreateItemFromParsingName", StringMarshalling = StringMarshalling.Utf16)]
         private static partial int SHCreateItemFromParsingNameNative(
             string pszPath,
