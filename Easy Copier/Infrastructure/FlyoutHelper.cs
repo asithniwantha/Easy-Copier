@@ -38,6 +38,7 @@ namespace Easy_Copier.Infrastructure
         /// </summary>
         /// <param name="sender">The framework element triggering the right-tap.</param>
         /// <param name="e">The right-tapped routed event args.</param>
+        /// <returns>A task that represents the asynchronous flyout display operation.</returns>
         public static async Task ShowGameDetailsFlyoutAsync(object sender, RightTappedRoutedEventArgs e)
         {
             Point? position = sender is FrameworkElement fe && e != null ? e.GetPosition(fe) : null;
