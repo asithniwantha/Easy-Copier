@@ -26,7 +26,7 @@ namespace Easy_Copier.Services
         /// Calculates the total byte size and total count of files contained within a specified directory or file path.
         /// </summary>
         /// <param name="path">The directory or file path to evaluate.</param>
-        /// <returns>A task returning a tuple containing total size in bytes and file count.</returns>
+        /// <returns>A task that represents the asynchronous operation. The task result contains a tuple containing total size in bytes (<c>Size</c>) and file count (<c>Count</c>).</returns>
         Task<(long Size, int Count)> GetFolderStatsAsync(string path);
     }
 
@@ -81,7 +81,7 @@ namespace Easy_Copier.Services
         /// Asynchronously enumerates files and calculates total byte size and file count for a given file or folder path.
         /// </summary>
         /// <param name="path">The file or directory path to inspect.</param>
-        /// <returns>A task returning a tuple containing total size in bytes and file count.</returns>
+        /// <returns>A task that represents the asynchronous operation. The task result contains a tuple containing total size in bytes (<c>Size</c>) and file count (<c>Count</c>).</returns>
         public async Task<(long Size, int Count)> GetFolderStatsAsync(string path)
         {
             return await Task.Run(() =>
