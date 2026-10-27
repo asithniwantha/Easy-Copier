@@ -52,7 +52,7 @@ namespace Easy_Copier.Services
         /// <summary>
         /// Asynchronously retrieves distinct year and month pairs for which history records exist.
         /// </summary>
-        /// <returns>A task that represents the asynchronous operation. The task result contains a list of tuples containing (Year, Month) ordered descending.</returns>
+        /// <returns>A task that represents the asynchronous operation. The task result contains a list of tuples containing (<c>Year</c>, <c>Month</c>) ordered descending.</returns>
         Task<List<(int Year, int Month)>> GetAvailableMonthsAsync();
 
         /// <summary>
@@ -60,7 +60,7 @@ namespace Easy_Copier.Services
         /// </summary>
         /// <param name="startDate">The start boundary of the date range (inclusive).</param>
         /// <param name="endDate">The end boundary of the date range (exclusive).</param>
-        /// <returns>A task that represents the asynchronous operation. The task result contains a tuple containing total items, successful items, total bytes, and total monetary amount.</returns>
+        /// <returns>A task that represents the asynchronous operation. The task result contains a tuple containing total items (<c>TotalItems</c>), successful items (<c>SuccessfulItems</c>), total bytes (<c>TotalBytes</c>), and total monetary amount (<c>TotalAmount</c>).</returns>
         Task<(int TotalItems, int SuccessfulItems, long TotalBytes, int TotalAmount)> GetStatsAsync(DateTime startDate, DateTime endDate);
     }
 
