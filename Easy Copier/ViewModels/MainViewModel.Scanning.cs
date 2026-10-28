@@ -37,11 +37,7 @@ namespace Easy_Copier.ViewModels
                 OsImages.Clear();
                 ValidationMessages.Clear();
 
-                if (_scanCancellationTokenSource != null)
-                {
-                    await _scanCancellationTokenSource.CancelAsync();
-                    _scanCancellationTokenSource.Dispose();
-                }
+                CancelAndDisposeTokenSource(ref _scanCancellationTokenSource);
                 _scanCancellationTokenSource = new CancellationTokenSource();
 
                 AppSettings settings = await _settingsService.LoadSettingsAsync();
@@ -469,11 +465,7 @@ namespace Easy_Copier.ViewModels
                 IsGlobalNotificationVisible = true;
                 GlobalNotificationSeverity = isSuccess ? ValidationSeverity.Success : ValidationSeverity.Error;
 
-                if (_notificationCancellationTokenSource != null)
-                {
-                    await _notificationCancellationTokenSource.CancelAsync();
-                    _notificationCancellationTokenSource.Dispose();
-                }
+                CancelAndDisposeTokenSource(ref _notificationCancellationTokenSource);
                 _notificationCancellationTokenSource = new CancellationTokenSource();
 
                 CancellationToken token = _notificationCancellationTokenSource.Token;
@@ -704,26 +696,9 @@ namespace Easy_Copier.ViewModels
             _updateCheckTimer?.Dispose();
             _updateCheckTimer = null;
 
-            if (_scanCancellationTokenSource != null)
-            {
-                _scanCancellationTokenSource.Cancel();
-                _scanCancellationTokenSource.Dispose();
-                _scanCancellationTokenSource = null;
-            }
-
-            if (_validationCancellationTokenSource != null)
-            {
-                _validationCancellationTokenSource.Cancel();
-                _validationCancellationTokenSource.Dispose();
-                _validationCancellationTokenSource = null;
-            }
-
-            if (_notificationCancellationTokenSource != null)
-            {
-                _notificationCancellationTokenSource.Cancel();
-                _notificationCancellationTokenSource.Dispose();
-                _notificationCancellationTokenSource = null;
-            }
+            CancelAndDisposeTokenSource(ref _scanCancellationTokenSource);
+            CancelAndDisposeTokenSource(ref _validationCancellationTokenSource);
+            CancelAndDisposeTokenSource(ref _notificationCancellationTokenSource);
 
             GamesTabViewModel.Dispose();
             AppsTabViewModel.Dispose();

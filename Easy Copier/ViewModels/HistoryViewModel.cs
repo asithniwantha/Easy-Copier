@@ -156,6 +156,9 @@ namespace Easy_Copier.ViewModels
         [ObservableProperty]
         public partial ObservableCollection<string> SelectedRecordSubFiles { get; set; } = [];
 
+        private static readonly string[] DefaultDateFilterStrings = ["Today", "Last 7 Days", "This Month", "All Time"];
+        private static readonly string[] DefaultStatusFilterStrings = ["All", "Completed", "Failed"];
+
         /// <summary>
         /// Initializes a new instance of the <see cref="HistoryViewModel"/> class.
         /// </summary>
@@ -174,8 +177,8 @@ namespace Easy_Copier.ViewModels
             _filePickerService = filePickerService;
             _historyAnalysisService = historyAnalysisService;
 
-            AvailableDateFilterStrings = ["Today", "Last 7 Days", "This Month", "All Time"];
-            AvailableStatusFilterStrings = ["All", "Completed", "Failed"];
+            AvailableDateFilterStrings = [.. DefaultDateFilterStrings];
+            AvailableStatusFilterStrings = [.. DefaultStatusFilterStrings];
             SelectedDateFilterString = "Today";
             SelectedStatusFilterString = "All";
         }
