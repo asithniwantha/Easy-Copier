@@ -401,6 +401,7 @@ namespace Easy_Copier.ViewModels
         /// <param name="libraryFilterService">The library filter service for query filtering and sorting.</param>
         /// <param name="rufusService">The Rufus service for ISO imaging operations.</param>
         /// <param name="gameRequirementsService">The game system requirements service.</param>
+        /// <param name="folderPickerService">The folder picker service for interactive directory selection.</param>
         /// <param name="fileSystemService">The file system service for path checking.</param>
         /// <param name="smartAdderViewModel">The SmartAdder calculator view model.</param>
         /// <param name="gameDetailsViewModelFactory">Factory delegate for instantiating transient <see cref="GameDetailsViewModel"/> instances.</param>

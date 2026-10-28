@@ -98,6 +98,8 @@ namespace Easy_Copier.Views
         /// <summary>
         /// Handles text changes in the search box to provide suggestions and update background highlights.
         /// </summary>
+        /// <param name="sender">The source <see cref="AutoSuggestBox"/> control.</param>
+        /// <param name="args">The event arguments containing text change details.</param>
         private void SearchBox_TextChanged(AutoSuggestBox sender, AutoSuggestBoxTextChangedEventArgs args)
         {
             AutoSuggestBoxHelper.HandleTextChanged(sender, args, ViewModel);
@@ -106,6 +108,8 @@ namespace Easy_Copier.Views
         /// <summary>
         /// Handles the event when a suggestion is chosen from the AutoSuggestBox.
         /// </summary>
+        /// <param name="sender">The source <see cref="AutoSuggestBox"/> control.</param>
+        /// <param name="args">The event arguments containing chosen suggestion details.</param>
         private void SearchBox_SuggestionChosen(AutoSuggestBox sender, AutoSuggestBoxSuggestionChosenEventArgs args)
         {
             AutoSuggestBoxHelper.HandleSuggestionChosen(args, ViewModel);
@@ -114,6 +118,8 @@ namespace Easy_Copier.Views
         /// <summary>
         /// Handles the event when the user submits a query from the AutoSuggestBox.
         /// </summary>
+        /// <param name="sender">The source <see cref="AutoSuggestBox"/> control.</param>
+        /// <param name="args">The event arguments containing query submission details.</param>
         private void SearchBox_QuerySubmitted(AutoSuggestBox sender, AutoSuggestBoxQuerySubmittedEventArgs args)
         {
             AutoSuggestBoxHelper.HandleQuerySubmitted(args, ViewModel);
