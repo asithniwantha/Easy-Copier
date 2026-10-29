@@ -46,7 +46,7 @@ namespace Easy_Copier.Services
         /// Retrieves creation, modification, and access timestamps for the target file or directory path.
         /// </summary>
         /// <param name="path">The file or directory path to inspect.</param>
-        /// <returns>A tuple containing optional creation, modification, and access timestamps.</returns>
+        /// <returns>A tuple containing optional creation (<c>Created</c>), modification (<c>Modified</c>), and access (<c>Accessed</c>) timestamps.</returns>
         (DateTime? Created, DateTime? Modified, DateTime? Accessed) GetPathMetadata(string path);
     }
 }

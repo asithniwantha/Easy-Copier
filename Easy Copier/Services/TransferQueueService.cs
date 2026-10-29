@@ -47,7 +47,7 @@ namespace Easy_Copier.Services
         event EventHandler<TransferQueueItem>? ItemCompleted;
 
         /// <summary>
-        /// Event raised when an entire drive batch queue finishes processing, providing title and message details.
+        /// Event raised when an entire drive batch queue finishes processing, providing title (<c>Title</c>), message (<c>Message</c>), and success status (<c>IsSuccess</c>) details.
         /// </summary>
         event EventHandler<(string Title, string Message, bool IsSuccess)>? BatchCompleted;
     }
@@ -93,7 +93,7 @@ namespace Easy_Copier.Services
         public event EventHandler<TransferQueueItem>? ItemCompleted;
 
         /// <summary>
-        /// Event raised when all items for a target drive complete.
+        /// Event raised when all items for a target drive complete, providing title (<c>Title</c>), message (<c>Message</c>), and success status (<c>IsSuccess</c>) details.
         /// </summary>
         public event EventHandler<(string Title, string Message, bool IsSuccess)>? BatchCompleted;
 

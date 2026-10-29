@@ -17,7 +17,7 @@ namespace Easy_Copier.Services
         void EvaluateAndNotifyBatchCompletion(string driveLetter, IEnumerable<TransferQueueItem> queueItems);
 
         /// <summary>
-        /// Event raised when an entire drive transfer batch finishes processing, providing title, body, and success status details.
+        /// Event raised when an entire drive transfer batch finishes processing, providing title (<c>Title</c>), body (<c>Message</c>), and success status (<c>IsSuccess</c>) details.
         /// </summary>
         event EventHandler<(string Title, string Message, bool IsSuccess)>? BatchCompleted;
     }
