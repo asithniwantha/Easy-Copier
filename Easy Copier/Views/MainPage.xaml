@@ -223,12 +223,15 @@
 
                         <ScrollViewer Grid.Row="2">
                             <ItemsControl ItemsSource="{x:Bind ViewModel.TransferQueue, Mode=OneWay}">
+                                <ItemsControl.ItemContainerTransitions>
+                                    <TransitionCollection>
+                                        <EntranceThemeTransition IsStaggeringEnabled="True"/>
+                                        <RepositionThemeTransition/>
+                                    </TransitionCollection>
+                                </ItemsControl.ItemContainerTransitions>
                                 <ItemsControl.ItemTemplate>
                                     <DataTemplate x:DataType="models:TransferQueueItem">
-                                        <Border Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
-                                                BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
-                                                BorderThickness="1"
-                                                CornerRadius="4" Padding="8" Margin="0,0,20,8">
+                                        <Border Style="{StaticResource QueueCardStyle}">
                                             <Grid>
                                                 <Grid.ColumnDefinitions>
                                                     <ColumnDefinition Width="Auto"/>
@@ -236,7 +239,7 @@
                                                 </Grid.ColumnDefinitions>
 
                                                 <FontIcon Grid.Column="0" Glyph="{x:Bind StatusGlyph, Mode=OneWay}"
-                                                          FontSize="16" Margin="0,2,8,0" VerticalAlignment="Top"/>
+                                                          FontSize="20" Margin="0,2,12,0" VerticalAlignment="Top"/>
 
                                                 <StackPanel Grid.Column="1" Spacing="2">
                                                     <TextBlock Text="{x:Bind ItemsSummary}" FontWeight="SemiBold"
@@ -258,7 +261,7 @@
                                                             <ColumnDefinition Width="Auto"/>
                                                             <ColumnDefinition Width="Auto"/>
                                                         </Grid.ColumnDefinitions>
-                                                        <ProgressBar Grid.Column="0" Minimum="0" Maximum="100" Value="{x:Bind ProgressPercentage, Mode=OneWay}" VerticalAlignment="Center" Margin="0,0,8,0" />
+                                                        <ProgressBar Grid.Column="0" Minimum="0" Maximum="100" Value="{x:Bind ProgressPercentage, Mode=OneWay}" VerticalAlignment="Center" Margin="0,4,8,0" CornerRadius="3" />
                                                         <TextBlock Grid.Column="1" Text="{x:Bind SpeedText, Mode=OneWay}" FontSize="11" Opacity="0.6" Margin="0,0,8,0" VerticalAlignment="Center" />
                                                         <TextBlock Grid.Column="2" Text="{x:Bind RemainingTimeText, Mode=OneWay}" FontSize="11" Opacity="0.6" VerticalAlignment="Center" />
                                                     </Grid>

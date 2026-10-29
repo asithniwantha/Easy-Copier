@@ -125,7 +125,15 @@
                       ItemTemplate="{StaticResource LibraryItemTemplate}"
                       SelectionMode="Multiple"
                       SelectionChanged="GamesGridView_SelectionChanged"
-                      IsItemClickEnabled="False"/>
+                      ItemContainerStyle="{StaticResource LibraryGridViewItemStyle}"
+                      IsItemClickEnabled="False">
+                <GridView.ItemContainerTransitions>
+                    <TransitionCollection>
+                        <EntranceThemeTransition IsStaggeringEnabled="True"/>
+                        <RepositionThemeTransition/>
+                    </TransitionCollection>
+                </GridView.ItemContainerTransitions>
+            </GridView>
         </Grid>
     </Grid>
 </UserControl>
