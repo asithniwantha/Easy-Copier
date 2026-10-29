@@ -46,10 +46,10 @@
             <RowDefinition Height="*"/>    <!-- Grid Area (with drawer) -->
         </Grid.RowDefinitions>
 
-        <StackPanel Margin="0,0,0,16">
+        <Grid Margin="0,0,0,16"><Grid.ColumnDefinitions><ColumnDefinition Width="*"/><ColumnDefinition Width="Auto"/></Grid.ColumnDefinitions><StackPanel>
             <TextBlock Text="Transfer History" Style="{ThemeResource TitleTextBlockStyle}"/>
             <TextBlock Text="{x:Bind ViewModel.HeaderSubtitle, Mode=OneWay}" Style="{ThemeResource BodyTextBlockStyle}" Foreground="{ThemeResource TextFillColorSecondaryBrush}"/>
-        </StackPanel>
+        </StackPanel><StackPanel Grid.Column="1" Orientation="Horizontal" Spacing="8" VerticalAlignment="Center"><Button Command="{x:Bind ViewModel.ToggleDashboardCommand}"><StackPanel Orientation="Horizontal" Spacing="8"><FontIcon Glyph="&#xE9D2;" FontSize="14"/><TextBlock Text="Dashboard"/></StackPanel></Button><Button Command="{x:Bind ViewModel.ExportToCsvCommand}"><StackPanel Orientation="Horizontal" Spacing="8"><FontIcon Glyph="&#xE74E;" FontSize="14"/><TextBlock Text="Export CSV"/></StackPanel></Button></StackPanel></Grid>
 
         <!-- Top KPI Cards -->
         <Grid Grid.Row="1" Margin="0,0,0,24">
@@ -193,22 +193,7 @@
 
             <Button Grid.Column="2" HorizontalAlignment="Right" Margin="130,0,0,0" VerticalAlignment="Bottom" Content="Clear" ToolTipService.ToolTip="Reset search and filters" Command="{x:Bind ViewModel.ClearFiltersCommand}"/>
 
-            <Button Grid.Column="3" HorizontalAlignment="Right" Margin="0,0,12,0" VerticalAlignment="Bottom"
-                    Command="{x:Bind ViewModel.ToggleDashboardCommand}">
-                <StackPanel Orientation="Horizontal" Spacing="8">
-                    <FontIcon Glyph="&#xE9D2;" FontSize="14"/>
-                    <TextBlock Text="Dashboard"/>
-                </StackPanel>
-            </Button>
-
-            <Button Grid.Column="4"
-                    Command="{x:Bind ViewModel.ExportToCsvCommand}"
-                    VerticalAlignment="Bottom">
-                <StackPanel Orientation="Horizontal" Spacing="8">
-                    <FontIcon Glyph="&#xE74E;" FontSize="14"/>
-                    <TextBlock Text="Export CSV"/>
-                </StackPanel>
-            </Button>
+            
         </Grid>
 
         <!-- Main Grid & SplitView Drawer -->
