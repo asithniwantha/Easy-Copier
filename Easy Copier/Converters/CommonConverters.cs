@@ -179,7 +179,8 @@ namespace Easy_Copier.Converters
                     {
                         return new Microsoft.UI.Xaml.Media.Imaging.BitmapImage(uri)
                         {
-                            DecodePixelWidth = 200,
+                            // Set only the height so the decoder keeps the source aspect ratio;
+                            // forcing both dimensions stretched non-portrait images.
                             DecodePixelHeight = 280,
                             DecodePixelType = Microsoft.UI.Xaml.Media.Imaging.DecodePixelType.Logical
                         };

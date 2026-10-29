@@ -83,6 +83,7 @@ The selected-drive panel also shows a usage bar, free space, total capacity, and
 - Show the total price of selected games based on configured price tiers.
 - Highlight items containing files too large for FAT32 drives.
 - Right-click cards to view a flyout with color-coded system requirements and folder contents.
+- Right-click a film or TV card to see its folder path, total size, and every file with its size.
 - Use Smart Adder for quick Excel-like calculations.
 
 ### 🚀 Copy Operations

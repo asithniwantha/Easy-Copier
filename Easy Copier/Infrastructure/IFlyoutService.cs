@@ -28,5 +28,13 @@ namespace Easy_Copier.Infrastructure
         /// <param name="sender">The framework element triggering the right-tap.</param>
         /// <param name="position">The optional point coordinates relative to the sender for flyout placement.</param>
         void ShowOsImageDetailsFlyout(object sender, Point? position);
+
+        /// <summary>
+        /// Displays the film/TV details flyout (path, files and sizes) when a video card is right-tapped.
+        /// </summary>
+        /// <param name="sender">The framework element triggering the right-tap.</param>
+        /// <param name="position">The optional point coordinates relative to the sender for flyout placement.</param>
+        /// <returns>A task representing the asynchronous flyout presentation.</returns>
+        Task ShowVideoDetailsFlyoutAsync(object sender, Point? position);
     }
 }

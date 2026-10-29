@@ -20,6 +20,8 @@
 - Item size display with human-readable formatting.
 - Large-file indicator badge for FAT32 incompatibility risk.
 - Right-click context flyout displaying color-formatted system requirements and scrollable folder contents via `FlyoutHelper`.
+- Films & TV details flyout (`VideoDetailsFlyout`, `VideoDetailsViewModel`): right-click a card to see the folder path, file count, total size, and a scrollable per-file size list; files are loaded asynchronously and unreadable folders show a status message.
+- Films & TV hover preview: hovering the mouse over a card's cover art for ~0.5s plays a muted, looping preview of the largest video in the item (starting ~20% in for long videos). The preview stops when the pointer leaves. Implemented in `TvAndFilmsTabView` with `MediaPlayerElement`.
 - Game pricing tags displayed in the library based on file size thresholds configured in App Settings.
 - Total price of selected games shown in the library view based on configured price tiers.
 - Smart Adder tool for quick Excel-like calculations during selection and pricing workflows.
