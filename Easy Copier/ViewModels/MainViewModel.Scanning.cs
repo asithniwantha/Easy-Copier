@@ -112,15 +112,38 @@ namespace Easy_Copier.ViewModels
 
 
         /// <summary>
+        /// Handles changes to the GamesSearchText property to re-apply games library filtering.
+        /// </summary>
+        /// <param name="oldValue">The previous search text query value.</param>
+        /// <param name="newValue">The new search text query value.</param>
+        partial void OnGamesSearchTextChanged(string oldValue, string newValue) => ApplyGamesFilter();
+
+        /// <summary>
+        /// Handles changes to the AppsSearchText property to re-apply apps library filtering.
+        /// </summary>
+        /// <param name="oldValue">The previous search text query value.</param>
+        /// <param name="newValue">The new search text query value.</param>
+        partial void OnAppsSearchTextChanged(string oldValue, string newValue) => ApplyAppsFilter();
+
+        /// <summary>
+        /// Handles changes to the TvAndFilmsSearchText property to re-apply TV and films library filtering.
+        /// </summary>
+        /// <param name="oldValue">The previous search text query value.</param>
+        /// <param name="newValue">The new search text query value.</param>
+        partial void OnTvAndFilmsSearchTextChanged(string oldValue, string newValue) => ApplyTvAndFilmsFilter();
+
+        /// <summary>
+        /// Handles changes to the OsImagesSearchText property to re-apply OS images library filtering.
+        /// </summary>
+        /// <param name="oldValue">The previous search text query value.</param>
+        /// <param name="newValue">The new search text query value.</param>
+        partial void OnOsImagesSearchTextChanged(string oldValue, string newValue) => ApplyOsImagesFilter();
+
+        /// <summary>
         /// Handles changes to the SelectedCategory property to re-apply library filtering.
         /// </summary>
         /// <param name="oldValue">The previous category value.</param>
         /// <param name="newValue">The new category value.</param>
-
-        partial void OnGamesSearchTextChanged(string oldValue, string newValue) => ApplyGamesFilter();
-        partial void OnAppsSearchTextChanged(string oldValue, string newValue) => ApplyAppsFilter();
-        partial void OnTvAndFilmsSearchTextChanged(string oldValue, string newValue) => ApplyTvAndFilmsFilter();
-        partial void OnOsImagesSearchTextChanged(string oldValue, string newValue) => ApplyOsImagesFilter();
         partial void OnSelectedCategoryChanged(GameCategory oldValue, GameCategory newValue) => ApplyFilter();
 
         /// <summary>
@@ -150,6 +173,8 @@ namespace Easy_Copier.ViewModels
         /// <summary>
         /// Handles changes to the SelectedTvAndFilmsSortOption property to re-apply TV and film sorting.
         /// </summary>
+        /// <param name="oldValue">The previous sort option.</param>
+        /// <param name="newValue">The new sort option.</param>
         partial void OnSelectedTvAndFilmsSortOptionChanged(TvAndFilmsSortOption oldValue, TvAndFilmsSortOption newValue)
         {
             IsTvAndFilmsSortAscending = newValue switch

@@ -146,72 +146,97 @@ namespace Easy_Copier.Services
         /// <summary>
         /// Logger message for initialization failures.
         /// </summary>
+        /// <param name="logger">The logger instance.</param>
+        /// <param name="ex">The exception thrown during initialization.</param>
         [LoggerMessage(EventId = 1, Level = LogLevel.Error, Message = "Failed to initialize Velopack UpdateManager.")]
         private static partial void LogUpdateManagerInitializationFailed(ILogger logger, Exception ex);
 
         /// <summary>
         /// Logger message when update check is skipped because app is not installed via Velopack.
         /// </summary>
+        /// <param name="logger">The logger instance.</param>
         [LoggerMessage(EventId = 2, Level = LogLevel.Information, Message = "Update check skipped: Application is not installed via Velopack.")]
         private static partial void LogUpdateCheckSkippedNotInstalled(ILogger logger);
 
         /// <summary>
         /// Logger message when starting update check.
         /// </summary>
+        /// <param name="logger">The logger instance.</param>
+        /// <param name="localVersion">The currently installed local version string.</param>
         [LoggerMessage(EventId = 3, Level = LogLevel.Information, Message = "Checking for updates via Velopack... Local version: {LocalVersion}")]
         private static partial void LogCheckingForUpdates(ILogger logger, string localVersion);
 
         /// <summary>
         /// Logger message when a new update is found.
         /// </summary>
+        /// <param name="logger">The logger instance.</param>
+        /// <param name="localVersion">The current local version string.</param>
+        /// <param name="remoteVersion">The available remote version string.</param>
         [LoggerMessage(EventId = 4, Level = LogLevel.Information, Message = "Update found. Local version: {LocalVersion}, Remote version: {RemoteVersion}")]
         private static partial void LogUpdateFound(ILogger logger, string localVersion, string remoteVersion);
 
         /// <summary>
         /// Logger message when no update is available.
         /// </summary>
+        /// <param name="logger">The logger instance.</param>
+        /// <param name="localVersion">The current local version string.</param>
         [LoggerMessage(EventId = 5, Level = LogLevel.Information, Message = "No update available. Current local version ({LocalVersion}) is up to date with remote.")]
         private static partial void LogNoUpdateAvailable(ILogger logger, string localVersion);
 
         /// <summary>
         /// Logger message when error occurs during update check.
         /// </summary>
+        /// <param name="logger">The logger instance.</param>
+        /// <param name="ex">The exception thrown during update check.</param>
         [LoggerMessage(EventId = 6, Level = LogLevel.Error, Message = "Error while checking for updates.")]
         private static partial void LogCheckForUpdatesError(ILogger logger, Exception ex);
 
         /// <summary>
         /// Logger message when download is skipped.
         /// </summary>
+        /// <param name="logger">The logger instance.</param>
         [LoggerMessage(EventId = 7, Level = LogLevel.Warning, Message = "Download skipped: UpdateManager not initialized or no update available.")]
         private static partial void LogDownloadSkipped(ILogger logger);
 
         /// <summary>
         /// Logger message when update download starts.
         /// </summary>
+        /// <param name="logger">The logger instance.</param>
+        /// <param name="targetVersion">The target update version string.</param>
         [LoggerMessage(EventId = 8, Level = LogLevel.Information, Message = "Starting download for update version {TargetVersion}.")]
         private static partial void LogDownloadStart(ILogger logger, string targetVersion);
 
         /// <summary>
         /// Logger message when update download succeeds.
         /// </summary>
+        /// <param name="logger">The logger instance.</param>
+        /// <param name="targetVersion">The target update version string.</param>
         [LoggerMessage(EventId = 9, Level = LogLevel.Information, Message = "Update version {TargetVersion} downloaded successfully.")]
         private static partial void LogDownloadSuccess(ILogger logger, string targetVersion);
 
         /// <summary>
         /// Logger message when update download fails.
         /// </summary>
+        /// <param name="logger">The logger instance.</param>
+        /// <param name="ex">The exception thrown during update download.</param>
+        /// <param name="targetVersion">The target update version string.</param>
         [LoggerMessage(EventId = 10, Level = LogLevel.Error, Message = "Error while downloading update version {TargetVersion}.")]
         private static partial void LogDownloadError(ILogger logger, Exception ex, string targetVersion);
 
         /// <summary>
         /// Logger message when applying update and restarting.
         /// </summary>
+        /// <param name="logger">The logger instance.</param>
+        /// <param name="targetVersion">The target update version string.</param>
         [LoggerMessage(EventId = 11, Level = LogLevel.Information, Message = "Applying update version {TargetVersion} and restarting.")]
         private static partial void LogApplyUpdateStart(ILogger logger, string targetVersion);
 
         /// <summary>
         /// Logger message when apply update fails.
         /// </summary>
+        /// <param name="logger">The logger instance.</param>
+        /// <param name="ex">The exception thrown during update application.</param>
+        /// <param name="targetVersion">The target update version string.</param>
         [LoggerMessage(EventId = 12, Level = LogLevel.Error, Message = "Error while applying update version {TargetVersion} and restarting.")]
         private static partial void LogApplyUpdateError(ILogger logger, Exception ex, string targetVersion);
     }
