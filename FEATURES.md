@@ -68,7 +68,7 @@
 - Generate and export detailed reports (e.g., CSV) for completed and failed operations.
 - Automatically track transfer metrics like operation timestamps and destination details.
 - History dashboard (toggle in History window): daily volume bar chart, weekly totals, most-copied items, and failure rate over 7/30/90 days via `IHistoryAnalysisService.BuildDashboard`.
-- Fluent polish: Mica backdrop on modal windows, staggered entrance/reposition transitions on all library grids and the transfer queue, rounded tile containers, card-style queue items, and pill-style Completed/Failed badges plus icon KPI cards in History.
+- Fluent polish: Mica backdrop on modal windows, staggered entrance/reposition transitions on all library grids and the transfer queue, rounded tile containers, card-style queue items, and History redesign: card-style transfer list (replacing the DataGrid), pill-style Completed/Failed badges, icon KPI cards, header subtitle with active filters, Clear filters button and an empty state.
 
 ## ⚙️ Settings and Persistence
 - Manage source folders for Games, Apps, and Media (add/remove).
