@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Page
     x:Class="Easy_Copier.Views.HistoryPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
@@ -18,27 +18,22 @@
         <converters:NullToVisibilityConverter x:Key="NullToVisibilityConverter"/>
 
         <DataTemplate x:Key="StatusBadgeTemplate">
-            <Border Padding="6,2" CornerRadius="4"
-                    HorizontalAlignment="Left" VerticalAlignment="Center">
-                <Border.Style>
-                    <Style TargetType="Border">
-                        <Setter Property="Background" Value="{ThemeResource SystemFillColorSuccessBrush}"/>
-                        <Setter Property="Opacity" Value="0.2"/>
-                    </Style>
-                </Border.Style>
-                <StackPanel Orientation="Horizontal" Spacing="4">
-                    <FontIcon Glyph="&#xE73E;" FontSize="12" Foreground="{ThemeResource SystemFillColorSuccessBrush}" Visibility="{Binding IsSuccess}"/>
-                    <FontIcon Glyph="&#xE711;" FontSize="12" Foreground="{ThemeResource SystemFillColorCriticalBrush}" Visibility="{Binding IsSuccess, Converter={StaticResource BoolToVisibilityConverter}, ConverterParameter=Invert}"/>
-                    <TextBlock Text="{Binding IsSuccess, Converter={StaticResource BoolToStringConverter}, ConverterParameter='Completed|Failed'}"
-                               FontSize="12" FontWeight="SemiBold">
-                        <TextBlock.Style>
-                            <Style TargetType="TextBlock">
-                                <Setter Property="Foreground" Value="{ThemeResource SystemFillColorSuccessBrush}"/>
-                            </Style>
-                        </TextBlock.Style>
-                    </TextBlock>
-                </StackPanel>
-            </Border>
+            <Grid HorizontalAlignment="Left" VerticalAlignment="Center">
+                <Border Padding="8,3" CornerRadius="10" Background="{ThemeResource SystemFillColorSuccessBackgroundBrush}"
+                        Visibility="{Binding IsSuccess}">
+                    <StackPanel Orientation="Horizontal" Spacing="4">
+                        <FontIcon Glyph="&#xE73E;" FontSize="11" Foreground="{ThemeResource SystemFillColorSuccessBrush}"/>
+                        <TextBlock Text="Completed" FontSize="12" FontWeight="SemiBold" Foreground="{ThemeResource SystemFillColorSuccessBrush}"/>
+                    </StackPanel>
+                </Border>
+                <Border Padding="8,3" CornerRadius="10" Background="{ThemeResource SystemFillColorCriticalBackgroundBrush}"
+                        Visibility="{Binding IsSuccess, Converter={StaticResource BoolToVisibilityConverter}, ConverterParameter=Invert}">
+                    <StackPanel Orientation="Horizontal" Spacing="4">
+                        <FontIcon Glyph="&#xE711;" FontSize="11" Foreground="{ThemeResource SystemFillColorCriticalBrush}"/>
+                        <TextBlock Text="Failed" FontSize="12" FontWeight="SemiBold" Foreground="{ThemeResource SystemFillColorCriticalBrush}"/>
+                    </StackPanel>
+                </Border>
+            </Grid>
         </DataTemplate>
     </Page.Resources>
 
@@ -51,7 +46,10 @@
             <RowDefinition Height="*"/>    <!-- Grid Area (with drawer) -->
         </Grid.RowDefinitions>
 
-        <TextBlock Text="Transfer History" Style="{ThemeResource TitleTextBlockStyle}" Margin="0,0,0,16"/>
+        <StackPanel Margin="0,0,0,16">
+            <TextBlock Text="Transfer History" Style="{ThemeResource TitleTextBlockStyle}"/>
+            <TextBlock Text="{x:Bind ViewModel.HeaderSubtitle, Mode=OneWay}" Style="{ThemeResource BodyTextBlockStyle}" Foreground="{ThemeResource TextFillColorSecondaryBrush}"/>
+        </StackPanel>
 
         <!-- Top KPI Cards -->
         <Grid Grid.Row="1" Margin="0,0,0,24">
@@ -218,49 +216,56 @@
                    PanePlacement="Right"
                    OpenPaneLength="350">
             <SplitView.Content>
-                <controls:DataGrid ItemsSource="{x:Bind ViewModel.Records, Mode=OneWay}"
-                                   SelectedItem="{x:Bind ViewModel.SelectedRecord, Mode=TwoWay}"
-                                   AutoGenerateColumns="False"
-                                   CanUserSortColumns="True"
-                                   HeadersVisibility="Column"
-                                   GridLinesVisibility="Horizontal"
-                                   IsReadOnly="True"
-                                   AlternatingRowBackground="{ThemeResource LayerFillColorAltBrush}">
-                    <controls:DataGrid.Columns>
-                        <!-- Left-aligned textual data -->
-                        <controls:DataGridTemplateColumn Header="Status" Width="100" CellTemplate="{StaticResource StatusBadgeTemplate}"/>
-                        <controls:DataGridTextColumn Header="Date &amp; Time" Binding="{Binding Timestamp}" Width="160"/>
-                        <controls:DataGridTextColumn Header="Game / Item" Binding="{Binding GameName}" Width="250"/>
-                        <controls:DataGridTextColumn Header="Drive" Binding="{Binding TargetDriveLetter}" Width="60"/>
-                        <controls:DataGridTextColumn Header="Label" Binding="{Binding TargetDriveLabel}" Width="120"/>
-
-                        <!-- Right-aligned numerical data -->
-                        <controls:DataGridTextColumn Header="Size" Binding="{Binding BytesTransferred, Converter={StaticResource BytesToSizeConverter}}" Width="90">
-                            <controls:DataGridTextColumn.ElementStyle>
-                                <Style TargetType="TextBlock">
-                                    <Setter Property="HorizontalAlignment" Value="Right"/>
-                                    <Setter Property="FontFamily" Value="Consolas, Courier New, monospace"/>
-                                </Style>
-                            </controls:DataGridTextColumn.ElementStyle>
-                        </controls:DataGridTextColumn>
-                        <controls:DataGridTextColumn Header="Amount" Binding="{Binding Amount}" Width="80">
-                            <controls:DataGridTextColumn.ElementStyle>
-                                <Style TargetType="TextBlock">
-                                    <Setter Property="HorizontalAlignment" Value="Right"/>
-                                    <Setter Property="FontFamily" Value="Consolas, Courier New, monospace"/>
-                                </Style>
-                            </controls:DataGridTextColumn.ElementStyle>
-                        </controls:DataGridTextColumn>
-                        <controls:DataGridTextColumn Header="Batch Total" Binding="{Binding BatchAmount}" Width="90">
-                            <controls:DataGridTextColumn.ElementStyle>
-                                <Style TargetType="TextBlock">
-                                    <Setter Property="HorizontalAlignment" Value="Right"/>
-                                    <Setter Property="FontFamily" Value="Consolas, Courier New, monospace"/>
-                                </Style>
-                            </controls:DataGridTextColumn.ElementStyle>
-                        </controls:DataGridTextColumn>
-                    </controls:DataGrid.Columns>
-                </controls:DataGrid>
+				<Grid>
+					<ListView ItemsSource="{x:Bind ViewModel.Records, Mode=OneWay}"
+							  SelectedItem="{x:Bind ViewModel.SelectedRecord, Mode=TwoWay}"
+							  SelectionMode="Single">
+						<ListView.ItemContainerStyle>
+							<Style TargetType="ListViewItem">
+								<Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+								<Setter Property="Margin" Value="0,0,0,6"/>
+								<Setter Property="Padding" Value="0"/>
+							</Style>
+						</ListView.ItemContainerStyle>
+						<ListView.ItemTemplate>
+							<DataTemplate x:DataType="models:CopyHistoryRecord">
+								<Grid Padding="16,12" ColumnSpacing="16"
+									  Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
+									  BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
+									  BorderThickness="1" CornerRadius="8">
+									<Grid.ColumnDefinitions>
+										<ColumnDefinition Width="120"/>
+										<ColumnDefinition Width="*"/>
+										<ColumnDefinition Width="Auto"/>
+									</Grid.ColumnDefinitions>
+									<ContentControl Content="{x:Bind}" ContentTemplate="{StaticResource StatusBadgeTemplate}" VerticalAlignment="Center"/>
+									<StackPanel Grid.Column="1" Spacing="2">
+										<TextBlock Text="{x:Bind GameName}" FontWeight="SemiBold" TextTrimming="CharacterEllipsis"/>
+										<TextBlock FontSize="12" Foreground="{ThemeResource TextFillColorSecondaryBrush}">
+											<Run Text="{x:Bind Timestamp}"/>
+											<Run Text=" • "/>
+											<Run Text="{x:Bind TargetDriveLetter}"/>
+											<Run Text="{x:Bind TargetDriveLabel}"/>
+										</TextBlock>
+									</StackPanel>
+									<StackPanel Grid.Column="2" HorizontalAlignment="Right" Spacing="2">
+										<TextBlock Text="{x:Bind BytesTransferred, Converter={StaticResource BytesToSizeConverter}}" HorizontalAlignment="Right" FontFamily="Consolas"/>
+										<TextBlock HorizontalAlignment="Right" FontSize="12" Foreground="{ThemeResource TextFillColorSecondaryBrush}">
+											<Run Text="Rs "/>
+											<Run Text="{x:Bind Amount}"/>
+										</TextBlock>
+									</StackPanel>
+								</Grid>
+							</DataTemplate>
+						</ListView.ItemTemplate>
+					</ListView>
+					<StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Spacing="8"
+								Visibility="{x:Bind ViewModel.HasNoRecords, Converter={StaticResource BoolToVisibilityConverter}, Mode=OneWay}">
+						<FontIcon Glyph="&#xE81C;" FontSize="40" Foreground="{ThemeResource TextFillColorTertiaryBrush}"/>
+						<TextBlock Text="No transfers match your filters" HorizontalAlignment="Center" Foreground="{ThemeResource TextFillColorSecondaryBrush}"/>
+						<Button Content="Clear filters" HorizontalAlignment="Center" Command="{x:Bind ViewModel.ClearFiltersCommand}"/>
+					</StackPanel>
+				</Grid>
             </SplitView.Content>
 
             <SplitView.Pane>

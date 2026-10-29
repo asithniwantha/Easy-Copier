@@ -98,6 +98,14 @@ namespace Easy_Copier.ViewModels
         [ObservableProperty]
         public partial string SearchQuery { get; set; } = string.Empty;
 
+        /// <summary>Gets or sets the header subtitle summarizing results and filters.</summary>
+        [ObservableProperty]
+        public partial string HeaderSubtitle { get; set; } = string.Empty;
+
+        /// <summary>Gets or sets a value indicating whether the filtered list is empty.</summary>
+        [ObservableProperty]
+        public partial bool HasNoRecords { get; set; }
+
         /// <summary>
         /// Gets the available date filter options for UI selection.
         /// </summary>
@@ -422,6 +430,17 @@ namespace Easy_Copier.ViewModels
 
             SelectedFilterStats = _historyAnalysisService.CalculateStats(sortedRecords);
             StatusMessage = $"Showing {sortedRecords.Count} records.";
+            HasNoRecords = sortedRecords.Count == 0;
+            HeaderSubtitle = $"{sortedRecords.Count} transfer(s) • {SelectedDateFilterString} • {SelectedStatusFilterString}";
+        }
+
+        /// <summary>Resets the date, status and search filters to defaults.</summary>
+        [RelayCommand]
+        private void ClearFilters()
+        {
+            SearchQuery = string.Empty;
+            SelectedStatusFilterString = DefaultStatusFilterStrings[0];
+            SelectedDateFilterString = DefaultDateFilterStrings[3];
         }
 
         /// <summary>
