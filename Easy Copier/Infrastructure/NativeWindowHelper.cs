@@ -385,6 +385,7 @@ namespace Easy_Copier.Infrastructure
             }
 
             InitializeWindow(window, width, height);
+            window.SystemBackdrop ??= new Microsoft.UI.Xaml.Media.MicaBackdrop();
             ShowAsModal(window, owner);
 
             // Ensure cleanup on close

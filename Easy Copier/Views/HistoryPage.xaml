@@ -8,6 +8,7 @@
     xmlns:controls="using:CommunityToolkit.WinUI.UI.Controls"
     xmlns:viewmodels="using:Easy_Copier.ViewModels"
     xmlns:converters="using:Easy_Copier.Converters"
+    xmlns:models="using:Easy_Copier.Models"
     mc:Ignorable="d">
 
     <Page.Resources>
@@ -45,6 +46,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/> <!-- Title -->
             <RowDefinition Height="Auto"/> <!-- KPI Cards -->
+            <RowDefinition Height="Auto"/> <!-- Dashboard -->
             <RowDefinition Height="Auto"/> <!-- Filter Bar -->
             <RowDefinition Height="*"/>    <!-- Grid Area (with drawer) -->
         </Grid.RowDefinitions>
@@ -90,7 +92,81 @@
         </Grid>
 
         <!-- Top Filter Bar -->
-        <Grid Grid.Row="2" Margin="0,0,0,16">
+        <Border Grid.Row="2" Margin="0,0,0,16" Padding="16" CornerRadius="8"
+                Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
+                BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}" BorderThickness="1"
+                Visibility="{x:Bind ViewModel.IsDashboardVisible, Converter={StaticResource BoolToVisibilityConverter}, Mode=OneWay}">
+            <StackPanel Spacing="12">
+                <Grid>
+                    <TextBlock Text="Dashboard" Style="{ThemeResource SubtitleTextBlockStyle}"/>
+                    <ComboBox HorizontalAlignment="Right" Width="150"
+                              ItemsSource="{x:Bind ViewModel.DashboardRangeOptions}"
+                              SelectedItem="{x:Bind ViewModel.SelectedDashboardRange, Mode=TwoWay}"/>
+                </Grid>
+                <Grid ColumnSpacing="24">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Spacing="4">
+                        <TextBlock Text="Daily volume" Style="{ThemeResource CaptionTextBlockStyle}" Foreground="{ThemeResource TextFillColorSecondaryBrush}"/>
+                        <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Disabled">
+                            <ItemsControl ItemsSource="{x:Bind ViewModel.DailyTotals, Mode=OneWay}">
+                                <ItemsControl.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <StackPanel Orientation="Horizontal" Spacing="4"/>
+                                    </ItemsPanelTemplate>
+                                </ItemsControl.ItemsPanel>
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate x:DataType="models:PeriodTotal">
+                                        <Grid Width="36" Height="130">
+                                            <Rectangle Height="{x:Bind BarHeight}" RadiusX="3" RadiusY="3"
+                                                       VerticalAlignment="Bottom" Fill="{ThemeResource AccentFillColorDefaultBrush}"/>
+                                        </Grid>
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
+                        </ScrollViewer>
+                    </StackPanel>
+                    <StackPanel Grid.Column="1" Spacing="4">
+                        <TextBlock Text="Failure rate" Style="{ThemeResource CaptionTextBlockStyle}" Foreground="{ThemeResource TextFillColorSecondaryBrush}"/>
+                        <TextBlock Text="{x:Bind ViewModel.FailureRateText, Mode=OneWay}" Style="{ThemeResource TitleTextBlockStyle}" Foreground="{ThemeResource SystemFillColorCriticalBrush}"/>
+                        <TextBlock Text="Weekly totals" Style="{ThemeResource CaptionTextBlockStyle}" Foreground="{ThemeResource TextFillColorSecondaryBrush}" Margin="0,8,0,0"/>
+                        <ItemsControl ItemsSource="{x:Bind ViewModel.WeeklyTotals, Mode=OneWay}">
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate x:DataType="models:PeriodTotal">
+                                    <TextBlock FontSize="12">
+                                        <Run Text="{x:Bind Label}"/>
+                                        <Run Text=": "/>
+                                        <Run Text="{x:Bind TotalItems}"/>
+                                        <Run Text=" items, "/>
+                                        <Run Text="{x:Bind FailedItems}"/>
+                                        <Run Text=" failed"/>
+                                    </TextBlock>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                    </StackPanel>
+                    <StackPanel Grid.Column="2" Spacing="4">
+                        <TextBlock Text="Most copied" Style="{ThemeResource CaptionTextBlockStyle}" Foreground="{ThemeResource TextFillColorSecondaryBrush}"/>
+                        <ItemsControl ItemsSource="{x:Bind ViewModel.TopItems, Mode=OneWay}">
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate x:DataType="models:TopCopiedItem">
+                                    <TextBlock FontSize="12" TextTrimming="CharacterEllipsis">
+                                        <Run Text="{x:Bind CopyCount}" FontWeight="SemiBold"/>
+                                        <Run Text="x "/>
+                                        <Run Text="{x:Bind Name}"/>
+                                    </TextBlock>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                    </StackPanel>
+                </Grid>
+            </StackPanel>
+        </Border>
+
+        <Grid Grid.Row="3" Margin="0,0,0,16">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="Auto"/>
@@ -117,6 +193,14 @@
                       SelectedItem="{x:Bind ViewModel.SelectedStatusFilterString, Mode=TwoWay}"
                       Width="120" Margin="0,0,12,0" VerticalAlignment="Bottom"/>
 
+            <Button Grid.Column="3" HorizontalAlignment="Right" Margin="0,0,12,0" VerticalAlignment="Bottom"
+                    Command="{x:Bind ViewModel.ToggleDashboardCommand}">
+                <StackPanel Orientation="Horizontal" Spacing="8">
+                    <FontIcon Glyph="&#xE9D2;" FontSize="14"/>
+                    <TextBlock Text="Dashboard"/>
+                </StackPanel>
+            </Button>
+
             <Button Grid.Column="4"
                     Command="{x:Bind ViewModel.ExportToCsvCommand}"
                     VerticalAlignment="Bottom">
@@ -128,7 +212,7 @@
         </Grid>
 
         <!-- Main Grid & SplitView Drawer -->
-        <SplitView Grid.Row="3"
+        <SplitView Grid.Row="4"
                    IsPaneOpen="{x:Bind ViewModel.IsDrawerOpen, Mode=TwoWay}"
                    DisplayMode="Overlay"
                    PanePlacement="Right"

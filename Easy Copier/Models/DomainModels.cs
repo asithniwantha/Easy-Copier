@@ -468,4 +468,46 @@ namespace Easy_Copier.Models
     /// <param name="TotalAmount">The cumulative monetary amount charged.</param>
     /// <param name="SuccessRate">The calculated success rate percentage string.</param>
     public record HistoryStats(int TotalItems, int SuccessfulItems, long TotalBytes, int TotalAmount, string SuccessRate);
+
+    /// <summary>
+    /// Represents aggregated totals for a single reporting period (day or week).
+    /// </summary>
+    /// <param name="Label">The display label of the period.</param>
+    /// <param name="TotalItems">The number of transfers in the period.</param>
+    /// <param name="FailedItems">The number of failed transfers in the period.</param>
+    /// <param name="TotalBytes">The bytes transferred in the period.</param>
+    /// <param name="BarRatio">The bar length relative to the largest period (0.0 to 1.0).</param>
+    public record PeriodTotal(string Label, int TotalItems, int FailedItems, long TotalBytes, double BarRatio)
+    {
+        /// <summary>
+        /// Gets the failure rate percentage (0 to 100) for the period.
+        /// </summary>
+        public double FailureRate => TotalItems == 0 ? 0 : (double)FailedItems / TotalItems * 100;
+
+        /// <summary>
+        /// Gets the bar height in device-independent pixels for chart rendering.
+        /// </summary>
+        public double BarHeight => Math.Max(2, BarRatio * 120);
+    }
+
+    /// <summary>
+    /// Represents an item ranked by the number of times it was copied.
+    /// </summary>
+    /// <param name="Name">The item name.</param>
+    /// <param name="CopyCount">The number of copy operations.</param>
+    /// <param name="TotalBytes">The cumulative bytes transferred.</param>
+    public record TopCopiedItem(string Name, int CopyCount, long TotalBytes);
+
+    /// <summary>
+    /// Represents dashboard reporting data for a time range.
+    /// </summary>
+    /// <param name="DailyTotals">Per-day totals ordered oldest to newest.</param>
+    /// <param name="WeeklyTotals">Per-week totals ordered oldest to newest.</param>
+    /// <param name="TopItems">Most-copied items, descending.</param>
+    /// <param name="OverallFailureRate">The failure rate percentage across the range.</param>
+    public record DashboardStats(
+        IReadOnlyList<PeriodTotal> DailyTotals,
+        IReadOnlyList<PeriodTotal> WeeklyTotals,
+        IReadOnlyList<TopCopiedItem> TopItems,
+        double OverallFailureRate);
 }

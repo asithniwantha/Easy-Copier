@@ -160,6 +160,89 @@ namespace Easy_Copier.ViewModels
         private static readonly string[] DefaultStatusFilterStrings = ["All", "Completed", "Failed"];
 
         /// <summary>
+        /// Gets the available dashboard range options.
+        /// </summary>
+        public IReadOnlyList<string> DashboardRangeOptions { get; } = ["Last 7 Days", "Last 30 Days", "Last 90 Days"];
+
+        /// <summary>
+        /// Gets or sets the selected dashboard range option.
+        /// </summary>
+        [ObservableProperty]
+        public partial string SelectedDashboardRange { get; set; } = "Last 7 Days";
+
+        /// <summary>
+        /// Gets or sets the dashboard reporting data for the selected range.
+        /// </summary>
+        [ObservableProperty]
+        public partial DashboardStats? Dashboard { get; set; }
+
+        /// <summary>
+        /// Gets or sets the daily totals shown in the dashboard chart.
+        /// </summary>
+        [ObservableProperty]
+        public partial ObservableCollection<PeriodTotal> DailyTotals { get; set; } = [];
+
+        /// <summary>
+        /// Gets or sets the weekly totals shown in the dashboard.
+        /// </summary>
+        [ObservableProperty]
+        public partial ObservableCollection<PeriodTotal> WeeklyTotals { get; set; } = [];
+
+        /// <summary>
+        /// Gets or sets the most-copied items shown in the dashboard.
+        /// </summary>
+        [ObservableProperty]
+        public partial ObservableCollection<TopCopiedItem> TopItems { get; set; } = [];
+
+        /// <summary>
+        /// Gets or sets the overall failure rate text for the dashboard range.
+        /// </summary>
+        [ObservableProperty]
+        public partial string FailureRateText { get; set; } = "0%";
+
+        /// <summary>
+        /// Gets or sets a value indicating whether the dashboard panel is visible.
+        /// </summary>
+        [ObservableProperty]
+        public partial bool IsDashboardVisible { get; set; }
+
+        /// <summary>
+        /// Partial notification handler invoked when <see cref="SelectedDashboardRange"/> changes.
+        /// </summary>
+        partial void OnSelectedDashboardRangeChanged(string value) => RefreshDashboard();
+
+        /// <summary>
+        /// Toggles dashboard visibility.
+        /// </summary>
+        [RelayCommand]
+        private void ToggleDashboard() => IsDashboardVisible = !IsDashboardVisible;
+
+        /// <summary>
+        /// Recomputes dashboard data from all loaded records.
+        /// </summary>
+        private void RefreshDashboard()
+        {
+            if (!_isInitialized)
+            {
+                return;
+            }
+
+            int days = SelectedDashboardRange switch
+            {
+                "Last 30 Days" => 30,
+                "Last 90 Days" => 90,
+                _ => 7
+            };
+
+            DashboardStats stats = _historyAnalysisService.BuildDashboard(_allRecords, days);
+            Dashboard = stats;
+            DailyTotals.UpdateFrom(stats.DailyTotals);
+            WeeklyTotals.UpdateFrom(stats.WeeklyTotals);
+            TopItems.UpdateFrom(stats.TopItems);
+            FailureRateText = $"{Math.Round(stats.OverallFailureRate, 1)}%";
+        }
+
+        /// <summary>
         /// Initializes a new instance of the <see cref="HistoryViewModel"/> class.
         /// </summary>
         /// <param name="copyHistoryService">The copy history service used to query past transfer records.</param>
@@ -201,6 +284,7 @@ namespace Easy_Copier.ViewModels
             _allRecords = records;
             _isInitialized = true;
             ApplyFilters();
+            RefreshDashboard();
         }
 
         /// <summary>
