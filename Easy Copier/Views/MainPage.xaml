@@ -317,59 +317,57 @@
 
                     <Grid Grid.Row="3" Margin="0,8,0,8">
                         <!-- Empty State -->
-                        <TextBlock Text="No items selected"
-                                   FontWeight="SemiBold"
-                                   VerticalAlignment="Center"
-                                   Visibility="{x:Bind ViewModel.HasSelectedGames, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}, ConverterParameter=Invert}"/>
+                        <Border Background="{ThemeResource ControlFillColorSecondaryBrush}" CornerRadius="8" Padding="12,10"
+                                Visibility="{x:Bind ViewModel.HasSelectedGames, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}, ConverterParameter=Invert}">
+                            <StackPanel Orientation="Horizontal" Spacing="8" VerticalAlignment="Center" Opacity="0.7">
+                                <FontIcon Glyph="&#xE73A;" FontSize="16"/>
+                                <TextBlock Text="No items selected" VerticalAlignment="Center"/>
+                            </StackPanel>
+                        </Border>
 
                         <!-- Highlighted Card State -->
                         <Grid Visibility="{x:Bind ViewModel.HasSelectedGames, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}">
                             <!-- Background Tint Border (15% opacity accent) -->
-                            <Border Background="{ThemeResource SystemAccentColor}" Opacity="0.15" CornerRadius="4"/>
+                            <Border Background="{ThemeResource AccentFillColorDefaultBrush}" Opacity="0.12" CornerRadius="8"/>
                             <!-- Stroke Border (1px accent) -->
-                            <Border BorderBrush="{ThemeResource SystemAccentColor}" BorderThickness="1" CornerRadius="4" Padding="8,4">
-                                <StackPanel Orientation="Horizontal" Spacing="8" VerticalAlignment="Center">
-                                    <!-- Status Emoji/Icon -->
-                                    <TextBlock Text="🟢" VerticalAlignment="Center"/>
+                            <Border BorderBrush="{ThemeResource AccentFillColorDefaultBrush}" BorderThickness="1" CornerRadius="8" Padding="12,10">
+                                <Grid ColumnSpacing="12">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                    </Grid.ColumnDefinitions>
 
-                                    <!-- Count Badge / Chip -->
-                                    <Border Background="{ThemeResource SystemAccentColor}" CornerRadius="12" Padding="8,2" VerticalAlignment="Center">
-                                        <TextBlock Foreground="{ThemeResource TextOnAccentFillColorPrimaryBrush}"
-                                                   FontWeight="SemiBold"
-                                                   FontSize="12"
-                                                   VerticalAlignment="Center">
-                                            <Run Text="{x:Bind ViewModel.SelectedGamesCount, Mode=OneWay}"/>
-                                            <Run Text="Selected"/>
-                                        </TextBlock>
+                                    <Border Grid.Column="0" Background="{ThemeResource AccentFillColorDefaultBrush}" CornerRadius="14"
+                                            MinWidth="28" Height="28" Padding="8,0" VerticalAlignment="Center">
+                                        <TextBlock Text="{x:Bind ViewModel.SelectedGamesCount, Mode=OneWay}"
+                                                   Foreground="{ThemeResource TextOnAccentFillColorPrimaryBrush}"
+                                                   FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                                     </Border>
 
-                                    <!-- Size Highlighter -->
-                                    <StackPanel Orientation="Horizontal" Spacing="4" VerticalAlignment="Center" Margin="8,0,0,0">
-                                        <TextBlock Text="💾" VerticalAlignment="Center"/>
-                                        <TextBlock Text="{x:Bind ViewModel.SelectedGamesTotalBytes, Mode=OneWay, Converter={StaticResource BytesToSizeConverter}}"
-                                                   FontFamily="Consolas"
-                                                   FontWeight="Bold"
-                                                   VerticalAlignment="Center"/>
+                                    <StackPanel Grid.Column="1" VerticalAlignment="Center">
+                                        <TextBlock Text="Selected" FontSize="11" Foreground="{ThemeResource TextFillColorSecondaryBrush}"/>
+                                        <StackPanel Orientation="Horizontal" Spacing="6">
+                                            <FontIcon Glyph="&#xE7F1;" FontSize="14" VerticalAlignment="Center"/>
+                                            <TextBlock Text="{x:Bind ViewModel.SelectedGamesTotalBytes, Mode=OneWay, Converter={StaticResource BytesToSizeConverter}}"
+                                                       FontFamily="Consolas" FontWeight="Bold" VerticalAlignment="Center"/>
+                                        </StackPanel>
                                     </StackPanel>
 
-                                    <TextBlock Text="•" Opacity="0.5" VerticalAlignment="Center" Margin="4,0"/>
-
-                                    <!-- Price Highlighter -->
-                                    <StackPanel Orientation="Horizontal" Spacing="4" VerticalAlignment="Center">
-                                        <TextBlock Text="🏷️" VerticalAlignment="Center"/>
-                                        <TextBlock FontFamily="Consolas"
-                                                   FontWeight="Bold"
-                                                   VerticalAlignment="Center">
+                                    <StackPanel Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Right">
+                                        <TextBlock Text="Total" FontSize="11" HorizontalAlignment="Right" Foreground="{ThemeResource TextFillColorSecondaryBrush}"/>
+                                        <TextBlock FontFamily="Consolas" FontWeight="Bold" FontSize="16"
+                                                   Foreground="{ThemeResource AccentTextFillColorPrimaryBrush}">
                                             <Run Text="Rs."/>
                                             <Run Text="{x:Bind ViewModel.SelectedGamesTotalPrice, Mode=OneWay}"/>
                                         </TextBlock>
                                     </StackPanel>
-                                </StackPanel>
+                                </Grid>
                             </Border>
                         </Grid>
                     </Grid>
 
-                                        <Grid Grid.Row="4" Margin="0,0,0,8" Visibility="{x:Bind ViewModel.IsOsImagesTabActive, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}, ConverterParameter=Invert}">
+                                        <Grid Grid.Row="4"
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*"/>
                             <ColumnDefinition Width="Auto"/>
