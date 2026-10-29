@@ -58,5 +58,20 @@ namespace Easy_Copier.Infrastructure
             Point? position = sender is FrameworkElement fe && e != null ? e.GetPosition(fe) : null;
             s_flyoutService?.ShowOsImageDetailsFlyout(sender, position);
         }
+
+        /// <summary>
+        /// Displays the film/TV details flyout when right-tapping a video card.
+        /// </summary>
+        /// <param name="sender">The framework element triggering the right-tap.</param>
+        /// <param name="e">The right-tapped routed event args.</param>
+        /// <returns>A task that represents the asynchronous flyout display operation.</returns>
+        public static async Task ShowVideoDetailsFlyoutAsync(object sender, RightTappedRoutedEventArgs e)
+        {
+            Point? position = sender is FrameworkElement fe && e != null ? e.GetPosition(fe) : null;
+            if (s_flyoutService != null)
+            {
+                await s_flyoutService.ShowVideoDetailsFlyoutAsync(sender, position);
+            }
+        }
     }
 }

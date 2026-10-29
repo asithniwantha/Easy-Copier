@@ -26,6 +26,11 @@ namespace Easy_Copier.Infrastructure
         private readonly Func<OsImageDetailsViewModel> _osImageDetailsViewModelFactory;
 
         /// <summary>
+        /// Factory delegate for creating instances of <see cref="VideoDetailsViewModel"/>.
+        /// </summary>
+        private readonly Func<VideoDetailsViewModel> _videoDetailsViewModelFactory;
+
+        /// <summary>
         /// Service for retrieving and formatting system requirements for games.
         /// </summary>
         private readonly IGameRequirementsService _gameRequirementsService;
@@ -40,16 +45,19 @@ namespace Easy_Copier.Infrastructure
         /// </summary>
         /// <param name="gameDetailsViewModelFactory">Factory delegate for resolving <see cref="GameDetailsViewModel"/> instances.</param>
         /// <param name="osImageDetailsViewModelFactory">Factory delegate for resolving <see cref="OsImageDetailsViewModel"/> instances.</param>
+        /// <param name="videoDetailsViewModelFactory">Factory delegate for resolving <see cref="VideoDetailsViewModel"/> instances.</param>
         /// <param name="gameRequirementsService">Service for retrieving and formatting game system requirements.</param>
         /// <param name="processService">Service for launching applications and opening folders in File Explorer.</param>
         public FlyoutService(
             Func<GameDetailsViewModel> gameDetailsViewModelFactory,
             Func<OsImageDetailsViewModel> osImageDetailsViewModelFactory,
+            Func<VideoDetailsViewModel> videoDetailsViewModelFactory,
             IGameRequirementsService gameRequirementsService,
             IProcessService processService)
         {
             _gameDetailsViewModelFactory = gameDetailsViewModelFactory ?? throw new ArgumentNullException(nameof(gameDetailsViewModelFactory));
             _osImageDetailsViewModelFactory = osImageDetailsViewModelFactory ?? throw new ArgumentNullException(nameof(osImageDetailsViewModelFactory));
+            _videoDetailsViewModelFactory = videoDetailsViewModelFactory ?? throw new ArgumentNullException(nameof(videoDetailsViewModelFactory));
             _gameRequirementsService = gameRequirementsService ?? throw new ArgumentNullException(nameof(gameRequirementsService));
             _processService = processService ?? throw new ArgumentNullException(nameof(processService));
         }
@@ -96,8 +104,24 @@ namespace Easy_Copier.Infrastructure
             PresentFlyout(fe, position, osImageFlyout, null);
         }
 
+        /// <inheritdoc />
+        public async Task ShowVideoDetailsFlyoutAsync(object sender, Point? position)
+        {
+            if (sender is not FrameworkElement fe || fe.DataContext is not GameEntry entry)
+            {
+                return;
+            }
+
+            VideoDetailsViewModel videoVm = _videoDetailsViewModelFactory();
+            Views.VideoDetailsFlyout videoFlyout = new(videoVm);
+
+            // Show immediately, then fill in the file list so large folders don't delay the flyout.
+            PresentFlyout(fe, position, videoFlyout, null);
+            await videoVm.InitializeAsync(entry.Name, entry.FolderPath);
+        }
+
         /// <summary>
-        /// Displays a WinUI flyout anchored to the specified framework element with optional placement coordinates and presenter styling.
+        /// Displays a WinUI flyout anchored
         /// </summary>
         /// <param name="targetElement">The target element to anchor the flyout to.</param>
         /// <param name="position">Optional coordinates relative to the target element for flyout placement.</param>

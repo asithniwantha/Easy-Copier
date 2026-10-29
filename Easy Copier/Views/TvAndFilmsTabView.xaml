@@ -27,7 +27,10 @@
                     </Grid.RowDefinitions>
 
                     <Grid Grid.Row="0" Background="{ThemeResource CardStrokeColorDefaultBrush}"
-                          CornerRadius="4">
+                          CornerRadius="4"
+                          PointerEntered="CoverArea_PointerEntered"
+                          PointerExited="CoverArea_PointerExited"
+                          PointerCanceled="CoverArea_PointerExited">
                         <Image Source="{x:Bind CoverImagePath, Converter={StaticResource PathToImageSourceConverter}}" Stretch="UniformToFill"
                                Visibility="{x:Bind HasCover, Converter={StaticResource BoolToVisibilityConverter}}"/>
                         <FontIcon Glyph="&#xE7FC;" FontSize="48" Opacity="0.4"
