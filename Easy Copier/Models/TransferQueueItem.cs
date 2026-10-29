@@ -127,6 +127,19 @@ namespace Easy_Copier.Models
         };
 
         /// <summary>
+        /// Gets a short human-readable label for the current status.
+        /// </summary>
+        public string StatusLabel => Status switch
+        {
+            TransferQueueItemStatus.Queued => "Queued",
+            TransferQueueItemStatus.InProgress => "Copying",
+            TransferQueueItemStatus.Completed => "Completed",
+            TransferQueueItemStatus.Failed => "Failed",
+            TransferQueueItemStatus.Cancelled => "Cancelled",
+            _ => string.Empty
+        };
+
+        /// <summary>
         /// Gets a value indicating whether this item is currently queued or in progress.
         /// </summary>
         public bool IsActive => Status is TransferQueueItemStatus.Queued or TransferQueueItemStatus.InProgress;
@@ -138,6 +151,7 @@ namespace Easy_Copier.Models
         partial void OnStatusChanged(TransferQueueItemStatus value)
         {
             OnPropertyChanged(nameof(StatusGlyph));
+            OnPropertyChanged(nameof(StatusLabel));
             OnPropertyChanged(nameof(IsActive));
         }
     }

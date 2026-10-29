@@ -9,6 +9,35 @@ using System;
 namespace Easy_Copier.Converters
 {
     /// <summary>
+    /// Converts a <see cref="TransferQueueItemStatus"/> to an accent brush reflecting the status.
+    /// </summary>
+    public class QueueStatusToBrushConverter : IValueConverter
+    {
+        /// <inheritdoc />
+        public object Convert(object value, Type targetType, object parameter, string language)
+        {
+            string key = value is TransferQueueItemStatus status
+                ? status switch
+                {
+                    TransferQueueItemStatus.InProgress => "AccentFillColorDefaultBrush",
+                    TransferQueueItemStatus.Completed => "SystemFillColorSuccessBrush",
+                    TransferQueueItemStatus.Failed => "SystemFillColorCriticalBrush",
+                    TransferQueueItemStatus.Cancelled => "SystemFillColorCautionBrush",
+                    _ => "TextFillColorTertiaryBrush"
+                }
+                : "TextFillColorTertiaryBrush";
+
+            return Application.Current.Resources[key];
+        }
+
+        /// <inheritdoc />
+        public object ConvertBack(object value, Type targetType, object parameter, string language)
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    /// <summary>
     /// Converts a <see cref="LibraryCategory"/> enum value to a UI <see cref="Visibility"/> status,
     /// returning <see cref="Visibility.Visible"/> if the category is <see cref="LibraryCategory.Game"/>.
     /// </summary>
