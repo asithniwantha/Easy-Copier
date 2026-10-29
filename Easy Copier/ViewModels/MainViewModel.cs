@@ -457,7 +457,28 @@ namespace Easy_Copier.ViewModels
             _driveDiscoveryService.DrivesChanged += OnDrivesChanged;
             _transferQueueService.ItemCompleted += OnQueueItemCompleted;
             _transferQueueService.BatchCompleted += OnBatchCompleted;
+            TransferQueue.CollectionChanged += (_, _) =>
+            {
+                OnPropertyChanged(nameof(HasQueueItems));
+                OnPropertyChanged(nameof(IsQueueEmpty));
+                OnPropertyChanged(nameof(QueueCount));
+            };
         }
+
+        /// <summary>
+        /// Gets a value indicating whether the transfer queue has any items.
+        /// </summary>
+        public bool HasQueueItems => TransferQueue.Count > 0;
+
+        /// <summary>
+        /// Gets a value indicating whether the transfer queue is empty.
+        /// </summary>
+        public bool IsQueueEmpty => TransferQueue.Count == 0;
+
+        /// <summary>
+        /// Gets the number of items in the transfer queue.
+        /// </summary>
+        public int QueueCount => TransferQueue.Count;
 
         private bool IsDisposed => Volatile.Read(ref _isDisposed) != 0;
 

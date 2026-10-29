@@ -67,6 +67,8 @@
 - Play sound notifications (success/failure) when an entire drive's queue batch completes. Toggleable via settings.
 - Generate and export detailed reports (e.g., CSV) for completed and failed operations.
 - Automatically track transfer metrics like operation timestamps and destination details.
+- History dashboard (toggle in History window): daily volume bar chart, weekly totals, most-copied items, and failure rate over 7/30/90 days via `IHistoryAnalysisService.BuildDashboard`.
+- Fluent polish: Mica backdrop on modal windows, staggered entrance/reposition transitions on all library grids and the transfer queue, rounded tile containers, card-style queue items, and History redesign: card-style transfer list (replacing the DataGrid), pill-style Completed/Failed badges, icon KPI cards, header subtitle with active filters, Clear filters button and an empty state.
 
 ## ⚙️ Settings and Persistence
 - Manage source folders for Games, Apps, and Media (add/remove).
@@ -140,7 +142,7 @@
 - [ ] Add automatic best-fit suggestions based on selected drive free space.
 - [x] Add duplicate detection across source libraries with cleanup recommendations.
 - [ ] Add retry and resume support for transient copy failures.
-- [ ] Add advanced reporting dashboards (daily/weekly totals, most-copied items, and failure-rate trends).
+- [x] Add advanced reporting dashboards (daily/weekly totals, most-copied items, and failure-rate trends).
 - [ ] Add portable backup/restore for settings, price tiers, source folders, and library cache metadata.
 - [ ] Add pause and resume capabilities for active transfers.
 - [ ] Add speed throttling for copy operations to limit maximum disk read/write speeds.

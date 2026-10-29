@@ -9,6 +9,7 @@
     <converters:PathToImageSourceConverter x:Key="PathToImageSourceConverter"/>
     <converters:GameSizeToPriceConverter x:Key="GameSizeToPriceConverter"/>
     <converters:GameCategoryToVisibilityConverter x:Key="GameCategoryToVisibilityConverter"/>
+    <converters:QueueStatusToBrushConverter x:Key="QueueStatusToBrushConverter"/>
 
     <SolidColorBrush x:Key="AppAccentBrush" Color="#0078D4"/>
     <SolidColorBrush x:Key="AppSuccessBrush" Color="#107C10"/>
@@ -25,6 +26,27 @@
         <Setter Property="BorderThickness" Value="1"/>
         <Setter Property="BorderBrush" Value="{ThemeResource CardStrokeColorDefaultBrush}"/>
         <Setter Property="Padding" Value="12"/>
+    </Style>
+
+    <Style x:Key="LibraryGridViewItemStyle" TargetType="GridViewItem" BasedOn="{StaticResource DefaultGridViewItemStyle}">
+        <Setter Property="Margin" Value="4"/>
+        <Setter Property="CornerRadius" Value="{StaticResource DefaultCornerRadius}"/>
+        <Setter Property="Transitions">
+            <Setter.Value>
+                <TransitionCollection>
+                    <RepositionThemeTransition/>
+                </TransitionCollection>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="QueueCardStyle" TargetType="Border">
+        <Setter Property="Background" Value="{ThemeResource CardBackgroundFillColorDefaultBrush}"/>
+        <Setter Property="BorderBrush" Value="{ThemeResource CardStrokeColorDefaultBrush}"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="CornerRadius" Value="8"/>
+        <Setter Property="Padding" Value="12"/>
+        <Setter Property="Margin" Value="0,0,20,8"/>
     </Style>
 
     <Style x:Key="SectionHeaderStyle" TargetType="TextBlock">

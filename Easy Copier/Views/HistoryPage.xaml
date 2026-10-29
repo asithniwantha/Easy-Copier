@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Page
     x:Class="Easy_Copier.Views.HistoryPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
@@ -8,6 +8,7 @@
     xmlns:controls="using:CommunityToolkit.WinUI.UI.Controls"
     xmlns:viewmodels="using:Easy_Copier.ViewModels"
     xmlns:converters="using:Easy_Copier.Converters"
+    xmlns:models="using:Easy_Copier.Models"
     mc:Ignorable="d">
 
     <Page.Resources>
@@ -17,27 +18,22 @@
         <converters:NullToVisibilityConverter x:Key="NullToVisibilityConverter"/>
 
         <DataTemplate x:Key="StatusBadgeTemplate">
-            <Border Padding="6,2" CornerRadius="4"
-                    HorizontalAlignment="Left" VerticalAlignment="Center">
-                <Border.Style>
-                    <Style TargetType="Border">
-                        <Setter Property="Background" Value="{ThemeResource SystemFillColorSuccessBrush}"/>
-                        <Setter Property="Opacity" Value="0.2"/>
-                    </Style>
-                </Border.Style>
-                <StackPanel Orientation="Horizontal" Spacing="4">
-                    <FontIcon Glyph="&#xE73E;" FontSize="12" Foreground="{ThemeResource SystemFillColorSuccessBrush}" Visibility="{Binding IsSuccess}"/>
-                    <FontIcon Glyph="&#xE711;" FontSize="12" Foreground="{ThemeResource SystemFillColorCriticalBrush}" Visibility="{Binding IsSuccess, Converter={StaticResource BoolToVisibilityConverter}, ConverterParameter=Invert}"/>
-                    <TextBlock Text="{Binding IsSuccess, Converter={StaticResource BoolToStringConverter}, ConverterParameter='Completed|Failed'}"
-                               FontSize="12" FontWeight="SemiBold">
-                        <TextBlock.Style>
-                            <Style TargetType="TextBlock">
-                                <Setter Property="Foreground" Value="{ThemeResource SystemFillColorSuccessBrush}"/>
-                            </Style>
-                        </TextBlock.Style>
-                    </TextBlock>
-                </StackPanel>
-            </Border>
+            <Grid HorizontalAlignment="Left" VerticalAlignment="Center">
+                <Border Padding="8,3" CornerRadius="10" Background="{ThemeResource SystemFillColorSuccessBackgroundBrush}"
+                        Visibility="{Binding IsSuccess}">
+                    <StackPanel Orientation="Horizontal" Spacing="4">
+                        <FontIcon Glyph="&#xE73E;" FontSize="11" Foreground="{ThemeResource SystemFillColorSuccessBrush}"/>
+                        <TextBlock Text="Completed" FontSize="12" FontWeight="SemiBold" Foreground="{ThemeResource SystemFillColorSuccessBrush}"/>
+                    </StackPanel>
+                </Border>
+                <Border Padding="8,3" CornerRadius="10" Background="{ThemeResource SystemFillColorCriticalBackgroundBrush}"
+                        Visibility="{Binding IsSuccess, Converter={StaticResource BoolToVisibilityConverter}, ConverterParameter=Invert}">
+                    <StackPanel Orientation="Horizontal" Spacing="4">
+                        <FontIcon Glyph="&#xE711;" FontSize="11" Foreground="{ThemeResource SystemFillColorCriticalBrush}"/>
+                        <TextBlock Text="Failed" FontSize="12" FontWeight="SemiBold" Foreground="{ThemeResource SystemFillColorCriticalBrush}"/>
+                    </StackPanel>
+                </Border>
+            </Grid>
         </DataTemplate>
     </Page.Resources>
 
@@ -45,11 +41,15 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/> <!-- Title -->
             <RowDefinition Height="Auto"/> <!-- KPI Cards -->
+            <RowDefinition Height="Auto"/> <!-- Dashboard -->
             <RowDefinition Height="Auto"/> <!-- Filter Bar -->
             <RowDefinition Height="*"/>    <!-- Grid Area (with drawer) -->
         </Grid.RowDefinitions>
 
-        <TextBlock Text="Transfer History" Style="{ThemeResource TitleTextBlockStyle}" Margin="0,0,0,16"/>
+        <Grid Margin="0,0,0,16"><Grid.ColumnDefinitions><ColumnDefinition Width="*"/><ColumnDefinition Width="Auto"/></Grid.ColumnDefinitions><StackPanel>
+            <TextBlock Text="Transfer History" Style="{ThemeResource TitleTextBlockStyle}"/>
+            <TextBlock Text="{x:Bind ViewModel.HeaderSubtitle, Mode=OneWay}" Style="{ThemeResource BodyTextBlockStyle}" Foreground="{ThemeResource TextFillColorSecondaryBrush}"/>
+        </StackPanel><StackPanel Grid.Column="1" Orientation="Horizontal" Spacing="8" VerticalAlignment="Center"><Button Command="{x:Bind ViewModel.ToggleDashboardCommand}"><StackPanel Orientation="Horizontal" Spacing="8"><FontIcon Glyph="&#xE9D2;" FontSize="14"/><TextBlock Text="Dashboard"/></StackPanel></Button><Button Command="{x:Bind ViewModel.ExportToCsvCommand}"><StackPanel Orientation="Horizontal" Spacing="8"><FontIcon Glyph="&#xE74E;" FontSize="14"/><TextBlock Text="Export CSV"/></StackPanel></Button></StackPanel></Grid>
 
         <!-- Top KPI Cards -->
         <Grid Grid.Row="1" Margin="0,0,0,24">
@@ -61,7 +61,7 @@
 
             <Border Grid.Column="0" Background="{ThemeResource CardBackgroundFillColorDefaultBrush}" BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}" BorderThickness="1" CornerRadius="8" Padding="16" Margin="0,0,8,0">
                 <StackPanel>
-                    <TextBlock Text="Total Revenue" Style="{ThemeResource CaptionTextBlockStyle}" Foreground="{ThemeResource TextFillColorSecondaryBrush}"/>
+                    <StackPanel Orientation="Horizontal" Spacing="6"><FontIcon Glyph="&#xE8C7;" FontSize="14" Foreground="{ThemeResource AccentTextFillColorPrimaryBrush}"/><TextBlock Text="Total Revenue" Style="{ThemeResource CaptionTextBlockStyle}" Foreground="{ThemeResource TextFillColorSecondaryBrush}"/></StackPanel>
                     <TextBlock Style="{ThemeResource TitleTextBlockStyle}" FontWeight="Bold" Margin="0,4,0,0">
                         <Run Text="Rs "/>
                         <Run Text="{x:Bind ViewModel.SelectedFilterStats.TotalAmount, Mode=OneWay}"/>
@@ -71,7 +71,7 @@
 
             <Border Grid.Column="1" Background="{ThemeResource CardBackgroundFillColorDefaultBrush}" BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}" BorderThickness="1" CornerRadius="8" Padding="16" Margin="8,0,8,0">
                 <StackPanel>
-                    <TextBlock Text="Total Volume" Style="{ThemeResource CaptionTextBlockStyle}" Foreground="{ThemeResource TextFillColorSecondaryBrush}"/>
+                    <StackPanel Orientation="Horizontal" Spacing="6"><FontIcon Glyph="&#xE8B7;" FontSize="14" Foreground="{ThemeResource AccentTextFillColorPrimaryBrush}"/><TextBlock Text="Total Volume" Style="{ThemeResource CaptionTextBlockStyle}" Foreground="{ThemeResource TextFillColorSecondaryBrush}"/></StackPanel>
                     <TextBlock Style="{ThemeResource TitleTextBlockStyle}" FontWeight="Bold" Margin="0,4,0,0">
                         <Run Text="{x:Bind ViewModel.SelectedFilterStats.TotalItems, Mode=OneWay}"/>
                         <Run Text=" items (" FontSize="14" Foreground="{ThemeResource TextFillColorSecondaryBrush}"/>
@@ -83,14 +83,90 @@
 
             <Border Grid.Column="2" Background="{ThemeResource CardBackgroundFillColorDefaultBrush}" BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}" BorderThickness="1" CornerRadius="8" Padding="16" Margin="8,0,0,0">
                 <StackPanel>
-                    <TextBlock Text="Success Rate" Style="{ThemeResource CaptionTextBlockStyle}" Foreground="{ThemeResource TextFillColorSecondaryBrush}"/>
+                    <StackPanel Orientation="Horizontal" Spacing="6"><FontIcon Glyph="&#xE73E;" FontSize="14" Foreground="{ThemeResource AccentTextFillColorPrimaryBrush}"/><TextBlock Text="Success Rate" Style="{ThemeResource CaptionTextBlockStyle}" Foreground="{ThemeResource TextFillColorSecondaryBrush}"/></StackPanel>
                     <TextBlock Text="{x:Bind ViewModel.SelectedFilterStats.SuccessRate, Mode=OneWay}" Style="{ThemeResource TitleTextBlockStyle}" FontWeight="Bold" Foreground="{ThemeResource SystemFillColorSuccessBrush}" Margin="0,4,0,0"/>
                 </StackPanel>
             </Border>
         </Grid>
 
         <!-- Top Filter Bar -->
-        <Grid Grid.Row="2" Margin="0,0,0,16">
+        <Border Grid.Row="2" Margin="0,0,0,16" Padding="16" CornerRadius="8"
+                Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
+                BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}" BorderThickness="1"
+                Visibility="{x:Bind ViewModel.IsDashboardVisible, Converter={StaticResource BoolToVisibilityConverter}, Mode=OneWay}">
+            <StackPanel Spacing="12">
+                <Grid>
+                    <TextBlock Text="Dashboard" Style="{ThemeResource SubtitleTextBlockStyle}"/>
+                    <ComboBox HorizontalAlignment="Right" Width="150" ToolTipService.ToolTip="Dashboard time range"
+                              ItemsSource="{x:Bind ViewModel.DashboardRangeOptions}"
+                              SelectedItem="{x:Bind ViewModel.SelectedDashboardRange, Mode=TwoWay}"/>
+                </Grid>
+                <Grid ColumnSpacing="24">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Spacing="4">
+                        <TextBlock Text="Daily volume" Style="{ThemeResource CaptionTextBlockStyle}" Foreground="{ThemeResource TextFillColorSecondaryBrush}"/>
+                        <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Disabled">
+                            <ItemsControl ItemsSource="{x:Bind ViewModel.DailyTotals, Mode=OneWay}">
+                                <ItemsControl.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <StackPanel Orientation="Horizontal" Spacing="4"/>
+                                    </ItemsPanelTemplate>
+                                </ItemsControl.ItemsPanel>
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate x:DataType="models:PeriodTotal">
+                                        <Grid Width="36" Height="130">
+                                            <Rectangle Height="{x:Bind BarHeight}" RadiusX="3" RadiusY="3"
+                                                       VerticalAlignment="Bottom" Fill="{ThemeResource AccentFillColorDefaultBrush}"/>
+                                        </Grid>
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
+                        </ScrollViewer>
+                    </StackPanel>
+                    <StackPanel Grid.Column="1" Spacing="4">
+                        <TextBlock Text="Failure rate" Style="{ThemeResource CaptionTextBlockStyle}" Foreground="{ThemeResource TextFillColorSecondaryBrush}"/>
+                        <TextBlock Text="{x:Bind ViewModel.FailureRateText, Mode=OneWay}" Style="{ThemeResource TitleTextBlockStyle}" Foreground="{ThemeResource SystemFillColorCriticalBrush}"/>
+                        <TextBlock Text="Weekly totals" Style="{ThemeResource CaptionTextBlockStyle}" Foreground="{ThemeResource TextFillColorSecondaryBrush}" Margin="0,8,0,0"/>
+                        <ItemsControl ItemsSource="{x:Bind ViewModel.WeeklyTotals, Mode=OneWay}">
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate x:DataType="models:PeriodTotal">
+                                    <TextBlock FontSize="12">
+                                        <Run Text="{x:Bind Label}"/>
+                                        <Run Text=": "/>
+                                        <Run Text="{x:Bind TotalItems}"/>
+                                        <Run Text=" items, "/>
+                                        <Run Text="{x:Bind FailedItems}"/>
+                                        <Run Text=" failed"/>
+                                    </TextBlock>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                    </StackPanel>
+                    <StackPanel Grid.Column="2" Spacing="4">
+                        <TextBlock Text="Most copied" Style="{ThemeResource CaptionTextBlockStyle}" Foreground="{ThemeResource TextFillColorSecondaryBrush}"/>
+                        <ItemsControl ItemsSource="{x:Bind ViewModel.TopItems, Mode=OneWay}">
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate x:DataType="models:TopCopiedItem">
+                                    <TextBlock FontSize="12" TextTrimming="CharacterEllipsis">
+                                        <Run Text="{x:Bind CopyCount}" FontWeight="SemiBold"/>
+                                        <Run Text="x "/>
+                                        <Run Text="{x:Bind Name}"/>
+                                    </TextBlock>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                    </StackPanel>
+                </Grid>
+            </StackPanel>
+        </Border>
+
+        <Grid Grid.Row="3" Margin="0,0,0,16" Padding="16,12" CornerRadius="8"
+              Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
+              BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}" BorderThickness="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="Auto"/>
@@ -117,66 +193,68 @@
                       SelectedItem="{x:Bind ViewModel.SelectedStatusFilterString, Mode=TwoWay}"
                       Width="120" Margin="0,0,12,0" VerticalAlignment="Bottom"/>
 
-            <Button Grid.Column="4"
-                    Command="{x:Bind ViewModel.ExportToCsvCommand}"
-                    VerticalAlignment="Bottom">
-                <StackPanel Orientation="Horizontal" Spacing="8">
-                    <FontIcon Glyph="&#xE74E;" FontSize="14"/>
-                    <TextBlock Text="Export CSV"/>
-                </StackPanel>
-            </Button>
+            <Button Grid.Column="2" HorizontalAlignment="Right" Margin="130,0,0,0" VerticalAlignment="Bottom" Content="Clear" ToolTipService.ToolTip="Reset search and filters" Command="{x:Bind ViewModel.ClearFiltersCommand}"/>
+
+            
         </Grid>
 
         <!-- Main Grid & SplitView Drawer -->
-        <SplitView Grid.Row="3"
+        <SplitView Grid.Row="4"
                    IsPaneOpen="{x:Bind ViewModel.IsDrawerOpen, Mode=TwoWay}"
                    DisplayMode="Overlay"
                    PanePlacement="Right"
                    OpenPaneLength="350">
             <SplitView.Content>
-                <controls:DataGrid ItemsSource="{x:Bind ViewModel.Records, Mode=OneWay}"
-                                   SelectedItem="{x:Bind ViewModel.SelectedRecord, Mode=TwoWay}"
-                                   AutoGenerateColumns="False"
-                                   CanUserSortColumns="True"
-                                   HeadersVisibility="Column"
-                                   GridLinesVisibility="Horizontal"
-                                   IsReadOnly="True"
-                                   AlternatingRowBackground="{ThemeResource LayerFillColorAltBrush}">
-                    <controls:DataGrid.Columns>
-                        <!-- Left-aligned textual data -->
-                        <controls:DataGridTemplateColumn Header="Status" Width="100" CellTemplate="{StaticResource StatusBadgeTemplate}"/>
-                        <controls:DataGridTextColumn Header="Date &amp; Time" Binding="{Binding Timestamp}" Width="160"/>
-                        <controls:DataGridTextColumn Header="Game / Item" Binding="{Binding GameName}" Width="250"/>
-                        <controls:DataGridTextColumn Header="Drive" Binding="{Binding TargetDriveLetter}" Width="60"/>
-                        <controls:DataGridTextColumn Header="Label" Binding="{Binding TargetDriveLabel}" Width="120"/>
-
-                        <!-- Right-aligned numerical data -->
-                        <controls:DataGridTextColumn Header="Size" Binding="{Binding BytesTransferred, Converter={StaticResource BytesToSizeConverter}}" Width="90">
-                            <controls:DataGridTextColumn.ElementStyle>
-                                <Style TargetType="TextBlock">
-                                    <Setter Property="HorizontalAlignment" Value="Right"/>
-                                    <Setter Property="FontFamily" Value="Consolas, Courier New, monospace"/>
-                                </Style>
-                            </controls:DataGridTextColumn.ElementStyle>
-                        </controls:DataGridTextColumn>
-                        <controls:DataGridTextColumn Header="Amount" Binding="{Binding Amount}" Width="80">
-                            <controls:DataGridTextColumn.ElementStyle>
-                                <Style TargetType="TextBlock">
-                                    <Setter Property="HorizontalAlignment" Value="Right"/>
-                                    <Setter Property="FontFamily" Value="Consolas, Courier New, monospace"/>
-                                </Style>
-                            </controls:DataGridTextColumn.ElementStyle>
-                        </controls:DataGridTextColumn>
-                        <controls:DataGridTextColumn Header="Batch Total" Binding="{Binding BatchAmount}" Width="90">
-                            <controls:DataGridTextColumn.ElementStyle>
-                                <Style TargetType="TextBlock">
-                                    <Setter Property="HorizontalAlignment" Value="Right"/>
-                                    <Setter Property="FontFamily" Value="Consolas, Courier New, monospace"/>
-                                </Style>
-                            </controls:DataGridTextColumn.ElementStyle>
-                        </controls:DataGridTextColumn>
-                    </controls:DataGrid.Columns>
-                </controls:DataGrid>
+				<Grid>
+					<ListView ItemsSource="{x:Bind ViewModel.Records, Mode=OneWay}"
+							  SelectedItem="{x:Bind ViewModel.SelectedRecord, Mode=TwoWay}"
+							  SelectionMode="Single">
+						<ListView.ItemContainerStyle>
+							<Style TargetType="ListViewItem">
+								<Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+								<Setter Property="Margin" Value="0,0,0,6"/>
+								<Setter Property="Padding" Value="0"/>
+							</Style>
+						</ListView.ItemContainerStyle>
+						<ListView.ItemTemplate>
+							<DataTemplate x:DataType="models:CopyHistoryRecord">
+								<Grid Padding="16,12" ColumnSpacing="16"
+									  Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
+									  BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
+									  BorderThickness="1" CornerRadius="8">
+									<Grid.ColumnDefinitions>
+										<ColumnDefinition Width="120"/>
+										<ColumnDefinition Width="*"/>
+										<ColumnDefinition Width="Auto"/>
+									</Grid.ColumnDefinitions>
+									<ContentControl Content="{x:Bind}" ContentTemplate="{StaticResource StatusBadgeTemplate}" VerticalAlignment="Center"/>
+									<StackPanel Grid.Column="1" Spacing="2">
+										<TextBlock Text="{x:Bind GameName}" FontWeight="SemiBold" TextTrimming="CharacterEllipsis"/>
+										<TextBlock FontSize="12" Foreground="{ThemeResource TextFillColorSecondaryBrush}">
+											<Run Text="{x:Bind Timestamp}"/>
+											<Run Text=" • "/>
+											<Run Text="{x:Bind TargetDriveLetter}"/>
+											<Run Text="{x:Bind TargetDriveLabel}"/>
+										</TextBlock>
+									</StackPanel>
+									<StackPanel Grid.Column="2" HorizontalAlignment="Right" Spacing="2">
+										<TextBlock Text="{x:Bind BytesTransferred, Converter={StaticResource BytesToSizeConverter}}" HorizontalAlignment="Right" FontFamily="Consolas"/>
+										<TextBlock HorizontalAlignment="Right" FontSize="12" Foreground="{ThemeResource TextFillColorSecondaryBrush}">
+											<Run Text="Rs "/>
+											<Run Text="{x:Bind Amount}"/>
+										</TextBlock>
+									</StackPanel>
+								</Grid>
+							</DataTemplate>
+						</ListView.ItemTemplate>
+					</ListView>
+					<StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Spacing="8"
+								Visibility="{x:Bind ViewModel.HasNoRecords, Converter={StaticResource BoolToVisibilityConverter}, Mode=OneWay}">
+						<FontIcon Glyph="&#xE81C;" FontSize="40" Foreground="{ThemeResource TextFillColorTertiaryBrush}"/>
+						<TextBlock Text="No transfers match your filters" HorizontalAlignment="Center" Foreground="{ThemeResource TextFillColorSecondaryBrush}"/>
+						<Button Content="Clear filters" HorizontalAlignment="Center" Command="{x:Bind ViewModel.ClearFiltersCommand}"/>
+					</StackPanel>
+				</Grid>
             </SplitView.Content>
 
             <SplitView.Pane>

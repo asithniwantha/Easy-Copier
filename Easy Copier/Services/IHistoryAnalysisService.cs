@@ -20,5 +20,14 @@ namespace Easy_Copier.Services
         /// <param name="records">The sequence of history records to analyze.</param>
         /// <returns>A <see cref="HistoryStats"/> summary containing transfer metrics.</returns>
         HistoryStats CalculateStats(IEnumerable<CopyHistoryRecord> records);
+
+        /// <summary>
+        /// Builds dashboard reporting data (daily/weekly totals, most-copied items, failure rates) for the trailing range.
+        /// </summary>
+        /// <param name="records">The history records to analyze.</param>
+        /// <param name="rangeDays">The number of trailing days to include.</param>
+        /// <param name="topCount">The maximum number of most-copied items to return.</param>
+        /// <returns>A <see cref="DashboardStats"/> instance.</returns>
+        DashboardStats BuildDashboard(IEnumerable<CopyHistoryRecord> records, int rangeDays, int topCount = 5);
     }
 }

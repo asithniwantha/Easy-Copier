@@ -215,40 +215,84 @@
                                 <ColumnDefinition Width="Auto"/>
                                 <ColumnDefinition Width="Auto"/>
                             </Grid.ColumnDefinitions>
-                            <TextBlock Grid.Column="0" Text="Transfer Queue" FontWeight="SemiBold"/>
-                            <Button Grid.Column="1" Content="Clear Finished"
-                                    Command="{x:Bind ViewModel.ClearFinishedQueueItemsCommand}"
-                                    FontSize="12" Padding="8,4"/>
+                            <StackPanel Grid.Column="0" Orientation="Horizontal" Spacing="8" VerticalAlignment="Center">
+                                <FontIcon Glyph="&#xE896;" FontSize="16" Foreground="{ThemeResource AccentTextFillColorPrimaryBrush}"/>
+                                <TextBlock Text="Transfer Queue" Style="{ThemeResource BodyStrongTextBlockStyle}"/>
+                                <Border Background="{ThemeResource AccentFillColorDefaultBrush}" CornerRadius="10" Padding="7,1"
+                                        Visibility="{x:Bind ViewModel.HasQueueItems, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}">
+                                    <TextBlock Text="{x:Bind ViewModel.QueueCount, Mode=OneWay}" FontSize="11" FontWeight="SemiBold"
+                                               Foreground="{ThemeResource TextOnAccentFillColorPrimaryBrush}"/>
+                                </Border>
+                            </StackPanel>
+                            <Button Grid.Column="1" Command="{x:Bind ViewModel.ClearFinishedQueueItemsCommand}"
+                                    Style="{StaticResource SubtleButtonStyle}" Padding="8,4"
+                                    ToolTipService.ToolTip="Clear completed and failed items">
+                                <StackPanel Orientation="Horizontal" Spacing="6">
+                                    <FontIcon Glyph="&#xE74D;" FontSize="12"/>
+                                    <TextBlock Text="Clear finished" FontSize="12"/>
+                                </StackPanel>
+                            </Button>
                         </Grid>
+
+                        <StackPanel Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Spacing="8" Opacity="0.7"
+                                    Visibility="{x:Bind ViewModel.IsQueueEmpty, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}">
+                            <FontIcon Glyph="&#xE896;" FontSize="40" HorizontalAlignment="Center"/>
+                            <TextBlock Text="Your queue is empty" Style="{ThemeResource BodyStrongTextBlockStyle}" HorizontalAlignment="Center"/>
+                            <TextBlock Text="Select items and choose Add to Copy Queue" FontSize="12" TextWrapping="Wrap"
+                                       TextAlignment="Center" MaxWidth="220"/>
+                        </StackPanel>
 
                         <ScrollViewer Grid.Row="2">
                             <ItemsControl ItemsSource="{x:Bind ViewModel.TransferQueue, Mode=OneWay}">
+                                <ItemsControl.ItemContainerTransitions>
+                                    <TransitionCollection>
+                                        <EntranceThemeTransition IsStaggeringEnabled="True"/>
+                                        <RepositionThemeTransition/>
+                                    </TransitionCollection>
+                                </ItemsControl.ItemContainerTransitions>
                                 <ItemsControl.ItemTemplate>
                                     <DataTemplate x:DataType="models:TransferQueueItem">
-                                        <Border Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
-                                                BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
-                                                BorderThickness="1"
-                                                CornerRadius="4" Padding="8" Margin="0,0,20,8">
+                                        <Border Style="{StaticResource QueueCardStyle}" Padding="0">
                                             <Grid>
                                                 <Grid.ColumnDefinitions>
-                                                    <ColumnDefinition Width="Auto"/>
+                                                    <ColumnDefinition Width="4"/>
                                                     <ColumnDefinition Width="*"/>
                                                 </Grid.ColumnDefinitions>
 
-                                                <FontIcon Grid.Column="0" Glyph="{x:Bind StatusGlyph, Mode=OneWay}"
-                                                          FontSize="16" Margin="0,2,8,0" VerticalAlignment="Top"/>
+                                                <Border Grid.Column="0" CornerRadius="8,0,0,8"
+                                                        Background="{x:Bind Status, Mode=OneWay, Converter={StaticResource QueueStatusToBrushConverter}}"/>
 
-                                                <StackPanel Grid.Column="1" Spacing="2">
-                                                    <TextBlock Text="{x:Bind ItemsSummary}" FontWeight="SemiBold"
-                                                               TextTrimming="CharacterEllipsis"/>
-                                                    <TextBlock FontSize="12" Opacity="0.7">
-                                                        <Run Text="{x:Bind TargetDrive.DriveLetter}"/>
-                                                        <Run Text="•"/>
-                                                        <Run Text="{x:Bind TotalBytes, Converter={StaticResource BytesToSizeConverter}}"/>
-                                                        <Run Text="•"/>
-                                                        <Run Text="Rs."/>
-                                                        <Run Text="{x:Bind TotalPrice}"/>
-                                                    </TextBlock>
+                                                <StackPanel Grid.Column="1" Spacing="6" Padding="12">
+                                                    <Grid>
+                                                        <Grid.ColumnDefinitions>
+                                                            <ColumnDefinition Width="*"/>
+                                                            <ColumnDefinition Width="Auto"/>
+                                                        </Grid.ColumnDefinitions>
+                                                        <TextBlock Text="{x:Bind ItemsSummary}" Style="{ThemeResource BodyStrongTextBlockStyle}"
+                                                                   TextTrimming="CharacterEllipsis" VerticalAlignment="Center"/>
+                                                        <StackPanel Grid.Column="1" Orientation="Horizontal" Spacing="4" Margin="8,0,0,0">
+                                                            <FontIcon Glyph="{x:Bind StatusGlyph, Mode=OneWay}" FontSize="12"
+                                                                      Foreground="{x:Bind Status, Mode=OneWay, Converter={StaticResource QueueStatusToBrushConverter}}"/>
+                                                            <TextBlock Text="{x:Bind StatusLabel, Mode=OneWay}" FontSize="12" FontWeight="SemiBold"
+                                                                       Foreground="{x:Bind Status, Mode=OneWay, Converter={StaticResource QueueStatusToBrushConverter}}"/>
+                                                        </StackPanel>
+                                                    </Grid>
+
+                                                    <StackPanel Orientation="Horizontal" Spacing="6">
+                                                        <Border Background="{ThemeResource ControlFillColorSecondaryBrush}" CornerRadius="4" Padding="6,1">
+                                                            <TextBlock Text="{x:Bind TargetDrive.DriveLetter}" FontSize="11"/>
+                                                        </Border>
+                                                        <Border Background="{ThemeResource ControlFillColorSecondaryBrush}" CornerRadius="4" Padding="6,1">
+                                                            <TextBlock Text="{x:Bind TotalBytes, Converter={StaticResource BytesToSizeConverter}}" FontSize="11"/>
+                                                        </Border>
+                                                        <Border Background="{ThemeResource ControlFillColorSecondaryBrush}" CornerRadius="4" Padding="6,1">
+                                                            <TextBlock FontSize="11">
+                                                                <Run Text="Rs."/>
+                                                                <Run Text="{x:Bind TotalPrice}"/>
+                                                            </TextBlock>
+                                                        </Border>
+                                                    </StackPanel>
+
                                                     <TextBlock Text="{x:Bind StatusMessage, Mode=OneWay}"
                                                                FontSize="12" Opacity="0.7" TextWrapping="Wrap"/>
 
@@ -258,7 +302,7 @@
                                                             <ColumnDefinition Width="Auto"/>
                                                             <ColumnDefinition Width="Auto"/>
                                                         </Grid.ColumnDefinitions>
-                                                        <ProgressBar Grid.Column="0" Minimum="0" Maximum="100" Value="{x:Bind ProgressPercentage, Mode=OneWay}" VerticalAlignment="Center" Margin="0,0,8,0" />
+                                                        <ProgressBar Grid.Column="0" Minimum="0" Maximum="100" Value="{x:Bind ProgressPercentage, Mode=OneWay}" VerticalAlignment="Center" Margin="0,0,8,0" CornerRadius="3" />
                                                         <TextBlock Grid.Column="1" Text="{x:Bind SpeedText, Mode=OneWay}" FontSize="11" Opacity="0.6" Margin="0,0,8,0" VerticalAlignment="Center" />
                                                         <TextBlock Grid.Column="2" Text="{x:Bind RemainingTimeText, Mode=OneWay}" FontSize="11" Opacity="0.6" VerticalAlignment="Center" />
                                                     </Grid>
@@ -273,54 +317,52 @@
 
                     <Grid Grid.Row="3" Margin="0,8,0,8">
                         <!-- Empty State -->
-                        <TextBlock Text="No items selected"
-                                   FontWeight="SemiBold"
-                                   VerticalAlignment="Center"
-                                   Visibility="{x:Bind ViewModel.HasSelectedGames, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}, ConverterParameter=Invert}"/>
+                        <Border Background="{ThemeResource ControlFillColorSecondaryBrush}" CornerRadius="8" Padding="12,10"
+                                Visibility="{x:Bind ViewModel.HasSelectedGames, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}, ConverterParameter=Invert}">
+                            <StackPanel Orientation="Horizontal" Spacing="8" VerticalAlignment="Center" Opacity="0.7">
+                                <FontIcon Glyph="&#xE73A;" FontSize="16"/>
+                                <TextBlock Text="No items selected" VerticalAlignment="Center"/>
+                            </StackPanel>
+                        </Border>
 
                         <!-- Highlighted Card State -->
                         <Grid Visibility="{x:Bind ViewModel.HasSelectedGames, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}">
                             <!-- Background Tint Border (15% opacity accent) -->
-                            <Border Background="{ThemeResource SystemAccentColor}" Opacity="0.15" CornerRadius="4"/>
+                            <Border Background="{ThemeResource AccentFillColorDefaultBrush}" Opacity="0.12" CornerRadius="8"/>
                             <!-- Stroke Border (1px accent) -->
-                            <Border BorderBrush="{ThemeResource SystemAccentColor}" BorderThickness="1" CornerRadius="4" Padding="8,4">
-                                <StackPanel Orientation="Horizontal" Spacing="8" VerticalAlignment="Center">
-                                    <!-- Status Emoji/Icon -->
-                                    <TextBlock Text="🟢" VerticalAlignment="Center"/>
+                            <Border BorderBrush="{ThemeResource AccentFillColorDefaultBrush}" BorderThickness="1" CornerRadius="8" Padding="12,10">
+                                <Grid ColumnSpacing="12">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                    </Grid.ColumnDefinitions>
 
-                                    <!-- Count Badge / Chip -->
-                                    <Border Background="{ThemeResource SystemAccentColor}" CornerRadius="12" Padding="8,2" VerticalAlignment="Center">
-                                        <TextBlock Foreground="{ThemeResource TextOnAccentFillColorPrimaryBrush}"
-                                                   FontWeight="SemiBold"
-                                                   FontSize="12"
-                                                   VerticalAlignment="Center">
-                                            <Run Text="{x:Bind ViewModel.SelectedGamesCount, Mode=OneWay}"/>
-                                            <Run Text="Selected"/>
-                                        </TextBlock>
+                                    <Border Grid.Column="0" Background="{ThemeResource AccentFillColorDefaultBrush}" CornerRadius="14"
+                                            MinWidth="28" Height="28" Padding="8,0" VerticalAlignment="Center">
+                                        <TextBlock Text="{x:Bind ViewModel.SelectedGamesCount, Mode=OneWay}"
+                                                   Foreground="{ThemeResource TextOnAccentFillColorPrimaryBrush}"
+                                                   FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                                     </Border>
 
-                                    <!-- Size Highlighter -->
-                                    <StackPanel Orientation="Horizontal" Spacing="4" VerticalAlignment="Center" Margin="8,0,0,0">
-                                        <TextBlock Text="💾" VerticalAlignment="Center"/>
-                                        <TextBlock Text="{x:Bind ViewModel.SelectedGamesTotalBytes, Mode=OneWay, Converter={StaticResource BytesToSizeConverter}}"
-                                                   FontFamily="Consolas"
-                                                   FontWeight="Bold"
-                                                   VerticalAlignment="Center"/>
+                                    <StackPanel Grid.Column="1" VerticalAlignment="Center">
+                                        <TextBlock Text="Selected" FontSize="11" Foreground="{ThemeResource TextFillColorSecondaryBrush}"/>
+                                        <StackPanel Orientation="Horizontal" Spacing="6">
+                                            <FontIcon Glyph="&#xE7F1;" FontSize="14" VerticalAlignment="Center"/>
+                                            <TextBlock Text="{x:Bind ViewModel.SelectedGamesTotalBytes, Mode=OneWay, Converter={StaticResource BytesToSizeConverter}}"
+                                                       FontFamily="Consolas" FontWeight="Bold" VerticalAlignment="Center"/>
+                                        </StackPanel>
                                     </StackPanel>
 
-                                    <TextBlock Text="•" Opacity="0.5" VerticalAlignment="Center" Margin="4,0"/>
-
-                                    <!-- Price Highlighter -->
-                                    <StackPanel Orientation="Horizontal" Spacing="4" VerticalAlignment="Center">
-                                        <TextBlock Text="🏷️" VerticalAlignment="Center"/>
-                                        <TextBlock FontFamily="Consolas"
-                                                   FontWeight="Bold"
-                                                   VerticalAlignment="Center">
+                                    <StackPanel Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Right">
+                                        <TextBlock Text="Total" FontSize="11" HorizontalAlignment="Right" Foreground="{ThemeResource TextFillColorSecondaryBrush}"/>
+                                        <TextBlock FontFamily="Consolas" FontWeight="Bold" FontSize="16"
+                                                   Foreground="{ThemeResource AccentTextFillColorPrimaryBrush}">
                                             <Run Text="Rs."/>
                                             <Run Text="{x:Bind ViewModel.SelectedGamesTotalPrice, Mode=OneWay}"/>
                                         </TextBlock>
                                     </StackPanel>
-                                </StackPanel>
+                                </Grid>
                             </Border>
                         </Grid>
                     </Grid>
