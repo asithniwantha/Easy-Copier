@@ -644,6 +644,20 @@ namespace Easy_Copier.ViewModels
         }
 
         /// <summary>
+        /// Cancels and disposes the specified cancellation token source if non-null, setting its reference to <c>null</c>.
+        /// </summary>
+        /// <param name="cts">A reference to the cancellation token source variable.</param>
+        private static void CancelAndDisposeTokenSource(ref CancellationTokenSource? cts)
+        {
+            if (cts != null)
+            {
+                cts.Cancel();
+                cts.Dispose();
+                cts = null;
+            }
+        }
+
+        /// <summary>
         /// Determines whether any source library folders are configured in settings.
         /// </summary>
         /// <param name="settings">The application settings to evaluate.</param>
@@ -660,11 +674,7 @@ namespace Easy_Copier.ViewModels
         {
             try
             {
-                if (_validationCancellationTokenSource != null)
-                {
-                    await _validationCancellationTokenSource.CancelAsync();
-                    _validationCancellationTokenSource.Dispose();
-                }
+                CancelAndDisposeTokenSource(ref _validationCancellationTokenSource);
                 _validationCancellationTokenSource = new CancellationTokenSource();
 
                 CacheValidationOutcome validationResult = await _libraryCacheService.ValidateCacheAsync(

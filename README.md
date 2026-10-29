@@ -213,3 +213,5 @@ Distributed under the MIT License. See `LICENSE` for more information.
 * Enhanced `MainViewModel.Dispose` lifecycle teardown to explicitly dispose child tab ViewModels (`GamesTabViewModel`, `AppsTabViewModel`, `TvAndFilmsTabViewModel`, `OsImagesTabViewModel`) and eliminate event handler memory leaks. 🧹
 * Streamlined `GameScannerService` file extension parsing into a clean, reusable static `ParseExtensionList` helper routine. ⚡
 * Refactored `HistoryViewModel` date and status record filtering to use strongly-typed `DateFilter` and `StatusFilter` enums with C# switch expressions, defaulting history view filter selection to "Today" and status filter to "All". 📈
+* Refactored selection aggregation in `MainPage.xaml.cs` to query `ILibraryTabView` contracts uniformly via `GetTabViews()`, eliminating direct property coupling to `OsImagesTab`. 🧩
+* Centralized `CancellationTokenSource` cancellation and disposal in `MainViewModel` using a dedicated `CancelAndDisposeTokenSource` helper routine. ⚡
