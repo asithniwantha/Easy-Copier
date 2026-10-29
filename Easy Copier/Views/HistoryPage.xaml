@@ -97,7 +97,7 @@
             <StackPanel Spacing="12">
                 <Grid>
                     <TextBlock Text="Dashboard" Style="{ThemeResource SubtitleTextBlockStyle}"/>
-                    <ComboBox HorizontalAlignment="Right" Width="150"
+                    <ComboBox HorizontalAlignment="Right" Width="150" ToolTipService.ToolTip="Dashboard time range"
                               ItemsSource="{x:Bind ViewModel.DashboardRangeOptions}"
                               SelectedItem="{x:Bind ViewModel.SelectedDashboardRange, Mode=TwoWay}"/>
                 </Grid>
@@ -164,7 +164,9 @@
             </StackPanel>
         </Border>
 
-        <Grid Grid.Row="3" Margin="0,0,0,16">
+        <Grid Grid.Row="3" Margin="0,0,0,16" Padding="16,12" CornerRadius="8"
+              Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
+              BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}" BorderThickness="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="Auto"/>
