@@ -129,6 +129,7 @@ namespace Easy_Copier.Views
             _previewCts = cts;
             _previewHost = coverGrid;
 
+            MediaPlayer? player = null;
             try
             {
                 await Task.Delay(PreviewDelayMs, cts.Token);
@@ -138,7 +139,7 @@ namespace Easy_Copier.Views
                     return;
                 }
 
-                MediaPlayer player = new()
+                player = new MediaPlayer
                 {
                     IsMuted = true,
                     IsLoopingEnabled = true,
@@ -156,6 +157,11 @@ namespace Easy_Copier.Views
                     }
                 };
 
+                if (cts.IsCancellationRequested)
+                {
+                    return;
+                }
+
                 // Uniform preserves the aspect ratio; UniformToFill rendered stretched here.
                 MediaPlayerElement element = new()
                 {
@@ -169,6 +175,7 @@ namespace Easy_Copier.Views
                 // Insert below the badge and open-folder button so they stay clickable.
                 coverGrid.Children.Insert(Math.Min(2, coverGrid.Children.Count), element);
                 _previewElement = element;
+                player = null;
             }
             catch (OperationCanceledException)
             {
@@ -177,6 +184,10 @@ namespace Easy_Copier.Views
             catch (Exception ex)
             {
                 System.Diagnostics.Debug.WriteLine($"Hover preview failed: {ex.Message}");
+            }
+            finally
+            {
+                player?.Dispose();
             }
         }
 
@@ -193,8 +204,12 @@ namespace Easy_Copier.Views
         /// </summary>
         private void StopPreview()
         {
-            _previewCts?.Cancel();
-            _previewCts = null;
+            if (_previewCts is not null)
+            {
+                _previewCts.Cancel();
+                _previewCts.Dispose();
+                _previewCts = null;
+            }
 
             if (_previewElement is not null)
             {
