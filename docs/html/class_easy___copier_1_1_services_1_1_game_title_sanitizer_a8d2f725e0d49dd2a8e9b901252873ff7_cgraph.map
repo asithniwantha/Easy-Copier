@@ -1,0 +1,7 @@
+<map id="Easy_Copier.Services.GameTitleSanitizer.StripEditions" name="Easy_Copier.Services.GameTitleSanitizer.StripEditions">
+<area shape="rect" id="Node000001" title="Strips common game edition keywords (e.g. &quot;Game of the Year Edition&quot;, &quot;Deluxe Edition&quot;,..." alt="" coords="5,39,196,81"/>
+<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_services_1_1_game_title_sanitizer.html#a87c1ca9ffee5561c51b2210f2ddc526c" title="Cleans multiple spaces and edge punctuation from a title string." alt="" coords="255,5,459,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="196,45,242,41,237,43,197,50"/>
+<area shape="rect" id="Node000003" href="$class_easy___copier_1_1_services_1_1_game_title_sanitizer.html#a196c4508abae750777564507bf1c456b" title="Regular expression matching common edition suffixes that should be stripped when falling back to base..." alt="" coords="244,72,470,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="196,70,231,76,226,77,196,75"/>
+</map>

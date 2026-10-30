@@ -1,0 +1,24 @@
+<map id="Easy_Copier.Services.GameTitleSanitizer.YearRegex" name="Easy_Copier.Services.GameTitleSanitizer.YearRegex">
+<area shape="rect" id="Node000001" title="Regular expression matching four&#45;digit years in parentheses or at word boundaries (e...." alt="" coords="1891,108,2082,151"/>
+<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_services_1_1_game_title_sanitizer.html#a29f16ffead5645872c81f0e36e485450" title="Generates a prioritized list of search candidate queries for a given raw game folder or title string." alt="" coords="1582,108,1843,151"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="1873,129,1844,132,1844,127,1878,129"/>
+<area shape="rect" id="Node000003" href="$class_easy___copier_1_1_services_1_1_game_info_download_service.html#a70b6fcb948e282bc1a6e12dcd149109c" title="Downloads cover image for a game from various online services (Steam, CheapShark, GOG,..." alt="" coords="986,79,1266,121"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="1564,122,1266,110,1266,104,1569,122"/>
+<area shape="rect" id="Node000007" href="$class_easy___copier_1_1_services_1_1_game_info_download_service.html#aeea730db504e9ee979c0426e61115c3e" title="Queries the Steam community app search, Steam store search, and CheapShark endpoints to accurately re..." alt="" coords="1314,133,1534,192"/>
+<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="1569,146,1535,153,1534,147,1564,146"/>
+<area shape="rect" id="Node000004" href="$class_easy___copier_1_1_services_1_1_game_info_download_service.html#a7c09a59fa448e293ccd9b43f09f70bb1" title="Downloads or refreshes cover art for a single game directory." alt="" coords="654,5,897,64"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="990,75,897,60,897,55,996,75"/>
+<area shape="rect" id="Node000005" href="$class_easy___copier_1_1_services_1_1_game_info_download_service.html#af3fe1293f4c696730a68c27dea54c094" title="Processes an individual game directory by fetching its requirements, cover image, and categories." alt="" coords="296,139,565,181"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="968,103,799,113,613,129,539,141,538,135,613,124,799,108,974,102"/>
+<area shape="rect" id="Node000006" href="$class_easy___copier_1_1_services_1_1_game_info_download_service.html#a7c0fa0c7bb4c787407ecee735a6d503e" title="Asynchronously scans the specified source folders and downloads system requirements,..." alt="" coords="5,131,248,189"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="277,161,248,163,248,157,283,159"/>
+<area shape="poly" id="edge9_Node000007_Node000003" title=" " alt="" coords="1296,136,1231,125,1231,119,1301,136"/>
+<area shape="rect" id="Node000008" href="$class_easy___copier_1_1_services_1_1_game_info_download_service.html#a40b2abb0052c08724a3c1ddd4ef72600" title="Downloads category information for a game and writes it to a categories.txt file within the game fold..." alt="" coords="622,139,929,181"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="1296,162,930,163,930,158,1301,162"/>
+<area shape="rect" id="Node000009" href="$class_easy___copier_1_1_services_1_1_game_info_download_service.html#ac41153caca406b8dd484dc3ec12ccb1a" title="Fetches minimum and recommended PC system requirements for a game from the Steam Store API." alt="" coords="1016,197,1236,256"/>
+<area shape="poly" id="edge10_Node000007_Node000009" title=" " alt="" coords="1301,189,1237,206,1236,200,1296,190"/>
+<area shape="poly" id="edge8_Node000008_Node000005" title=" " alt="" coords="604,160,566,163,565,157,609,160"/>
+<area shape="rect" id="Node000010" href="$class_easy___copier_1_1_services_1_1_game_info_download_service.html#ae4954ebc673dc477713190cddf334372" title="Downloads system requirements for a game from Steam Web API and saves them to system_requirements...." alt="" coords="613,205,938,248"/>
+<area shape="poly" id="edge11_Node000009_Node000010" title=" " alt="" coords="998,227,939,229,938,224,1003,227"/>
+<area shape="poly" id="edge12_Node000010_Node000005" title=" " alt="" coords="644,202,544,185,545,179,650,202"/>
+</map>

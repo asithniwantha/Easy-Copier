@@ -32,7 +32,7 @@
 <!-- Node2 -->
 <g id="Node000002" class="node">
 <title>Node2</title>
-<g id="a_Node000002"><a xlink:href="class_easy___copier_1_1_view_models_1_1_main_view_model.html#a195375d57bfc44705a42912953779fc8" target="_top" xlink:title=" ">
+<g id="a_Node000002"><a xlink:href="class_easy___copier_1_1_view_models_1_1_main_view_model.html#a195375d57bfc44705a42912953779fc8" target="_top" xlink:title="Opens the root directory of the selected drive in Windows File Explorer.">
 <polygon fill="white" stroke="#666666" points="157.75,-82 0,-82 0,-50 157.75,-50 157.75,-82"/>
 <text xml:space="preserve" text-anchor="start" x="8" y="-68.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.ViewModels.Main</text>
 <text xml:space="preserve" text-anchor="middle" x="78.88" y="-56.5" font-family="Helvetica,sans-Serif" font-size="10.00">ViewModel.OpenDriveInExplorer</text>
@@ -51,7 +51,7 @@
 <!-- Node3 -->
 <g id="Node000003" class="node">
 <title>Node3</title>
-<g id="a_Node000003"><a xlink:href="class_easy___copier_1_1_view_models_1_1_main_view_model.html#a63d690ccd06a437c3b6bcbb1855c1e50" target="_top" xlink:title=" ">
+<g id="a_Node000003"><a xlink:href="class_easy___copier_1_1_view_models_1_1_main_view_model.html#a63d690ccd06a437c3b6bcbb1855c1e50" target="_top" xlink:title="Opens the specified item folder path in Windows File Explorer.">
 <polygon fill="white" stroke="#666666" points="155.12,-32 2.62,-32 2.62,0 155.12,0 155.12,-32"/>
 <text xml:space="preserve" text-anchor="start" x="10.62" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.ViewModels.Main</text>
 <text xml:space="preserve" text-anchor="middle" x="78.88" y="-6.5" font-family="Helvetica,sans-Serif" font-size="10.00">ViewModel.OpenItemFolder</text>

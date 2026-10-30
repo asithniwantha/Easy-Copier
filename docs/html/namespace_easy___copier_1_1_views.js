@@ -14,5 +14,6 @@ var namespace_easy___copier_1_1_views =
     [ "SettingsWindow", "class_easy___copier_1_1_views_1_1_settings_window.html", "class_easy___copier_1_1_views_1_1_settings_window" ],
     [ "SmartAdderControl", "class_easy___copier_1_1_views_1_1_smart_adder_control.html", "class_easy___copier_1_1_views_1_1_smart_adder_control" ],
     [ "SmartAdderHistoryWindow", "class_easy___copier_1_1_views_1_1_smart_adder_history_window.html", "class_easy___copier_1_1_views_1_1_smart_adder_history_window" ],
-    [ "TvAndFilmsTabView", "class_easy___copier_1_1_views_1_1_tv_and_films_tab_view.html", "class_easy___copier_1_1_views_1_1_tv_and_films_tab_view" ]
+    [ "TvAndFilmsTabView", "class_easy___copier_1_1_views_1_1_tv_and_films_tab_view.html", "class_easy___copier_1_1_views_1_1_tv_and_films_tab_view" ],
+    [ "VideoDetailsFlyout", "class_easy___copier_1_1_views_1_1_video_details_flyout.html", "class_easy___copier_1_1_views_1_1_video_details_flyout" ]
 ];

@@ -47,7 +47,7 @@
   </g>
 </defs>
 <script type="application/ecmascript" xlink:href="svg.min.js"/>
-<svg id="graph" class="graph" data-view-width="565" data-view-height="52" data-section-id="dynsection-17">
+<svg id="graph" class="graph" data-view-width="565" data-view-height="52" data-section-id="dynsection-29">
 <g id="viewport">
 <title>Easy_Copier.ViewModels.MainViewModel.OnDrivesChanged</title>
 <!-- Node1 -->
@@ -83,7 +83,7 @@
 <!-- Node3 -->
 <g id="Node000003" class="node">
 <title>Node3</title>
-<g id="a_Node000003"><a xlink:href="class_easy___copier_1_1_view_models_1_1_main_view_model.html#a0a8ffb692e229ec60eb9a768920b42fc" target="_top" xlink:title=" ">
+<g id="a_Node000003"><a xlink:href="class_easy___copier_1_1_view_models_1_1_main_view_model.html#a0a8ffb692e229ec60eb9a768920b42fc" target="_top" xlink:title="Asynchronously queries connected removable storage devices and updates MainViewModel....">
 <polygon fill="white" stroke="#666666" points="556.5,-38 398.75,-38 398.75,-6 556.5,-6 556.5,-38"/>
 <text xml:space="preserve" text-anchor="start" x="406.75" y="-24.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.ViewModels.Main</text>
 <text xml:space="preserve" text-anchor="middle" x="477.62" y="-12.5" font-family="Helvetica,sans-Serif" font-size="10.00">ViewModel.RefreshDrivesAsync</text>

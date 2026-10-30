@@ -1,0 +1,33 @@
+<map id="Easy_Copier.Views.VideoDetailsFlyout.VideoDetailsFlyout_obj1_Bindings.VideoDetailsFlyout_obj1_BindingsTracking.TryGetBindingObject" name="Easy_Copier.Views.VideoDetailsFlyout.VideoDetailsFlyout_obj1_Bindings.VideoDetailsFlyout_obj1_BindingsTracking.TryGetBindingObject">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,352,290,427"/>
+<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_views_1_1_video_details_flyout_1_1_video_details_flyout__obj1___bindings3b595ad506db0af72f128bbaada2d7b6.html#a2c4735e8d2c4352c323d14b1a527df5f" title=" " alt="" coords="338,352,617,427"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="289,387,325,389,320,390,291,392"/>
+<area shape="rect" id="Node000012" href="$class_easy___copier_1_1_views_1_1_video_details_flyout_1_1_video_details_flyout__obj1___bindings.html#ad2a02cdf410121766ba89467ed93195b" title=" " alt="" coords="1347,467,1570,541"/>
+<area shape="poly" id="edge18_Node000001_Node000012" title=" " alt="" coords="281,425,338,436,475,455,614,470,890,490,1138,499,1334,505,1328,505,1138,505,890,495,614,475,474,460,337,441,281,430"/>
+<area shape="rect" id="Node000003" href="$class_easy___copier_1_1_views_1_1_video_details_flyout_1_1_video_details_flyout__obj1___bindings3b595ad506db0af72f128bbaada2d7b6.html#ad2347be212b3c1d173a326ca798146ab" title=" " alt="" coords="665,344,953,435"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="617,387,652,389,647,390,618,392"/>
+<area shape="rect" id="Node000004" href="$class_easy___copier_1_1_views_1_1_video_details_flyout_1_1_video_details_flyout__obj1___bindings3b595ad506db0af72f128bbaada2d7b6.html#a70aa176304a5f7eb2f95c79a2d58c321" title=" " alt="" coords="1001,261,1266,352"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="953,350,984,345,989,344,955,355"/>
+<area shape="poly" id="edge4_Node000004_Node000001" title=" " alt="" coords="998,304,863,306,697,311,517,322,338,343,295,351,293,346,337,337,517,317,697,306,863,301,1004,303"/>
+<area shape="rect" id="Node000005" href="$class_easy___copier_1_1_views_1_1_video_details_flyout_1_1_video_details_flyout__obj1___bindings.html#ae11fb98f11d63ca3bc3de7c9ae8015ed" title=" " alt="" coords="1345,269,1572,344"/>
+<area shape="poly" id="edge5_Node000004_Node000005" title=" " alt="" coords="1266,304,1332,306,1327,307,1266,309"/>
+<area shape="rect" id="Node000007" href="$class_easy___copier_1_1_views_1_1_video_details_flyout_1_1_video_details_flyout__obj1___bindings.html#acb314b9d232583b630b011f0906a3715" title=" " alt="" coords="1345,5,1572,80"/>
+<area shape="poly" id="edge7_Node000004_Node000007" title=" " alt="" coords="1161,259,1188,219,1223,174,1265,129,1312,90,1329,83,1333,80,1315,94,1269,133,1227,177,1192,222,1164,263"/>
+<area shape="rect" id="Node000009" href="$class_easy___copier_1_1_views_1_1_video_details_flyout_1_1_video_details_flyout__obj1___bindings.html#ad27fa408369538bb88a78894bd52a3e0" title=" " alt="" coords="1345,368,1572,443"/>
+<area shape="poly" id="edge9_Node000004_Node000009" title=" " alt="" coords="1266,344,1333,367,1328,366,1266,349"/>
+<area shape="rect" id="Node000010" href="$class_easy___copier_1_1_views_1_1_video_details_flyout_1_1_video_details_flyout__obj1___bindings.html#a2e14e0f4fc37aa8caf7c44cb7e96f8bc" title=" " alt="" coords="1314,104,1603,163"/>
+<area shape="poly" id="edge11_Node000004_Node000010" title=" " alt="" coords="1185,259,1244,214,1312,172,1323,170,1328,168,1315,177,1247,218,1188,263"/>
+<area shape="rect" id="Node000011" href="$class_easy___copier_1_1_views_1_1_video_details_flyout_1_1_video_details_flyout__obj1___bindings.html#a7e6e11b019c45268203ddb99924e7c04" title=" " alt="" coords="1329,187,1588,245"/>
+<area shape="poly" id="edge13_Node000004_Node000011" title=" " alt="" coords="1265,267,1334,251,1339,249,1267,272"/>
+<area shape="poly" id="edge15_Node000004_Node000012" title=" " alt="" coords="1182,350,1243,403,1315,452,1335,465,1329,464,1312,457,1240,407,1180,355"/>
+<area shape="rect" id="Node000006" href="$class_easy___copier_1_1_views_1_1_video_details_flyout_1_1_xaml_binding_setters.html#afb657b52250587b2586a5381b17ef0b6" title=" " alt="" coords="1680,224,1895,299"/>
+<area shape="poly" id="edge6_Node000005_Node000006" title=" " alt="" coords="1572,288,1668,278,1663,279,1572,294"/>
+<area shape="rect" id="Node000008" href="$class_easy___copier_1_1_views_1_1_video_details_flyout_1_1_xaml_binding_setters.html#ab3345e378623aeece394ba6d3902ac6f" title=" " alt="" coords="1680,5,1895,80"/>
+<area shape="poly" id="edge8_Node000007_Node000008" title=" " alt="" coords="1572,40,1668,42,1662,43,1572,45"/>
+<area shape="poly" id="edge10_Node000009_Node000006" title=" " alt="" coords="1571,366,1602,354,1703,307,1708,306,1604,358,1573,371"/>
+<area shape="poly" id="edge12_Node000010_Node000006" title=" " alt="" coords="1570,161,1604,172,1702,217,1697,217,1602,177,1570,166"/>
+<area shape="poly" id="edge14_Node000011_Node000006" title=" " alt="" coords="1588,231,1668,244,1662,245,1588,236"/>
+<area shape="rect" id="Node000013" href="$class_easy___copier_1_1_views_1_1_video_details_flyout_1_1_video_details_flyout__obj1___bindings3b595ad506db0af72f128bbaada2d7b6.html#a5289f98152571ba6e51124ae8c6486d1" title=" " alt="" coords="1651,459,1924,549"/>
+<area shape="poly" id="edge16_Node000012_Node000013" title=" " alt="" coords="1570,510,1638,513,1633,513,1570,515"/>
+<area shape="poly" id="edge17_Node000013_Node000012" title=" " alt="" coords="1648,495,1586,498,1585,493,1653,495"/>
+</map>

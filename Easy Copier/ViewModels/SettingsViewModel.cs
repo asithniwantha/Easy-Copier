@@ -70,6 +70,10 @@ namespace Easy_Copier.ViewModels
         [ObservableProperty]
         public partial string StatusMessage { get; set; } = string.Empty;
 
+        /// <summary>Gets or sets a value indicating whether game cover downloads should force re-download and overwrite existing covers.</summary>
+        [ObservableProperty]
+        public partial bool OverwriteExistingCovers { get; set; } = false;
+
         /// <summary>Gets the collection of configured game source directory paths.</summary>
         public ObservableCollection<string> GameSourceFolders { get; } = [];
 
@@ -328,7 +332,7 @@ namespace Easy_Copier.ViewModels
                     _ = _dispatcherService.TryEnqueue(() => StatusMessage = msg);
                 });
 
-                await _gameInfoDownloadService.DownloadGameInfoAsync(GameSourceFolders, progress, CancellationToken.None);
+                await _gameInfoDownloadService.DownloadGameInfoAsync(GameSourceFolders, progress, OverwriteExistingCovers, CancellationToken.None);
 
                 StatusMessage = "Game info download complete";
             }

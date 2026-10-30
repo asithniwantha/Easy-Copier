@@ -1,0 +1,16 @@
+<map id="Easy_Copier.Models.DashboardStats" name="Easy_Copier.Models.DashboardStats">
+<area shape="rect" id="Node000001" title="Represents dashboard reporting data for a time range." alt="" coords="807,72,1017,115"/>
+<area shape="poly" id="edge3_Node000001_Node000001" title=" " alt="" coords="953,56,939,53,912,51,887,53,872,57,866,63,868,73,863,70,861,62,869,53,886,47,912,45,940,48,958,57"/>
+<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_services_1_1_history_analysis_service.html#a29d2122341d78ac9f13606906b071549" title="Builds dashboard reporting data (daily/weekly totals, most&#45;copied items, failure rates) for the trail..." alt="" coords="545,5,756,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="808,68,737,51,737,46,814,68"/>
+<area shape="rect" id="Node000003" href="$interface_easy___copier_1_1_services_1_1_i_history_analysis_service.html#a1ab53a9a1fd90461125f67f9b0faa406" title="Builds dashboard reporting data (daily/weekly totals, most&#45;copied items, failure rates) for the trail..." alt="" coords="545,72,756,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="789,94,757,96,756,91,794,93"/>
+<area shape="rect" id="Node000004" href="$class_easy___copier_1_1_view_models_1_1_history_view_model.html#a120bf81d952235228249368ea2228eef" title="Recomputes dashboard data from all loaded records." alt="" coords="542,139,759,181"/>
+<area shape="poly" id="edge4_Node000001_Node000004" title=" " alt="" coords="814,119,738,141,737,135,808,119"/>
+<area shape="rect" id="Node000005" href="$class_easy___copier_1_1_view_models_1_1_history_view_model.html#ae6b79afced2e2ee68f5d8f7033c5e8c7" title="Asynchronously loads history records from storage and applies active filters." alt="" coords="256,101,474,144"/>
+<area shape="poly" id="edge5_Node000004_Node000005" title=" " alt="" coords="524,144,474,140,474,134,529,144"/>
+<area shape="rect" id="Node000007" href="$class_easy___copier_1_1_view_models_1_1_history_view_model.html#a340a8cb50aa7100e8e2cbdee30e52d79" title="Partial notification handler invoked when SelectedDashboardRange changes." alt="" coords="236,168,494,227"/>
+<area shape="poly" id="edge7_Node000004_Node000007" title=" " alt="" coords="529,176,495,183,494,178,524,176"/>
+<area shape="rect" id="Node000006" href="$class_easy___copier_1_1_views_1_1_history_page.html#a503d16800bf36579a8b866bf6fb45725" title=" " alt="" coords="5,101,188,144"/>
+<area shape="poly" id="edge6_Node000005_Node000006" title=" " alt="" coords="238,124,189,125,188,120,244,122"/>
+</map>

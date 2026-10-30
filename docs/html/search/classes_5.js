@@ -8,11 +8,14 @@ var searchData=
   ['gamedetailsflyout_5fobj6_5fbindingstracking_5',['GameDetailsFlyout_obj6_BindingsTracking',['../class_easy___copier_1_1_views_1_1_game_details_flyout_1_1_game_details_flyout__obj6___bindings_13c9d381701cd52e5efbcd131f32364af.html',1,'Easy_Copier::Views::GameDetailsFlyout::GameDetailsFlyout_obj6_Bindings']]],
   ['gamedetailsviewmodel_6',['GameDetailsViewModel',['../class_easy___copier_1_1_view_models_1_1_game_details_view_model.html',1,'Easy_Copier::ViewModels']]],
   ['gameinfodownloadservice_7',['GameInfoDownloadService',['../class_easy___copier_1_1_services_1_1_game_info_download_service.html',1,'Easy_Copier::Services']]],
-  ['gamescannerservice_8',['GameScannerService',['../class_easy___copier_1_1_services_1_1_game_scanner_service.html',1,'Easy_Copier::Services']]],
-  ['gamesizetopriceconverter_9',['GameSizeToPriceConverter',['../class_easy___copier_1_1_converters_1_1_game_size_to_price_converter.html',1,'Easy_Copier::Converters']]],
-  ['gamestabview_10',['GamesTabView',['../class_easy___copier_1_1_views_1_1_games_tab_view.html',1,'Easy_Copier::Views']]],
-  ['gamestabview_5fobj1_5fbindings_11',['GamesTabView_obj1_Bindings',['../class_easy___copier_1_1_views_1_1_games_tab_view_1_1_games_tab_view__obj1___bindings.html',1,'Easy_Copier::Views::GamesTabView']]],
-  ['gamestabview_5fobj1_5fbindingstracking_12',['GamesTabView_obj1_BindingsTracking',['../class_easy___copier_1_1_views_1_1_games_tab_view_1_1_games_tab_view__obj1___bindings_1_1_games_ta772194b92f36762b8aa404da4ab9ab1.html',1,'Easy_Copier::Views::GamesTabView::GamesTabView_obj1_Bindings']]],
-  ['gamestabview_5fobj3_5fbindings_13',['GamesTabView_obj3_Bindings',['../class_easy___copier_1_1_views_1_1_games_tab_view_1_1_games_tab_view__obj3___bindings.html',1,'Easy_Copier::Views::GamesTabView']]],
-  ['gamestabviewmodel_14',['GamesTabViewModel',['../class_easy___copier_1_1_view_models_1_1_games_tab_view_model.html',1,'Easy_Copier::ViewModels']]]
+  ['gamerequirementsservice_8',['GameRequirementsService',['../class_easy___copier_1_1_services_1_1_game_requirements_service.html',1,'Easy_Copier::Services']]],
+  ['gamescannerservice_9',['GameScannerService',['../class_easy___copier_1_1_services_1_1_game_scanner_service.html',1,'Easy_Copier::Services']]],
+  ['gamesizetopriceconverter_10',['GameSizeToPriceConverter',['../class_easy___copier_1_1_converters_1_1_game_size_to_price_converter.html',1,'Easy_Copier::Converters']]],
+  ['gamestabview_11',['GamesTabView',['../class_easy___copier_1_1_views_1_1_games_tab_view.html',1,'Easy_Copier::Views']]],
+  ['gamestabview_5fobj1_5fbindings_12',['GamesTabView_obj1_Bindings',['../class_easy___copier_1_1_views_1_1_games_tab_view_1_1_games_tab_view__obj1___bindings.html',1,'Easy_Copier::Views::GamesTabView']]],
+  ['gamestabview_5fobj1_5fbindingstracking_13',['GamesTabView_obj1_BindingsTracking',['../class_easy___copier_1_1_views_1_1_games_tab_view_1_1_games_tab_view__obj1___bindings_1_1_games_ta772194b92f36762b8aa404da4ab9ab1.html',1,'Easy_Copier::Views::GamesTabView::GamesTabView_obj1_Bindings']]],
+  ['gamestabview_5fobj3_5fbindings_14',['GamesTabView_obj3_Bindings',['../class_easy___copier_1_1_views_1_1_games_tab_view_1_1_games_tab_view__obj3___bindings.html',1,'Easy_Copier::Views::GamesTabView']]],
+  ['gamestabviewmodel_15',['GamesTabViewModel',['../class_easy___copier_1_1_view_models_1_1_games_tab_view_model.html',1,'Easy_Copier::ViewModels']]],
+  ['gametitlesanitizer_16',['GameTitleSanitizer',['../class_easy___copier_1_1_services_1_1_game_title_sanitizer.html',1,'Easy_Copier::Services']]],
+  ['gdi32interop_17',['Gdi32Interop',['../class_easy___copier_1_1_interop_1_1_gdi32_interop.html',1,'Easy_Copier::Interop']]]
 ];

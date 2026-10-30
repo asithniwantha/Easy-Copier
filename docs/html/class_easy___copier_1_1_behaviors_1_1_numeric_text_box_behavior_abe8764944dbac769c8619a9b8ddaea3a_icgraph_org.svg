@@ -11,7 +11,7 @@
 <!-- Node1 -->
 <g id="Node000001" class="node">
 <title>Node1</title>
-<g id="a_Node000001"><a xlink:title=" ">
+<g id="a_Node000001"><a xlink:title="Sets keyboard focus on the specified TextBox and positions the caret at the end of the text.">
 <polygon fill="#999999" stroke="#666666" points="781,-66 622.5,-66 622.5,-34 781,-34 781,-66"/>
 <text xml:space="preserve" text-anchor="start" x="630.5" y="-52.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Behaviors.Numeric</text>
 <text xml:space="preserve" text-anchor="middle" x="701.75" y="-40.5" font-family="Helvetica,sans-Serif" font-size="10.00">TextBoxBehavior.FocusTextBox</text>
@@ -21,7 +21,7 @@
 <!-- Node2 -->
 <g id="Node000002" class="node">
 <title>Node2</title>
-<g id="a_Node000002"><a xlink:href="class_easy___copier_1_1_behaviors_1_1_numeric_text_box_behavior.html#aa2b512d7bd8dff533afabf10c1226115" target="_top" xlink:title=" ">
+<g id="a_Node000002"><a xlink:href="class_easy___copier_1_1_behaviors_1_1_numeric_text_box_behavior.html#aa2b512d7bd8dff533afabf10c1226115" target="_top" xlink:title="Moves keyboard focus to the preceding or succeeding TextBox in the grid.">
 <polygon fill="white" stroke="#666666" points="573,-94 414.5,-94 414.5,-62 573,-62 573,-94"/>
 <text xml:space="preserve" text-anchor="start" x="422.5" y="-80.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Behaviors.Numeric</text>
 <text xml:space="preserve" text-anchor="middle" x="493.75" y="-68.5" font-family="Helvetica,sans-Serif" font-size="10.00">TextBoxBehavior.MoveFocus</text>
@@ -40,7 +40,7 @@
 <!-- Node6 -->
 <g id="Node000006" class="node">
 <title>Node6</title>
-<g id="a_Node000006"><a xlink:href="class_easy___copier_1_1_behaviors_1_1_numeric_text_box_behavior.html#a3eb05cdac108ba7e61c8aff58e5ec9e7" target="_top" xlink:title=" ">
+<g id="a_Node000006"><a xlink:href="class_easy___copier_1_1_behaviors_1_1_numeric_text_box_behavior.html#a3eb05cdac108ba7e61c8aff58e5ec9e7" target="_top" xlink:title="Removes the active cell entry via the ViewModel and moves keyboard focus to the preceding cell.">
 <polygon fill="white" stroke="#666666" points="586.5,-44 401,-44 401,0 586.5,0 586.5,-44"/>
 <text xml:space="preserve" text-anchor="start" x="409" y="-30.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Behaviors.Numeric</text>
 <text xml:space="preserve" text-anchor="start" x="409" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">TextBoxBehavior.RemoveCurrentEntry</text>
@@ -60,7 +60,7 @@
 <!-- Node3 -->
 <g id="Node000003" class="node">
 <title>Node3</title>
-<g id="a_Node000003"><a xlink:href="class_easy___copier_1_1_behaviors_1_1_numeric_text_box_behavior.html#a5f19def0f8c86199a8dddf0626b53e7b" target="_top" xlink:title=" ">
+<g id="a_Node000003"><a xlink:href="class_easy___copier_1_1_behaviors_1_1_numeric_text_box_behavior.html#a5f19def0f8c86199a8dddf0626b53e7b" target="_top" xlink:title="Handles preview key down events to perform custom keyboard navigation across grid cells.">
 <polygon fill="white" stroke="#666666" points="365,-72 194.5,-72 194.5,-28 365,-28 365,-72"/>
 <text xml:space="preserve" text-anchor="start" x="202.5" y="-58.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Behaviors.Numeric</text>
 <text xml:space="preserve" text-anchor="start" x="202.5" y="-46.5" font-family="Helvetica,sans-Serif" font-size="10.00">TextBoxBehavior.AssociatedObject</text>

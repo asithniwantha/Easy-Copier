@@ -21,7 +21,7 @@
 <!-- Node2 -->
 <g id="Node000002" class="node">
 <title>Node2</title>
-<g id="a_Node000002"><a xlink:href="class_easy___copier_1_1_services_1_1_windows_shell_transfer_service.html#a315061c1ab2c8cfa09b31d5d54b7cc27" target="_top" xlink:title="Calculates the monetary price for transferring a specific byte volume based on current settings.">
+<g id="a_Node000002"><a xlink:href="class_easy___copier_1_1_services_1_1_windows_shell_transfer_service.html#a7229eae67052dbe0aeb2869d0c3905b1" target="_top" xlink:title="Calculates the monetary price for transferring a specific byte volume based on current settings.">
 <polygon fill="white" stroke="#666666" points="801.25,-132 616.5,-132 616.5,-100 801.25,-100 801.25,-132"/>
 <text xml:space="preserve" text-anchor="start" x="624.5" y="-118.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Services.Windows</text>
 <text xml:space="preserve" text-anchor="middle" x="708.88" y="-106.5" font-family="Helvetica,sans-Serif" font-size="10.00">ShellTransferService.CalculateAmount</text>
@@ -59,7 +59,7 @@
 <!-- Node5 -->
 <g id="Node000005" class="node">
 <title>Node5</title>
-<g id="a_Node000005"><a xlink:href="class_easy___copier_1_1_view_models_1_1_main_view_model.html#ac6ff8ed6c0a7a8d2998d5dd4c97b49f3" target="_top" xlink:title=" ">
+<g id="a_Node000005"><a xlink:href="class_easy___copier_1_1_view_models_1_1_main_view_model.html#ac6ff8ed6c0a7a8d2998d5dd4c97b49f3" target="_top" xlink:title="Updates selected game entries and recalculates size, item count, and price summary values.">
 <polygon fill="white" stroke="#666666" points="799.38,-32 618.38,-32 618.38,0 799.38,0 799.38,-32"/>
 <text xml:space="preserve" text-anchor="start" x="626.38" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.ViewModels.Main</text>
 <text xml:space="preserve" text-anchor="middle" x="708.88" y="-6.5" font-family="Helvetica,sans-Serif" font-size="10.00">ViewModel.UpdateSelectionSummary</text>
@@ -97,7 +97,7 @@
 <!-- Node6 -->
 <g id="Node000006" class="node">
 <title>Node6</title>
-<g id="a_Node000006"><a xlink:href="class_easy___copier_1_1_views_1_1_main_page.html#ae7f49e65e70c8792555d54e61f49dc77" target="_top" xlink:title=" ">
+<g id="a_Node000006"><a xlink:href="class_easy___copier_1_1_views_1_1_main_page.html#ae7f49e65e70c8792555d54e61f49dc77" target="_top" xlink:title="Recalculates combined library selection across tabs and updates the View Models selection summary.">
 <polygon fill="white" stroke="#666666" points="553.88,-32 402.12,-32 402.12,0 553.88,0 553.88,-32"/>
 <text xml:space="preserve" text-anchor="start" x="410.12" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Views.MainPage.</text>
 <text xml:space="preserve" text-anchor="middle" x="478" y="-6.5" font-family="Helvetica,sans-Serif" font-size="10.00">UpdateCombinedSelection</text>
@@ -116,7 +116,7 @@
 <!-- Node7 -->
 <g id="Node000007" class="node">
 <title>Node7</title>
-<g id="a_Node000007"><a xlink:href="class_easy___copier_1_1_views_1_1_main_page.html#aa1f6c103fbea1a24dc808f04a1bba28c" target="_top" xlink:title=" ">
+<g id="a_Node000007"><a xlink:href="class_easy___copier_1_1_views_1_1_main_page.html#aa1f6c103fbea1a24dc808f04a1bba28c" target="_top" xlink:title="Handles pivot tab selection changes to recalculate and aggregate entry selections.">
 <polygon fill="white" stroke="#666666" points="339.5,-32 187.75,-32 187.75,0 339.5,0 339.5,-32"/>
 <text xml:space="preserve" text-anchor="start" x="195.75" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Views.MainPage.</text>
 <text xml:space="preserve" text-anchor="middle" x="263.62" y="-6.5" font-family="Helvetica,sans-Serif" font-size="10.00">TabOrPivot_SelectionChanged</text>

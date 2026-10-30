@@ -1,0 +1,5 @@
+<map id="Easy_Copier.ViewModels.HistoryViewModel.OnSelectedStatusFilterStringChanged" name="Easy_Copier.ViewModels.HistoryViewModel.OnSelectedStatusFilterStringChanged">
+<area shape="rect" id="Node000001" title="Partial notification handler invoked when SelectedStatusFilterString changes." alt="" coords="5,5,230,64"/>
+<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_view_models_1_1_history_view_model.html#ab58625a0341896a6e3b4caa9b0b76d84" title="Filters and sorts in&#45;memory records based on active date, status, and search query parameters." alt="" coords="278,13,495,56"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="230,32,264,34,259,35,230,37"/>
+</map>

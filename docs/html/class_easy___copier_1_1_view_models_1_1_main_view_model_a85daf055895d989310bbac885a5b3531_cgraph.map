@@ -1,0 +1,5 @@
+<map id="Easy_Copier.ViewModels.MainViewModel.OnGamesSearchTextChanged" name="Easy_Copier.ViewModels.MainViewModel.OnGamesSearchTextChanged">
+<area shape="rect" id="Node000001" title="Handles changes to the GamesSearchText property to re&#45;apply games library filtering." alt="" coords="5,5,272,48"/>
+<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_view_models_1_1_main_view_model.html#ad3c74fca3d7ea189f656357c5f392292" title="Applies search text query and category filtering to the games library collection." alt="" coords="320,5,523,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="272,24,307,27,301,27,272,29"/>
+</map>

@@ -47,7 +47,7 @@
   </g>
 </defs>
 <script type="application/ecmascript" xlink:href="svg.min.js"/>
-<svg id="graph" class="graph" data-view-width="1050" data-view-height="140" data-section-id="dynsection-21">
+<svg id="graph" class="graph" data-view-width="1050" data-view-height="140" data-section-id="dynsection-29">
 <g id="viewport">
 <title>Easy_Copier.Models.TransferRequest</title>
 <!-- Node1 -->
@@ -167,7 +167,7 @@
 <!-- Node5 -->
 <g id="Node000005" class="node">
 <title>Node5</title>
-<g id="a_Node000005"><a xlink:href="class_easy___copier_1_1_services_1_1_transfer_queue_service.html#a31960a3b7a1549213ab478448f6c15c2" target="_top" xlink:title="Initializes a new instance of the TransferQueueService class and starts background consumer tasks.">
+<g id="a_Node000005"><a xlink:href="class_easy___copier_1_1_services_1_1_transfer_queue_service.html#a23af5ec676833eb1ec4fc57d0fbe7c0c" target="_top" xlink:title="Initializes a new instance of the TransferQueueService class and starts background consumer tasks.">
 <polygon fill="white" stroke="#666666" points="178,-132 0,-132 0,-100 178,-100 178,-132"/>
 <text xml:space="preserve" text-anchor="start" x="8" y="-118.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Services.Transfer</text>
 <text xml:space="preserve" text-anchor="middle" x="89" y="-106.5" font-family="Helvetica,sans-Serif" font-size="10.00">QueueService.TransferQueueService</text>

@@ -1,0 +1,9 @@
+<map id="Easy_Copier.Views.MainPage.OnItemQueued" name="Easy_Copier.Views.MainPage.OnItemQueued">
+<area shape="rect" id="Node000001" title="Handles the MainViewModel.ItemQueued event by clearing active library selections." alt="" coords="5,39,208,81"/>
+<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_views_1_1_main_page.html#a7003d006cfeb81142d2e3efd566cb01b" title="Clears entry selections across all loaded library tab views." alt="" coords="256,39,458,81"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="208,57,243,60,238,60,208,63"/>
+<area shape="rect" id="Node000003" href="$interface_easy___copier_1_1_views_1_1_i_library_tab_view.html#a51210482fba95c0f8717fef25726e893" title="Clears all active item selections in this view." alt="" coords="516,5,699,48"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="458,44,503,41,497,41,459,49"/>
+<area shape="rect" id="Node000004" href="$class_easy___copier_1_1_views_1_1_main_page.html#ad0e15ac7d556d08bd9493e5221ddd5b3" title="Retrieves instantiated library tab views from direct control references." alt="" coords="506,72,708,115"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="459,71,493,78,488,78,458,76"/>
+</map>

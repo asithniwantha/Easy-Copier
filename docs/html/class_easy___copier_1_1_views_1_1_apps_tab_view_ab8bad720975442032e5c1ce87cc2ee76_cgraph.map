@@ -1,0 +1,5 @@
+<map id="Easy_Copier.Views.AppsTabView.SearchBox_SuggestionChosen" name="Easy_Copier.Views.AppsTabView.SearchBox_SuggestionChosen">
+<area shape="rect" id="Node000001" title="Handles the event when a suggestion is chosen from the AutoSuggestBox." alt="" coords="5,13,240,56"/>
+<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_infrastructure_1_1_auto_suggest_box_helper.html#aabe4cb37ee8f919c1ceab18e05abee08" title="Handles the suggestion chosen event from an AutoSuggestBox to update the ViewModel&#39;s search text." alt="" coords="288,5,555,64"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="240,32,275,34,270,35,240,37"/>
+</map>

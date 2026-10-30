@@ -47,7 +47,7 @@
   </g>
 </defs>
 <script type="application/ecmascript" xlink:href="svg.min.js"/>
-<svg id="graph" class="graph" data-view-width="1264" data-view-height="146" data-section-id="dynsection-39">
+<svg id="graph" class="graph" data-view-width="1264" data-view-height="146" data-section-id="dynsection-57">
 <g id="viewport">
 <title>Easy_Copier.ViewModels.MainViewModel.TryEnqueueIfActive</title>
 <!-- Node1 -->
@@ -63,7 +63,7 @@
 <!-- Node2 -->
 <g id="Node000002" class="node">
 <title>Node2</title>
-<g id="a_Node000002"><a xlink:href="class_easy___copier_1_1_view_models_1_1_main_view_model.html#a6bd36630ee4a6685f9a6482ae4048e8f" target="_top" xlink:title=" ">
+<g id="a_Node000002"><a xlink:href="class_easy___copier_1_1_view_models_1_1_main_view_model.html#a6bd36630ee4a6685f9a6482ae4048e8f" target="_top" xlink:title="Checks for application updates in the background and optionally triggers automatic download if enable...">
 <polygon fill="white" stroke="#666666" points="1067,-120 841,-120 841,-88 1067,-88 1067,-120"/>
 <text xml:space="preserve" text-anchor="start" x="849" y="-106.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.ViewModels.Main</text>
 <text xml:space="preserve" text-anchor="middle" x="954" y="-94.5" font-family="Helvetica,sans-Serif" font-size="10.00">ViewModel.CheckForUpdatesBackgroundAsync</text>
@@ -139,7 +139,7 @@
 <!-- Node5 -->
 <g id="Node000005" class="node">
 <title>Node5</title>
-<g id="a_Node000005"><a xlink:href="class_easy___copier_1_1_view_models_1_1_main_view_model.html#a7ec049730d16773f05f8c87da648d961" target="_top" xlink:title=" ">
+<g id="a_Node000005"><a xlink:href="class_easy___copier_1_1_view_models_1_1_main_view_model.html#a7ec049730d16773f05f8c87da648d961" target="_top" xlink:title="Asynchronously initializes settings, drive monitoring, and library contents from cache or disk scan.">
 <polygon fill="white" stroke="#666666" points="340.25,-98 187.75,-98 187.75,-66 340.25,-66 340.25,-98"/>
 <text xml:space="preserve" text-anchor="start" x="195.75" y="-84.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.ViewModels.Main</text>
 <text xml:space="preserve" text-anchor="middle" x="264" y="-72.5" font-family="Helvetica,sans-Serif" font-size="10.00">ViewModel.InitializeAsync</text>

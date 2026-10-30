@@ -1,0 +1,5 @@
+<map id="Easy_Copier.Services.BatchNotificationService.EvaluateAndNotifyBatchCompletion" name="Easy_Copier.Services.BatchNotificationService.EvaluateAndNotifyBatchCompletion">
+<area shape="rect" id="Node000001" title="Evaluates completed batch status for a target drive letter and triggers configured audio alerts and d..." alt="" coords="5,5,215,64"/>
+<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_services_1_1_batch_notification_service.html#af6a17e32e793ccd1bb344acb565f19cf" title="Formats and displays a Windows desktop toast notification for a completed drive transfer batch." alt="" coords="263,5,480,64"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="215,32,250,34,244,35,215,37"/>
+</map>

@@ -47,13 +47,13 @@
   </g>
 </defs>
 <script type="application/ecmascript" xlink:href="svg.min.js"/>
-<svg id="graph" class="graph" data-view-width="734" data-view-height="40" data-section-id="dynsection-7">
+<svg id="graph" class="graph" data-view-width="734" data-view-height="40" data-section-id="dynsection-10">
 <g id="viewport">
 <title>Easy_Copier.ViewModels.SettingsViewModel.LoadSettings</title>
 <!-- Node1 -->
 <g id="Node000001" class="node">
 <title>Node1</title>
-<g id="a_Node000001"><a xlink:title=" ">
+<g id="a_Node000001"><a xlink:title="Populates the view model properties and collections from the provided AppSettings instance.">
 <polygon fill="#999999" stroke="#666666" points="725.5,-32 558,-32 558,0 725.5,0 725.5,-32"/>
 <text xml:space="preserve" text-anchor="start" x="566" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.ViewModels.Settings</text>
 <text xml:space="preserve" text-anchor="middle" x="641.75" y="-6.5" font-family="Helvetica,sans-Serif" font-size="10.00">ViewModel.LoadSettings</text>
@@ -63,7 +63,7 @@
 <!-- Node2 -->
 <g id="Node000002" class="node">
 <title>Node2</title>
-<g id="a_Node000002"><a xlink:href="class_easy___copier_1_1_view_models_1_1_settings_view_model.html#a6348434751494a82036ccfef6961f24c" target="_top" xlink:title=" ">
+<g id="a_Node000002"><a xlink:href="class_easy___copier_1_1_view_models_1_1_settings_view_model.html#a6348434751494a82036ccfef6961f24c" target="_top" xlink:title="Asynchronously loads settings from persistent storage and validates configured source library folders...">
 <polygon fill="white" stroke="#666666" points="522,-32 354.5,-32 354.5,0 522,0 522,-32"/>
 <text xml:space="preserve" text-anchor="start" x="362.5" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.ViewModels.Settings</text>
 <text xml:space="preserve" text-anchor="middle" x="438.25" y="-6.5" font-family="Helvetica,sans-Serif" font-size="10.00">ViewModel.LoadSettingsAsync</text>
@@ -82,7 +82,7 @@
 <!-- Node3 -->
 <g id="Node000003" class="node">
 <title>Node3</title>
-<g id="a_Node000003"><a xlink:href="class_easy___copier_1_1_views_1_1_settings_window.html#accf917a45f4d17ebb1686716a3cc5ff0" target="_top" xlink:title=" ">
+<g id="a_Node000003"><a xlink:href="class_easy___copier_1_1_views_1_1_settings_window.html#accf917a45f4d17ebb1686716a3cc5ff0" target="_top" xlink:title="Asynchronously loads settings and executes any initial action specified when opening settings.">
 <polygon fill="white" stroke="#666666" points="318.5,-32 177.25,-32 177.25,0 318.5,0 318.5,-32"/>
 <text xml:space="preserve" text-anchor="start" x="185.25" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Views.Settings</text>
 <text xml:space="preserve" text-anchor="middle" x="247.88" y="-6.5" font-family="Helvetica,sans-Serif" font-size="10.00">Window.LoadAsync</text>
@@ -101,7 +101,7 @@
 <!-- Node4 -->
 <g id="Node000004" class="node">
 <title>Node4</title>
-<g id="a_Node000004"><a xlink:href="class_easy___copier_1_1_views_1_1_settings_window.html#aa5c96a3985044d8ebabe043cd105e570" target="_top" xlink:title=" ">
+<g id="a_Node000004"><a xlink:href="class_easy___copier_1_1_views_1_1_settings_window.html#aa5c96a3985044d8ebabe043cd105e570" target="_top" xlink:title="Initializes a new instance of the SettingsWindow class.">
 <polygon fill="white" stroke="#666666" points="141.25,-32 0,-32 0,0 141.25,0 141.25,-32"/>
 <text xml:space="preserve" text-anchor="start" x="8" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Views.Settings</text>
 <text xml:space="preserve" text-anchor="middle" x="70.62" y="-6.5" font-family="Helvetica,sans-Serif" font-size="10.00">Window.SettingsWindow</text>

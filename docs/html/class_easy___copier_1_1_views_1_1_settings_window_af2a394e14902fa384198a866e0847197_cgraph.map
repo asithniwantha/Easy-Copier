@@ -1,7 +1,7 @@
 <map id="Easy_Copier.Views.SettingsWindow.Connect" name="Easy_Copier.Views.SettingsWindow.Connect">
 <area shape="rect" id="Node000001" title="Connect()." alt="" coords="5,39,194,81"/>
-<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_views_1_1_settings_window.html#aeab97c2b6bd7d01a0fc7cd01bac4034c" title=" " alt="" coords="274,5,466,48"/>
+<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_views_1_1_settings_window.html#aeab97c2b6bd7d01a0fc7cd01bac4034c" title="Handles the FrameworkElement.Loaded event of the navigation view to select the default menu item." alt="" coords="274,5,466,48"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="194,46,261,40,256,41,195,51"/>
-<area shape="rect" id="Node000003" href="$class_easy___copier_1_1_views_1_1_settings_window.html#a029e9c66f39bcf2a9ae2f5ad0ae3f1c4" title=" " alt="" coords="242,72,498,115"/>
+<area shape="rect" id="Node000003" href="$class_easy___copier_1_1_views_1_1_settings_window.html#a029e9c66f39bcf2a9ae2f5ad0ae3f1c4" title="Handles navigation selection changes to switch active setting sections." alt="" coords="242,72,498,115"/>
 <area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="194,69,229,75,224,76,194,74"/>
 </map>

@@ -47,7 +47,7 @@
   </g>
 </defs>
 <script type="application/ecmascript" xlink:href="svg.min.js"/>
-<svg id="graph" class="graph" data-view-width="1042" data-view-height="187" data-section-id="dynsection-11">
+<svg id="graph" class="graph" data-view-width="1042" data-view-height="187" data-section-id="dynsection-12">
 <g id="viewport">
 <title>Easy_Copier.ViewModels.SmartAdderViewModel.RecalculateTotal</title>
 <!-- Node1 -->
@@ -82,7 +82,7 @@
 <!-- Node6 -->
 <g id="Node000006" class="node">
 <title>Node6</title>
-<g id="a_Node000006"><a xlink:href="class_easy___copier_1_1_view_models_1_1_smart_adder_view_model.html#a841c157697c50b6d35391b3159979342" target="_top" xlink:title=" ">
+<g id="a_Node000006"><a xlink:href="class_easy___copier_1_1_view_models_1_1_smart_adder_view_model.html#a841c157697c50b6d35391b3159979342" target="_top" xlink:title="Deletes the specified cell from the collection and updates the calculation total.">
 <polygon fill="white" stroke="#666666" points="157.75,-32 0,-32 0,0 157.75,0 157.75,-32"/>
 <text xml:space="preserve" text-anchor="start" x="8" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.ViewModels.Smart</text>
 <text xml:space="preserve" text-anchor="middle" x="78.88" y="-6.5" font-family="Helvetica,sans-Serif" font-size="10.00">AdderViewModel.DeleteCell</text>
@@ -120,7 +120,7 @@
 <!-- Node4 -->
 <g id="Node000004" class="node">
 <title>Node4</title>
-<g id="a_Node000004"><a xlink:href="class_easy___copier_1_1_view_models_1_1_smart_adder_view_model.html#ad5ea0fe050eba3f0fff2e3505a394c07" target="_top" xlink:title=" ">
+<g id="a_Node000004"><a xlink:href="class_easy___copier_1_1_view_models_1_1_smart_adder_view_model.html#ad5ea0fe050eba3f0fff2e3505a394c07" target="_top" xlink:title="Asynchronously logs the current valid non&#45;zero entry list to history storage and resets all cells.">
 <polygon fill="white" stroke="#666666" points="381.88,-179 224.12,-179 224.12,-147 381.88,-147 381.88,-179"/>
 <text xml:space="preserve" text-anchor="start" x="232.12" y="-165.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.ViewModels.Smart</text>
 <text xml:space="preserve" text-anchor="middle" x="303" y="-153.5" font-family="Helvetica,sans-Serif" font-size="10.00">AdderViewModel.ClearAllAsync</text>
@@ -185,7 +185,7 @@
 <!-- Node7 -->
 <g id="Node000007" class="node">
 <title>Node7</title>
-<g id="a_Node000007"><a xlink:href="class_easy___copier_1_1_view_models_1_1_smart_adder_view_model.html#a39d7cec1df46a4adcbb59860923acb73" target="_top" xlink:title=" ">
+<g id="a_Node000007"><a xlink:href="class_easy___copier_1_1_view_models_1_1_smart_adder_view_model.html#a39d7cec1df46a4adcbb59860923acb73" target="_top" xlink:title="Initializes a new instance of the SmartAdderViewModel class with necessary infrastructure services.">
 <polygon fill="white" stroke="#666666" points="399.12,-129 206.88,-129 206.88,-97 399.12,-97 399.12,-129"/>
 <text xml:space="preserve" text-anchor="start" x="214.88" y="-115.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.ViewModels.Smart</text>
 <text xml:space="preserve" text-anchor="middle" x="303" y="-103.5" font-family="Helvetica,sans-Serif" font-size="10.00">AdderViewModel.SmartAdderViewModel</text>

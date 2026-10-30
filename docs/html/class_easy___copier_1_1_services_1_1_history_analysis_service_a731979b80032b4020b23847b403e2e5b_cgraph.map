@@ -1,0 +1,6 @@
+<map id="Easy_Copier.Services.HistoryAnalysisService.CalculateStats" name="Easy_Copier.Services.HistoryAnalysisService.CalculateStats">
+<area shape="rect" id="Node000001" title="Calculates summary statistics (totals, bytes, amount, and success rate) for a set of history records...." alt="" coords="5,29,211,72"/>
+<area shape="rect" id="Node000002" href="$namespace_easy___copier_1_1_models.html#a25649c73b8e0d9b440f231c739a2d560" title="Represents aggregated summary statistics calculated for a subset of copy history records." alt="" coords="259,29,447,72"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="211,48,246,51,240,51,211,53"/>
+<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="307,27,305,19,312,10,329,5,353,3,379,5,396,14,391,13,378,10,353,8,330,10,315,15,310,21,311,30"/>
+</map>

@@ -193,7 +193,7 @@
 <!-- Node6 -->
 <g id="Node000006" class="node">
 <title>Node6</title>
-<g id="a_Node000006"><a xlink:href="class_easy___copier_1_1_views_1_1_settings_window.html" target="_top" xlink:title=" ">
+<g id="a_Node000006"><a xlink:href="class_easy___copier_1_1_views_1_1_settings_window.html" target="_top" xlink:title="Represents the settings dialog window for configuring source folders and application preferences.">
 <polygon fill="white" stroke="#666666" points="387.5,-132 246.25,-132 246.25,-100 387.5,-100 387.5,-132"/>
 <text xml:space="preserve" text-anchor="start" x="254.25" y="-118.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Views.Settings</text>
 <text xml:space="preserve" text-anchor="middle" x="316.88" y="-106.5" font-family="Helvetica,sans-Serif" font-size="10.00">Window</text>

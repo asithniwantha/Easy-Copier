@@ -1,0 +1,13 @@
+<map id="Easy_Copier.ViewModels.MainViewModel.OnSelectedTvAndFilmsSortOptionChanged" name="Easy_Copier.ViewModels.MainViewModel.OnSelectedTvAndFilmsSortOptionChanged">
+<area shape="rect" id="Node000001" title="Handles changes to the SelectedTvAndFilmsSortOption property to re&#45;apply TV and film sorting." alt="" coords="5,97,257,156"/>
+<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_view_models_1_1_main_view_model.html#a286873562c6f74c8d888eed23483b758" title="Filters and sorts active library collections based on current search queries, category,..." alt="" coords="305,105,508,148"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="257,124,292,126,286,127,258,129"/>
+<area shape="rect" id="Node000003" href="$class_easy___copier_1_1_view_models_1_1_main_view_model.html#a74768a1f58ff1ee9c59c479d0dfae2bd" title="Applies search text query and category filtering to the applications library collection." alt="" coords="565,5,768,48"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="452,102,555,58,572,54,577,52,557,62,453,107"/>
+<area shape="rect" id="Node000004" href="$class_easy___copier_1_1_view_models_1_1_main_view_model.html#ad3c74fca3d7ea189f656357c5f392292" title="Applies search text query and category filtering to the games library collection." alt="" coords="565,72,768,115"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="508,111,552,108,547,109,509,116"/>
+<area shape="rect" id="Node000005" href="$class_easy___copier_1_1_view_models_1_1_main_view_model.html#ae2ee39386a22d609aa35d4a385654ac4" title="Applies search text query, category filtering, and sorting to the OS images library collection." alt="" coords="561,139,772,181"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="508,137,548,144,543,145,508,142"/>
+<area shape="rect" id="Node000006" href="$class_easy___copier_1_1_view_models_1_1_main_view_model.html#abd35ddffc9ae4e957a2a8c26c24d3764" title="Applies search text query, category filtering, and sorting to the TV and films library collection." alt="" coords="556,205,777,248"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="453,146,557,191,578,200,572,200,555,196,452,151"/>
+</map>

@@ -21,7 +21,7 @@
 <!-- Node2 -->
 <g id="Node000002" class="node">
 <title>Node2</title>
-<g id="a_Node000002"><a xlink:href="class_easy___copier_1_1_infrastructure_1_1_sys_req_formatter.html#a9c6566e268aa2ce9bd6c9eb65adcf89e" target="_top" xlink:title=" ">
+<g id="a_Node000002"><a xlink:href="class_easy___copier_1_1_infrastructure_1_1_sys_req_formatter.html#a9c6566e268aa2ce9bd6c9eb65adcf89e" target="_top" xlink:title="Gets the compiled regular expression for matching additional notes headers not preceded by a newline.">
 <polygon fill="white" stroke="#666666" points="383,-682 189.25,-682 189.25,-650 383,-650 383,-682"/>
 <text xml:space="preserve" text-anchor="start" x="197.25" y="-668.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Infrastructure.</text>
 <text xml:space="preserve" text-anchor="middle" x="286.12" y="-656.5" font-family="Helvetica,sans-Serif" font-size="10.00">SysReqFormatter.AdditionalNotesRegex</text>
@@ -40,7 +40,7 @@
 <!-- Node3 -->
 <g id="Node000003" class="node">
 <title>Node3</title>
-<g id="a_Node000003"><a xlink:href="class_easy___copier_1_1_infrastructure_1_1_sys_req_formatter.html#af62de86aad0cef5e7fe4c2252a50ffdf" target="_top" xlink:title=" ">
+<g id="a_Node000003"><a xlink:href="class_easy___copier_1_1_infrastructure_1_1_sys_req_formatter.html#af62de86aad0cef5e7fe4c2252a50ffdf" target="_top" xlink:title="Gets the compiled regular expression for matching minimum CPU headers.">
 <polygon fill="white" stroke="#666666" points="377.38,-632 194.88,-632 194.88,-600 377.38,-600 377.38,-632"/>
 <text xml:space="preserve" text-anchor="start" x="202.88" y="-618.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Infrastructure.</text>
 <text xml:space="preserve" text-anchor="middle" x="286.12" y="-606.5" font-family="Helvetica,sans-Serif" font-size="10.00">SysReqFormatter.CpuMinimumRegex</text>
@@ -59,7 +59,7 @@
 <!-- Node4 -->
 <g id="Node000004" class="node">
 <title>Node4</title>
-<g id="a_Node000004"><a xlink:href="class_easy___copier_1_1_infrastructure_1_1_sys_req_formatter.html#a9e7e76724476553e97df6004c56ca336" target="_top" xlink:title=" ">
+<g id="a_Node000004"><a xlink:href="class_easy___copier_1_1_infrastructure_1_1_sys_req_formatter.html#a9e7e76724476553e97df6004c56ca336" target="_top" xlink:title="Gets the compiled regular expression for matching recommended CPU headers.">
 <polygon fill="white" stroke="#666666" points="390.5,-582 181.75,-582 181.75,-550 390.5,-550 390.5,-582"/>
 <text xml:space="preserve" text-anchor="start" x="189.75" y="-568.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Infrastructure.</text>
 <text xml:space="preserve" text-anchor="middle" x="286.12" y="-556.5" font-family="Helvetica,sans-Serif" font-size="10.00">SysReqFormatter.CpuRecommendedRegex</text>
@@ -78,7 +78,7 @@
 <!-- Node5 -->
 <g id="Node000005" class="node">
 <title>Node5</title>
-<g id="a_Node000005"><a xlink:href="class_easy___copier_1_1_infrastructure_1_1_sys_req_formatter.html#aa5924ffa0111e841e3eff4126b90ca02" target="_top" xlink:title=" ">
+<g id="a_Node000005"><a xlink:href="class_easy___copier_1_1_infrastructure_1_1_sys_req_formatter.html#aa5924ffa0111e841e3eff4126b90ca02" target="_top" xlink:title="Gets the compiled regular expression for matching DirectX headers not preceded by a newline.">
 <polygon fill="white" stroke="#666666" points="365,-532 207.25,-532 207.25,-500 365,-500 365,-532"/>
 <text xml:space="preserve" text-anchor="start" x="215.25" y="-518.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Infrastructure.</text>
 <text xml:space="preserve" text-anchor="middle" x="286.12" y="-506.5" font-family="Helvetica,sans-Serif" font-size="10.00">SysReqFormatter.DirectXRegex</text>
@@ -97,7 +97,7 @@
 <!-- Node6 -->
 <g id="Node000006" class="node">
 <title>Node6</title>
-<g id="a_Node000006"><a xlink:href="class_easy___copier_1_1_infrastructure_1_1_sys_req_formatter.html#ad58b056e4403f206abe4f4e7f33027ce" target="_top" xlink:title=" ">
+<g id="a_Node000006"><a xlink:href="class_easy___copier_1_1_infrastructure_1_1_sys_req_formatter.html#ad58b056e4403f206abe4f4e7f33027ce" target="_top" xlink:title="Gets the compiled regular expression for matching graphics headers not preceded by a newline.">
 <polygon fill="white" stroke="#666666" points="368,-482 204.25,-482 204.25,-450 368,-450 368,-482"/>
 <text xml:space="preserve" text-anchor="start" x="212.25" y="-468.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Infrastructure.</text>
 <text xml:space="preserve" text-anchor="middle" x="286.12" y="-456.5" font-family="Helvetica,sans-Serif" font-size="10.00">SysReqFormatter.GraphicsRegex</text>
@@ -116,7 +116,7 @@
 <!-- Node7 -->
 <g id="Node000007" class="node">
 <title>Node7</title>
-<g id="a_Node000007"><a xlink:href="class_easy___copier_1_1_infrastructure_1_1_sys_req_formatter.html#a92c5f298403afab4d82e9eb8726c766c" target="_top" xlink:title=" ">
+<g id="a_Node000007"><a xlink:href="class_easy___copier_1_1_infrastructure_1_1_sys_req_formatter.html#a92c5f298403afab4d82e9eb8726c766c" target="_top" xlink:title="Gets the compiled regular expression for matching memory headers not preceded by a newline.">
 <polygon fill="white" stroke="#666666" points="366.12,-432 206.12,-432 206.12,-400 366.12,-400 366.12,-432"/>
 <text xml:space="preserve" text-anchor="start" x="214.12" y="-418.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Infrastructure.</text>
 <text xml:space="preserve" text-anchor="middle" x="286.12" y="-406.5" font-family="Helvetica,sans-Serif" font-size="10.00">SysReqFormatter.MemoryRegex</text>
@@ -135,7 +135,7 @@
 <!-- Node8 -->
 <g id="Node000008" class="node">
 <title>Node8</title>
-<g id="a_Node000008"><a xlink:href="class_easy___copier_1_1_infrastructure_1_1_sys_req_formatter.html#aa8499495b64451f8388bca74f3e706ae" target="_top" xlink:title=" ">
+<g id="a_Node000008"><a xlink:href="class_easy___copier_1_1_infrastructure_1_1_sys_req_formatter.html#aa8499495b64451f8388bca74f3e706ae" target="_top" xlink:title="Gets the compiled regular expression for matching minimum requirement headers not preceded by a newli...">
 <polygon fill="white" stroke="#666666" points="368.38,-382 203.88,-382 203.88,-350 368.38,-350 368.38,-382"/>
 <text xml:space="preserve" text-anchor="start" x="211.88" y="-368.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Infrastructure.</text>
 <text xml:space="preserve" text-anchor="middle" x="286.12" y="-356.5" font-family="Helvetica,sans-Serif" font-size="10.00">SysReqFormatter.MinimumRegex</text>
@@ -154,7 +154,7 @@
 <!-- Node9 -->
 <g id="Node000009" class="node">
 <title>Node9</title>
-<g id="a_Node000009"><a xlink:href="class_easy___copier_1_1_infrastructure_1_1_sys_req_formatter.html#a334b18958d825efd8652f5d489fdafa3" target="_top" xlink:title=" ">
+<g id="a_Node000009"><a xlink:href="class_easy___copier_1_1_infrastructure_1_1_sys_req_formatter.html#a334b18958d825efd8652f5d489fdafa3" target="_top" xlink:title="Gets the compiled regular expression for matching OS headers not preceded by a newline.">
 <polygon fill="white" stroke="#666666" points="354.88,-332 217.38,-332 217.38,-300 354.88,-300 354.88,-332"/>
 <text xml:space="preserve" text-anchor="start" x="225.38" y="-318.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Infrastructure.</text>
 <text xml:space="preserve" text-anchor="middle" x="286.12" y="-306.5" font-family="Helvetica,sans-Serif" font-size="10.00">SysReqFormatter.OsRegex</text>
@@ -173,7 +173,7 @@
 <!-- Node10 -->
 <g id="Node000010" class="node">
 <title>Node10</title>
-<g id="a_Node000010"><a xlink:href="class_easy___copier_1_1_infrastructure_1_1_sys_req_formatter.html#a883433ab9f99208cc3439e830baebfde" target="_top" xlink:title=" ">
+<g id="a_Node000010"><a xlink:href="class_easy___copier_1_1_infrastructure_1_1_sys_req_formatter.html#a883433ab9f99208cc3439e830baebfde" target="_top" xlink:title="Gets the compiled regular expression for matching processor headers not preceded by a newline.">
 <polygon fill="white" stroke="#666666" points="370.62,-282 201.62,-282 201.62,-250 370.62,-250 370.62,-282"/>
 <text xml:space="preserve" text-anchor="start" x="209.62" y="-268.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Infrastructure.</text>
 <text xml:space="preserve" text-anchor="middle" x="286.12" y="-256.5" font-family="Helvetica,sans-Serif" font-size="10.00">SysReqFormatter.ProcessorRegex</text>
@@ -192,7 +192,7 @@
 <!-- Node11 -->
 <g id="Node000011" class="node">
 <title>Node11</title>
-<g id="a_Node000011"><a xlink:href="class_easy___copier_1_1_infrastructure_1_1_sys_req_formatter.html#a03625842bc0c68c9b7725a6e30ed55c3" target="_top" xlink:title=" ">
+<g id="a_Node000011"><a xlink:href="class_easy___copier_1_1_infrastructure_1_1_sys_req_formatter.html#a03625842bc0c68c9b7725a6e30ed55c3" target="_top" xlink:title="Gets the compiled regular expression for matching recommended requirement headers not preceded by a n...">
 <polygon fill="white" stroke="#666666" points="381.5,-232 190.75,-232 190.75,-200 381.5,-200 381.5,-232"/>
 <text xml:space="preserve" text-anchor="start" x="198.75" y="-218.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Infrastructure.</text>
 <text xml:space="preserve" text-anchor="middle" x="286.12" y="-206.5" font-family="Helvetica,sans-Serif" font-size="10.00">SysReqFormatter.RecommendedRegex</text>
@@ -211,7 +211,7 @@
 <!-- Node12 -->
 <g id="Node000012" class="node">
 <title>Node12</title>
-<g id="a_Node000012"><a xlink:href="class_easy___copier_1_1_infrastructure_1_1_sys_req_formatter.html#a151f282c66588be552c4e5b11296b784" target="_top" xlink:title=" ">
+<g id="a_Node000012"><a xlink:href="class_easy___copier_1_1_infrastructure_1_1_sys_req_formatter.html#a151f282c66588be552c4e5b11296b784" target="_top" xlink:title="Gets the compiled regular expression for matching 64&#45;bit architecture requirement headers not precede...">
 <polygon fill="white" stroke="#666666" points="379.25,-182 193,-182 193,-150 379.25,-150 379.25,-182"/>
 <text xml:space="preserve" text-anchor="start" x="201" y="-168.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Infrastructure.</text>
 <text xml:space="preserve" text-anchor="middle" x="286.12" y="-156.5" font-family="Helvetica,sans-Serif" font-size="10.00">SysReqFormatter.Requires64BitRegex</text>
@@ -230,7 +230,7 @@
 <!-- Node13 -->
 <g id="Node000013" class="node">
 <title>Node13</title>
-<g id="a_Node000013"><a xlink:href="class_easy___copier_1_1_infrastructure_1_1_sys_req_formatter.html#a1f89e6b1f2c4815e319c4adaf54123ee" target="_top" xlink:title=" ">
+<g id="a_Node000013"><a xlink:href="class_easy___copier_1_1_infrastructure_1_1_sys_req_formatter.html#a1f89e6b1f2c4815e319c4adaf54123ee" target="_top" xlink:title="Gets the compiled regular expression for matching sound card headers not preceded by a newline.">
 <polygon fill="white" stroke="#666666" points="372.88,-132 199.38,-132 199.38,-100 372.88,-100 372.88,-132"/>
 <text xml:space="preserve" text-anchor="start" x="207.38" y="-118.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Infrastructure.</text>
 <text xml:space="preserve" text-anchor="middle" x="286.12" y="-106.5" font-family="Helvetica,sans-Serif" font-size="10.00">SysReqFormatter.SoundCardRegex</text>
@@ -249,7 +249,7 @@
 <!-- Node14 -->
 <g id="Node000014" class="node">
 <title>Node14</title>
-<g id="a_Node000014"><a xlink:href="class_easy___copier_1_1_infrastructure_1_1_sys_req_formatter.html#ae6855fb287b58c330a7593742b9138d9" target="_top" xlink:title=" ">
+<g id="a_Node000014"><a xlink:href="class_easy___copier_1_1_infrastructure_1_1_sys_req_formatter.html#ae6855fb287b58c330a7593742b9138d9" target="_top" xlink:title="Gets the compiled regular expression for matching storage headers not preceded by a newline.">
 <polygon fill="white" stroke="#666666" points="365.38,-82 206.88,-82 206.88,-50 365.38,-50 365.38,-82"/>
 <text xml:space="preserve" text-anchor="start" x="214.88" y="-68.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Infrastructure.</text>
 <text xml:space="preserve" text-anchor="middle" x="286.12" y="-56.5" font-family="Helvetica,sans-Serif" font-size="10.00">SysReqFormatter.StorageRegex</text>
@@ -268,7 +268,7 @@
 <!-- Node15 -->
 <g id="Node000015" class="node">
 <title>Node15</title>
-<g id="a_Node000015"><a xlink:href="class_easy___copier_1_1_infrastructure_1_1_sys_req_formatter.html#a0c3ce5d7a6cc2ac614469aff7abd5605" target="_top" xlink:title=" ">
+<g id="a_Node000015"><a xlink:href="class_easy___copier_1_1_infrastructure_1_1_sys_req_formatter.html#a0c3ce5d7a6cc2ac614469aff7abd5605" target="_top" xlink:title="Gets the compiled regular expression for matching VR support headers not preceded by a newline.">
 <polygon fill="white" stroke="#666666" points="369.88,-32 202.38,-32 202.38,0 369.88,0 369.88,-32"/>
 <text xml:space="preserve" text-anchor="start" x="210.38" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Infrastructure.</text>
 <text xml:space="preserve" text-anchor="middle" x="286.12" y="-6.5" font-family="Helvetica,sans-Serif" font-size="10.00">SysReqFormatter.VrSupportRegex</text>

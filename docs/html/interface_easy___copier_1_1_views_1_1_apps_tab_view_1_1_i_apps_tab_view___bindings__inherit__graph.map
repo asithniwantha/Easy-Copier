@@ -1,7 +1,9 @@
 <map id="Easy_Copier.Views.AppsTabView.IAppsTabView_Bindings" name="Easy_Copier.Views.AppsTabView.IAppsTabView_Bindings">
 <area shape="rect" id="Node000001" title=" " alt="" coords="5,39,200,81"/>
 <area shape="rect" id="Node000002" href="$class_easy___copier_1_1_views_1_1_apps_tab_view_1_1_apps_tab_view__obj1___bindings.html" title=" " alt="" coords="248,5,469,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="215,43,250,40,245,42,216,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="215,52,260,48,254,49,216,57"/>
+<area shape="poly" id="edge2_Node000001_Node000002" title=" " alt="" coords="215,34,250,31,245,33,216,39"/>
 <area shape="rect" id="Node000003" href="$class_easy___copier_1_1_views_1_1_apps_tab_view_1_1_apps_tab_view__obj3___bindings.html" title=" " alt="" coords="248,72,469,115"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="215,72,250,79,245,79,215,77"/>
+<area shape="poly" id="edge3_Node000001_Node000003" title=" " alt="" coords="215,81,250,88,245,88,215,86"/>
+<area shape="poly" id="edge4_Node000001_Node000003" title=" " alt="" coords="215,63,260,71,254,72,215,68"/>
 </map>

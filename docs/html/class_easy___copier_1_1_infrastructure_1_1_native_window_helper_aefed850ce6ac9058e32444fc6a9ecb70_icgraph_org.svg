@@ -41,7 +41,7 @@
 <!-- Node7 -->
 <g id="Node000007" class="node">
 <title>Node7</title>
-<g id="a_Node000007"><a xlink:href="class_easy___copier_1_1_main_window.html#a4e6ac266bd9303e598362aa71aa60f39" target="_top" xlink:title=" ">
+<g id="a_Node000007"><a xlink:href="class_easy___copier_1_1_main_window.html#a4e6ac266bd9303e598362aa71aa60f39" target="_top" xlink:title="Initializes a new instance of the MainWindow class.">
 <polygon fill="white" stroke="#666666" points="368.38,-51 213.62,-51 213.62,-19 368.38,-19 368.38,-51"/>
 <text xml:space="preserve" text-anchor="start" x="221.62" y="-37.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.MainWindow.Main</text>
 <text xml:space="preserve" text-anchor="middle" x="291" y="-25.5" font-family="Helvetica,sans-Serif" font-size="10.00">Window</text>
@@ -98,7 +98,7 @@
 <!-- Node5 -->
 <g id="Node000005" class="node">
 <title>Node5</title>
-<g id="a_Node000005"><a xlink:href="class_easy___copier_1_1_views_1_1_settings_window.html#aa5c96a3985044d8ebabe043cd105e570" target="_top" xlink:title=" ">
+<g id="a_Node000005"><a xlink:href="class_easy___copier_1_1_views_1_1_settings_window.html#aa5c96a3985044d8ebabe043cd105e570" target="_top" xlink:title="Initializes a new instance of the SettingsWindow class.">
 <polygon fill="white" stroke="#666666" points="154.75,-132 13.5,-132 13.5,-100 154.75,-100 154.75,-132"/>
 <text xml:space="preserve" text-anchor="start" x="21.5" y="-118.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Views.Settings</text>
 <text xml:space="preserve" text-anchor="middle" x="84.12" y="-106.5" font-family="Helvetica,sans-Serif" font-size="10.00">Window.SettingsWindow</text>

@@ -32,5 +32,6 @@ var class_easy___copier_1_1_views_1_1_smart_adder_control_1_1_xaml_binding_sette
     [ "Set_Microsoft_UI_Xaml_Controls_TextBox_Text", "class_easy___copier_1_1_views_1_1_smart_adder_control_1_1_xaml_binding_setters.html#a0e8cbc330ef1016fe71c6470a3ae59e4", null ],
     [ "Set_Microsoft_UI_Xaml_UIElement_Visibility", "class_easy___copier_1_1_views_1_1_smart_adder_control_1_1_xaml_binding_setters.html#a2b7bba5b3f66b04bba1345054726f69e", null ],
     [ "Set_Microsoft_UI_Xaml_UIElement_Visibility", "class_easy___copier_1_1_views_1_1_smart_adder_control_1_1_xaml_binding_setters.html#a2b7bba5b3f66b04bba1345054726f69e", null ],
+    [ "Set_Microsoft_UI_Xaml_UIElement_Visibility", "class_easy___copier_1_1_views_1_1_smart_adder_control_1_1_xaml_binding_setters.html#a2b7bba5b3f66b04bba1345054726f69e", null ],
     [ "Set_Microsoft_UI_Xaml_UIElement_Visibility", "class_easy___copier_1_1_views_1_1_smart_adder_control_1_1_xaml_binding_setters.html#a2b7bba5b3f66b04bba1345054726f69e", null ]
 ];

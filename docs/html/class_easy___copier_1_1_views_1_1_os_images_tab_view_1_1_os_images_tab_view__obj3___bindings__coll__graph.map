@@ -1,13 +1,18 @@
 <map id="Easy_Copier.Views.OsImagesTabView.OsImagesTabView_obj3_Bindings" name="Easy_Copier.Views.OsImagesTabView.OsImagesTabView_obj3_Bindings">
 <area shape="rect" id="Node000001" title=" " alt="" coords="288,131,488,189"/>
 <area shape="rect" id="Node000002" title=" " alt="" coords="40,5,205,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="219,49,241,58,301,92,353,130,347,130,298,96,238,62,220,54"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="188,50,241,70,292,98,338,130,333,130,289,102,239,74,189,56"/>
+<area shape="poly" id="edge6_Node000001_Node000002" title=" " alt="" coords="219,37,241,46,308,85,364,130,358,130,305,90,238,50,220,42"/>
 <area shape="rect" id="Node000003" title=" " alt="" coords="12,72,233,115"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="225,116,290,134,285,136,225,122"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="194,117,290,142,285,145,195,122"/>
+<area shape="poly" id="edge7_Node000001_Node000003" title=" " alt="" coords="248,113,305,129,299,131,248,118"/>
 <area shape="rect" id="Node000004" title=" " alt="" coords="5,139,240,181"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="255,157,290,159,285,161,256,163"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="255,166,290,168,285,170,256,172"/>
+<area shape="poly" id="edge8_Node000001_Node000004" title=" " alt="" coords="255,148,290,150,285,152,256,154"/>
 <area shape="rect" id="Node000005" title=" " alt="" coords="23,205,222,248"/>
-<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="224,199,290,184,285,186,226,204"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="237,204,304,189,299,191,238,209"/>
+<area shape="poly" id="edge9_Node000001_Node000005" title=" " alt="" coords="194,198,290,175,285,178,196,203"/>
 <area shape="rect" id="Node000006" href="$interface_easy___copier_1_1_views_1_1_os_images_tab_view_1_1_i_os_images_tab_view___bindings.html" title=" " alt="" coords="22,272,223,331"/>
-<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="228,263,238,258,297,223,347,191,351,188,300,228,241,262,230,268"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="236,271,238,270,305,230,358,191,363,189,308,234,241,274,238,276"/>
+<area shape="poly" id="edge10_Node000001_Node000006" title=" " alt="" coords="198,263,238,246,287,217,331,191,336,189,290,222,241,250,200,268"/>
 </map>

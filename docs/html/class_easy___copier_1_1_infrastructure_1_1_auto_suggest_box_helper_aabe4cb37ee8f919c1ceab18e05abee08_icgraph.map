@@ -1,0 +1,19 @@
+<map id="Easy_Copier.Infrastructure.AutoSuggestBoxHelper.HandleSuggestionChosen" name="Easy_Copier.Infrastructure.AutoSuggestBoxHelper.HandleSuggestionChosen">
+<area shape="rect" id="Node000001" title="Handles the suggestion chosen event from an AutoSuggestBox to update the ViewModel&#39;s search text." alt="" coords="567,97,834,156"/>
+<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_views_1_1_apps_tab_view.html#ab8bad720975442032e5c1ce87cc2ee76" title="Handles the event when a suggestion is chosen from the AutoSuggestBox." alt="" coords="274,5,508,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="607,92,518,63,480,51,480,46,520,57,612,91"/>
+<area shape="rect" id="Node000004" href="$class_easy___copier_1_1_views_1_1_games_tab_view.html#abb7a443af9f12d8c9f53f0c7d90ae5e8" title="Handles the event when a suggestion is chosen from the AutoSuggestBox." alt="" coords="274,72,508,115"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="549,111,509,109,509,103,554,110"/>
+<area shape="rect" id="Node000006" href="$class_easy___copier_1_1_views_1_1_os_images_tab_view.html#a2954e07a326cae4079e650de31f0d344" title="Handles the event when a suggestion is chosen from the AutoSuggestBox." alt="" coords="264,139,519,181"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="549,143,520,149,519,144,554,142"/>
+<area shape="rect" id="Node000008" href="$class_easy___copier_1_1_views_1_1_tv_and_films_tab_view.html#ad3d51109cf9b01388ac2a873376b7274" title="Handles the event when a suggestion is chosen from the AutoSuggestBox." alt="" coords="264,205,519,248"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="612,161,520,196,481,207,480,202,518,191,607,162"/>
+<area shape="rect" id="Node000003" href="$class_easy___copier_1_1_views_1_1_apps_tab_view.html#a87d18c1cf1d01a43e41cc29e9ad583f2" title="Connect()." alt="" coords="15,5,206,48"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="256,28,207,29,206,24,261,25"/>
+<area shape="rect" id="Node000005" href="$class_easy___copier_1_1_views_1_1_games_tab_view.html#a7308db31f7bf54663baf056bce1215ad" title="Connect()." alt="" coords="9,72,212,115"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="256,94,213,96,212,91,261,92"/>
+<area shape="rect" id="Node000007" href="$class_easy___copier_1_1_views_1_1_os_images_tab_view.html#a290c98c7e3c9583b4583c219ebd40bfc" title="Connect()." alt="" coords="10,139,211,181"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="245,161,211,163,211,157,251,159"/>
+<area shape="rect" id="Node000009" href="$class_easy___copier_1_1_views_1_1_tv_and_films_tab_view.html#a6aea0d345958634c0faa92277586c1fe" title="Connect()." alt="" coords="5,205,216,248"/>
+<area shape="poly" id="edge8_Node000008_Node000009" title=" " alt="" coords="245,227,216,229,216,224,251,227"/>
+</map>

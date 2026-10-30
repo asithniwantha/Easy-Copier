@@ -22,7 +22,7 @@
 <!-- Node1 -->
 <g id="Node000001" class="node">
 <title>Node1</title>
-<g id="a_Node000001"><a xlink:title=" ">
+<g id="a_Node000001"><a xlink:title="Handles notification invocation callbacks when a user clicks a desktop toast notification.">
 <polygon fill="#999999" stroke="#666666" points="348.5,-32 186.25,-32 186.25,0 348.5,0 348.5,-32"/>
 <text xml:space="preserve" text-anchor="start" x="194.25" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.App.AppNotification</text>
 <text xml:space="preserve" text-anchor="middle" x="267.38" y="-6.5" font-family="Helvetica,sans-Serif" font-size="10.00">Manager_NotificationInvoked</text>

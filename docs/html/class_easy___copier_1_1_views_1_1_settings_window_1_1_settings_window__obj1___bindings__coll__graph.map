@@ -14,7 +14,7 @@
 <area shape="poly" id="edge9_Node000001_Node000004" title=" " alt="" coords="219,265,700,220,697,225,221,270"/>
 <area shape="poly" id="edge13_Node000001_Node000004" title=" " alt="" coords="216,252,460,225,701,208,697,211,460,230,218,257"/>
 <area shape="poly" id="edge15_Node000001_Node000004" title=" " alt="" coords="160,251,274,229,419,211,569,198,701,195,697,198,570,203,419,216,275,234,163,255"/>
-<area shape="rect" id="Node000006" href="$class_easy___copier_1_1_views_1_1_settings_window.html" title=" " alt="" coords="334,695,522,737"/>
+<area shape="rect" id="Node000006" href="$class_easy___copier_1_1_views_1_1_settings_window.html" title="Represents the settings dialog window for configuring source folders and application preferences." alt="" coords="334,695,522,737"/>
 <area shape="poly" id="edge19_Node000006_Node000004" title=" " alt="" coords="120,311,176,399,251,508,331,615,397,694,391,694,327,618,247,511,171,402,120,316"/>
 <area shape="poly" id="edge22_Node000006_Node000004" title=" " alt="" coords="126,310,264,508,406,693,401,695,260,511,124,316"/>
 <area shape="poly" id="edge25_Node000006_Node000004" title=" " alt="" coords="133,310,413,693,408,695,130,315"/>

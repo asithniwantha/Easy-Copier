@@ -1,0 +1,5 @@
+<map id="Easy_Copier.Services.GameScannerService.ParseExtensionList" name="Easy_Copier.Services.GameScannerService.ParseExtensionList">
+<area shape="rect" id="Node000001" title="Parses a delimited string of file extensions into a normalized list of lowercase extension strings wi..." alt="" coords="277,5,507,48"/>
+<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_services_1_1_game_scanner_service.html#a62a70702e24564c19e887c2ac1650da0" title="Asynchronously scans specified source folders for items belonging to the given library category...." alt="" coords="5,5,229,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="259,27,229,29,229,24,264,27"/>
+</map>

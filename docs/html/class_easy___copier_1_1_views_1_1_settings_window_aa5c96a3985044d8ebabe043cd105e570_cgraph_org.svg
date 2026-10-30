@@ -11,7 +11,7 @@
 <!-- Node1 -->
 <g id="Node000001" class="node">
 <title>Node1</title>
-<g id="a_Node000001"><a xlink:title=" ">
+<g id="a_Node000001"><a xlink:title="Initializes a new instance of the SettingsWindow class.">
 <polygon fill="#999999" stroke="#666666" points="141.25,-248 0,-248 0,-216 141.25,-216 141.25,-248"/>
 <text xml:space="preserve" text-anchor="start" x="8" y="-234.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Views.Settings</text>
 <text xml:space="preserve" text-anchor="middle" x="70.62" y="-222.5" font-family="Helvetica,sans-Serif" font-size="10.00">Window.SettingsWindow</text>
@@ -80,7 +80,7 @@
 <!-- Node18 -->
 <g id="Node000018" class="node">
 <title>Node18</title>
-<g id="a_Node000018"><a xlink:href="class_easy___copier_1_1_views_1_1_settings_window.html#accf917a45f4d17ebb1686716a3cc5ff0" target="_top" xlink:title=" ">
+<g id="a_Node000018"><a xlink:href="class_easy___copier_1_1_views_1_1_settings_window.html#accf917a45f4d17ebb1686716a3cc5ff0" target="_top" xlink:title="Asynchronously loads settings and executes any initial action specified when opening settings.">
 <polygon fill="white" stroke="#666666" points="338,-153 196.75,-153 196.75,-121 338,-121 338,-153"/>
 <text xml:space="preserve" text-anchor="start" x="204.75" y="-139.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Views.Settings</text>
 <text xml:space="preserve" text-anchor="middle" x="267.38" y="-127.5" font-family="Helvetica,sans-Serif" font-size="10.00">Window.LoadAsync</text>
@@ -194,7 +194,7 @@
 <!-- Node8 -->
 <g id="Node000008" class="node">
 <title>Node8</title>
-<g id="a_Node000008"><a xlink:href="class_easy___copier_1_1_infrastructure_1_1_native_window_helper.html#a46e4f01bcb389c5e85ff7f526ffecc75" target="_top" xlink:title=" ">
+<g id="a_Node000008"><a xlink:href="class_easy___copier_1_1_infrastructure_1_1_native_window_helper.html#a46e4f01bcb389c5e85ff7f526ffecc75" target="_top" xlink:title="Enables or disables mouse and keyboard input to the specified window or control.">
 <polygon fill="white" stroke="#666666" points="1050.88,-252 874.38,-252 874.38,-220 1050.88,-220 1050.88,-252"/>
 <text xml:space="preserve" text-anchor="start" x="882.38" y="-238.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Infrastructure.</text>
 <text xml:space="preserve" text-anchor="middle" x="962.62" y="-226.5" font-family="Helvetica,sans-Serif" font-size="10.00">NativeWindowHelper.EnableWindow</text>
@@ -213,7 +213,7 @@
 <!-- Node10 -->
 <g id="Node000010" class="node">
 <title>Node10</title>
-<g id="a_Node000010"><a xlink:href="class_easy___copier_1_1_infrastructure_1_1_native_window_helper.html#a8ddfd36499035568510b6cb9e4b88459" target="_top" xlink:title=" ">
+<g id="a_Node000010"><a xlink:href="class_easy___copier_1_1_infrastructure_1_1_native_window_helper.html#a8ddfd36499035568510b6cb9e4b88459" target="_top" xlink:title="Brings the thread that created the specified window into the foreground and activates the window.">
 <polygon fill="white" stroke="#666666" points="1050.12,-202 875.12,-202 875.12,-158 1050.12,-158 1050.12,-202"/>
 <text xml:space="preserve" text-anchor="start" x="883.12" y="-188.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Infrastructure.</text>
 <text xml:space="preserve" text-anchor="start" x="883.12" y="-176.5" font-family="Helvetica,sans-Serif" font-size="10.00">NativeWindowHelper.SetForeground</text>
@@ -280,7 +280,7 @@
 <!-- Node13 -->
 <g id="Node000013" class="node">
 <title>Node13</title>
-<g id="a_Node000013"><a xlink:href="class_easy___copier_1_1_infrastructure_1_1_native_window_helper.html#a24df81dd6869ac538f152a76346e232b" target="_top" xlink:title=" ">
+<g id="a_Node000013"><a xlink:href="class_easy___copier_1_1_infrastructure_1_1_native_window_helper.html#a24df81dd6869ac538f152a76346e232b" target="_top" xlink:title="Retrieves the dimensions of the bounding rectangle of the specified window.">
 <polygon fill="white" stroke="#666666" points="1054.25,-352 871,-352 871,-320 1054.25,-320 1054.25,-352"/>
 <text xml:space="preserve" text-anchor="start" x="879" y="-338.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Infrastructure.</text>
 <text xml:space="preserve" text-anchor="middle" x="962.62" y="-326.5" font-family="Helvetica,sans-Serif" font-size="10.00">NativeWindowHelper.GetWindowRect</text>
@@ -299,7 +299,7 @@
 <!-- Node14 -->
 <g id="Node000014" class="node">
 <title>Node14</title>
-<g id="a_Node000014"><a xlink:href="class_easy___copier_1_1_infrastructure_1_1_native_window_helper.html#a7360d0d9cc4a75176e40dcbee62e1f16" target="_top" xlink:title=" ">
+<g id="a_Node000014"><a xlink:href="class_easy___copier_1_1_infrastructure_1_1_native_window_helper.html#a7360d0d9cc4a75176e40dcbee62e1f16" target="_top" xlink:title="Changes the size, position, and Z&#45;order of a child, pop&#45;up, or top&#45;level window.">
 <polygon fill="white" stroke="#666666" points="1052,-302 873.25,-302 873.25,-270 1052,-270 1052,-302"/>
 <text xml:space="preserve" text-anchor="start" x="881.25" y="-288.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Infrastructure.</text>
 <text xml:space="preserve" text-anchor="middle" x="962.62" y="-276.5" font-family="Helvetica,sans-Serif" font-size="10.00">NativeWindowHelper.SetWindowPos</text>
@@ -318,7 +318,7 @@
 <!-- Node16 -->
 <g id="Node000016" class="node">
 <title>Node16</title>
-<g id="a_Node000016"><a xlink:href="class_easy___copier_1_1_infrastructure_1_1_native_window_helper.html#accb5a28d072b25b841ac31c7b1837a29" target="_top" xlink:title=" ">
+<g id="a_Node000016"><a xlink:href="class_easy___copier_1_1_infrastructure_1_1_native_window_helper.html#accb5a28d072b25b841ac31c7b1837a29" target="_top" xlink:title="Changes an attribute of the specified 32&#45;bit window.">
 <polygon fill="white" stroke="#666666" points="1059.12,-452 866.12,-452 866.12,-420 1059.12,-420 1059.12,-452"/>
 <text xml:space="preserve" text-anchor="start" x="874.12" y="-438.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Infrastructure.</text>
 <text xml:space="preserve" text-anchor="middle" x="962.62" y="-426.5" font-family="Helvetica,sans-Serif" font-size="10.00">NativeWindowHelper.SetWindowLong32</text>
@@ -337,7 +337,7 @@
 <!-- Node17 -->
 <g id="Node000017" class="node">
 <title>Node17</title>
-<g id="a_Node000017"><a xlink:href="class_easy___copier_1_1_infrastructure_1_1_native_window_helper.html#a543062cf731d87ec98a5fe3026945048" target="_top" xlink:title=" ">
+<g id="a_Node000017"><a xlink:href="class_easy___copier_1_1_infrastructure_1_1_native_window_helper.html#a543062cf731d87ec98a5fe3026945048" target="_top" xlink:title="Changes an attribute of the specified 64&#45;bit window.">
 <polygon fill="white" stroke="#666666" points="1065.5,-402 859.75,-402 859.75,-370 1065.5,-370 1065.5,-402"/>
 <text xml:space="preserve" text-anchor="start" x="867.75" y="-388.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Infrastructure.</text>
 <text xml:space="preserve" text-anchor="middle" x="962.62" y="-376.5" font-family="Helvetica,sans-Serif" font-size="10.00">NativeWindowHelper.SetWindowLongPtr64</text>
@@ -356,7 +356,7 @@
 <!-- Node19 -->
 <g id="Node000019" class="node">
 <title>Node19</title>
-<g id="a_Node000019"><a xlink:href="class_easy___copier_1_1_view_models_1_1_settings_view_model.html#a6348434751494a82036ccfef6961f24c" target="_top" xlink:title=" ">
+<g id="a_Node000019"><a xlink:href="class_easy___copier_1_1_view_models_1_1_settings_view_model.html#a6348434751494a82036ccfef6961f24c" target="_top" xlink:title="Asynchronously loads settings from persistent storage and validates configured source library folders...">
 <polygon fill="white" stroke="#666666" points="575.25,-131 407.75,-131 407.75,-99 575.25,-99 575.25,-131"/>
 <text xml:space="preserve" text-anchor="start" x="415.75" y="-117.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.ViewModels.Settings</text>
 <text xml:space="preserve" text-anchor="middle" x="491.5" y="-105.5" font-family="Helvetica,sans-Serif" font-size="10.00">ViewModel.LoadSettingsAsync</text>
@@ -375,7 +375,7 @@
 <!-- Node20 -->
 <g id="Node000020" class="node">
 <title>Node20</title>
-<g id="a_Node000020"><a xlink:href="class_easy___copier_1_1_view_models_1_1_settings_view_model.html#a16be136196686750451c7d2ff1a56c78" target="_top" xlink:title=" ">
+<g id="a_Node000020"><a xlink:href="class_easy___copier_1_1_view_models_1_1_settings_view_model.html#a16be136196686750451c7d2ff1a56c78" target="_top" xlink:title="Populates the view model properties and collections from the provided AppSettings instance.">
 <polygon fill="white" stroke="#666666" points="808.38,-94 640.88,-94 640.88,-62 808.38,-62 808.38,-94"/>
 <text xml:space="preserve" text-anchor="start" x="648.88" y="-80.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.ViewModels.Settings</text>
 <text xml:space="preserve" text-anchor="middle" x="724.62" y="-68.5" font-family="Helvetica,sans-Serif" font-size="10.00">ViewModel.LoadSettings</text>
@@ -414,7 +414,7 @@
 <!-- Node24 -->
 <g id="Node000024" class="node">
 <title>Node24</title>
-<g id="a_Node000024"><a xlink:href="class_easy___copier_1_1_view_models_1_1_settings_view_model.html#a99de34ff44c72df0891d3a3ac74790d5" target="_top" xlink:title=" ">
+<g id="a_Node000024"><a xlink:href="class_easy___copier_1_1_view_models_1_1_settings_view_model.html#a99de34ff44c72df0891d3a3ac74790d5" target="_top" xlink:title="Asynchronously persists current ViewModel field values to disk and updates logon auto&#45;start status.">
 <polygon fill="white" stroke="#666666" points="808.38,-144 640.88,-144 640.88,-112 808.38,-112 808.38,-144"/>
 <text xml:space="preserve" text-anchor="start" x="648.88" y="-130.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.ViewModels.Settings</text>
 <text xml:space="preserve" text-anchor="middle" x="724.62" y="-118.5" font-family="Helvetica,sans-Serif" font-size="10.00">ViewModel.SaveSettingsAsync</text>
@@ -433,7 +433,7 @@
 <!-- Node22 -->
 <g id="Node000022" class="node">
 <title>Node22</title>
-<g id="a_Node000022"><a xlink:href="class_easy___copier_1_1_infrastructure_1_1_rufus_resolution_helper.html#a86bc01b0f77e23145af9cac4b03c01a2" target="_top" xlink:title="Attempts to parse a Version object from a Rufus filename (e.g., rufus&#45;4.7.exe =&gt; Version 4....">
+<g id="a_Node000022"><a xlink:href="class_easy___copier_1_1_infrastructure_1_1_rufus_resolution_helper.html#a86bc01b0f77e23145af9cac4b03c01a2" target="_top" xlink:title="Attempts to parse a Version object from a Rufus filename (e.g., rufus&#45;4.7.exe &gt; Version 4....">
 <polygon fill="white" stroke="#666666" points="1058.75,-44 866.5,-44 866.5,0 1058.75,0 1058.75,-44"/>
 <text xml:space="preserve" text-anchor="start" x="874.5" y="-30.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Infrastructure.</text>
 <text xml:space="preserve" text-anchor="start" x="874.5" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">RufusResolutionHelper.TryParseVersion</text>
@@ -453,7 +453,7 @@
 <!-- Node23 -->
 <g id="Node000023" class="node">
 <title>Node23</title>
-<g id="a_Node000023"><a xlink:href="class_easy___copier_1_1_infrastructure_1_1_rufus_resolution_helper.html#aff74fa2f29453c47964c6d4e5ef6de2a" target="_top" xlink:title=" ">
+<g id="a_Node000023"><a xlink:href="class_easy___copier_1_1_infrastructure_1_1_rufus_resolution_helper.html#aff74fa2f29453c47964c6d4e5ef6de2a" target="_top" xlink:title="Gets a generated regular expression used to match Rufus executable file names containing version numb...">
 <polygon fill="white" stroke="#666666" points="1308.75,-38 1101.5,-38 1101.5,-6 1308.75,-6 1308.75,-38"/>
 <text xml:space="preserve" text-anchor="start" x="1109.5" y="-24.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Infrastructure.</text>
 <text xml:space="preserve" text-anchor="middle" x="1205.12" y="-12.5" font-family="Helvetica,sans-Serif" font-size="10.00">RufusResolutionHelper.RufusVersionRegex</text>
@@ -472,7 +472,7 @@
 <!-- Node25 -->
 <g id="Node000025" class="node">
 <title>Node25</title>
-<g id="a_Node000025"><a xlink:href="class_easy___copier_1_1_view_models_1_1_settings_view_model.html#a88a193f32fd7eb4b8ea344419992d14d" target="_top" xlink:title=" ">
+<g id="a_Node000025"><a xlink:href="class_easy___copier_1_1_view_models_1_1_settings_view_model.html#a88a193f32fd7eb4b8ea344419992d14d" target="_top" xlink:title="Constructs a new AppSettings snapshot from the current view model state.">
 <polygon fill="white" stroke="#666666" points="1046.38,-140 878.88,-140 878.88,-108 1046.38,-108 1046.38,-140"/>
 <text xml:space="preserve" text-anchor="start" x="886.88" y="-126.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.ViewModels.Settings</text>
 <text xml:space="preserve" text-anchor="middle" x="962.62" y="-114.5" font-family="Helvetica,sans-Serif" font-size="10.00">ViewModel.GetSettings</text>

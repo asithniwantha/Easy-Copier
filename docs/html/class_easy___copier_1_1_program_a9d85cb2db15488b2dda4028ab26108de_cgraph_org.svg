@@ -11,7 +11,7 @@
 <!-- Node1 -->
 <g id="Node000001" class="node">
 <title>Node1</title>
-<g id="a_Node000001"><a xlink:title=" ">
+<g id="a_Node000001"><a xlink:title="Handles the Microsoft.Windows.AppLifecycle.AppInstance.Activated event when a secondary instance trig...">
 <polygon fill="#999999" stroke="#666666" points="136,-38 0,-38 0,-6 136,-6 136,-38"/>
 <text xml:space="preserve" text-anchor="start" x="8" y="-24.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Program.Main</text>
 <text xml:space="preserve" text-anchor="middle" x="68" y="-12.5" font-family="Helvetica,sans-Serif" font-size="10.00">Instance_Activated</text>
@@ -40,7 +40,7 @@
 <!-- Node3 -->
 <g id="Node000003" class="node">
 <title>Node3</title>
-<g id="a_Node000003"><a xlink:href="class_easy___copier_1_1_infrastructure_1_1_native_window_helper.html#a8ddfd36499035568510b6cb9e4b88459" target="_top" xlink:title=" ">
+<g id="a_Node000003"><a xlink:href="class_easy___copier_1_1_infrastructure_1_1_native_window_helper.html#a8ddfd36499035568510b6cb9e4b88459" target="_top" xlink:title="Brings the thread that created the specified window into the foreground and activates the window.">
 <polygon fill="white" stroke="#666666" points="558,-44 383,-44 383,0 558,0 558,-44"/>
 <text xml:space="preserve" text-anchor="start" x="391" y="-30.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Infrastructure.</text>
 <text xml:space="preserve" text-anchor="start" x="391" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">NativeWindowHelper.SetForeground</text>

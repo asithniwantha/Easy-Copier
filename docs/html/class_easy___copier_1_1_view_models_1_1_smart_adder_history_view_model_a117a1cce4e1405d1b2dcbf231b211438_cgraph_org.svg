@@ -11,7 +11,7 @@
 <!-- Node1 -->
 <g id="Node000001" class="node">
 <title>Node1</title>
-<g id="a_Node000001"><a xlink:title=" ">
+<g id="a_Node000001"><a xlink:title="Asynchronously loads recent history records from persistent storage into Records.">
 <polygon fill="#999999" stroke="#666666" points="187.75,-38 0,-38 0,-6 187.75,-6 187.75,-38"/>
 <text xml:space="preserve" text-anchor="start" x="8" y="-24.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.ViewModels.Smart</text>
 <text xml:space="preserve" text-anchor="middle" x="93.88" y="-12.5" font-family="Helvetica,sans-Serif" font-size="10.00">AdderHistoryViewModel.InitializeAsync</text>
@@ -21,7 +21,7 @@
 <!-- Node2 -->
 <g id="Node000002" class="node">
 <title>Node2</title>
-<g id="a_Node000002"><a xlink:href="class_easy___copier_1_1_view_models_1_1_smart_adder_history_entry_view_model.html#ac53a7b2e4aeee24e0ae2a4f812773ae0" target="_top" xlink:title=" ">
+<g id="a_Node000002"><a xlink:href="class_easy___copier_1_1_view_models_1_1_smart_adder_history_entry_view_model.html#ac53a7b2e4aeee24e0ae2a4f812773ae0" target="_top" xlink:title="Initializes a new instance of the SmartAdderHistoryEntryViewModel class from a persisted record.">
 <polygon fill="white" stroke="#666666" points="397.25,-44 223.75,-44 223.75,0 397.25,0 397.25,-44"/>
 <text xml:space="preserve" text-anchor="start" x="231.75" y="-30.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.ViewModels.Smart</text>
 <text xml:space="preserve" text-anchor="start" x="231.75" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">AdderHistoryEntryViewModel.Smart</text>

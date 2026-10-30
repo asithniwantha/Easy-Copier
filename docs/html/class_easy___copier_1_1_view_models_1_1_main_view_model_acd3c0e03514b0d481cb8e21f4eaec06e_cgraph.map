@@ -1,7 +1,19 @@
 <map id="Easy_Copier.ViewModels.MainViewModel.ScanLibraryAsync" name="Easy_Copier.ViewModels.MainViewModel.ScanLibraryAsync">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,39,209,81"/>
-<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_view_models_1_1_main_view_model.html#a286873562c6f74c8d888eed23483b758" title=" " alt="" coords="280,5,483,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="209,45,267,40,262,42,210,50"/>
-<area shape="rect" id="Node000003" href="$class_easy___copier_1_1_view_models_1_1_main_view_model.html#a0a4e7c95db133be566b2ad84541fe257" title=" " alt="" coords="257,72,506,115"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="209,70,244,76,239,77,209,75"/>
+<area shape="rect" id="Node000001" title="Asynchronously scans configured source library folders for games, applications, TV/films,..." alt="" coords="5,217,209,260"/>
+<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_view_models_1_1_main_view_model.html#a286873562c6f74c8d888eed23483b758" title="Filters and sorts active library collections based on current search queries, category,..." alt="" coords="280,105,483,148"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="142,215,195,186,256,158,278,152,273,154,258,162,197,190,145,219"/>
+<area shape="rect" id="Node000007" href="$class_easy___copier_1_1_view_models_1_1_main_view_model.html#ade61b832aff1c4bf5310ae57ac5852b6" title="Cancels and disposes the specified cancellation token source if non&#45;null, setting its reference to nu..." alt="" coords="263,172,500,231"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="208,222,250,218,245,221,210,227"/>
+<area shape="rect" id="Node000008" href="$class_easy___copier_1_1_view_models_1_1_main_view_model.html#ae95943a0cedc54ad6b562d9cd006499c" title="Determines whether any source library folders are configured in settings." alt="" coords="271,255,492,297"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="209,250,258,258,253,260,209,255"/>
+<area shape="rect" id="Node000009" href="$class_easy___copier_1_1_view_models_1_1_main_view_model.html#a0a4e7c95db133be566b2ad84541fe257" title="Saves a library cache JSON snapshot of all discovered entries using the active settings." alt="" coords="257,321,506,364"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="149,258,201,283,258,307,280,316,274,316,256,312,199,288,149,263"/>
+<area shape="rect" id="Node000003" href="$class_easy___copier_1_1_view_models_1_1_main_view_model.html#a74768a1f58ff1ee9c59c479d0dfae2bd" title="Applies search text query and category filtering to the applications library collection." alt="" coords="563,5,766,48"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="435,102,553,57,577,52,572,54,555,63,437,107"/>
+<area shape="rect" id="Node000004" href="$class_easy___copier_1_1_view_models_1_1_main_view_model.html#ad3c74fca3d7ea189f656357c5f392292" title="Applies search text query and category filtering to the games library collection." alt="" coords="563,72,766,115"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="483,112,550,106,545,108,484,117"/>
+<area shape="rect" id="Node000005" href="$class_easy___copier_1_1_view_models_1_1_main_view_model.html#ae2ee39386a22d609aa35d4a385654ac4" title="Applies search text query, category filtering, and sorting to the OS images library collection." alt="" coords="559,139,770,181"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="483,136,546,145,541,146,484,141"/>
+<area shape="rect" id="Node000006" href="$class_easy___copier_1_1_view_models_1_1_main_view_model.html#abd35ddffc9ae4e957a2a8c26c24d3764" title="Applies search text query, category filtering, and sorting to the TV and films library collection." alt="" coords="554,205,775,248"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="477,146,507,158,532,174,555,191,570,200,565,199,553,196,529,179,505,162,477,151"/>
 </map>

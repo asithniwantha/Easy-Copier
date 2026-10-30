@@ -1,0 +1,5 @@
+<map id="Easy_Copier.Views.AppsTabView.SearchBox_QuerySubmitted" name="Easy_Copier.Views.AppsTabView.SearchBox_QuerySubmitted">
+<area shape="rect" id="Node000001" title="Handles the event when the user submits a query from the AutoSuggestBox." alt="" coords="5,13,224,56"/>
+<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_infrastructure_1_1_auto_suggest_box_helper.html#ab5eb38cb0e8d809f8cc8b8a1db9195c2" title="Handles the query submitted event from an AutoSuggestBox to update the ViewModel&#39;s search text." alt="" coords="272,5,509,64"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="224,32,259,34,254,35,224,37"/>
+</map>

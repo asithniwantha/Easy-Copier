@@ -1,0 +1,22 @@
+<map id="Easy_Copier.ViewModels.MainViewModel.CancelAndDisposeTokenSource" name="Easy_Copier.ViewModels.MainViewModel.CancelAndDisposeTokenSource">
+<area shape="rect" id="Node000001" title="Cancels and disposes the specified cancellation token source if non&#45;null, setting its reference to nu..." alt="" coords="1108,81,1344,140"/>
+<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_view_models_1_1_main_view_model.html#abf794183664cafcfd27c96dff4ca0985" title=" " alt="" coords="256,115,459,157"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="1092,117,460,136,459,130,1093,112"/>
+<area shape="rect" id="Node000003" href="$class_easy___copier_1_1_view_models_1_1_main_view_model.html#acd3c0e03514b0d481cb8e21f4eaec06e" title="Asynchronously scans configured source library folders for games, applications, TV/films,..." alt="" coords="845,5,1049,48"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="1109,76,1020,51,1021,46,1114,76"/>
+<area shape="rect" id="Node000006" href="$class_easy___copier_1_1_view_models_1_1_main_view_model.html#ad071bc3d0e0120cfa4f180eca785ddd4" title=" " alt="" coords="507,56,786,99"/>
+<area shape="poly" id="edge11_Node000001_Node000006" title=" " alt="" coords="1090,103,787,88,786,83,1095,103"/>
+<area shape="rect" id="Node000007" href="$class_easy___copier_1_1_view_models_1_1_main_view_model.html#aa4243f0e35a458b0e83441c196308ec7" title="Displays a global in&#45;app notification bar with the specified title and message." alt="" coords="834,173,1060,216"/>
+<area shape="poly" id="edge7_Node000001_Node000007" title=" " alt="" coords="1114,145,1021,175,1020,170,1109,145"/>
+<area shape="rect" id="Node000004" href="$class_easy___copier_1_1_view_models_1_1_main_view_model.html#a7ec049730d16773f05f8c87da648d961" title="Asynchronously initializes settings, drive monitoring, and library contents from cache or disk scan." alt="" coords="256,23,459,65"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="828,32,460,44,459,38,832,29"/>
+<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="827,47,778,58,777,53,833,46"/>
+<area shape="rect" id="Node000005" href="$class_easy___copier_1_1_views_1_1_main_page.html#a1892f28feb0fd22b9cff5ebb690f1bea" title=" " alt="" coords="5,23,208,65"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="237,45,209,47,207,41,242,43"/>
+<area shape="poly" id="edge6_Node000006_Node000004" title=" " alt="" coords="489,60,460,58,459,53,494,59"/>
+<area shape="rect" id="Node000008" href="$class_easy___copier_1_1_view_models_1_1_main_view_model.html#af6a5e40aaf95c322393e3ee246107bb0" title="Event handler triggered when a transfer queue batch operation completes to display a global notificat..." alt="" coords="545,173,748,216"/>
+<area shape="poly" id="edge8_Node000007_Node000008" title=" " alt="" coords="816,195,749,197,749,192,821,195"/>
+<area shape="poly" id="edge9_Node000008_Node000002" title=" " alt="" coords="528,171,459,159,460,154,533,171"/>
+<area shape="rect" id="Node000009" href="$class_easy___copier_1_1_view_models_1_1_main_view_model.html#ac00dd69c74c965e1718624bfd92e4ed8" title="Initializes a new instance of the MainViewModel class with required infrastructure and domain service..." alt="" coords="256,181,459,224"/>
+<area shape="poly" id="edge10_Node000008_Node000009" title=" " alt="" coords="527,198,460,203,459,197,532,198"/>
+</map>

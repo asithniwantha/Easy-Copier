@@ -1,0 +1,5 @@
+<map id="Easy_Copier.Converters.NullToVisibilityConverter" name="Easy_Copier.Converters.NullToVisibilityConverter">
+<area shape="rect" id="Node000001" title="Converts an object reference (null vs non&#45;null) to a UI Visibility status, supporting optional invers..." alt="" coords="5,80,197,123"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="44,5,158,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="103,46,103,81,99,79,99,50"/>
+</map>

@@ -22,7 +22,7 @@
 <!-- Node2 -->
 <g id="Node000002" class="node">
 <title>Node2</title>
-<g id="a_Node000002"><a xlink:href="class_easy___copier_1_1_view_models_1_1_main_view_model.html#a0a8ffb692e229ec60eb9a768920b42fc" target="_top" xlink:title=" ">
+<g id="a_Node000002"><a xlink:href="class_easy___copier_1_1_view_models_1_1_main_view_model.html#a0a8ffb692e229ec60eb9a768920b42fc" target="_top" xlink:title="Asynchronously queries connected removable storage devices and updates MainViewModel....">
 <polygon fill="white" stroke="#666666" points="368,-38 210.25,-38 210.25,-6 368,-6 368,-38"/>
 <text xml:space="preserve" text-anchor="start" x="218.25" y="-24.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.ViewModels.Main</text>
 <text xml:space="preserve" text-anchor="middle" x="289.12" y="-12.5" font-family="Helvetica,sans-Serif" font-size="10.00">ViewModel.RefreshDrivesAsync</text>

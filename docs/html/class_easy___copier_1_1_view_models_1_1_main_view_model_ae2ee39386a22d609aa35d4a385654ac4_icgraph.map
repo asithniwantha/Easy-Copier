@@ -1,0 +1,27 @@
+<map id="Easy_Copier.ViewModels.MainViewModel.ApplyOsImagesFilter" name="Easy_Copier.ViewModels.MainViewModel.ApplyOsImagesFilter">
+<area shape="rect" id="Node000001" title="Applies search text query, category filtering, and sorting to the OS images library collection." alt="" coords="1487,249,1698,292"/>
+<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_view_models_1_1_main_view_model.html#a286873562c6f74c8d888eed23483b758" title="Filters and sorts active library collections based on current search queries, category,..." alt="" coords="1195,216,1398,258"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="1469,257,1399,251,1399,246,1474,257"/>
+<area shape="rect" id="Node000012" href="$class_easy___copier_1_1_view_models_1_1_main_view_model.html#a9be2b0ccba01c7a0711eeac90dcf9db8" title="Handles changes to the OsImagesSearchText property to re&#45;apply OS images library filtering." alt="" coords="1155,282,1439,325"/>
+<area shape="poly" id="edge13_Node000001_Node000012" title=" " alt="" coords="1469,284,1440,290,1439,285,1474,284"/>
+<area shape="rect" id="Node000003" href="$class_easy___copier_1_1_view_models_1_1_main_view_model.html#a7ec049730d16773f05f8c87da648d961" title="Asynchronously initializes settings, drive monitoring, and library contents from cache or disk scan." alt="" coords="256,389,459,432"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="1273,201,1245,163,1207,117,1160,73,1134,55,1106,41,1033,15,1001,10,972,8,910,18,835,41,758,74,683,116,613,165,550,217,445,317,378,391,375,386,441,313,546,213,610,161,680,112,755,69,833,36,909,12,972,3,1002,4,1034,10,1108,36,1136,51,1163,69,1211,113,1249,160,1278,203"/>
+<area shape="rect" id="Node000005" href="$class_easy___copier_1_1_view_models_1_1_main_view_model.html#a0ddddddefc20a6cb58ebebcd1fa2845b" title="Handles changes to the IsOsImageSortAscending property to re&#45;apply OS image sorting." alt="" coords="843,50,1098,109"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="1250,206,1184,165,1106,123,1078,112,1079,107,1108,119,1187,161,1256,207"/>
+<area shape="rect" id="Node000006" href="$class_easy___copier_1_1_view_models_1_1_main_view_model.html#afe1418d81ea280402efd9c0f598f45a8" title="Handles changes to the IsTvAndFilmsSortAscending property to re&#45;apply TV and film sorting." alt="" coords="834,133,1107,192"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="1183,212,1101,195,1101,189,1188,211"/>
+<area shape="rect" id="Node000007" href="$class_easy___copier_1_1_view_models_1_1_main_view_model.html#a149fd926e7789c317272e74cbb2c0c20" title="Handles changes to the SelectedCategory property to re&#45;apply library filtering." alt="" coords="839,216,1102,258"/>
+<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="1177,237,1102,240,1102,234,1182,237"/>
+<area shape="rect" id="Node000008" href="$class_easy___copier_1_1_view_models_1_1_main_view_model.html#a9f5f8be736636f84abe2ce843724d32c" title="Handles changes to the SelectedOsImageSortOption property to re&#45;apply OS image sorting." alt="" coords="853,282,1088,341"/>
+<area shape="poly" id="edge7_Node000002_Node000008" title=" " alt="" coords="1188,262,1089,287,1088,282,1183,263"/>
+<area shape="rect" id="Node000009" href="$class_easy___copier_1_1_view_models_1_1_main_view_model.html#aa45a72806c49f7762e73c9386bc1807b" title="Handles changes to the SelectedTvAndFilmsSortOption property to re&#45;apply TV and film sorting." alt="" coords="845,365,1096,424"/>
+<area shape="poly" id="edge8_Node000002_Node000009" title=" " alt="" coords="1183,254,1156,272,1140,291,1133,312,1126,334,1108,355,1090,367,1088,362,1105,351,1121,331,1128,310,1135,289,1153,268,1178,256"/>
+<area shape="rect" id="Node000010" href="$class_easy___copier_1_1_view_models_1_1_main_view_model.html#acd3c0e03514b0d481cb8e21f4eaec06e" title="Asynchronously scans configured source library folders for games, applications, TV/films,..." alt="" coords="869,448,1072,490"/>
+<area shape="poly" id="edge9_Node000002_Node000010" title=" " alt="" coords="1183,252,1156,272,1141,292,1134,311,1133,353,1132,395,1125,417,1109,438,1092,450,1073,459,1072,454,1089,445,1105,434,1120,414,1127,394,1128,353,1129,310,1137,289,1153,268,1178,254"/>
+<area shape="rect" id="Node000004" href="$class_easy___copier_1_1_views_1_1_main_page.html#a1892f28feb0fd22b9cff5ebb690f1bea" title=" " alt="" coords="5,389,208,432"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="237,411,209,413,208,408,242,410"/>
+<area shape="poly" id="edge10_Node000010_Node000003" title=" " alt="" coords="851,446,786,438,614,423,460,415,460,410,614,418,787,433,857,446"/>
+<area shape="rect" id="Node000011" href="$class_easy___copier_1_1_view_models_1_1_main_view_model.html#ad071bc3d0e0120cfa4f180eca785ddd4" title=" " alt="" coords="507,448,786,490"/>
+<area shape="poly" id="edge11_Node000010_Node000011" title=" " alt="" coords="851,469,787,472,787,466,856,469"/>
+<area shape="poly" id="edge12_Node000011_Node000003" title=" " alt="" coords="521,444,459,434,460,428,526,444"/>
+</map>

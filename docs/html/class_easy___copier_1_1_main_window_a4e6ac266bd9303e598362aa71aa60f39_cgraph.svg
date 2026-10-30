@@ -53,7 +53,7 @@
 <!-- Node1 -->
 <g id="Node000001" class="node">
 <title>Node1</title>
-<g id="a_Node000001"><a xlink:title=" ">
+<g id="a_Node000001"><a xlink:title="Initializes a new instance of the MainWindow class.">
 <polygon fill="#999999" stroke="#666666" points="154.75,-82 0,-82 0,-50 154.75,-50 154.75,-82"/>
 <text xml:space="preserve" text-anchor="start" x="8" y="-68.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.MainWindow.Main</text>
 <text xml:space="preserve" text-anchor="middle" x="77.38" y="-56.5" font-family="Helvetica,sans-Serif" font-size="10.00">Window</text>
@@ -120,7 +120,7 @@
 <!-- Node5 -->
 <g id="Node000005" class="node">
 <title>Node5</title>
-<g id="a_Node000005"><a xlink:href="class_easy___copier_1_1_infrastructure_1_1_native_window_helper.html#a95738f648a74872e265d231e37718f42" target="_top" xlink:title=" ">
+<g id="a_Node000005"><a xlink:href="class_easy___copier_1_1_infrastructure_1_1_native_window_helper.html#a95738f648a74872e265d231e37718f42" target="_top" xlink:title="Calculates the display rasterization scale factor for the specified window handle based on system DPI...">
 <polygon fill="white" stroke="#666666" points="621.75,-32 412.25,-32 412.25,0 621.75,0 621.75,-32"/>
 <text xml:space="preserve" text-anchor="start" x="420.25" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Infrastructure.</text>
 <text xml:space="preserve" text-anchor="middle" x="517" y="-6.5" font-family="Helvetica,sans-Serif" font-size="10.00">NativeWindowHelper.GetRasterizationScale</text>
@@ -139,7 +139,7 @@
 <!-- Node6 -->
 <g id="Node000006" class="node">
 <title>Node6</title>
-<g id="a_Node000006"><a xlink:href="class_easy___copier_1_1_infrastructure_1_1_native_window_helper.html#a1fc73b66e5307797eba4e1b88ef3e4e7" target="_top" xlink:title=" ">
+<g id="a_Node000006"><a xlink:href="class_easy___copier_1_1_infrastructure_1_1_native_window_helper.html#a1fc73b66e5307797eba4e1b88ef3e4e7" target="_top" xlink:title="Returns the dots per inch (DPI) value for the specified window.">
 <polygon fill="white" stroke="#666666" points="849.25,-32 657.75,-32 657.75,0 849.25,0 849.25,-32"/>
 <text xml:space="preserve" text-anchor="start" x="665.75" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Infrastructure.</text>
 <text xml:space="preserve" text-anchor="middle" x="753.5" y="-6.5" font-family="Helvetica,sans-Serif" font-size="10.00">NativeWindowHelper.GetDpiForWindow</text>

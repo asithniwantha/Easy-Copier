@@ -1,5 +1,11 @@
 <map id="Easy_Copier.Services.GameInfoDownloadService.TryFetchLutrisCoverAsync" name="Easy_Copier.Services.GameInfoDownloadService.TryFetchLutrisCoverAsync">
-<area shape="rect" id="Node000001" title="Attempts to download cover image from Lutris game search page for the specified game title." alt="" coords="5,5,239,64"/>
-<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_services_1_1_game_info_download_service.html#aa5082d34c94299e50e9b4ec7213d3638" title="Downloads an image from the specified URL and saves it to a local file path." alt="" coords="287,13,567,56"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="239,32,274,34,268,35,239,37"/>
+<area shape="rect" id="Node000001" title="Attempts to download cover image from Lutris REST API and search page for the specified game title." alt="" coords="5,31,239,89"/>
+<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_services_1_1_game_title_sanitizer.html#a031580959c3251f8f2557e6d299ddccb" title="Computes a title match similarity score between a target query title and an online service candidate ..." alt="" coords="315,5,539,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="239,45,302,40,297,41,240,50"/>
+<area shape="rect" id="Node000004" href="$class_easy___copier_1_1_services_1_1_game_info_download_service.html#aa5082d34c94299e50e9b4ec7213d3638" title="Downloads an image from the specified URL and saves it to a local file path after verifying image dat..." alt="" coords="287,72,567,115"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="239,70,274,76,268,76,239,75"/>
+<area shape="rect" id="Node000003" href="$class_easy___copier_1_1_services_1_1_game_title_sanitizer.html#aaa2daf6d34206e953c7b5d4807aa4407" title="Normalizes a title for comparison by lowercasing, removing punctuation, and collapsing whitespace." alt="" coords="615,5,864,48"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="539,24,602,26,597,27,539,29"/>
+<area shape="rect" id="Node000005" href="$class_easy___copier_1_1_services_1_1_game_title_sanitizer.html#a790f399df883c0306b7753e12720cef1" title="Validates that raw byte data represents a legitimate, non&#45;empty image (JPEG, PNG, WebP,..." alt="" coords="644,72,835,115"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="567,91,632,93,626,93,567,96"/>
 </map>

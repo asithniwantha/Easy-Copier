@@ -1,6 +1,10 @@
 var class_easy___copier_1_1_views_1_1_history_page =
 [
     [ "XamlBindingSetters", "class_easy___copier_1_1_views_1_1_history_page_1_1_xaml_binding_setters.html", "class_easy___copier_1_1_views_1_1_history_page_1_1_xaml_binding_setters" ],
+    [ "HistoryPage_obj9_Bindings", "class_easy___copier_1_1_views_1_1_history_page_1_1_history_page__obj9___bindings.html", "class_easy___copier_1_1_views_1_1_history_page_1_1_history_page__obj9___bindings" ],
+    [ "HistoryPage_obj32_Bindings", "class_easy___copier_1_1_views_1_1_history_page_1_1_history_page__obj32___bindings.html", "class_easy___copier_1_1_views_1_1_history_page_1_1_history_page__obj32___bindings" ],
+    [ "HistoryPage_obj38_Bindings", "class_easy___copier_1_1_views_1_1_history_page_1_1_history_page__obj38___bindings.html", "class_easy___copier_1_1_views_1_1_history_page_1_1_history_page__obj38___bindings" ],
+    [ "HistoryPage_obj44_Bindings", "class_easy___copier_1_1_views_1_1_history_page_1_1_history_page__obj44___bindings.html", "class_easy___copier_1_1_views_1_1_history_page_1_1_history_page__obj44___bindings" ],
     [ "HistoryPage_obj1_Bindings", "class_easy___copier_1_1_views_1_1_history_page_1_1_history_page__obj1___bindings.html", "class_easy___copier_1_1_views_1_1_history_page_1_1_history_page__obj1___bindings" ],
     [ "IHistoryPage_Bindings", "interface_easy___copier_1_1_views_1_1_history_page_1_1_i_history_page___bindings.html", "interface_easy___copier_1_1_views_1_1_history_page_1_1_i_history_page___bindings" ],
     [ "IHistoryPage_BindingsScopeConnector", "interface_easy___copier_1_1_views_1_1_history_page_1_1_i_history_page___bindings_scope_connector.html", "interface_easy___copier_1_1_views_1_1_history_page_1_1_i_history_page___bindings_scope_connector" ],

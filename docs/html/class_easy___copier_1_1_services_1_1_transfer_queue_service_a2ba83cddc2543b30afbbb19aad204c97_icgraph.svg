@@ -47,7 +47,7 @@
   </g>
 </defs>
 <script type="application/ecmascript" xlink:href="svg.min.js"/>
-<svg id="graph" class="graph" data-view-width="596" data-view-height="40" data-section-id="dynsection-6">
+<svg id="graph" class="graph" data-view-width="596" data-view-height="40" data-section-id="dynsection-4">
 <g id="viewport">
 <title>Easy_Copier.Services.TransferQueueService.NormalizeDriveKey</title>
 <!-- Node1 -->
@@ -82,7 +82,7 @@
 <!-- Node3 -->
 <g id="Node000003" class="node">
 <title>Node3</title>
-<g id="a_Node000003"><a xlink:href="class_easy___copier_1_1_services_1_1_transfer_queue_service.html#a31960a3b7a1549213ab478448f6c15c2" target="_top" xlink:title="Initializes a new instance of the TransferQueueService class and starts background consumer tasks.">
+<g id="a_Node000003"><a xlink:href="class_easy___copier_1_1_services_1_1_transfer_queue_service.html#a23af5ec676833eb1ec4fc57d0fbe7c0c" target="_top" xlink:title="Initializes a new instance of the TransferQueueService class and starts background consumer tasks.">
 <polygon fill="white" stroke="#666666" points="178,-32 0,-32 0,0 178,0 178,-32"/>
 <text xml:space="preserve" text-anchor="start" x="8" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Services.Transfer</text>
 <text xml:space="preserve" text-anchor="middle" x="89" y="-6.5" font-family="Helvetica,sans-Serif" font-size="10.00">QueueService.TransferQueueService</text>

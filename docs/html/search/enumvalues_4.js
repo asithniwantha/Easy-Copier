@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['failed_0',['Failed',['../namespace_easy___copier_1_1_models.html#a547068732d5055bc88341585bcf7e092ad7c8c85bf79bbe1b7188497c32c3b0ca',1,'Easy_Copier::Models']]],
+  ['failed_0',['Failed',['../namespace_easy___copier_1_1_models.html#a547068732d5055bc88341585bcf7e092ad7c8c85bf79bbe1b7188497c32c3b0ca',1,'Easy_Copier.Models.Failed'],['../namespace_easy___copier_1_1_view_models.html#a9c60ee124af20b8cf2bd1bc4ca23eb35ad7c8c85bf79bbe1b7188497c32c3b0ca',1,'Easy_Copier.ViewModels.Failed']]],
   ['filesyspath_1',['FILESYSPATH',['../namespace_easy___copier_1_1_interop.html#afd900c2991e05496e7482283f060be9cac7d6bdf390115c42b2bec98aaa5c15e6',1,'Easy_Copier::Interop']]],
   ['fof_5fallowundo_2',['FOF_ALLOWUNDO',['../namespace_easy___copier_1_1_interop.html#af4c32f2a5129cc8e5cca17819f42d6eaaf1342f67dcae2e207190efe86a7ed006',1,'Easy_Copier::Interop']]],
   ['fof_5fconfirmmouse_3',['FOF_CONFIRMMOUSE',['../namespace_easy___copier_1_1_interop.html#af4c32f2a5129cc8e5cca17819f42d6eaabb01ac41b17c19d7d5fcdbdd923cecc4',1,'Easy_Copier::Interop']]],

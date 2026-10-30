@@ -112,6 +112,9 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('class_easy___c
   <div class="headertitle"><div class="title">Easy_Copier.Interop.FileOperationProgressSink Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Receives progress updates from Windows Shell IFileOperation and reports transfer status and speed metrics.  
+ <a href="#details">More...</a></p>
 <div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Inheritance diagram for Easy_Copier.Interop.FileOperationProgressSink:</div>
 <div id="dynsection-0-summary" class="dynsummary">
 </div>
@@ -128,33 +131,177 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('class_easy___c
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a3435ba547667de14816bb1cd1fa6a6c1" id="r_a3435ba547667de14816bb1cd1fa6a6c1"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a3435ba547667de14816bb1cd1fa6a6c1">FileOperationProgressSink</a> (IProgress&lt; <a class="el" href="namespace_easy___copier_1_1_models.html#a5bc746b080509d1e3821a7f7fd82aa9f">TransferProgress</a> &gt;? progress, long totalBytes)</td></tr>
+<tr class="memdesc:a3435ba547667de14816bb1cd1fa6a6c1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes a new instance of the FileOperationProgressSink class.  <br /></td></tr>
 <tr class="memitem:ada0d100aeb8ca9096a9c9da044cc6c6e" id="r_ada0d100aeb8ca9096a9c9da044cc6c6e"><td class="memItemLeft">uint&#160;</td><td class="memItemRight"><a class="el" href="#ada0d100aeb8ca9096a9c9da044cc6c6e">StartOperations</a> ()</td></tr>
+<tr class="memdesc:ada0d100aeb8ca9096a9c9da044cc6c6e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Performs caller-defined actions before file operations begin.<dl class="section return"><dt>Returns</dt><dd>An HRESULT success code (0 for S_OK).</dd></dl>
+  <br /></td></tr>
 <tr class="memitem:a2603964212d998b166ff5569e8d39820" id="r_a2603964212d998b166ff5569e8d39820"><td class="memItemLeft">uint&#160;</td><td class="memItemRight"><a class="el" href="#a2603964212d998b166ff5569e8d39820">FinishOperations</a> (uint hrResult)</td></tr>
+<tr class="memdesc:a2603964212d998b166ff5569e8d39820"><td class="mdescLeft">&#160;</td><td class="mdescRight">Performs caller-defined actions after all file operations have completed.<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">hrResult</td><td>The final result code of the overall operation.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>An HRESULT success code (0 for S_OK).</dd></dl>
+  <br /></td></tr>
 <tr class="memitem:ac251eb41a519f4b9e216c6381e756742" id="r_ac251eb41a519f4b9e216c6381e756742"><td class="memItemLeft">uint&#160;</td><td class="memItemRight"><a class="el" href="#ac251eb41a519f4b9e216c6381e756742">PreRenameItem</a> (uint dwFlags, <a class="el" href="interface_easy___copier_1_1_interop_1_1_i_shell_item.html">IShellItem</a> psiItem, string pszNewName)</td></tr>
+<tr class="memdesc:ac251eb41a519f4b9e216c6381e756742"><td class="mdescLeft">&#160;</td><td class="mdescRight">Performs caller-defined actions before the rename operation for an item begins.<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dwFlags</td><td>Operation control flags.</td></tr>
+    <tr><td class="paramname">psiItem</td><td>Pointer to the target IShellItem.</td></tr>
+    <tr><td class="paramname">pszNewName</td><td>The proposed new name.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>An HRESULT success code (0 for S_OK).</dd></dl>
+  <br /></td></tr>
 <tr class="memitem:a77395630a22254e5fdcb8477603799f1" id="r_a77395630a22254e5fdcb8477603799f1"><td class="memItemLeft">uint&#160;</td><td class="memItemRight"><a class="el" href="#a77395630a22254e5fdcb8477603799f1">PostRenameItem</a> (uint dwFlags, <a class="el" href="interface_easy___copier_1_1_interop_1_1_i_shell_item.html">IShellItem</a> psiItem, string pszNewName, uint hrRename, <a class="el" href="interface_easy___copier_1_1_interop_1_1_i_shell_item.html">IShellItem</a> psiNewlyCreated)</td></tr>
+<tr class="memdesc:a77395630a22254e5fdcb8477603799f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Performs caller-defined actions after the rename operation for an item completes.<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dwFlags</td><td>Operation control flags.</td></tr>
+    <tr><td class="paramname">psiItem</td><td>Pointer to the source IShellItem.</td></tr>
+    <tr><td class="paramname">pszNewName</td><td>The new display name.</td></tr>
+    <tr><td class="paramname">hrRename</td><td>The result of the rename operation.</td></tr>
+    <tr><td class="paramname">psiNewlyCreated</td><td>Pointer to the renamed IShellItem.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>An HRESULT success code (0 for S_OK).</dd></dl>
+  <br /></td></tr>
 <tr class="memitem:a93aaba9b2b5163d9788651ae9af0bf22" id="r_a93aaba9b2b5163d9788651ae9af0bf22"><td class="memItemLeft">uint&#160;</td><td class="memItemRight"><a class="el" href="#a93aaba9b2b5163d9788651ae9af0bf22">PreMoveItem</a> (uint dwFlags, <a class="el" href="interface_easy___copier_1_1_interop_1_1_i_shell_item.html">IShellItem</a> psiItem, <a class="el" href="interface_easy___copier_1_1_interop_1_1_i_shell_item.html">IShellItem</a> psiDestinationFolder, string pszNewName)</td></tr>
+<tr class="memdesc:a93aaba9b2b5163d9788651ae9af0bf22"><td class="mdescLeft">&#160;</td><td class="mdescRight">Performs caller-defined actions before the move operation for an item begins.<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dwFlags</td><td>Operation control flags.</td></tr>
+    <tr><td class="paramname">psiItem</td><td>Pointer to the source IShellItem.</td></tr>
+    <tr><td class="paramname">psiDestinationFolder</td><td>Pointer to the destination folder IShellItem.</td></tr>
+    <tr><td class="paramname">pszNewName</td><td>The proposed new name.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>An HRESULT success code (0 for S_OK).</dd></dl>
+  <br /></td></tr>
 <tr class="memitem:a01a0e69314a4c59d7c08730dd624ad27" id="r_a01a0e69314a4c59d7c08730dd624ad27"><td class="memItemLeft">uint&#160;</td><td class="memItemRight"><a class="el" href="#a01a0e69314a4c59d7c08730dd624ad27">PostMoveItem</a> (uint dwFlags, <a class="el" href="interface_easy___copier_1_1_interop_1_1_i_shell_item.html">IShellItem</a> psiItem, <a class="el" href="interface_easy___copier_1_1_interop_1_1_i_shell_item.html">IShellItem</a> psiDestinationFolder, string pszNewName, uint hrMove, <a class="el" href="interface_easy___copier_1_1_interop_1_1_i_shell_item.html">IShellItem</a> psiNewlyCreated)</td></tr>
+<tr class="memdesc:a01a0e69314a4c59d7c08730dd624ad27"><td class="mdescLeft">&#160;</td><td class="mdescRight">Performs caller-defined actions after the move operation for an item completes.<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dwFlags</td><td>Operation control flags.</td></tr>
+    <tr><td class="paramname">psiItem</td><td>Pointer to the source IShellItem.</td></tr>
+    <tr><td class="paramname">psiDestinationFolder</td><td>Pointer to the destination folder IShellItem.</td></tr>
+    <tr><td class="paramname">pszNewName</td><td>The target item name.</td></tr>
+    <tr><td class="paramname">hrMove</td><td>The result of the move operation.</td></tr>
+    <tr><td class="paramname">psiNewlyCreated</td><td>Pointer to the moved IShellItem.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>An HRESULT success code (0 for S_OK).</dd></dl>
+  <br /></td></tr>
 <tr class="memitem:ad9dcfeb7309cb14bcc98ebce3e844926" id="r_ad9dcfeb7309cb14bcc98ebce3e844926"><td class="memItemLeft">uint&#160;</td><td class="memItemRight"><a class="el" href="#ad9dcfeb7309cb14bcc98ebce3e844926">PreCopyItem</a> (uint dwFlags, <a class="el" href="interface_easy___copier_1_1_interop_1_1_i_shell_item.html">IShellItem</a> psiItem, <a class="el" href="interface_easy___copier_1_1_interop_1_1_i_shell_item.html">IShellItem</a> psiDestinationFolder, string pszNewName)</td></tr>
+<tr class="memdesc:ad9dcfeb7309cb14bcc98ebce3e844926"><td class="mdescLeft">&#160;</td><td class="mdescRight">Performs caller-defined actions before the copy operation for an item begins.<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dwFlags</td><td>Operation control flags.</td></tr>
+    <tr><td class="paramname">psiItem</td><td>Pointer to the source IShellItem.</td></tr>
+    <tr><td class="paramname">psiDestinationFolder</td><td>Pointer to the destination folder IShellItem.</td></tr>
+    <tr><td class="paramname">pszNewName</td><td>The proposed destination name.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>An HRESULT success code (0 for S_OK).</dd></dl>
+  <br /></td></tr>
 <tr class="memitem:af8bedfeaf1a3cf1e6232317fc5c2e8c7" id="r_af8bedfeaf1a3cf1e6232317fc5c2e8c7"><td class="memItemLeft">uint&#160;</td><td class="memItemRight"><a class="el" href="#af8bedfeaf1a3cf1e6232317fc5c2e8c7">PostCopyItem</a> (uint dwFlags, <a class="el" href="interface_easy___copier_1_1_interop_1_1_i_shell_item.html">IShellItem</a> psiItem, <a class="el" href="interface_easy___copier_1_1_interop_1_1_i_shell_item.html">IShellItem</a> psiDestinationFolder, string pszNewName, uint hrCopy, <a class="el" href="interface_easy___copier_1_1_interop_1_1_i_shell_item.html">IShellItem</a> psiNewlyCreated)</td></tr>
+<tr class="memdesc:af8bedfeaf1a3cf1e6232317fc5c2e8c7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Performs caller-defined actions after the copy operation for an item completes.<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dwFlags</td><td>Operation control flags.</td></tr>
+    <tr><td class="paramname">psiItem</td><td>Pointer to the source IShellItem.</td></tr>
+    <tr><td class="paramname">psiDestinationFolder</td><td>Pointer to the destination folder IShellItem.</td></tr>
+    <tr><td class="paramname">pszNewName</td><td>The destination item name.</td></tr>
+    <tr><td class="paramname">hrCopy</td><td>The result of the copy operation.</td></tr>
+    <tr><td class="paramname">psiNewlyCreated</td><td>Pointer to the newly copied IShellItem.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>An HRESULT success code (0 for S_OK).</dd></dl>
+  <br /></td></tr>
 <tr class="memitem:a019dac0181dbc5aa0de99dabea2b41ad" id="r_a019dac0181dbc5aa0de99dabea2b41ad"><td class="memItemLeft">uint&#160;</td><td class="memItemRight"><a class="el" href="#a019dac0181dbc5aa0de99dabea2b41ad">PreDeleteItem</a> (uint dwFlags, <a class="el" href="interface_easy___copier_1_1_interop_1_1_i_shell_item.html">IShellItem</a> psiItem)</td></tr>
+<tr class="memdesc:a019dac0181dbc5aa0de99dabea2b41ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Performs caller-defined actions before the delete operation for an item begins.<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dwFlags</td><td>Operation control flags.</td></tr>
+    <tr><td class="paramname">psiItem</td><td>Pointer to the target IShellItem.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>An HRESULT success code (0 for S_OK).</dd></dl>
+  <br /></td></tr>
 <tr class="memitem:a477452e39fdaab168def0e4e3a623e12" id="r_a477452e39fdaab168def0e4e3a623e12"><td class="memItemLeft">uint&#160;</td><td class="memItemRight"><a class="el" href="#a477452e39fdaab168def0e4e3a623e12">PostDeleteItem</a> (uint dwFlags, <a class="el" href="interface_easy___copier_1_1_interop_1_1_i_shell_item.html">IShellItem</a> psiItem, uint hrDelete, <a class="el" href="interface_easy___copier_1_1_interop_1_1_i_shell_item.html">IShellItem</a> psiNewlyCreated)</td></tr>
+<tr class="memdesc:a477452e39fdaab168def0e4e3a623e12"><td class="mdescLeft">&#160;</td><td class="mdescRight">Performs caller-defined actions after the delete operation for an item completes.<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dwFlags</td><td>Operation control flags.</td></tr>
+    <tr><td class="paramname">psiItem</td><td>Pointer to the deleted IShellItem.</td></tr>
+    <tr><td class="paramname">hrDelete</td><td>The result of the delete operation.</td></tr>
+    <tr><td class="paramname">psiNewlyCreated</td><td>Pointer to any newly created item, such as a item in the Recycle Bin.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>An HRESULT success code (0 for S_OK).</dd></dl>
+  <br /></td></tr>
 <tr class="memitem:adf49b2e823da2118dfcde48eade0471c" id="r_adf49b2e823da2118dfcde48eade0471c"><td class="memItemLeft">uint&#160;</td><td class="memItemRight"><a class="el" href="#adf49b2e823da2118dfcde48eade0471c">PreNewItem</a> (uint dwFlags, <a class="el" href="interface_easy___copier_1_1_interop_1_1_i_shell_item.html">IShellItem</a> psiDestinationFolder, string pszNewName)</td></tr>
+<tr class="memdesc:adf49b2e823da2118dfcde48eade0471c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Performs caller-defined actions before creating a new item.<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dwFlags</td><td>Operation control flags.</td></tr>
+    <tr><td class="paramname">psiDestinationFolder</td><td>Pointer to the destination folder IShellItem.</td></tr>
+    <tr><td class="paramname">pszNewName</td><td>The proposed name for the new item.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>An HRESULT success code (0 for S_OK).</dd></dl>
+  <br /></td></tr>
 <tr class="memitem:a5bf83cec144fa1c95508d0537a2125ca" id="r_a5bf83cec144fa1c95508d0537a2125ca"><td class="memItemLeft">uint&#160;</td><td class="memItemRight"><a class="el" href="#a5bf83cec144fa1c95508d0537a2125ca">PostNewItem</a> (uint dwFlags, <a class="el" href="interface_easy___copier_1_1_interop_1_1_i_shell_item.html">IShellItem</a> psiDestinationFolder, string pszNewName, string pszTemplateName, uint hrNew, <a class="el" href="interface_easy___copier_1_1_interop_1_1_i_shell_item.html">IShellItem</a> psiNewlyCreated)</td></tr>
+<tr class="memdesc:a5bf83cec144fa1c95508d0537a2125ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Performs caller-defined actions after a new item is created.<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dwFlags</td><td>Operation control flags.</td></tr>
+    <tr><td class="paramname">psiDestinationFolder</td><td>Pointer to the parent folder IShellItem.</td></tr>
+    <tr><td class="paramname">pszNewName</td><td>The name of the new item.</td></tr>
+    <tr><td class="paramname">pszTemplateName</td><td>The template name used to create the item.</td></tr>
+    <tr><td class="paramname">hrNew</td><td>The result of the creation operation.</td></tr>
+    <tr><td class="paramname">psiNewlyCreated</td><td>Pointer to the newly created IShellItem.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>An HRESULT success code (0 for S_OK).</dd></dl>
+  <br /></td></tr>
 <tr class="memitem:ac0fca37cba9cef3d6d058af3b33f1f4a" id="r_ac0fca37cba9cef3d6d058af3b33f1f4a"><td class="memItemLeft">uint&#160;</td><td class="memItemRight"><a class="el" href="#ac0fca37cba9cef3d6d058af3b33f1f4a">UpdateProgress</a> (uint iWorkTotal, uint iWorkSoFar)</td></tr>
+<tr class="memdesc:ac0fca37cba9cef3d6d058af3b33f1f4a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Provides progress measurement feedback for ongoing file operations.<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">iWorkTotal</td><td>The total amount of work to be performed.</td></tr>
+    <tr><td class="paramname">iWorkSoFar</td><td>The amount of work completed so far.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>An HRESULT success code (0 for S_OK).</dd></dl>
+  <br /></td></tr>
 <tr class="memitem:a12cc59a5bc4dc90e203a5409d906f9d2" id="r_a12cc59a5bc4dc90e203a5409d906f9d2"><td class="memItemLeft">uint&#160;</td><td class="memItemRight"><a class="el" href="#a12cc59a5bc4dc90e203a5409d906f9d2">ResetTimer</a> ()</td></tr>
+<tr class="memdesc:a12cc59a5bc4dc90e203a5409d906f9d2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resets the progress timer.<dl class="section return"><dt>Returns</dt><dd>An HRESULT success code (0 for S_OK).</dd></dl>
+  <br /></td></tr>
 <tr class="memitem:a3c9d9e5be8a51b4cdbf7430f7f5a63d0" id="r_a3c9d9e5be8a51b4cdbf7430f7f5a63d0"><td class="memItemLeft">uint&#160;</td><td class="memItemRight"><a class="el" href="#a3c9d9e5be8a51b4cdbf7430f7f5a63d0">PauseTimer</a> ()</td></tr>
+<tr class="memdesc:a3c9d9e5be8a51b4cdbf7430f7f5a63d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pauses the progress timer.<dl class="section return"><dt>Returns</dt><dd>An HRESULT success code (0 for S_OK).</dd></dl>
+  <br /></td></tr>
 <tr class="memitem:a59879b3fe464e68e6381caa69860f57d" id="r_a59879b3fe464e68e6381caa69860f57d"><td class="memItemLeft">uint&#160;</td><td class="memItemRight"><a class="el" href="#a59879b3fe464e68e6381caa69860f57d">ResumeTimer</a> ()</td></tr>
+<tr class="memdesc:a59879b3fe464e68e6381caa69860f57d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resumes the progress timer.<dl class="section return"><dt>Returns</dt><dd>An HRESULT success code (0 for S_OK).</dd></dl>
+  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pri-attribs" class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
 <tr class="memitem:ad42717a7d0cd884e1f16bfc38759c68c" id="r_ad42717a7d0cd884e1f16bfc38759c68c"><td class="memItemLeft">readonly? IProgress&lt; <a class="el" href="namespace_easy___copier_1_1_models.html#a5bc746b080509d1e3821a7f7fd82aa9f">TransferProgress</a> &gt;&#160;</td><td class="memItemRight"><a class="el" href="#ad42717a7d0cd884e1f16bfc38759c68c">_progress</a></td></tr>
+<tr class="memdesc:ad42717a7d0cd884e1f16bfc38759c68c"><td class="mdescLeft">&#160;</td><td class="mdescRight">The progress callback delegate for reporting transfer updates.  <br /></td></tr>
 <tr class="memitem:a5e7c8ad14f234203f61dd83c5994b9b5" id="r_a5e7c8ad14f234203f61dd83c5994b9b5"><td class="memItemLeft">readonly long&#160;</td><td class="memItemRight"><a class="el" href="#a5e7c8ad14f234203f61dd83c5994b9b5">_totalBytes</a></td></tr>
+<tr class="memdesc:a5e7c8ad14f234203f61dd83c5994b9b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">The total expected size in bytes of all items in the operation.  <br /></td></tr>
 <tr class="memitem:acbd903336cde1c53a6d3ea7f8d522b73" id="r_acbd903336cde1c53a6d3ea7f8d522b73"><td class="memItemLeft">readonly Stopwatch&#160;</td><td class="memItemRight"><a class="el" href="#acbd903336cde1c53a6d3ea7f8d522b73">_stopwatch</a></td></tr>
+<tr class="memdesc:acbd903336cde1c53a6d3ea7f8d522b73"><td class="mdescLeft">&#160;</td><td class="mdescRight">The stopwatch for tracking transfer elapsed duration.  <br /></td></tr>
 <tr class="memitem:a870bbfb0b3d3749ce89f1165a62d6b32" id="r_a870bbfb0b3d3749ce89f1165a62d6b32"><td class="memItemLeft">long&#160;</td><td class="memItemRight"><a class="el" href="#a870bbfb0b3d3749ce89f1165a62d6b32">_bytesTransferred</a></td></tr>
+<tr class="memdesc:a870bbfb0b3d3749ce89f1165a62d6b32"><td class="mdescLeft">&#160;</td><td class="mdescRight">The cumulative count of bytes transferred so far.  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="_file_operation_progress_sink_8cs_source.html#l00008">8</a> of file <a class="el" href="_file_operation_progress_sink_8cs_source.html">FileOperationProgressSink.cs</a>.</p>
+<div class="textblock"><p>Receives progress updates from Windows Shell IFileOperation and reports transfer status and speed metrics. </p>
+
+<p class="definition">Definition at line <a class="el" href="_file_operation_progress_sink_8cs_source.html#l00011">11</a> of file <a class="el" href="_file_operation_progress_sink_8cs_source.html">FileOperationProgressSink.cs</a>.</p>
 </div><a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a3435ba547667de14816bb1cd1fa6a6c1" name="a3435ba547667de14816bb1cd1fa6a6c1"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a3435ba547667de14816bb1cd1fa6a6c1">&#9670;&#160;</a></span>FileOperationProgressSink()</h2>
@@ -175,11 +322,20 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_file_operation_progress_sink_8cs_source.html#l00015">15</a> of file <a class="el" href="_file_operation_progress_sink_8cs_source.html">FileOperationProgressSink.cs</a>.</p>
+<p>Initializes a new instance of the FileOperationProgressSink class. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">progress</td><td>The progress reporter callback for sending transfer updates.</td></tr>
+    <tr><td class="paramname">totalBytes</td><td>The total size in bytes of all items involved in the file operation.</td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p class="reference">References <a class="el" href="_file_operation_progress_sink_8cs_source.html#l00010">_progress</a>, <a class="el" href="_file_operation_progress_sink_8cs_source.html#l00012">_stopwatch</a>, and <a class="el" href="_file_operation_progress_sink_8cs_source.html#l00011">_totalBytes</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_file_operation_progress_sink_8cs_source.html#l00038">38</a> of file <a class="el" href="_file_operation_progress_sink_8cs_source.html">FileOperationProgressSink.cs</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_file_transfer_service_8cs_source.html#l00387">Easy_Copier.Services.WindowsShellTransferService.CopyItemWithFileOperation()</a>.</p>
+<p class="reference">References <a class="el" href="_file_operation_progress_sink_8cs_source.html#l00016">_progress</a>, <a class="el" href="_file_operation_progress_sink_8cs_source.html#l00026">_stopwatch</a>, and <a class="el" href="_file_operation_progress_sink_8cs_source.html#l00021">_totalBytes</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_file_transfer_service_8cs_source.html#l00416">Easy_Copier.Services.WindowsShellTransferService.CopyItemWithFileOperation()</a>.</p>
 <div id="dynsection-2" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
 <div id="dynsection-2-summary" class="dynsummary">
 </div>
@@ -205,11 +361,20 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Performs caller-defined actions after all file operations have completed.<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">hrResult</td><td>The final result code of the overall operation.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>An HRESULT success code (0 for S_OK).</dd></dl>
+ </p>
+
 <p>Implements <a class="el" href="interface_easy___copier_1_1_interop_1_1_i_file_operation_progress_sink.html#a5865cf7526cbd008b1d1f567694b6980">Easy_Copier.Interop.IFileOperationProgressSink</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_file_operation_progress_sink_8cs_source.html#l00028">28</a> of file <a class="el" href="_file_operation_progress_sink_8cs_source.html">FileOperationProgressSink.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_file_operation_progress_sink_8cs_source.html#l00053">53</a> of file <a class="el" href="_file_operation_progress_sink_8cs_source.html">FileOperationProgressSink.cs</a>.</p>
 
-<p class="reference">References <a class="el" href="_file_operation_progress_sink_8cs_source.html#l00010">_progress</a>, <a class="el" href="_file_operation_progress_sink_8cs_source.html#l00012">_stopwatch</a>, and <a class="el" href="namespace_easy___copier_1_1_models.html#a5bc746b080509d1e3821a7f7fd82aa9f">Easy_Copier.Models.TransferProgress()</a>.</p>
+<p class="reference">References <a class="el" href="_file_operation_progress_sink_8cs_source.html#l00016">_progress</a>, <a class="el" href="_file_operation_progress_sink_8cs_source.html#l00026">_stopwatch</a>, and <a class="el" href="namespace_easy___copier_1_1_models.html#a5bc746b080509d1e3821a7f7fd82aa9f">Easy_Copier.Models.TransferProgress()</a>.</p>
 <div id="dynsection-3" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-3-summary" class="dynsummary">
 </div>
@@ -234,9 +399,12 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Pauses the progress timer.<dl class="section return"><dt>Returns</dt><dd>An HRESULT success code (0 for S_OK).</dd></dl>
+ </p>
+
 <p>Implements <a class="el" href="interface_easy___copier_1_1_interop_1_1_i_file_operation_progress_sink.html#a8f499c271c7d985c8b55288e3cc038f0">Easy_Copier.Interop.IFileOperationProgressSink</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_file_operation_progress_sink_8cs_source.html#l00123">123</a> of file <a class="el" href="_file_operation_progress_sink_8cs_source.html">FileOperationProgressSink.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_file_operation_progress_sink_8cs_source.html#l00161">161</a> of file <a class="el" href="_file_operation_progress_sink_8cs_source.html">FileOperationProgressSink.cs</a>.</p>
 
 </div>
 </div>
@@ -279,9 +447,23 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Performs caller-defined actions after the copy operation for an item completes.<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dwFlags</td><td>Operation control flags.</td></tr>
+    <tr><td class="paramname">psiItem</td><td>Pointer to the source IShellItem.</td></tr>
+    <tr><td class="paramname">psiDestinationFolder</td><td>Pointer to the destination folder IShellItem.</td></tr>
+    <tr><td class="paramname">pszNewName</td><td>The destination item name.</td></tr>
+    <tr><td class="paramname">hrCopy</td><td>The result of the copy operation.</td></tr>
+    <tr><td class="paramname">psiNewlyCreated</td><td>Pointer to the newly copied IShellItem.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>An HRESULT success code (0 for S_OK).</dd></dl>
+ </p>
+
 <p>Implements <a class="el" href="interface_easy___copier_1_1_interop_1_1_i_file_operation_progress_sink.html#af4b642f2179233b4039588cf8d60b1c3">Easy_Copier.Interop.IFileOperationProgressSink</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_file_operation_progress_sink_8cs_source.html#l00060">60</a> of file <a class="el" href="_file_operation_progress_sink_8cs_source.html">FileOperationProgressSink.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_file_operation_progress_sink_8cs_source.html#l00091">91</a> of file <a class="el" href="_file_operation_progress_sink_8cs_source.html">FileOperationProgressSink.cs</a>.</p>
 
 </div>
 </div>
@@ -314,9 +496,21 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Performs caller-defined actions after the delete operation for an item completes.<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dwFlags</td><td>Operation control flags.</td></tr>
+    <tr><td class="paramname">psiItem</td><td>Pointer to the deleted IShellItem.</td></tr>
+    <tr><td class="paramname">hrDelete</td><td>The result of the delete operation.</td></tr>
+    <tr><td class="paramname">psiNewlyCreated</td><td>Pointer to any newly created item, such as a item in the Recycle Bin.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>An HRESULT success code (0 for S_OK).</dd></dl>
+ </p>
+
 <p>Implements <a class="el" href="interface_easy___copier_1_1_interop_1_1_i_file_operation_progress_sink.html#a5d6fd97d3c9916b19b1ff3edf6cf025c">Easy_Copier.Interop.IFileOperationProgressSink</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_file_operation_progress_sink_8cs_source.html#l00070">70</a> of file <a class="el" href="_file_operation_progress_sink_8cs_source.html">FileOperationProgressSink.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_file_operation_progress_sink_8cs_source.html#l00103">103</a> of file <a class="el" href="_file_operation_progress_sink_8cs_source.html">FileOperationProgressSink.cs</a>.</p>
 
 </div>
 </div>
@@ -359,9 +553,23 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Performs caller-defined actions after the move operation for an item completes.<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dwFlags</td><td>Operation control flags.</td></tr>
+    <tr><td class="paramname">psiItem</td><td>Pointer to the source IShellItem.</td></tr>
+    <tr><td class="paramname">psiDestinationFolder</td><td>Pointer to the destination folder IShellItem.</td></tr>
+    <tr><td class="paramname">pszNewName</td><td>The target item name.</td></tr>
+    <tr><td class="paramname">hrMove</td><td>The result of the move operation.</td></tr>
+    <tr><td class="paramname">psiNewlyCreated</td><td>Pointer to the moved IShellItem.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>An HRESULT success code (0 for S_OK).</dd></dl>
+ </p>
+
 <p>Implements <a class="el" href="interface_easy___copier_1_1_interop_1_1_i_file_operation_progress_sink.html#a38e1b721f308cdd863c9e868723cfbb0">Easy_Copier.Interop.IFileOperationProgressSink</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_file_operation_progress_sink_8cs_source.html#l00050">50</a> of file <a class="el" href="_file_operation_progress_sink_8cs_source.html">FileOperationProgressSink.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_file_operation_progress_sink_8cs_source.html#l00079">79</a> of file <a class="el" href="_file_operation_progress_sink_8cs_source.html">FileOperationProgressSink.cs</a>.</p>
 
 </div>
 </div>
@@ -404,9 +612,23 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Performs caller-defined actions after a new item is created.<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dwFlags</td><td>Operation control flags.</td></tr>
+    <tr><td class="paramname">psiDestinationFolder</td><td>Pointer to the parent folder IShellItem.</td></tr>
+    <tr><td class="paramname">pszNewName</td><td>The name of the new item.</td></tr>
+    <tr><td class="paramname">pszTemplateName</td><td>The template name used to create the item.</td></tr>
+    <tr><td class="paramname">hrNew</td><td>The result of the creation operation.</td></tr>
+    <tr><td class="paramname">psiNewlyCreated</td><td>Pointer to the newly created IShellItem.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>An HRESULT success code (0 for S_OK).</dd></dl>
+ </p>
+
 <p>Implements <a class="el" href="interface_easy___copier_1_1_interop_1_1_i_file_operation_progress_sink.html#af2a6b301ebfa705ea7ad5c4fe64e3f25">Easy_Copier.Interop.IFileOperationProgressSink</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_file_operation_progress_sink_8cs_source.html#l00080">80</a> of file <a class="el" href="_file_operation_progress_sink_8cs_source.html">FileOperationProgressSink.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_file_operation_progress_sink_8cs_source.html#l00115">115</a> of file <a class="el" href="_file_operation_progress_sink_8cs_source.html">FileOperationProgressSink.cs</a>.</p>
 
 </div>
 </div>
@@ -444,9 +666,22 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Performs caller-defined actions after the rename operation for an item completes.<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dwFlags</td><td>Operation control flags.</td></tr>
+    <tr><td class="paramname">psiItem</td><td>Pointer to the source IShellItem.</td></tr>
+    <tr><td class="paramname">pszNewName</td><td>The new display name.</td></tr>
+    <tr><td class="paramname">hrRename</td><td>The result of the rename operation.</td></tr>
+    <tr><td class="paramname">psiNewlyCreated</td><td>Pointer to the renamed IShellItem.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>An HRESULT success code (0 for S_OK).</dd></dl>
+ </p>
+
 <p>Implements <a class="el" href="interface_easy___copier_1_1_interop_1_1_i_file_operation_progress_sink.html#ad762b6262f482c8b4c354d2b635be6a4">Easy_Copier.Interop.IFileOperationProgressSink</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_file_operation_progress_sink_8cs_source.html#l00040">40</a> of file <a class="el" href="_file_operation_progress_sink_8cs_source.html">FileOperationProgressSink.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_file_operation_progress_sink_8cs_source.html#l00067">67</a> of file <a class="el" href="_file_operation_progress_sink_8cs_source.html">FileOperationProgressSink.cs</a>.</p>
 
 </div>
 </div>
@@ -479,9 +714,21 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Performs caller-defined actions before the copy operation for an item begins.<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dwFlags</td><td>Operation control flags.</td></tr>
+    <tr><td class="paramname">psiItem</td><td>Pointer to the source IShellItem.</td></tr>
+    <tr><td class="paramname">psiDestinationFolder</td><td>Pointer to the destination folder IShellItem.</td></tr>
+    <tr><td class="paramname">pszNewName</td><td>The proposed destination name.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>An HRESULT success code (0 for S_OK).</dd></dl>
+ </p>
+
 <p>Implements <a class="el" href="interface_easy___copier_1_1_interop_1_1_i_file_operation_progress_sink.html#a4b27719997168674ecb8e39a223d1f98">Easy_Copier.Interop.IFileOperationProgressSink</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_file_operation_progress_sink_8cs_source.html#l00055">55</a> of file <a class="el" href="_file_operation_progress_sink_8cs_source.html">FileOperationProgressSink.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_file_operation_progress_sink_8cs_source.html#l00085">85</a> of file <a class="el" href="_file_operation_progress_sink_8cs_source.html">FileOperationProgressSink.cs</a>.</p>
 
 </div>
 </div>
@@ -504,9 +751,19 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Performs caller-defined actions before the delete operation for an item begins.<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dwFlags</td><td>Operation control flags.</td></tr>
+    <tr><td class="paramname">psiItem</td><td>Pointer to the target IShellItem.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>An HRESULT success code (0 for S_OK).</dd></dl>
+ </p>
+
 <p>Implements <a class="el" href="interface_easy___copier_1_1_interop_1_1_i_file_operation_progress_sink.html#a6b503e55276fe5e2c01555eb6b5c3496">Easy_Copier.Interop.IFileOperationProgressSink</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_file_operation_progress_sink_8cs_source.html#l00065">65</a> of file <a class="el" href="_file_operation_progress_sink_8cs_source.html">FileOperationProgressSink.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_file_operation_progress_sink_8cs_source.html#l00097">97</a> of file <a class="el" href="_file_operation_progress_sink_8cs_source.html">FileOperationProgressSink.cs</a>.</p>
 
 </div>
 </div>
@@ -539,9 +796,21 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Performs caller-defined actions before the move operation for an item begins.<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dwFlags</td><td>Operation control flags.</td></tr>
+    <tr><td class="paramname">psiItem</td><td>Pointer to the source IShellItem.</td></tr>
+    <tr><td class="paramname">psiDestinationFolder</td><td>Pointer to the destination folder IShellItem.</td></tr>
+    <tr><td class="paramname">pszNewName</td><td>The proposed new name.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>An HRESULT success code (0 for S_OK).</dd></dl>
+ </p>
+
 <p>Implements <a class="el" href="interface_easy___copier_1_1_interop_1_1_i_file_operation_progress_sink.html#a164f95ba957f0a8f022bf377324f7ed1">Easy_Copier.Interop.IFileOperationProgressSink</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_file_operation_progress_sink_8cs_source.html#l00045">45</a> of file <a class="el" href="_file_operation_progress_sink_8cs_source.html">FileOperationProgressSink.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_file_operation_progress_sink_8cs_source.html#l00073">73</a> of file <a class="el" href="_file_operation_progress_sink_8cs_source.html">FileOperationProgressSink.cs</a>.</p>
 
 </div>
 </div>
@@ -569,9 +838,20 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Performs caller-defined actions before creating a new item.<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dwFlags</td><td>Operation control flags.</td></tr>
+    <tr><td class="paramname">psiDestinationFolder</td><td>Pointer to the destination folder IShellItem.</td></tr>
+    <tr><td class="paramname">pszNewName</td><td>The proposed name for the new item.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>An HRESULT success code (0 for S_OK).</dd></dl>
+ </p>
+
 <p>Implements <a class="el" href="interface_easy___copier_1_1_interop_1_1_i_file_operation_progress_sink.html#a7ffc0483b1ccb47f96adaa60a8d35709">Easy_Copier.Interop.IFileOperationProgressSink</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_file_operation_progress_sink_8cs_source.html#l00075">75</a> of file <a class="el" href="_file_operation_progress_sink_8cs_source.html">FileOperationProgressSink.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_file_operation_progress_sink_8cs_source.html#l00109">109</a> of file <a class="el" href="_file_operation_progress_sink_8cs_source.html">FileOperationProgressSink.cs</a>.</p>
 
 </div>
 </div>
@@ -599,9 +879,20 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Performs caller-defined actions before the rename operation for an item begins.<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dwFlags</td><td>Operation control flags.</td></tr>
+    <tr><td class="paramname">psiItem</td><td>Pointer to the target IShellItem.</td></tr>
+    <tr><td class="paramname">pszNewName</td><td>The proposed new name.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>An HRESULT success code (0 for S_OK).</dd></dl>
+ </p>
+
 <p>Implements <a class="el" href="interface_easy___copier_1_1_interop_1_1_i_file_operation_progress_sink.html#a8d1cbda0f741ab093fdefda24c1ac8c1">Easy_Copier.Interop.IFileOperationProgressSink</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_file_operation_progress_sink_8cs_source.html#l00035">35</a> of file <a class="el" href="_file_operation_progress_sink_8cs_source.html">FileOperationProgressSink.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_file_operation_progress_sink_8cs_source.html#l00061">61</a> of file <a class="el" href="_file_operation_progress_sink_8cs_source.html">FileOperationProgressSink.cs</a>.</p>
 
 </div>
 </div>
@@ -620,9 +911,12 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Resets the progress timer.<dl class="section return"><dt>Returns</dt><dd>An HRESULT success code (0 for S_OK).</dd></dl>
+ </p>
+
 <p>Implements <a class="el" href="interface_easy___copier_1_1_interop_1_1_i_file_operation_progress_sink.html#a8f4df00fbb066a25d91552486d765af0">Easy_Copier.Interop.IFileOperationProgressSink</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_file_operation_progress_sink_8cs_source.html#l00118">118</a> of file <a class="el" href="_file_operation_progress_sink_8cs_source.html">FileOperationProgressSink.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_file_operation_progress_sink_8cs_source.html#l00155">155</a> of file <a class="el" href="_file_operation_progress_sink_8cs_source.html">FileOperationProgressSink.cs</a>.</p>
 
 </div>
 </div>
@@ -641,9 +935,12 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Resumes the progress timer.<dl class="section return"><dt>Returns</dt><dd>An HRESULT success code (0 for S_OK).</dd></dl>
+ </p>
+
 <p>Implements <a class="el" href="interface_easy___copier_1_1_interop_1_1_i_file_operation_progress_sink.html#ab48bb2baa16739952f5dbefe6665b29f">Easy_Copier.Interop.IFileOperationProgressSink</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_file_operation_progress_sink_8cs_source.html#l00128">128</a> of file <a class="el" href="_file_operation_progress_sink_8cs_source.html">FileOperationProgressSink.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_file_operation_progress_sink_8cs_source.html#l00167">167</a> of file <a class="el" href="_file_operation_progress_sink_8cs_source.html">FileOperationProgressSink.cs</a>.</p>
 
 </div>
 </div>
@@ -662,11 +959,14 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Performs caller-defined actions before file operations begin.<dl class="section return"><dt>Returns</dt><dd>An HRESULT success code (0 for S_OK).</dd></dl>
+ </p>
+
 <p>Implements <a class="el" href="interface_easy___copier_1_1_interop_1_1_i_file_operation_progress_sink.html#a5712e05bd888de38db715e9f866d7f5d">Easy_Copier.Interop.IFileOperationProgressSink</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_file_operation_progress_sink_8cs_source.html#l00022">22</a> of file <a class="el" href="_file_operation_progress_sink_8cs_source.html">FileOperationProgressSink.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_file_operation_progress_sink_8cs_source.html#l00046">46</a> of file <a class="el" href="_file_operation_progress_sink_8cs_source.html">FileOperationProgressSink.cs</a>.</p>
 
-<p class="reference">References <a class="el" href="_file_operation_progress_sink_8cs_source.html#l00012">_stopwatch</a>.</p>
+<p class="reference">References <a class="el" href="_file_operation_progress_sink_8cs_source.html#l00026">_stopwatch</a>.</p>
 
 </div>
 </div>
@@ -689,11 +989,21 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Provides progress measurement feedback for ongoing file operations.<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">iWorkTotal</td><td>The total amount of work to be performed.</td></tr>
+    <tr><td class="paramname">iWorkSoFar</td><td>The amount of work completed so far.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>An HRESULT success code (0 for S_OK).</dd></dl>
+ </p>
+
 <p>Implements <a class="el" href="interface_easy___copier_1_1_interop_1_1_i_file_operation_progress_sink.html#abfedb27a9197d4867d861486fac92291">Easy_Copier.Interop.IFileOperationProgressSink</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_file_operation_progress_sink_8cs_source.html#l00085">85</a> of file <a class="el" href="_file_operation_progress_sink_8cs_source.html">FileOperationProgressSink.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_file_operation_progress_sink_8cs_source.html#l00121">121</a> of file <a class="el" href="_file_operation_progress_sink_8cs_source.html">FileOperationProgressSink.cs</a>.</p>
 
-<p class="reference">References <a class="el" href="_file_operation_progress_sink_8cs_source.html#l00013">_bytesTransferred</a>, <a class="el" href="_file_operation_progress_sink_8cs_source.html#l00010">_progress</a>, <a class="el" href="_file_operation_progress_sink_8cs_source.html#l00012">_stopwatch</a>, <a class="el" href="_file_operation_progress_sink_8cs_source.html#l00011">_totalBytes</a>, <a class="el" href="_formatting_helpers_8cs_source.html#l00015">Easy_Copier.Infrastructure.FormattingHelpers.FormatBytes()</a>, and <a class="el" href="namespace_easy___copier_1_1_models.html#a5bc746b080509d1e3821a7f7fd82aa9f">Easy_Copier.Models.TransferProgress()</a>.</p>
+<p class="reference">References <a class="el" href="_file_operation_progress_sink_8cs_source.html#l00031">_bytesTransferred</a>, <a class="el" href="_file_operation_progress_sink_8cs_source.html#l00016">_progress</a>, <a class="el" href="_file_operation_progress_sink_8cs_source.html#l00026">_stopwatch</a>, <a class="el" href="_file_operation_progress_sink_8cs_source.html#l00021">_totalBytes</a>, <a class="el" href="_formatting_helpers_8cs_source.html#l00015">Easy_Copier.Infrastructure.FormattingHelpers.FormatBytes()</a>, and <a class="el" href="namespace_easy___copier_1_1_models.html#a5bc746b080509d1e3821a7f7fd82aa9f">Easy_Copier.Models.TransferProgress()</a>.</p>
 <div id="dynsection-4" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-4-summary" class="dynsummary">
 </div>
@@ -724,9 +1034,11 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_file_operation_progress_sink_8cs_source.html#l00013">13</a> of file <a class="el" href="_file_operation_progress_sink_8cs_source.html">FileOperationProgressSink.cs</a>.</p>
+<p>The cumulative count of bytes transferred so far. </p>
 
-<p class="reference">Referenced by <a class="el" href="_file_operation_progress_sink_8cs_source.html#l00085">UpdateProgress()</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_file_operation_progress_sink_8cs_source.html#l00031">31</a> of file <a class="el" href="_file_operation_progress_sink_8cs_source.html">FileOperationProgressSink.cs</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_file_operation_progress_sink_8cs_source.html#l00121">UpdateProgress()</a>.</p>
 
 </div>
 </div>
@@ -750,9 +1062,11 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_file_operation_progress_sink_8cs_source.html#l00010">10</a> of file <a class="el" href="_file_operation_progress_sink_8cs_source.html">FileOperationProgressSink.cs</a>.</p>
+<p>The progress callback delegate for reporting transfer updates. </p>
 
-<p class="reference">Referenced by <a class="el" href="_file_operation_progress_sink_8cs_source.html#l00015">FileOperationProgressSink()</a>, <a class="el" href="_file_operation_progress_sink_8cs_source.html#l00028">FinishOperations()</a>, and <a class="el" href="_file_operation_progress_sink_8cs_source.html#l00085">UpdateProgress()</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_file_operation_progress_sink_8cs_source.html#l00016">16</a> of file <a class="el" href="_file_operation_progress_sink_8cs_source.html">FileOperationProgressSink.cs</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_file_operation_progress_sink_8cs_source.html#l00038">FileOperationProgressSink()</a>, <a class="el" href="_file_operation_progress_sink_8cs_source.html#l00053">FinishOperations()</a>, and <a class="el" href="_file_operation_progress_sink_8cs_source.html#l00121">UpdateProgress()</a>.</p>
 
 </div>
 </div>
@@ -776,9 +1090,11 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_file_operation_progress_sink_8cs_source.html#l00012">12</a> of file <a class="el" href="_file_operation_progress_sink_8cs_source.html">FileOperationProgressSink.cs</a>.</p>
+<p>The stopwatch for tracking transfer elapsed duration. </p>
 
-<p class="reference">Referenced by <a class="el" href="_file_operation_progress_sink_8cs_source.html#l00015">FileOperationProgressSink()</a>, <a class="el" href="_file_operation_progress_sink_8cs_source.html#l00028">FinishOperations()</a>, <a class="el" href="_file_operation_progress_sink_8cs_source.html#l00022">StartOperations()</a>, and <a class="el" href="_file_operation_progress_sink_8cs_source.html#l00085">UpdateProgress()</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_file_operation_progress_sink_8cs_source.html#l00026">26</a> of file <a class="el" href="_file_operation_progress_sink_8cs_source.html">FileOperationProgressSink.cs</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_file_operation_progress_sink_8cs_source.html#l00038">FileOperationProgressSink()</a>, <a class="el" href="_file_operation_progress_sink_8cs_source.html#l00053">FinishOperations()</a>, <a class="el" href="_file_operation_progress_sink_8cs_source.html#l00046">StartOperations()</a>, and <a class="el" href="_file_operation_progress_sink_8cs_source.html#l00121">UpdateProgress()</a>.</p>
 
 </div>
 </div>
@@ -802,9 +1118,11 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_file_operation_progress_sink_8cs_source.html#l00011">11</a> of file <a class="el" href="_file_operation_progress_sink_8cs_source.html">FileOperationProgressSink.cs</a>.</p>
+<p>The total expected size in bytes of all items in the operation. </p>
 
-<p class="reference">Referenced by <a class="el" href="_file_operation_progress_sink_8cs_source.html#l00015">FileOperationProgressSink()</a>, and <a class="el" href="_file_operation_progress_sink_8cs_source.html#l00085">UpdateProgress()</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_file_operation_progress_sink_8cs_source.html#l00021">21</a> of file <a class="el" href="_file_operation_progress_sink_8cs_source.html">FileOperationProgressSink.cs</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_file_operation_progress_sink_8cs_source.html#l00038">FileOperationProgressSink()</a>, and <a class="el" href="_file_operation_progress_sink_8cs_source.html#l00121">UpdateProgress()</a>.</p>
 
 </div>
 </div>

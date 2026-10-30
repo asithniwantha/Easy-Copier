@@ -113,29 +113,40 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('class_easy___c
 </div><!--header-->
 <div class="contents">
 
-<p>Encapsulates shared flyout and card interaction behaviors for library item views.  
+<p>Encapsulates shared flyout and card interaction behaviors for library item views, delegating to IFlyoutService.  
  <a href="#details">More...</a></p>
+<div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Collaboration diagram for Easy_Copier.Infrastructure.FlyoutHelper:</div>
+<div id="dynsection-0-summary" class="dynsummary">
+</div>
+<div id="dynsection-0-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="class_easy___copier_1_1_infrastructure_1_1_flyout_helper__coll__graph.svg" width="200" height="168"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-static-methods" class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a45ed191cae19aa7c8da5127da35d04fb" id="r_a45ed191cae19aa7c8da5127da35d04fb"><td class="memItemLeft">static void&#160;</td><td class="memItemRight"><a class="el" href="#a45ed191cae19aa7c8da5127da35d04fb">HandleOpenFolderClick</a> (object sender, <a class="el" href="class_easy___copier_1_1_view_models_1_1_main_view_model.html">MainViewModel</a>? mainViewModel)</td></tr>
-<tr class="memdesc:a45ed191cae19aa7c8da5127da35d04fb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handles the click event for opening an item's folder in File Explorer.  <br /></td></tr>
-<tr class="memitem:a8243f8640163b04ac57cc937f104f349" id="r_a8243f8640163b04ac57cc937f104f349"><td class="memItemLeft">static async Task&#160;</td><td class="memItemRight"><a class="el" href="#a8243f8640163b04ac57cc937f104f349">ShowGameDetailsFlyoutAsync</a> (object sender, RightTappedRoutedEventArgs e, <a class="el" href="class_easy___copier_1_1_view_models_1_1_main_view_model.html">MainViewModel</a>? mainViewModel)</td></tr>
-<tr class="memdesc:a8243f8640163b04ac57cc937f104f349"><td class="mdescLeft">&#160;</td><td class="mdescRight">Displays the game details flyout when right-tapping a game card.  <br /></td></tr>
+<tr class="memitem:a19e225ee58145f014dcf0ffeb508c88a" id="r_a19e225ee58145f014dcf0ffeb508c88a"><td class="memItemLeft">static void&#160;</td><td class="memItemRight"><a class="el" href="#a19e225ee58145f014dcf0ffeb508c88a">Initialize</a> (<a class="el" href="interface_easy___copier_1_1_infrastructure_1_1_i_flyout_service.html">IFlyoutService</a> flyoutService)</td></tr>
+<tr class="memdesc:a19e225ee58145f014dcf0ffeb508c88a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configures the static helper with an IFlyoutService instance for UI views that use static helper methods.  <br /></td></tr>
+<tr class="memitem:ac43027e6babaf9b025dcdaffed298734" id="r_ac43027e6babaf9b025dcdaffed298734"><td class="memItemLeft">static void&#160;</td><td class="memItemRight"><a class="el" href="#ac43027e6babaf9b025dcdaffed298734">HandleOpenFolderClick</a> (object sender)</td></tr>
+<tr class="memdesc:ac43027e6babaf9b025dcdaffed298734"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handles the click event for opening an item's folder in File Explorer.  <br /></td></tr>
+<tr class="memitem:af2d6d1c8f11c25430f2475d4686c3111" id="r_af2d6d1c8f11c25430f2475d4686c3111"><td class="memItemLeft">static async Task&#160;</td><td class="memItemRight"><a class="el" href="#af2d6d1c8f11c25430f2475d4686c3111">ShowGameDetailsFlyoutAsync</a> (object sender, RightTappedRoutedEventArgs e)</td></tr>
+<tr class="memdesc:af2d6d1c8f11c25430f2475d4686c3111"><td class="mdescLeft">&#160;</td><td class="mdescRight">Displays the game details flyout when right-tapping a game card.  <br /></td></tr>
 <tr class="memitem:a7129d8af4e5b49e0b85728bbf84bc228" id="r_a7129d8af4e5b49e0b85728bbf84bc228"><td class="memItemLeft">static void&#160;</td><td class="memItemRight"><a class="el" href="#a7129d8af4e5b49e0b85728bbf84bc228">ShowOsImageDetailsFlyout</a> (object sender, RightTappedRoutedEventArgs e)</td></tr>
 <tr class="memdesc:a7129d8af4e5b49e0b85728bbf84bc228"><td class="mdescLeft">&#160;</td><td class="mdescRight">Displays the OS image details flyout when right-tapping an OS image card.  <br /></td></tr>
+<tr class="memitem:a26dfc3f7601e880a357e25bd61a54941" id="r_a26dfc3f7601e880a357e25bd61a54941"><td class="memItemLeft">static async Task&#160;</td><td class="memItemRight"><a class="el" href="#a26dfc3f7601e880a357e25bd61a54941">ShowVideoDetailsFlyoutAsync</a> (object sender, RightTappedRoutedEventArgs e)</td></tr>
+<tr class="memdesc:a26dfc3f7601e880a357e25bd61a54941"><td class="mdescLeft">&#160;</td><td class="mdescRight">Displays the film/TV details flyout when right-tapping a video card.  <br /></td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-pri-static-methods" class="groupheader"><a id="pri-static-methods" name="pri-static-methods"></a>
-Static Private Member Functions</h2></td></tr>
-<tr class="memitem:aa507f17416e85f5f75287778e50b473b" id="r_aa507f17416e85f5f75287778e50b473b"><td class="memItemLeft">static void&#160;</td><td class="memItemRight"><a class="el" href="#aa507f17416e85f5f75287778e50b473b">PresentFlyout</a> (FrameworkElement targetElement, RightTappedRoutedEventArgs e, UIElement content, Style? presenterStyle)</td></tr>
+<tr class="heading"><td colspan="2"><h2 id="header-pri-static-attribs" class="groupheader"><a id="pri-static-attribs" name="pri-static-attribs"></a>
+Static Private Attributes</h2></td></tr>
+<tr class="memitem:acf6e5eb1c7c6e1c0c3554531cc44f7c7" id="r_acf6e5eb1c7c6e1c0c3554531cc44f7c7"><td class="memItemLeft">static ? <a class="el" href="interface_easy___copier_1_1_infrastructure_1_1_i_flyout_service.html">IFlyoutService</a>&#160;</td><td class="memItemRight"><a class="el" href="#acf6e5eb1c7c6e1c0c3554531cc44f7c7">s_flyoutService</a></td></tr>
+<tr class="memdesc:acf6e5eb1c7c6e1c0c3554531cc44f7c7"><td class="mdescLeft">&#160;</td><td class="mdescRight">The active flyout service instance used by static helper methods.  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Encapsulates shared flyout and card interaction behaviors for library item views. </p>
+<div class="textblock"><p>Encapsulates shared flyout and card interaction behaviors for library item views, delegating to IFlyoutService. </p>
 
-<p class="definition">Definition at line <a class="el" href="_flyout_helper_8cs_source.html#l00015">15</a> of file <a class="el" href="_flyout_helper_8cs_source.html">FlyoutHelper.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_flyout_helper_8cs_source.html#l00011">11</a> of file <a class="el" href="_flyout_helper_8cs_source.html">FlyoutHelper.cs</a>.</p>
 </div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
-<a id="a45ed191cae19aa7c8da5127da35d04fb" name="a45ed191cae19aa7c8da5127da35d04fb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a45ed191cae19aa7c8da5127da35d04fb">&#9670;&#160;</a></span>HandleOpenFolderClick()</h2>
+<a id="ac43027e6babaf9b025dcdaffed298734" name="ac43027e6babaf9b025dcdaffed298734"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac43027e6babaf9b025dcdaffed298734">&#9670;&#160;</a></span>HandleOpenFolderClick()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -146,12 +157,8 @@ Static Private Member Functions</h2></td></tr>
         <tr>
           <td class="memname">void Easy_Copier.Infrastructure.FlyoutHelper.HandleOpenFolderClick </td>
           <td>(</td>
-          <td class="paramtype">object</td>          <td class="paramname"><span class="paramname"><em>sender</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramtype">object</td>          <td class="paramname"><span class="paramname"><em>sender</em></span></td><td>)</td>
           <td></td>
-          <td class="paramtype"><a class="el" href="class_easy___copier_1_1_view_models_1_1_main_view_model.html">MainViewModel</a>?</td>          <td class="paramname"><span class="paramname"><em>mainViewModel</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
@@ -165,33 +172,32 @@ Static Private Member Functions</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">sender</td><td>The button control triggering the click.</td></tr>
-    <tr><td class="paramname">mainViewModel</td><td>The main ViewModel containing the open folder command.</td></tr>
   </table>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_flyout_helper_8cs_source.html#l00022">22</a> of file <a class="el" href="_flyout_helper_8cs_source.html">FlyoutHelper.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_flyout_helper_8cs_source.html#l00031">31</a> of file <a class="el" href="_flyout_helper_8cs_source.html">FlyoutHelper.cs</a>.</p>
 
-<p class="reference">References <a class="el" href="_domain_models_8cs_source.html#l00100">Easy_Copier.Models.GameEntry()</a>.</p>
+<p class="reference">References <a class="el" href="interface_easy___copier_1_1_infrastructure_1_1_i_flyout_service.html#a7a95fdeb564c1ab3597c7df912110c82">Easy_Copier.Infrastructure.IFlyoutService.HandleOpenFolderClick()</a>, and <a class="el" href="_flyout_helper_8cs_source.html#l00016">s_flyoutService</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_apps_tab_view_8xaml_8cs_source.html#l00074">Easy_Copier.Views.AppsTabView.OpenFolderButton_Click()</a>, <a class="el" href="_games_tab_view_8xaml_8cs_source.html#l00074">Easy_Copier.Views.GamesTabView.OpenFolderButton_Click()</a>, <a class="el" href="_os_images_tab_view_8xaml_8cs_source.html#l00071">Easy_Copier.Views.OsImagesTabView.OpenFolderButton_Click()</a>, and <a class="el" href="_tv_and_films_tab_view_8xaml_8cs_source.html#l00074">Easy_Copier.Views.TvAndFilmsTabView.OpenFolderButton_Click()</a>.</p>
-<div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-0-summary" class="dynsummary">
-</div>
-<div id="dynsection-0-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="class_easy___copier_1_1_infrastructure_1_1_flyout_helper_a45ed191cae19aa7c8da5127da35d04fb_cgraph.svg" width="508" height="70"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-<div id="dynsection-1" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<p class="reference">Referenced by <a class="el" href="_apps_tab_view_8xaml_8cs_source.html#l00083">Easy_Copier.Views.AppsTabView.OpenFolderButton_Click()</a>, <a class="el" href="_games_tab_view_8xaml_8cs_source.html#l00083">Easy_Copier.Views.GamesTabView.OpenFolderButton_Click()</a>, <a class="el" href="_os_images_tab_view_8xaml_8cs_source.html#l00083">Easy_Copier.Views.OsImagesTabView.OpenFolderButton_Click()</a>, and <a class="el" href="_tv_and_films_tab_view_8xaml_8cs_source.html#l00101">Easy_Copier.Views.TvAndFilmsTabView.OpenFolderButton_Click()</a>.</p>
+<div id="dynsection-1" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-1-summary" class="dynsummary">
 </div>
 <div id="dynsection-1-content" class="dyncontent hidden">
-<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="class_easy___copier_1_1_infrastructure_1_1_flyout_helper_a45ed191cae19aa7c8da5127da35d04fb_icgraph.svg" width="100%" height="490"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="class_easy___copier_1_1_infrastructure_1_1_flyout_helper_ac43027e6babaf9b025dcdaffed298734_cgraph.svg" width="544" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div id="dynsection-2" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-2-summary" class="dynsummary">
+</div>
+<div id="dynsection-2-content" class="dyncontent hidden">
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="class_easy___copier_1_1_infrastructure_1_1_flyout_helper_ac43027e6babaf9b025dcdaffed298734_icgraph.svg" width="100%" height="490"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
 </div>
-<a id="aa507f17416e85f5f75287778e50b473b" name="aa507f17416e85f5f75287778e50b473b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa507f17416e85f5f75287778e50b473b">&#9670;&#160;</a></span>PresentFlyout()</h2>
+<a id="a19e225ee58145f014dcf0ffeb508c88a" name="a19e225ee58145f014dcf0ffeb508c88a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a19e225ee58145f014dcf0ffeb508c88a">&#9670;&#160;</a></span>Initialize()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -200,47 +206,43 @@ Static Private Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void Easy_Copier.Infrastructure.FlyoutHelper.PresentFlyout </td>
+          <td class="memname">void Easy_Copier.Infrastructure.FlyoutHelper.Initialize </td>
           <td>(</td>
-          <td class="paramtype">FrameworkElement</td>          <td class="paramname"><span class="paramname"><em>targetElement</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramtype"><a class="el" href="interface_easy___copier_1_1_infrastructure_1_1_i_flyout_service.html">IFlyoutService</a></td>          <td class="paramname"><span class="paramname"><em>flyoutService</em></span></td><td>)</td>
           <td></td>
-          <td class="paramtype">RightTappedRoutedEventArgs</td>          <td class="paramname"><span class="paramname"><em>e</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">UIElement</td>          <td class="paramname"><span class="paramname"><em>content</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">Style?</td>          <td class="paramname"><span class="paramname"><em>presenterStyle</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel private">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_flyout_helper_8cs_source.html#l00076">76</a> of file <a class="el" href="_flyout_helper_8cs_source.html">FlyoutHelper.cs</a>.</p>
+<p>Configures the static helper with an IFlyoutService instance for UI views that use static helper methods. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">flyoutService</td><td>The flyout service instance.</td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p class="reference">Referenced by <a class="el" href="_flyout_helper_8cs_source.html#l00036">ShowGameDetailsFlyoutAsync()</a>, and <a class="el" href="_flyout_helper_8cs_source.html#l00060">ShowOsImageDetailsFlyout()</a>.</p>
-<div id="dynsection-2" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
-<div id="dynsection-2-summary" class="dynsummary">
+<p class="definition">Definition at line <a class="el" href="_flyout_helper_8cs_source.html#l00022">22</a> of file <a class="el" href="_flyout_helper_8cs_source.html">FlyoutHelper.cs</a>.</p>
+
+<p class="reference">References <a class="el" href="_flyout_helper_8cs_source.html#l00016">s_flyoutService</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_app_8xaml_8cs_source.html#l00121">Easy_Copier.App.OnLaunched()</a>.</p>
+<div id="dynsection-3" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-3-summary" class="dynsummary">
 </div>
-<div id="dynsection-2-content" class="dyncontent hidden">
-<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="class_easy___copier_1_1_infrastructure_1_1_flyout_helper_aa507f17416e85f5f75287778e50b473b_icgraph.svg" width="100%" height="490"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div id="dynsection-3-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="class_easy___copier_1_1_infrastructure_1_1_flyout_helper_a19e225ee58145f014dcf0ffeb508c88a_icgraph.svg" width="440" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
 </div>
-<a id="a8243f8640163b04ac57cc937f104f349" name="a8243f8640163b04ac57cc937f104f349"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8243f8640163b04ac57cc937f104f349">&#9670;&#160;</a></span>ShowGameDetailsFlyoutAsync()</h2>
+<a id="af2d6d1c8f11c25430f2475d4686c3111" name="af2d6d1c8f11c25430f2475d4686c3111"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af2d6d1c8f11c25430f2475d4686c3111">&#9670;&#160;</a></span>ShowGameDetailsFlyoutAsync()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -256,12 +258,7 @@ Static Private Member Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">RightTappedRoutedEventArgs</td>          <td class="paramname"><span class="paramname"><em>e</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="class_easy___copier_1_1_view_models_1_1_main_view_model.html">MainViewModel</a>?</td>          <td class="paramname"><span class="paramname"><em>mainViewModel</em></span>&#160;)</td>
+          <td class="paramtype">RightTappedRoutedEventArgs</td>          <td class="paramname"><span class="paramname"><em>e</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
@@ -276,27 +273,27 @@ Static Private Member Functions</h2></td></tr>
   <table class="params">
     <tr><td class="paramname">sender</td><td>The framework element triggering the right-tap.</td></tr>
     <tr><td class="paramname">e</td><td>The right-tapped routed event args.</td></tr>
-    <tr><td class="paramname">mainViewModel</td><td>The main ViewModel providing system requirement formatting and factory methods.</td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>A task that represents the asynchronous flyout display operation.</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_flyout_helper_8cs_source.html#l00036">36</a> of file <a class="el" href="_flyout_helper_8cs_source.html">FlyoutHelper.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_flyout_helper_8cs_source.html#l00042">42</a> of file <a class="el" href="_flyout_helper_8cs_source.html">FlyoutHelper.cs</a>.</p>
 
-<p class="reference">References <a class="el" href="_main_view_model_8cs_source.html#l00311">Easy_Copier.ViewModels.MainViewModel.CreateGameDetailsViewModel()</a>, <a class="el" href="_domain_models_8cs_source.html#l00100">Easy_Copier.Models.GameEntry()</a>, <a class="el" href="_main_view_model_8_scanning_8cs_source.html#l00419">Easy_Copier.ViewModels.MainViewModel.GetFormattedSystemRequirementsAsync()</a>, and <a class="el" href="_flyout_helper_8cs_source.html#l00076">PresentFlyout()</a>.</p>
+<p class="reference">References <a class="el" href="_flyout_helper_8cs_source.html#l00016">s_flyoutService</a>, and <a class="el" href="interface_easy___copier_1_1_infrastructure_1_1_i_flyout_service.html#ad5a416fa554a684fb818fc6c885d6129">Easy_Copier.Infrastructure.IFlyoutService.ShowGameDetailsFlyoutAsync()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_apps_tab_view_8xaml_8cs_source.html#l00079">Easy_Copier.Views.AppsTabView.GameCard_RightTapped()</a>, <a class="el" href="_games_tab_view_8xaml_8cs_source.html#l00079">Easy_Copier.Views.GamesTabView.GameCard_RightTapped()</a>, and <a class="el" href="_tv_and_films_tab_view_8xaml_8cs_source.html#l00079">Easy_Copier.Views.TvAndFilmsTabView.GameCard_RightTapped()</a>.</p>
-<div id="dynsection-3" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-3-summary" class="dynsummary">
-</div>
-<div id="dynsection-3-content" class="dyncontent hidden">
-<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="class_easy___copier_1_1_infrastructure_1_1_flyout_helper_a8243f8640163b04ac57cc937f104f349_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
-</div>
-<div id="dynsection-4" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<p class="reference">Referenced by <a class="el" href="_apps_tab_view_8xaml_8cs_source.html#l00093">Easy_Copier.Views.AppsTabView.GameCard_RightTapped()</a>, and <a class="el" href="_games_tab_view_8xaml_8cs_source.html#l00093">Easy_Copier.Views.GamesTabView.GameCard_RightTapped()</a>.</p>
+<div id="dynsection-4" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-4-summary" class="dynsummary">
 </div>
 <div id="dynsection-4-content" class="dyncontent hidden">
-<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="class_easy___copier_1_1_infrastructure_1_1_flyout_helper_a8243f8640163b04ac57cc937f104f349_icgraph.svg" width="100%" height="440"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="class_easy___copier_1_1_infrastructure_1_1_flyout_helper_af2d6d1c8f11c25430f2475d4686c3111_cgraph.svg" width="632" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div id="dynsection-5" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-5-summary" class="dynsummary">
+</div>
+<div id="dynsection-5-content" class="dyncontent hidden">
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="class_easy___copier_1_1_infrastructure_1_1_flyout_helper_af2d6d1c8f11c25430f2475d4686c3111_icgraph.svg" width="100%" height="390"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -337,23 +334,109 @@ Static Private Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_flyout_helper_8cs_source.html#l00060">60</a> of file <a class="el" href="_flyout_helper_8cs_source.html">FlyoutHelper.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_flyout_helper_8cs_source.html#l00056">56</a> of file <a class="el" href="_flyout_helper_8cs_source.html">FlyoutHelper.cs</a>.</p>
 
-<p class="reference">References <a class="el" href="_domain_models_8cs_source.html#l00100">Easy_Copier.Models.GameEntry()</a>, <a class="el" href="_os_image_details_view_model_8cs_source.html#l00028">Easy_Copier.ViewModels.OsImageDetailsViewModel.Initialize()</a>, and <a class="el" href="_flyout_helper_8cs_source.html#l00076">PresentFlyout()</a>.</p>
+<p class="reference">References <a class="el" href="_flyout_helper_8cs_source.html#l00016">s_flyoutService</a>, and <a class="el" href="interface_easy___copier_1_1_infrastructure_1_1_i_flyout_service.html#a56d63d86d566a73866a0b2639ac9683d">Easy_Copier.Infrastructure.IFlyoutService.ShowOsImageDetailsFlyout()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_os_images_tab_view_8xaml_8cs_source.html#l00076">Easy_Copier.Views.OsImagesTabView.GameCard_RightTapped()</a>.</p>
-<div id="dynsection-5" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-5-summary" class="dynsummary">
-</div>
-<div id="dynsection-5-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="class_easy___copier_1_1_infrastructure_1_1_flyout_helper_a7129d8af4e5b49e0b85728bbf84bc228_cgraph.svg" width="500" height="195"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-<div id="dynsection-6" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<p class="reference">Referenced by <a class="el" href="_os_images_tab_view_8xaml_8cs_source.html#l00093">Easy_Copier.Views.OsImagesTabView.GameCard_RightTapped()</a>.</p>
+<div id="dynsection-6" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-6-summary" class="dynsummary">
 </div>
 <div id="dynsection-6-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="class_easy___copier_1_1_infrastructure_1_1_flyout_helper_a7129d8af4e5b49e0b85728bbf84bc228_cgraph.svg" width="522" height="70"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div id="dynsection-7" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-7-summary" class="dynsummary">
+</div>
+<div id="dynsection-7-content" class="dyncontent hidden">
 <div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="class_easy___copier_1_1_infrastructure_1_1_flyout_helper_a7129d8af4e5b49e0b85728bbf84bc228_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
+
+</div>
+</div>
+<a id="a26dfc3f7601e880a357e25bd61a54941" name="a26dfc3f7601e880a357e25bd61a54941"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a26dfc3f7601e880a357e25bd61a54941">&#9670;&#160;</a></span>ShowVideoDetailsFlyoutAsync()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">async Task Easy_Copier.Infrastructure.FlyoutHelper.ShowVideoDetailsFlyoutAsync </td>
+          <td>(</td>
+          <td class="paramtype">object</td>          <td class="paramname"><span class="paramname"><em>sender</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">RightTappedRoutedEventArgs</td>          <td class="paramname"><span class="paramname"><em>e</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Displays the film/TV details flyout when right-tapping a video card. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sender</td><td>The framework element triggering the right-tap.</td></tr>
+    <tr><td class="paramname">e</td><td>The right-tapped routed event args.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A task that represents the asynchronous flyout display operation.</dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_flyout_helper_8cs_source.html#l00068">68</a> of file <a class="el" href="_flyout_helper_8cs_source.html">FlyoutHelper.cs</a>.</p>
+
+<p class="reference">References <a class="el" href="_flyout_helper_8cs_source.html#l00016">s_flyoutService</a>, and <a class="el" href="interface_easy___copier_1_1_infrastructure_1_1_i_flyout_service.html#aa1268e0ea7da674c4f2bc97935679f83">Easy_Copier.Infrastructure.IFlyoutService.ShowVideoDetailsFlyoutAsync()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_tv_and_films_tab_view_8xaml_8cs_source.html#l00111">Easy_Copier.Views.TvAndFilmsTabView.GameCard_RightTapped()</a>.</p>
+<div id="dynsection-8" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-8-summary" class="dynsummary">
+</div>
+<div id="dynsection-8-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="class_easy___copier_1_1_infrastructure_1_1_flyout_helper_a26dfc3f7601e880a357e25bd61a54941_cgraph.svg" width="555" height="70"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div id="dynsection-9" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-9-summary" class="dynsummary">
+</div>
+<div id="dynsection-9-content" class="dyncontent hidden">
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="class_easy___copier_1_1_infrastructure_1_1_flyout_helper_a26dfc3f7601e880a357e25bd61a54941_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Member Data Documentation</h2>
+<a id="acf6e5eb1c7c6e1c0c3554531cc44f7c7" name="acf6e5eb1c7c6e1c0c3554531cc44f7c7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acf6e5eb1c7c6e1c0c3554531cc44f7c7">&#9670;&#160;</a></span>s_flyoutService</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">? <a class="el" href="interface_easy___copier_1_1_infrastructure_1_1_i_flyout_service.html">IFlyoutService</a> Easy_Copier.Infrastructure.FlyoutHelper.s_flyoutService</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The active flyout service instance used by static helper methods. </p>
+
+<p class="definition">Definition at line <a class="el" href="_flyout_helper_8cs_source.html#l00016">16</a> of file <a class="el" href="_flyout_helper_8cs_source.html">FlyoutHelper.cs</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_flyout_helper_8cs_source.html#l00031">HandleOpenFolderClick()</a>, <a class="el" href="_flyout_helper_8cs_source.html#l00022">Initialize()</a>, <a class="el" href="_flyout_helper_8cs_source.html#l00042">ShowGameDetailsFlyoutAsync()</a>, <a class="el" href="_flyout_helper_8cs_source.html#l00056">ShowOsImageDetailsFlyout()</a>, and <a class="el" href="_flyout_helper_8cs_source.html#l00068">ShowVideoDetailsFlyoutAsync()</a>.</p>
 
 </div>
 </div>

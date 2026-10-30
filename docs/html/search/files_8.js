@@ -1,11 +1,12 @@
 var searchData=
 [
-  ['iappwindowcontext_2ecs_0',['IAppWindowContext.cs',['../_i_app_window_context_8cs.html',1,'']]],
-  ['idialogservice_2ecs_1',['IDialogService.cs',['../_i_dialog_service_8cs.html',1,'']]],
-  ['idispatcherservice_2ecs_2',['IDispatcherService.cs',['../_i_dispatcher_service_8cs.html',1,'']]],
-  ['ilibraryfilterservice_2ecs_3',['ILibraryFilterService.cs',['../_i_library_filter_service_8cs.html',1,'']]],
-  ['ilibraryscannerservice_2ecs_4',['ILibraryScannerService.cs',['../_i_library_scanner_service_8cs.html',1,'']]],
-  ['ilibrarytabview_2ecs_5',['ILibraryTabView.cs',['../_i_library_tab_view_8cs.html',1,'']]],
-  ['irufusservice_2ecs_6',['IRufusService.cs',['../_i_rufus_service_8cs.html',1,'']]],
-  ['iupdateservice_2ecs_7',['IUpdateService.cs',['../_i_update_service_8cs.html',1,'']]]
+  ['historyanalysisservice_2ecs_0',['HistoryAnalysisService.cs',['../_history_analysis_service_8cs.html',1,'']]],
+  ['historypage_2eg_2ecs_1',['HistoryPage.g.cs',['../_debug_2net10_80-windows10_80_826100_80_2win-x64_2_views_2_history_page_8g_8cs.html',1,'(Global Namespace)'],['../_release_2net10_80-windows10_80_826100_80_2win-x64_2_views_2_history_page_8g_8cs.html',1,'(Global Namespace)'],['../x64_2_debug_2net10_80-windows10_80_826100_80_2_views_2_history_page_8g_8cs.html',1,'(Global Namespace)'],['../x64_2_debug_2net10_80-windows10_80_826100_80_2win-x64_2_views_2_history_page_8g_8cs.html',1,'(Global Namespace)'],['../x64_2_release_2net10_80-windows10_80_826100_80_2win-x64_2_views_2_history_page_8g_8cs.html',1,'(Global Namespace)']]],
+  ['historypage_2eg_2ei_2ecs_2',['HistoryPage.g.i.cs',['../_debug_2net10_80-windows10_80_826100_80_2win-x64_2_views_2_history_page_8g_8i_8cs.html',1,'(Global Namespace)'],['../_release_2net10_80-windows10_80_826100_80_2win-x64_2_views_2_history_page_8g_8i_8cs.html',1,'(Global Namespace)'],['../x64_2_debug_2net10_80-windows10_80_826100_80_2_views_2_history_page_8g_8i_8cs.html',1,'(Global Namespace)'],['../x64_2_debug_2net10_80-windows10_80_826100_80_2win-x64_2_views_2_history_page_8g_8i_8cs.html',1,'(Global Namespace)'],['../x64_2_release_2net10_80-windows10_80_826100_80_2win-x64_2_views_2_history_page_8g_8i_8cs.html',1,'(Global Namespace)']]],
+  ['historypage_2examl_2ecs_3',['HistoryPage.xaml.cs',['../_history_page_8xaml_8cs.html',1,'']]],
+  ['historyviewmodel_2ecs_4',['HistoryViewModel.cs',['../_history_view_model_8cs.html',1,'']]],
+  ['historywindow_2eg_2ecs_5',['HistoryWindow.g.cs',['../_debug_2net10_80-windows10_80_826100_80_2win-x64_2_views_2_history_window_8g_8cs.html',1,'(Global Namespace)'],['../_release_2net10_80-windows10_80_826100_80_2win-x64_2_views_2_history_window_8g_8cs.html',1,'(Global Namespace)'],['../x64_2_debug_2net10_80-windows10_80_826100_80_2_views_2_history_window_8g_8cs.html',1,'(Global Namespace)'],['../x64_2_debug_2net10_80-windows10_80_826100_80_2win-x64_2_views_2_history_window_8g_8cs.html',1,'(Global Namespace)'],['../x64_2_release_2net10_80-windows10_80_826100_80_2win-x64_2_views_2_history_window_8g_8cs.html',1,'(Global Namespace)']]],
+  ['historywindow_2eg_2ei_2ecs_6',['HistoryWindow.g.i.cs',['../_debug_2net10_80-windows10_80_826100_80_2win-x64_2_views_2_history_window_8g_8i_8cs.html',1,'(Global Namespace)'],['../_release_2net10_80-windows10_80_826100_80_2win-x64_2_views_2_history_window_8g_8i_8cs.html',1,'(Global Namespace)'],['../x64_2_debug_2net10_80-windows10_80_826100_80_2_views_2_history_window_8g_8i_8cs.html',1,'(Global Namespace)'],['../x64_2_debug_2net10_80-windows10_80_826100_80_2win-x64_2_views_2_history_window_8g_8i_8cs.html',1,'(Global Namespace)'],['../x64_2_release_2net10_80-windows10_80_826100_80_2win-x64_2_views_2_history_window_8g_8i_8cs.html',1,'(Global Namespace)']]],
+  ['historywindow_2examl_2ecs_7',['HistoryWindow.xaml.cs',['../_history_window_8xaml_8cs.html',1,'']]],
+  ['hoverbehavior_2ecs_8',['HoverBehavior.cs',['../_hover_behavior_8cs.html',1,'']]]
 ];

@@ -1,24 +1,31 @@
 <map id="Easy_Copier.Views.GamesTabView.GamesTabView_obj1_Bindings" name="Easy_Copier.Views.GamesTabView.GamesTabView_obj1_Bindings">
-<area shape="rect" id="Node000001" title=" " alt="" coords="706,156,909,215"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="706,135,909,193"/>
 <area shape="rect" id="Node000002" title=" " alt="" coords="325,5,545,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="528,50,553,57,619,76,683,102,728,127,769,156,764,155,725,131,681,106,617,81,551,63,529,55"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="513,50,596,73,683,103,743,134,738,134,681,108,595,78,513,55"/>
+<area shape="poly" id="edge5_Node000001_Node000002" title=" " alt="" coords="559,40,622,57,683,79,734,104,779,134,774,134,731,109,681,84,620,62,560,45"/>
 <area shape="rect" id="Node000003" title=" " alt="" coords="318,72,552,115"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="567,106,683,131,745,155,740,156,681,136,567,111"/>
-<area shape="rect" id="Node000004" title=" " alt="" coords="9,139,208,181"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="223,161,707,179,705,184,224,167"/>
-<area shape="rect" id="Node000006" href="$class_easy___copier_1_1_views_1_1_games_tab_view.html" title="UserControl representing the Games tab in the library view." alt="" coords="319,280,551,307"/>
-<area shape="poly" id="edge7_Node000006_Node000004" title=" " alt="" coords="182,185,295,230,405,279,400,280,293,234,182,190"/>
-<area shape="rect" id="Node000005" href="$interface_easy___copier_1_1_views_1_1_games_tab_view_1_1_i_games_tab_view___bindings.html" title=" " alt="" coords="5,215,212,257"/>
-<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="227,225,707,190,705,195,228,230"/>
-<area shape="poly" id="edge11_Node000006_Node000005" title=" " alt="" coords="226,257,236,259,345,278,340,281,235,264,228,262"/>
-<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="566,284,624,274,681,259,726,238,765,216,770,214,728,243,683,264,625,280,567,289"/>
-<area shape="rect" id="Node000007" title=" " alt="" coords="26,291,191,333"/>
-<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="206,312,338,306,333,309,207,317"/>
-<area shape="poly" id="edge8_Node000006_Node000007" title=" " alt="" coords="206,295,321,290,316,293,207,301"/>
-<area shape="rect" id="Node000008" title=" " alt="" coords="63,357,154,384"/>
-<area shape="poly" id="edge9_Node000006_Node000008" title=" " alt="" coords="168,353,211,343,317,316,370,306,365,308,318,321,212,348,170,358"/>
-<area shape="rect" id="Node000009" href="$interface_easy___copier_1_1_views_1_1_i_library_tab_view.html" title="Contract implemented by library tab user controls for unified selection management." alt="" coords="17,408,200,451"/>
-<area shape="poly" id="edge10_Node000006_Node000009" title=" " alt="" coords="197,399,211,394,253,371,292,342,303,329,316,316,341,308,346,306,319,321,307,332,295,346,256,376,213,398,199,404"/>
-<area shape="rect" id="Node000010" href="$class_easy___copier_1_1_views_1_1_games_tab_view_1_1_games_tab_view__obj1___bindings_1_1_games_ta772194b92f36762b8aa404da4ab9ab1.html" title=" " alt="" coords="332,331,538,405"/>
-<area shape="poly" id="edge12_Node000001_Node000010" title=" " alt="" coords="552,354,618,339,681,312,712,291,740,265,784,216,788,214,744,269,715,295,683,317,619,344,553,360"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="532,115,683,143,708,150,703,151,681,148,533,121"/>
+<area shape="poly" id="edge6_Node000001_Node000003" title=" " alt="" coords="567,99,683,119,739,134,734,135,681,124,568,104"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="9,167,208,209"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="223,188,467,182,708,173,704,175,467,187,224,194"/>
+<area shape="poly" id="edge7_Node000001_Node000004" title=" " alt="" coords="223,175,467,164,708,160,704,162,467,169,224,180"/>
+<area shape="rect" id="Node000006" href="$class_easy___copier_1_1_views_1_1_games_tab_view.html" title="UserControl representing the Games tab in the library view." alt="" coords="319,401,551,428"/>
+<area shape="poly" id="edge11_Node000006_Node000004" title=" " alt="" coords="146,215,213,255,325,334,411,401,406,401,322,338,210,260,147,221"/>
+<area shape="poly" id="edge14_Node000006_Node000004" title=" " alt="" coords="185,215,213,231,279,276,341,324,426,401,421,401,337,328,276,280,210,236,186,220"/>
+<area shape="rect" id="Node000005" href="$interface_easy___copier_1_1_views_1_1_games_tab_view_1_1_i_games_tab_view___bindings.html" title=" " alt="" coords="5,257,212,300"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="227,264,469,226,708,186,704,188,470,231,228,269"/>
+<area shape="poly" id="edge8_Node000001_Node000005" title=" " alt="" coords="219,251,464,209,708,173,703,175,465,214,220,256"/>
+<area shape="poly" id="edge18_Node000006_Node000005" title=" " alt="" coords="173,304,237,331,401,400,397,402,235,336,174,309"/>
+<area shape="poly" id="edge9_Node000001_Node000006" title=" " alt="" coords="532,395,608,370,646,353,680,331,716,299,747,262,790,195,794,192,751,265,720,303,684,335,648,357,610,375,534,400"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="26,393,191,436"/>
+<area shape="poly" id="edge10_Node000006_Node000007" title=" " alt="" coords="188,436,312,438,370,434,416,428,411,429,370,439,312,444,189,441"/>
+<area shape="poly" id="edge12_Node000006_Node000007" title=" " alt="" coords="206,420,321,422,316,425,207,426"/>
+<area shape="poly" id="edge13_Node000006_Node000007" title=" " alt="" coords="206,404,321,405,316,407,207,409"/>
+<area shape="poly" id="edge15_Node000006_Node000007" title=" " alt="" coords="188,389,312,386,370,390,416,400,411,401,370,395,312,391,189,394"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="63,471,154,497"/>
+<area shape="poly" id="edge16_Node000006_Node000008" title=" " alt="" coords="169,469,370,426,368,431,170,474"/>
+<area shape="rect" id="Node000009" href="$interface_easy___copier_1_1_views_1_1_i_library_tab_view.html" title="Contract implemented by library tab user controls for unified selection management." alt="" coords="17,521,200,564"/>
+<area shape="poly" id="edge17_Node000006_Node000009" title=" " alt="" coords="196,513,211,507,253,486,292,459,303,448,316,438,349,428,344,430,319,442,307,452,295,463,256,490,213,512,198,518"/>
+<area shape="rect" id="Node000010" href="$class_easy___copier_1_1_views_1_1_games_tab_view_1_1_games_tab_view__obj1___bindings_1_1_games_ta772194b92f36762b8aa404da4ab9ab1.html" title=" " alt="" coords="332,452,538,527"/>
+<area shape="poly" id="edge19_Node000001_Node000010" title=" " alt="" coords="552,470,619,447,651,431,680,410,704,386,725,359,759,299,783,241,798,196,801,192,788,243,764,301,730,362,708,390,684,414,654,435,621,452,553,475"/>
 </map>

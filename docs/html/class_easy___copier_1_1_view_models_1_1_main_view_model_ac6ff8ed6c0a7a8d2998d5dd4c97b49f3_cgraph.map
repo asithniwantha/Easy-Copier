@@ -1,5 +1,5 @@
 <map id="Easy_Copier.ViewModels.MainViewModel.UpdateSelectionSummary" name="Easy_Copier.ViewModels.MainViewModel.UpdateSelectionSummary">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,47,247,89"/>
+<area shape="rect" id="Node000001" title="Updates selected game entries and recalculates size, item count, and price summary values." alt="" coords="5,47,247,89"/>
 <area shape="rect" id="Node000002" href="$class_easy___copier_1_1_infrastructure_1_1_formatting_helpers.html#afa356a97196bfd4bed7acd3c1a83bcea" title="Calculates the price tier based on size in gigabytes and configured pricing tiers." alt="" coords="295,5,512,48"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="246,47,282,45,277,46,248,53"/>
 <area shape="rect" id="Node000003" href="$namespace_easy___copier_1_1_models.html#a9c2abd1d64352c07d3085ba499cf2aae" title="Represents a single scanned library entry (game, app, TV/film, or OS image)." alt="" coords="297,96,510,123"/>

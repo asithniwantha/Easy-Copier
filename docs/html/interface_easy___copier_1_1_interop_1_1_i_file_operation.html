@@ -119,30 +119,50 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('interface_easy
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:af894cdb796ba9f0276df7473497ad2d5" id="r_af894cdb796ba9f0276df7473497ad2d5"><td class="memItemLeft">uint&#160;</td><td class="memItemRight"><a class="el" href="#af894cdb796ba9f0276df7473497ad2d5">Advise</a> (<a class="el" href="interface_easy___copier_1_1_interop_1_1_i_file_operation_progress_sink.html">IFileOperationProgressSink</a> sink, out uint pdwCookie)</td></tr>
+<tr class="memdesc:af894cdb796ba9f0276df7473497ad2d5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enables a client to receive progress notifications for file operations.  <br /></td></tr>
 <tr class="memitem:a07cad60257aa8e5f2ad201afdd5c5cc4" id="r_a07cad60257aa8e5f2ad201afdd5c5cc4"><td class="memItemLeft">uint&#160;</td><td class="memItemRight"><a class="el" href="#a07cad60257aa8e5f2ad201afdd5c5cc4">Unadvise</a> (uint dwCookie)</td></tr>
+<tr class="memdesc:a07cad60257aa8e5f2ad201afdd5c5cc4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Terminates a notification connection previously established through Advise.  <br /></td></tr>
 <tr class="memitem:a5da7eb05bf07a208ed0a69e26d83ae95" id="r_a5da7eb05bf07a208ed0a69e26d83ae95"><td class="memItemLeft">uint&#160;</td><td class="memItemRight"><a class="el" href="#a5da7eb05bf07a208ed0a69e26d83ae95">SetOperationFlags</a> (<a class="el" href="namespace_easy___copier_1_1_interop.html#af4c32f2a5129cc8e5cca17819f42d6ea">FILEOP_FLAGS</a> dwOperationFlags)</td></tr>
+<tr class="memdesc:a5da7eb05bf07a208ed0a69e26d83ae95"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets flags that control file operations.  <br /></td></tr>
 <tr class="memitem:a52f1c1a53c46d93b660a1b5ddbc390af" id="r_a52f1c1a53c46d93b660a1b5ddbc390af"><td class="memItemLeft">uint&#160;</td><td class="memItemRight"><a class="el" href="#a52f1c1a53c46d93b660a1b5ddbc390af">SetProgressMessage</a> ([MarshalAs(UnmanagedType.LPWStr)] string pszMessage)</td></tr>
+<tr class="memdesc:a52f1c1a53c46d93b660a1b5ddbc390af"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the progress message string.  <br /></td></tr>
 <tr class="memitem:ab2af03ee28130d8c9d1119fc3783009f" id="r_ab2af03ee28130d8c9d1119fc3783009f"><td class="memItemLeft">uint&#160;</td><td class="memItemRight"><a class="el" href="#ab2af03ee28130d8c9d1119fc3783009f">SetProgressDialog</a> ([In] IntPtr popd)</td></tr>
+<tr class="memdesc:ab2af03ee28130d8c9d1119fc3783009f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Specifies the progress dialog box used by the file operation engine.  <br /></td></tr>
 <tr class="memitem:ad937d2e3aad9d434bbec3acacea09386" id="r_ad937d2e3aad9d434bbec3acacea09386"><td class="memItemLeft">uint&#160;</td><td class="memItemRight"><a class="el" href="#ad937d2e3aad9d434bbec3acacea09386">SetProperties</a> ([In] IntPtr pproparray)</td></tr>
+<tr class="memdesc:ad937d2e3aad9d434bbec3acacea09386"><td class="mdescLeft">&#160;</td><td class="mdescRight">Specifies a set of property changes to apply to items.  <br /></td></tr>
 <tr class="memitem:ad7a4b8138a01e07d232a70374ad45c70" id="r_ad7a4b8138a01e07d232a70374ad45c70"><td class="memItemLeft">uint&#160;</td><td class="memItemRight"><a class="el" href="#ad7a4b8138a01e07d232a70374ad45c70">SetOwnerWindow</a> (IntPtr hwndOwner)</td></tr>
+<tr class="memdesc:ad7a4b8138a01e07d232a70374ad45c70"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the parent or owner window for UI dialogs displayed during operations.  <br /></td></tr>
 <tr class="memitem:a4d3f80229e34fff379aef199e1da7028" id="r_a4d3f80229e34fff379aef199e1da7028"><td class="memItemLeft">uint&#160;</td><td class="memItemRight"><a class="el" href="#a4d3f80229e34fff379aef199e1da7028">ApplyPropertiesToItem</a> (<a class="el" href="interface_easy___copier_1_1_interop_1_1_i_shell_item.html">IShellItem</a> psiItem)</td></tr>
+<tr class="memdesc:a4d3f80229e34fff379aef199e1da7028"><td class="mdescLeft">&#160;</td><td class="mdescRight">Declares a single item whose properties are to be set.  <br /></td></tr>
 <tr class="memitem:a5ed6049e245f6c32abf8f421d1d96639" id="r_a5ed6049e245f6c32abf8f421d1d96639"><td class="memItemLeft">uint&#160;</td><td class="memItemRight"><a class="el" href="#a5ed6049e245f6c32abf8f421d1d96639">ApplyPropertiesToItems</a> ([In] IntPtr punkItems)</td></tr>
+<tr class="memdesc:a5ed6049e245f6c32abf8f421d1d96639"><td class="mdescLeft">&#160;</td><td class="mdescRight">Declares a set of items whose properties are to be set.  <br /></td></tr>
 <tr class="memitem:a261dc2f4f586b213e3e986263f699969" id="r_a261dc2f4f586b213e3e986263f699969"><td class="memItemLeft">uint&#160;</td><td class="memItemRight"><a class="el" href="#a261dc2f4f586b213e3e986263f699969">RenameItem</a> (<a class="el" href="interface_easy___copier_1_1_interop_1_1_i_shell_item.html">IShellItem</a> psiItem, [MarshalAs(UnmanagedType.LPWStr)] string pszNewName, <a class="el" href="interface_easy___copier_1_1_interop_1_1_i_file_operation_progress_sink.html">IFileOperationProgressSink</a>? pfopsItem)</td></tr>
+<tr class="memdesc:a261dc2f4f586b213e3e986263f699969"><td class="mdescLeft">&#160;</td><td class="mdescRight">Declares a single item that is to be renamed.  <br /></td></tr>
 <tr class="memitem:a5ae5e82fbeae88e80b56fc90a1656885" id="r_a5ae5e82fbeae88e80b56fc90a1656885"><td class="memItemLeft">uint&#160;</td><td class="memItemRight"><a class="el" href="#a5ae5e82fbeae88e80b56fc90a1656885">RenameItems</a> ([In] IntPtr pUnkItems, [MarshalAs(UnmanagedType.LPWStr)] string pszNewName)</td></tr>
+<tr class="memdesc:a5ae5e82fbeae88e80b56fc90a1656885"><td class="mdescLeft">&#160;</td><td class="mdescRight">Declares a set of items that are to be given a new display name.  <br /></td></tr>
 <tr class="memitem:a6b1fc6607d0fd50bf6c8ed9d7a423cba" id="r_a6b1fc6607d0fd50bf6c8ed9d7a423cba"><td class="memItemLeft">uint&#160;</td><td class="memItemRight"><a class="el" href="#a6b1fc6607d0fd50bf6c8ed9d7a423cba">MoveItem</a> (<a class="el" href="interface_easy___copier_1_1_interop_1_1_i_shell_item.html">IShellItem</a> psiItem, <a class="el" href="interface_easy___copier_1_1_interop_1_1_i_shell_item.html">IShellItem</a> psiDestinationFolder, [MarshalAs(UnmanagedType.LPWStr)] string? pszNewName, <a class="el" href="interface_easy___copier_1_1_interop_1_1_i_file_operation_progress_sink.html">IFileOperationProgressSink</a>? pfopsItem)</td></tr>
+<tr class="memdesc:a6b1fc6607d0fd50bf6c8ed9d7a423cba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Declares a single item that is to be moved to a specified destination.  <br /></td></tr>
 <tr class="memitem:a926c96a8e10badc02e8c932649cd1c43" id="r_a926c96a8e10badc02e8c932649cd1c43"><td class="memItemLeft">uint&#160;</td><td class="memItemRight"><a class="el" href="#a926c96a8e10badc02e8c932649cd1c43">MoveItems</a> ([In] IntPtr punkItems, <a class="el" href="interface_easy___copier_1_1_interop_1_1_i_shell_item.html">IShellItem</a> psiDestinationFolder)</td></tr>
+<tr class="memdesc:a926c96a8e10badc02e8c932649cd1c43"><td class="mdescLeft">&#160;</td><td class="mdescRight">Declares a set of items that are to be moved to a specified destination.  <br /></td></tr>
 <tr class="memitem:a326b541968b02b4e15e1bc6613b37d30" id="r_a326b541968b02b4e15e1bc6613b37d30"><td class="memItemLeft">uint&#160;</td><td class="memItemRight"><a class="el" href="#a326b541968b02b4e15e1bc6613b37d30">CopyItem</a> (<a class="el" href="interface_easy___copier_1_1_interop_1_1_i_shell_item.html">IShellItem</a> psiItem, <a class="el" href="interface_easy___copier_1_1_interop_1_1_i_shell_item.html">IShellItem</a> psiDestinationFolder, [MarshalAs(UnmanagedType.LPWStr)] string? pszCopyName, <a class="el" href="interface_easy___copier_1_1_interop_1_1_i_file_operation_progress_sink.html">IFileOperationProgressSink</a>? pfopsItem)</td></tr>
+<tr class="memdesc:a326b541968b02b4e15e1bc6613b37d30"><td class="mdescLeft">&#160;</td><td class="mdescRight">Declares a single item that is to be copied to a specified destination.  <br /></td></tr>
 <tr class="memitem:a46182ffe1222225e905f99f9352df113" id="r_a46182ffe1222225e905f99f9352df113"><td class="memItemLeft">uint&#160;</td><td class="memItemRight"><a class="el" href="#a46182ffe1222225e905f99f9352df113">CopyItems</a> ([In] IntPtr punkItems, <a class="el" href="interface_easy___copier_1_1_interop_1_1_i_shell_item.html">IShellItem</a> psiDestinationFolder)</td></tr>
+<tr class="memdesc:a46182ffe1222225e905f99f9352df113"><td class="mdescLeft">&#160;</td><td class="mdescRight">Declares a set of items that are to be copied to a specified destination.  <br /></td></tr>
 <tr class="memitem:a7b640b8d4a7b2ae7092803fff4dfe759" id="r_a7b640b8d4a7b2ae7092803fff4dfe759"><td class="memItemLeft">uint&#160;</td><td class="memItemRight"><a class="el" href="#a7b640b8d4a7b2ae7092803fff4dfe759">DeleteItem</a> (<a class="el" href="interface_easy___copier_1_1_interop_1_1_i_shell_item.html">IShellItem</a> psiItem, <a class="el" href="interface_easy___copier_1_1_interop_1_1_i_file_operation_progress_sink.html">IFileOperationProgressSink</a>? pfopsItem)</td></tr>
+<tr class="memdesc:a7b640b8d4a7b2ae7092803fff4dfe759"><td class="mdescLeft">&#160;</td><td class="mdescRight">Declares a single item that is to be deleted.  <br /></td></tr>
 <tr class="memitem:a4c935a62738eb8ec9d8e1df212bea61f" id="r_a4c935a62738eb8ec9d8e1df212bea61f"><td class="memItemLeft">uint&#160;</td><td class="memItemRight"><a class="el" href="#a4c935a62738eb8ec9d8e1df212bea61f">DeleteItems</a> ([In] IntPtr punkItems)</td></tr>
+<tr class="memdesc:a4c935a62738eb8ec9d8e1df212bea61f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Declares a set of items that are to be deleted.  <br /></td></tr>
 <tr class="memitem:ad82107e97f7f7a75d09f3be3241510ac" id="r_ad82107e97f7f7a75d09f3be3241510ac"><td class="memItemLeft">uint&#160;</td><td class="memItemRight"><a class="el" href="#ad82107e97f7f7a75d09f3be3241510ac">NewItem</a> (<a class="el" href="interface_easy___copier_1_1_interop_1_1_i_shell_item.html">IShellItem</a> psiDestinationFolder, [In] IntPtr dwFileAttributes, [MarshalAs(UnmanagedType.LPWStr)] string pszName, [MarshalAs(UnmanagedType.LPWStr)] string? pszTemplateName, <a class="el" href="interface_easy___copier_1_1_interop_1_1_i_file_operation_progress_sink.html">IFileOperationProgressSink</a>? pfopsItem)</td></tr>
+<tr class="memdesc:ad82107e97f7f7a75d09f3be3241510ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Declares a new item that is to be created in a specified location.  <br /></td></tr>
 <tr class="memitem:aa31da71f71d95ccbe480448afcdbe295" id="r_aa31da71f71d95ccbe480448afcdbe295"><td class="memItemLeft">uint&#160;</td><td class="memItemRight"><a class="el" href="#aa31da71f71d95ccbe480448afcdbe295">PerformOperations</a> ()</td></tr>
+<tr class="memdesc:aa31da71f71d95ccbe480448afcdbe295"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes all configured file operations.  <br /></td></tr>
 <tr class="memitem:a3780930077bd94182bd9424656fb20a0" id="r_a3780930077bd94182bd9424656fb20a0"><td class="memItemLeft">uint&#160;</td><td class="memItemRight"><a class="el" href="#a3780930077bd94182bd9424656fb20a0">GetAnyOperationsAborted</a> ([MarshalAs(UnmanagedType.Bool)] out bool pfAnyOperationsAborted)</td></tr>
+<tr class="memdesc:a3780930077bd94182bd9424656fb20a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets a value indicating whether any file operations declared by this instance were aborted prior to completion.  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Exposes methods for copying, moving, renaming, deleting, and creating Shell items. </p>
 
-<p class="definition">Definition at line <a class="el" href="_file_operation_interop_8cs_source.html#l00053">53</a> of file <a class="el" href="_file_operation_interop_8cs_source.html">FileOperationInterop.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_file_operation_interop_8cs_source.html#l00065">65</a> of file <a class="el" href="_file_operation_interop_8cs_source.html">FileOperationInterop.cs</a>.</p>
 </div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
 <a id="af894cdb796ba9f0276df7473497ad2d5" name="af894cdb796ba9f0276df7473497ad2d5"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#af894cdb796ba9f0276df7473497ad2d5">&#9670;&#160;</a></span>Advise()</h2>
@@ -163,7 +183,17 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="_file_transfer_service_8cs_source.html#l00387">Easy_Copier.Services.WindowsShellTransferService.CopyItemWithFileOperation()</a>.</p>
+<p>Enables a client to receive progress notifications for file operations. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sink</td><td>Pointer to an IFileOperationProgressSink object.</td></tr>
+    <tr><td class="paramname">pdwCookie</td><td>When this method returns, contains a pointer to a token that uniquely identifies this connection.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>An HRESULT success code (0 for S_OK).</dd></dl>
+
+<p class="reference">Referenced by <a class="el" href="_file_transfer_service_8cs_source.html#l00416">Easy_Copier.Services.WindowsShellTransferService.CopyItemWithFileOperation()</a>.</p>
 <div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
 <div id="dynsection-0-summary" class="dynsummary">
 </div>
@@ -188,6 +218,15 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Declares a single item whose properties are to be set. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">psiItem</td><td>Pointer to the target IShellItem.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>An HRESULT success code (0 for S_OK).</dd></dl>
+
 </div>
 </div>
 <a id="a5ed6049e245f6c32abf8f421d1d96639" name="a5ed6049e245f6c32abf8f421d1d96639"></a>
@@ -204,6 +243,15 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Declares a set of items whose properties are to be set. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">punkItems</td><td>Pointer to an IShellItemArray object containing target items.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>An HRESULT success code (0 for S_OK).</dd></dl>
 
 </div>
 </div>
@@ -236,7 +284,19 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="_file_transfer_service_8cs_source.html#l00387">Easy_Copier.Services.WindowsShellTransferService.CopyItemWithFileOperation()</a>.</p>
+<p>Declares a single item that is to be copied to a specified destination. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">psiItem</td><td>Pointer to the source IShellItem.</td></tr>
+    <tr><td class="paramname">psiDestinationFolder</td><td>Pointer to the destination folder IShellItem.</td></tr>
+    <tr><td class="paramname">pszCopyName</td><td>An optional new name for the item at the destination.</td></tr>
+    <tr><td class="paramname">pfopsItem</td><td>Pointer to an IFileOperationProgressSink object for operation notifications.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>An HRESULT success code (0 for S_OK).</dd></dl>
+
+<p class="reference">Referenced by <a class="el" href="_file_transfer_service_8cs_source.html#l00416">Easy_Copier.Services.WindowsShellTransferService.CopyItemWithFileOperation()</a>.</p>
 <div id="dynsection-1" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
 <div id="dynsection-1-summary" class="dynsummary">
 </div>
@@ -265,6 +325,16 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Declares a set of items that are to be copied to a specified destination. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">punkItems</td><td>Pointer to an IShellItemArray object containing items to copy.</td></tr>
+    <tr><td class="paramname">psiDestinationFolder</td><td>Pointer to the destination folder IShellItem.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>An HRESULT success code (0 for S_OK).</dd></dl>
+
 </div>
 </div>
 <a id="a7b640b8d4a7b2ae7092803fff4dfe759" name="a7b640b8d4a7b2ae7092803fff4dfe759"></a>
@@ -286,7 +356,17 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="_file_transfer_service_8cs_source.html#l00326">Easy_Copier.Services.WindowsShellTransferService.DeleteItemWithFileOperation()</a>.</p>
+<p>Declares a single item that is to be deleted. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">psiItem</td><td>Pointer to the target IShellItem to delete.</td></tr>
+    <tr><td class="paramname">pfopsItem</td><td>Pointer to an IFileOperationProgressSink object for operation notifications.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>An HRESULT success code (0 for S_OK).</dd></dl>
+
+<p class="reference">Referenced by <a class="el" href="_file_transfer_service_8cs_source.html#l00355">Easy_Copier.Services.WindowsShellTransferService.DeleteItemWithFileOperation()</a>.</p>
 <div id="dynsection-2" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
 <div id="dynsection-2-summary" class="dynsummary">
 </div>
@@ -311,6 +391,15 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Declares a set of items that are to be deleted. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">punkItems</td><td>Pointer to an IShellItemArray object containing items to delete.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>An HRESULT success code (0 for S_OK).</dd></dl>
+
 </div>
 </div>
 <a id="a3780930077bd94182bd9424656fb20a0" name="a3780930077bd94182bd9424656fb20a0"></a>
@@ -328,7 +417,16 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="_file_transfer_service_8cs_source.html#l00387">Easy_Copier.Services.WindowsShellTransferService.CopyItemWithFileOperation()</a>.</p>
+<p>Gets a value indicating whether any file operations declared by this instance were aborted prior to completion. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pfAnyOperationsAborted</td><td>When this method returns, contains <code>true</code> if any operations were aborted; otherwise, <code>false</code>.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>An HRESULT success code (0 for S_OK).</dd></dl>
+
+<p class="reference">Referenced by <a class="el" href="_file_transfer_service_8cs_source.html#l00416">Easy_Copier.Services.WindowsShellTransferService.CopyItemWithFileOperation()</a>.</p>
 <div id="dynsection-3" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
 <div id="dynsection-3-summary" class="dynsummary">
 </div>
@@ -367,6 +465,18 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Declares a single item that is to be moved to a specified destination. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">psiItem</td><td>Pointer to the source IShellItem.</td></tr>
+    <tr><td class="paramname">psiDestinationFolder</td><td>Pointer to the destination folder IShellItem.</td></tr>
+    <tr><td class="paramname">pszNewName</td><td>An optional new name for the item at the destination.</td></tr>
+    <tr><td class="paramname">pfopsItem</td><td>Pointer to an IFileOperationProgressSink object for operation notifications.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>An HRESULT success code (0 for S_OK).</dd></dl>
+
 </div>
 </div>
 <a id="a926c96a8e10badc02e8c932649cd1c43" name="a926c96a8e10badc02e8c932649cd1c43"></a>
@@ -387,6 +497,16 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Declares a set of items that are to be moved to a specified destination. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">punkItems</td><td>Pointer to an IShellItemArray object containing items to move.</td></tr>
+    <tr><td class="paramname">psiDestinationFolder</td><td>Pointer to the destination folder IShellItem.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>An HRESULT success code (0 for S_OK).</dd></dl>
 
 </div>
 </div>
@@ -424,6 +544,19 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Declares a new item that is to be created in a specified location. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">psiDestinationFolder</td><td>Pointer to the parent destination folder IShellItem.</td></tr>
+    <tr><td class="paramname">dwFileAttributes</td><td>File attribute flags for the new item.</td></tr>
+    <tr><td class="paramname">pszName</td><td>The file name of the new item.</td></tr>
+    <tr><td class="paramname">pszTemplateName</td><td>Optional template file name to base the new item on.</td></tr>
+    <tr><td class="paramname">pfopsItem</td><td>Pointer to an IFileOperationProgressSink object for operation notifications.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>An HRESULT success code (0 for S_OK).</dd></dl>
+
 </div>
 </div>
 <a id="aa31da71f71d95ccbe480448afcdbe295" name="aa31da71f71d95ccbe480448afcdbe295"></a>
@@ -441,7 +574,10 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="_file_transfer_service_8cs_source.html#l00387">Easy_Copier.Services.WindowsShellTransferService.CopyItemWithFileOperation()</a>, and <a class="el" href="_file_transfer_service_8cs_source.html#l00326">Easy_Copier.Services.WindowsShellTransferService.DeleteItemWithFileOperation()</a>.</p>
+<p>Executes all configured file operations. </p>
+<dl class="section return"><dt>Returns</dt><dd>An HRESULT success code (0 for S_OK).</dd></dl>
+
+<p class="reference">Referenced by <a class="el" href="_file_transfer_service_8cs_source.html#l00416">Easy_Copier.Services.WindowsShellTransferService.CopyItemWithFileOperation()</a>, and <a class="el" href="_file_transfer_service_8cs_source.html#l00355">Easy_Copier.Services.WindowsShellTransferService.DeleteItemWithFileOperation()</a>.</p>
 <div id="dynsection-4" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
 <div id="dynsection-4-summary" class="dynsummary">
 </div>
@@ -475,6 +611,17 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Declares a single item that is to be renamed. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">psiItem</td><td>Pointer to the target IShellItem.</td></tr>
+    <tr><td class="paramname">pszNewName</td><td>The new display name of the item.</td></tr>
+    <tr><td class="paramname">pfopsItem</td><td>Pointer to an IFileOperationProgressSink object for operation notifications.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>An HRESULT success code (0 for S_OK).</dd></dl>
+
 </div>
 </div>
 <a id="a5ae5e82fbeae88e80b56fc90a1656885" name="a5ae5e82fbeae88e80b56fc90a1656885"></a>
@@ -496,6 +643,16 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Declares a set of items that are to be given a new display name. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pUnkItems</td><td>Pointer to an IShellItemArray object containing target items.</td></tr>
+    <tr><td class="paramname">pszNewName</td><td>The new display name to apply.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>An HRESULT success code (0 for S_OK).</dd></dl>
+
 </div>
 </div>
 <a id="a5da7eb05bf07a208ed0a69e26d83ae95" name="a5da7eb05bf07a208ed0a69e26d83ae95"></a>
@@ -513,7 +670,16 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="_file_transfer_service_8cs_source.html#l00387">Easy_Copier.Services.WindowsShellTransferService.CopyItemWithFileOperation()</a>, and <a class="el" href="_file_transfer_service_8cs_source.html#l00326">Easy_Copier.Services.WindowsShellTransferService.DeleteItemWithFileOperation()</a>.</p>
+<p>Sets flags that control file operations. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dwOperationFlags</td><td>Flags that control the file operation.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>An HRESULT success code (0 for S_OK).</dd></dl>
+
+<p class="reference">Referenced by <a class="el" href="_file_transfer_service_8cs_source.html#l00416">Easy_Copier.Services.WindowsShellTransferService.CopyItemWithFileOperation()</a>, and <a class="el" href="_file_transfer_service_8cs_source.html#l00355">Easy_Copier.Services.WindowsShellTransferService.DeleteItemWithFileOperation()</a>.</p>
 <div id="dynsection-5" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
 <div id="dynsection-5-summary" class="dynsummary">
 </div>
@@ -538,6 +704,15 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Sets the parent or owner window for UI dialogs displayed during operations. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">hwndOwner</td><td>The parent window handle.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>An HRESULT success code (0 for S_OK).</dd></dl>
+
 </div>
 </div>
 <a id="ab2af03ee28130d8c9d1119fc3783009f" name="ab2af03ee28130d8c9d1119fc3783009f"></a>
@@ -554,6 +729,15 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Specifies the progress dialog box used by the file operation engine. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">popd</td><td>Pointer to an IProgressDialog object.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>An HRESULT success code (0 for S_OK).</dd></dl>
 
 </div>
 </div>
@@ -572,6 +756,15 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Sets the progress message string. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pszMessage</td><td>The progress message text.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>An HRESULT success code (0 for S_OK).</dd></dl>
+
 </div>
 </div>
 <a id="ad937d2e3aad9d434bbec3acacea09386" name="ad937d2e3aad9d434bbec3acacea09386"></a>
@@ -588,6 +781,15 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Specifies a set of property changes to apply to items. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pproparray</td><td>Pointer to an IPropertyChangeArray object.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>An HRESULT success code (0 for S_OK).</dd></dl>
 
 </div>
 </div>
@@ -606,7 +808,16 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="_file_transfer_service_8cs_source.html#l00387">Easy_Copier.Services.WindowsShellTransferService.CopyItemWithFileOperation()</a>.</p>
+<p>Terminates a notification connection previously established through Advise. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dwCookie</td><td>The connection token returned by Advise.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>An HRESULT success code (0 for S_OK).</dd></dl>
+
+<p class="reference">Referenced by <a class="el" href="_file_transfer_service_8cs_source.html#l00416">Easy_Copier.Services.WindowsShellTransferService.CopyItemWithFileOperation()</a>.</p>
 <div id="dynsection-6" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
 <div id="dynsection-6-summary" class="dynsummary">
 </div>

@@ -1,0 +1,9 @@
+<map id="Easy_Copier.Infrastructure.FlyoutService.PresentFlyout" name="Easy_Copier.Infrastructure.FlyoutService.PresentFlyout">
+<area shape="rect" id="Node000001" title="Displays a WinUI flyout anchored." alt="" coords="341,80,527,123"/>
+<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_infrastructure_1_1_flyout_service.html#a3707ece7513f9c032f7bbdda35e3c724" title="Displays the game/app/media details flyout asynchronously when an item card is right&#45;tapped...." alt="" coords="5,5,293,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="344,75,292,63,248,51,247,46,293,57,349,75"/>
+<area shape="rect" id="Node000003" href="$class_easy___copier_1_1_infrastructure_1_1_flyout_service.html#acf74591d5e3cfa22820d477f837624f7" title="Displays the OS image details flyout when an OS image card is right&#45;tapped." alt="" coords="33,72,265,131"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="322,102,266,104,265,99,327,101"/>
+<area shape="rect" id="Node000004" href="$class_easy___copier_1_1_infrastructure_1_1_flyout_service.html#a552adf435a13799b629162248e493faa" title="Displays the film/TV details flyout (path, files and sizes) when a video card is right&#45;tapped...." alt="" coords="6,155,292,197"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="349,127,293,145,248,157,247,151,292,140,344,128"/>
+</map>

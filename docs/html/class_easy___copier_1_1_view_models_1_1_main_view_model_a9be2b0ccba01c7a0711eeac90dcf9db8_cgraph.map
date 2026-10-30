@@ -1,0 +1,5 @@
+<map id="Easy_Copier.ViewModels.MainViewModel.OnOsImagesSearchTextChanged" name="Easy_Copier.ViewModels.MainViewModel.OnOsImagesSearchTextChanged">
+<area shape="rect" id="Node000001" title="Handles changes to the OsImagesSearchText property to re&#45;apply OS images library filtering." alt="" coords="5,5,290,48"/>
+<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_view_models_1_1_main_view_model.html#ae2ee39386a22d609aa35d4a385654ac4" title="Applies search text query, category filtering, and sorting to the OS images library collection." alt="" coords="338,5,549,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="290,24,325,27,319,27,290,29"/>
+</map>

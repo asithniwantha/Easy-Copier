@@ -11,7 +11,7 @@
 <!-- Node1 -->
 <g id="Node000001" class="node">
 <title>Node1</title>
-<g id="a_Node000001"><a xlink:title=" ">
+<g id="a_Node000001"><a xlink:title="Handles unhandled exceptions originating from the application domain.">
 <polygon fill="#999999" stroke="#666666" points="482.25,-32 320.75,-32 320.75,0 482.25,0 482.25,-32"/>
 <text xml:space="preserve" text-anchor="start" x="328.75" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.App.CurrentDomain</text>
 <text xml:space="preserve" text-anchor="middle" x="401.5" y="-6.5" font-family="Helvetica,sans-Serif" font-size="10.00">_UnhandledException</text>
@@ -21,7 +21,7 @@
 <!-- Node2 -->
 <g id="Node000002" class="node">
 <title>Node2</title>
-<g id="a_Node000002"><a xlink:href="class_easy___copier_1_1_app.html#ac87772e615c45c04880b62d94507f70b" target="_top" xlink:title=" ">
+<g id="a_Node000002"><a xlink:href="class_easy___copier_1_1_app.html#ac87772e615c45c04880b62d94507f70b" target="_top" xlink:title="Initializes a new instance of the App class, registering global exception handlers and configuring se...">
 <polygon fill="white" stroke="#666666" points="284.75,-26 172,-26 172,-6 284.75,-6 284.75,-26"/>
 <text xml:space="preserve" text-anchor="middle" x="228.38" y="-12.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.App.App</text>
 </a>

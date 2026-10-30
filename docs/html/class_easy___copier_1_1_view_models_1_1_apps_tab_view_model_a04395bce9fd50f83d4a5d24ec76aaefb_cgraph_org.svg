@@ -21,7 +21,7 @@
 <!-- Node2 -->
 <g id="Node000002" class="node">
 <title>Node2</title>
-<g id="a_Node000002"><a xlink:href="class_easy___copier_1_1_view_models_1_1_library_tab_view_model_base.html#aadf49aa562009a2fa215c741bdc9ba30" target="_top" xlink:title="Evaluates parent property change notifications and raises ObservableObject.OnPropertyChanged(string?...">
+<g id="a_Node000002"><a xlink:href="class_easy___copier_1_1_view_models_1_1_library_tab_view_model_base.html#abf22181facf81c97be2a30ed30aa2840" target="_top" xlink:title="Evaluates parent property change notifications and raises ObservableObject.OnPropertyChanged(string?...">
 <polygon fill="white" stroke="#666666" points="441.5,-44 235.75,-44 235.75,0 441.5,0 441.5,-44"/>
 <text xml:space="preserve" text-anchor="start" x="243.75" y="-30.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.ViewModels.Library</text>
 <text xml:space="preserve" text-anchor="start" x="243.75" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">TabViewModelBase.ForwardParentProperty</text>

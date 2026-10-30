@@ -22,7 +22,7 @@
 <!-- Node1 -->
 <g id="Node000001" class="node">
 <title>Node1</title>
-<g id="a_Node000001"><a xlink:title=" ">
+<g id="a_Node000001"><a xlink:title="Handles the Click event for the Open Folder button on an application card.">
 <polygon fill="#999999" stroke="#666666" points="326,-32 179.5,-32 179.5,0 326,0 326,-32"/>
 <text xml:space="preserve" text-anchor="start" x="187.5" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Views.AppsTab</text>
 <text xml:space="preserve" text-anchor="middle" x="252.75" y="-6.5" font-family="Helvetica,sans-Serif" font-size="10.00">View.OpenFolderButton_Click</text>

@@ -1,7 +1,11 @@
 <map id="Easy_Copier.ViewModels.OsImagesTabViewModel" name="Easy_Copier.ViewModels.OsImagesTabViewModel">
-<area shape="rect" id="Node000001" title="ViewModel for managing the OS Images library tab view. Acts as a dedicated child ViewModel that deleg..." alt="" coords="16,171,209,213"/>
-<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_view_models_1_1_library_tab_view_model_base.html" title="Abstract base ViewModel for tab&#45;specific child ViewModels that synchronize state with MainViewModel." alt="" coords="5,80,220,123"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="114,136,115,171,110,169,111,140"/>
-<area shape="rect" id="Node000003" title=" " alt="" coords="50,5,175,32"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="114,45,115,80,110,79,111,50"/>
+<area shape="rect" id="Node000001" title="ViewModel for managing the OS Images library tab view. Acts as a dedicated child ViewModel that deleg..." alt="" coords="471,56,663,99"/>
+<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_view_models_1_1_library_tab_view_model_base.html" title="Abstract base ViewModel for tab&#45;specific child ViewModels that synchronize state with MainViewModel." alt="" coords="194,23,408,65"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="424,57,473,65,468,65,424,62"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="5,5,131,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="145,24,196,31,191,33,146,30"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="23,56,113,83"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="128,60,196,55,191,57,129,65"/>
+<area shape="rect" id="Node000005" href="$interface_easy___copier_1_1_view_models_1_1_i_searchable_tab_view_model.html" title="Contract for library tab ViewModels that support search text query binding and autocomplete suggestio..." alt="" coords="179,89,423,132"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="439,91,468,90,473,89,439,96"/>
 </map>

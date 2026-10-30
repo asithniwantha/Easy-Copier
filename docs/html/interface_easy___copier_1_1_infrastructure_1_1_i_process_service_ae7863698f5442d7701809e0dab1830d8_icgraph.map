@@ -1,0 +1,5 @@
+<map id="Easy_Copier.Infrastructure.IProcessService.OpenFormatDialog" name="Easy_Copier.Infrastructure.IProcessService.OpenFormatDialog">
+<area shape="rect" id="Node000001" title="Opens the native Windows Format dialog for the specified drive." alt="" coords="257,5,487,48"/>
+<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_view_models_1_1_main_view_model.html#ad403bd63cab81d7ddf0c62d532fa8fb2" title="Opens the Windows native format dialog for the selected drive letter." alt="" coords="5,5,209,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="238,27,209,29,209,24,244,27"/>
+</map>

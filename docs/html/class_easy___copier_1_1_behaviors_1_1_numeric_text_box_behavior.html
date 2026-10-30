@@ -136,15 +136,22 @@ Protected Member Functions</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 id="header-pri-methods" class="groupheader"><a id="pri-methods" name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
 <tr class="memitem:ae9fe940fad65983c75a4aad6f48f97a0" id="r_ae9fe940fad65983c75a4aad6f48f97a0"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ae9fe940fad65983c75a4aad6f48f97a0">AssociatedObject_TextChanging</a> (TextBox sender, TextBoxTextChangingEventArgs args)</td></tr>
+<tr class="memdesc:ae9fe940fad65983c75a4aad6f48f97a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handles text changing events to sanitize user input to numeric values.  <br /></td></tr>
 <tr class="memitem:a5f19def0f8c86199a8dddf0626b53e7b" id="r_a5f19def0f8c86199a8dddf0626b53e7b"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a5f19def0f8c86199a8dddf0626b53e7b">AssociatedObject_PreviewKeyDown</a> (object sender, KeyRoutedEventArgs e)</td></tr>
+<tr class="memdesc:a5f19def0f8c86199a8dddf0626b53e7b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handles preview key down events to perform custom keyboard navigation across grid cells.  <br /></td></tr>
 <tr class="memitem:a1f1a593c76a7f23e6c10a4c6e08d2908" id="r_a1f1a593c76a7f23e6c10a4c6e08d2908"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a1f1a593c76a7f23e6c10a4c6e08d2908">HandleMinusKey</a> (KeyRoutedEventArgs e)</td></tr>
+<tr class="memdesc:a1f1a593c76a7f23e6c10a4c6e08d2908"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handles subtraction key inputs for negation or advancing input to the next row with a negative sign.  <br /></td></tr>
 <tr class="memitem:aa2b512d7bd8dff533afabf10c1226115" id="r_aa2b512d7bd8dff533afabf10c1226115"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#aa2b512d7bd8dff533afabf10c1226115">MoveFocus</a> (bool forward)</td></tr>
+<tr class="memdesc:aa2b512d7bd8dff533afabf10c1226115"><td class="mdescLeft">&#160;</td><td class="mdescRight">Moves keyboard focus to the preceding or succeeding TextBox in the grid.  <br /></td></tr>
 <tr class="memitem:a3eb05cdac108ba7e61c8aff58e5ec9e7" id="r_a3eb05cdac108ba7e61c8aff58e5ec9e7"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a3eb05cdac108ba7e61c8aff58e5ec9e7">RemoveCurrentEntryAndFocusPrevious</a> ()</td></tr>
+<tr class="memdesc:a3eb05cdac108ba7e61c8aff58e5ec9e7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes the active cell entry via the ViewModel and moves keyboard focus to the preceding cell.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pri-static-methods" class="groupheader"><a id="pri-static-methods" name="pri-static-methods"></a>
 Static Private Member Functions</h2></td></tr>
 <tr class="memitem:a7898c7a4c36444b3e0888707793618ab" id="r_a7898c7a4c36444b3e0888707793618ab"><td class="memItemLeft">static string&#160;</td><td class="memItemRight"><a class="el" href="#a7898c7a4c36444b3e0888707793618ab">SanitizeText</a> (string input)</td></tr>
+<tr class="memdesc:a7898c7a4c36444b3e0888707793618ab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Filters an input string to contain only valid numeric characters (digits, single optional leading minus, single decimal point).  <br /></td></tr>
 <tr class="memitem:abe8764944dbac769c8619a9b8ddaea3a" id="r_abe8764944dbac769c8619a9b8ddaea3a"><td class="memItemLeft">static void&#160;</td><td class="memItemRight"><a class="el" href="#abe8764944dbac769c8619a9b8ddaea3a">FocusTextBox</a> (TextBox textBox)</td></tr>
+<tr class="memdesc:abe8764944dbac769c8619a9b8ddaea3a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets keyboard focus on the specified TextBox and positions the caret at the end of the text.  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Provides numeric keyboard navigation, sanitization, and focus management behaviors for TextBox controls in the SmartAdder grid. </p>
@@ -178,9 +185,18 @@ Static Private Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_numeric_text_box_behavior_8cs_source.html#l00086">86</a> of file <a class="el" href="_numeric_text_box_behavior_8cs_source.html">NumericTextBoxBehavior.cs</a>.</p>
+<p>Handles preview key down events to perform custom keyboard navigation across grid cells. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sender</td><td>The event source.</td></tr>
+    <tr><td class="paramname">e</td><td>The key event arguments.</td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p class="reference">References <a class="el" href="_numeric_text_box_behavior_8cs_source.html#l00118">HandleMinusKey()</a>, <a class="el" href="_numeric_text_box_behavior_8cs_source.html#l00169">MoveFocus()</a>, and <a class="el" href="_numeric_text_box_behavior_8cs_source.html#l00199">RemoveCurrentEntryAndFocusPrevious()</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_numeric_text_box_behavior_8cs_source.html#l00101">101</a> of file <a class="el" href="_numeric_text_box_behavior_8cs_source.html">NumericTextBoxBehavior.cs</a>.</p>
+
+<p class="reference">References <a class="el" href="_numeric_text_box_behavior_8cs_source.html#l00137">HandleMinusKey()</a>, <a class="el" href="_numeric_text_box_behavior_8cs_source.html#l00192">MoveFocus()</a>, and <a class="el" href="_numeric_text_box_behavior_8cs_source.html#l00225">RemoveCurrentEntryAndFocusPrevious()</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="_numeric_text_box_behavior_8cs_source.html#l00021">OnAttached()</a>, and <a class="el" href="_numeric_text_box_behavior_8cs_source.html#l00029">OnDetaching()</a>.</p>
 <div id="dynsection-2" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
@@ -225,9 +241,18 @@ Static Private Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_numeric_text_box_behavior_8cs_source.html#l00036">36</a> of file <a class="el" href="_numeric_text_box_behavior_8cs_source.html">NumericTextBoxBehavior.cs</a>.</p>
+<p>Handles text changing events to sanitize user input to numeric values. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sender</td><td>The source TextBox control.</td></tr>
+    <tr><td class="paramname">args</td><td>The event arguments for the text change.</td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p class="reference">References <a class="el" href="_numeric_text_box_behavior_8cs_source.html#l00051">SanitizeText()</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_numeric_text_box_behavior_8cs_source.html#l00041">41</a> of file <a class="el" href="_numeric_text_box_behavior_8cs_source.html">NumericTextBoxBehavior.cs</a>.</p>
+
+<p class="reference">References <a class="el" href="_numeric_text_box_behavior_8cs_source.html#l00061">SanitizeText()</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="_numeric_text_box_behavior_8cs_source.html#l00021">OnAttached()</a>, and <a class="el" href="_numeric_text_box_behavior_8cs_source.html#l00029">OnDetaching()</a>.</p>
 <div id="dynsection-4" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
@@ -268,9 +293,17 @@ Static Private Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_numeric_text_box_behavior_8cs_source.html#l00228">228</a> of file <a class="el" href="_numeric_text_box_behavior_8cs_source.html">NumericTextBoxBehavior.cs</a>.</p>
+<p>Sets keyboard focus on the specified TextBox and positions the caret at the end of the text. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">textBox</td><td>The target text box control to focus.</td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p class="reference">Referenced by <a class="el" href="_numeric_text_box_behavior_8cs_source.html#l00169">MoveFocus()</a>, and <a class="el" href="_numeric_text_box_behavior_8cs_source.html#l00199">RemoveCurrentEntryAndFocusPrevious()</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_numeric_text_box_behavior_8cs_source.html#l00258">258</a> of file <a class="el" href="_numeric_text_box_behavior_8cs_source.html">NumericTextBoxBehavior.cs</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_numeric_text_box_behavior_8cs_source.html#l00192">MoveFocus()</a>, and <a class="el" href="_numeric_text_box_behavior_8cs_source.html#l00225">RemoveCurrentEntryAndFocusPrevious()</a>.</p>
 <div id="dynsection-6" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
 <div id="dynsection-6-summary" class="dynsummary">
 </div>
@@ -303,9 +336,17 @@ Static Private Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_numeric_text_box_behavior_8cs_source.html#l00118">118</a> of file <a class="el" href="_numeric_text_box_behavior_8cs_source.html">NumericTextBoxBehavior.cs</a>.</p>
+<p>Handles subtraction key inputs for negation or advancing input to the next row with a negative sign. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">e</td><td>The key event arguments.</td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p class="reference">Referenced by <a class="el" href="_numeric_text_box_behavior_8cs_source.html#l00086">AssociatedObject_PreviewKeyDown()</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_numeric_text_box_behavior_8cs_source.html#l00137">137</a> of file <a class="el" href="_numeric_text_box_behavior_8cs_source.html">NumericTextBoxBehavior.cs</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_numeric_text_box_behavior_8cs_source.html#l00101">AssociatedObject_PreviewKeyDown()</a>.</p>
 <div id="dynsection-7" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
 <div id="dynsection-7-summary" class="dynsummary">
 </div>
@@ -338,11 +379,19 @@ Static Private Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_numeric_text_box_behavior_8cs_source.html#l00169">169</a> of file <a class="el" href="_numeric_text_box_behavior_8cs_source.html">NumericTextBoxBehavior.cs</a>.</p>
+<p>Moves keyboard focus to the preceding or succeeding TextBox in the grid. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">forward</td><td><code>true</code> to move to the next cell; <code>false</code> to move to the previous cell.</td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p class="reference">References <a class="el" href="_numeric_text_box_behavior_8cs_source.html#l00228">FocusTextBox()</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_numeric_text_box_behavior_8cs_source.html#l00192">192</a> of file <a class="el" href="_numeric_text_box_behavior_8cs_source.html">NumericTextBoxBehavior.cs</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_numeric_text_box_behavior_8cs_source.html#l00086">AssociatedObject_PreviewKeyDown()</a>.</p>
+<p class="reference">References <a class="el" href="_numeric_text_box_behavior_8cs_source.html#l00258">FocusTextBox()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_numeric_text_box_behavior_8cs_source.html#l00101">AssociatedObject_PreviewKeyDown()</a>.</p>
 <div id="dynsection-8" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-8-summary" class="dynsummary">
 </div>
@@ -385,7 +434,7 @@ Static Private Member Functions</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="_numeric_text_box_behavior_8cs_source.html#l00021">21</a> of file <a class="el" href="_numeric_text_box_behavior_8cs_source.html">NumericTextBoxBehavior.cs</a>.</p>
 
-<p class="reference">References <a class="el" href="_numeric_text_box_behavior_8cs_source.html#l00086">AssociatedObject_PreviewKeyDown()</a>, and <a class="el" href="_numeric_text_box_behavior_8cs_source.html#l00036">AssociatedObject_TextChanging()</a>.</p>
+<p class="reference">References <a class="el" href="_numeric_text_box_behavior_8cs_source.html#l00101">AssociatedObject_PreviewKeyDown()</a>, and <a class="el" href="_numeric_text_box_behavior_8cs_source.html#l00041">AssociatedObject_TextChanging()</a>.</p>
 <div id="dynsection-10" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-10-summary" class="dynsummary">
 </div>
@@ -422,7 +471,7 @@ Static Private Member Functions</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="_numeric_text_box_behavior_8cs_source.html#l00029">29</a> of file <a class="el" href="_numeric_text_box_behavior_8cs_source.html">NumericTextBoxBehavior.cs</a>.</p>
 
-<p class="reference">References <a class="el" href="_numeric_text_box_behavior_8cs_source.html#l00086">AssociatedObject_PreviewKeyDown()</a>, and <a class="el" href="_numeric_text_box_behavior_8cs_source.html#l00036">AssociatedObject_TextChanging()</a>.</p>
+<p class="reference">References <a class="el" href="_numeric_text_box_behavior_8cs_source.html#l00101">AssociatedObject_PreviewKeyDown()</a>, and <a class="el" href="_numeric_text_box_behavior_8cs_source.html#l00041">AssociatedObject_TextChanging()</a>.</p>
 <div id="dynsection-11" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-11-summary" class="dynsummary">
 </div>
@@ -455,11 +504,13 @@ Static Private Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_numeric_text_box_behavior_8cs_source.html#l00199">199</a> of file <a class="el" href="_numeric_text_box_behavior_8cs_source.html">NumericTextBoxBehavior.cs</a>.</p>
+<p>Removes the active cell entry via the ViewModel and moves keyboard focus to the preceding cell. </p>
 
-<p class="reference">References <a class="el" href="_numeric_text_box_behavior_8cs_source.html#l00228">FocusTextBox()</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_numeric_text_box_behavior_8cs_source.html#l00225">225</a> of file <a class="el" href="_numeric_text_box_behavior_8cs_source.html">NumericTextBoxBehavior.cs</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_numeric_text_box_behavior_8cs_source.html#l00086">AssociatedObject_PreviewKeyDown()</a>.</p>
+<p class="reference">References <a class="el" href="_numeric_text_box_behavior_8cs_source.html#l00258">FocusTextBox()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_numeric_text_box_behavior_8cs_source.html#l00101">AssociatedObject_PreviewKeyDown()</a>.</p>
 <div id="dynsection-12" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-12-summary" class="dynsummary">
 </div>
@@ -498,9 +549,18 @@ Static Private Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_numeric_text_box_behavior_8cs_source.html#l00051">51</a> of file <a class="el" href="_numeric_text_box_behavior_8cs_source.html">NumericTextBoxBehavior.cs</a>.</p>
+<p>Filters an input string to contain only valid numeric characters (digits, single optional leading minus, single decimal point). </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">input</td><td>The raw string to sanitize.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A sanitized string containing valid numeric characters.</dd></dl>
 
-<p class="reference">Referenced by <a class="el" href="_numeric_text_box_behavior_8cs_source.html#l00036">AssociatedObject_TextChanging()</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_numeric_text_box_behavior_8cs_source.html#l00061">61</a> of file <a class="el" href="_numeric_text_box_behavior_8cs_source.html">NumericTextBoxBehavior.cs</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_numeric_text_box_behavior_8cs_source.html#l00041">AssociatedObject_TextChanging()</a>.</p>
 <div id="dynsection-14" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
 <div id="dynsection-14-summary" class="dynsummary">
 </div>

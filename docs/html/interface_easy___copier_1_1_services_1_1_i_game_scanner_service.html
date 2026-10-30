@@ -124,8 +124,8 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('interface_easy
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:af36335b5e4251e70b5a575cd54a40ffc" id="r_af36335b5e4251e70b5a575cd54a40ffc"><td class="memItemLeft">Task&lt; IReadOnlyList&lt; <a class="el" href="namespace_easy___copier_1_1_models.html#a9c2abd1d64352c07d3085ba499cf2aae">GameEntry</a> &gt; &gt;&#160;</td><td class="memItemRight"><a class="el" href="#af36335b5e4251e70b5a575cd54a40ffc">ScanLibraryAsync</a> (IEnumerable&lt; string &gt; sourceFolders, <a class="el" href="namespace_easy___copier_1_1_models.html#aa1c98543798d7f84e29b2e4deba8a58b">LibraryCategory</a> category, IProgress&lt; string &gt;? progress=null, string? videoExtensions=null, CancellationToken cancellationToken=default)</td></tr>
-<tr class="memdesc:af36335b5e4251e70b5a575cd54a40ffc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Asynchronously scans specified source folders for items belonging to the given library category.  <br /></td></tr>
+<tr class="memitem:aa9b5746b14908dfa65767c16581045ba" id="r_aa9b5746b14908dfa65767c16581045ba"><td class="memItemLeft">Task&lt; IReadOnlyList&lt; <a class="el" href="namespace_easy___copier_1_1_models.html#a9c2abd1d64352c07d3085ba499cf2aae">GameEntry</a> &gt; &gt;&#160;</td><td class="memItemRight"><a class="el" href="#aa9b5746b14908dfa65767c16581045ba">ScanLibraryAsync</a> (IEnumerable&lt; string &gt; sourceFolders, <a class="el" href="namespace_easy___copier_1_1_models.html#aa1c98543798d7f84e29b2e4deba8a58b">LibraryCategory</a> category, IProgress&lt; string &gt;? progress=null, string? videoExtensions=null, string? appFileExtensions=null, CancellationToken cancellationToken=default)</td></tr>
+<tr class="memdesc:aa9b5746b14908dfa65767c16581045ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Asynchronously scans specified source folders for items belonging to the given library category.  <br /></td></tr>
 <tr class="memitem:a94cebd84e18a4163fcb674cf9d7666e9" id="r_a94cebd84e18a4163fcb674cf9d7666e9"><td class="memItemLeft">Task&lt;(long TotalSize, bool HasLargeFiles)&gt;&#160;</td><td class="memItemRight"><a class="el" href="#a94cebd84e18a4163fcb674cf9d7666e9">GetFolderStatsAsync</a> (string folderPath, long sizeLimit, CancellationToken cancellationToken=default)</td></tr>
 <tr class="memdesc:a94cebd84e18a4163fcb674cf9d7666e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the total byte size and determines if any contained file exceeds the specified size limit.  <br /></td></tr>
 <tr class="memitem:a7cb19221b905b17f190c99f1c5e6d475" id="r_a7cb19221b905b17f190c99f1c5e6d475"><td class="memItemLeft">string?&#160;</td><td class="memItemRight"><a class="el" href="#a7cb19221b905b17f190c99f1c5e6d475">FindCoverImage</a> (string gameFolderPath)</td></tr>
@@ -223,18 +223,18 @@ Public Member Functions</h2></td></tr>
   <table class="params">
     <tr><td class="paramname">folderPath</td><td>The file or directory path to inspect.</td></tr>
     <tr><td class="paramname">sizeLimit</td><td>The maximum single file size threshold (e.g., 4GB for FAT32).</td></tr>
-    <tr><td class="paramname">cancellationToken</td><td>Cancellation token.</td></tr>
+    <tr><td class="paramname">cancellationToken</td><td>Cancellation token to observe while evaluating stats.</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>A task returning a tuple with total byte size and a boolean flag indicating whether large files exist.</dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>A task that represents the asynchronous operation. The task result contains a tuple with total byte size and a boolean flag indicating whether large files exist.</dd></dl>
 
 <p>Implemented in <a class="el" href="class_easy___copier_1_1_services_1_1_game_scanner_service.html#a7b30922461e6cc77a917e38c1276d45a">Easy_Copier.Services.GameScannerService</a>.</p>
 
 </div>
 </div>
-<a id="af36335b5e4251e70b5a575cd54a40ffc" name="af36335b5e4251e70b5a575cd54a40ffc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af36335b5e4251e70b5a575cd54a40ffc">&#9670;&#160;</a></span>ScanLibraryAsync()</h2>
+<a id="aa9b5746b14908dfa65767c16581045ba" name="aa9b5746b14908dfa65767c16581045ba"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa9b5746b14908dfa65767c16581045ba">&#9670;&#160;</a></span>ScanLibraryAsync()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -262,6 +262,11 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">string?</td>          <td class="paramname"><span class="paramname"><em>appFileExtensions</em></span><span class="paramdefsep"> = </span><span class="paramdefval">null</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
           <td class="paramtype">CancellationToken</td>          <td class="paramname"><span class="paramname"><em>cancellationToken</em></span><span class="paramdefsep"> = </span><span class="paramdefval">default</span>&#160;)</td>
         </tr>
       </table>
@@ -274,13 +279,14 @@ Public Member Functions</h2></td></tr>
     <tr><td class="paramname">category</td><td>The content library category being scanned.</td></tr>
     <tr><td class="paramname">progress</td><td>Optional progress reporter for status updates.</td></tr>
     <tr><td class="paramname">videoExtensions</td><td>Optional video file extension filter string (e.g., ".mp4, .mkv") for video libraries.</td></tr>
+    <tr><td class="paramname">appFileExtensions</td><td>Optional app file extension filter string (e.g., ".exe, .msi") for app libraries.</td></tr>
     <tr><td class="paramname">cancellationToken</td><td>Cancellation token to observe while scanning.</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>A task returning a read-only list of discovered GameEntry objects.</dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>A task that represents the asynchronous operation. The task result contains a read-only list of discovered GameEntry objects.</dd></dl>
 
-<p>Implemented in <a class="el" href="class_easy___copier_1_1_services_1_1_game_scanner_service.html#ab0cc3d6dc81dba63d460e8ebb4465ac5">Easy_Copier.Services.GameScannerService</a>.</p>
+<p>Implemented in <a class="el" href="class_easy___copier_1_1_services_1_1_game_scanner_service.html#a62a70702e24564c19e887c2ac1650da0">Easy_Copier.Services.GameScannerService</a>.</p>
 
 </div>
 </div>

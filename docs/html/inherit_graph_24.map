@@ -1,5 +1,5 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="Node000000" href="$interface_easy___copier_1_1_services_1_1_i_audio_playback_service.html" title="Defines operations for playing audio feedback notifications within the application." alt="" coords="5,5,198,48"/>
-<area shape="rect" id="Node000001" href="$class_easy___copier_1_1_services_1_1_audio_playback_service.html" title="Provides functionality to play audio feedback sound files asynchronously." alt="" coords="246,5,434,48"/>
-<area shape="poly" id="edge12_Node000000_Node000001" title=" " alt="" coords="213,24,248,27,243,27,213,29"/>
+<area shape="rect" id="Node000000" href="$interface_easy___copier_1_1_interop_1_1_i_file_operation_progress_sink.html" title="Exposes status and notification methods for file operation events." alt="" coords="5,5,175,48"/>
+<area shape="rect" id="Node000001" href="$class_easy___copier_1_1_interop_1_1_file_operation_progress_sink.html" title="Receives progress updates from Windows Shell IFileOperation and reports transfer status and speed met..." alt="" coords="223,5,388,48"/>
+<area shape="poly" id="edge12_Node000000_Node000001" title=" " alt="" coords="190,24,225,26,220,27,190,29"/>
 </map>

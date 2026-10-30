@@ -22,7 +22,7 @@
 <!-- Node1 -->
 <g id="Node000001" class="node">
 <title>Node1</title>
-<g id="a_Node000001"><a xlink:title=" ">
+<g id="a_Node000001"><a xlink:title="Handles preview key down events to perform custom keyboard navigation across grid cells.">
 <polygon fill="#999999" stroke="#666666" points="365,-63 194.5,-63 194.5,-19 365,-19 365,-63"/>
 <text xml:space="preserve" text-anchor="start" x="202.5" y="-49.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Behaviors.Numeric</text>
 <text xml:space="preserve" text-anchor="start" x="202.5" y="-37.5" font-family="Helvetica,sans-Serif" font-size="10.00">TextBoxBehavior.AssociatedObject</text>

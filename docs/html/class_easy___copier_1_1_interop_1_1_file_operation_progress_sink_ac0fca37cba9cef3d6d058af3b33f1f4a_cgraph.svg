@@ -22,7 +22,7 @@
 <!-- Node1 -->
 <g id="Node000001" class="node">
 <title>Node1</title>
-<g id="a_Node000001"><a xlink:title=" ">
+<g id="a_Node000001"><a xlink:title="Provides progress measurement feedback for ongoing file operations.An HRESULT success code (0 for S_O...">
 <polygon fill="#999999" stroke="#666666" points="151,-72 0,-72 0,-28 151,-28 151,-72"/>
 <text xml:space="preserve" text-anchor="start" x="8" y="-58.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Interop.File</text>
 <text xml:space="preserve" text-anchor="start" x="8" y="-46.5" font-family="Helvetica,sans-Serif" font-size="10.00">OperationProgressSink.Update</text>
@@ -33,7 +33,7 @@
 <!-- Node2 -->
 <g id="Node000002" class="node">
 <title>Node2</title>
-<g id="a_Node000002"><a xlink:href="class_easy___copier_1_1_infrastructure_1_1_formatting_helpers.html#a84e7e7edafb126e73d0143de49561316" target="_top" xlink:title="Formats a byte size into a human&#45;readable string with units (e.g. KB, MB, GB).">
+<g id="a_Node000002"><a xlink:href="class_easy___copier_1_1_infrastructure_1_1_formatting_helpers.html#a84e7e7edafb126e73d0143de49561316" target="_top" xlink:title="Formats a byte size into a human&#45;readable string with units (e.g., KB, MB, GB, TB).">
 <polygon fill="white" stroke="#666666" points="342.5,-100 187,-100 187,-68 342.5,-68 342.5,-100"/>
 <text xml:space="preserve" text-anchor="start" x="195" y="-86.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Infrastructure.</text>
 <text xml:space="preserve" text-anchor="middle" x="264.75" y="-74.5" font-family="Helvetica,sans-Serif" font-size="10.00">FormattingHelpers.FormatBytes</text>

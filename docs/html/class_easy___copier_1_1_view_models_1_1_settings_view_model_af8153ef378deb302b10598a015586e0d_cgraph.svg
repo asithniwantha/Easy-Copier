@@ -47,13 +47,13 @@
   </g>
 </defs>
 <script type="application/ecmascript" xlink:href="svg.min.js"/>
-<svg id="graph" class="graph" data-view-width="811" data-view-height="40" data-section-id="dynsection-2">
+<svg id="graph" class="graph" data-view-width="1037" data-view-height="40" data-section-id="dynsection-4">
 <g id="viewport">
 <title>Easy_Copier.ViewModels.SettingsViewModel.AddNewSourceFolderAsync</title>
 <!-- Node1 -->
 <g id="Node000001" class="node">
 <title>Node1</title>
-<g id="a_Node000001"><a xlink:title=" ">
+<g id="a_Node000001"><a xlink:title="Command handler accepting a category string (e.g. from XAML bindings) and delegating to AddNewSourceF...">
 <polygon fill="#999999" stroke="#666666" points="190,-32 0,-32 0,0 190,0 190,-32"/>
 <text xml:space="preserve" text-anchor="start" x="8" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.ViewModels.Settings</text>
 <text xml:space="preserve" text-anchor="middle" x="95" y="-6.5" font-family="Helvetica,sans-Serif" font-size="10.00">ViewModel.AddNewSourceFolderAsync</text>
@@ -63,10 +63,10 @@
 <!-- Node2 -->
 <g id="Node000002" class="node">
 <title>Node2</title>
-<g id="a_Node000002"><a xlink:href="class_easy___copier_1_1_view_models_1_1_settings_view_model.html#a36ea1760df1df5ea5285e28d2ed58fc3" target="_top" xlink:title=" ">
-<polygon fill="white" stroke="#666666" points="395.75,-32 226,-32 226,0 395.75,0 395.75,-32"/>
+<g id="a_Node000002"><a xlink:href="class_easy___copier_1_1_view_models_1_1_settings_view_model.html#afbff7e83e9ff2f2b64d5a5f96f8321eb" target="_top" xlink:title="Asynchronously prompts the user to select and append a new source folder for the specified library ca...">
+<polygon fill="white" stroke="#666666" points="416,-32 226,-32 226,0 416,0 416,-32"/>
 <text xml:space="preserve" text-anchor="start" x="234" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.ViewModels.Settings</text>
-<text xml:space="preserve" text-anchor="middle" x="310.88" y="-6.5" font-family="Helvetica,sans-Serif" font-size="10.00">ViewModel.AddSourceFolderAsync</text>
+<text xml:space="preserve" text-anchor="middle" x="321" y="-6.5" font-family="Helvetica,sans-Serif" font-size="10.00">ViewModel.AddNewSourceFolderAsync</text>
 </a>
 </g>
 </g>
@@ -74,18 +74,18 @@
 <g id="edge1_Node000001_Node000002" class="edge">
 <title>Node1&#45;&gt;Node2</title>
 <g id="a_edge1_Node000001_Node000002"><a xlink:title=" ">
-<path fill="none" stroke="#63b8ff" d="M190.43,-16C198.33,-16 206.31,-16 214.22,-16"/>
-<polygon fill="#63b8ff" stroke="#63b8ff" points="214.2,-19.5 224.2,-16 214.2,-12.5 214.2,-19.5"/>
+<path fill="none" stroke="#63b8ff" d="M190.35,-16C198.31,-16 206.4,-16 214.44,-16"/>
+<polygon fill="#63b8ff" stroke="#63b8ff" points="214.25,-19.5 224.25,-16 214.25,-12.5 214.25,-19.5"/>
 </a>
 </g>
 </g>
 <!-- Node3 -->
 <g id="Node000003" class="node">
 <title>Node3</title>
-<g id="a_Node000003"><a xlink:href="class_easy___copier_1_1_view_models_1_1_settings_view_model.html#a99de34ff44c72df0891d3a3ac74790d5" target="_top" xlink:title=" ">
-<polygon fill="white" stroke="#666666" points="599.25,-32 431.75,-32 431.75,0 599.25,0 599.25,-32"/>
-<text xml:space="preserve" text-anchor="start" x="439.75" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.ViewModels.Settings</text>
-<text xml:space="preserve" text-anchor="middle" x="515.5" y="-6.5" font-family="Helvetica,sans-Serif" font-size="10.00">ViewModel.SaveSettingsAsync</text>
+<g id="a_Node000003"><a xlink:href="class_easy___copier_1_1_view_models_1_1_settings_view_model.html#a36ea1760df1df5ea5285e28d2ed58fc3" target="_top" xlink:title="Internal helper method to display a folder picker and add the chosen path to the specified collection...">
+<polygon fill="white" stroke="#666666" points="621.75,-32 452,-32 452,0 621.75,0 621.75,-32"/>
+<text xml:space="preserve" text-anchor="start" x="460" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.ViewModels.Settings</text>
+<text xml:space="preserve" text-anchor="middle" x="536.88" y="-6.5" font-family="Helvetica,sans-Serif" font-size="10.00">ViewModel.AddSourceFolderAsync</text>
 </a>
 </g>
 </g>
@@ -93,18 +93,18 @@
 <g id="edge2_Node000002_Node000003" class="edge">
 <title>Node2&#45;&gt;Node3</title>
 <g id="a_edge2_Node000002_Node000003"><a xlink:title=" ">
-<path fill="none" stroke="#63b8ff" d="M396.05,-16C404.03,-16 412.16,-16 420.22,-16"/>
-<polygon fill="#63b8ff" stroke="#63b8ff" points="420.06,-19.5 430.06,-16 420.05,-12.5 420.06,-19.5"/>
+<path fill="none" stroke="#63b8ff" d="M416.43,-16C424.33,-16 432.31,-16 440.22,-16"/>
+<polygon fill="#63b8ff" stroke="#63b8ff" points="440.2,-19.5 450.2,-16 440.2,-12.5 440.2,-19.5"/>
 </a>
 </g>
 </g>
 <!-- Node4 -->
 <g id="Node000004" class="node">
 <title>Node4</title>
-<g id="a_Node000004"><a xlink:href="class_easy___copier_1_1_view_models_1_1_settings_view_model.html#a88a193f32fd7eb4b8ea344419992d14d" target="_top" xlink:title=" ">
-<polygon fill="white" stroke="#666666" points="802.75,-32 635.25,-32 635.25,0 802.75,0 802.75,-32"/>
-<text xml:space="preserve" text-anchor="start" x="643.25" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.ViewModels.Settings</text>
-<text xml:space="preserve" text-anchor="middle" x="719" y="-6.5" font-family="Helvetica,sans-Serif" font-size="10.00">ViewModel.GetSettings</text>
+<g id="a_Node000004"><a xlink:href="class_easy___copier_1_1_view_models_1_1_settings_view_model.html#a99de34ff44c72df0891d3a3ac74790d5" target="_top" xlink:title="Asynchronously persists current ViewModel field values to disk and updates logon auto&#45;start status.">
+<polygon fill="white" stroke="#666666" points="825.25,-32 657.75,-32 657.75,0 825.25,0 825.25,-32"/>
+<text xml:space="preserve" text-anchor="start" x="665.75" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.ViewModels.Settings</text>
+<text xml:space="preserve" text-anchor="middle" x="741.5" y="-6.5" font-family="Helvetica,sans-Serif" font-size="10.00">ViewModel.SaveSettingsAsync</text>
 </a>
 </g>
 </g>
@@ -112,8 +112,27 @@
 <g id="edge3_Node000003_Node000004" class="edge">
 <title>Node3&#45;&gt;Node4</title>
 <g id="a_edge3_Node000003_Node000004"><a xlink:title=" ">
-<path fill="none" stroke="#63b8ff" d="M599.62,-16C607.58,-16 615.69,-16 623.74,-16"/>
-<polygon fill="#63b8ff" stroke="#63b8ff" points="623.56,-19.5 633.56,-16 623.56,-12.5 623.56,-19.5"/>
+<path fill="none" stroke="#63b8ff" d="M622.05,-16C630.03,-16 638.16,-16 646.22,-16"/>
+<polygon fill="#63b8ff" stroke="#63b8ff" points="646.06,-19.5 656.06,-16 646.05,-12.5 646.06,-19.5"/>
+</a>
+</g>
+</g>
+<!-- Node5 -->
+<g id="Node000005" class="node">
+<title>Node5</title>
+<g id="a_Node000005"><a xlink:href="class_easy___copier_1_1_view_models_1_1_settings_view_model.html#a88a193f32fd7eb4b8ea344419992d14d" target="_top" xlink:title="Constructs a new AppSettings snapshot from the current view model state.">
+<polygon fill="white" stroke="#666666" points="1028.75,-32 861.25,-32 861.25,0 1028.75,0 1028.75,-32"/>
+<text xml:space="preserve" text-anchor="start" x="869.25" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.ViewModels.Settings</text>
+<text xml:space="preserve" text-anchor="middle" x="945" y="-6.5" font-family="Helvetica,sans-Serif" font-size="10.00">ViewModel.GetSettings</text>
+</a>
+</g>
+</g>
+<!-- Node4&#45;&gt;Node5 -->
+<g id="edge4_Node000004_Node000005" class="edge">
+<title>Node4&#45;&gt;Node5</title>
+<g id="a_edge4_Node000004_Node000005"><a xlink:title=" ">
+<path fill="none" stroke="#63b8ff" d="M825.62,-16C833.58,-16 841.69,-16 849.74,-16"/>
+<polygon fill="#63b8ff" stroke="#63b8ff" points="849.56,-19.5 859.56,-16 849.56,-12.5 849.56,-19.5"/>
 </a>
 </g>
 </g>

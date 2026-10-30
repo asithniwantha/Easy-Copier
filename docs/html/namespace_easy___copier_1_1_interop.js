@@ -2,9 +2,12 @@ var namespace_easy___copier_1_1_interop =
 [
     [ "FileOperationInterop", "class_easy___copier_1_1_interop_1_1_file_operation_interop.html", "class_easy___copier_1_1_interop_1_1_file_operation_interop" ],
     [ "FileOperationProgressSink", "class_easy___copier_1_1_interop_1_1_file_operation_progress_sink.html", "class_easy___copier_1_1_interop_1_1_file_operation_progress_sink" ],
+    [ "Gdi32Interop", "class_easy___copier_1_1_interop_1_1_gdi32_interop.html", "class_easy___copier_1_1_interop_1_1_gdi32_interop" ],
     [ "IFileOperation", "interface_easy___copier_1_1_interop_1_1_i_file_operation.html", "interface_easy___copier_1_1_interop_1_1_i_file_operation" ],
     [ "IFileOperationProgressSink", "interface_easy___copier_1_1_interop_1_1_i_file_operation_progress_sink.html", "interface_easy___copier_1_1_interop_1_1_i_file_operation_progress_sink" ],
     [ "IShellItem", "interface_easy___copier_1_1_interop_1_1_i_shell_item.html", "interface_easy___copier_1_1_interop_1_1_i_shell_item" ],
+    [ "IShellItemImageFactory", "interface_easy___copier_1_1_interop_1_1_i_shell_item_image_factory.html", "interface_easy___copier_1_1_interop_1_1_i_shell_item_image_factory" ],
+    [ "SIZE", "struct_easy___copier_1_1_interop_1_1_s_i_z_e.html", "struct_easy___copier_1_1_interop_1_1_s_i_z_e" ],
     [ "FILEOP_FLAGS", "namespace_easy___copier_1_1_interop.html#af4c32f2a5129cc8e5cca17819f42d6ea", [
       [ "FOF_MULTIDESTFILES", "namespace_easy___copier_1_1_interop.html#af4c32f2a5129cc8e5cca17819f42d6eaa916c6edcca26fcbe92e409c10aea6de8", null ],
       [ "FOF_CONFIRMMOUSE", "namespace_easy___copier_1_1_interop.html#af4c32f2a5129cc8e5cca17819f42d6eaabb01ac41b17c19d7d5fcdbdd923cecc4", null ],
@@ -50,5 +53,13 @@ var namespace_easy___copier_1_1_interop =
       [ "PARENTRELATIVEFORADDRESSBAR", "namespace_easy___copier_1_1_interop.html#afd900c2991e05496e7482283f060be9caa2c9b381459c4aca115c9f862348aaa9", null ],
       [ "PARENTRELATIVE", "namespace_easy___copier_1_1_interop.html#afd900c2991e05496e7482283f060be9ca118affedc10214f0799076f42f40f3e5", null ],
       [ "PARENTRELATIVEFORUI", "namespace_easy___copier_1_1_interop.html#afd900c2991e05496e7482283f060be9cad7c63115ffa44d08f6634fe965fe2855", null ]
+    ] ],
+    [ "SIIGBF", "namespace_easy___copier_1_1_interop.html#ad7ee0e4c2122ee03076db127c19eba8f", [
+      [ "SIIGBF_RESIZETOFIT", "namespace_easy___copier_1_1_interop.html#ad7ee0e4c2122ee03076db127c19eba8fa2930dede2635d6bc570302f485c042a9", null ],
+      [ "SIIGBF_BIGGERSIZEOK", "namespace_easy___copier_1_1_interop.html#ad7ee0e4c2122ee03076db127c19eba8fac105684d0383b44be267410b0baa7cd6", null ],
+      [ "SIIGBF_MEMORYONLY", "namespace_easy___copier_1_1_interop.html#ad7ee0e4c2122ee03076db127c19eba8fa35c87dfd2f7686b658039b63c989c8ca", null ],
+      [ "SIIGBF_ICONONLY", "namespace_easy___copier_1_1_interop.html#ad7ee0e4c2122ee03076db127c19eba8fa287a587db034541d4e483f1eb813ff48", null ],
+      [ "SIIGBF_THUMBNAILONLY", "namespace_easy___copier_1_1_interop.html#ad7ee0e4c2122ee03076db127c19eba8fa9781dd39cd5a4b601122a5630bf848e7", null ],
+      [ "SIIGBF_INCACHEONLY", "namespace_easy___copier_1_1_interop.html#ad7ee0e4c2122ee03076db127c19eba8fa197c3431ccdf6e2b3827b12b6a3df022", null ]
     ] ]
 ];

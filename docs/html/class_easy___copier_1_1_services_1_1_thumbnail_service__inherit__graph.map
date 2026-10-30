@@ -1,0 +1,5 @@
+<map id="Easy_Copier.Services.ThumbnailService" name="Easy_Copier.Services.ThumbnailService">
+<area shape="rect" id="Node000001" title="Service for extracting and caching file thumbnails using the Windows Shell API." alt="" coords="7,96,223,139"/>
+<area shape="rect" id="Node000002" href="$interface_easy___copier_1_1_services_1_1_i_thumbnail_service.html" title="Defines operations for extracting and caching thumbnails from files." alt="" coords="5,5,225,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="117,62,117,97,113,95,113,66"/>
+</map>

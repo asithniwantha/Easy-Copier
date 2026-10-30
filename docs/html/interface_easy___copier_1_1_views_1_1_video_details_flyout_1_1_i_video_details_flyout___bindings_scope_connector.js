@@ -1,0 +1,8 @@
+var interface_easy___copier_1_1_views_1_1_video_details_flyout_1_1_i_video_details_flyout___bindings_scope_connector =
+[
+    [ "ContainsElement", "interface_easy___copier_1_1_views_1_1_video_details_flyout_1_1_i_video_details_flyout___bindings_scope_connector.html#a6efd0cac0be4735d7e9a07a8bbd341be", null ],
+    [ "ContainsElement", "interface_easy___copier_1_1_views_1_1_video_details_flyout_1_1_i_video_details_flyout___bindings_scope_connector.html#a6efd0cac0be4735d7e9a07a8bbd341be", null ],
+    [ "RegisterForElementConnection", "interface_easy___copier_1_1_views_1_1_video_details_flyout_1_1_i_video_details_flyout___bindings_scope_connector.html#a3c46280fdc382e0f51dfb8c46692f4b1", null ],
+    [ "RegisterForElementConnection", "interface_easy___copier_1_1_views_1_1_video_details_flyout_1_1_i_video_details_flyout___bindings_scope_connector.html#a3c46280fdc382e0f51dfb8c46692f4b1", null ],
+    [ "Parent", "interface_easy___copier_1_1_views_1_1_video_details_flyout_1_1_i_video_details_flyout___bindings_scope_connector.html#ab6c60bed8be5ef35ed91e85ca92555f8", null ]
+];

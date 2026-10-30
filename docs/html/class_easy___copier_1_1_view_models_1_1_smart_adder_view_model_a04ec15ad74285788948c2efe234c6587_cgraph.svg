@@ -47,7 +47,7 @@
   </g>
 </defs>
 <script type="application/ecmascript" xlink:href="svg.min.js"/>
-<svg id="graph" class="graph" data-view-width="848" data-view-height="93" data-section-id="dynsection-9">
+<svg id="graph" class="graph" data-view-width="1029" data-view-height="93" data-section-id="dynsection-9">
 <g id="viewport">
 <title>Easy_Copier.ViewModels.SmartAdderViewModel.EnsureOneEmptyBottomCell</title>
 <!-- Node1 -->
@@ -90,9 +90,9 @@
 </g>
 </g>
 <!-- Node1&#45;&gt;Node3 -->
-<g id="edge5_Node000001_Node000003" class="edge">
+<g id="edge6_Node000001_Node000003" class="edge">
 <title>Node1&#45;&gt;Node3</title>
-<g id="a_edge5_Node000001_Node000003"><a xlink:title=" ">
+<g id="a_edge6_Node000001_Node000003"><a xlink:title=" ">
 <path fill="none" stroke="#63b8ff" d="M218.8,-10.06C285.48,-8.97 370.51,-8.98 436.71,-10.1"/>
 <polygon fill="#63b8ff" stroke="#63b8ff" points="436.42,-13.6 446.49,-10.28 436.55,-6.6 436.42,-13.6"/>
 </a>
@@ -132,6 +132,25 @@
 <g id="a_edge4_Node000003_Node000004"><a xlink:title=" ">
 <path fill="none" stroke="#63b8ff" d="M639.46,-16C647.39,-16 655.4,-16 663.31,-16"/>
 <polygon fill="#63b8ff" stroke="#63b8ff" points="663.31,-19.5 673.31,-16 663.31,-12.5 663.31,-19.5"/>
+</a>
+</g>
+</g>
+<!-- Node5 -->
+<g id="Node000005" class="node">
+<title>Node5</title>
+<g id="a_Node000005"><a xlink:href="class_easy___copier_1_1_models_1_1_number_cell.html#ae49c3d41a9bcb4605ea1cdb2a1e1f790" target="_top" xlink:title="Attempts to parse the numeric value from InputValue using standard invariant float formatting.">
+<polygon fill="white" stroke="#666666" points="1020.5,-32 876.25,-32 876.25,0 1020.5,0 1020.5,-32"/>
+<text xml:space="preserve" text-anchor="start" x="884.25" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Models.Number</text>
+<text xml:space="preserve" text-anchor="middle" x="948.38" y="-6.5" font-family="Helvetica,sans-Serif" font-size="10.00">Cell.TryGetNumericValue</text>
+</a>
+</g>
+</g>
+<!-- Node4&#45;&gt;Node5 -->
+<g id="edge5_Node000004_Node000005" class="edge">
+<title>Node4&#45;&gt;Node5</title>
+<g id="a_edge5_Node000004_Node000005"><a xlink:title=" ">
+<path fill="none" stroke="#63b8ff" d="M840.59,-16C848.48,-16 856.48,-16 864.38,-16"/>
+<polygon fill="#63b8ff" stroke="#63b8ff" points="864.33,-19.5 874.33,-16 864.33,-12.5 864.33,-19.5"/>
 </a>
 </g>
 </g>

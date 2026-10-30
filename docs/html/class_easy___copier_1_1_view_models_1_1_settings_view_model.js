@@ -1,6 +1,7 @@
 var class_easy___copier_1_1_view_models_1_1_settings_view_model =
 [
     [ "SettingsViewModel", "class_easy___copier_1_1_view_models_1_1_settings_view_model.html#a5d394d4ec9e3cbbfa6608c01c231e9c4", null ],
+    [ "AddNewSourceFolderAsync", "class_easy___copier_1_1_view_models_1_1_settings_view_model.html#afbff7e83e9ff2f2b64d5a5f96f8321eb", null ],
     [ "AddNewSourceFolderAsync", "class_easy___copier_1_1_view_models_1_1_settings_view_model.html#af8153ef378deb302b10598a015586e0d", null ],
     [ "AddSourceFolderAsync", "class_easy___copier_1_1_view_models_1_1_settings_view_model.html#a36ea1760df1df5ea5285e28d2ed58fc3", null ],
     [ "BrowseRufusExecutableAsync", "class_easy___copier_1_1_view_models_1_1_settings_view_model.html#a6aaaa719e0c2c48ca059f1ed8753e0a4", null ],
@@ -17,6 +18,7 @@ var class_easy___copier_1_1_view_models_1_1_settings_view_model =
     [ "RemoveSourceFolderByPathAsync", "class_easy___copier_1_1_view_models_1_1_settings_view_model.html#acbabf2902402ba4583fc25a2f2f69185", null ],
     [ "SaveAndCloseAsync", "class_easy___copier_1_1_view_models_1_1_settings_view_model.html#a8eb6ad0505d7c9694d544c96051c0121", null ],
     [ "SaveSettingsAsync", "class_easy___copier_1_1_view_models_1_1_settings_view_model.html#a99de34ff44c72df0891d3a3ac74790d5", null ],
+    [ "_allFolderCollections", "class_easy___copier_1_1_view_models_1_1_settings_view_model.html#af87e65b204351bf972890374b6a1c57b", null ],
     [ "_dialogService", "class_easy___copier_1_1_view_models_1_1_settings_view_model.html#af5b42254a75101bb228b49c5d6ec48b6", null ],
     [ "_dispatcherService", "class_easy___copier_1_1_view_models_1_1_settings_view_model.html#a29487afff1a3aa6064c405f55d296562", null ],
     [ "_filePickerService", "class_easy___copier_1_1_view_models_1_1_settings_view_model.html#adfc5d6f41019e2a3fe7547326d2c9664", null ],
@@ -29,6 +31,7 @@ var class_easy___copier_1_1_view_models_1_1_settings_view_model =
     [ "_sourceLibraryService", "class_easy___copier_1_1_view_models_1_1_settings_view_model.html#a0ea7c82ad54531b55eb4bc75645c4e20", null ],
     [ "_startupService", "class_easy___copier_1_1_view_models_1_1_settings_view_model.html#a664c32e49ab0ac7478a963c6c2273643", null ],
     [ "_updateService", "class_easy___copier_1_1_view_models_1_1_settings_view_model.html#a5c6f17086476b88139319970c2a7e0c2", null ],
+    [ "AppFileExtensions", "class_easy___copier_1_1_view_models_1_1_settings_view_model.html#afd8c3c1af8411c42e623ce79fc79cc3a", null ],
     [ "AppSourceFolders", "class_easy___copier_1_1_view_models_1_1_settings_view_model.html#ad1814e0725d0155dc84bf195fabff102", null ],
     [ "AutoDownloadUpdates", "class_easy___copier_1_1_view_models_1_1_settings_view_model.html#aa863dde3e5a5d66d279138367660980c", null ],
     [ "AutoScanOnStartup", "class_easy___copier_1_1_view_models_1_1_settings_view_model.html#ae70578467666dac528e55b896224b5b2", null ],
@@ -40,6 +43,7 @@ var class_easy___copier_1_1_view_models_1_1_settings_view_model =
     [ "IsLogsPanelVisible", "class_easy___copier_1_1_view_models_1_1_settings_view_model.html#a8dbca617a339a3fc72ca68f59eb60eb8", null ],
     [ "IsOsImagesPanelVisible", "class_easy___copier_1_1_view_models_1_1_settings_view_model.html#a747fb4d8be07ee3f53fb72e2927265de", null ],
     [ "OsImageSourceFolders", "class_easy___copier_1_1_view_models_1_1_settings_view_model.html#a694deb8e5cbe317d1a4e42f1e8e1fd91", null ],
+    [ "OverwriteExistingCovers", "class_easy___copier_1_1_view_models_1_1_settings_view_model.html#a379d8fc416d4d5b891ea6d4ce918e191", null ],
     [ "PlayNotificationSounds", "class_easy___copier_1_1_view_models_1_1_settings_view_model.html#a35910aa6aa80dce9eba89a712db6b17a", null ],
     [ "PriceTier1", "class_easy___copier_1_1_view_models_1_1_settings_view_model.html#a9716e8414c0f576e640cae89fbb9f432", null ],
     [ "PriceTier2", "class_easy___copier_1_1_view_models_1_1_settings_view_model.html#aa750b3a410688140989b9964b4b80369", null ],

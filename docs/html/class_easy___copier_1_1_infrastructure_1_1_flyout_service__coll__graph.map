@@ -1,0 +1,9 @@
+<map id="Easy_Copier.Infrastructure.FlyoutService" name="Easy_Copier.Infrastructure.FlyoutService">
+<area shape="rect" id="Node000001" title="Implements IFlyoutService to present item details flyouts and handle folder launch interactions in UI..." alt="" coords="420,72,601,115"/>
+<area shape="rect" id="Node000002" href="$interface_easy___copier_1_1_infrastructure_1_1_i_flyout_service.html" title="Defines methods for presenting item detail flyouts and handling folder launch actions in library view..." alt="" coords="12,5,193,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="208,34,300,46,396,61,432,71,427,72,395,67,300,51,209,40"/>
+<area shape="rect" id="Node000003" href="$interface_easy___copier_1_1_services_1_1_i_game_requirements_service.html" title="Defines operations for retrieving and formatting game system requirements." alt="" coords="5,72,200,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="215,91,421,92,417,95,215,96"/>
+<area shape="rect" id="Node000004" href="$interface_easy___copier_1_1_infrastructure_1_1_i_process_service.html" title="Provides services for external process execution and environment security checks." alt="" coords="12,139,193,181"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="208,147,300,136,395,120,427,116,432,115,396,125,300,141,209,152"/>
+</map>

@@ -1,0 +1,6 @@
+<map id="Easy_Copier.ViewModels.HistoryViewModel.OnSelectedRecordChanged" name="Easy_Copier.ViewModels.HistoryViewModel.OnSelectedRecordChanged">
+<area shape="rect" id="Node000001" title="Partial notification handler invoked when SelectedRecord changes to toggle drawer visibility and popu..." alt="" coords="5,29,257,72"/>
+<area shape="rect" id="Node000002" href="$namespace_easy___copier_1_1_models.html#a3bede7aa95515ae50b6531404c887ee2" title="Represents a persistent database history entry recording a completed transfer." alt="" coords="305,29,524,72"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="257,48,291,51,286,51,257,53"/>
+<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="362,27,359,19,368,10,386,5,414,3,445,5,465,14,459,14,444,10,414,8,387,10,371,15,364,21,366,30"/>
+</map>

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['librarycategory_0',['LibraryCategory',['../namespace_easy___copier_1_1_models.html#aa1c98543798d7f84e29b2e4deba8a58b',1,'Easy_Copier::Models']]]
+  ['gamecategory_0',['GameCategory',['../namespace_easy___copier_1_1_models.html#a79b82f8099c51633e7a21698ac8835c5',1,'Easy_Copier::Models']]]
 ];

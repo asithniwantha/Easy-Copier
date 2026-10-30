@@ -1,0 +1,12 @@
+<map id="Easy_Copier.ViewModels.MainViewModel.BuildItemsToQueueAsync" name="Easy_Copier.ViewModels.MainViewModel.BuildItemsToQueueAsync">
+<area shape="rect" id="Node000001" title="Builds the list of transfer items to queue, prompting the user for conflict resolution decisions when..." alt="" coords="5,28,246,71"/>
+<area shape="rect" id="Node000002" href="$namespace_easy___copier_1_1_models.html#a9c2abd1d64352c07d3085ba499cf2aae" title="Represents a single scanned library entry (game, app, TV/film, or OS image)." alt="" coords="604,48,816,75"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="219,25,293,14,425,3,483,5,556,14,610,25,662,43,656,43,609,30,556,19,482,10,425,8,294,19,221,30"/>
+<area shape="rect" id="Node000003" href="$interface_easy___copier_1_1_infrastructure_1_1_i_dialog_service.html#a9bd95aa4bbb692442c72bf8dac7dc84c" title="Displays a folder conflict resolution dialog allowing the user to select how to handle duplicate item..." alt="" coords="294,28,556,71"/>
+<area shape="poly" id="edge3_Node000001_Node000003" title=" " alt="" coords="246,47,281,49,276,50,247,52"/>
+<area shape="rect" id="Node000004" href="$namespace_easy___copier_1_1_models.html#a36bba191a5fad0b0ca63ed787ae607d8" title="Represents an individual item in a transfer batch along with its assigned copy action." alt="" coords="315,119,535,146"/>
+<area shape="poly" id="edge4_Node000001_Node000004" title=" " alt="" coords="206,69,361,113,356,115,205,74"/>
+<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="662,47,654,40,660,30,679,24,710,22,745,24,764,34,759,34,744,30,710,27,680,29,663,34,659,39,667,49"/>
+<area shape="poly" id="edge5_Node000004_Node000002" title=" " alt="" coords="482,116,636,79,641,79,483,121"/>
+<area shape="poly" id="edge6_Node000004_Node000004" title=" " alt="" coords="377,118,369,110,375,100,394,94,425,92,460,95,479,105,474,104,459,100,425,98,395,100,378,105,374,110,382,119"/>
+</map>

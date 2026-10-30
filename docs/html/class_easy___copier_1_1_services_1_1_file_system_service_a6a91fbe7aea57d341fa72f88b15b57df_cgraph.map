@@ -1,0 +1,6 @@
+<map id="Easy_Copier.Services.FileSystemService.CalculateDirectorySize" name="Easy_Copier.Services.FileSystemService.CalculateDirectorySize">
+<area shape="rect" id="Node000001" title="Calculates the total size in bytes of all files contained within the target directory recursively...." alt="" coords="5,29,254,72"/>
+<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_infrastructure_1_1_file_system_helpers.html#a179279ea5f1e52ea09d8923972b8892c" title="Recursively calculates the total byte size of a directory and all of its subdirectories." alt="" coords="302,29,572,72"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="254,48,289,51,284,51,254,53"/>
+<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="380,27,377,19,387,10,407,5,437,3,470,5,491,14,486,14,469,10,437,8,408,10,389,15,382,21,384,30"/>
+</map>

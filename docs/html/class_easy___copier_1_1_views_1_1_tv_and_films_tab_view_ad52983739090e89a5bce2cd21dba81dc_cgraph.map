@@ -1,0 +1,9 @@
+<map id="Easy_Copier.Views.TvAndFilmsTabView.SearchBox_TextChanged" name="Easy_Copier.Views.TvAndFilmsTabView.SearchBox_TextChanged">
+<area shape="rect" id="Node000001" title="Handles text changes in the search box." alt="" coords="5,43,228,85"/>
+<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_infrastructure_1_1_auto_suggest_box_helper.html#aa55e56ac88c5e01ba893dc558b34fb62" title="Handles text changes in an AutoSuggestBox to populate autocomplete suggestions when user input change..." alt="" coords="276,35,503,93"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="228,61,263,64,257,64,228,67"/>
+<area shape="rect" id="Node000003" href="$interface_easy___copier_1_1_view_models_1_1_i_searchable_tab_view_model.html#af084c304707997737899bc8c7fe235a9" title="Retrieves autocomplete suggestions matching the specified query string." alt="" coords="551,5,795,48"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="503,46,538,44,533,45,504,52"/>
+<area shape="rect" id="Node000004" href="$class_easy___copier_1_1_infrastructure_1_1_auto_suggest_box_helper.html#adb9bffcc6f44b8e686d33efe87e92881" title="Updates the background color and theme resources of the specified AutoSuggestBox based on search text..." alt="" coords="551,72,795,131"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="503,76,538,83,533,83,503,82"/>
+</map>

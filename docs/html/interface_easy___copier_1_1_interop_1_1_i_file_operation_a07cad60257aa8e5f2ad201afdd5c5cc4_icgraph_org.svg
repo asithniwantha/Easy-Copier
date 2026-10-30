@@ -11,7 +11,7 @@
 <!-- Node1 -->
 <g id="Node000001" class="node">
 <title>Node1</title>
-<g id="a_Node000001"><a xlink:title=" ">
+<g id="a_Node000001"><a xlink:title="Terminates a notification connection previously established through Advise.">
 <polygon fill="#999999" stroke="#666666" points="576.75,-38 449.75,-38 449.75,-6 576.75,-6 576.75,-38"/>
 <text xml:space="preserve" text-anchor="start" x="457.75" y="-24.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Interop.IFile</text>
 <text xml:space="preserve" text-anchor="middle" x="513.25" y="-12.5" font-family="Helvetica,sans-Serif" font-size="10.00">Operation.Unadvise</text>

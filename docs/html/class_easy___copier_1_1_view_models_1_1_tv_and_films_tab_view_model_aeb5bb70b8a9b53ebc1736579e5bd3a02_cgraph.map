@@ -1,0 +1,5 @@
+<map id="Easy_Copier.ViewModels.TvAndFilmsTabViewModel.GetSuggestions" name="Easy_Copier.ViewModels.TvAndFilmsTabViewModel.GetSuggestions">
+<area shape="rect" id="Node000001" title="Retrieves autocomplete suggestions matching the specified query string.An enumeration of matching uni..." alt="" coords="5,13,264,56"/>
+<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_view_models_1_1_library_tab_view_model_base.html#abb89054d5de5bcc0b94aaa0f5131a48e" title="Filters item entries to generate a distinct list of up to 10 autocomplete suggestions matching the qu..." alt="" coords="312,5,575,64"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="264,32,299,34,294,35,264,37"/>
+</map>

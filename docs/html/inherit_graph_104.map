@@ -1,0 +1,55 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="Node000000" title=" " alt="" coords="57,147,148,173"/>
+<area shape="rect" id="Node000001" href="$class_easy___copier_1_1_services_1_1_game_info_download_service.html" title="Partial class implementation of GameInfoDownloadService handling game category downloading and mappin..." alt="" coords="275,5,465,48"/>
+<area shape="poly" id="edge301_Node000000_Node000001" title=" " alt="" coords="129,135,182,95,246,58,278,47,275,51,249,62,185,100,134,138"/>
+<area shape="rect" id="Node000003" href="$interface_easy___copier_1_1_services_1_1_i_drive_discovery_service.html" title="Defines operations for detecting, enumerating, and monitoring removable and USB drives." alt="" coords="275,72,465,115"/>
+<area shape="poly" id="edge302_Node000000_Node000003" title=" " alt="" coords="161,143,283,113,279,117,165,147"/>
+<area shape="rect" id="Node000005" href="$class_easy___copier_1_1_view_models_1_1_library_tab_view_model_base.html" title="Abstract base ViewModel for tab&#45;specific child ViewModels that synchronize state with MainViewModel." alt="" coords="263,205,477,248"/>
+<area shape="poly" id="edge304_Node000000_Node000005" title=" " alt="" coords="162,172,283,203,279,206,164,177"/>
+<area shape="rect" id="Node000019" href="$class_easy___copier_1_1_view_models_1_1_main_view_model.html" title="Core ViewModel backing the main application page, coordinating library navigation,..." alt="" coords="268,272,472,315"/>
+<area shape="poly" id="edge309_Node000000_Node000019" title=" " alt="" coords="131,181,185,220,249,258,279,270,274,273,246,262,182,225,132,186"/>
+<area shape="rect" id="Node000004" href="$class_easy___copier_1_1_services_1_1_drive_discovery_service.html" title="Provides physical and logical drive detection and real&#45;time drive insertion/removal monitoring via WM..." alt="" coords="556,5,742,48"/>
+<area shape="poly" id="edge303_Node000003_Node000004" title=" " alt="" coords="475,66,558,47,554,50,478,70"/>
+<area shape="rect" id="Node000006" href="$class_easy___copier_1_1_view_models_1_1_apps_tab_view_model.html" title="ViewModel for managing the Applications library tab view. Acts as a dedicated child ViewModel that de..." alt="" coords="546,139,751,181"/>
+<area shape="poly" id="edge305_Node000005_Node000006" title=" " alt="" coords="475,199,559,180,554,184,478,203"/>
+<area shape="rect" id="Node000008" href="$class_easy___copier_1_1_view_models_1_1_games_tab_view_model.html" title="ViewModel for managing the Games library tab view. Acts as a dedicated child ViewModel that delegates..." alt="" coords="540,205,757,248"/>
+<area shape="poly" id="edge306_Node000005_Node000008" title=" " alt="" coords="491,224,542,225,537,228,494,229"/>
+<area shape="rect" id="Node000009" href="$class_easy___copier_1_1_view_models_1_1_os_images_tab_view_model.html" title="ViewModel for managing the OS Images library tab view. Acts as a dedicated child ViewModel that deleg..." alt="" coords="552,272,745,315"/>
+<area shape="poly" id="edge307_Node000005_Node000009" title=" " alt="" coords="476,250,559,270,554,273,478,255"/>
+<area shape="rect" id="Node000010" href="$class_easy___copier_1_1_view_models_1_1_tv_and_films_tab_view_model.html" title="ViewModel for managing the Films &amp; TV series library tab view. Acts as a dedicated child ViewModel th..." alt="" coords="554,72,744,115"/>
+<area shape="poly" id="edge308_Node000005_Node000010" title=" " alt="" coords="483,196,490,191,506,176,514,159,522,142,538,125,561,113,558,117,542,129,526,145,519,161,510,179,494,195,487,199"/>
+<area shape="rect" id="Node000002" href="$interface_easy___copier_1_1_services_1_1_i_game_info_download_service.html" title="Defines operations for downloading game metadata, system requirements, covers, and category informati..." alt="" coords="5,5,200,48"/>
+<area shape="poly" id="edge310_Node000002_Node000001" title=" " alt="" coords="213,25,276,25,272,28,217,29"/>
+<area shape="rect" id="Node000007" href="$interface_easy___copier_1_1_view_models_1_1_i_searchable_tab_view_model.html" title="Contract for library tab ViewModels that support search text query binding and autocomplete suggestio..." alt="" coords="248,139,492,181"/>
+<area shape="poly" id="edge311_Node000007_Node000006" title=" " alt="" coords="506,158,548,159,543,161,509,162"/>
+<area shape="poly" id="edge312_Node000007_Node000008" title=" " alt="" coords="476,183,559,204,554,206,478,188"/>
+<area shape="poly" id="edge313_Node000007_Node000009" title=" " alt="" coords="485,186,494,191,510,208,519,225,526,242,542,258,562,271,557,272,538,262,522,245,514,228,506,211,490,195,486,192"/>
+<area shape="poly" id="edge314_Node000007_Node000010" title=" " alt="" coords="475,132,559,114,554,117,478,137"/>
+<area shape="rect" id="Node000011" title=" " alt="" coords="40,619,165,645"/>
+<area shape="poly" id="edge322_Node000011_Node000005" title=" " alt="" coords="104,603,114,533,138,440,157,391,180,342,210,297,246,258,265,246,262,251,249,262,214,301,185,345,162,393,143,442,120,534,109,604"/>
+<area shape="poly" id="edge323_Node000011_Node000019" title=" " alt="" coords="106,603,121,545,147,470,166,430,188,392,215,356,246,325,270,311,266,316,249,329,219,359,192,395,170,433,152,472,126,546,112,605"/>
+<area shape="rect" id="Node000012" href="$class_easy___copier_1_1_models_1_1_file_system_item.html" title="Represents a file system item (folder or file) for display in navigation or selection controls." alt="" coords="251,539,489,565"/>
+<area shape="poly" id="edge315_Node000011_Node000012" title=" " alt="" coords="148,610,247,575,295,564,291,568,248,580,152,614"/>
+<area shape="rect" id="Node000013" href="$class_easy___copier_1_1_models_1_1_number_cell.html" title="Represents an individual cell within the SmartAdder grid, tracking user input and negative state." alt="" coords="262,589,478,616"/>
+<area shape="poly" id="edge316_Node000011_Node000013" title=" " alt="" coords="179,621,263,613,260,616,182,626"/>
+<area shape="rect" id="Node000014" href="$class_easy___copier_1_1_models_1_1_smart_adder_entry.html" title="Represents a single dynamic number&#45;entry row within the SmartAdder overlay." alt="" coords="279,640,460,683"/>
+<area shape="poly" id="edge317_Node000011_Node000014" title=" " alt="" coords="180,638,281,650,276,653,182,643"/>
+<area shape="rect" id="Node000015" href="$class_easy___copier_1_1_models_1_1_transfer_queue_item.html" title="Represents a queued transfer job batch in the queue UI with progress monitoring and status tracking." alt="" coords="273,707,467,749"/>
+<area shape="poly" id="edge318_Node000011_Node000015" title=" " alt="" coords="146,650,249,692,285,705,280,707,247,697,147,655"/>
+<area shape="rect" id="Node000016" href="$class_easy___copier_1_1_view_models_1_1_about_view_model.html" title="ViewModel backing the About dialog, presenting application version info, author details,..." alt="" coords="265,773,474,816"/>
+<area shape="poly" id="edge319_Node000011_Node000016" title=" " alt="" coords="125,655,179,708,213,736,249,759,275,772,270,773,246,764,210,740,176,712,125,660"/>
+<area shape="rect" id="Node000017" href="$class_easy___copier_1_1_view_models_1_1_game_details_view_model.html" title="ViewModel for displaying detailed folder contents and status information of a game entry." alt="" coords="265,840,475,883"/>
+<area shape="poly" id="edge320_Node000011_Node000017" title=" " alt="" coords="116,657,139,696,168,742,205,787,249,826,270,839,265,840,246,830,201,791,164,745,135,699,117,662"/>
+<area shape="rect" id="Node000018" href="$class_easy___copier_1_1_view_models_1_1_history_view_model.html" title="ViewModel for managing file transfer history records, filtering options, aggregated statistics,..." alt="" coords="261,907,478,949"/>
+<area shape="poly" id="edge321_Node000011_Node000018" title=" " alt="" coords="111,658,131,710,158,773,198,838,222,867,249,893,268,906,263,906,246,897,218,871,193,841,154,776,126,712,111,663"/>
+<area shape="rect" id="Node000020" href="$class_easy___copier_1_1_view_models_1_1_os_image_details_view_model.html" title="ViewModel for the OS Image details flyout, providing properties for display dates,..." alt="" coords="274,973,466,1016"/>
+<area shape="poly" id="edge324_Node000011_Node000020" title=" " alt="" coords="108,658,124,722,149,803,167,846,190,887,217,926,249,959,276,977,271,977,246,963,213,929,185,890,162,848,144,805,118,724,108,663"/>
+<area shape="rect" id="Node000021" href="$class_easy___copier_1_1_view_models_1_1_settings_view_model.html" title="ViewModel managing application settings, source folder configurations, price tiers,..." alt="" coords="258,1040,482,1083"/>
+<area shape="poly" id="edge325_Node000011_Node000021" title=" " alt="" coords="106,658,117,734,140,833,158,885,182,937,212,984,249,1026,266,1040,261,1039,246,1030,208,988,177,939,153,887,135,834,112,735,105,663"/>
+<area shape="rect" id="Node000022" href="$class_easy___copier_1_1_view_models_1_1_smart_adder_history_view_model.html" title="Backs the SmartAdder Calculation History window, listing previously logged calculation sessions in re..." alt="" coords="265,339,475,381"/>
+<area shape="poly" id="edge326_Node000011_Node000022" title=" " alt="" coords="110,603,129,557,157,499,196,441,220,414,246,391,268,380,265,384,249,395,223,418,200,444,162,502,133,559,115,605"/>
+<area shape="rect" id="Node000023" href="$class_easy___copier_1_1_view_models_1_1_smart_adder_view_model.html" title="ViewModel that drives the SmartAdder calculator panel for computing sequential totals and recording h..." alt="" coords="265,405,475,448"/>
+<area shape="poly" id="edge327_Node000011_Node000023" title=" " alt="" coords="116,604,168,531,204,491,246,458,271,447,268,451,249,462,208,495,172,534,121,607"/>
+<area shape="rect" id="Node000024" href="$class_easy___copier_1_1_view_models_1_1_video_details_view_model.html" title="ViewModel for the film/TV details flyout, exposing the folder path, file list and total size." alt="" coords="266,472,474,515"/>
+<area shape="poly" id="edge328_Node000011_Node000024" title=" " alt="" coords="128,607,181,565,246,524,277,513,274,517,249,529,184,569,132,610"/>
+</map>

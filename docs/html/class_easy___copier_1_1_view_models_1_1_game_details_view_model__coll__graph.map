@@ -1,7 +1,9 @@
 <map id="Easy_Copier.ViewModels.GameDetailsViewModel" name="Easy_Copier.ViewModels.GameDetailsViewModel">
-<area shape="rect" id="Node000001" title=" " alt="" coords="51,120,261,163"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="5,13,131,40"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="88,50,143,119,137,120,86,55"/>
-<area shape="rect" id="Node000003" href="$interface_easy___copier_1_1_infrastructure_1_1_i_dispatcher_service.html" title="Abstracts dispatcher operations for executing code on the UI thread." alt="" coords="155,5,336,48"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="222,59,174,122,171,118,217,61"/>
+<area shape="rect" id="Node000001" title="ViewModel for displaying detailed folder contents and status information of a game entry." alt="" coords="356,56,566,99"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="33,5,159,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="174,24,332,45,372,55,366,56,331,51,174,29"/>
+<area shape="rect" id="Node000003" href="$interface_easy___copier_1_1_infrastructure_1_1_i_dispatcher_service.html" title="Abstracts dispatcher operations for executing code on the UI thread." alt="" coords="5,56,187,99"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="202,75,357,76,353,79,203,80"/>
+<area shape="rect" id="Node000004" href="$interface_easy___copier_1_1_services_1_1_i_file_system_service.html" title="Defines file system inspection and metadata operations, abstracting direct disk I/O calls from ViewMo..." alt="" coords="6,123,186,165"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="201,126,331,104,365,100,370,99,332,109,202,132"/>
 </map>

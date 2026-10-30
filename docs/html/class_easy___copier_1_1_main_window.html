@@ -112,6 +112,9 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('class_easy___c
   <div class="headertitle"><div class="title">Easy_Copier.MainWindow Class Reference<span class="mlabels"><span class="mlabel sealed">sealed</span></span></div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Represents the main top-level application window hosting the primary navigation and pages.  
+ <a href="#details">More...</a></p>
 <div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Inheritance diagram for Easy_Copier.MainWindow:</div>
 <div id="dynsection-0-summary" class="dynsummary">
 </div>
@@ -128,6 +131,7 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('class_easy___c
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a4e6ac266bd9303e598362aa71aa60f39" id="r_a4e6ac266bd9303e598362aa71aa60f39"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a4e6ac266bd9303e598362aa71aa60f39">MainWindow</a> (<a class="el" href="class_easy___copier_1_1_view_models_1_1_main_view_model.html">ViewModels.MainViewModel</a> viewModel)</td></tr>
+<tr class="memdesc:a4e6ac266bd9303e598362aa71aa60f39"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes a new instance of the MainWindow class.  <br /></td></tr>
 <tr class="memitem:ab40e18857a68330fb2bd80ca539462f1" id="r_ab40e18857a68330fb2bd80ca539462f1"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ab40e18857a68330fb2bd80ca539462f1">Connect</a> (int connectionId, object target)</td></tr>
 <tr class="memdesc:ab40e18857a68330fb2bd80ca539462f1"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="#ab40e18857a68330fb2bd80ca539462f1" title="Connect().">Connect()</a>.  <br /></td></tr>
 <tr class="memitem:aa7976a252287282db19ad9dc2b750397" id="r_aa7976a252287282db19ad9dc2b750397"><td class="memItemLeft">global::Microsoft.UI.Xaml.Markup.IComponentConnector&#160;</td><td class="memItemRight"><a class="el" href="#aa7976a252287282db19ad9dc2b750397">GetBindingConnector</a> (int connectionId, object target)</td></tr>
@@ -173,8 +177,9 @@ Private Attributes</h2></td></tr>
 <tr class="memitem:aa541d0ab34d550715234b99ddc8fda80" id="r_aa541d0ab34d550715234b99ddc8fda80"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#aa541d0ab34d550715234b99ddc8fda80">_contentLoaded</a></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="_main_window_8xaml_8cs_source.html#l00006">6</a> of file <a class="el" href="_main_window_8xaml_8cs_source.html">MainWindow.xaml.cs</a>.</p>
+<div class="textblock"><p>Represents the main top-level application window hosting the primary navigation and pages. </p>
+
+<p class="definition">Definition at line <a class="el" href="_main_window_8xaml_8cs_source.html#l00009">9</a> of file <a class="el" href="_main_window_8xaml_8cs_source.html">MainWindow.xaml.cs</a>.</p>
 </div><a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a4e6ac266bd9303e598362aa71aa60f39" name="a4e6ac266bd9303e598362aa71aa60f39"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a4e6ac266bd9303e598362aa71aa60f39">&#9670;&#160;</a></span>MainWindow()</h2>
@@ -191,11 +196,19 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_main_window_8xaml_8cs_source.html#l00008">8</a> of file <a class="el" href="_main_window_8xaml_8cs_source.html">MainWindow.xaml.cs</a>.</p>
+<p>Initializes a new instance of the MainWindow class. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">viewModel</td><td>The main view model for the application state.</td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p class="reference">References <a class="el" href="_debug_2net10_80-windows10_80_826100_80_2win-x64_2_main_window_8g_8i_8cs_source.html#l00031">InitializeComponent()</a>, <a class="el" href="_native_window_helper_8cs_source.html#l00225">Easy_Copier.Infrastructure.NativeWindowHelper.InitializeWindow()</a>, <a class="el" href="_debug_2net10_80-windows10_80_826100_80_2win-x64_2_main_window_8g_8i_8cs_source.html#l00020">RootFrame</a>, and <a class="el" href="_native_window_helper_8cs_source.html#l00191">Easy_Copier.Infrastructure.NativeWindowHelper.SetMinimumSize()</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_main_window_8xaml_8cs_source.html#l00015">15</a> of file <a class="el" href="_main_window_8xaml_8cs_source.html">MainWindow.xaml.cs</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_app_8xaml_8cs_source.html#l00078">Easy_Copier.App.OnLaunched()</a>.</p>
+<p class="reference">References <a class="el" href="_debug_2net10_80-windows10_80_826100_80_2win-x64_2_main_window_8g_8i_8cs_source.html#l00031">InitializeComponent()</a>, <a class="el" href="_native_window_helper_8cs_source.html#l00312">Easy_Copier.Infrastructure.NativeWindowHelper.InitializeWindow()</a>, <a class="el" href="_debug_2net10_80-windows10_80_826100_80_2win-x64_2_main_window_8g_8i_8cs_source.html#l00020">RootFrame</a>, and <a class="el" href="_native_window_helper_8cs_source.html#l00268">Easy_Copier.Infrastructure.NativeWindowHelper.SetMinimumSize()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_app_8xaml_8cs_source.html#l00121">Easy_Copier.App.OnLaunched()</a>.</p>
 <div id="dynsection-2" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-2-summary" class="dynsummary">
 </div>
@@ -483,7 +496,7 @@ Private Attributes</h2></td></tr>
 
 <p class="reference">References <a class="el" href="_debug_2net10_80-windows10_80_826100_80_2win-x64_2_main_window_8g_8i_8cs_source.html#l00024">_contentLoaded</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_main_window_8xaml_8cs_source.html#l00008">MainWindow()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_main_window_8xaml_8cs_source.html#l00015">MainWindow()</a>.</p>
 <div id="dynsection-4" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
 <div id="dynsection-4-summary" class="dynsummary">
 </div>
@@ -759,7 +772,7 @@ Private Attributes</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="_debug_2net10_80-windows10_80_826100_80_2win-x64_2_main_window_8g_8i_8cs_source.html#l00020">20</a> of file <a class="el" href="_debug_2net10_80-windows10_80_826100_80_2win-x64_2_main_window_8g_8i_8cs_source.html">MainWindow.g.i.cs</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_main_window_8xaml_8cs_source.html#l00008">MainWindow()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_main_window_8xaml_8cs_source.html#l00015">MainWindow()</a>.</p>
 
 </div>
 </div>

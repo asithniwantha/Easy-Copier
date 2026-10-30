@@ -11,7 +11,7 @@
 <!-- Node1 -->
 <g id="Node000001" class="node">
 <title>Node1</title>
-<g id="a_Node000001"><a xlink:title=" ">
+<g id="a_Node000001"><a xlink:title="Declares a single item that is to be deleted.">
 <polygon fill="#999999" stroke="#666666" points="561.75,-38 434.75,-38 434.75,-6 561.75,-6 561.75,-38"/>
 <text xml:space="preserve" text-anchor="start" x="442.75" y="-24.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Interop.IFile</text>
 <text xml:space="preserve" text-anchor="middle" x="498.25" y="-12.5" font-family="Helvetica,sans-Serif" font-size="10.00">Operation.DeleteItem</text>

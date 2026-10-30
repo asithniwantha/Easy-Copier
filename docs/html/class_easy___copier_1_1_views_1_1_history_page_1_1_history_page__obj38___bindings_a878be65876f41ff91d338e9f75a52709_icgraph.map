@@ -1,0 +1,16 @@
+<map id="Easy_Copier.Views.HistoryPage.HistoryPage_obj38_Bindings.Update_FailedItems" name="Easy_Copier.Views.HistoryPage.HistoryPage_obj38_Bindings.Update_FailedItems">
+<area shape="rect" id="Node000001" title=" " alt="" coords="998,39,1197,97"/>
+<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_views_1_1_history_page_1_1_history_page__obj38___bindings.html#a2b9fedfdec34bf9c68a7a8c1867babac" title=" " alt="" coords="767,39,950,97"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="980,68,951,71,950,65,985,68"/>
+<area shape="rect" id="Node000003" href="$class_easy___copier_1_1_views_1_1_history_page_1_1_history_page__obj38___bindings.html#aabfdbd7b1789f233abaff913b062efe1" title=" " alt="" coords="5,5,188,64"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="749,62,719,63,188,41,188,35,719,57,754,61"/>
+<area shape="rect" id="Node000004" href="$class_easy___copier_1_1_views_1_1_history_page_1_1_history_page__obj38___bindings.html#a4f8bde646447f52d7ace6de7549d9a08" title=" " alt="" coords="537,72,719,131"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="749,84,720,91,720,85,755,83"/>
+<area shape="rect" id="Node000005" href="$class_easy___copier_1_1_views_1_1_history_page_1_1_history_page__obj38___bindings.html#a6b188da472b9addb6adb6e8e5a8c5bbb" title=" " alt="" coords="236,72,489,131"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="519,102,490,104,489,99,524,101"/>
+<area shape="rect" id="Node000007" href="$class_easy___copier_1_1_views_1_1_history_page_1_1_history_page__obj38___bindings.html#aba9b0356a0287f0463bc75db6947de7b" title=" " alt="" coords="271,155,454,213"/>
+<area shape="poly" id="edge7_Node000004_Node000007" title=" " alt="" coords="525,134,454,158,453,153,520,135"/>
+<area shape="poly" id="edge6_Node000005_Node000003" title=" " alt="" coords="226,68,188,60,188,55,231,67"/>
+<area shape="rect" id="Node000006" href="$class_easy___copier_1_1_views_1_1_history_page.html#a73871f456221cd96db3e93e0ae915ce1" title="GetBindingConnector(int connectionId, object target)." alt="" coords="5,88,188,131"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="217,106,189,109,188,104,222,105"/>
+</map>

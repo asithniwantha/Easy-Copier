@@ -35,23 +35,44 @@ var _domain_models_8cs =
       [ "Easy_Copier.Models.LibraryCategory.TvAndFilm", "namespace_easy___copier_1_1_models.html#aa1c98543798d7f84e29b2e4deba8a58baef598706c6e8c60a8094961e43ecaaef", null ],
       [ "Easy_Copier.Models.LibraryCategory.OsImage", "namespace_easy___copier_1_1_models.html#aa1c98543798d7f84e29b2e4deba8a58bab19958e8f8f2f0afecec67d3d08c4a88", null ]
     ] ],
+    [ "Easy_Copier.Models.LibraryTabIndex", "namespace_easy___copier_1_1_models.html#a3c328fc9fcff93ad64bc50a418c402f5", [
+      [ "Easy_Copier.Models.LibraryTabIndex.Games", "namespace_easy___copier_1_1_models.html#a3c328fc9fcff93ad64bc50a418c402f5a251bd8143891238ecedc306508e29017", null ],
+      [ "Easy_Copier.Models.LibraryTabIndex.Apps", "namespace_easy___copier_1_1_models.html#a3c328fc9fcff93ad64bc50a418c402f5aa6f00c82b6eb55a13a1f242313aaf9c9", null ],
+      [ "Easy_Copier.Models.LibraryTabIndex.TvAndFilms", "namespace_easy___copier_1_1_models.html#a3c328fc9fcff93ad64bc50a418c402f5a8031ca60e190ad216716d51ed1a3b87e", null ],
+      [ "Easy_Copier.Models.LibraryTabIndex.OsImages", "namespace_easy___copier_1_1_models.html#a3c328fc9fcff93ad64bc50a418c402f5a4295a92ea1f7fae70a5fa3b51d51e16b", null ]
+    ] ],
     [ "Easy_Copier.Models.OsImageSortOption", "namespace_easy___copier_1_1_models.html#a730e39ab051f5d5a6af5d61176138617", [
       [ "Easy_Copier.Models.OsImageSortOption.Name", "namespace_easy___copier_1_1_models.html#a730e39ab051f5d5a6af5d61176138617a49ee3087348e8d44e1feda1917443987", null ],
       [ "Easy_Copier.Models.OsImageSortOption.DateCreated", "namespace_easy___copier_1_1_models.html#a730e39ab051f5d5a6af5d61176138617ad3813870ed2a75e81f3789ac527f3148", null ],
       [ "Easy_Copier.Models.OsImageSortOption.Size", "namespace_easy___copier_1_1_models.html#a730e39ab051f5d5a6af5d61176138617a6f6cb72d544962fa333e2e34ce64f719", null ]
     ] ],
+    [ "Easy_Copier.Models.SourceFolderCategory", "namespace_easy___copier_1_1_models.html#a6bc9b872e9c9b7e08945d9e1b020df41", [
+      [ "Easy_Copier.Models.SourceFolderCategory.Game", "namespace_easy___copier_1_1_models.html#a6bc9b872e9c9b7e08945d9e1b020df41a63d72051e901c069f8aa1b32aa0c43bb", null ],
+      [ "Easy_Copier.Models.SourceFolderCategory.App", "namespace_easy___copier_1_1_models.html#a6bc9b872e9c9b7e08945d9e1b020df41aac863f346e618f9a959b5c95d5d28941", null ],
+      [ "Easy_Copier.Models.SourceFolderCategory.TvAndFilm", "namespace_easy___copier_1_1_models.html#a6bc9b872e9c9b7e08945d9e1b020df41aef598706c6e8c60a8094961e43ecaaef", null ],
+      [ "Easy_Copier.Models.SourceFolderCategory.OsImage", "namespace_easy___copier_1_1_models.html#a6bc9b872e9c9b7e08945d9e1b020df41ab19958e8f8f2f0afecec67d3d08c4a88", null ]
+    ] ],
+    [ "Easy_Copier.Models.TvAndFilmsSortOption", "namespace_easy___copier_1_1_models.html#a0e81f6516d5ea1952cb72d30b5bb20c7", [
+      [ "Easy_Copier.Models.TvAndFilmsSortOption.Name", "namespace_easy___copier_1_1_models.html#a0e81f6516d5ea1952cb72d30b5bb20c7a49ee3087348e8d44e1feda1917443987", null ],
+      [ "Easy_Copier.Models.TvAndFilmsSortOption.DateCreated", "namespace_easy___copier_1_1_models.html#a0e81f6516d5ea1952cb72d30b5bb20c7ad3813870ed2a75e81f3789ac527f3148", null ]
+    ] ],
     [ "Easy_Copier.Models.ValidationSeverity", "namespace_easy___copier_1_1_models.html#ae4a6b01c2111b1eb1611b6970c615b8c", [
+      [ "Easy_Copier.Models.ValidationSeverity.Success", "namespace_easy___copier_1_1_models.html#ae4a6b01c2111b1eb1611b6970c615b8ca505a83f220c02df2f85c3810cd9ceb38", null ],
       [ "Easy_Copier.Models.ValidationSeverity.Info", "namespace_easy___copier_1_1_models.html#ae4a6b01c2111b1eb1611b6970c615b8ca4059b0251f66a18cb56f544728796875", null ],
       [ "Easy_Copier.Models.ValidationSeverity.Warning", "namespace_easy___copier_1_1_models.html#ae4a6b01c2111b1eb1611b6970c615b8ca0eaadb4fcb48a0a0ed7bc9868be9fbaa", null ],
       [ "Easy_Copier.Models.ValidationSeverity.Error", "namespace_easy___copier_1_1_models.html#ae4a6b01c2111b1eb1611b6970c615b8ca902b0d55fddef6f8d651fe1035b7d4bd", null ]
     ] ],
     [ "Easy_Copier.Models.CacheValidationOutcome", "namespace_easy___copier_1_1_models.html#a63b99d96f6d7e71a96281be9501fa569", null ],
-    [ "Easy_Copier.Models.CopyHistoryRecord", "namespace_easy___copier_1_1_models.html#a22cad9581ea699aafef9d310c84f0836", null ],
+    [ "Easy_Copier.Models.CopyHistoryRecord", "namespace_easy___copier_1_1_models.html#a3bede7aa95515ae50b6531404c887ee2", null ],
+    [ "Easy_Copier.Models.DashboardStats", "namespace_easy___copier_1_1_models.html#afa937e185f1ca6308d5878174058c5ce", null ],
     [ "Easy_Copier.Models.GameEntry", "namespace_easy___copier_1_1_models.html#a9c2abd1d64352c07d3085ba499cf2aae", null ],
+    [ "Easy_Copier.Models.HistoryStats", "namespace_easy___copier_1_1_models.html#a25649c73b8e0d9b440f231c739a2d560", null ],
     [ "Easy_Copier.Models.ItemFingerprint", "namespace_easy___copier_1_1_models.html#aae2a352ac1ad9a55ae8b37e300153431", null ],
     [ "Easy_Copier.Models.LibraryCacheSnapshot", "namespace_easy___copier_1_1_models.html#a6ce72bb145c4b6a2a691fff265751706", null ],
+    [ "Easy_Copier.Models.PeriodTotal", "namespace_easy___copier_1_1_models.html#ab813735a114819bca751ccd47305d780", null ],
     [ "Easy_Copier.Models.RemovableDrive", "namespace_easy___copier_1_1_models.html#af8f0175620d1cdd9a06d3e52ae12ba12", null ],
     [ "Easy_Copier.Models.SourceFolder", "namespace_easy___copier_1_1_models.html#abf1613443f307029b23c31269e85160d", null ],
+    [ "Easy_Copier.Models.TopCopiedItem", "namespace_easy___copier_1_1_models.html#a9c75112e0bc37dbeea1968aebcb62637", null ],
     [ "Easy_Copier.Models.TransferItem", "namespace_easy___copier_1_1_models.html#a36bba191a5fad0b0ca63ed787ae607d8", null ],
     [ "Easy_Copier.Models.TransferOutcome", "namespace_easy___copier_1_1_models.html#a0f254e810a60e913105ca1898e396f4c", null ],
     [ "Easy_Copier.Models.TransferProgress", "namespace_easy___copier_1_1_models.html#a5bc746b080509d1e3821a7f7fd82aa9f", null ],

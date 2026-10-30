@@ -53,7 +53,7 @@
 <!-- Node1 -->
 <g id="Node000001" class="node">
 <title>Node1</title>
-<g id="a_Node000001"><a xlink:title=" ">
+<g id="a_Node000001"><a xlink:title="Deletes the specified cell from the collection and updates the calculation total.">
 <polygon fill="#999999" stroke="#666666" points="157.75,-76 0,-76 0,-44 157.75,-44 157.75,-76"/>
 <text xml:space="preserve" text-anchor="start" x="8" y="-62.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.ViewModels.Smart</text>
 <text xml:space="preserve" text-anchor="middle" x="78.88" y="-50.5" font-family="Helvetica,sans-Serif" font-size="10.00">AdderViewModel.DeleteCell</text>
@@ -90,9 +90,9 @@
 </g>
 </g>
 <!-- Node1&#45;&gt;Node3 -->
-<g id="edge7_Node000001_Node000003" class="edge">
+<g id="edge8_Node000001_Node000003" class="edge">
 <title>Node1&#45;&gt;Node3</title>
-<g id="a_edge7_Node000001_Node000003"><a xlink:title=" ">
+<g id="a_edge8_Node000001_Node000003"><a xlink:title=" ">
 <path fill="none" stroke="#63b8ff" d="M146.39,-76.47C161.85,-79.77 178.31,-82.88 193.75,-85 264.66,-94.73 344.68,-99.5 408.72,-101.82"/>
 <polygon fill="#63b8ff" stroke="#63b8ff" points="408.45,-105.32 418.57,-102.17 408.69,-98.32 408.45,-105.32"/>
 </a>
@@ -109,9 +109,9 @@
 </g>
 </g>
 <!-- Node1&#45;&gt;Node5 -->
-<g id="edge8_Node000001_Node000005" class="edge">
+<g id="edge9_Node000001_Node000005" class="edge">
 <title>Node1&#45;&gt;Node5</title>
-<g id="a_edge8_Node000001_Node000005"><a xlink:title=" ">
+<g id="a_edge9_Node000001_Node000005"><a xlink:title=" ">
 <path fill="none" stroke="#63b8ff" d="M146.39,-43.53C161.85,-40.23 178.31,-37.12 193.75,-35 274.9,-23.86 367.98,-19.23 435.39,-17.31"/>
 <polygon fill="#63b8ff" stroke="#63b8ff" points="435.41,-20.81 445.31,-17.05 435.22,-13.82 435.41,-20.81"/>
 </a>
@@ -148,9 +148,9 @@
 <g id="Node000004" class="node">
 <title>Node4</title>
 <g id="a_Node000004"><a xlink:href="class_easy___copier_1_1_view_models_1_1_smart_adder_view_model.html#ad94143845f947cd2998f77ae648b282e" target="_top" xlink:title=" ">
-<polygon fill="white" stroke="#666666" points="832.75,-98 675,-98 675,-66 832.75,-66 832.75,-98"/>
-<text xml:space="preserve" text-anchor="start" x="683" y="-84.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.ViewModels.Smart</text>
-<text xml:space="preserve" text-anchor="middle" x="753.88" y="-72.5" font-family="Helvetica,sans-Serif" font-size="10.00">AdderViewModel.AddNewCell</text>
+<polygon fill="white" stroke="#666666" points="832.75,-101 675,-101 675,-69 832.75,-69 832.75,-101"/>
+<text xml:space="preserve" text-anchor="start" x="683" y="-87.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.ViewModels.Smart</text>
+<text xml:space="preserve" text-anchor="middle" x="753.88" y="-75.5" font-family="Helvetica,sans-Serif" font-size="10.00">AdderViewModel.AddNewCell</text>
 </a>
 </g>
 </g>
@@ -158,8 +158,8 @@
 <g id="edge3_Node000003_Node000004" class="edge">
 <title>Node3&#45;&gt;Node4</title>
 <g id="a_edge3_Node000003_Node000004"><a xlink:title=" ">
-<path fill="none" stroke="#63b8ff" d="M639.21,-93.26C647.37,-92.45 655.55,-91.64 663.57,-90.85"/>
-<polygon fill="#63b8ff" stroke="#63b8ff" points="663.67,-94.35 673.28,-89.88 662.98,-87.39 663.67,-94.35"/>
+<path fill="none" stroke="#63b8ff" d="M639.21,-94.72C647.37,-94.02 655.55,-93.33 663.57,-92.64"/>
+<polygon fill="#63b8ff" stroke="#63b8ff" points="663.61,-96.15 673.27,-91.81 663.01,-89.17 663.61,-96.15"/>
 </a>
 </g>
 </g>
@@ -167,8 +167,27 @@
 <g id="edge4_Node000004_Node000002" class="edge">
 <title>Node4&#45;&gt;Node2</title>
 <g id="a_edge4_Node000004_Node000002"><a xlink:title=" ">
-<path fill="none" stroke="#63b8ff" d="M674.75,-78.29C598.29,-74.65 481.27,-69.09 396.38,-65.05"/>
-<polygon fill="#63b8ff" stroke="#63b8ff" points="396.55,-61.56 386.4,-64.58 396.22,-68.55 396.55,-61.56"/>
+<path fill="none" stroke="#63b8ff" d="M674.75,-80.78C598.29,-76.65 481.27,-70.33 396.38,-65.74"/>
+<polygon fill="#63b8ff" stroke="#63b8ff" points="396.57,-62.25 386.4,-65.2 396.19,-69.24 396.57,-62.25"/>
+</a>
+</g>
+</g>
+<!-- Node6 -->
+<g id="Node000006" class="node">
+<title>Node6</title>
+<g id="a_Node000006"><a xlink:href="class_easy___copier_1_1_models_1_1_number_cell.html#ae49c3d41a9bcb4605ea1cdb2a1e1f790" target="_top" xlink:title="Attempts to parse the numeric value from InputValue using standard invariant float formatting.">
+<polygon fill="white" stroke="#666666" points="826,-32 681.75,-32 681.75,0 826,0 826,-32"/>
+<text xml:space="preserve" text-anchor="start" x="689.75" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Models.Number</text>
+<text xml:space="preserve" text-anchor="middle" x="753.88" y="-6.5" font-family="Helvetica,sans-Serif" font-size="10.00">Cell.TryGetNumericValue</text>
+</a>
+</g>
+</g>
+<!-- Node5&#45;&gt;Node6 -->
+<g id="edge7_Node000005_Node000006" class="edge">
+<title>Node5&#45;&gt;Node6</title>
+<g id="a_edge7_Node000005_Node000006"><a xlink:title=" ">
+<path fill="none" stroke="#63b8ff" d="M612.83,-16C631.46,-16 651.25,-16 669.92,-16"/>
+<polygon fill="#63b8ff" stroke="#63b8ff" points="669.85,-19.5 679.85,-16 669.85,-12.5 669.85,-19.5"/>
 </a>
 </g>
 </g>

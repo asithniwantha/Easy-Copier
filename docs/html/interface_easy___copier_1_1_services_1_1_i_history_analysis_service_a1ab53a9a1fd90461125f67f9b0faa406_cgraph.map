@@ -1,0 +1,6 @@
+<map id="Easy_Copier.Services.IHistoryAnalysisService.BuildDashboard" name="Easy_Copier.Services.IHistoryAnalysisService.BuildDashboard">
+<area shape="rect" id="Node000001" title="Builds dashboard reporting data (daily/weekly totals, most&#45;copied items, failure rates) for the trail..." alt="" coords="5,29,217,72"/>
+<area shape="rect" id="Node000002" href="$namespace_easy___copier_1_1_models.html#afa937e185f1ca6308d5878174058c5ce" title="Represents dashboard reporting data for a time range." alt="" coords="265,29,474,72"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="217,48,252,51,247,51,217,53"/>
+<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="321,27,319,19,327,10,344,5,369,3,397,5,415,14,410,13,396,10,369,8,345,10,330,15,324,21,325,30"/>
+</map>

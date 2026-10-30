@@ -22,7 +22,7 @@
 <!-- Node2 -->
 <g id="Node000002" class="node">
 <title>Node2</title>
-<g id="a_Node000002"><a xlink:href="interface_easy___copier_1_1_interop_1_1_i_file_operation.html#af894cdb796ba9f0276df7473497ad2d5" target="_top" xlink:title=" ">
+<g id="a_Node000002"><a xlink:href="interface_easy___copier_1_1_interop_1_1_i_file_operation.html#af894cdb796ba9f0276df7473497ad2d5" target="_top" xlink:title="Enables a client to receive progress notifications for file operations.">
 <polygon fill="white" stroke="#666666" points="360.88,-406 233.88,-406 233.88,-374 360.88,-374 360.88,-406"/>
 <text xml:space="preserve" text-anchor="start" x="241.88" y="-392.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Interop.IFile</text>
 <text xml:space="preserve" text-anchor="middle" x="297.38" y="-380.5" font-family="Helvetica,sans-Serif" font-size="10.00">Operation.Advise</text>
@@ -41,7 +41,7 @@
 <!-- Node3 -->
 <g id="Node000003" class="node">
 <title>Node3</title>
-<g id="a_Node000003"><a xlink:href="interface_easy___copier_1_1_interop_1_1_i_file_operation.html#a326b541968b02b4e15e1bc6613b37d30" target="_top" xlink:title=" ">
+<g id="a_Node000003"><a xlink:href="interface_easy___copier_1_1_interop_1_1_i_file_operation.html#a326b541968b02b4e15e1bc6613b37d30" target="_top" xlink:title="Declares a single item that is to be copied to a specified destination.">
 <polygon fill="white" stroke="#666666" points="360.88,-356 233.88,-356 233.88,-324 360.88,-324 360.88,-356"/>
 <text xml:space="preserve" text-anchor="start" x="241.88" y="-342.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Interop.IFile</text>
 <text xml:space="preserve" text-anchor="middle" x="297.38" y="-330.5" font-family="Helvetica,sans-Serif" font-size="10.00">Operation.CopyItem</text>
@@ -60,7 +60,7 @@
 <!-- Node4 -->
 <g id="Node000004" class="node">
 <title>Node4</title>
-<g id="a_Node000004"><a xlink:href="class_easy___copier_1_1_interop_1_1_file_operation_progress_sink.html#a3435ba547667de14816bb1cd1fa6a6c1" target="_top" xlink:title=" ">
+<g id="a_Node000004"><a xlink:href="class_easy___copier_1_1_interop_1_1_file_operation_progress_sink.html#a3435ba547667de14816bb1cd1fa6a6c1" target="_top" xlink:title="Initializes a new instance of the FileOperationProgressSink class.">
 <polygon fill="white" stroke="#666666" points="386,-306 208.75,-306 208.75,-262 386,-262 386,-306"/>
 <text xml:space="preserve" text-anchor="start" x="216.75" y="-292.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Interop.File</text>
 <text xml:space="preserve" text-anchor="start" x="216.75" y="-280.5" font-family="Helvetica,sans-Serif" font-size="10.00">OperationProgressSink.FileOperation</text>
@@ -80,7 +80,7 @@
 <!-- Node5 -->
 <g id="Node000005" class="node">
 <title>Node5</title>
-<g id="a_Node000005"><a xlink:href="interface_easy___copier_1_1_interop_1_1_i_file_operation.html#a3780930077bd94182bd9424656fb20a0" target="_top" xlink:title=" ">
+<g id="a_Node000005"><a xlink:href="interface_easy___copier_1_1_interop_1_1_i_file_operation.html#a3780930077bd94182bd9424656fb20a0" target="_top" xlink:title="Gets a value indicating whether any file operations declared by this instance were aborted prior to c...">
 <polygon fill="white" stroke="#666666" points="384.88,-244 209.88,-244 209.88,-212 384.88,-212 384.88,-244"/>
 <text xml:space="preserve" text-anchor="start" x="217.88" y="-230.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Interop.IFile</text>
 <text xml:space="preserve" text-anchor="middle" x="297.38" y="-218.5" font-family="Helvetica,sans-Serif" font-size="10.00">Operation.GetAnyOperationsAborted</text>
@@ -99,7 +99,7 @@
 <!-- Node6 -->
 <g id="Node000006" class="node">
 <title>Node6</title>
-<g id="a_Node000006"><a xlink:href="interface_easy___copier_1_1_interop_1_1_i_file_operation.html#aa31da71f71d95ccbe480448afcdbe295" target="_top" xlink:title=" ">
+<g id="a_Node000006"><a xlink:href="interface_easy___copier_1_1_interop_1_1_i_file_operation.html#aa31da71f71d95ccbe480448afcdbe295" target="_top" xlink:title="Executes all configured file operations.">
 <polygon fill="white" stroke="#666666" points="368.75,-194 226,-194 226,-162 368.75,-162 368.75,-194"/>
 <text xml:space="preserve" text-anchor="start" x="234" y="-180.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Interop.IFile</text>
 <text xml:space="preserve" text-anchor="middle" x="297.38" y="-168.5" font-family="Helvetica,sans-Serif" font-size="10.00">Operation.PerformOperations</text>
@@ -118,7 +118,7 @@
 <!-- Node7 -->
 <g id="Node000007" class="node">
 <title>Node7</title>
-<g id="a_Node000007"><a xlink:href="interface_easy___copier_1_1_interop_1_1_i_file_operation.html#a5da7eb05bf07a208ed0a69e26d83ae95" target="_top" xlink:title=" ">
+<g id="a_Node000007"><a xlink:href="interface_easy___copier_1_1_interop_1_1_i_file_operation.html#a5da7eb05bf07a208ed0a69e26d83ae95" target="_top" xlink:title="Sets flags that control file operations.">
 <polygon fill="white" stroke="#666666" points="368.38,-144 226.38,-144 226.38,-112 368.38,-112 368.38,-144"/>
 <text xml:space="preserve" text-anchor="start" x="234.38" y="-130.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Interop.IFile</text>
 <text xml:space="preserve" text-anchor="middle" x="297.38" y="-118.5" font-family="Helvetica,sans-Serif" font-size="10.00">Operation.SetOperationFlags</text>
@@ -157,7 +157,7 @@
 <!-- Node10 -->
 <g id="Node000010" class="node">
 <title>Node10</title>
-<g id="a_Node000010"><a xlink:href="interface_easy___copier_1_1_interop_1_1_i_file_operation.html#a07cad60257aa8e5f2ad201afdd5c5cc4" target="_top" xlink:title=" ">
+<g id="a_Node000010"><a xlink:href="interface_easy___copier_1_1_interop_1_1_i_file_operation.html#a07cad60257aa8e5f2ad201afdd5c5cc4" target="_top" xlink:title="Terminates a notification connection previously established through Advise.">
 <polygon fill="white" stroke="#666666" points="360.88,-32 233.88,-32 233.88,0 360.88,0 360.88,-32"/>
 <text xml:space="preserve" text-anchor="start" x="241.88" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Interop.IFile</text>
 <text xml:space="preserve" text-anchor="middle" x="297.38" y="-6.5" font-family="Helvetica,sans-Serif" font-size="10.00">Operation.Unadvise</text>

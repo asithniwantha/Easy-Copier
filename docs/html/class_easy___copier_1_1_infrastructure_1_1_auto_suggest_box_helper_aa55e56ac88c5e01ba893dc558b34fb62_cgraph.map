@@ -1,0 +1,7 @@
+<map id="Easy_Copier.Infrastructure.AutoSuggestBoxHelper.HandleTextChanged" name="Easy_Copier.Infrastructure.AutoSuggestBoxHelper.HandleTextChanged">
+<area shape="rect" id="Node000001" title="Handles text changes in an AutoSuggestBox to populate autocomplete suggestions when user input change..." alt="" coords="5,35,233,93"/>
+<area shape="rect" id="Node000002" href="$interface_easy___copier_1_1_view_models_1_1_i_searchable_tab_view_model.html#af084c304707997737899bc8c7fe235a9" title="Retrieves autocomplete suggestions matching the specified query string." alt="" coords="281,5,525,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="233,46,268,44,263,45,234,52"/>
+<area shape="rect" id="Node000003" href="$class_easy___copier_1_1_infrastructure_1_1_auto_suggest_box_helper.html#adb9bffcc6f44b8e686d33efe87e92881" title="Updates the background color and theme resources of the specified AutoSuggestBox based on search text..." alt="" coords="281,72,525,131"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="233,76,268,83,263,83,233,82"/>
+</map>

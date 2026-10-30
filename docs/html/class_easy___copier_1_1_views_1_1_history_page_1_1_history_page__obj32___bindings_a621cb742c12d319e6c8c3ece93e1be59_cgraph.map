@@ -1,0 +1,20 @@
+<map id="Easy_Copier.Views.HistoryPage.HistoryPage_obj32_Bindings.ProcessBindings" name="Easy_Copier.Views.HistoryPage.HistoryPage_obj32_Bindings.ProcessBindings">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,80,188,139"/>
+<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_views_1_1_history_page_1_1_history_page__obj32___bindings.html#a78ebd34acb586c50d2f61f825c551143" title=" " alt="" coords="236,80,489,139"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="187,107,222,108,217,110,189,112"/>
+<area shape="rect" id="Node000003" href="$class_easy___copier_1_1_views_1_1_history_page_1_1_history_page__obj32___bindings.html#aef53da93a5e0002febfaf1dda9d0287d" title=" " alt="" coords="537,5,719,64"/>
+<area shape="poly" id="edge9_Node000001_Node000003" title=" " alt="" coords="187,77,235,65,385,45,524,37,519,39,385,50,236,71,189,82"/>
+<area shape="rect" id="Node000005" href="$class_easy___copier_1_1_views_1_1_history_page_1_1_history_page__obj32___bindings.html#a9a7cb184fdfe0e4c2ac3d28af8a42eda" title=" " alt="" coords="767,121,950,180"/>
+<area shape="poly" id="edge10_Node000001_Node000005" title=" " alt="" coords="185,137,236,148,375,163,514,167,644,165,754,161,749,161,644,170,514,173,374,168,235,153,185,142"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="468,77,525,64,520,65,470,82"/>
+<area shape="rect" id="Node000004" href="$class_easy___copier_1_1_views_1_1_history_page_1_1_history_page__obj32___bindings.html#a2068334cb2da56f00687d47f01913258" title=" " alt="" coords="537,88,719,147"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="489,110,524,114,519,114,490,116"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="720,128,754,135,749,135,719,133"/>
+<area shape="rect" id="Node000006" href="$class_easy___copier_1_1_views_1_1_history_page_1_1_history_page__obj32___bindings.html#a5cee6ea03892ff671e00b0fad1c3ca3e" title=" " alt="" coords="998,80,1195,139"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="950,132,979,130,985,129,950,137"/>
+<area shape="rect" id="Node000008" href="$class_easy___copier_1_1_views_1_1_history_page_1_1_history_page__obj32___bindings.html#ada5ed5590b51c61f08f0dbca54edeb51" title=" " alt="" coords="1005,163,1188,221"/>
+<area shape="poly" id="edge7_Node000005_Node000008" title=" " alt="" coords="950,164,992,174,987,173,950,169"/>
+<area shape="rect" id="Node000007" href="$class_easy___copier_1_1_views_1_1_history_page_1_1_xaml_binding_setters.html#af86e906401824026e06aa43519771657" title=" " alt="" coords="1243,113,1457,188"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="1196,123,1230,131,1225,131,1195,128"/>
+<area shape="poly" id="edge8_Node000008_Node000007" title=" " alt="" coords="1188,174,1225,171,1230,170,1188,180"/>
+</map>

@@ -1,5 +1,5 @@
 <map id="Easy_Copier.Views.SettingsWindow" name="Easy_Copier.Views.SettingsWindow">
-<area shape="rect" id="Node000001" title=" " alt="" coords="311,65,499,108"/>
+<area shape="rect" id="Node000001" title="Represents the settings dialog window for configuring source folders and application preferences." alt="" coords="311,65,499,108"/>
 <area shape="rect" id="Node000002" title=" " alt="" coords="22,65,188,108"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="118,119,145,141,180,155,222,163,266,165,309,160,348,149,378,131,397,110,401,107,382,135,350,154,310,165,266,170,221,168,179,160,143,145,119,124"/>
 <area shape="poly" id="edge3_Node000001_Node000002" title=" " alt="" coords="124,116,152,131,186,141,226,146,267,147,308,143,344,135,374,123,398,107,394,110,377,128,346,140,309,149,267,152,225,151,185,146,150,136,125,122"/>

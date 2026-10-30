@@ -1,0 +1,14 @@
+<map id="Easy_Copier.Services.GameInfoDownloadService.TryFetchCheapSharkCoverAsync" name="Easy_Copier.Services.GameInfoDownloadService.TryFetchCheapSharkCoverAsync">
+<area shape="rect" id="Node000001" title="Attempts to retrieve cover art or resolve a Steam App ID using the free CheapShark aggregator API." alt="" coords="5,56,245,115"/>
+<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_services_1_1_game_title_sanitizer.html#a031580959c3251f8f2557e6d299ddccb" title="Computes a title match similarity score between a target query title and an online service candidate ..." alt="" coords="300,5,524,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="244,58,292,51,287,53,246,63"/>
+<area shape="rect" id="Node000004" href="$class_easy___copier_1_1_services_1_1_game_info_download_service.html#aa5082d34c94299e50e9b4ec7213d3638" title="Downloads an image from the specified URL and saves it to a local file path after verifying image dat..." alt="" coords="580,101,860,144"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="245,90,532,108,567,113,562,113,532,113,245,95"/>
+<area shape="rect" id="Node000006" href="$class_easy___copier_1_1_services_1_1_game_info_download_service.html#a16c133781b37ce62e5603baf2298f3bb" title="Attempts to download vertical library cover art from Steam CDN using the given Steam App ID,..." alt="" coords="293,123,532,181"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="245,110,280,121,275,121,245,116"/>
+<area shape="rect" id="Node000003" href="$class_easy___copier_1_1_services_1_1_game_title_sanitizer.html#aaa2daf6d34206e953c7b5d4807aa4407" title="Normalizes a title for comparison by lowercasing, removing punctuation, and collapsing whitespace." alt="" coords="596,5,845,48"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="525,24,583,26,577,27,525,29"/>
+<area shape="rect" id="Node000005" href="$class_easy___copier_1_1_services_1_1_game_title_sanitizer.html#a790f399df883c0306b7753e12720cef1" title="Validates that raw byte data represents a legitimate, non&#45;empty image (JPEG, PNG, WebP,..." alt="" coords="908,101,1099,144"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="861,120,895,123,890,123,861,125"/>
+<area shape="poly" id="edge6_Node000006_Node000004" title=" " alt="" coords="532,138,562,138,567,137,533,143"/>
+</map>

@@ -140,7 +140,9 @@ Public Member Functions</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 id="header-pri-attribs" class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
 <tr class="memitem:acdbe505ff9ebe8326660d1921a67f38a" id="r_acdbe505ff9ebe8326660d1921a67f38a"><td class="memItemLeft">readonly <a class="el" href="interface_easy___copier_1_1_infrastructure_1_1_i_window_service.html">IWindowService</a>&#160;</td><td class="memItemRight"><a class="el" href="#acdbe505ff9ebe8326660d1921a67f38a">_windowService</a></td></tr>
+<tr class="memdesc:acdbe505ff9ebe8326660d1921a67f38a"><td class="mdescLeft">&#160;</td><td class="mdescRight">The window service used for modal window interactions.  <br /></td></tr>
 <tr class="memitem:a3e93759781c37a7347c0073f45ccf47d" id="r_a3e93759781c37a7347c0073f45ccf47d"><td class="memItemLeft">readonly <a class="el" href="interface_easy___copier_1_1_infrastructure_1_1_i_app_window_context.html">IAppWindowContext</a>&#160;</td><td class="memItemRight"><a class="el" href="#a3e93759781c37a7347c0073f45ccf47d">_appWindowContext</a></td></tr>
+<tr class="memdesc:a3e93759781c37a7347c0073f45ccf47d"><td class="mdescLeft">&#160;</td><td class="mdescRight">The application window context provider used for retrieving XAML roots.  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Implements UI dialog display services using WinUI 3 ContentDialog controls. </p>
@@ -175,9 +177,9 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_dialog_service_8cs_source.html#l00023">23</a> of file <a class="el" href="_dialog_service_8cs_source.html">DialogService.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_dialog_service_8cs_source.html#l00030">30</a> of file <a class="el" href="_dialog_service_8cs_source.html">DialogService.cs</a>.</p>
 
-<p class="reference">References <a class="el" href="_dialog_service_8cs_source.html#l00016">_appWindowContext</a>, and <a class="el" href="_dialog_service_8cs_source.html#l00015">_windowService</a>.</p>
+<p class="reference">References <a class="el" href="_dialog_service_8cs_source.html#l00023">_appWindowContext</a>, and <a class="el" href="_dialog_service_8cs_source.html#l00018">_windowService</a>.</p>
 
 </div>
 </div>
@@ -231,9 +233,9 @@ Private Attributes</h2></td></tr>
 
 <p>Implements <a class="el" href="interface_easy___copier_1_1_infrastructure_1_1_i_dialog_service.html#a9bd95aa4bbb692442c72bf8dac7dc84c">Easy_Copier.Infrastructure.IDialogService</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_dialog_service_8cs_source.html#l00038">38</a> of file <a class="el" href="_dialog_service_8cs_source.html">DialogService.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_dialog_service_8cs_source.html#l00045">45</a> of file <a class="el" href="_dialog_service_8cs_source.html">DialogService.cs</a>.</p>
 
-<p class="reference">References <a class="el" href="_dialog_service_8cs_source.html#l00016">_appWindowContext</a>, <a class="el" href="_conflict_dialog_content_8xaml_8cs_source.html#l00039">Easy_Copier.Views.ConflictDialogContent.IsApplyToAllChecked</a>, and <a class="el" href="_domain_models_8cs_source.html#l00192">Easy_Copier.Models.Skip</a>.</p>
+<p class="reference">References <a class="el" href="_dialog_service_8cs_source.html#l00023">_appWindowContext</a>, <a class="el" href="_conflict_dialog_content_8xaml_8cs_source.html#l00039">Easy_Copier.Views.ConflictDialogContent.IsApplyToAllChecked</a>, and <a class="el" href="_domain_models_8cs_source.html#l00243">Easy_Copier.Models.Skip</a>.</p>
 
 </div>
 </div>
@@ -274,9 +276,9 @@ Private Attributes</h2></td></tr>
 
 <p>Implements <a class="el" href="interface_easy___copier_1_1_infrastructure_1_1_i_dialog_service.html#a1b2862a271339e6cd1a4aecd86631812">Easy_Copier.Infrastructure.IDialogService</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_dialog_service_8cs_source.html#l00077">77</a> of file <a class="el" href="_dialog_service_8cs_source.html">DialogService.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_dialog_service_8cs_source.html#l00084">84</a> of file <a class="el" href="_dialog_service_8cs_source.html">DialogService.cs</a>.</p>
 
-<p class="reference">References <a class="el" href="_dialog_service_8cs_source.html#l00016">_appWindowContext</a>.</p>
+<p class="reference">References <a class="el" href="_dialog_service_8cs_source.html#l00023">_appWindowContext</a>.</p>
 
 </div>
 </div>
@@ -301,9 +303,11 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_dialog_service_8cs_source.html#l00016">16</a> of file <a class="el" href="_dialog_service_8cs_source.html">DialogService.cs</a>.</p>
+<p>The application window context provider used for retrieving XAML roots. </p>
 
-<p class="reference">Referenced by <a class="el" href="_dialog_service_8cs_source.html#l00023">DialogService()</a>, <a class="el" href="_dialog_service_8cs_source.html#l00038">ShowConflictDialogAsync()</a>, and <a class="el" href="_dialog_service_8cs_source.html#l00077">ShowMessageDialogAsync()</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_dialog_service_8cs_source.html#l00023">23</a> of file <a class="el" href="_dialog_service_8cs_source.html">DialogService.cs</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_dialog_service_8cs_source.html#l00030">DialogService()</a>, <a class="el" href="_dialog_service_8cs_source.html#l00045">ShowConflictDialogAsync()</a>, and <a class="el" href="_dialog_service_8cs_source.html#l00084">ShowMessageDialogAsync()</a>.</p>
 
 </div>
 </div>
@@ -327,9 +331,11 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_dialog_service_8cs_source.html#l00015">15</a> of file <a class="el" href="_dialog_service_8cs_source.html">DialogService.cs</a>.</p>
+<p>The window service used for modal window interactions. </p>
 
-<p class="reference">Referenced by <a class="el" href="_dialog_service_8cs_source.html#l00023">DialogService()</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_dialog_service_8cs_source.html#l00018">18</a> of file <a class="el" href="_dialog_service_8cs_source.html">DialogService.cs</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_dialog_service_8cs_source.html#l00030">DialogService()</a>.</p>
 
 </div>
 </div>

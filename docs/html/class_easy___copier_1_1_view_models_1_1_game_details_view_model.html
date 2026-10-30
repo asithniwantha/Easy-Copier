@@ -112,6 +112,9 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('class_easy___c
   <div class="headertitle"><div class="title">Easy_Copier.ViewModels.GameDetailsViewModel Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>ViewModel for displaying detailed folder contents and status information of a game entry.  
+ <a href="#details">More...</a></p>
 <div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Inheritance diagram for Easy_Copier.ViewModels.GameDetailsViewModel:</div>
 <div id="dynsection-0-summary" class="dynsummary">
 </div>
@@ -122,34 +125,44 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('class_easy___c
 <div id="dynsection-1-summary" class="dynsummary">
 </div>
 <div id="dynsection-1-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="class_easy___copier_1_1_view_models_1_1_game_details_view_model__coll__graph.svg" width="342" height="168"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="class_easy___copier_1_1_view_models_1_1_game_details_view_model__coll__graph.svg" width="572" height="171"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a30db7256ca984e1dd8af2a38ef0e6aa8" id="r_a30db7256ca984e1dd8af2a38ef0e6aa8"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a30db7256ca984e1dd8af2a38ef0e6aa8">GameDetailsViewModel</a> (<a class="el" href="interface_easy___copier_1_1_infrastructure_1_1_i_dispatcher_service.html">IDispatcherService</a> dispatcherService)</td></tr>
+<tr class="memitem:a950b44c2eab54bc01a26efd958729fb5" id="r_a950b44c2eab54bc01a26efd958729fb5"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a950b44c2eab54bc01a26efd958729fb5">GameDetailsViewModel</a> (<a class="el" href="interface_easy___copier_1_1_infrastructure_1_1_i_dispatcher_service.html">IDispatcherService</a> dispatcherService, <a class="el" href="interface_easy___copier_1_1_services_1_1_i_file_system_service.html">IFileSystemService</a> fileSystemService)</td></tr>
+<tr class="memdesc:a950b44c2eab54bc01a26efd958729fb5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes a new instance of the GameDetailsViewModel class.  <br /></td></tr>
 <tr class="memitem:a85b8fc7ff6d6a87de050cf7e5ea5ddd6" id="r_a85b8fc7ff6d6a87de050cf7e5ea5ddd6"><td class="memItemLeft">async Task&#160;</td><td class="memItemRight"><a class="el" href="#a85b8fc7ff6d6a87de050cf7e5ea5ddd6">LoadFolderContentsAsync</a> (string folderPath)</td></tr>
+<tr class="memdesc:a85b8fc7ff6d6a87de050cf7e5ea5ddd6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Asynchronously loads directory and file items from the specified folder path.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-properties" class="groupheader"><a id="properties" name="properties"></a>
 Properties</h2></td></tr>
 <tr class="memitem:a85525b3c341b92024adeaf4cb7eb3ef5" id="r_a85525b3c341b92024adeaf4cb7eb3ef5"><td class="memItemLeft">ObservableCollection&lt; <a class="el" href="class_easy___copier_1_1_models_1_1_file_system_item.html">FileSystemItem</a> &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a85525b3c341b92024adeaf4cb7eb3ef5">FolderContents</a> = []<code> [get]</code></td></tr>
+<tr class="memdesc:a85525b3c341b92024adeaf4cb7eb3ef5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the collection of file system items contained in the target game folder.  <br /></td></tr>
 <tr class="memitem:a3c5ad492f3a7cb711b8d389e6efee5bc" id="r_a3c5ad492f3a7cb711b8d389e6efee5bc"><td class="memItemLeft">partial string&#160;</td><td class="memItemRight"><a class="el" href="#a3c5ad492f3a7cb711b8d389e6efee5bc">FolderStatusMessage</a> = string.Empty<code> [get, set]</code></td></tr>
+<tr class="memdesc:a3c5ad492f3a7cb711b8d389e6efee5bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets or sets the folder status message displayed when loading or when folder errors occur.  <br /></td></tr>
 <tr class="memitem:ad7d1d7e102dfb8f18b60a9698cf23be4" id="r_ad7d1d7e102dfb8f18b60a9698cf23be4"><td class="memItemLeft">partial bool&#160;</td><td class="memItemRight"><a class="el" href="#ad7d1d7e102dfb8f18b60a9698cf23be4">IsFolderStatusVisible</a><code> [get, set]</code></td></tr>
+<tr class="memdesc:ad7d1d7e102dfb8f18b60a9698cf23be4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets or sets a value indicating whether the folder status message panel is visible.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pri-methods" class="groupheader"><a id="pri-methods" name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
 <tr class="memitem:a0e0947f8ec366fe0b42c22e8fc845abf" id="r_a0e0947f8ec366fe0b42c22e8fc845abf"><td class="memItemLeft">async Task&#160;</td><td class="memItemRight"><a class="el" href="#a0e0947f8ec366fe0b42c22e8fc845abf">CalculateFolderSizeAsync</a> (<a class="el" href="class_easy___copier_1_1_models_1_1_file_system_item.html">FileSystemItem</a> item)</td></tr>
+<tr class="memdesc:a0e0947f8ec366fe0b42c22e8fc845abf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Asynchronously calculates the total directory size of a folder item in the background and updates its formatted size property on the UI thread.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pri-attribs" class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
 <tr class="memitem:a4c31e9cb5b3a8a99ee6eded0b2ec27de" id="r_a4c31e9cb5b3a8a99ee6eded0b2ec27de"><td class="memItemLeft">readonly <a class="el" href="interface_easy___copier_1_1_infrastructure_1_1_i_dispatcher_service.html">IDispatcherService</a>&#160;</td><td class="memItemRight"><a class="el" href="#a4c31e9cb5b3a8a99ee6eded0b2ec27de">_dispatcherService</a></td></tr>
+<tr class="memdesc:a4c31e9cb5b3a8a99ee6eded0b2ec27de"><td class="mdescLeft">&#160;</td><td class="mdescRight">The dispatcher service used to marshal UI updates.  <br /></td></tr>
+<tr class="memitem:a801402bf0b2268c9a87f1dd0cd454143" id="r_a801402bf0b2268c9a87f1dd0cd454143"><td class="memItemLeft">readonly <a class="el" href="interface_easy___copier_1_1_services_1_1_i_file_system_service.html">IFileSystemService</a>&#160;</td><td class="memItemRight"><a class="el" href="#a801402bf0b2268c9a87f1dd0cd454143">_fileSystemService</a></td></tr>
+<tr class="memdesc:a801402bf0b2268c9a87f1dd0cd454143"><td class="mdescLeft">&#160;</td><td class="mdescRight">The file system service used for file and folder enumeration and directory size calculations.  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="_game_details_view_model_8cs_source.html#l00012">12</a> of file <a class="el" href="_game_details_view_model_8cs_source.html">GameDetailsViewModel.cs</a>.</p>
+<div class="textblock"><p>ViewModel for displaying detailed folder contents and status information of a game entry. </p>
+
+<p class="definition">Definition at line <a class="el" href="_game_details_view_model_8cs_source.html#l00015">15</a> of file <a class="el" href="_game_details_view_model_8cs_source.html">GameDetailsViewModel.cs</a>.</p>
 </div><a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a30db7256ca984e1dd8af2a38ef0e6aa8" name="a30db7256ca984e1dd8af2a38ef0e6aa8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a30db7256ca984e1dd8af2a38ef0e6aa8">&#9670;&#160;</a></span>GameDetailsViewModel()</h2>
+<a id="a950b44c2eab54bc01a26efd958729fb5" name="a950b44c2eab54bc01a26efd958729fb5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a950b44c2eab54bc01a26efd958729fb5">&#9670;&#160;</a></span>GameDetailsViewModel()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -157,15 +170,28 @@ Private Attributes</h2></td></tr>
         <tr>
           <td class="memname">Easy_Copier.ViewModels.GameDetailsViewModel.GameDetailsViewModel </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="interface_easy___copier_1_1_infrastructure_1_1_i_dispatcher_service.html">IDispatcherService</a></td>          <td class="paramname"><span class="paramname"><em>dispatcherService</em></span></td><td>)</td>
+          <td class="paramtype"><a class="el" href="interface_easy___copier_1_1_infrastructure_1_1_i_dispatcher_service.html">IDispatcherService</a></td>          <td class="paramname"><span class="paramname"><em>dispatcherService</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype"><a class="el" href="interface_easy___copier_1_1_services_1_1_i_file_system_service.html">IFileSystemService</a></td>          <td class="paramname"><span class="paramname"><em>fileSystemService</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_game_details_view_model_8cs_source.html#l00025">25</a> of file <a class="el" href="_game_details_view_model_8cs_source.html">GameDetailsViewModel.cs</a>.</p>
+<p>Initializes a new instance of the GameDetailsViewModel class. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dispatcherService</td><td>The dispatcher service for marshaling UI updates.</td></tr>
+    <tr><td class="paramname">fileSystemService</td><td>The file system service for directory and file enumeration.</td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p class="reference">References <a class="el" href="_game_details_view_model_8cs_source.html#l00014">_dispatcherService</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_game_details_view_model_8cs_source.html#l00049">49</a> of file <a class="el" href="_game_details_view_model_8cs_source.html">GameDetailsViewModel.cs</a>.</p>
+
+<p class="reference">References <a class="el" href="_game_details_view_model_8cs_source.html#l00020">_dispatcherService</a>, and <a class="el" href="_game_details_view_model_8cs_source.html#l00025">_fileSystemService</a>.</p>
 
 </div>
 </div>
@@ -193,16 +219,25 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_game_details_view_model_8cs_source.html#l00073">73</a> of file <a class="el" href="_game_details_view_model_8cs_source.html">GameDetailsViewModel.cs</a>.</p>
+<p>Asynchronously calculates the total directory size of a folder item in the background and updates its formatted size property on the UI thread. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">item</td><td>The file system item whose size will be calculated.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A task representing the asynchronous size calculation operation.</dd></dl>
 
-<p class="reference">References <a class="el" href="_game_details_view_model_8cs_source.html#l00014">_dispatcherService</a>, <a class="el" href="_file_system_helpers_8cs_source.html#l00016">Easy_Copier.Infrastructure.FileSystemHelpers.CalculateDirectorySize()</a>, <a class="el" href="_formatting_helpers_8cs_source.html#l00015">Easy_Copier.Infrastructure.FormattingHelpers.FormatBytes()</a>, <a class="el" href="_file_system_item_8cs_source.html#l00024">Easy_Copier.Models.FileSystemItem.IsFolder</a>, and <a class="el" href="_file_system_item_8cs_source.html#l00019">Easy_Copier.Models.FileSystemItem.Path</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_game_details_view_model_8cs_source.html#l00110">110</a> of file <a class="el" href="_game_details_view_model_8cs_source.html">GameDetailsViewModel.cs</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_game_details_view_model_8cs_source.html#l00030">LoadFolderContentsAsync()</a>.</p>
+<p class="reference">References <a class="el" href="_game_details_view_model_8cs_source.html#l00020">_dispatcherService</a>, <a class="el" href="_game_details_view_model_8cs_source.html#l00025">_fileSystemService</a>, <a class="el" href="_formatting_helpers_8cs_source.html#l00015">Easy_Copier.Infrastructure.FormattingHelpers.FormatBytes()</a>, <a class="el" href="_file_system_item_8cs_source.html#l00024">Easy_Copier.Models.FileSystemItem.IsFolder</a>, and <a class="el" href="_file_system_item_8cs_source.html#l00019">Easy_Copier.Models.FileSystemItem.Path</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_game_details_view_model_8cs_source.html#l00060">LoadFolderContentsAsync()</a>.</p>
 <div id="dynsection-2" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-2-summary" class="dynsummary">
 </div>
 <div id="dynsection-2-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="class_easy___copier_1_1_view_models_1_1_game_details_view_model_a0e0947f8ec366fe0b42c22e8fc845abf_cgraph.svg" width="551" height="144"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="class_easy___copier_1_1_view_models_1_1_game_details_view_model_a0e0947f8ec366fe0b42c22e8fc845abf_cgraph.svg" width="488" height="70"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <div id="dynsection-3" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
 <div id="dynsection-3-summary" class="dynsummary">
@@ -228,14 +263,23 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_game_details_view_model_8cs_source.html#l00030">30</a> of file <a class="el" href="_game_details_view_model_8cs_source.html">GameDetailsViewModel.cs</a>.</p>
+<p>Asynchronously loads directory and file items from the specified folder path. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">folderPath</td><td>The file system folder path to read.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A task representing the asynchronous folder content loading operation.</dd></dl>
 
-<p class="reference">References <a class="el" href="_game_details_view_model_8cs_source.html#l00073">CalculateFolderSizeAsync()</a>, <a class="el" href="_file_system_item_8cs_source.html#l00043">Easy_Copier.Models.FileSystemItem.FileSystemItem()</a>, <a class="el" href="_game_details_view_model_8cs_source.html#l00016">FolderContents</a>, <a class="el" href="_game_details_view_model_8cs_source.html#l00020">FolderStatusMessage</a>, and <a class="el" href="_game_details_view_model_8cs_source.html#l00023">IsFolderStatusVisible</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_game_details_view_model_8cs_source.html#l00060">60</a> of file <a class="el" href="_game_details_view_model_8cs_source.html">GameDetailsViewModel.cs</a>.</p>
+
+<p class="reference">References <a class="el" href="_game_details_view_model_8cs_source.html#l00025">_fileSystemService</a>, <a class="el" href="_game_details_view_model_8cs_source.html#l00110">CalculateFolderSizeAsync()</a>, <a class="el" href="_file_system_item_8cs_source.html#l00043">Easy_Copier.Models.FileSystemItem.FileSystemItem()</a>, <a class="el" href="_game_details_view_model_8cs_source.html#l00030">FolderContents</a>, <a class="el" href="_game_details_view_model_8cs_source.html#l00036">FolderStatusMessage</a>, and <a class="el" href="_game_details_view_model_8cs_source.html#l00042">IsFolderStatusVisible</a>.</p>
 <div id="dynsection-4" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-4-summary" class="dynsummary">
 </div>
 <div id="dynsection-4-content" class="dyncontent hidden">
-<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="class_easy___copier_1_1_view_models_1_1_game_details_view_model_a85b8fc7ff6d6a87de050cf7e5ea5ddd6_cgraph.svg" width="100%" height="414"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="class_easy___copier_1_1_view_models_1_1_game_details_view_model_a85b8fc7ff6d6a87de050cf7e5ea5ddd6_cgraph.svg" width="100%" height="402"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -261,9 +305,39 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_game_details_view_model_8cs_source.html#l00014">14</a> of file <a class="el" href="_game_details_view_model_8cs_source.html">GameDetailsViewModel.cs</a>.</p>
+<p>The dispatcher service used to marshal UI updates. </p>
 
-<p class="reference">Referenced by <a class="el" href="_game_details_view_model_8cs_source.html#l00073">CalculateFolderSizeAsync()</a>, and <a class="el" href="_game_details_view_model_8cs_source.html#l00025">GameDetailsViewModel()</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_game_details_view_model_8cs_source.html#l00020">20</a> of file <a class="el" href="_game_details_view_model_8cs_source.html">GameDetailsViewModel.cs</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_game_details_view_model_8cs_source.html#l00110">CalculateFolderSizeAsync()</a>, and <a class="el" href="_game_details_view_model_8cs_source.html#l00049">GameDetailsViewModel()</a>.</p>
+
+</div>
+</div>
+<a id="a801402bf0b2268c9a87f1dd0cd454143" name="a801402bf0b2268c9a87f1dd0cd454143"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a801402bf0b2268c9a87f1dd0cd454143">&#9670;&#160;</a></span>_fileSystemService</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">readonly <a class="el" href="interface_easy___copier_1_1_services_1_1_i_file_system_service.html">IFileSystemService</a> Easy_Copier.ViewModels.GameDetailsViewModel._fileSystemService</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The file system service used for file and folder enumeration and directory size calculations. </p>
+
+<p class="definition">Definition at line <a class="el" href="_game_details_view_model_8cs_source.html#l00025">25</a> of file <a class="el" href="_game_details_view_model_8cs_source.html">GameDetailsViewModel.cs</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_game_details_view_model_8cs_source.html#l00110">CalculateFolderSizeAsync()</a>, <a class="el" href="_game_details_view_model_8cs_source.html#l00049">GameDetailsViewModel()</a>, and <a class="el" href="_game_details_view_model_8cs_source.html#l00060">LoadFolderContentsAsync()</a>.</p>
 
 </div>
 </div>
@@ -288,9 +362,11 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_game_details_view_model_8cs_source.html#l00016">16</a> of file <a class="el" href="_game_details_view_model_8cs_source.html">GameDetailsViewModel.cs</a>.</p>
+<p>Gets the collection of file system items contained in the target game folder. </p>
 
-<p class="reference">Referenced by <a class="el" href="_game_details_view_model_8cs_source.html#l00030">LoadFolderContentsAsync()</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_game_details_view_model_8cs_source.html#l00030">30</a> of file <a class="el" href="_game_details_view_model_8cs_source.html">GameDetailsViewModel.cs</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_game_details_view_model_8cs_source.html#l00060">LoadFolderContentsAsync()</a>.</p>
 
 </div>
 </div>
@@ -314,9 +390,11 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_game_details_view_model_8cs_source.html#l00020">20</a> of file <a class="el" href="_game_details_view_model_8cs_source.html">GameDetailsViewModel.cs</a>.</p>
+<p>Gets or sets the folder status message displayed when loading or when folder errors occur. </p>
 
-<p class="reference">Referenced by <a class="el" href="_game_details_view_model_8cs_source.html#l00030">LoadFolderContentsAsync()</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_game_details_view_model_8cs_source.html#l00036">36</a> of file <a class="el" href="_game_details_view_model_8cs_source.html">GameDetailsViewModel.cs</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_game_details_view_model_8cs_source.html#l00060">LoadFolderContentsAsync()</a>.</p>
 
 </div>
 </div>
@@ -340,9 +418,11 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_game_details_view_model_8cs_source.html#l00023">23</a> of file <a class="el" href="_game_details_view_model_8cs_source.html">GameDetailsViewModel.cs</a>.</p>
+<p>Gets or sets a value indicating whether the folder status message panel is visible. </p>
 
-<p class="reference">Referenced by <a class="el" href="_game_details_view_model_8cs_source.html#l00030">LoadFolderContentsAsync()</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_game_details_view_model_8cs_source.html#l00042">42</a> of file <a class="el" href="_game_details_view_model_8cs_source.html">GameDetailsViewModel.cs</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_game_details_view_model_8cs_source.html#l00060">LoadFolderContentsAsync()</a>.</p>
 
 </div>
 </div>

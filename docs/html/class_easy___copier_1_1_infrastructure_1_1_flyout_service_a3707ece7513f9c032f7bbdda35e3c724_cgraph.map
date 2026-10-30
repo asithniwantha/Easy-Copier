@@ -1,0 +1,8 @@
+<map id="Easy_Copier.Infrastructure.FlyoutService.ShowGameDetailsFlyoutAsync" name="Easy_Copier.Infrastructure.FlyoutService.ShowGameDetailsFlyoutAsync">
+<area shape="rect" id="Node000001" title="Displays the game/app/media details flyout asynchronously when an item card is right&#45;tapped...." alt="" coords="5,51,293,93"/>
+<area shape="rect" id="Node000002" href="$namespace_easy___copier_1_1_models.html#a9c2abd1d64352c07d3085ba499cf2aae" title="Represents a single scanned library entry (game, app, TV/film, or OS image)." alt="" coords="341,29,553,56"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="293,55,328,54,322,55,294,60"/>
+<area shape="rect" id="Node000003" href="$class_easy___copier_1_1_infrastructure_1_1_flyout_service.html#afc936c47497791b0981d50c020072172" title="Displays a WinUI flyout anchored." alt="" coords="354,80,540,123"/>
+<area shape="poly" id="edge3_Node000001_Node000003" title=" " alt="" coords="293,84,341,91,336,91,293,89"/>
+<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="397,28,388,20,395,11,414,5,447,3,482,5,503,15,497,14,481,10,447,8,415,10,398,15,394,20,402,29"/>
+</map>

@@ -119,14 +119,20 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('class_easy___c
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:ac53a7b2e4aeee24e0ae2a4f812773ae0" id="r_ac53a7b2e4aeee24e0ae2a4f812773ae0"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ac53a7b2e4aeee24e0ae2a4f812773ae0">SmartAdderHistoryEntryViewModel</a> (<a class="el" href="class_easy___copier_1_1_models_1_1_smart_adder_history_record.html">SmartAdderHistoryRecord</a> record)</td></tr>
+<tr class="memdesc:ac53a7b2e4aeee24e0ae2a4f812773ae0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes a new instance of the SmartAdderHistoryEntryViewModel class from a persisted record.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-properties" class="groupheader"><a id="properties" name="properties"></a>
 Properties</h2></td></tr>
 <tr class="memitem:a74e1c4e5dbb6ff58e9493b63a662af6c" id="r_a74e1c4e5dbb6ff58e9493b63a662af6c"><td class="memItemLeft">DateTime&#160;</td><td class="memItemRight"><a class="el" href="#a74e1c4e5dbb6ff58e9493b63a662af6c">Timestamp</a><code> [get]</code></td></tr>
+<tr class="memdesc:a74e1c4e5dbb6ff58e9493b63a662af6c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the timestamp when the calculation session was logged.  <br /></td></tr>
 <tr class="memitem:ae88785e34448a1be46875a737fba40b0" id="r_ae88785e34448a1be46875a737fba40b0"><td class="memItemLeft">double&#160;</td><td class="memItemRight"><a class="el" href="#ae88785e34448a1be46875a737fba40b0">Total</a><code> [get]</code></td></tr>
+<tr class="memdesc:ae88785e34448a1be46875a737fba40b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the calculated total sum of the recorded session.  <br /></td></tr>
 <tr class="memitem:a1ab0b8c602e48fdc7640332f0a8bd220" id="r_a1ab0b8c602e48fdc7640332f0a8bd220"><td class="memItemLeft">IReadOnlyList&lt; double &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a1ab0b8c602e48fdc7640332f0a8bd220">Entries</a><code> [get]</code></td></tr>
+<tr class="memdesc:a1ab0b8c602e48fdc7640332f0a8bd220"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the list of individual numeric values entered during the calculation session.  <br /></td></tr>
 <tr class="memitem:a74b7114751b9756ea5dcb804f83da032" id="r_a74b7114751b9756ea5dcb804f83da032"><td class="memItemLeft">string&#160;</td><td class="memItemRight"><a class="el" href="#a74b7114751b9756ea5dcb804f83da032">TimestampDisplay</a><code> [get]</code></td></tr>
+<tr class="memdesc:a74b7114751b9756ea5dcb804f83da032"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the formatted timestamp string using current culture settings.  <br /></td></tr>
 <tr class="memitem:a3c6468fe99731e3e6389f709bab6b05d" id="r_a3c6468fe99731e3e6389f709bab6b05d"><td class="memItemLeft">string&#160;</td><td class="memItemRight"><a class="el" href="#a3c6468fe99731e3e6389f709bab6b05d">TotalDisplay</a><code> [get]</code></td></tr>
+<tr class="memdesc:a3c6468fe99731e3e6389f709bab6b05d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the formatted total string for display.  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Presents a single persisted SmartAdderHistoryRecord for display in the SmartAdder Calculation History window, including the individually entered values. </p>
@@ -148,11 +154,25 @@ Properties</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_smart_adder_history_entry_view_model_8cs_source.html#l00025">25</a> of file <a class="el" href="_smart_adder_history_entry_view_model_8cs_source.html">SmartAdderHistoryEntryViewModel.cs</a>.</p>
+<p>Initializes a new instance of the SmartAdderHistoryEntryViewModel class from a persisted record. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">record</td><td>The persisted SmartAdderHistoryRecord to wrap.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">ArgumentNullException</td><td>Thrown when <em>record</em>  is <code>null</code>.</td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p class="reference">References <a class="el" href="_smart_adder_history_entry_view_model_8cs_source.html#l00019">Entries</a>, <a class="el" href="_smart_adder_history_record_8cs_source.html#l00023">Easy_Copier.Models.SmartAdderHistoryRecord.EntriesJson</a>, <a class="el" href="_smart_adder_history_record_8cs_source.html#l00018">Easy_Copier.Models.SmartAdderHistoryRecord.Timestamp</a>, <a class="el" href="_smart_adder_history_entry_view_model_8cs_source.html#l00015">Timestamp</a>, <a class="el" href="_smart_adder_history_record_8cs_source.html#l00034">Easy_Copier.Models.SmartAdderHistoryRecord.Total</a>, and <a class="el" href="_smart_adder_history_entry_view_model_8cs_source.html#l00017">Total</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_smart_adder_history_entry_view_model_8cs_source.html#l00045">45</a> of file <a class="el" href="_smart_adder_history_entry_view_model_8cs_source.html">SmartAdderHistoryEntryViewModel.cs</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_smart_adder_history_view_model_8cs_source.html#l00037">Easy_Copier.ViewModels.SmartAdderHistoryViewModel.InitializeAsync()</a>.</p>
+<p class="reference">References <a class="el" href="_smart_adder_history_entry_view_model_8cs_source.html#l00028">Entries</a>, <a class="el" href="_smart_adder_history_record_8cs_source.html#l00023">Easy_Copier.Models.SmartAdderHistoryRecord.EntriesJson</a>, <a class="el" href="_smart_adder_history_record_8cs_source.html#l00018">Easy_Copier.Models.SmartAdderHistoryRecord.Timestamp</a>, <a class="el" href="_smart_adder_history_entry_view_model_8cs_source.html#l00018">Timestamp</a>, <a class="el" href="_smart_adder_history_record_8cs_source.html#l00034">Easy_Copier.Models.SmartAdderHistoryRecord.Total</a>, and <a class="el" href="_smart_adder_history_entry_view_model_8cs_source.html#l00023">Total</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_smart_adder_history_view_model_8cs_source.html#l00063">Easy_Copier.ViewModels.SmartAdderHistoryViewModel.InitializeAsync()</a>.</p>
 <div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
 <div id="dynsection-0-summary" class="dynsummary">
 </div>
@@ -183,9 +203,11 @@ Properties</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_smart_adder_history_entry_view_model_8cs_source.html#l00019">19</a> of file <a class="el" href="_smart_adder_history_entry_view_model_8cs_source.html">SmartAdderHistoryEntryViewModel.cs</a>.</p>
+<p>Gets the list of individual numeric values entered during the calculation session. </p>
 
-<p class="reference">Referenced by <a class="el" href="_smart_adder_history_entry_view_model_8cs_source.html#l00025">SmartAdderHistoryEntryViewModel()</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_smart_adder_history_entry_view_model_8cs_source.html#l00028">28</a> of file <a class="el" href="_smart_adder_history_entry_view_model_8cs_source.html">SmartAdderHistoryEntryViewModel.cs</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_smart_adder_history_entry_view_model_8cs_source.html#l00045">SmartAdderHistoryEntryViewModel()</a>.</p>
 
 </div>
 </div>
@@ -209,9 +231,11 @@ Properties</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_smart_adder_history_entry_view_model_8cs_source.html#l00015">15</a> of file <a class="el" href="_smart_adder_history_entry_view_model_8cs_source.html">SmartAdderHistoryEntryViewModel.cs</a>.</p>
+<p>Gets the timestamp when the calculation session was logged. </p>
 
-<p class="reference">Referenced by <a class="el" href="_smart_adder_history_entry_view_model_8cs_source.html#l00025">SmartAdderHistoryEntryViewModel()</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_smart_adder_history_entry_view_model_8cs_source.html#l00018">18</a> of file <a class="el" href="_smart_adder_history_entry_view_model_8cs_source.html">SmartAdderHistoryEntryViewModel.cs</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_smart_adder_history_entry_view_model_8cs_source.html#l00045">SmartAdderHistoryEntryViewModel()</a>.</p>
 
 </div>
 </div>
@@ -235,7 +259,9 @@ Properties</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_smart_adder_history_entry_view_model_8cs_source.html#l00021">21</a> of file <a class="el" href="_smart_adder_history_entry_view_model_8cs_source.html">SmartAdderHistoryEntryViewModel.cs</a>.</p>
+<p>Gets the formatted timestamp string using current culture settings. </p>
+
+<p class="definition">Definition at line <a class="el" href="_smart_adder_history_entry_view_model_8cs_source.html#l00033">33</a> of file <a class="el" href="_smart_adder_history_entry_view_model_8cs_source.html">SmartAdderHistoryEntryViewModel.cs</a>.</p>
 
 </div>
 </div>
@@ -259,9 +285,11 @@ Properties</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_smart_adder_history_entry_view_model_8cs_source.html#l00017">17</a> of file <a class="el" href="_smart_adder_history_entry_view_model_8cs_source.html">SmartAdderHistoryEntryViewModel.cs</a>.</p>
+<p>Gets the calculated total sum of the recorded session. </p>
 
-<p class="reference">Referenced by <a class="el" href="_smart_adder_history_entry_view_model_8cs_source.html#l00025">SmartAdderHistoryEntryViewModel()</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_smart_adder_history_entry_view_model_8cs_source.html#l00023">23</a> of file <a class="el" href="_smart_adder_history_entry_view_model_8cs_source.html">SmartAdderHistoryEntryViewModel.cs</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_smart_adder_history_entry_view_model_8cs_source.html#l00045">SmartAdderHistoryEntryViewModel()</a>.</p>
 
 </div>
 </div>
@@ -285,7 +313,9 @@ Properties</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_smart_adder_history_entry_view_model_8cs_source.html#l00023">23</a> of file <a class="el" href="_smart_adder_history_entry_view_model_8cs_source.html">SmartAdderHistoryEntryViewModel.cs</a>.</p>
+<p>Gets the formatted total string for display. </p>
+
+<p class="definition">Definition at line <a class="el" href="_smart_adder_history_entry_view_model_8cs_source.html#l00038">38</a> of file <a class="el" href="_smart_adder_history_entry_view_model_8cs_source.html">SmartAdderHistoryEntryViewModel.cs</a>.</p>
 
 </div>
 </div>

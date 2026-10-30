@@ -20,7 +20,7 @@
 <!-- Node1 -->
 <g id="Node000001" class="node">
 <title>Node1</title>
-<g id="a_Node000001"><a xlink:href="class_easy___copier_1_1_app.html" target="_top" xlink:title=" ">
+<g id="a_Node000001"><a xlink:href="class_easy___copier_1_1_app.html" target="_top" xlink:title="Provides application&#45;specific behavior to supplement the default Application class.">
 <polygon fill="white" stroke="#666666" points="328.25,-76 235.75,-76 235.75,-56 328.25,-56 328.25,-76"/>
 <text xml:space="preserve" text-anchor="middle" x="282" y="-62.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.App</text>
 </a>

@@ -1,20 +1,16 @@
 <map id="Easy_Copier.Services.TransferQueueService.ProcessDriveQueueAsync" name="Easy_Copier.Services.TransferQueueService.ProcessDriveQueueAsync">
-<area shape="rect" id="Node000001" title="Per&#45;drive loop processing queued transfers sequentially for a single drive letter." alt="" coords="5,133,267,176"/>
-<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_services_1_1_transfer_queue_service.html#a533e1a35bdbcf9ff1fdd48462d021ff3" title="Executes an individual transfer item and updates its status and progress properties on the UI thread." alt="" coords="315,133,533,176"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="266,152,301,154,296,155,268,157"/>
-<area shape="rect" id="Node000003" href="$class_easy___copier_1_1_services_1_1_transfer_queue_service.html#a32e2c5f600b609c21a22bf2d6437f4fb" title="Checks if all queued items targeting a drive have finished and triggers completion sounds and toast n..." alt="" coords="581,5,818,64"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="464,130,580,74,593,71,598,69,582,78,466,135"/>
-<area shape="rect" id="Node000005" href="$class_easy___copier_1_1_services_1_1_transfer_queue_service.html#a7c3c07a217ea001a005714d570176bd2" title="Executes an action on the UI thread using Infrastructure.IDispatcherService." alt="" coords="598,88,801,131"/>
-<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="533,134,585,128,580,129,534,139"/>
-<area shape="rect" id="Node000006" href="$namespace_easy___copier_1_1_models.html#a0f254e810a60e913105ca1898e396f4c" title="Represents the final outcome of a completed transfer batch." alt="" coords="602,179,797,221"/>
-<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="533,170,590,181,585,182,534,175"/>
-<area shape="rect" id="Node000007" href="$namespace_easy___copier_1_1_models.html#a361f45ad4ad4f48588e380daa766a5fa" title="Represents a request to transfer a batch of items to a designated removable drive." alt="" coords="602,269,797,312"/>
-<area shape="poly" id="edge7_Node000002_Node000007" title=" " alt="" coords="469,174,582,231,643,263,637,262,580,236,468,179"/>
-<area shape="rect" id="Node000004" href="$class_easy___copier_1_1_services_1_1_transfer_queue_service.html#a609a297676ded43e4cae11d0c7b0eb04" title="Builds and displays a Windows AppNotification toast message summarizing batch transfer completion." alt="" coords="866,13,1122,56"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="818,32,853,34,848,35,819,37"/>
-<area shape="poly" id="edge6_Node000006_Node000006" title=" " alt="" coords="648,177,646,169,654,160,672,154,700,152,729,154,749,163,743,163,728,160,700,157,673,159,657,164,651,170,653,179"/>
-<area shape="poly" id="edge10_Node000007_Node000007" title=" " alt="" coords="648,267,646,259,654,250,672,245,700,243,729,245,749,254,743,254,728,250,700,248,673,250,657,255,651,261,653,270"/>
-<area shape="rect" id="Node000008" href="$namespace_easy___copier_1_1_models.html#af8f0175620d1cdd9a06d3e52ae12ba12" title="Represents information about a detected removable drive or storage volume." alt="" coords="888,269,1100,312"/>
-<area shape="poly" id="edge8_Node000007_Node000008" title=" " alt="" coords="797,288,875,291,870,291,797,293"/>
-<area shape="poly" id="edge9_Node000008_Node000008" title=" " alt="" coords="939,267,937,259,946,250,965,245,994,243,1026,245,1046,254,1041,254,1024,250,994,248,966,250,949,255,942,261,944,270"/>
+<area shape="rect" id="Node000001" title="Per&#45;drive loop processing queued transfers sequentially for a single drive letter." alt="" coords="5,96,267,139"/>
+<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_services_1_1_transfer_queue_service.html#a533e1a35bdbcf9ff1fdd48462d021ff3" title="Executes an individual transfer item and updates its status and progress properties on the UI thread." alt="" coords="315,96,533,139"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="267,115,301,117,296,118,267,120"/>
+<area shape="rect" id="Node000003" href="$class_easy___copier_1_1_services_1_1_transfer_queue_service.html#a7c3c07a217ea001a005714d570176bd2" title="Executes an action on the UI thread using Infrastructure.IDispatcherService." alt="" coords="581,5,784,48"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="483,93,580,57,598,54,603,53,582,63,484,98"/>
+<area shape="rect" id="Node000004" href="$namespace_easy___copier_1_1_models.html#a0f254e810a60e913105ca1898e396f4c" title="Represents the final outcome of a completed transfer batch." alt="" coords="586,96,780,139"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="533,115,573,117,567,118,534,120"/>
+<area shape="rect" id="Node000005" href="$namespace_easy___copier_1_1_models.html#a361f45ad4ad4f48588e380daa766a5fa" title="Represents a request to transfer a batch of items to a designated removable drive." alt="" coords="586,187,780,229"/>
+<area shape="poly" id="edge5_Node000002_Node000005" title=" " alt="" coords="488,137,608,181,603,181,487,142"/>
+<area shape="poly" id="edge4_Node000004_Node000004" title=" " alt="" coords="635,94,632,86,641,77,657,71,683,69,710,72,728,81,723,80,709,77,683,75,658,77,643,81,638,87,639,97"/>
+<area shape="poly" id="edge8_Node000005_Node000005" title=" " alt="" coords="635,185,632,177,641,168,657,162,683,160,710,162,728,171,723,171,709,168,683,165,658,167,643,172,638,178,639,188"/>
+<area shape="rect" id="Node000006" href="$namespace_easy___copier_1_1_models.html#af8f0175620d1cdd9a06d3e52ae12ba12" title="Represents information about a detected removable drive or storage volume." alt="" coords="832,187,1045,229"/>
+<area shape="poly" id="edge6_Node000005_Node000006" title=" " alt="" coords="780,205,819,208,814,208,780,211"/>
+<area shape="poly" id="edge7_Node000006_Node000006" title=" " alt="" coords="891,184,888,177,896,168,913,162,939,160,966,162,984,171,978,171,965,168,938,165,914,167,899,172,893,178,895,188"/>
 </map>

@@ -47,13 +47,13 @@
   </g>
 </defs>
 <script type="application/ecmascript" xlink:href="svg.min.js"/>
-<svg id="graph" class="graph" data-view-width="875" data-view-height="90" data-section-id="dynsection-2">
+<svg id="graph" class="graph" data-view-width="1056" data-view-height="90" data-section-id="dynsection-2">
 <g id="viewport">
 <title>Easy_Copier.ViewModels.SmartAdderViewModel.SmartAdderViewModel</title>
 <!-- Node1 -->
 <g id="Node000001" class="node">
 <title>Node1</title>
-<g id="a_Node000001"><a xlink:title=" ">
+<g id="a_Node000001"><a xlink:title="Initializes a new instance of the SmartAdderViewModel class with necessary infrastructure services.">
 <polygon fill="#999999" stroke="#666666" points="192.25,-82 0,-82 0,-50 192.25,-50 192.25,-82"/>
 <text xml:space="preserve" text-anchor="start" x="8" y="-68.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.ViewModels.Smart</text>
 <text xml:space="preserve" text-anchor="middle" x="96.12" y="-56.5" font-family="Helvetica,sans-Serif" font-size="10.00">AdderViewModel.SmartAdderViewModel</text>
@@ -151,6 +151,25 @@
 <g id="a_edge5_Node000004_Node000003"><a xlink:title=" ">
 <path fill="none" stroke="#63b8ff" d="M648.28,-62.7C640.28,-62 632.22,-61.25 624.24,-60.47"/>
 <polygon fill="#63b8ff" stroke="#63b8ff" points="624.83,-57.01 614.53,-59.5 624.14,-63.98 624.83,-57.01"/>
+</a>
+</g>
+</g>
+<!-- Node6 -->
+<g id="Node000006" class="node">
+<title>Node6</title>
+<g id="a_Node000006"><a xlink:href="class_easy___copier_1_1_models_1_1_number_cell.html#ae49c3d41a9bcb4605ea1cdb2a1e1f790" target="_top" xlink:title="Attempts to parse the numeric value from InputValue using standard invariant float formatting.">
+<polygon fill="white" stroke="#666666" points="1047.5,-32 903.25,-32 903.25,0 1047.5,0 1047.5,-32"/>
+<text xml:space="preserve" text-anchor="start" x="911.25" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Models.Number</text>
+<text xml:space="preserve" text-anchor="middle" x="975.38" y="-6.5" font-family="Helvetica,sans-Serif" font-size="10.00">Cell.TryGetNumericValue</text>
+</a>
+</g>
+</g>
+<!-- Node5&#45;&gt;Node6 -->
+<g id="edge7_Node000005_Node000006" class="edge">
+<title>Node5&#45;&gt;Node6</title>
+<g id="a_edge7_Node000005_Node000006"><a xlink:title=" ">
+<path fill="none" stroke="#63b8ff" d="M841.04,-16C857.55,-16 874.93,-16 891.47,-16"/>
+<polygon fill="#63b8ff" stroke="#63b8ff" points="891.26,-19.5 901.26,-16 891.26,-12.5 891.26,-19.5"/>
 </a>
 </g>
 </g>

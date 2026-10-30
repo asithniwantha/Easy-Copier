@@ -1,0 +1,69 @@
+<map id="Easy_Copier.Services.GameInfoDownloadService.DownloadCoverAsync" name="Easy_Copier.Services.GameInfoDownloadService.DownloadCoverAsync">
+<area shape="rect" id="Node000001" title="Downloads cover image for a game from various online services (Steam, CheapShark, GOG,..." alt="" coords="5,363,285,406"/>
+<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_services_1_1_game_info_download_service.html#aeea730db504e9ee979c0426e61115c3e" title="Queries the Steam community app search, Steam store search, and CheapShark endpoints to accurately re..." alt="" coords="352,645,572,703"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="157,404,184,452,223,513,274,576,303,605,334,631,341,636,336,637,331,635,299,609,270,580,219,516,180,455,157,409"/>
+<area shape="rect" id="Node000005" href="$class_easy___copier_1_1_services_1_1_game_title_sanitizer.html#a29f16ffead5645872c81f0e36e485450" title="Generates a prioritized list of search candidate queries for a given raw game folder or title string." alt="" coords="639,686,900,729"/>
+<area shape="poly" id="edge16_Node000001_Node000005" title=" " alt="" coords="151,404,171,470,205,557,229,602,258,645,293,683,334,713,376,733,421,746,468,752,515,754,606,747,688,732,682,734,606,752,515,760,467,758,420,751,374,738,331,718,289,687,254,648,224,605,200,559,166,472,151,409"/>
+<area shape="rect" id="Node000015" href="$class_easy___copier_1_1_services_1_1_game_info_download_service.html#abacddc94afdcd8b0b7925c2253bedfb3" title="Attempts to retrieve cover art or resolve a Steam App ID using the free CheapShark aggregator API." alt="" coords="342,66,582,125"/>
+<area shape="poly" id="edge17_Node000001_Node000015" title=" " alt="" coords="154,362,180,315,219,254,270,190,299,160,331,135,340,131,337,135,334,139,303,164,274,193,223,257,184,318,159,364"/>
+<area shape="rect" id="Node000018" href="$class_easy___copier_1_1_services_1_1_game_info_download_service.html#a16c133781b37ce62e5603baf2298f3bb" title="Attempts to download vertical library cover art from Steam CDN using the given Steam App ID,..." alt="" coords="650,11,889,70"/>
+<area shape="poly" id="edge39_Node000001_Node000018" title=" " alt="" coords="148,362,166,298,200,211,225,166,254,122,290,83,331,52,367,34,404,20,483,6,561,4,637,11,632,14,561,9,483,11,406,26,369,39,334,56,293,87,259,126,229,168,205,213,171,300,153,364"/>
+<area shape="rect" id="Node000019" href="$class_easy___copier_1_1_services_1_1_game_info_download_service.html#a9cd6862f282d8d6d4612cb9c15eed770" title="Attempts to download vertical cover art from GOG catalog API with title scoring and format fallbacks." alt="" coords="349,479,574,538"/>
+<area shape="poly" id="edge23_Node000001_Node000019" title=" " alt="" coords="192,404,334,465,352,473,347,475,332,470,193,409"/>
+<area shape="rect" id="Node000020" href="$class_easy___copier_1_1_services_1_1_game_info_download_service.html#abe5fa26f5662b94eea1d946a43f7e0da" title="Attempts to download cover art from GameSystemRequirements website by searching the game title and ve..." alt="" coords="351,149,573,207"/>
+<area shape="poly" id="edge26_Node000001_Node000020" title=" " alt="" coords="163,361,233,291,280,252,331,217,344,212,340,216,334,222,283,256,237,295,168,364"/>
+<area shape="rect" id="Node000022" href="$class_easy___copier_1_1_services_1_1_game_info_download_service.html#a632ff81276844ba2cb1151e84710bd2a" title="Attempts to download cover image from Lutris REST API and search page for the specified game title." alt="" coords="345,562,578,621"/>
+<area shape="poly" id="edge30_Node000001_Node000022" title=" " alt="" coords="165,404,237,475,283,514,334,548,345,555,340,556,331,552,280,518,233,479,166,409"/>
+<area shape="rect" id="Node000023" href="$class_easy___copier_1_1_services_1_1_game_info_download_service.html#a1a870cf4392f465f104385c6c15bc184" title="Attempts to download box art or banner cover from OpenCritic API with title match scoring." alt="" coords="346,314,578,373"/>
+<area shape="poly" id="edge33_Node000001_Node000023" title=" " alt="" coords="284,364,332,359,328,362,287,369"/>
+<area shape="rect" id="Node000024" href="$class_easy___copier_1_1_services_1_1_game_info_download_service.html#aa30670d8a3a368e70633c032acbed2c1" title="Attempts to download cover art thumbnail from PCGamingWiki API using the search generator." alt="" coords="345,397,579,455"/>
+<area shape="poly" id="edge36_Node000001_Node000024" title=" " alt="" coords="284,401,331,407,327,410,286,405"/>
+<area shape="rect" id="Node000025" href="$class_easy___copier_1_1_services_1_1_game_info_download_service.html#adae95494262fe3bfc1cedb49a21416a9" title="Attempts to download cover art from Wikipedia via the MediaWiki search API and page images." alt="" coords="333,231,591,290"/>
+<area shape="poly" id="edge40_Node000001_Node000025" title=" " alt="" coords="190,361,332,300,352,294,348,298,334,305,194,365"/>
+<area shape="rect" id="Node000003" href="$class_easy___copier_1_1_services_1_1_game_title_sanitizer.html#a031580959c3251f8f2557e6d299ddccb" title="Computes a title match similarity score between a target query title and an online service candidate ..." alt="" coords="658,363,882,406"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="571,642,589,631,643,581,689,524,724,467,750,422,754,418,729,470,693,527,647,585,593,635,574,647"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="572,683,626,691,621,692,573,689"/>
+<area shape="rect" id="Node000004" href="$class_easy___copier_1_1_services_1_1_game_title_sanitizer.html#aaa2daf6d34206e953c7b5d4807aa4407" title="Normalizes a title for comparison by lowercasing, removing punctuation, and collapsing whitespace." alt="" coords="964,363,1213,406"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="882,382,951,384,946,386,883,387"/>
+<area shape="rect" id="Node000006" href="$class_easy___copier_1_1_services_1_1_game_title_sanitizer.html#a87c1ca9ffee5561c51b2210f2ddc526c" title="Cleans multiple spaces and edge punctuation from a title string." alt="" coords="1308,650,1512,693"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="900,714,1058,718,1144,715,1228,709,1316,696,1310,697,1229,714,1144,721,1058,723,901,719"/>
+<area shape="rect" id="Node000007" href="$class_easy___copier_1_1_services_1_1_game_title_sanitizer.html#a694c2e626574caa1e2342ed820748629" title="Cleans a raw folder or file name by stripping repack tags, scene suffixes, version tags,..." alt="" coords="993,779,1184,822"/>
+<area shape="poly" id="edge6_Node000005_Node000007" title=" " alt="" coords="845,727,1001,774,996,775,845,732"/>
+<area shape="rect" id="Node000012" href="$class_easy___copier_1_1_services_1_1_game_title_sanitizer.html#a8d2f725e0d49dd2a8e9b901252873ff7" title="Strips common game edition keywords (e.g. &quot;Game of the Year Edition&quot;, &quot;Deluxe Edition&quot;,..." alt="" coords="993,590,1184,633"/>
+<area shape="poly" id="edge12_Node000005_Node000012" title=" " alt="" coords="828,683,948,642,981,636,975,637,949,647,829,688"/>
+<area shape="rect" id="Node000014" href="$class_easy___copier_1_1_services_1_1_game_title_sanitizer.html#a084689e990fdc8dc6f316865ce06a221" title="Regular expression matching four&#45;digit years in parentheses or at word boundaries (e...." alt="" coords="993,657,1184,699"/>
+<area shape="poly" id="edge15_Node000005_Node000014" title=" " alt="" coords="900,693,980,688,975,689,901,698"/>
+<area shape="poly" id="edge7_Node000007_Node000006" title=" " alt="" coords="1179,776,1227,753,1241,741,1250,728,1260,715,1275,703,1291,697,1296,695,1278,707,1264,719,1255,731,1245,745,1230,758,1180,781"/>
+<area shape="rect" id="Node000008" href="$class_easy___copier_1_1_services_1_1_game_title_sanitizer.html#a698d6d3d03e950e1c42108404d9d9d72" title="Regular expression matching parentheses containing non&#45;essential metadata (e.g. cracked,..." alt="" coords="1277,717,1543,759"/>
+<area shape="poly" id="edge8_Node000007_Node000008" title=" " alt="" coords="1184,780,1280,763,1285,763,1185,785"/>
+<area shape="rect" id="Node000009" href="$class_easy___copier_1_1_services_1_1_game_title_sanitizer.html#a2bfc8daeddc23d966ac67c0273720224" title="Regular expression matching scene release groups and repack tags commonly appended to game folder nam..." alt="" coords="1303,783,1517,842"/>
+<area shape="poly" id="edge9_Node000007_Node000009" title=" " alt="" coords="1184,802,1290,808,1285,808,1184,807"/>
+<area shape="rect" id="Node000010" href="$class_easy___copier_1_1_services_1_1_game_title_sanitizer.html#ac304069202ad3797629c7b0b24ff8ff4" title="Regular expression matching trailing scene release group names (e.g. &#45;CODEX, &#45;EMPRESS,..." alt="" coords="1288,866,1532,909"/>
+<area shape="poly" id="edge10_Node000007_Node000010" title=" " alt="" coords="1165,820,1277,852,1308,862,1303,862,1276,857,1164,825"/>
+<area shape="rect" id="Node000011" href="$class_easy___copier_1_1_services_1_1_game_title_sanitizer.html#a3bb38630f30ec32b34df1587b9918bdd" title="Regular expression matching build numbers, patch versions, and update identifiers." alt="" coords="1293,933,1527,975"/>
+<area shape="poly" id="edge11_Node000007_Node000011" title=" " alt="" coords="1118,820,1189,870,1232,896,1278,918,1296,928,1291,927,1276,923,1230,900,1186,874,1117,825"/>
+<area shape="poly" id="edge13_Node000012_Node000006" title=" " alt="" coords="1184,627,1295,649,1290,650,1184,632"/>
+<area shape="rect" id="Node000013" href="$class_easy___copier_1_1_services_1_1_game_title_sanitizer.html#a196c4508abae750777564507bf1c456b" title="Regular expression matching common edition suffixes that should be stripped when falling back to base..." alt="" coords="1297,583,1523,626"/>
+<area shape="poly" id="edge14_Node000012_Node000013" title=" " alt="" coords="1184,607,1284,607,1279,608,1185,612"/>
+<area shape="poly" id="edge18_Node000015_Node000003" title=" " alt="" coords="572,123,593,135,657,220,747,351,742,351,652,223,589,139,573,128"/>
+<area shape="rect" id="Node000016" href="$class_easy___copier_1_1_services_1_1_game_info_download_service.html#aa5082d34c94299e50e9b4ec7213d3638" title="Downloads an image from the specified URL and saves it to a local file path after verifying image dat..." alt="" coords="948,275,1229,318"/>
+<area shape="poly" id="edge19_Node000015_Node000016" title=" " alt="" coords="581,84,656,83,738,90,821,104,901,130,951,158,995,192,1033,229,1063,263,1058,263,1029,232,992,196,948,162,899,135,820,109,737,95,656,89,583,88"/>
+<area shape="poly" id="edge21_Node000015_Node000018" title=" " alt="" coords="581,72,637,63,633,66,583,76"/>
+<area shape="rect" id="Node000017" href="$class_easy___copier_1_1_services_1_1_game_title_sanitizer.html#a790f399df883c0306b7753e12720cef1" title="Validates that raw byte data represents a legitimate, non&#45;empty image (JPEG, PNG, WebP,..." alt="" coords="1315,275,1505,318"/>
+<area shape="poly" id="edge20_Node000016_Node000017" title=" " alt="" coords="1229,294,1302,296,1296,297,1230,299"/>
+<area shape="poly" id="edge22_Node000018_Node000016" title=" " alt="" coords="868,68,902,87,953,128,999,175,1067,263,1062,263,995,179,950,132,899,91,868,73"/>
+<area shape="poly" id="edge24_Node000019_Node000003" title=" " alt="" coords="559,477,590,465,714,412,709,415,592,470,561,481"/>
+<area shape="poly" id="edge25_Node000019_Node000016" title=" " alt="" coords="574,525,653,529,738,524,781,516,823,504,862,487,899,464,911,452,919,439,924,411,928,380,934,365,947,350,985,326,989,323,950,353,939,367,933,382,929,411,924,441,916,455,902,468,865,491,824,509,782,521,739,529,653,534,575,530"/>
+<area shape="poly" id="edge27_Node000020_Node000003" title=" " alt="" coords="568,205,592,217,637,248,678,283,744,351,738,352,675,287,634,252,590,222,569,211"/>
+<area shape="poly" id="edge28_Node000020_Node000016" title=" " alt="" coords="573,196,901,257,967,271,961,273,900,262,574,201"/>
+<area shape="rect" id="Node000021" href="$class_easy___copier_1_1_services_1_1_game_info_download_service.html#a3be12a770e78f10afafac12d962ceeec" title="Generates a regular expression for stripping HTML tags." alt="" coords="667,145,872,187"/>
+<area shape="poly" id="edge29_Node000020_Node000021" title=" " alt="" coords="572,171,653,169,649,172,574,176"/>
+<area shape="poly" id="edge31_Node000022_Node000003" title=" " alt="" coords="567,559,590,548,634,518,675,483,739,420,743,416,678,487,637,522,592,552,570,564"/>
+<area shape="poly" id="edge32_Node000022_Node000016" title=" " alt="" coords="578,607,658,610,743,603,785,593,826,579,864,560,899,535,916,514,924,493,926,470,924,447,923,399,930,374,946,350,980,327,984,324,950,353,935,377,929,400,930,447,931,470,929,494,921,517,902,539,867,565,828,584,787,598,744,608,658,615,579,612"/>
+<area shape="poly" id="edge34_Node000023_Node000003" title=" " alt="" coords="578,357,644,367,639,369,579,362"/>
+<area shape="poly" id="edge35_Node000023_Node000016" title=" " alt="" coords="578,332,935,307,931,310,579,337"/>
+<area shape="poly" id="edge37_Node000024_Node000003" title=" " alt="" coords="578,408,644,401,640,403,580,413"/>
+<area shape="poly" id="edge38_Node000024_Node000016" title=" " alt="" coords="579,449,655,456,737,457,821,444,861,432,899,416,915,402,923,386,931,368,947,349,997,323,993,326,950,354,935,370,928,388,920,405,902,420,863,438,822,450,737,462,654,462,580,454"/>
+<area shape="poly" id="edge41_Node000025_Node000003" title=" " alt="" coords="559,288,592,300,714,355,709,357,590,305,561,293"/>
+<area shape="poly" id="edge42_Node000025_Node000016" title=" " alt="" coords="591,266,935,286,930,289,592,271"/>
+</map>

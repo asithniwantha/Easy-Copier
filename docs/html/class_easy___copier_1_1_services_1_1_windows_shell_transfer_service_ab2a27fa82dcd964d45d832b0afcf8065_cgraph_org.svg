@@ -22,7 +22,7 @@
 <!-- Node2 -->
 <g id="Node000002" class="node">
 <title>Node2</title>
-<g id="a_Node000002"><a xlink:href="interface_easy___copier_1_1_interop_1_1_i_file_operation.html#a7b640b8d4a7b2ae7092803fff4dfe759" target="_top" xlink:title=" ">
+<g id="a_Node000002"><a xlink:href="interface_easy___copier_1_1_interop_1_1_i_file_operation.html#a7b640b8d4a7b2ae7092803fff4dfe759" target="_top" xlink:title="Declares a single item that is to be deleted.">
 <polygon fill="white" stroke="#666666" points="334.25,-194 207.25,-194 207.25,-162 334.25,-162 334.25,-194"/>
 <text xml:space="preserve" text-anchor="start" x="215.25" y="-180.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Interop.IFile</text>
 <text xml:space="preserve" text-anchor="middle" x="270.75" y="-168.5" font-family="Helvetica,sans-Serif" font-size="10.00">Operation.DeleteItem</text>
@@ -41,7 +41,7 @@
 <!-- Node3 -->
 <g id="Node000003" class="node">
 <title>Node3</title>
-<g id="a_Node000003"><a xlink:href="interface_easy___copier_1_1_interop_1_1_i_file_operation.html#aa31da71f71d95ccbe480448afcdbe295" target="_top" xlink:title=" ">
+<g id="a_Node000003"><a xlink:href="interface_easy___copier_1_1_interop_1_1_i_file_operation.html#aa31da71f71d95ccbe480448afcdbe295" target="_top" xlink:title="Executes all configured file operations.">
 <polygon fill="white" stroke="#666666" points="342.12,-144 199.38,-144 199.38,-112 342.12,-112 342.12,-144"/>
 <text xml:space="preserve" text-anchor="start" x="207.38" y="-130.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Interop.IFile</text>
 <text xml:space="preserve" text-anchor="middle" x="270.75" y="-118.5" font-family="Helvetica,sans-Serif" font-size="10.00">Operation.PerformOperations</text>
@@ -60,7 +60,7 @@
 <!-- Node4 -->
 <g id="Node000004" class="node">
 <title>Node4</title>
-<g id="a_Node000004"><a xlink:href="interface_easy___copier_1_1_interop_1_1_i_file_operation.html#a5da7eb05bf07a208ed0a69e26d83ae95" target="_top" xlink:title=" ">
+<g id="a_Node000004"><a xlink:href="interface_easy___copier_1_1_interop_1_1_i_file_operation.html#a5da7eb05bf07a208ed0a69e26d83ae95" target="_top" xlink:title="Sets flags that control file operations.">
 <polygon fill="white" stroke="#666666" points="341.75,-94 199.75,-94 199.75,-62 341.75,-62 341.75,-94"/>
 <text xml:space="preserve" text-anchor="start" x="207.75" y="-80.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Interop.IFile</text>
 <text xml:space="preserve" text-anchor="middle" x="270.75" y="-68.5" font-family="Helvetica,sans-Serif" font-size="10.00">Operation.SetOperationFlags</text>

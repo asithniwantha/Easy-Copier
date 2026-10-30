@@ -63,7 +63,7 @@
 <!-- Node2 -->
 <g id="Node000002" class="node">
 <title>Node2</title>
-<g id="a_Node000002"><a xlink:href="class_easy___copier_1_1_program.html#a9d85cb2db15488b2dda4028ab26108de" target="_top" xlink:title=" ">
+<g id="a_Node000002"><a xlink:href="class_easy___copier_1_1_program.html#a9d85cb2db15488b2dda4028ab26108de" target="_top" xlink:title="Handles the Microsoft.Windows.AppLifecycle.AppInstance.Activated event when a secondary instance trig...">
 <polygon fill="white" stroke="#666666" points="579.75,-169 443.75,-169 443.75,-137 579.75,-137 579.75,-169"/>
 <text xml:space="preserve" text-anchor="start" x="451.75" y="-155.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Program.Main</text>
 <text xml:space="preserve" text-anchor="middle" x="511.75" y="-143.5" font-family="Helvetica,sans-Serif" font-size="10.00">Instance_Activated</text>
@@ -101,7 +101,7 @@
 <!-- Node3 -->
 <g id="Node000003" class="node">
 <title>Node3</title>
-<g id="a_Node000003"><a xlink:href="class_easy___copier_1_1_program.html#ae266f31436203f55515e73e30be2a495" target="_top" xlink:title=" ">
+<g id="a_Node000003"><a xlink:href="class_easy___copier_1_1_program.html#ae266f31436203f55515e73e30be2a495" target="_top" xlink:title="The main entry point for the application.">
 <polygon fill="white" stroke="#666666" points="359,-163 223,-163 223,-143 359,-143 359,-163"/>
 <text xml:space="preserve" text-anchor="middle" x="291" y="-149.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Program.Main</text>
 </a>
@@ -177,7 +177,7 @@
 <!-- Node8 -->
 <g id="Node000008" class="node">
 <title>Node8</title>
-<g id="a_Node000008"><a xlink:href="class_easy___copier_1_1_views_1_1_settings_window.html#aa5c96a3985044d8ebabe043cd105e570" target="_top" xlink:title=" ">
+<g id="a_Node000008"><a xlink:href="class_easy___copier_1_1_views_1_1_settings_window.html#aa5c96a3985044d8ebabe043cd105e570" target="_top" xlink:title="Initializes a new instance of the SettingsWindow class.">
 <polygon fill="white" stroke="#666666" points="154.75,-94 13.5,-94 13.5,-62 154.75,-62 154.75,-94"/>
 <text xml:space="preserve" text-anchor="start" x="21.5" y="-80.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Views.Settings</text>
 <text xml:space="preserve" text-anchor="middle" x="84.12" y="-68.5" font-family="Helvetica,sans-Serif" font-size="10.00">Window.SettingsWindow</text>

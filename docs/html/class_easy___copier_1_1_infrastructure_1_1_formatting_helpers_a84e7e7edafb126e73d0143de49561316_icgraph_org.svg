@@ -11,7 +11,7 @@
 <!-- Node1 -->
 <g id="Node000001" class="node">
 <title>Node1</title>
-<g id="a_Node000001"><a xlink:title="Formats a byte size into a human&#45;readable string with units (e.g. KB, MB, GB).">
+<g id="a_Node000001"><a xlink:title="Formats a byte size into a human&#45;readable string with units (e.g., KB, MB, GB, TB).">
 <polygon fill="#999999" stroke="#666666" points="606.75,-119 451.25,-119 451.25,-87 606.75,-87 606.75,-119"/>
 <text xml:space="preserve" text-anchor="start" x="459.25" y="-105.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Infrastructure.</text>
 <text xml:space="preserve" text-anchor="middle" x="529" y="-93.5" font-family="Helvetica,sans-Serif" font-size="10.00">FormattingHelpers.FormatBytes</text>
@@ -21,7 +21,7 @@
 <!-- Node2 -->
 <g id="Node000002" class="node">
 <title>Node2</title>
-<g id="a_Node000002"><a xlink:href="class_easy___copier_1_1_view_models_1_1_game_details_view_model.html#a0e0947f8ec366fe0b42c22e8fc845abf" target="_top" xlink:title=" ">
+<g id="a_Node000002"><a xlink:href="class_easy___copier_1_1_view_models_1_1_game_details_view_model.html#a0e0947f8ec366fe0b42c22e8fc845abf" target="_top" xlink:title="Asynchronously calculates the total directory size of a folder item in the background and updates its...">
 <polygon fill="white" stroke="#666666" points="415.25,-206 249.25,-206 249.25,-162 415.25,-162 415.25,-206"/>
 <text xml:space="preserve" text-anchor="start" x="257.25" y="-192.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.ViewModels.Game</text>
 <text xml:space="preserve" text-anchor="start" x="257.25" y="-180.5" font-family="Helvetica,sans-Serif" font-size="10.00">DetailsViewModel.CalculateFolder</text>
@@ -79,7 +79,7 @@
 <!-- Node6 -->
 <g id="Node000006" class="node">
 <title>Node6</title>
-<g id="a_Node000006"><a xlink:href="class_easy___copier_1_1_interop_1_1_file_operation_progress_sink.html#ac0fca37cba9cef3d6d058af3b33f1f4a" target="_top" xlink:title=" ">
+<g id="a_Node000006"><a xlink:href="class_easy___copier_1_1_interop_1_1_file_operation_progress_sink.html#ac0fca37cba9cef3d6d058af3b33f1f4a" target="_top" xlink:title="Provides progress measurement feedback for ongoing file operations.An HRESULT success code (0 for S_O...">
 <polygon fill="white" stroke="#666666" points="407.75,-44 256.75,-44 256.75,0 407.75,0 407.75,-44"/>
 <text xml:space="preserve" text-anchor="start" x="264.75" y="-30.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Interop.File</text>
 <text xml:space="preserve" text-anchor="start" x="264.75" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">OperationProgressSink.Update</text>
@@ -99,7 +99,7 @@
 <!-- Node3 -->
 <g id="Node000003" class="node">
 <title>Node3</title>
-<g id="a_Node000003"><a xlink:href="class_easy___copier_1_1_view_models_1_1_game_details_view_model.html#a85b8fc7ff6d6a87de050cf7e5ea5ddd6" target="_top" xlink:title=" ">
+<g id="a_Node000003"><a xlink:href="class_easy___copier_1_1_view_models_1_1_game_details_view_model.html#a85b8fc7ff6d6a87de050cf7e5ea5ddd6" target="_top" xlink:title="Asynchronously loads directory and file items from the specified folder path.">
 <polygon fill="white" stroke="#666666" points="213.25,-147 0,-147 0,-115 213.25,-115 213.25,-147"/>
 <text xml:space="preserve" text-anchor="start" x="8" y="-133.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.ViewModels.Game</text>
 <text xml:space="preserve" text-anchor="middle" x="106.63" y="-121.5" font-family="Helvetica,sans-Serif" font-size="10.00">DetailsViewModel.LoadFolderContentsAsync</text>

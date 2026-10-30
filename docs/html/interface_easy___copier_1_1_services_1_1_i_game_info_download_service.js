@@ -1,4 +1,5 @@
 var interface_easy___copier_1_1_services_1_1_i_game_info_download_service =
 [
-    [ "DownloadGameInfoAsync", "interface_easy___copier_1_1_services_1_1_i_game_info_download_service.html#a1bd0831843e5c600eb2152069624b46b", null ]
+    [ "DownloadCoverForGameAsync", "interface_easy___copier_1_1_services_1_1_i_game_info_download_service.html#a6de6032ea9f53274989cfd31ecb9b447", null ],
+    [ "DownloadGameInfoAsync", "interface_easy___copier_1_1_services_1_1_i_game_info_download_service.html#aba4c4e7948f233e896424aecd6aab0ab", null ]
 ];

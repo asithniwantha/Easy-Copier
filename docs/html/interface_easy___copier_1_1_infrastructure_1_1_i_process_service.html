@@ -128,11 +128,13 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a0cc043e8f68b2d2e9368c71a559dab73"><td class="mdescLeft">&#160;</td><td class="mdescRight">Opens Windows File Explorer to the specified directory or file path.  <br /></td></tr>
 <tr class="memitem:a904be9f48261c51ac940c3836031ec08" id="r_a904be9f48261c51ac940c3836031ec08"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a904be9f48261c51ac940c3836031ec08">IsRunningAsAdministrator</a> ()</td></tr>
 <tr class="memdesc:a904be9f48261c51ac940c3836031ec08"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks whether the current application process is executing with Administrator privileges.  <br /></td></tr>
+<tr class="memitem:ae7863698f5442d7701809e0dab1830d8" id="r_ae7863698f5442d7701809e0dab1830d8"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ae7863698f5442d7701809e0dab1830d8">OpenFormatDialog</a> (string driveLetter)</td></tr>
+<tr class="memdesc:ae7863698f5442d7701809e0dab1830d8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Opens the native Windows Format dialog for the specified drive.  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Provides services for external process execution and environment security checks. </p>
 
-<p class="definition">Definition at line <a class="el" href="_process_service_8cs_source.html#l00009">9</a> of file <a class="el" href="_process_service_8cs_source.html">ProcessService.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_process_service_8cs_source.html#l00010">10</a> of file <a class="el" href="_process_service_8cs_source.html">ProcessService.cs</a>.</p>
 </div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
 <a id="a904be9f48261c51ac940c3836031ec08" name="a904be9f48261c51ac940c3836031ec08"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a904be9f48261c51ac940c3836031ec08">&#9670;&#160;</a></span>IsRunningAsAdministrator()</h2>
@@ -153,6 +155,41 @@ Public Member Functions</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd><code>true</code> if running as Administrator; otherwise, <code>false</code>.</dd></dl>
 
 <p>Implemented in <a class="el" href="class_easy___copier_1_1_infrastructure_1_1_process_service.html#ab389f2af4be67ec15fdf879407de0af7">Easy_Copier.Infrastructure.ProcessService</a>.</p>
+
+</div>
+</div>
+<a id="ae7863698f5442d7701809e0dab1830d8" name="ae7863698f5442d7701809e0dab1830d8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae7863698f5442d7701809e0dab1830d8">&#9670;&#160;</a></span>OpenFormatDialog()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Easy_Copier.Infrastructure.IProcessService.OpenFormatDialog </td>
+          <td>(</td>
+          <td class="paramtype">string</td>          <td class="paramname"><span class="paramname"><em>driveLetter</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Opens the native Windows Format dialog for the specified drive. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">driveLetter</td><td>The drive letter (e.g., "D:" or "D").</td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implemented in <a class="el" href="class_easy___copier_1_1_infrastructure_1_1_process_service.html#a8b63955ebdb6a93ca982b5efaa01d10b">Easy_Copier.Infrastructure.ProcessService</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_main_view_model_8_scanning_8cs_source.html#l00639">Easy_Copier.ViewModels.MainViewModel.FormatDrive()</a>.</p>
+<div id="dynsection-1" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-1-summary" class="dynsummary">
+</div>
+<div id="dynsection-1-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="interface_easy___copier_1_1_infrastructure_1_1_i_process_service_ae7863698f5442d7701809e0dab1830d8_icgraph.svg" width="492" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 
 </div>
 </div>
@@ -181,11 +218,11 @@ Public Member Functions</h2></td></tr>
 
 <p>Implemented in <a class="el" href="class_easy___copier_1_1_infrastructure_1_1_process_service.html#a81de8de323234c848413010f5bb62802">Easy_Copier.Infrastructure.ProcessService</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_main_view_model_8_scanning_8cs_source.html#l00388">Easy_Copier.ViewModels.MainViewModel.OpenDriveInExplorer()</a>, and <a class="el" href="_main_view_model_8_scanning_8cs_source.html#l00397">Easy_Copier.ViewModels.MainViewModel.OpenItemFolder()</a>.</p>
-<div id="dynsection-1" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
-<div id="dynsection-1-summary" class="dynsummary">
+<p class="reference">Referenced by <a class="el" href="_main_view_model_8_scanning_8cs_source.html#l00627">Easy_Copier.ViewModels.MainViewModel.OpenDriveInExplorer()</a>, and <a class="el" href="_main_view_model_8_scanning_8cs_source.html#l00652">Easy_Copier.ViewModels.MainViewModel.OpenItemFolder()</a>.</p>
+<div id="dynsection-2" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-2-summary" class="dynsummary">
 </div>
-<div id="dynsection-1-content" class="dyncontent hidden">
+<div id="dynsection-2-content" class="dyncontent hidden">
 <div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="interface_easy___copier_1_1_infrastructure_1_1_i_process_service_a0cc043e8f68b2d2e9368c71a559dab73_icgraph.svg" width="480" height="120"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 

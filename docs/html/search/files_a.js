@@ -1,12 +1,8 @@
 var searchData=
 [
-  ['mainpage_2eg_2ecs_0',['MainPage.g.cs',['../_debug_2net10_80-windows10_80_826100_80_2win-x64_2_views_2_main_page_8g_8cs.html',1,'(Global Namespace)'],['../_release_2net10_80-windows10_80_826100_80_2win-x64_2_views_2_main_page_8g_8cs.html',1,'(Global Namespace)'],['../x64_2_debug_2net10_80-windows10_80_826100_80_2_views_2_main_page_8g_8cs.html',1,'(Global Namespace)'],['../x64_2_debug_2net10_80-windows10_80_826100_80_2win-x64_2_views_2_main_page_8g_8cs.html',1,'(Global Namespace)'],['../x64_2_release_2net10_80-windows10_80_826100_80_2win-x64_2_views_2_main_page_8g_8cs.html',1,'(Global Namespace)']]],
-  ['mainpage_2eg_2ei_2ecs_1',['MainPage.g.i.cs',['../_debug_2net10_80-windows10_80_826100_80_2win-x64_2_views_2_main_page_8g_8i_8cs.html',1,'(Global Namespace)'],['../_release_2net10_80-windows10_80_826100_80_2win-x64_2_views_2_main_page_8g_8i_8cs.html',1,'(Global Namespace)'],['../x64_2_debug_2net10_80-windows10_80_826100_80_2_views_2_main_page_8g_8i_8cs.html',1,'(Global Namespace)'],['../x64_2_debug_2net10_80-windows10_80_826100_80_2win-x64_2_views_2_main_page_8g_8i_8cs.html',1,'(Global Namespace)'],['../x64_2_release_2net10_80-windows10_80_826100_80_2win-x64_2_views_2_main_page_8g_8i_8cs.html',1,'(Global Namespace)']]],
-  ['mainpage_2examl_2ecs_2',['MainPage.xaml.cs',['../_main_page_8xaml_8cs.html',1,'']]],
-  ['mainviewmodel_2ecs_3',['MainViewModel.cs',['../_main_view_model_8cs.html',1,'']]],
-  ['mainviewmodel_2escanning_2ecs_4',['MainViewModel.Scanning.cs',['../_main_view_model_8_scanning_8cs.html',1,'']]],
-  ['mainviewmodel_2etransfer_2ecs_5',['MainViewModel.Transfer.cs',['../_main_view_model_8_transfer_8cs.html',1,'']]],
-  ['mainwindow_2eg_2ecs_6',['MainWindow.g.cs',['../_debug_2net10_80-windows10_80_826100_80_2win-x64_2_main_window_8g_8cs.html',1,'(Global Namespace)'],['../_release_2net10_80-windows10_80_826100_80_2win-x64_2_main_window_8g_8cs.html',1,'(Global Namespace)'],['../x64_2_debug_2net10_80-windows10_80_826100_80_2_main_window_8g_8cs.html',1,'(Global Namespace)'],['../x64_2_debug_2net10_80-windows10_80_826100_80_2win-x64_2_main_window_8g_8cs.html',1,'(Global Namespace)'],['../x64_2_release_2net10_80-windows10_80_826100_80_2win-x64_2_main_window_8g_8cs.html',1,'(Global Namespace)']]],
-  ['mainwindow_2eg_2ei_2ecs_7',['MainWindow.g.i.cs',['../_debug_2net10_80-windows10_80_826100_80_2win-x64_2_main_window_8g_8i_8cs.html',1,'(Global Namespace)'],['../_release_2net10_80-windows10_80_826100_80_2win-x64_2_main_window_8g_8i_8cs.html',1,'(Global Namespace)'],['../x64_2_debug_2net10_80-windows10_80_826100_80_2_main_window_8g_8i_8cs.html',1,'(Global Namespace)'],['../x64_2_debug_2net10_80-windows10_80_826100_80_2win-x64_2_main_window_8g_8i_8cs.html',1,'(Global Namespace)'],['../x64_2_release_2net10_80-windows10_80_826100_80_2win-x64_2_main_window_8g_8i_8cs.html',1,'(Global Namespace)']]],
-  ['mainwindow_2examl_2ecs_8',['MainWindow.xaml.cs',['../_main_window_8xaml_8cs.html',1,'']]]
+  ['librarycacheservice_2ecs_0',['LibraryCacheService.cs',['../_library_cache_service_8cs.html',1,'']]],
+  ['libraryfilterservice_2ecs_1',['LibraryFilterService.cs',['../_library_filter_service_8cs.html',1,'']]],
+  ['libraryscannerservice_2ecs_2',['LibraryScannerService.cs',['../_library_scanner_service_8cs.html',1,'']]],
+  ['librarytabviewmodelbase_2ecs_3',['LibraryTabViewModelBase.cs',['../_library_tab_view_model_base_8cs.html',1,'']]],
+  ['libraryviewextensions_2ecs_4',['LibraryViewExtensions.cs',['../_library_view_extensions_8cs.html',1,'']]]
 ];

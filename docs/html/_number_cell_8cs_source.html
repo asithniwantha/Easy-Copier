@@ -131,13 +131,31 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('_number_cell_8
 <div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>            <a class="code hl_property" href="class_easy___copier_1_1_models_1_1_number_cell.html#a391662c079e063740c4516087d0b3642">IsNegative</a> = !<span class="keywordtype">string</span>.IsNullOrEmpty(value) &amp;&amp; value.StartsWith(<span class="charliteral">&#39;-&#39;</span>);</div>
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>        }</div>
 </div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    }</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span></div>
+<div class="foldopen" id="foldopen00036" data-start="{" data-end="}">
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="class_easy___copier_1_1_models_1_1_number_cell.html#ae49c3d41a9bcb4605ea1cdb2a1e1f790">   36</a></span>        <span class="keyword">public</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="class_easy___copier_1_1_models_1_1_number_cell.html#ae49c3d41a9bcb4605ea1cdb2a1e1f790">TryGetNumericValue</a>(out <span class="keywordtype">double</span> value)</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>        {</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>            <span class="keywordflow">if</span> (<span class="keywordtype">string</span>.IsNullOrWhiteSpace(<a class="code hl_property" href="class_easy___copier_1_1_models_1_1_number_cell.html#a37d0f6c4ee977df4e025f9289017d25b">InputValue</a>))</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>            {</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>                value = 0;</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>                <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>            }</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>            <span class="keywordflow">return</span> <span class="keywordtype">double</span>.TryParse(</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>                <a class="code hl_property" href="class_easy___copier_1_1_models_1_1_number_cell.html#a37d0f6c4ee977df4e025f9289017d25b">InputValue</a>,</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>                System.Globalization.NumberStyles.Float | System.Globalization.NumberStyles.AllowThousands,</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>                System.Globalization.CultureInfo.InvariantCulture,</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>                out value);</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>        }</div>
 </div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>}</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    }</div>
+</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>}</div>
 <div class="ttc" id="aclass_easy___copier_1_1_models_1_1_number_cell_html"><div class="ttname"><a href="class_easy___copier_1_1_models_1_1_number_cell.html">Easy_Copier.Models.NumberCell</a></div><div class="ttdoc">Represents an individual cell within the SmartAdder grid, tracking user input and negative state.</div><div class="ttdef"><b>Definition</b> <a href="#l00008">NumberCell.cs:9</a></div></div>
 <div class="ttc" id="aclass_easy___copier_1_1_models_1_1_number_cell_html_a37d0f6c4ee977df4e025f9289017d25b"><div class="ttname"><a href="class_easy___copier_1_1_models_1_1_number_cell.html#a37d0f6c4ee977df4e025f9289017d25b">Easy_Copier.Models.NumberCell.InputValue</a></div><div class="ttdeci">partial string InputValue</div><div class="ttdoc">Gets or sets the text input value of the cell.</div><div class="ttdef"><b>Definition</b> <a href="#l00014">NumberCell.cs:14</a></div></div>
 <div class="ttc" id="aclass_easy___copier_1_1_models_1_1_number_cell_html_a391662c079e063740c4516087d0b3642"><div class="ttname"><a href="class_easy___copier_1_1_models_1_1_number_cell.html#a391662c079e063740c4516087d0b3642">Easy_Copier.Models.NumberCell.IsNegative</a></div><div class="ttdeci">partial bool IsNegative</div><div class="ttdoc">Gets or sets a value indicating whether the input value represents a negative number.</div><div class="ttdef"><b>Definition</b> <a href="#l00020">NumberCell.cs:20</a></div></div>
 <div class="ttc" id="aclass_easy___copier_1_1_models_1_1_number_cell_html_a3dce127a4dc1299313b8678508634cc6"><div class="ttname"><a href="class_easy___copier_1_1_models_1_1_number_cell.html#a3dce127a4dc1299313b8678508634cc6">Easy_Copier.Models.NumberCell.OnInputValueChanged</a></div><div class="ttdeci">partial void OnInputValueChanged(string value)</div><div class="ttdoc">Called when InputValue changes to update IsNegative.</div><div class="ttdef"><b>Definition</b> <a href="#l00026">NumberCell.cs:26</a></div></div>
+<div class="ttc" id="aclass_easy___copier_1_1_models_1_1_number_cell_html_ae49c3d41a9bcb4605ea1cdb2a1e1f790"><div class="ttname"><a href="class_easy___copier_1_1_models_1_1_number_cell.html#ae49c3d41a9bcb4605ea1cdb2a1e1f790">Easy_Copier.Models.NumberCell.TryGetNumericValue</a></div><div class="ttdeci">bool TryGetNumericValue(out double value)</div><div class="ttdoc">Attempts to parse the numeric value from InputValue using standard invariant float formatting.</div><div class="ttdef"><b>Definition</b> <a href="#l00036">NumberCell.cs:36</a></div></div>
 <div class="ttc" id="anamespace_easy___copier_1_1_models_html"><div class="ttname"><a href="namespace_easy___copier_1_1_models.html">Easy_Copier.Models</a></div><div class="ttdef"><b>Definition</b> <a href="_domain_models_8cs_source.html#l00004">DomainModels.cs:5</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->

@@ -1,6 +1,6 @@
 <map id="Easy_Copier.Behaviors.NumericTextBoxBehavior.SanitizeText" name="Easy_Copier.Behaviors.NumericTextBoxBehavior.SanitizeText">
-<area shape="rect" id="Node000001" title=" " alt="" coords="540,39,751,81"/>
-<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_behaviors_1_1_numeric_text_box_behavior.html#ae9fe940fad65983c75a4aad6f48f97a0" title=" " alt="" coords="265,31,492,89"/>
+<area shape="rect" id="Node000001" title="Filters an input string to contain only valid numeric characters (digits, single optional leading min..." alt="" coords="540,39,751,81"/>
+<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_behaviors_1_1_numeric_text_box_behavior.html#ae9fe940fad65983c75a4aad6f48f97a0" title="Handles text changing events to sanitize user input to numeric values." alt="" coords="265,31,492,89"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="521,60,492,63,492,57,527,60"/>
 <area shape="rect" id="Node000003" href="$class_easy___copier_1_1_behaviors_1_1_numeric_text_box_behavior.html#a72b8302a484f6fb04a9c37bd0c187ba9" title=" " alt="" coords="5,5,217,48"/>
 <area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="247,44,217,43,217,37,252,44"/>

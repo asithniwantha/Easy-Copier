@@ -1,0 +1,6 @@
+<map id="Easy_Copier.Infrastructure.LibraryViewExtensions.GetSelectedEntries" name="Easy_Copier.Infrastructure.LibraryViewExtensions.GetSelectedEntries">
+<area shape="rect" id="Node000001" title="Retrieves selected GameEntry items from a GridView." alt="" coords="5,13,236,72"/>
+<area shape="rect" id="Node000002" href="$namespace_easy___copier_1_1_models.html#a9c2abd1d64352c07d3085ba499cf2aae" title="Represents a single scanned library entry (game, app, TV/film, or OS image)." alt="" coords="284,29,496,56"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="236,40,271,42,266,43,236,45"/>
+<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="345,28,337,21,342,11,360,5,390,3,422,5,441,15,435,14,421,11,390,8,361,10,346,15,342,20,350,30"/>
+</map>

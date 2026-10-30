@@ -125,13 +125,13 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('class_easy___c
 <div id="dynsection-1-summary" class="dynsummary">
 </div>
 <div id="dynsection-1-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="class_easy___copier_1_1_services_1_1_transfer_queue_service__coll__graph.svg" width="614" height="254"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="class_easy___copier_1_1_services_1_1_transfer_queue_service__coll__graph.svg" width="627" height="254"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a31960a3b7a1549213ab478448f6c15c2" id="r_a31960a3b7a1549213ab478448f6c15c2"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a31960a3b7a1549213ab478448f6c15c2">TransferQueueService</a> (<a class="el" href="interface_easy___copier_1_1_services_1_1_i_file_transfer_service.html">IFileTransferService</a> fileTransferService, ILogger&lt; TransferQueueService &gt; logger, <a class="el" href="interface_easy___copier_1_1_infrastructure_1_1_i_dispatcher_service.html">Infrastructure.IDispatcherService</a> dispatcherService, <a class="el" href="interface_easy___copier_1_1_services_1_1_i_settings_service.html">ISettingsService</a> settingsService, <a class="el" href="interface_easy___copier_1_1_services_1_1_i_audio_playback_service.html">IAudioPlaybackService</a> audioPlaybackService, <a class="el" href="interface_easy___copier_1_1_infrastructure_1_1_i_process_service.html">Infrastructure.IProcessService</a> processService, <a class="el" href="interface_easy___copier_1_1_infrastructure_1_1_i_dialog_service.html">Infrastructure.IDialogService</a> dialogService)</td></tr>
-<tr class="memdesc:a31960a3b7a1549213ab478448f6c15c2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes a new instance of the TransferQueueService class and starts background consumer tasks.  <br /></td></tr>
+<tr class="memitem:a23af5ec676833eb1ec4fc57d0fbe7c0c" id="r_a23af5ec676833eb1ec4fc57d0fbe7c0c"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a23af5ec676833eb1ec4fc57d0fbe7c0c">TransferQueueService</a> (<a class="el" href="interface_easy___copier_1_1_services_1_1_i_file_transfer_service.html">IFileTransferService</a> fileTransferService, ILogger&lt; TransferQueueService &gt; logger, <a class="el" href="interface_easy___copier_1_1_infrastructure_1_1_i_dispatcher_service.html">Infrastructure.IDispatcherService</a> dispatcherService, <a class="el" href="interface_easy___copier_1_1_services_1_1_i_settings_service.html">ISettingsService</a> settingsService, <a class="el" href="interface_easy___copier_1_1_services_1_1_i_batch_notification_service.html">IBatchNotificationService</a> batchNotificationService, <a class="el" href="interface_easy___copier_1_1_infrastructure_1_1_i_dialog_service.html">Infrastructure.IDialogService</a> dialogService)</td></tr>
+<tr class="memdesc:a23af5ec676833eb1ec4fc57d0fbe7c0c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes a new instance of the TransferQueueService class and starts background consumer tasks.  <br /></td></tr>
 <tr class="memitem:a5652702431c6d1b7a185da7e3c383e29" id="r_a5652702431c6d1b7a185da7e3c383e29"><td class="memItemLeft"><a class="el" href="class_easy___copier_1_1_models_1_1_transfer_queue_item.html">TransferQueueItem</a>&#160;</td><td class="memItemRight"><a class="el" href="#a5652702431c6d1b7a185da7e3c383e29">Enqueue</a> (IReadOnlyList&lt; <a class="el" href="namespace_easy___copier_1_1_models.html#a36bba191a5fad0b0ca63ed787ae607d8">TransferItem</a> &gt; items, <a class="el" href="namespace_easy___copier_1_1_models.html#af8f0175620d1cdd9a06d3e52ae12ba12">RemovableDrive</a> targetDrive, string destinationPath)</td></tr>
 <tr class="memdesc:a5652702431c6d1b7a185da7e3c383e29"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enqueues a batch transfer request targeting a specific drive.  <br /></td></tr>
 <tr class="memitem:ab52d7fd62b714594a062e1a744097041" id="r_ab52d7fd62b714594a062e1a744097041"><td class="memItemLeft">long&#160;</td><td class="memItemRight"><a class="el" href="#ab52d7fd62b714594a062e1a744097041">GetReservedBytes</a> (string driveLetter)</td></tr>
@@ -148,13 +148,13 @@ Properties</h2></td></tr>
 Events</h2></td></tr>
 <tr class="memitem:acc44e547c052f384c1b0c6111f510424" id="r_acc44e547c052f384c1b0c6111f510424"><td class="memItemLeft">EventHandler&lt; <a class="el" href="class_easy___copier_1_1_models_1_1_transfer_queue_item.html">TransferQueueItem</a> &gt;?&#160;</td><td class="memItemRight"><a class="el" href="#acc44e547c052f384c1b0c6111f510424">ItemCompleted</a></td></tr>
 <tr class="memdesc:acc44e547c052f384c1b0c6111f510424"><td class="mdescLeft">&#160;</td><td class="mdescRight">Event raised when a single queue item completes execution.  <br /></td></tr>
-<tr class="memitem:a5b4d68506901cb87f83798a0be3c64d8" id="r_a5b4d68506901cb87f83798a0be3c64d8"><td class="memItemLeft">EventHandler&lt;(string Title, string Message)&gt;?&#160;</td><td class="memItemRight"><a class="el" href="#a5b4d68506901cb87f83798a0be3c64d8">BatchCompleted</a></td></tr>
-<tr class="memdesc:a5b4d68506901cb87f83798a0be3c64d8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Event raised when all items for a target drive complete.  <br /></td></tr>
+<tr class="memitem:af5411b8b2236042b9a935d38cf10e358" id="r_af5411b8b2236042b9a935d38cf10e358"><td class="memItemLeft">EventHandler&lt;(string Title, string Message, bool IsSuccess)&gt;?&#160;</td><td class="memItemRight"><a class="el" href="#af5411b8b2236042b9a935d38cf10e358">BatchCompleted</a></td></tr>
+<tr class="memdesc:af5411b8b2236042b9a935d38cf10e358"><td class="mdescLeft">&#160;</td><td class="mdescRight">Event raised when all items for a target drive complete, providing title (<code>Title</code>), message (<code>Message</code>), and success status (<code>IsSuccess</code>) details.  <br /></td></tr>
 <tr class="inherit_header events_interface_easy___copier_1_1_services_1_1_i_transfer_queue_service"><td colspan="2" class="dyn-inherit"><span class="dynarrow"><span class="arrowhead closed"></span></span>Events inherited from <a class="el" href="interface_easy___copier_1_1_services_1_1_i_transfer_queue_service.html">Easy_Copier.Services.ITransferQueueService</a></td></tr>
 <tr class="memitem:a6092b70d17226b9ea3d5bb9895e0b615 inherit events_interface_easy___copier_1_1_services_1_1_i_transfer_queue_service" id="r_a6092b70d17226b9ea3d5bb9895e0b615"><td class="memItemLeft">EventHandler&lt; <a class="el" href="class_easy___copier_1_1_models_1_1_transfer_queue_item.html">TransferQueueItem</a> &gt;?&#160;</td><td class="memItemRight"><a class="el" href="interface_easy___copier_1_1_services_1_1_i_transfer_queue_service.html#a6092b70d17226b9ea3d5bb9895e0b615">ItemCompleted</a></td></tr>
 <tr class="memdesc:a6092b70d17226b9ea3d5bb9895e0b615 inherit events_interface_easy___copier_1_1_services_1_1_i_transfer_queue_service"><td class="mdescLeft">&#160;</td><td class="mdescRight">Event raised when an individual transfer queue item finishes processing.  <br /></td></tr>
-<tr class="memitem:a2bb8fef32aab7a946e1bd1b949d76ae4 inherit events_interface_easy___copier_1_1_services_1_1_i_transfer_queue_service" id="r_a2bb8fef32aab7a946e1bd1b949d76ae4"><td class="memItemLeft">EventHandler&lt;(string Title, string Message)&gt;?&#160;</td><td class="memItemRight"><a class="el" href="interface_easy___copier_1_1_services_1_1_i_transfer_queue_service.html#a2bb8fef32aab7a946e1bd1b949d76ae4">BatchCompleted</a></td></tr>
-<tr class="memdesc:a2bb8fef32aab7a946e1bd1b949d76ae4 inherit events_interface_easy___copier_1_1_services_1_1_i_transfer_queue_service"><td class="mdescLeft">&#160;</td><td class="mdescRight">Event raised when an entire drive batch queue finishes processing, providing title and message details.  <br /></td></tr>
+<tr class="memitem:ab781bd5caa4a53e1d1cc475a345a76b2 inherit events_interface_easy___copier_1_1_services_1_1_i_transfer_queue_service" id="r_ab781bd5caa4a53e1d1cc475a345a76b2"><td class="memItemLeft">EventHandler&lt;(string Title, string Message, bool IsSuccess)&gt;?&#160;</td><td class="memItemRight"><a class="el" href="interface_easy___copier_1_1_services_1_1_i_transfer_queue_service.html#ab781bd5caa4a53e1d1cc475a345a76b2">BatchCompleted</a></td></tr>
+<tr class="memdesc:ab781bd5caa4a53e1d1cc475a345a76b2 inherit events_interface_easy___copier_1_1_services_1_1_i_transfer_queue_service"><td class="mdescLeft">&#160;</td><td class="mdescRight">Event raised when an entire drive batch queue finishes processing, providing title (<code>Title</code>), message (<code>Message</code>), and success status (<code>IsSuccess</code>) details.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pri-methods" class="groupheader"><a id="pri-methods" name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
@@ -164,10 +164,6 @@ Private Member Functions</h2></td></tr>
 <tr class="memdesc:a78c880327c9c88ec2a8691920afd3593"><td class="mdescLeft">&#160;</td><td class="mdescRight">Per-drive loop processing queued transfers sequentially for a single drive letter.  <br /></td></tr>
 <tr class="memitem:a533e1a35bdbcf9ff1fdd48462d021ff3" id="r_a533e1a35bdbcf9ff1fdd48462d021ff3"><td class="memItemLeft">async Task&#160;</td><td class="memItemRight"><a class="el" href="#a533e1a35bdbcf9ff1fdd48462d021ff3">ProcessItemAsync</a> (<a class="el" href="class_easy___copier_1_1_models_1_1_transfer_queue_item.html">TransferQueueItem</a> item)</td></tr>
 <tr class="memdesc:a533e1a35bdbcf9ff1fdd48462d021ff3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes an individual transfer item and updates its status and progress properties on the UI thread.  <br /></td></tr>
-<tr class="memitem:a32e2c5f600b609c21a22bf2d6437f4fb" id="r_a32e2c5f600b609c21a22bf2d6437f4fb"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a32e2c5f600b609c21a22bf2d6437f4fb">CheckAndNotifyBatchCompletion</a> (string driveLetter)</td></tr>
-<tr class="memdesc:a32e2c5f600b609c21a22bf2d6437f4fb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if all queued items targeting a drive have finished and triggers completion sounds and toast notifications.  <br /></td></tr>
-<tr class="memitem:a609a297676ded43e4cae11d0c7b0eb04" id="r_a609a297676ded43e4cae11d0c7b0eb04"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a609a297676ded43e4cae11d0c7b0eb04">ShowDesktopNotification</a> (string driveLetter, List&lt; <a class="el" href="class_easy___copier_1_1_models_1_1_transfer_queue_item.html">TransferQueueItem</a> &gt; batchItems, bool isSuccess)</td></tr>
-<tr class="memdesc:a609a297676ded43e4cae11d0c7b0eb04"><td class="mdescLeft">&#160;</td><td class="mdescRight">Builds and displays a Windows AppNotification toast message summarizing batch transfer completion.  <br /></td></tr>
 <tr class="memitem:a7c3c07a217ea001a005714d570176bd2" id="r_a7c3c07a217ea001a005714d570176bd2"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a7c3c07a217ea001a005714d570176bd2">RunOnUiThread</a> (Action action)</td></tr>
 <tr class="memdesc:a7c3c07a217ea001a005714d570176bd2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes an action on the UI thread using Infrastructure.IDispatcherService.  <br /></td></tr>
 </table><table class="memberdecls">
@@ -180,7 +176,7 @@ Static Private Member Functions</h2></td></tr>
 Private Attributes</h2></td></tr>
 <tr class="memitem:a6d8da3cefbbee6ae4dd49ebee337d4f3" id="r_a6d8da3cefbbee6ae4dd49ebee337d4f3"><td class="memItemLeft">readonly <a class="el" href="interface_easy___copier_1_1_services_1_1_i_file_transfer_service.html">IFileTransferService</a>&#160;</td><td class="memItemRight"><a class="el" href="#a6d8da3cefbbee6ae4dd49ebee337d4f3">_fileTransferService</a></td></tr>
 <tr class="memdesc:a6d8da3cefbbee6ae4dd49ebee337d4f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">File transfer service instance used to execute operations.  <br /></td></tr>
-<tr class="memitem:a1728e527ab44bad675d1b17f398a3f74" id="r_a1728e527ab44bad675d1b17f398a3f74"><td class="memItemLeft">readonly ILogger&lt; <a class="el" href="#a31960a3b7a1549213ab478448f6c15c2">TransferQueueService</a> &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a1728e527ab44bad675d1b17f398a3f74">_logger</a></td></tr>
+<tr class="memitem:a1728e527ab44bad675d1b17f398a3f74" id="r_a1728e527ab44bad675d1b17f398a3f74"><td class="memItemLeft">readonly ILogger&lt; <a class="el" href="#a23af5ec676833eb1ec4fc57d0fbe7c0c">TransferQueueService</a> &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a1728e527ab44bad675d1b17f398a3f74">_logger</a></td></tr>
 <tr class="memdesc:a1728e527ab44bad675d1b17f398a3f74"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logger instance used for diagnostic logging.  <br /></td></tr>
 <tr class="memitem:aa58b396a580938e76625edc1a9eb0b05" id="r_aa58b396a580938e76625edc1a9eb0b05"><td class="memItemLeft">readonly Channel&lt; <a class="el" href="class_easy___copier_1_1_models_1_1_transfer_queue_item.html">TransferQueueItem</a> &gt;&#160;</td><td class="memItemRight"><a class="el" href="#aa58b396a580938e76625edc1a9eb0b05">_channel</a> = Channel.CreateUnbounded&lt;<a class="el" href="class_easy___copier_1_1_models_1_1_transfer_queue_item.html">TransferQueueItem</a>&gt;()</td></tr>
 <tr class="memdesc:aa58b396a580938e76625edc1a9eb0b05"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main unbound channel holding incoming queue items.  <br /></td></tr>
@@ -190,20 +186,18 @@ Private Attributes</h2></td></tr>
 <tr class="memdesc:a590e932c3051c330fdfbf0220035d8c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dispatcher service for marshaling updates onto the UI thread.  <br /></td></tr>
 <tr class="memitem:a0de532c60e432c666c99aa298909f1a9" id="r_a0de532c60e432c666c99aa298909f1a9"><td class="memItemLeft">readonly <a class="el" href="interface_easy___copier_1_1_services_1_1_i_settings_service.html">ISettingsService</a>&#160;</td><td class="memItemRight"><a class="el" href="#a0de532c60e432c666c99aa298909f1a9">_settingsService</a></td></tr>
 <tr class="memdesc:a0de532c60e432c666c99aa298909f1a9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Settings service for loading notification and pricing settings.  <br /></td></tr>
-<tr class="memitem:a1e2d47a9ed75054c73104c08932997e6" id="r_a1e2d47a9ed75054c73104c08932997e6"><td class="memItemLeft">readonly <a class="el" href="interface_easy___copier_1_1_services_1_1_i_audio_playback_service.html">IAudioPlaybackService</a>&#160;</td><td class="memItemRight"><a class="el" href="#a1e2d47a9ed75054c73104c08932997e6">_audioPlaybackService</a></td></tr>
-<tr class="memdesc:a1e2d47a9ed75054c73104c08932997e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Audio playback service for sound notifications.  <br /></td></tr>
-<tr class="memitem:a7355b13646cc1d00b08a6d574c4026b8" id="r_a7355b13646cc1d00b08a6d574c4026b8"><td class="memItemLeft">readonly <a class="el" href="interface_easy___copier_1_1_infrastructure_1_1_i_process_service.html">Infrastructure.IProcessService</a>&#160;</td><td class="memItemRight"><a class="el" href="#a7355b13646cc1d00b08a6d574c4026b8">_processService</a></td></tr>
-<tr class="memdesc:a7355b13646cc1d00b08a6d574c4026b8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Process service for checking privilege levels.  <br /></td></tr>
+<tr class="memitem:aef0a7d4517c6a1effa7418aff6c39c6e" id="r_aef0a7d4517c6a1effa7418aff6c39c6e"><td class="memItemLeft">readonly <a class="el" href="interface_easy___copier_1_1_services_1_1_i_batch_notification_service.html">IBatchNotificationService</a>&#160;</td><td class="memItemRight"><a class="el" href="#aef0a7d4517c6a1effa7418aff6c39c6e">_batchNotificationService</a></td></tr>
+<tr class="memdesc:aef0a7d4517c6a1effa7418aff6c39c6e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Batch notification service for evaluating batch completions and showing alerts/toasts.  <br /></td></tr>
 <tr class="memitem:a89800d2e99829dd21013295e67c8bfa2" id="r_a89800d2e99829dd21013295e67c8bfa2"><td class="memItemLeft">readonly <a class="el" href="interface_easy___copier_1_1_infrastructure_1_1_i_dialog_service.html">Infrastructure.IDialogService</a>&#160;</td><td class="memItemRight"><a class="el" href="#a89800d2e99829dd21013295e67c8bfa2">_dialogService</a></td></tr>
 <tr class="memdesc:a89800d2e99829dd21013295e67c8bfa2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dialog service for prompting user dialogs.  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Service managing background asynchronous file transfer queues with per-drive channels, sound alerts, and toast notifications. </p>
 
-<p class="definition">Definition at line <a class="el" href="_transfer_queue_service_8cs_source.html#l00060">60</a> of file <a class="el" href="_transfer_queue_service_8cs_source.html">TransferQueueService.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_transfer_queue_service_8cs_source.html#l00058">58</a> of file <a class="el" href="_transfer_queue_service_8cs_source.html">TransferQueueService.cs</a>.</p>
 </div><a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a31960a3b7a1549213ab478448f6c15c2" name="a31960a3b7a1549213ab478448f6c15c2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a31960a3b7a1549213ab478448f6c15c2">&#9670;&#160;</a></span>TransferQueueService()</h2>
+<a id="a23af5ec676833eb1ec4fc57d0fbe7c0c" name="a23af5ec676833eb1ec4fc57d0fbe7c0c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a23af5ec676833eb1ec4fc57d0fbe7c0c">&#9670;&#160;</a></span>TransferQueueService()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -231,12 +225,7 @@ Private Attributes</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="interface_easy___copier_1_1_services_1_1_i_audio_playback_service.html">IAudioPlaybackService</a></td>          <td class="paramname"><span class="paramname"><em>audioPlaybackService</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="interface_easy___copier_1_1_infrastructure_1_1_i_process_service.html">Infrastructure.IProcessService</a></td>          <td class="paramname"><span class="paramname"><em>processService</em></span>, </td>
+          <td class="paramtype"><a class="el" href="interface_easy___copier_1_1_services_1_1_i_batch_notification_service.html">IBatchNotificationService</a></td>          <td class="paramname"><span class="paramname"><em>batchNotificationService</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -253,77 +242,25 @@ Private Attributes</h2></td></tr>
     <tr><td class="paramname">logger</td><td>Logger instance.</td></tr>
     <tr><td class="paramname">dispatcherService</td><td>UI dispatcher service.</td></tr>
     <tr><td class="paramname">settingsService</td><td>Settings service.</td></tr>
-    <tr><td class="paramname">audioPlaybackService</td><td>Audio playback service.</td></tr>
-    <tr><td class="paramname">processService</td><td>Process privilege service.</td></tr>
+    <tr><td class="paramname">batchNotificationService</td><td>Batch notification service.</td></tr>
     <tr><td class="paramname">dialogService</td><td>Dialog prompt service.</td></tr>
   </table>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_transfer_queue_service_8cs_source.html#l00132">132</a> of file <a class="el" href="_transfer_queue_service_8cs_source.html">TransferQueueService.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_transfer_queue_service_8cs_source.html#l00124">124</a> of file <a class="el" href="_transfer_queue_service_8cs_source.html">TransferQueueService.cs</a>.</p>
 
-<p class="reference">References <a class="el" href="_transfer_queue_service_8cs_source.html#l00110">_audioPlaybackService</a>, <a class="el" href="_transfer_queue_service_8cs_source.html#l00120">_dialogService</a>, <a class="el" href="_transfer_queue_service_8cs_source.html#l00085">_dispatcherService</a>, <a class="el" href="_transfer_queue_service_8cs_source.html#l00065">_fileTransferService</a>, <a class="el" href="_transfer_queue_service_8cs_source.html#l00070">_logger</a>, <a class="el" href="_transfer_queue_service_8cs_source.html#l00115">_processService</a>, <a class="el" href="_transfer_queue_service_8cs_source.html#l00105">_settingsService</a>, and <a class="el" href="_transfer_queue_service_8cs_source.html#l00200">ProcessQueueAsync()</a>.</p>
+<p class="reference">References <a class="el" href="_transfer_queue_service_8cs_source.html#l00108">_batchNotificationService</a>, <a class="el" href="_transfer_queue_service_8cs_source.html#l00113">_dialogService</a>, <a class="el" href="_transfer_queue_service_8cs_source.html#l00083">_dispatcherService</a>, <a class="el" href="_transfer_queue_service_8cs_source.html#l00063">_fileTransferService</a>, <a class="el" href="_transfer_queue_service_8cs_source.html#l00068">_logger</a>, <a class="el" href="_transfer_queue_service_8cs_source.html#l00103">_settingsService</a>, <a class="el" href="_transfer_queue_service_8cs_source.html#l00098">BatchCompleted</a>, and <a class="el" href="_transfer_queue_service_8cs_source.html#l00199">ProcessQueueAsync()</a>.</p>
 <div id="dynsection-2" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-2-summary" class="dynsummary">
 </div>
 <div id="dynsection-2-content" class="dyncontent hidden">
-<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="class_easy___copier_1_1_services_1_1_transfer_queue_service_a31960a3b7a1549213ab478448f6c15c2_cgraph.svg" width="100%" height="538"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="class_easy___copier_1_1_services_1_1_transfer_queue_service_a23af5ec676833eb1ec4fc57d0fbe7c0c_cgraph.svg" width="100%" height="476"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
 </div>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
-<a id="a32e2c5f600b609c21a22bf2d6437f4fb" name="a32e2c5f600b609c21a22bf2d6437f4fb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a32e2c5f600b609c21a22bf2d6437f4fb">&#9670;&#160;</a></span>CheckAndNotifyBatchCompletion()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Easy_Copier.Services.TransferQueueService.CheckAndNotifyBatchCompletion </td>
-          <td>(</td>
-          <td class="paramtype">string</td>          <td class="paramname"><span class="paramname"><em>driveLetter</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Checks if all queued items targeting a drive have finished and triggers completion sounds and toast notifications. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">driveLetter</td><td>Target drive letter.</td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p class="definition">Definition at line <a class="el" href="_transfer_queue_service_8cs_source.html#l00298">298</a> of file <a class="el" href="_transfer_queue_service_8cs_source.html">TransferQueueService.cs</a>.</p>
-
-<p class="reference">References <a class="el" href="_transfer_queue_service_8cs_source.html#l00110">_audioPlaybackService</a>, <a class="el" href="_transfer_queue_service_8cs_source.html#l00105">_settingsService</a>, <a class="el" href="_domain_models_8cs_source.html#l00271">Easy_Copier.Models.AppSettings.PlayNotificationSounds</a>, <a class="el" href="_transfer_queue_service_8cs_source.html#l00090">QueueItems</a>, <a class="el" href="_transfer_queue_service_8cs_source.html#l00347">ShowDesktopNotification()</a>, and <a class="el" href="_domain_models_8cs_source.html#l00274">Easy_Copier.Models.AppSettings.ShowDesktopNotifications</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="_transfer_queue_service_8cs_source.html#l00237">ProcessItemAsync()</a>.</p>
-<div id="dynsection-3" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-3-summary" class="dynsummary">
-</div>
-<div id="dynsection-3-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="class_easy___copier_1_1_services_1_1_transfer_queue_service_a32e2c5f600b609c21a22bf2d6437f4fb_cgraph.svg" width="552" height="70"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-<div id="dynsection-4" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
-<div id="dynsection-4-summary" class="dynsummary">
-</div>
-<div id="dynsection-4-content" class="dyncontent hidden">
-<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="class_easy___copier_1_1_services_1_1_transfer_queue_service_a32e2c5f600b609c21a22bf2d6437f4fb_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
-</div>
-
-</div>
-</div>
 <a id="ad4adf454830e78260018cc7ae3ca760a" name="ad4adf454830e78260018cc7ae3ca760a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad4adf454830e78260018cc7ae3ca760a">&#9670;&#160;</a></span>ClearFinished()</h2>
 
@@ -343,9 +280,9 @@ Private Attributes</h2></td></tr>
 
 <p>Implements <a class="el" href="interface_easy___copier_1_1_services_1_1_i_transfer_queue_service.html#a6fc34f4b3bad238f2601e7f94221b5ce">Easy_Copier.Services.ITransferQueueService</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_transfer_queue_service_8cs_source.html#l00187">187</a> of file <a class="el" href="_transfer_queue_service_8cs_source.html">TransferQueueService.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_transfer_queue_service_8cs_source.html#l00186">186</a> of file <a class="el" href="_transfer_queue_service_8cs_source.html">TransferQueueService.cs</a>.</p>
 
-<p class="reference">References <a class="el" href="_transfer_queue_service_8cs_source.html#l00090">QueueItems</a>.</p>
+<p class="reference">References <a class="el" href="_transfer_queue_service_8cs_source.html#l00088">QueueItems</a>.</p>
 
 </div>
 </div>
@@ -386,13 +323,13 @@ Private Attributes</h2></td></tr>
 
 <p>Implements <a class="el" href="interface_easy___copier_1_1_services_1_1_i_transfer_queue_service.html#afdf1a06fba0ea7f44bc32d23bcef4edf">Easy_Copier.Services.ITransferQueueService</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_transfer_queue_service_8cs_source.html#l00152">152</a> of file <a class="el" href="_transfer_queue_service_8cs_source.html">TransferQueueService.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_transfer_queue_service_8cs_source.html#l00151">151</a> of file <a class="el" href="_transfer_queue_service_8cs_source.html">TransferQueueService.cs</a>.</p>
 
-<p class="reference">References <a class="el" href="_transfer_queue_service_8cs_source.html#l00075">_channel</a>, <a class="el" href="_transfer_queue_service_8cs_source.html#l00070">_logger</a>, <a class="el" href="_transfer_queue_service_8cs_source.html#l00105">_settingsService</a>, <a class="el" href="_formatting_helpers_8cs_source.html#l00035">Easy_Copier.Infrastructure.FormattingHelpers.CalculatePrice()</a>, <a class="el" href="_transfer_queue_service_8cs_source.html#l00090">QueueItems</a>, and <a class="el" href="_domain_models_8cs_source.html#l00131">Easy_Copier.Models.RemovableDrive()</a>.</p>
-<div id="dynsection-5" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-5-summary" class="dynsummary">
+<p class="reference">References <a class="el" href="_transfer_queue_service_8cs_source.html#l00073">_channel</a>, <a class="el" href="_transfer_queue_service_8cs_source.html#l00068">_logger</a>, <a class="el" href="_transfer_queue_service_8cs_source.html#l00103">_settingsService</a>, <a class="el" href="_formatting_helpers_8cs_source.html#l00035">Easy_Copier.Infrastructure.FormattingHelpers.CalculatePrice()</a>, <a class="el" href="_transfer_queue_service_8cs_source.html#l00088">QueueItems</a>, and <a class="el" href="_domain_models_8cs_source.html#l00179">Easy_Copier.Models.RemovableDrive()</a>.</p>
+<div id="dynsection-3" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-3-summary" class="dynsummary">
 </div>
-<div id="dynsection-5-content" class="dyncontent hidden">
+<div id="dynsection-3-content" class="dyncontent hidden">
 <div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="class_easy___copier_1_1_services_1_1_transfer_queue_service_a5652702431c6d1b7a185da7e3c383e29_cgraph.svg" width="480" height="144"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
@@ -424,9 +361,9 @@ Private Attributes</h2></td></tr>
 
 <p>Implements <a class="el" href="interface_easy___copier_1_1_services_1_1_i_transfer_queue_service.html#a3fef5ef5d4d147a7b3dd8976cf683375">Easy_Copier.Services.ITransferQueueService</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_transfer_queue_service_8cs_source.html#l00177">177</a> of file <a class="el" href="_transfer_queue_service_8cs_source.html">TransferQueueService.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_transfer_queue_service_8cs_source.html#l00176">176</a> of file <a class="el" href="_transfer_queue_service_8cs_source.html">TransferQueueService.cs</a>.</p>
 
-<p class="reference">References <a class="el" href="_transfer_queue_service_8cs_source.html#l00090">QueueItems</a>.</p>
+<p class="reference">References <a class="el" href="_transfer_queue_service_8cs_source.html#l00088">QueueItems</a>.</p>
 
 </div>
 </div>
@@ -462,13 +399,13 @@ Private Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Normalized drive letter key.</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_transfer_queue_service_8cs_source.html#l00429">429</a> of file <a class="el" href="_transfer_queue_service_8cs_source.html">TransferQueueService.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_transfer_queue_service_8cs_source.html#l00298">298</a> of file <a class="el" href="_transfer_queue_service_8cs_source.html">TransferQueueService.cs</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_transfer_queue_service_8cs_source.html#l00200">ProcessQueueAsync()</a>.</p>
-<div id="dynsection-6" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
-<div id="dynsection-6-summary" class="dynsummary">
+<p class="reference">Referenced by <a class="el" href="_transfer_queue_service_8cs_source.html#l00199">ProcessQueueAsync()</a>.</p>
+<div id="dynsection-4" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-4-summary" class="dynsummary">
 </div>
-<div id="dynsection-6-content" class="dyncontent hidden">
+<div id="dynsection-4-content" class="dyncontent hidden">
 <div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="class_easy___copier_1_1_services_1_1_transfer_queue_service_a2ba83cddc2543b30afbbb19aad204c97_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
@@ -511,21 +448,21 @@ Private Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>A task representing the processing loop.</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_transfer_queue_service_8cs_source.html#l00222">222</a> of file <a class="el" href="_transfer_queue_service_8cs_source.html">TransferQueueService.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_transfer_queue_service_8cs_source.html#l00221">221</a> of file <a class="el" href="_transfer_queue_service_8cs_source.html">TransferQueueService.cs</a>.</p>
 
-<p class="reference">References <a class="el" href="_transfer_queue_service_8cs_source.html#l00080">_driveChannels</a>, and <a class="el" href="_transfer_queue_service_8cs_source.html#l00237">ProcessItemAsync()</a>.</p>
+<p class="reference">References <a class="el" href="_transfer_queue_service_8cs_source.html#l00078">_driveChannels</a>, and <a class="el" href="_transfer_queue_service_8cs_source.html#l00236">ProcessItemAsync()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_transfer_queue_service_8cs_source.html#l00200">ProcessQueueAsync()</a>.</p>
-<div id="dynsection-7" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-7-summary" class="dynsummary">
+<p class="reference">Referenced by <a class="el" href="_transfer_queue_service_8cs_source.html#l00199">ProcessQueueAsync()</a>.</p>
+<div id="dynsection-5" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-5-summary" class="dynsummary">
 </div>
-<div id="dynsection-7-content" class="dyncontent hidden">
-<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="class_easy___copier_1_1_services_1_1_transfer_queue_service_a78c880327c9c88ec2a8691920afd3593_cgraph.svg" width="100%" height="538"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div id="dynsection-5-content" class="dyncontent hidden">
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="class_easy___copier_1_1_services_1_1_transfer_queue_service_a78c880327c9c88ec2a8691920afd3593_cgraph.svg" width="100%" height="476"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
-<div id="dynsection-8" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
-<div id="dynsection-8-summary" class="dynsummary">
+<div id="dynsection-6" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-6-summary" class="dynsummary">
 </div>
-<div id="dynsection-8-content" class="dyncontent hidden">
+<div id="dynsection-6-content" class="dyncontent hidden">
 <div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="class_easy___copier_1_1_services_1_1_transfer_queue_service_a78c880327c9c88ec2a8691920afd3593_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
@@ -563,21 +500,21 @@ Private Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>A task representing the execution.</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_transfer_queue_service_8cs_source.html#l00237">237</a> of file <a class="el" href="_transfer_queue_service_8cs_source.html">TransferQueueService.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_transfer_queue_service_8cs_source.html#l00236">236</a> of file <a class="el" href="_transfer_queue_service_8cs_source.html">TransferQueueService.cs</a>.</p>
 
-<p class="reference">References <a class="el" href="_transfer_queue_service_8cs_source.html#l00065">_fileTransferService</a>, <a class="el" href="_transfer_queue_service_8cs_source.html#l00070">_logger</a>, <a class="el" href="_transfer_queue_service_8cs_source.html#l00298">CheckAndNotifyBatchCompletion()</a>, <a class="el" href="_transfer_queue_item_8cs_source.html#l00020">Easy_Copier.Models.Completed</a>, <a class="el" href="_transfer_queue_item_8cs_source.html#l00056">Easy_Copier.Models.TransferQueueItem.DestinationPath</a>, <a class="el" href="_transfer_queue_service_8cs_source.html#l00095">ItemCompleted</a>, <a class="el" href="_transfer_queue_item_8cs_source.html#l00046">Easy_Copier.Models.TransferQueueItem.Items</a>, <a class="el" href="_transfer_queue_service_8cs_source.html#l00438">RunOnUiThread()</a>, <a class="el" href="_transfer_queue_item_8cs_source.html#l00051">Easy_Copier.Models.TransferQueueItem.TargetDrive</a>, <a class="el" href="namespace_easy___copier_1_1_models.html#a0f254e810a60e913105ca1898e396f4c">Easy_Copier.Models.TransferOutcome()</a>, and <a class="el" href="namespace_easy___copier_1_1_models.html#a361f45ad4ad4f48588e380daa766a5fa">Easy_Copier.Models.TransferRequest()</a>.</p>
+<p class="reference">References <a class="el" href="_transfer_queue_service_8cs_source.html#l00108">_batchNotificationService</a>, <a class="el" href="_transfer_queue_service_8cs_source.html#l00063">_fileTransferService</a>, <a class="el" href="_transfer_queue_service_8cs_source.html#l00068">_logger</a>, <a class="el" href="_transfer_queue_item_8cs_source.html#l00020">Easy_Copier.Models.Completed</a>, <a class="el" href="_transfer_queue_item_8cs_source.html#l00056">Easy_Copier.Models.TransferQueueItem.DestinationPath</a>, <a class="el" href="_transfer_queue_service_8cs_source.html#l00093">ItemCompleted</a>, <a class="el" href="_transfer_queue_item_8cs_source.html#l00046">Easy_Copier.Models.TransferQueueItem.Items</a>, <a class="el" href="_transfer_queue_service_8cs_source.html#l00088">QueueItems</a>, <a class="el" href="_transfer_queue_service_8cs_source.html#l00307">RunOnUiThread()</a>, <a class="el" href="_transfer_queue_item_8cs_source.html#l00051">Easy_Copier.Models.TransferQueueItem.TargetDrive</a>, <a class="el" href="namespace_easy___copier_1_1_models.html#a0f254e810a60e913105ca1898e396f4c">Easy_Copier.Models.TransferOutcome()</a>, and <a class="el" href="namespace_easy___copier_1_1_models.html#a361f45ad4ad4f48588e380daa766a5fa">Easy_Copier.Models.TransferRequest()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_transfer_queue_service_8cs_source.html#l00222">ProcessDriveQueueAsync()</a>.</p>
-<div id="dynsection-9" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-9-summary" class="dynsummary">
+<p class="reference">Referenced by <a class="el" href="_transfer_queue_service_8cs_source.html#l00221">ProcessDriveQueueAsync()</a>.</p>
+<div id="dynsection-7" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-7-summary" class="dynsummary">
 </div>
-<div id="dynsection-9-content" class="dyncontent hidden">
-<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="class_easy___copier_1_1_services_1_1_transfer_queue_service_a533e1a35bdbcf9ff1fdd48462d021ff3_cgraph.svg" width="100%" height="538"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div id="dynsection-7-content" class="dyncontent hidden">
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="class_easy___copier_1_1_services_1_1_transfer_queue_service_a533e1a35bdbcf9ff1fdd48462d021ff3_cgraph.svg" width="100%" height="476"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
-<div id="dynsection-10" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
-<div id="dynsection-10-summary" class="dynsummary">
+<div id="dynsection-8" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-8-summary" class="dynsummary">
 </div>
-<div id="dynsection-10-content" class="dyncontent hidden">
+<div id="dynsection-8-content" class="dyncontent hidden">
 <div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="class_easy___copier_1_1_services_1_1_transfer_queue_service_a533e1a35bdbcf9ff1fdd48462d021ff3_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
@@ -609,21 +546,21 @@ Private Attributes</h2></td></tr>
 <p>Main background loop reading items from the primary channel and routing them to per-drive execution channels. </p>
 <dl class="section return"><dt>Returns</dt><dd>A task representing the background queue processing operation.</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_transfer_queue_service_8cs_source.html#l00200">200</a> of file <a class="el" href="_transfer_queue_service_8cs_source.html">TransferQueueService.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_transfer_queue_service_8cs_source.html#l00199">199</a> of file <a class="el" href="_transfer_queue_service_8cs_source.html">TransferQueueService.cs</a>.</p>
 
-<p class="reference">References <a class="el" href="_transfer_queue_service_8cs_source.html#l00075">_channel</a>, <a class="el" href="_transfer_queue_service_8cs_source.html#l00080">_driveChannels</a>, <a class="el" href="_transfer_queue_service_8cs_source.html#l00429">NormalizeDriveKey()</a>, <a class="el" href="_transfer_queue_service_8cs_source.html#l00222">ProcessDriveQueueAsync()</a>, and <a class="el" href="_transfer_queue_item_8cs_source.html#l00051">Easy_Copier.Models.TransferQueueItem.TargetDrive</a>.</p>
+<p class="reference">References <a class="el" href="_transfer_queue_service_8cs_source.html#l00073">_channel</a>, <a class="el" href="_transfer_queue_service_8cs_source.html#l00078">_driveChannels</a>, <a class="el" href="_transfer_queue_service_8cs_source.html#l00298">NormalizeDriveKey()</a>, <a class="el" href="_transfer_queue_service_8cs_source.html#l00221">ProcessDriveQueueAsync()</a>, and <a class="el" href="_transfer_queue_item_8cs_source.html#l00051">Easy_Copier.Models.TransferQueueItem.TargetDrive</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_transfer_queue_service_8cs_source.html#l00132">TransferQueueService()</a>.</p>
-<div id="dynsection-11" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-11-summary" class="dynsummary">
+<p class="reference">Referenced by <a class="el" href="_transfer_queue_service_8cs_source.html#l00124">TransferQueueService()</a>.</p>
+<div id="dynsection-9" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-9-summary" class="dynsummary">
 </div>
-<div id="dynsection-11-content" class="dyncontent hidden">
-<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="class_easy___copier_1_1_services_1_1_transfer_queue_service_ad3adb01ff5efc729bccd3060144e6f34_cgraph.svg" width="100%" height="538"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div id="dynsection-9-content" class="dyncontent hidden">
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="class_easy___copier_1_1_services_1_1_transfer_queue_service_ad3adb01ff5efc729bccd3060144e6f34_cgraph.svg" width="100%" height="476"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
-<div id="dynsection-12" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
-<div id="dynsection-12-summary" class="dynsummary">
+<div id="dynsection-10" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-10-summary" class="dynsummary">
 </div>
-<div id="dynsection-12-content" class="dyncontent hidden">
+<div id="dynsection-10-content" class="dyncontent hidden">
 <div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="class_easy___copier_1_1_services_1_1_transfer_queue_service_ad3adb01ff5efc729bccd3060144e6f34_icgraph.svg" width="527" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
@@ -660,79 +597,23 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_transfer_queue_service_8cs_source.html#l00438">438</a> of file <a class="el" href="_transfer_queue_service_8cs_source.html">TransferQueueService.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_transfer_queue_service_8cs_source.html#l00307">307</a> of file <a class="el" href="_transfer_queue_service_8cs_source.html">TransferQueueService.cs</a>.</p>
 
-<p class="reference">References <a class="el" href="_transfer_queue_service_8cs_source.html#l00085">_dispatcherService</a>.</p>
+<p class="reference">References <a class="el" href="_transfer_queue_service_8cs_source.html#l00083">_dispatcherService</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_transfer_queue_service_8cs_source.html#l00237">ProcessItemAsync()</a>.</p>
-<div id="dynsection-13" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
-<div id="dynsection-13-summary" class="dynsummary">
+<p class="reference">Referenced by <a class="el" href="_transfer_queue_service_8cs_source.html#l00236">ProcessItemAsync()</a>.</p>
+<div id="dynsection-11" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-11-summary" class="dynsummary">
 </div>
-<div id="dynsection-13-content" class="dyncontent hidden">
+<div id="dynsection-11-content" class="dyncontent hidden">
 <div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="class_easy___copier_1_1_services_1_1_transfer_queue_service_a7c3c07a217ea001a005714d570176bd2_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
 </div>
-<a id="a609a297676ded43e4cae11d0c7b0eb04" name="a609a297676ded43e4cae11d0c7b0eb04"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a609a297676ded43e4cae11d0c7b0eb04">&#9670;&#160;</a></span>ShowDesktopNotification()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Easy_Copier.Services.TransferQueueService.ShowDesktopNotification </td>
-          <td>(</td>
-          <td class="paramtype">string</td>          <td class="paramname"><span class="paramname"><em>driveLetter</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">List&lt; <a class="el" href="class_easy___copier_1_1_models_1_1_transfer_queue_item.html">TransferQueueItem</a> &gt;</td>          <td class="paramname"><span class="paramname"><em>batchItems</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>isSuccess</em></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Builds and displays a Windows AppNotification toast message summarizing batch transfer completion. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">driveLetter</td><td>Target drive letter.</td></tr>
-    <tr><td class="paramname">batchItems</td><td>List of batch transfer queue items.</td></tr>
-    <tr><td class="paramname">isSuccess</td><td><code>true</code> if all batch items succeeded; otherwise, <code>false</code>.</td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p class="definition">Definition at line <a class="el" href="_transfer_queue_service_8cs_source.html#l00347">347</a> of file <a class="el" href="_transfer_queue_service_8cs_source.html">TransferQueueService.cs</a>.</p>
-
-<p class="reference">References <a class="el" href="_transfer_queue_service_8cs_source.html#l00070">_logger</a>, <a class="el" href="_transfer_queue_service_8cs_source.html#l00115">_processService</a>, <a class="el" href="_transfer_queue_service_8cs_source.html#l00100">BatchCompleted</a>, and <a class="el" href="_transfer_queue_item_8cs_source.html#l00051">Easy_Copier.Models.TransferQueueItem.TargetDrive</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="_transfer_queue_service_8cs_source.html#l00298">CheckAndNotifyBatchCompletion()</a>.</p>
-<div id="dynsection-14" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
-<div id="dynsection-14-summary" class="dynsummary">
-</div>
-<div id="dynsection-14-content" class="dyncontent hidden">
-<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="class_easy___copier_1_1_services_1_1_transfer_queue_service_a609a297676ded43e4cae11d0c7b0eb04_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
-</div>
-
-</div>
-</div>
 <a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Member Data Documentation</h2>
-<a id="a1e2d47a9ed75054c73104c08932997e6" name="a1e2d47a9ed75054c73104c08932997e6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1e2d47a9ed75054c73104c08932997e6">&#9670;&#160;</a></span>_audioPlaybackService</h2>
+<a id="aef0a7d4517c6a1effa7418aff6c39c6e" name="aef0a7d4517c6a1effa7418aff6c39c6e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aef0a7d4517c6a1effa7418aff6c39c6e">&#9670;&#160;</a></span>_batchNotificationService</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -741,7 +622,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">readonly <a class="el" href="interface_easy___copier_1_1_services_1_1_i_audio_playback_service.html">IAudioPlaybackService</a> Easy_Copier.Services.TransferQueueService._audioPlaybackService</td>
+          <td class="memname">readonly <a class="el" href="interface_easy___copier_1_1_services_1_1_i_batch_notification_service.html">IBatchNotificationService</a> Easy_Copier.Services.TransferQueueService._batchNotificationService</td>
         </tr>
       </table>
   </td>
@@ -751,11 +632,11 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Audio playback service for sound notifications. </p>
+<p>Batch notification service for evaluating batch completions and showing alerts/toasts. </p>
 
-<p class="definition">Definition at line <a class="el" href="_transfer_queue_service_8cs_source.html#l00110">110</a> of file <a class="el" href="_transfer_queue_service_8cs_source.html">TransferQueueService.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_transfer_queue_service_8cs_source.html#l00108">108</a> of file <a class="el" href="_transfer_queue_service_8cs_source.html">TransferQueueService.cs</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_transfer_queue_service_8cs_source.html#l00298">CheckAndNotifyBatchCompletion()</a>, and <a class="el" href="_transfer_queue_service_8cs_source.html#l00132">TransferQueueService()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_transfer_queue_service_8cs_source.html#l00236">ProcessItemAsync()</a>, and <a class="el" href="_transfer_queue_service_8cs_source.html#l00124">TransferQueueService()</a>.</p>
 
 </div>
 </div>
@@ -781,9 +662,9 @@ Private Attributes</h2></td></tr>
 
 <p>Main unbound channel holding incoming queue items. </p>
 
-<p class="definition">Definition at line <a class="el" href="_transfer_queue_service_8cs_source.html#l00075">75</a> of file <a class="el" href="_transfer_queue_service_8cs_source.html">TransferQueueService.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_transfer_queue_service_8cs_source.html#l00073">73</a> of file <a class="el" href="_transfer_queue_service_8cs_source.html">TransferQueueService.cs</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_transfer_queue_service_8cs_source.html#l00152">Enqueue()</a>, and <a class="el" href="_transfer_queue_service_8cs_source.html#l00200">ProcessQueueAsync()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_transfer_queue_service_8cs_source.html#l00151">Enqueue()</a>, and <a class="el" href="_transfer_queue_service_8cs_source.html#l00199">ProcessQueueAsync()</a>.</p>
 
 </div>
 </div>
@@ -809,9 +690,9 @@ Private Attributes</h2></td></tr>
 
 <p>Dialog service for prompting user dialogs. </p>
 
-<p class="definition">Definition at line <a class="el" href="_transfer_queue_service_8cs_source.html#l00120">120</a> of file <a class="el" href="_transfer_queue_service_8cs_source.html">TransferQueueService.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_transfer_queue_service_8cs_source.html#l00113">113</a> of file <a class="el" href="_transfer_queue_service_8cs_source.html">TransferQueueService.cs</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_transfer_queue_service_8cs_source.html#l00132">TransferQueueService()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_transfer_queue_service_8cs_source.html#l00124">TransferQueueService()</a>.</p>
 
 </div>
 </div>
@@ -837,9 +718,9 @@ Private Attributes</h2></td></tr>
 
 <p>Dispatcher service for marshaling updates onto the UI thread. </p>
 
-<p class="definition">Definition at line <a class="el" href="_transfer_queue_service_8cs_source.html#l00085">85</a> of file <a class="el" href="_transfer_queue_service_8cs_source.html">TransferQueueService.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_transfer_queue_service_8cs_source.html#l00083">83</a> of file <a class="el" href="_transfer_queue_service_8cs_source.html">TransferQueueService.cs</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_transfer_queue_service_8cs_source.html#l00438">RunOnUiThread()</a>, and <a class="el" href="_transfer_queue_service_8cs_source.html#l00132">TransferQueueService()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_transfer_queue_service_8cs_source.html#l00307">RunOnUiThread()</a>, and <a class="el" href="_transfer_queue_service_8cs_source.html#l00124">TransferQueueService()</a>.</p>
 
 </div>
 </div>
@@ -865,9 +746,9 @@ Private Attributes</h2></td></tr>
 
 <p>Concurrent dictionary mapping drive keys to per-drive transfer channels to execute transfers sequentially per drive. </p>
 
-<p class="definition">Definition at line <a class="el" href="_transfer_queue_service_8cs_source.html#l00080">80</a> of file <a class="el" href="_transfer_queue_service_8cs_source.html">TransferQueueService.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_transfer_queue_service_8cs_source.html#l00078">78</a> of file <a class="el" href="_transfer_queue_service_8cs_source.html">TransferQueueService.cs</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_transfer_queue_service_8cs_source.html#l00222">ProcessDriveQueueAsync()</a>, and <a class="el" href="_transfer_queue_service_8cs_source.html#l00200">ProcessQueueAsync()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_transfer_queue_service_8cs_source.html#l00221">ProcessDriveQueueAsync()</a>, and <a class="el" href="_transfer_queue_service_8cs_source.html#l00199">ProcessQueueAsync()</a>.</p>
 
 </div>
 </div>
@@ -893,9 +774,9 @@ Private Attributes</h2></td></tr>
 
 <p>File transfer service instance used to execute operations. </p>
 
-<p class="definition">Definition at line <a class="el" href="_transfer_queue_service_8cs_source.html#l00065">65</a> of file <a class="el" href="_transfer_queue_service_8cs_source.html">TransferQueueService.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_transfer_queue_service_8cs_source.html#l00063">63</a> of file <a class="el" href="_transfer_queue_service_8cs_source.html">TransferQueueService.cs</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_transfer_queue_service_8cs_source.html#l00237">ProcessItemAsync()</a>, and <a class="el" href="_transfer_queue_service_8cs_source.html#l00132">TransferQueueService()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_transfer_queue_service_8cs_source.html#l00236">ProcessItemAsync()</a>, and <a class="el" href="_transfer_queue_service_8cs_source.html#l00124">TransferQueueService()</a>.</p>
 
 </div>
 </div>
@@ -909,7 +790,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">readonly ILogger&lt;<a class="el" href="#a31960a3b7a1549213ab478448f6c15c2">TransferQueueService</a>&gt; Easy_Copier.Services.TransferQueueService._logger</td>
+          <td class="memname">readonly ILogger&lt;<a class="el" href="#a23af5ec676833eb1ec4fc57d0fbe7c0c">TransferQueueService</a>&gt; Easy_Copier.Services.TransferQueueService._logger</td>
         </tr>
       </table>
   </td>
@@ -921,37 +802,9 @@ Private Attributes</h2></td></tr>
 
 <p>Logger instance used for diagnostic logging. </p>
 
-<p class="definition">Definition at line <a class="el" href="_transfer_queue_service_8cs_source.html#l00070">70</a> of file <a class="el" href="_transfer_queue_service_8cs_source.html">TransferQueueService.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_transfer_queue_service_8cs_source.html#l00068">68</a> of file <a class="el" href="_transfer_queue_service_8cs_source.html">TransferQueueService.cs</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_transfer_queue_service_8cs_source.html#l00152">Enqueue()</a>, <a class="el" href="_transfer_queue_service_8cs_source.html#l00237">ProcessItemAsync()</a>, <a class="el" href="_transfer_queue_service_8cs_source.html#l00347">ShowDesktopNotification()</a>, and <a class="el" href="_transfer_queue_service_8cs_source.html#l00132">TransferQueueService()</a>.</p>
-
-</div>
-</div>
-<a id="a7355b13646cc1d00b08a6d574c4026b8" name="a7355b13646cc1d00b08a6d574c4026b8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7355b13646cc1d00b08a6d574c4026b8">&#9670;&#160;</a></span>_processService</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">readonly <a class="el" href="interface_easy___copier_1_1_infrastructure_1_1_i_process_service.html">Infrastructure.IProcessService</a> Easy_Copier.Services.TransferQueueService._processService</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Process service for checking privilege levels. </p>
-
-<p class="definition">Definition at line <a class="el" href="_transfer_queue_service_8cs_source.html#l00115">115</a> of file <a class="el" href="_transfer_queue_service_8cs_source.html">TransferQueueService.cs</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="_transfer_queue_service_8cs_source.html#l00347">ShowDesktopNotification()</a>, and <a class="el" href="_transfer_queue_service_8cs_source.html#l00132">TransferQueueService()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_transfer_queue_service_8cs_source.html#l00151">Enqueue()</a>, <a class="el" href="_transfer_queue_service_8cs_source.html#l00236">ProcessItemAsync()</a>, and <a class="el" href="_transfer_queue_service_8cs_source.html#l00124">TransferQueueService()</a>.</p>
 
 </div>
 </div>
@@ -977,9 +830,9 @@ Private Attributes</h2></td></tr>
 
 <p>Settings service for loading notification and pricing settings. </p>
 
-<p class="definition">Definition at line <a class="el" href="_transfer_queue_service_8cs_source.html#l00105">105</a> of file <a class="el" href="_transfer_queue_service_8cs_source.html">TransferQueueService.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_transfer_queue_service_8cs_source.html#l00103">103</a> of file <a class="el" href="_transfer_queue_service_8cs_source.html">TransferQueueService.cs</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_transfer_queue_service_8cs_source.html#l00298">CheckAndNotifyBatchCompletion()</a>, <a class="el" href="_transfer_queue_service_8cs_source.html#l00152">Enqueue()</a>, and <a class="el" href="_transfer_queue_service_8cs_source.html#l00132">TransferQueueService()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_transfer_queue_service_8cs_source.html#l00151">Enqueue()</a>, and <a class="el" href="_transfer_queue_service_8cs_source.html#l00124">TransferQueueService()</a>.</p>
 
 </div>
 </div>
@@ -1008,30 +861,30 @@ Private Attributes</h2></td></tr>
 
 <p>Implements <a class="el" href="interface_easy___copier_1_1_services_1_1_i_transfer_queue_service.html#a4fa6346052baf913120b7199d68c8435">Easy_Copier.Services.ITransferQueueService</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_transfer_queue_service_8cs_source.html#l00090">90</a> of file <a class="el" href="_transfer_queue_service_8cs_source.html">TransferQueueService.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_transfer_queue_service_8cs_source.html#l00088">88</a> of file <a class="el" href="_transfer_queue_service_8cs_source.html">TransferQueueService.cs</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_transfer_queue_service_8cs_source.html#l00298">CheckAndNotifyBatchCompletion()</a>, <a class="el" href="_transfer_queue_service_8cs_source.html#l00187">ClearFinished()</a>, <a class="el" href="_transfer_queue_service_8cs_source.html#l00152">Enqueue()</a>, and <a class="el" href="_transfer_queue_service_8cs_source.html#l00177">GetReservedBytes()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_transfer_queue_service_8cs_source.html#l00186">ClearFinished()</a>, <a class="el" href="_transfer_queue_service_8cs_source.html#l00151">Enqueue()</a>, <a class="el" href="_transfer_queue_service_8cs_source.html#l00176">GetReservedBytes()</a>, and <a class="el" href="_transfer_queue_service_8cs_source.html#l00236">ProcessItemAsync()</a>.</p>
 
 </div>
 </div>
 <a name="doc-event-members" id="doc-event-members"></a><h2 id="header-doc-event-members" class="groupheader">Event Documentation</h2>
-<a id="a5b4d68506901cb87f83798a0be3c64d8" name="a5b4d68506901cb87f83798a0be3c64d8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5b4d68506901cb87f83798a0be3c64d8">&#9670;&#160;</a></span>BatchCompleted</h2>
+<a id="af5411b8b2236042b9a935d38cf10e358" name="af5411b8b2236042b9a935d38cf10e358"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af5411b8b2236042b9a935d38cf10e358">&#9670;&#160;</a></span>BatchCompleted</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">EventHandler&lt;(string Title, string Message)&gt;? Easy_Copier.Services.TransferQueueService.BatchCompleted</td>
+          <td class="memname">EventHandler&lt;(string Title, string Message, bool IsSuccess)&gt;? Easy_Copier.Services.TransferQueueService.BatchCompleted</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Event raised when all items for a target drive complete. </p>
+<p>Event raised when all items for a target drive complete, providing title (<code>Title</code>), message (<code>Message</code>), and success status (<code>IsSuccess</code>) details. </p>
 
-<p class="definition">Definition at line <a class="el" href="_transfer_queue_service_8cs_source.html#l00100">100</a> of file <a class="el" href="_transfer_queue_service_8cs_source.html">TransferQueueService.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_transfer_queue_service_8cs_source.html#l00098">98</a> of file <a class="el" href="_transfer_queue_service_8cs_source.html">TransferQueueService.cs</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_transfer_queue_service_8cs_source.html#l00347">ShowDesktopNotification()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_transfer_queue_service_8cs_source.html#l00124">TransferQueueService()</a>.</p>
 
 </div>
 </div>
@@ -1049,9 +902,9 @@ Private Attributes</h2></td></tr>
 
 <p>Event raised when a single queue item completes execution. </p>
 
-<p class="definition">Definition at line <a class="el" href="_transfer_queue_service_8cs_source.html#l00095">95</a> of file <a class="el" href="_transfer_queue_service_8cs_source.html">TransferQueueService.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_transfer_queue_service_8cs_source.html#l00093">93</a> of file <a class="el" href="_transfer_queue_service_8cs_source.html">TransferQueueService.cs</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_transfer_queue_service_8cs_source.html#l00237">ProcessItemAsync()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_transfer_queue_service_8cs_source.html#l00236">ProcessItemAsync()</a>.</p>
 
 </div>
 </div>

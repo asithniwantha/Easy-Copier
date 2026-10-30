@@ -125,17 +125,29 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('class_easy___c
 <div id="dynsection-1-summary" class="dynsummary">
 </div>
 <div id="dynsection-1-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="class_easy___copier_1_1_view_models_1_1_library_tab_view_model_base__coll__graph.svg" width="226" height="128"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="class_easy___copier_1_1_view_models_1_1_library_tab_view_model_base__coll__graph.svg" width="251" height="128"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:a5cf3b24d958a3b418dbab0818f05c846" id="r_a5cf3b24d958a3b418dbab0818f05c846"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a5cf3b24d958a3b418dbab0818f05c846">Dispose</a> ()</td></tr>
+<tr class="memdesc:a5cf3b24d958a3b418dbab0818f05c846"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unsubscribes from parent property change notifications and disposes resources.  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-static-methods" class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
+Static Public Member Functions</h2></td></tr>
+<tr class="memitem:abb89054d5de5bcc0b94aaa0f5131a48e" id="r_abb89054d5de5bcc0b94aaa0f5131a48e"><td class="memItemLeft">static IEnumerable&lt; string &gt;&#160;</td><td class="memItemRight"><a class="el" href="#abb89054d5de5bcc0b94aaa0f5131a48e">GetSuggestionsFromEntries</a> (IEnumerable&lt; <a class="el" href="namespace_easy___copier_1_1_models.html#a9c2abd1d64352c07d3085ba499cf2aae">GameEntry</a> &gt; entries, string query)</td></tr>
+<tr class="memdesc:abb89054d5de5bcc0b94aaa0f5131a48e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Filters item entries to generate a distinct list of up to 10 autocomplete suggestions matching the query string.  <br /></td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pro-methods" class="groupheader"><a id="pro-methods" name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
 <tr class="memitem:a5a7830b1ac16101df7c0bbf3e2b1f4c6" id="r_a5a7830b1ac16101df7c0bbf3e2b1f4c6"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a5a7830b1ac16101df7c0bbf3e2b1f4c6">LibraryTabViewModelBase</a> (<a class="el" href="#a68fa8412e29bc877165ba9861c8238cf">MainViewModel</a> mainViewModel)</td></tr>
 <tr class="memdesc:a5a7830b1ac16101df7c0bbf3e2b1f4c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes a new instance of the LibraryTabViewModelBase class.  <br /></td></tr>
 <tr class="memitem:aab4fa9f48942ec585239b40635337ebe" id="r_aab4fa9f48942ec585239b40635337ebe"><td class="memItemLeft">virtual void&#160;</td><td class="memItemRight"><a class="el" href="#aab4fa9f48942ec585239b40635337ebe">OnParentPropertyChanged</a> (string? propertyName)</td></tr>
 <tr class="memdesc:aab4fa9f48942ec585239b40635337ebe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Derived classes override this method to handle parent ViewModel property change notifications.  <br /></td></tr>
-<tr class="memitem:aadf49aa562009a2fa215c741bdc9ba30" id="r_aadf49aa562009a2fa215c741bdc9ba30"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#aadf49aa562009a2fa215c741bdc9ba30">ForwardParentPropertyChanges</a> (string? changedPropertyName, params(string ParentPropName, string ChildPropName)[] mappings)</td></tr>
-<tr class="memdesc:aadf49aa562009a2fa215c741bdc9ba30"><td class="mdescLeft">&#160;</td><td class="mdescRight">Evaluates parent property change notifications and raises ObservableObject.OnPropertyChanged(string?) for matching mapped child properties.  <br /></td></tr>
+<tr class="memitem:abf22181facf81c97be2a30ed30aa2840" id="r_abf22181facf81c97be2a30ed30aa2840"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#abf22181facf81c97be2a30ed30aa2840">ForwardParentPropertyChanges</a> (string? changedPropertyName, params ReadOnlySpan&lt;(string ParentPropName, string ChildPropName)&gt; mappings)</td></tr>
+<tr class="memdesc:abf22181facf81c97be2a30ed30aa2840"><td class="mdescLeft">&#160;</td><td class="mdescRight">Evaluates parent property change notifications and raises ObservableObject.OnPropertyChanged(string?) for matching mapped child properties.  <br /></td></tr>
+<tr class="memitem:ac6d087a87b14ae6421bf413ee96ea083" id="r_ac6d087a87b14ae6421bf413ee96ea083"><td class="memItemLeft">virtual void&#160;</td><td class="memItemRight"><a class="el" href="#ac6d087a87b14ae6421bf413ee96ea083">Dispose</a> (bool disposing)</td></tr>
+<tr class="memdesc:ac6d087a87b14ae6421bf413ee96ea083"><td class="mdescLeft">&#160;</td><td class="mdescRight">Disposes resources held by this instance.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-properties" class="groupheader"><a id="properties" name="properties"></a>
 Properties</h2></td></tr>
@@ -147,11 +159,17 @@ Properties</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 id="header-pri-methods" class="groupheader"><a id="pri-methods" name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
 <tr class="memitem:a7b6fa40076011044e81370701ba6816c" id="r_a7b6fa40076011044e81370701ba6816c"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a7b6fa40076011044e81370701ba6816c">OnMainViewModelPropertyChanged</a> (object? sender, PropertyChangedEventArgs e)</td></tr>
+<tr class="memdesc:a7b6fa40076011044e81370701ba6816c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handles property change events from the parent MainViewModel.  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pri-attribs" class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a4d827a3c4ac913d2708105ac06843ccb" id="r_a4d827a3c4ac913d2708105ac06843ccb"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a4d827a3c4ac913d2708105ac06843ccb">_isDisposed</a></td></tr>
+<tr class="memdesc:a4d827a3c4ac913d2708105ac06843ccb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tracks whether the object has been disposed to prevent double disposal.  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Abstract base ViewModel for tab-specific child <a class="el" href="namespace_easy___copier_1_1_view_models.html">ViewModels</a> that synchronize state with MainViewModel. </p>
 
-<p class="definition">Definition at line <a class="el" href="_library_tab_view_model_base_8cs_source.html#l00010">10</a> of file <a class="el" href="_library_tab_view_model_base_8cs_source.html">LibraryTabViewModelBase.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_library_tab_view_model_base_8cs_source.html#l00013">13</a> of file <a class="el" href="_library_tab_view_model_base_8cs_source.html">LibraryTabViewModelBase.cs</a>.</p>
 </div><a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a5a7830b1ac16101df7c0bbf3e2b1f4c6" name="a5a7830b1ac16101df7c0bbf3e2b1f4c6"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a5a7830b1ac16101df7c0bbf3e2b1f4c6">&#9670;&#160;</a></span>LibraryTabViewModelBase()</h2>
@@ -184,9 +202,9 @@ Private Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_library_tab_view_model_base_8cs_source.html#l00026">26</a> of file <a class="el" href="_library_tab_view_model_base_8cs_source.html">LibraryTabViewModelBase.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_library_tab_view_model_base_8cs_source.html#l00034">34</a> of file <a class="el" href="_library_tab_view_model_base_8cs_source.html">LibraryTabViewModelBase.cs</a>.</p>
 
-<p class="reference">References <a class="el" href="_library_tab_view_model_base_8cs_source.html#l00015">MainViewModel</a>, and <a class="el" href="_library_tab_view_model_base_8cs_source.html#l00032">OnMainViewModelPropertyChanged()</a>.</p>
+<p class="reference">References <a class="el" href="_library_tab_view_model_base_8cs_source.html#l00023">MainViewModel</a>, and <a class="el" href="_library_tab_view_model_base_8cs_source.html#l00065">OnMainViewModelPropertyChanged()</a>.</p>
 <div id="dynsection-2" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-2-summary" class="dynsummary">
 </div>
@@ -197,8 +215,88 @@ Private Member Functions</h2></td></tr>
 </div>
 </div>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
-<a id="aadf49aa562009a2fa215c741bdc9ba30" name="aadf49aa562009a2fa215c741bdc9ba30"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aadf49aa562009a2fa215c741bdc9ba30">&#9670;&#160;</a></span>ForwardParentPropertyChanges()</h2>
+<a id="a5cf3b24d958a3b418dbab0818f05c846" name="a5cf3b24d958a3b418dbab0818f05c846"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5cf3b24d958a3b418dbab0818f05c846">&#9670;&#160;</a></span>Dispose() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Easy_Copier.ViewModels.LibraryTabViewModelBase.Dispose </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Unsubscribes from parent property change notifications and disposes resources. </p>
+
+<p class="definition">Definition at line <a class="el" href="_library_tab_view_model_base_8cs_source.html#l00107">107</a> of file <a class="el" href="_library_tab_view_model_base_8cs_source.html">LibraryTabViewModelBase.cs</a>.</p>
+
+<p class="reference">References <a class="el" href="_library_tab_view_model_base_8cs_source.html#l00107">Dispose()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_library_tab_view_model_base_8cs_source.html#l00107">Dispose()</a>, and <a class="el" href="_main_view_model_8_scanning_8cs_source.html#l00707">Easy_Copier.ViewModels.MainViewModel.Dispose()</a>.</p>
+<div id="dynsection-3" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-3-summary" class="dynsummary">
+</div>
+<div id="dynsection-3-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="class_easy___copier_1_1_view_models_1_1_library_tab_view_model_base_a5cf3b24d958a3b418dbab0818f05c846_cgraph.svg" width="226" height="78"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div id="dynsection-4" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-4-summary" class="dynsummary">
+</div>
+<div id="dynsection-4-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="class_easy___copier_1_1_view_models_1_1_library_tab_view_model_base_a5cf3b24d958a3b418dbab0818f05c846_icgraph.svg" width="476" height="78"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="ac6d087a87b14ae6421bf413ee96ea083" name="ac6d087a87b14ae6421bf413ee96ea083"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac6d087a87b14ae6421bf413ee96ea083">&#9670;&#160;</a></span>Dispose() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void Easy_Copier.ViewModels.LibraryTabViewModelBase.Dispose </td>
+          <td>(</td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>disposing</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel protected">protected</span><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Disposes resources held by this instance. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">disposing</td><td><code>true</code> to release managed resources; <code>false</code> if invoked from a finalizer.</td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="_library_tab_view_model_base_8cs_source.html#l00117">117</a> of file <a class="el" href="_library_tab_view_model_base_8cs_source.html">LibraryTabViewModelBase.cs</a>.</p>
+
+<p class="reference">References <a class="el" href="_library_tab_view_model_base_8cs_source.html#l00018">_isDisposed</a>, and <a class="el" href="_library_tab_view_model_base_8cs_source.html#l00065">OnMainViewModelPropertyChanged()</a>.</p>
+<div id="dynsection-5" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-5-summary" class="dynsummary">
+</div>
+<div id="dynsection-5-content" class="dyncontent hidden">
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="class_easy___copier_1_1_view_models_1_1_library_tab_view_model_base_ac6d087a87b14ae6421bf413ee96ea083_cgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="abf22181facf81c97be2a30ed30aa2840" name="abf22181facf81c97be2a30ed30aa2840"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abf22181facf81c97be2a30ed30aa2840">&#9670;&#160;</a></span>ForwardParentPropertyChanges()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -214,7 +312,7 @@ Private Member Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">params(string ParentPropName, string ChildPropName)[]</td>          <td class="paramname"><span class="paramname"><em>mappings</em></span>&#160;)</td>
+          <td class="paramtype">params ReadOnlySpan&lt;(string ParentPropName, string ChildPropName)&gt;</td>          <td class="paramname"><span class="paramname"><em>mappings</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
@@ -233,14 +331,63 @@ Private Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_library_tab_view_model_base_8cs_source.html#l00055">55</a> of file <a class="el" href="_library_tab_view_model_base_8cs_source.html">LibraryTabViewModelBase.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_library_tab_view_model_base_8cs_source.html#l00088">88</a> of file <a class="el" href="_library_tab_view_model_base_8cs_source.html">LibraryTabViewModelBase.cs</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_apps_tab_view_model_8cs_source.html#l00037">Easy_Copier.ViewModels.AppsTabViewModel.OnParentPropertyChanged()</a>, <a class="el" href="_games_tab_view_model_8cs_source.html#l00052">Easy_Copier.ViewModels.GamesTabViewModel.OnParentPropertyChanged()</a>, <a class="el" href="_os_images_tab_view_model_8cs_source.html#l00067">Easy_Copier.ViewModels.OsImagesTabViewModel.OnParentPropertyChanged()</a>, and <a class="el" href="_tv_and_films_tab_view_model_8cs_source.html#l00037">Easy_Copier.ViewModels.TvAndFilmsTabViewModel.OnParentPropertyChanged()</a>.</p>
-<div id="dynsection-3" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
-<div id="dynsection-3-summary" class="dynsummary">
+<p class="reference">Referenced by <a class="el" href="_apps_tab_view_model_8cs_source.html#l00047">Easy_Copier.ViewModels.AppsTabViewModel.OnParentPropertyChanged()</a>, <a class="el" href="_games_tab_view_model_8cs_source.html#l00061">Easy_Copier.ViewModels.GamesTabViewModel.OnParentPropertyChanged()</a>, <a class="el" href="_os_images_tab_view_model_8cs_source.html#l00076">Easy_Copier.ViewModels.OsImagesTabViewModel.OnParentPropertyChanged()</a>, and <a class="el" href="_tv_and_films_tab_view_model_8cs_source.html#l00076">Easy_Copier.ViewModels.TvAndFilmsTabViewModel.OnParentPropertyChanged()</a>.</p>
+<div id="dynsection-6" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-6-summary" class="dynsummary">
 </div>
-<div id="dynsection-3-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="class_easy___copier_1_1_view_models_1_1_library_tab_view_model_base_aadf49aa562009a2fa215c741bdc9ba30_icgraph.svg" width="603" height="286"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div id="dynsection-6-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="class_easy___copier_1_1_view_models_1_1_library_tab_view_model_base_abf22181facf81c97be2a30ed30aa2840_icgraph.svg" width="603" height="286"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="abb89054d5de5bcc0b94aaa0f5131a48e" name="abb89054d5de5bcc0b94aaa0f5131a48e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abb89054d5de5bcc0b94aaa0f5131a48e">&#9670;&#160;</a></span>GetSuggestionsFromEntries()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">IEnumerable&lt; string &gt; Easy_Copier.ViewModels.LibraryTabViewModelBase.GetSuggestionsFromEntries </td>
+          <td>(</td>
+          <td class="paramtype">IEnumerable&lt; <a class="el" href="namespace_easy___copier_1_1_models.html#a9c2abd1d64352c07d3085ba499cf2aae">GameEntry</a> &gt;</td>          <td class="paramname"><span class="paramname"><em>entries</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string</td>          <td class="paramname"><span class="paramname"><em>query</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Filters item entries to generate a distinct list of up to 10 autocomplete suggestions matching the query string. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">entries</td><td>The collection of library entries to filter.</td></tr>
+    <tr><td class="paramname">query</td><td>The user input search query.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>An enumeration of up to 10 unique matching entry names.</dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_library_tab_view_model_base_8cs_source.html#l00046">46</a> of file <a class="el" href="_library_tab_view_model_base_8cs_source.html">LibraryTabViewModelBase.cs</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_apps_tab_view_model_8cs_source.html#l00056">Easy_Copier.ViewModels.AppsTabViewModel.GetSuggestions()</a>, <a class="el" href="_games_tab_view_model_8cs_source.html#l00071">Easy_Copier.ViewModels.GamesTabViewModel.GetSuggestions()</a>, <a class="el" href="_os_images_tab_view_model_8cs_source.html#l00087">Easy_Copier.ViewModels.OsImagesTabViewModel.GetSuggestions()</a>, and <a class="el" href="_tv_and_films_tab_view_model_8cs_source.html#l00087">Easy_Copier.ViewModels.TvAndFilmsTabViewModel.GetSuggestions()</a>.</p>
+<div id="dynsection-7" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-7-summary" class="dynsummary">
+</div>
+<div id="dynsection-7-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="class_easy___copier_1_1_view_models_1_1_library_tab_view_model_base_abb89054d5de5bcc0b94aaa0f5131a48e_icgraph.svg" width="580" height="254"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -272,22 +419,31 @@ Private Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_library_tab_view_model_base_8cs_source.html#l00032">32</a> of file <a class="el" href="_library_tab_view_model_base_8cs_source.html">LibraryTabViewModelBase.cs</a>.</p>
+<p>Handles property change events from the parent MainViewModel. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sender</td><td>The source of the event.</td></tr>
+    <tr><td class="paramname">e</td><td>A PropertyChangedEventArgs that contains the event data.</td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p class="reference">References <a class="el" href="_library_tab_view_model_base_8cs_source.html#l00020">IsScanning</a>, <a class="el" href="_main_view_model_8cs_source.html#l00069">Easy_Copier.ViewModels.MainViewModel.IsScanning</a>, <a class="el" href="_library_tab_view_model_base_8cs_source.html#l00015">MainViewModel</a>, and <a class="el" href="_library_tab_view_model_base_8cs_source.html#l00046">OnParentPropertyChanged()</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_library_tab_view_model_base_8cs_source.html#l00065">65</a> of file <a class="el" href="_library_tab_view_model_base_8cs_source.html">LibraryTabViewModelBase.cs</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_library_tab_view_model_base_8cs_source.html#l00026">LibraryTabViewModelBase()</a>.</p>
-<div id="dynsection-4" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-4-summary" class="dynsummary">
+<p class="reference">References <a class="el" href="_library_tab_view_model_base_8cs_source.html#l00028">IsScanning</a>, <a class="el" href="_main_view_model_8cs_source.html#l00114">Easy_Copier.ViewModels.MainViewModel.IsScanning</a>, <a class="el" href="_library_tab_view_model_base_8cs_source.html#l00023">MainViewModel</a>, and <a class="el" href="_library_tab_view_model_base_8cs_source.html#l00079">OnParentPropertyChanged()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_library_tab_view_model_base_8cs_source.html#l00117">Dispose()</a>, and <a class="el" href="_library_tab_view_model_base_8cs_source.html#l00034">LibraryTabViewModelBase()</a>.</p>
+<div id="dynsection-8" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-8-summary" class="dynsummary">
 </div>
-<div id="dynsection-4-content" class="dyncontent hidden">
+<div id="dynsection-8-content" class="dyncontent hidden">
 <div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="class_easy___copier_1_1_view_models_1_1_library_tab_view_model_base_a7b6fa40076011044e81370701ba6816c_cgraph.svg" width="552" height="70"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
-<div id="dynsection-5" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
-<div id="dynsection-5-summary" class="dynsummary">
+<div id="dynsection-9" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-9-summary" class="dynsummary">
 </div>
-<div id="dynsection-5-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="class_easy___copier_1_1_view_models_1_1_library_tab_view_model_base_a7b6fa40076011044e81370701ba6816c_icgraph.svg" width="603" height="70"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div id="dynsection-9-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="class_easy___copier_1_1_view_models_1_1_library_tab_view_model_base_a7b6fa40076011044e81370701ba6816c_icgraph.svg" width="603" height="120"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -325,15 +481,44 @@ Private Member Functions</h2></td></tr>
 
 <p>Reimplemented in <a class="el" href="class_easy___copier_1_1_view_models_1_1_apps_tab_view_model.html#a04395bce9fd50f83d4a5d24ec76aaefb">Easy_Copier.ViewModels.AppsTabViewModel</a>, <a class="el" href="class_easy___copier_1_1_view_models_1_1_games_tab_view_model.html#a4d5de9ed6ddddc3f141eca32a9390cec">Easy_Copier.ViewModels.GamesTabViewModel</a>, <a class="el" href="class_easy___copier_1_1_view_models_1_1_os_images_tab_view_model.html#acddecef449d4383955c046ea8d6b6472">Easy_Copier.ViewModels.OsImagesTabViewModel</a>, and <a class="el" href="class_easy___copier_1_1_view_models_1_1_tv_and_films_tab_view_model.html#adc7cee69d52e81d81c7bff4dea615991">Easy_Copier.ViewModels.TvAndFilmsTabViewModel</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_library_tab_view_model_base_8cs_source.html#l00046">46</a> of file <a class="el" href="_library_tab_view_model_base_8cs_source.html">LibraryTabViewModelBase.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_library_tab_view_model_base_8cs_source.html#l00079">79</a> of file <a class="el" href="_library_tab_view_model_base_8cs_source.html">LibraryTabViewModelBase.cs</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_library_tab_view_model_base_8cs_source.html#l00032">OnMainViewModelPropertyChanged()</a>.</p>
-<div id="dynsection-6" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
-<div id="dynsection-6-summary" class="dynsummary">
+<p class="reference">Referenced by <a class="el" href="_library_tab_view_model_base_8cs_source.html#l00065">OnMainViewModelPropertyChanged()</a>.</p>
+<div id="dynsection-10" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-10-summary" class="dynsummary">
 </div>
-<div id="dynsection-6-content" class="dyncontent hidden">
-<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="class_easy___copier_1_1_view_models_1_1_library_tab_view_model_base_aab4fa9f48942ec585239b40635337ebe_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div id="dynsection-10-content" class="dyncontent hidden">
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="class_easy___copier_1_1_view_models_1_1_library_tab_view_model_base_aab4fa9f48942ec585239b40635337ebe_icgraph.svg" width="100%" height="390"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
+
+</div>
+</div>
+<a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Member Data Documentation</h2>
+<a id="a4d827a3c4ac913d2708105ac06843ccb" name="a4d827a3c4ac913d2708105ac06843ccb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4d827a3c4ac913d2708105ac06843ccb">&#9670;&#160;</a></span>_isDisposed</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Easy_Copier.ViewModels.LibraryTabViewModelBase._isDisposed</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Tracks whether the object has been disposed to prevent double disposal. </p>
+
+<p class="definition">Definition at line <a class="el" href="_library_tab_view_model_base_8cs_source.html#l00018">18</a> of file <a class="el" href="_library_tab_view_model_base_8cs_source.html">LibraryTabViewModelBase.cs</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_library_tab_view_model_base_8cs_source.html#l00117">Dispose()</a>.</p>
 
 </div>
 </div>
@@ -360,9 +545,9 @@ Private Member Functions</h2></td></tr>
 
 <p>Gets a value indicating whether library scanning is in progress. </p>
 
-<p class="definition">Definition at line <a class="el" href="_library_tab_view_model_base_8cs_source.html#l00020">20</a> of file <a class="el" href="_library_tab_view_model_base_8cs_source.html">LibraryTabViewModelBase.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_library_tab_view_model_base_8cs_source.html#l00028">28</a> of file <a class="el" href="_library_tab_view_model_base_8cs_source.html">LibraryTabViewModelBase.cs</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_library_tab_view_model_base_8cs_source.html#l00032">OnMainViewModelPropertyChanged()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_library_tab_view_model_base_8cs_source.html#l00065">OnMainViewModelPropertyChanged()</a>.</p>
 
 </div>
 </div>
@@ -388,9 +573,9 @@ Private Member Functions</h2></td></tr>
 
 <p>Gets the parent MainViewModel instance. </p>
 
-<p class="definition">Definition at line <a class="el" href="_library_tab_view_model_base_8cs_source.html#l00015">15</a> of file <a class="el" href="_library_tab_view_model_base_8cs_source.html">LibraryTabViewModelBase.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_library_tab_view_model_base_8cs_source.html#l00023">23</a> of file <a class="el" href="_library_tab_view_model_base_8cs_source.html">LibraryTabViewModelBase.cs</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_apps_tab_view_model_8cs_source.html#l00031">Easy_Copier.ViewModels.AppsTabViewModel.AppsTabViewModel()</a>, <a class="el" href="_games_tab_view_model_8cs_source.html#l00046">Easy_Copier.ViewModels.GamesTabViewModel.GamesTabViewModel()</a>, <a class="el" href="_library_tab_view_model_base_8cs_source.html#l00026">LibraryTabViewModelBase()</a>, <a class="el" href="_library_tab_view_model_base_8cs_source.html#l00032">OnMainViewModelPropertyChanged()</a>, <a class="el" href="_apps_tab_view_model_8cs_source.html#l00037">Easy_Copier.ViewModels.AppsTabViewModel.OnParentPropertyChanged()</a>, <a class="el" href="_games_tab_view_model_8cs_source.html#l00052">Easy_Copier.ViewModels.GamesTabViewModel.OnParentPropertyChanged()</a>, <a class="el" href="_os_images_tab_view_model_8cs_source.html#l00067">Easy_Copier.ViewModels.OsImagesTabViewModel.OnParentPropertyChanged()</a>, <a class="el" href="_tv_and_films_tab_view_model_8cs_source.html#l00037">Easy_Copier.ViewModels.TvAndFilmsTabViewModel.OnParentPropertyChanged()</a>, <a class="el" href="_os_images_tab_view_model_8cs_source.html#l00061">Easy_Copier.ViewModels.OsImagesTabViewModel.OsImagesTabViewModel()</a>, and <a class="el" href="_tv_and_films_tab_view_model_8cs_source.html#l00031">Easy_Copier.ViewModels.TvAndFilmsTabViewModel.TvAndFilmsTabViewModel()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_apps_tab_view_model_8cs_source.html#l00041">Easy_Copier.ViewModels.AppsTabViewModel.AppsTabViewModel()</a>, <a class="el" href="_games_tab_view_model_8cs_source.html#l00055">Easy_Copier.ViewModels.GamesTabViewModel.GamesTabViewModel()</a>, <a class="el" href="_apps_tab_view_model_8cs_source.html#l00056">Easy_Copier.ViewModels.AppsTabViewModel.GetSuggestions()</a>, <a class="el" href="_games_tab_view_model_8cs_source.html#l00071">Easy_Copier.ViewModels.GamesTabViewModel.GetSuggestions()</a>, <a class="el" href="_os_images_tab_view_model_8cs_source.html#l00087">Easy_Copier.ViewModels.OsImagesTabViewModel.GetSuggestions()</a>, <a class="el" href="_tv_and_films_tab_view_model_8cs_source.html#l00087">Easy_Copier.ViewModels.TvAndFilmsTabViewModel.GetSuggestions()</a>, <a class="el" href="_library_tab_view_model_base_8cs_source.html#l00034">LibraryTabViewModelBase()</a>, <a class="el" href="_library_tab_view_model_base_8cs_source.html#l00065">OnMainViewModelPropertyChanged()</a>, <a class="el" href="_apps_tab_view_model_8cs_source.html#l00047">Easy_Copier.ViewModels.AppsTabViewModel.OnParentPropertyChanged()</a>, <a class="el" href="_games_tab_view_model_8cs_source.html#l00061">Easy_Copier.ViewModels.GamesTabViewModel.OnParentPropertyChanged()</a>, <a class="el" href="_os_images_tab_view_model_8cs_source.html#l00076">Easy_Copier.ViewModels.OsImagesTabViewModel.OnParentPropertyChanged()</a>, <a class="el" href="_tv_and_films_tab_view_model_8cs_source.html#l00076">Easy_Copier.ViewModels.TvAndFilmsTabViewModel.OnParentPropertyChanged()</a>, <a class="el" href="_os_images_tab_view_model_8cs_source.html#l00070">Easy_Copier.ViewModels.OsImagesTabViewModel.OsImagesTabViewModel()</a>, and <a class="el" href="_tv_and_films_tab_view_model_8cs_source.html#l00070">Easy_Copier.ViewModels.TvAndFilmsTabViewModel.TvAndFilmsTabViewModel()</a>.</p>
 
 </div>
 </div>

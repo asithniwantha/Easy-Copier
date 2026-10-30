@@ -1,5 +1,5 @@
 <map id="Easy_Copier.ViewModels.SmartAdderViewModel.SmartAdderViewModel" name="Easy_Copier.ViewModels.SmartAdderViewModel.SmartAdderViewModel">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,262,48"/>
+<area shape="rect" id="Node000001" title="Initializes a new instance of the SmartAdderViewModel class with necessary infrastructure services." alt="" coords="5,5,262,48"/>
 <area shape="rect" id="Node000002" href="$class_easy___copier_1_1_view_models_1_1_smart_adder_view_model.html#ad94143845f947cd2998f77ae648b282e" title=" " alt="" coords="310,5,520,48"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="262,24,296,26,291,27,262,29"/>
 <area shape="rect" id="Node000003" href="$class_easy___copier_1_1_view_models_1_1_smart_adder_view_model.html#aaf4aa6e4f4b74ea2a1eb3131f86483fe" title=" " alt="" coords="568,35,822,77"/>
@@ -10,4 +10,6 @@
 <area shape="poly" id="edge6_Node000003_Node000005" title=" " alt="" coords="823,68,893,79,888,79,823,73"/>
 <area shape="poly" id="edge4_Node000004_Node000002" title=" " alt="" coords="867,23,822,25,568,25,536,26,535,21,568,20,822,20,872,23"/>
 <area shape="poly" id="edge5_Node000004_Node000003" title=" " alt="" coords="867,31,838,37,837,31,872,31"/>
+<area shape="rect" id="Node000006" href="$class_easy___copier_1_1_models_1_1_number_cell.html#ae49c3d41a9bcb4605ea1cdb2a1e1f790" title="Attempts to parse the numeric value from InputValue using standard invariant float formatting." alt="" coords="1210,72,1402,115"/>
+<area shape="poly" id="edge7_Node000005_Node000006" title=" " alt="" coords="1127,91,1197,93,1191,93,1127,96"/>
 </map>

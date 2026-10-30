@@ -47,13 +47,13 @@
   </g>
 </defs>
 <script type="application/ecmascript" xlink:href="svg.min.js"/>
-<svg id="graph" class="graph" data-view-width="776" data-view-height="146" data-section-id="dynsection-36">
+<svg id="graph" class="graph" data-view-width="776" data-view-height="146" data-section-id="dynsection-51">
 <g id="viewport">
 <title>Easy_Copier.ViewModels.MainViewModel.RefreshDrivesAsync</title>
 <!-- Node1 -->
 <g id="Node000001" class="node">
 <title>Node1</title>
-<g id="a_Node000001"><a xlink:title=" ">
+<g id="a_Node000001"><a xlink:title="Asynchronously queries connected removable storage devices and updates MainViewModel....">
 <polygon fill="#999999" stroke="#666666" points="767.5,-82 609.75,-82 609.75,-50 767.5,-50 767.5,-82"/>
 <text xml:space="preserve" text-anchor="start" x="617.75" y="-68.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.ViewModels.Main</text>
 <text xml:space="preserve" text-anchor="middle" x="688.62" y="-56.5" font-family="Helvetica,sans-Serif" font-size="10.00">ViewModel.RefreshDrivesAsync</text>
@@ -63,7 +63,7 @@
 <!-- Node2 -->
 <g id="Node000002" class="node">
 <title>Node2</title>
-<g id="a_Node000002"><a xlink:href="class_easy___copier_1_1_view_models_1_1_main_view_model.html#a7ec049730d16773f05f8c87da648d961" target="_top" xlink:title=" ">
+<g id="a_Node000002"><a xlink:href="class_easy___copier_1_1_view_models_1_1_main_view_model.html#a7ec049730d16773f05f8c87da648d961" target="_top" xlink:title="Asynchronously initializes settings, drive monitoring, and library contents from cache or disk scan.">
 <polygon fill="white" stroke="#666666" points="562.88,-138 410.38,-138 410.38,-106 562.88,-106 562.88,-138"/>
 <text xml:space="preserve" text-anchor="start" x="418.38" y="-124.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.ViewModels.Main</text>
 <text xml:space="preserve" text-anchor="middle" x="486.62" y="-112.5" font-family="Helvetica,sans-Serif" font-size="10.00">ViewModel.InitializeAsync</text>
@@ -82,7 +82,7 @@
 <!-- Node4 -->
 <g id="Node000004" class="node">
 <title>Node4</title>
-<g id="a_Node000004"><a xlink:href="class_easy___copier_1_1_view_models_1_1_main_view_model.html#abef9a9a2e589ae5090b8105ddbb508c1" target="_top" xlink:title=" ">
+<g id="a_Node000004"><a xlink:href="class_easy___copier_1_1_view_models_1_1_main_view_model.html#abef9a9a2e589ae5090b8105ddbb508c1" target="_top" xlink:title="Event handler triggered when a single queue item finishes transferring.">
 <polygon fill="white" stroke="#666666" points="363.5,-32 188.5,-32 188.5,0 363.5,0 363.5,-32"/>
 <text xml:space="preserve" text-anchor="start" x="196.5" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.ViewModels.Main</text>
 <text xml:space="preserve" text-anchor="middle" x="276" y="-6.5" font-family="Helvetica,sans-Serif" font-size="10.00">ViewModel.OnQueueItemCompleted</text>
@@ -159,7 +159,7 @@
 <!-- Node6 -->
 <g id="Node000006" class="node">
 <title>Node6</title>
-<g id="a_Node000006"><a xlink:href="class_easy___copier_1_1_view_models_1_1_main_view_model.html#a6830d696738ef2c2694eca4f3cfb2e1e" target="_top" xlink:title=" ">
+<g id="a_Node000006"><a xlink:href="class_easy___copier_1_1_view_models_1_1_main_view_model.html#ac00dd69c74c965e1718624bfd92e4ed8" target="_top" xlink:title="Initializes a new instance of the MainViewModel class with required infrastructure and domain service...">
 <polygon fill="white" stroke="#666666" points="152.5,-32 0,-32 0,0 152.5,0 152.5,-32"/>
 <text xml:space="preserve" text-anchor="start" x="8" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.ViewModels.Main</text>
 <text xml:space="preserve" text-anchor="middle" x="76.25" y="-6.5" font-family="Helvetica,sans-Serif" font-size="10.00">ViewModel.MainViewModel</text>

@@ -1,0 +1,9 @@
+<map id="Easy_Copier.ViewModels.MainViewModel.OnBatchCompleted" name="Easy_Copier.ViewModels.MainViewModel.OnBatchCompleted">
+<area shape="rect" id="Node000001" title="Event handler triggered when a transfer queue batch operation completes to display a global notificat..." alt="" coords="5,51,209,93"/>
+<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_view_models_1_1_main_view_model.html#aa4243f0e35a458b0e83441c196308ec7" title="Displays a global in&#45;app notification bar with the specified title and message." alt="" coords="257,51,482,93"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="209,69,244,72,238,72,209,75"/>
+<area shape="rect" id="Node000003" href="$class_easy___copier_1_1_view_models_1_1_main_view_model.html#ade61b832aff1c4bf5310ae57ac5852b6" title="Cancels and disposes the specified cancellation token source if non&#45;null, setting its reference to nu..." alt="" coords="530,5,766,64"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="482,54,517,52,512,53,483,60"/>
+<area shape="rect" id="Node000004" href="$interface_easy___copier_1_1_infrastructure_1_1_i_dispatcher_service.html#a610df3934d188d070dafefd96a3bc47a" title="Enqueues a synchronous action to be executed on the UI thread." alt="" coords="545,88,751,131"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="483,84,532,94,527,93,482,90"/>
+</map>

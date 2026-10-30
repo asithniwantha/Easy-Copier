@@ -1,7 +1,9 @@
 <map id="Easy_Copier.ViewModels.LibraryTabViewModelBase.OnParentPropertyChanged" name="Easy_Copier.ViewModels.LibraryTabViewModelBase.OnParentPropertyChanged">
-<area shape="rect" id="Node000001" title="Derived classes override this method to handle parent ViewModel property change notifications." alt="" coords="645,5,889,64"/>
-<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_view_models_1_1_library_tab_view_model_base.html#a7b6fa40076011044e81370701ba6816c" title=" " alt="" coords="348,5,597,64"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="627,35,598,37,597,32,632,35"/>
-<area shape="rect" id="Node000003" href="$class_easy___copier_1_1_view_models_1_1_library_tab_view_model_base.html#a5a7830b1ac16101df7c0bbf3e2b1f4c6" title="Initializes a new instance of the LibraryTabViewModelBase class." alt="" coords="5,13,300,56"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="329,35,300,37,300,32,334,35"/>
+<area shape="rect" id="Node000001" title="Derived classes override this method to handle parent ViewModel property change notifications." alt="" coords="645,31,889,89"/>
+<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_view_models_1_1_library_tab_view_model_base.html#a7b6fa40076011044e81370701ba6816c" title="Handles property change events from the parent MainViewModel." alt="" coords="348,31,597,89"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="627,60,598,63,597,57,632,60"/>
+<area shape="rect" id="Node000003" href="$class_easy___copier_1_1_view_models_1_1_library_tab_view_model_base.html#ac6d087a87b14ae6421bf413ee96ea083" title="Disposes resources held by this instance." alt="" coords="45,5,260,48"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="329,46,260,41,260,35,334,45"/>
+<area shape="rect" id="Node000004" href="$class_easy___copier_1_1_view_models_1_1_library_tab_view_model_base.html#a5a7830b1ac16101df7c0bbf3e2b1f4c6" title="Initializes a new instance of the LibraryTabViewModelBase class." alt="" coords="5,72,300,115"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="329,75,300,81,300,75,335,74"/>
 </map>

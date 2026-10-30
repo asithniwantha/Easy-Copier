@@ -1,5 +1,6 @@
 var class_easy___copier_1_1_models_1_1_app_settings =
 [
+    [ "AppFileExtensions", "class_easy___copier_1_1_models_1_1_app_settings.html#ae48563ad85a11993a07a2d734b86b317", null ],
     [ "AppSourceFolders", "class_easy___copier_1_1_models_1_1_app_settings.html#afc9c21c21bc37e4a7a447119aaf4e920", null ],
     [ "AutoDownloadUpdates", "class_easy___copier_1_1_models_1_1_app_settings.html#ac829b5db83b9eed7e0bf11419d4cb89d", null ],
     [ "AutoScanOnStartup", "class_easy___copier_1_1_models_1_1_app_settings.html#aee9c0a5991860913463ea509d6b53d68", null ],

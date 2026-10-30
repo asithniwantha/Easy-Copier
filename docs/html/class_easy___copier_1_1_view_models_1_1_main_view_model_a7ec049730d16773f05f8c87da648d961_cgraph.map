@@ -1,33 +1,47 @@
 <map id="Easy_Copier.ViewModels.MainViewModel.InitializeAsync" name="Easy_Copier.ViewModels.MainViewModel.InitializeAsync">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,304,209,347"/>
-<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_view_models_1_1_main_view_model.html#a286873562c6f74c8d888eed23483b758" title=" " alt="" coords="958,5,1162,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="117,303,138,267,169,222,208,177,255,139,339,94,429,60,523,36,617,20,709,12,795,8,945,14,940,16,795,14,709,17,618,26,524,41,431,65,341,99,258,144,212,181,173,226,143,270,122,305"/>
-<area shape="rect" id="Node000003" href="$class_easy___copier_1_1_view_models_1_1_main_view_model.html#a6bd36630ee4a6685f9a6482ae4048e8f" title=" " alt="" coords="909,392,1211,435"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="209,332,894,396,893,401,209,337"/>
-<area shape="rect" id="Node000005" href="$namespace_easy___copier_1_1_models.html#a6ce72bb145c4b6a2a691fff265751706" title="Represents a serialized snapshot of cached library entries and metadata." alt="" coords="630,304,815,347"/>
-<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="209,323,615,323,613,328,209,328"/>
-<area shape="rect" id="Node000006" href="$class_easy___copier_1_1_view_models_1_1_main_view_model.html#a2b2888beda11ca09b8b6ea18442db4be" title=" " alt="" coords="274,421,518,464"/>
-<area shape="poly" id="edge6_Node000001_Node000006" title=" " alt="" coords="145,344,198,373,258,400,297,416,292,417,256,405,196,378,145,350"/>
-<area shape="rect" id="Node000008" href="$class_easy___copier_1_1_view_models_1_1_main_view_model.html#a0a8ffb692e229ec60eb9a768920b42fc" title=" " alt="" coords="291,488,502,531"/>
-<area shape="poly" id="edge10_Node000001_Node000008" title=" " alt="" coords="124,344,179,410,216,444,258,474,279,486,274,485,255,478,213,449,175,413,123,350"/>
-<area shape="rect" id="Node000009" href="$class_easy___copier_1_1_view_models_1_1_main_view_model.html#acd3c0e03514b0d481cb8e21f4eaec06e" title=" " alt="" coords="621,72,824,115"/>
-<area shape="poly" id="edge11_Node000001_Node000009" title=" " alt="" coords="126,302,181,250,217,222,255,199,344,162,436,135,526,115,608,104,604,106,527,120,437,140,345,167,258,204,220,227,184,254,130,305"/>
-<area shape="rect" id="Node000011" href="$class_easy___copier_1_1_view_models_1_1_main_view_model.html#ad071bc3d0e0120cfa4f180eca785ddd4" title=" " alt="" coords="257,213,536,256"/>
-<area shape="poly" id="edge14_Node000001_Node000011" title=" " alt="" coords="177,301,313,259,309,263,179,306"/>
-<area shape="rect" id="Node000004" href="$class_easy___copier_1_1_view_models_1_1_main_view_model.html#aba772e9714e4c42652a4862d24618c25" title=" " alt="" coords="1259,392,1463,435"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="1211,411,1246,413,1241,413,1211,416"/>
-<area shape="poly" id="edge5_Node000005_Node000005" title=" " alt="" coords="662,302,659,294,670,285,691,279,723,277,758,280,780,289,775,289,757,285,723,283,691,285,672,290,664,295,667,305"/>
-<area shape="poly" id="edge9_Node000006_Node000004" title=" " alt="" coords="502,462,584,473,760,485,898,484,1035,470,1210,444,1253,439,1259,438,1211,449,1036,475,898,489,760,490,584,479,502,467"/>
-<area shape="rect" id="Node000007" href="$class_easy___copier_1_1_view_models_1_1_main_view_model.html#ac27b308761598a5de597ffda8cf5e63a" title=" " alt="" coords="584,421,861,464"/>
-<area shape="poly" id="edge7_Node000006_Node000007" title=" " alt="" coords="519,440,571,442,566,443,519,445"/>
-<area shape="poly" id="edge8_Node000007_Node000003" title=" " alt="" coords="861,428,897,428,891,428,862,433"/>
-<area shape="poly" id="edge12_Node000009_Node000002" title=" " alt="" coords="824,71,946,49,941,51,826,76"/>
-<area shape="rect" id="Node000010" href="$class_easy___copier_1_1_view_models_1_1_main_view_model.html#a0a4e7c95db133be566b2ad84541fe257" title=" " alt="" coords="935,72,1185,115"/>
-<area shape="poly" id="edge13_Node000009_Node000010" title=" " alt="" coords="824,91,922,93,917,94,825,96"/>
-<area shape="poly" id="edge19_Node000011_Node000004" title=" " alt="" coords="518,210,535,204,558,189,568,181,583,175,660,157,722,152,784,159,862,175,929,193,997,216,1124,273,1234,332,1317,384,1312,383,1232,336,1122,278,995,221,928,198,861,180,784,164,722,157,661,162,585,180,571,186,561,193,537,209,520,215"/>
-<area shape="poly" id="edge17_Node000011_Node000005" title=" " alt="" coords="476,254,631,299,626,300,476,259"/>
-<area shape="poly" id="edge18_Node000011_Node000009" title=" " alt="" coords="431,210,500,171,583,131,623,119,619,121,585,136,503,176,434,215"/>
-<area shape="rect" id="Node000012" href="$namespace_easy___copier_1_1_models.html#a63b99d96f6d7e71a96281be9501fa569" title="Holds the detailed outcome of a cache validation check." alt="" coords="630,213,815,256"/>
-<area shape="poly" id="edge15_Node000011_Node000012" title=" " alt="" coords="536,232,617,234,612,235,537,237"/>
-<area shape="poly" id="edge16_Node000012_Node000012" title=" " alt="" coords="662,212,659,203,670,194,691,189,723,187,758,189,780,198,775,198,757,194,723,192,691,194,672,199,664,205,667,214"/>
+<area shape="rect" id="Node000001" title="Asynchronously initializes settings, drive monitoring, and library contents from cache or disk scan." alt="" coords="5,460,209,503"/>
+<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_view_models_1_1_main_view_model.html#a286873562c6f74c8d888eed23483b758" title="Filters and sorts active library collections based on current search queries, category,..." alt="" coords="958,105,1162,148"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="113,459,132,414,162,357,203,299,227,273,255,250,338,201,427,165,520,139,614,122,706,112,794,108,945,114,940,116,794,114,707,117,615,127,521,144,429,170,340,206,258,254,231,276,207,302,166,360,137,417,118,461"/>
+<area shape="rect" id="Node000007" href="$class_easy___copier_1_1_view_models_1_1_main_view_model.html#a6bd36630ee4a6685f9a6482ae4048e8f" title="Checks for application updates in the background and optionally triggers automatic download if enable..." alt="" coords="909,601,1211,644"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="179,501,257,520,426,551,596,575,897,609,891,611,596,581,425,556,256,525,180,506"/>
+<area shape="rect" id="Node000009" href="$class_easy___copier_1_1_view_models_1_1_main_view_model.html#ae95943a0cedc54ad6b562d9cd006499c" title="Determines whether any source library folders are configured in settings." alt="" coords="950,172,1170,215"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="121,458,175,391,213,354,255,322,338,277,427,243,519,218,611,200,701,189,787,183,937,184,932,186,787,188,702,194,612,205,520,223,428,248,340,282,258,326,216,358,179,395,125,461"/>
+<area shape="rect" id="Node000010" href="$namespace_easy___copier_1_1_models.html#a6ce72bb145c4b6a2a691fff265751706" title="Represents a serialized snapshot of cached library entries and metadata." alt="" coords="630,513,815,556"/>
+<area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="209,487,616,523,613,528,209,493"/>
+<area shape="rect" id="Node000011" href="$class_easy___copier_1_1_view_models_1_1_main_view_model.html#a2b2888beda11ca09b8b6ea18442db4be" title=" " alt="" coords="274,631,518,673"/>
+<area shape="poly" id="edge11_Node000001_Node000011" title=" " alt="" coords="128,500,184,556,219,585,258,610,287,625,282,625,255,614,216,589,180,560,127,506"/>
+<area shape="rect" id="Node000013" href="$class_easy___copier_1_1_view_models_1_1_main_view_model.html#a0a8ffb692e229ec60eb9a768920b42fc" title="Asynchronously queries connected removable storage devices and updates MainViewModel...." alt="" coords="291,697,502,740"/>
+<area shape="poly" id="edge15_Node000001_Node000013" title=" " alt="" coords="118,500,140,541,170,591,210,641,233,664,258,683,280,697,274,696,255,688,229,668,206,645,166,594,135,544,117,506"/>
+<area shape="rect" id="Node000014" href="$class_easy___copier_1_1_view_models_1_1_main_view_model.html#acd3c0e03514b0d481cb8e21f4eaec06e" title="Asynchronously scans configured source library folders for games, applications, TV/films,..." alt="" coords="621,231,824,273"/>
+<area shape="poly" id="edge16_Node000001_Node000014" title=" " alt="" coords="136,458,191,422,256,387,345,351,438,320,608,275,604,278,439,325,347,356,258,392,193,426,140,461"/>
+<area shape="rect" id="Node000017" href="$class_easy___copier_1_1_view_models_1_1_main_view_model.html#ad071bc3d0e0120cfa4f180eca785ddd4" title=" " alt="" coords="257,401,536,444"/>
+<area shape="poly" id="edge21_Node000001_Node000017" title=" " alt="" coords="208,458,275,446,271,449,210,463"/>
+<area shape="rect" id="Node000003" href="$class_easy___copier_1_1_view_models_1_1_main_view_model.html#a74768a1f58ff1ee9c59c479d0dfae2bd" title="Applies search text query and category filtering to the applications library collection." alt="" coords="1268,205,1471,248"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="1162,141,1212,158,1236,174,1260,191,1275,199,1270,199,1257,196,1233,179,1209,162,1162,146"/>
+<area shape="rect" id="Node000004" href="$class_easy___copier_1_1_view_models_1_1_main_view_model.html#ad3c74fca3d7ea189f656357c5f392292" title="Applies search text query and category filtering to the games library collection." alt="" coords="1268,5,1471,48"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="1124,102,1258,57,1283,52,1278,54,1259,63,1126,107"/>
+<area shape="rect" id="Node000005" href="$class_easy___copier_1_1_view_models_1_1_main_view_model.html#ae2ee39386a22d609aa35d4a385654ac4" title="Applies search text query, category filtering, and sorting to the OS images library collection." alt="" coords="1264,72,1475,115"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="1161,113,1251,106,1246,107,1163,118"/>
+<area shape="rect" id="Node000006" href="$class_easy___copier_1_1_view_models_1_1_main_view_model.html#abd35ddffc9ae4e957a2a8c26c24d3764" title="Applies search text query, category filtering, and sorting to the TV and films library collection." alt="" coords="1259,139,1480,181"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="1162,135,1246,146,1240,147,1163,140"/>
+<area shape="rect" id="Node000008" href="$class_easy___copier_1_1_view_models_1_1_main_view_model.html#aba772e9714e4c42652a4862d24618c25" title=" " alt="" coords="1267,601,1472,644"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="1211,620,1254,623,1249,623,1211,625"/>
+<area shape="poly" id="edge10_Node000010_Node000010" title=" " alt="" coords="662,512,659,503,670,494,691,489,723,487,758,489,780,498,775,498,757,494,723,492,691,494,672,499,664,505,667,514"/>
+<area shape="poly" id="edge14_Node000011_Node000008" title=" " alt="" coords="502,671,584,683,760,694,898,692,1035,679,1210,653,1257,648,1262,647,1211,659,1036,684,898,698,760,700,584,688,502,677"/>
+<area shape="rect" id="Node000012" href="$class_easy___copier_1_1_view_models_1_1_main_view_model.html#ac27b308761598a5de597ffda8cf5e63a" title=" " alt="" coords="584,631,861,673"/>
+<area shape="poly" id="edge12_Node000011_Node000012" title=" " alt="" coords="519,649,571,652,566,652,519,655"/>
+<area shape="poly" id="edge13_Node000012_Node000007" title=" " alt="" coords="861,637,897,637,891,637,862,643"/>
+<area shape="poly" id="edge17_Node000014_Node000002" title=" " alt="" coords="760,228,828,192,908,157,946,148,941,151,910,163,830,197,763,232"/>
+<area shape="poly" id="edge19_Node000014_Node000009" title=" " alt="" coords="824,232,937,214,932,216,826,237"/>
+<area shape="rect" id="Node000015" href="$class_easy___copier_1_1_view_models_1_1_main_view_model.html#ade61b832aff1c4bf5310ae57ac5852b6" title="Cancels and disposes the specified cancellation token source if non&#45;null, setting its reference to nu..." alt="" coords="942,305,1178,364"/>
+<area shape="poly" id="edge18_Node000014_Node000015" title=" " alt="" coords="813,271,930,302,925,303,813,277"/>
+<area shape="rect" id="Node000016" href="$class_easy___copier_1_1_view_models_1_1_main_view_model.html#a0a4e7c95db133be566b2ad84541fe257" title="Saves a library cache JSON snapshot of all discovered entries using the active settings." alt="" coords="935,239,1185,281"/>
+<area shape="poly" id="edge20_Node000014_Node000016" title=" " alt="" coords="824,252,922,256,917,257,825,257"/>
+<area shape="poly" id="edge27_Node000017_Node000008" title=" " alt="" coords="536,430,693,448,862,475,980,502,1097,533,1293,596,1287,596,1096,539,979,507,861,480,693,453,537,436"/>
+<area shape="poly" id="edge25_Node000017_Node000010" title=" " alt="" coords="461,442,646,507,641,508,461,447"/>
+<area shape="poly" id="edge26_Node000017_Node000014" title=" " alt="" coords="440,399,487,372,534,339,557,314,567,302,583,290,611,278,607,281,585,294,571,306,561,317,538,343,490,376,443,403"/>
+<area shape="poly" id="edge24_Node000017_Node000015" title=" " alt="" coords="431,398,500,363,541,346,583,333,672,319,762,313,848,313,929,319,924,321,848,319,762,319,672,324,585,339,543,351,502,367,434,403"/>
+<area shape="rect" id="Node000018" href="$namespace_easy___copier_1_1_models.html#a63b99d96f6d7e71a96281be9501fa569" title="Holds the detailed outcome of a cache validation check." alt="" coords="630,372,815,415"/>
+<area shape="poly" id="edge22_Node000017_Node000018" title=" " alt="" coords="536,408,618,402,613,404,537,413"/>
+<area shape="poly" id="edge23_Node000018_Node000018" title=" " alt="" coords="662,370,659,362,670,353,691,347,723,345,758,348,780,356,775,357,757,353,723,351,691,353,672,358,664,363,667,372"/>
 </map>

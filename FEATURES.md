@@ -16,6 +16,19 @@
 ## 🎨 Visual Presentation
 - Cover-art grid view for items.
 - Fallback icon for entries without cover images.
+- **Intelligent Cover Art Retrieval Pipeline:** Automatically downloads high-resolution vertical cover art from 8 online services in priority order:
+  1. **Steam CDN:** Fetches high-resolution vertical library covers (600x900_2x, 600x900), falling back to hero and landscape capsules.
+  2. **CheapShark Aggregator:** Free, key-less store aggregator resolving Steam App IDs or providing direct game thumbnails.
+  3. **GOG Catalog API:** Matches games with custom formatters (`product_card_v2_mobile_slider_639`, `glados_432`) and JPG/WebP fallbacks.
+  4. **PCGamingWiki (PCGW):** MediaWiki search generator API finding covers even across spelling and subtitle differences.
+  5. **Wikipedia / Wikimedia Commons:** MediaWiki search API with page images and REST summary endpoints for video games.
+  6. **OpenCritic API:** Queries review aggregator metadata with box art and banner image extraction.
+  7. **Lutris API & Search:** REST API with title validation and HTML search fallback.
+  8. **GameSystemRequirements (GSR):** Scrapes game search results with verified title match scoring.
+- **Game Title Sanitization (`GameTitleSanitizer`):** Automatically cleans raw folder names by stripping repack tags (`[FitGirl Repack]`, `[DODI]`, etc.), scene group suffixes (`-CODEX`, `-EMPRESS`, `-RUNE`, etc.), build/version numbers (`v1.0.4`, `build 12345`), and non-essential bracketed metadata.
+- **Multi-Candidate Querying:** Automatically produces prioritized search candidates (cleaned full title, edition-stripped base title, year-stripped title, and subtitle-stripped title) to maximize hit rate on all services.
+- **Negative Keyword Rejection:** Eliminates wrong covers by rejecting results containing non-game keywords (`Soundtrack`, `OST`, `Demo`, `Playtest`, `DLC`, `Expansion`, `Server`, `Artbook`) unless specifically queried.
+- **Image Payload Validation & Self-Healing:** Validates magic bytes (JPEG, PNG, WebP, BMP) and enforces minimum payload sizes (>= 1500 bytes) to reject HTML error pages or empty spacer GIFs. Automatically detects, deletes, and re-downloads 0-byte or corrupt covers.
 - Automatic background thumbnail generation (via IShellItemImageFactory) for standalone TV & Film video files.
 - Item size display with human-readable formatting.
 - Large-file indicator badge for FAT32 incompatibility risk.
@@ -85,6 +98,7 @@
 - Automatic update checking and release notifications, with support for automatic background downloads and manual checking.
 - Automatically resize the Settings window to fit content.
 - Duplicate detection tool across all configured source libraries, identifying duplicates by name and providing actionable cleanup recommendations.
+- Toggle to overwrite existing game covers in Settings, allowing users to force refresh and replace outdated or inaccurate cover images.
 
 ## 🏗️ Architecture & Code Quality
 - Clean view-model separation enforcing zero View-to-ViewModel UI coupling through rigorous Dependency Injection (completely removing AppServiceLocator).
@@ -122,6 +136,11 @@
 - Refactored selection aggregation in `MainPage.xaml.cs` to query `ILibraryTabView` contracts uniformly via `GetTabViews()`, eliminating direct property coupling to `OsImagesTab`.
 - Centralized `CancellationTokenSource` cancellation and disposal in `MainViewModel` using a dedicated `CancelAndDisposeTokenSource` helper routine.
 - Strict adherence to SOLID principles through decoupled, highly-focused service abstractions.
+- Extracted `GameTitleSanitizer` in `Services/` to isolate folder cleaning regexes, title match scoring, and image payload validation logic.
+- Implemented franchise sequel and installment number extraction (`ExtractSequelNumber`) to eliminate cross-installment mismatches (e.g. preventing *Dark Souls II* from matching *Dark Souls*).
+- Corrected Steam genre mapping in `GameInfoDownloadService.Categories.cs` so generic "Action" genres map to Action-Adventure instead of "Shooter", prioritizing specific genres like RPG.
+- Extended `IGameInfoDownloadService` with `DownloadCoverForGameAsync` to support targeted per-game cover downloads and updates.
+- Refactored `FetchSteamAppIdAsync` with multi-candidate search, Store API fallback, and CheapShark integration for elevated accuracy across covers, system requirements, and categories.
 - Proper Dependency Injection flow used to instantiate View Models across pages and windows, eliminating service-locator anti-patterns.
 - UI elements decoupled from Services by leveraging `IDispatcherService` and `IWindowService` interfaces.
 - Centralized Win32 NativeWindow lifecycle hooks reducing duplicated window initialization logic.

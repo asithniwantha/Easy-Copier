@@ -22,7 +22,7 @@
 <!-- Node1 -->
 <g id="Node000001" class="node">
 <title>Node1</title>
-<g id="a_Node000001"><a xlink:title=" ">
+<g id="a_Node000001"><a xlink:title="Receives progress updates from Windows Shell IFileOperation and reports transfer status and speed met...">
 <polygon fill="#999999" stroke="#666666" points="125.5,-32 1.5,-32 1.5,0 125.5,0 125.5,-32"/>
 <text xml:space="preserve" text-anchor="start" x="9.5" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Interop.File</text>
 <text xml:space="preserve" text-anchor="middle" x="63.5" y="-6.5" font-family="Helvetica,sans-Serif" font-size="10.00">OperationProgressSink</text>

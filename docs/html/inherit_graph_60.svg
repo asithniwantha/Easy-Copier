@@ -11,11 +11,11 @@
 <!-- Node0 -->
 <g id="Node000000" class="node">
 <title>Node0</title>
-<g id="a_Node000000"><a xlink:href="class_easy___copier_1_1_views_1_1_history_page_1_1_history_page__obj1___bindings_1_1_history_page__obj1___bindings_tracking.html" target="_top" xlink:title=" ">
+<g id="a_Node000000"><a xlink:href="interface_easy___copier_1_1_views_1_1_apps_tab_view_1_1_i_apps_tab_view___bindings_scope_connector.html" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="#666666" points="173.5,-44 0,-44 0,0 173.5,0 173.5,-44"/>
-<text xml:space="preserve" text-anchor="start" x="8" y="-30.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Views.History</text>
-<text xml:space="preserve" text-anchor="start" x="8" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">Page.HistoryPage_obj1_Bindings.</text>
-<text xml:space="preserve" text-anchor="middle" x="86.75" y="-6.5" font-family="Helvetica,sans-Serif" font-size="10.00">HistoryPage_obj1_BindingsTracking</text>
+<text xml:space="preserve" text-anchor="start" x="8" y="-30.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Views.AppsTab</text>
+<text xml:space="preserve" text-anchor="start" x="8" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">View.IAppsTabView_BindingsScope</text>
+<text xml:space="preserve" text-anchor="middle" x="86.75" y="-6.5" font-family="Helvetica,sans-Serif" font-size="10.00">Connector</text>
 </a>
 </g>
 </g>

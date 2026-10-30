@@ -5,7 +5,7 @@
 <area shape="poly" id="edge2_Node000001_Node000002" title=" " alt="" coords="816,47,787,46,787,41,822,47"/>
 <area shape="rect" id="Node000005" href="$class_easy___copier_1_1_services_1_1_library_cache_service.html#a05e76d2554223c9f80d4b4ca9358b977" title="Compares the cached snapshot against active source folder settings and inspects modified files to eva..." alt="" coords="532,72,761,115"/>
 <area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="822,73,762,82,761,77,816,73"/>
-<area shape="rect" id="Node000003" href="$class_easy___copier_1_1_view_models_1_1_main_view_model.html#a7ec049730d16773f05f8c87da648d961" title=" " alt="" coords="256,5,459,48"/>
+<area shape="rect" id="Node000003" href="$class_easy___copier_1_1_view_models_1_1_main_view_model.html#a7ec049730d16773f05f8c87da648d961" title="Asynchronously initializes settings, drive monitoring, and library contents from cache or disk scan." alt="" coords="256,5,459,48"/>
 <area shape="poly" id="edge3_Node000002_Node000003" title=" " alt="" coords="489,27,460,29,459,24,494,26"/>
 <area shape="rect" id="Node000004" href="$class_easy___copier_1_1_views_1_1_main_page.html#a1892f28feb0fd22b9cff5ebb690f1bea" title=" " alt="" coords="5,5,208,48"/>
 <area shape="poly" id="edge4_Node000003_Node000004" title=" " alt="" coords="237,27,209,29,208,24,242,26"/>

@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['datecreated_0',['DateCreated',['../namespace_easy___copier_1_1_models.html#a730e39ab051f5d5a6af5d61176138617ad3813870ed2a75e81f3789ac527f3148',1,'Easy_Copier::Models']]],
+  ['datecreated_0',['DateCreated',['../namespace_easy___copier_1_1_models.html#a730e39ab051f5d5a6af5d61176138617ad3813870ed2a75e81f3789ac527f3148',1,'Easy_Copier.Models.DateCreated'],['../namespace_easy___copier_1_1_models.html#a0e81f6516d5ea1952cb72d30b5bb20c7ad3813870ed2a75e81f3789ac527f3148',1,'Easy_Copier.Models.DateCreated']]],
   ['default_1',['Default',['../namespace_easy___copier_1_1_models.html#a68a2590a03f2da096e940aad813f4053a7a1920d61156abc05a60135aefe8bc67',1,'Easy_Copier::Models']]],
   ['desktopabsoluteediting_2',['DESKTOPABSOLUTEEDITING',['../namespace_easy___copier_1_1_interop.html#afd900c2991e05496e7482283f060be9ca976d2aab22b402b4579d55cac800ce46',1,'Easy_Copier::Interop']]],
   ['desktopabsoluteparsing_3',['DESKTOPABSOLUTEPARSING',['../namespace_easy___copier_1_1_interop.html#afd900c2991e05496e7482283f060be9cad946f987c0d6b322d8849ac1165846b0',1,'Easy_Copier::Interop']]]

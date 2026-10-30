@@ -1,0 +1,8 @@
+<map id="Easy_Copier.Models.PeriodTotal" name="Easy_Copier.Models.PeriodTotal">
+<area shape="rect" id="Node000001" title="Represents aggregated totals for a single reporting period (day or week)." alt="" coords="510,29,693,72"/>
+<area shape="poly" id="edge1_Node000001_Node000001" title=" " alt="" coords="639,13,626,10,602,8,579,10,565,15,560,21,561,30,557,27,555,19,562,10,578,5,602,3,627,5,644,14"/>
+<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_services_1_1_history_analysis_service.html#adb5794682fdf66a19611bd7a0d18dd5a" title=" " alt="" coords="265,29,462,72"/>
+<area shape="poly" id="edge2_Node000001_Node000002" title=" " alt="" coords="492,51,462,53,462,48,497,51"/>
+<area shape="rect" id="Node000003" href="$class_easy___copier_1_1_services_1_1_history_analysis_service.html#a29d2122341d78ac9f13606906b071549" title="Builds dashboard reporting data (daily/weekly totals, most&#45;copied items, failure rates) for the trail..." alt="" coords="5,29,217,72"/>
+<area shape="poly" id="edge3_Node000002_Node000003" title=" " alt="" coords="246,51,217,53,217,48,251,51"/>
+</map>

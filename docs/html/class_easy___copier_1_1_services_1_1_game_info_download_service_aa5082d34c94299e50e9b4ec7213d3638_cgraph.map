@@ -1,0 +1,5 @@
+<map id="Easy_Copier.Services.GameInfoDownloadService.DownloadImageAsync" name="Easy_Copier.Services.GameInfoDownloadService.DownloadImageAsync">
+<area shape="rect" id="Node000001" title="Downloads an image from the specified URL and saves it to a local file path after verifying image dat..." alt="" coords="5,5,286,48"/>
+<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_services_1_1_game_title_sanitizer.html#a790f399df883c0306b7753e12720cef1" title="Validates that raw byte data represents a legitimate, non&#45;empty image (JPEG, PNG, WebP,..." alt="" coords="334,5,524,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="286,24,321,27,315,27,286,29"/>
+</map>

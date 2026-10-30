@@ -1,0 +1,7 @@
+<map id="Easy_Copier.ViewModels.MainViewModel.ShowGlobalNotification" name="Easy_Copier.ViewModels.MainViewModel.ShowGlobalNotification">
+<area shape="rect" id="Node000001" title="Displays a global in&#45;app notification bar with the specified title and message." alt="" coords="5,51,231,93"/>
+<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_view_models_1_1_main_view_model.html#ade61b832aff1c4bf5310ae57ac5852b6" title="Cancels and disposes the specified cancellation token source if non&#45;null, setting its reference to nu..." alt="" coords="279,5,515,64"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="231,54,266,52,260,53,232,59"/>
+<area shape="rect" id="Node000003" href="$interface_easy___copier_1_1_infrastructure_1_1_i_dispatcher_service.html#a610df3934d188d070dafefd96a3bc47a" title="Enqueues a synchronous action to be executed on the UI thread." alt="" coords="294,88,500,131"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="231,84,281,93,276,94,231,90"/>
+</map>

@@ -1,0 +1,6 @@
+<map id="Easy_Copier.Infrastructure.FlyoutService.HandleOpenFolderClick" name="Easy_Copier.Infrastructure.FlyoutService.HandleOpenFolderClick">
+<area shape="rect" id="Node000001" title="Handles button click events to open an item&#39;s folder in File Explorer." alt="" coords="5,21,249,64"/>
+<area shape="rect" id="Node000002" href="$namespace_easy___copier_1_1_models.html#a9c2abd1d64352c07d3085ba499cf2aae" title="Represents a single scanned library entry (game, app, TV/film, or OS image)." alt="" coords="297,29,509,56"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="249,40,284,43,278,43,249,45"/>
+<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="356,28,349,21,354,11,373,5,403,3,437,5,455,15,450,15,435,11,403,8,374,10,358,15,354,20,362,30"/>
+</map>

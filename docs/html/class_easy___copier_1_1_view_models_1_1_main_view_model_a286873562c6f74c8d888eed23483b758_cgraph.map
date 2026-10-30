@@ -1,0 +1,11 @@
+<map id="Easy_Copier.ViewModels.MainViewModel.ApplyFilter" name="Easy_Copier.ViewModels.MainViewModel.ApplyFilter">
+<area shape="rect" id="Node000001" title="Filters and sorts active library collections based on current search queries, category,..." alt="" coords="5,105,209,148"/>
+<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_view_models_1_1_main_view_model.html#a74768a1f58ff1ee9c59c479d0dfae2bd" title="Applies search text query and category filtering to the applications library collection." alt="" coords="266,5,469,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="152,102,256,58,278,52,273,55,258,62,154,107"/>
+<area shape="rect" id="Node000003" href="$class_easy___copier_1_1_view_models_1_1_main_view_model.html#ad3c74fca3d7ea189f656357c5f392292" title="Applies search text query and category filtering to the games library collection." alt="" coords="266,72,469,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="208,111,253,107,248,109,210,116"/>
+<area shape="rect" id="Node000004" href="$class_easy___copier_1_1_view_models_1_1_main_view_model.html#ae2ee39386a22d609aa35d4a385654ac4" title="Applies search text query, category filtering, and sorting to the OS images library collection." alt="" coords="262,139,473,181"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="209,137,249,144,243,145,209,142"/>
+<area shape="rect" id="Node000005" href="$class_easy___copier_1_1_view_models_1_1_main_view_model.html#abd35ddffc9ae4e957a2a8c26c24d3764" title="Applies search text query, category filtering, and sorting to the TV and films library collection." alt="" coords="257,205,478,248"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="154,146,258,191,278,200,273,200,256,196,153,151"/>
+</map>

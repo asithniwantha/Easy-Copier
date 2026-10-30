@@ -1,0 +1,5 @@
+<map id="Easy_Copier.Interop.IShellItemImageFactory.GetImage" name="Easy_Copier.Interop.IShellItemImageFactory.GetImage">
+<area shape="rect" id="Node000001" title="Gets an HBITMAP that represents an IShellItem." alt="" coords="269,5,456,48"/>
+<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_services_1_1_thumbnail_service.html#a2e45a49bfa2ce70fc2c72c91972ada3d" title="Asynchronously extracts a thumbnail from the specified source file and saves it to the cache director..." alt="" coords="5,5,221,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="250,27,221,29,221,24,256,27"/>
+</map>

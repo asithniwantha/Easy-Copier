@@ -1,0 +1,13 @@
+<map id="Easy_Copier.Services.GameTitleSanitizer.CleanTitle" name="Easy_Copier.Services.GameTitleSanitizer.CleanTitle">
+<area shape="rect" id="Node000001" title="Cleans a raw folder or file name by stripping repack tags, scene suffixes, version tags,..." alt="" coords="5,147,196,189"/>
+<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_services_1_1_game_title_sanitizer.html#a87c1ca9ffee5561c51b2210f2ddc526c" title="Cleans multiple spaces and edge punctuation from a title string." alt="" coords="275,5,479,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="123,144,175,100,208,77,242,58,262,51,258,54,245,62,211,82,178,104,126,148"/>
+<area shape="rect" id="Node000003" href="$class_easy___copier_1_1_services_1_1_game_title_sanitizer.html#a698d6d3d03e950e1c42108404d9d9d72" title="Regular expression matching parentheses containing non&#45;essential metadata (e.g. cracked,..." alt="" coords="244,72,510,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="174,144,243,124,274,118,270,120,244,129,176,148"/>
+<area shape="rect" id="Node000004" href="$class_easy___copier_1_1_services_1_1_game_title_sanitizer.html#a2bfc8daeddc23d966ac67c0273720224" title="Regular expression matching scene release groups and repack tags commonly appended to game folder nam..." alt="" coords="270,139,484,197"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="195,165,257,167,252,169,197,171"/>
+<area shape="rect" id="Node000005" href="$class_easy___copier_1_1_services_1_1_game_title_sanitizer.html#ac304069202ad3797629c7b0b24ff8ff4" title="Regular expression matching trailing scene release group names (e.g. &#45;CODEX, &#45;EMPRESS,..." alt="" coords="255,221,499,264"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="175,187,244,207,275,217,270,217,243,212,175,193"/>
+<area shape="rect" id="Node000006" href="$class_easy___copier_1_1_services_1_1_game_title_sanitizer.html#a3bb38630f30ec32b34df1587b9918bdd" title="Regular expression matching build numbers, patch versions, and update identifiers." alt="" coords="260,288,494,331"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="125,187,178,232,211,254,245,274,261,282,255,282,242,278,208,259,175,236,124,193"/>
+</map>

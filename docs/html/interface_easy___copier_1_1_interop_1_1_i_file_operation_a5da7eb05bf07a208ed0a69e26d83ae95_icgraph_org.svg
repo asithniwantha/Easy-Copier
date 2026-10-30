@@ -11,7 +11,7 @@
 <!-- Node1 -->
 <g id="Node000001" class="node">
 <title>Node1</title>
-<g id="a_Node000001"><a xlink:title=" ">
+<g id="a_Node000001"><a xlink:title="Sets flags that control file operations.">
 <polygon fill="#999999" stroke="#666666" points="591.75,-69 449.75,-69 449.75,-37 591.75,-37 591.75,-69"/>
 <text xml:space="preserve" text-anchor="start" x="457.75" y="-55.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Interop.IFile</text>
 <text xml:space="preserve" text-anchor="middle" x="520.75" y="-43.5" font-family="Helvetica,sans-Serif" font-size="10.00">Operation.SetOperationFlags</text>

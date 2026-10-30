@@ -1,0 +1,7 @@
+<map id="Easy_Copier.Services.GameRequirementsService" name="Easy_Copier.Services.GameRequirementsService">
+<area shape="rect" id="Node000001" title="Implements IGameRequirementsService to encapsulate retrieving and formatting game system requirements..." alt="" coords="391,39,581,81"/>
+<area shape="rect" id="Node000002" href="$interface_easy___copier_1_1_services_1_1_i_game_requirements_service.html" title="Defines operations for retrieving and formatting game system requirements." alt="" coords="8,5,203,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="218,34,393,50,388,53,218,39"/>
+<area shape="rect" id="Node000003" href="$interface_easy___copier_1_1_services_1_1_i_source_library_service.html" title="Defines operations for validating source folder paths and reading game system requirements documents." alt="" coords="5,72,206,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="221,87,366,76,387,76,393,76,367,81,221,92"/>
+</map>

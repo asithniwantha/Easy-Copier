@@ -32,7 +32,7 @@
 <!-- Node2 -->
 <g id="Node000002" class="node">
 <title>Node2</title>
-<g id="a_Node000002"><a xlink:href="class_easy___copier_1_1_behaviors_1_1_hover_behavior.html#a5285082602da004962b76c4e988d3d69" target="_top" xlink:title=" ">
+<g id="a_Node000002"><a xlink:href="class_easy___copier_1_1_behaviors_1_1_hover_behavior.html#a5285082602da004962b76c4e988d3d69" target="_top" xlink:title="Handles the UIElement.PointerEntered event to set IsHovered to true.">
 <polygon fill="white" stroke="#666666" points="332,-106 184,-106 184,-62 332,-62 332,-106"/>
 <text xml:space="preserve" text-anchor="start" x="192" y="-92.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Behaviors.Hover</text>
 <text xml:space="preserve" text-anchor="start" x="192" y="-80.5" font-family="Helvetica,sans-Serif" font-size="10.00">Behavior.AssociatedObject</text>
@@ -52,7 +52,7 @@
 <!-- Node3 -->
 <g id="Node000003" class="node">
 <title>Node3</title>
-<g id="a_Node000003"><a xlink:href="class_easy___copier_1_1_behaviors_1_1_hover_behavior.html#abf8b0188a5dba3cf3c299d64f73debab" target="_top" xlink:title=" ">
+<g id="a_Node000003"><a xlink:href="class_easy___copier_1_1_behaviors_1_1_hover_behavior.html#abf8b0188a5dba3cf3c299d64f73debab" target="_top" xlink:title="Handles the UIElement.PointerExited event to set IsHovered to false.">
 <polygon fill="white" stroke="#666666" points="332,-44 184,-44 184,0 332,0 332,-44"/>
 <text xml:space="preserve" text-anchor="start" x="192" y="-30.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Behaviors.Hover</text>
 <text xml:space="preserve" text-anchor="start" x="192" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">Behavior.AssociatedObject</text>

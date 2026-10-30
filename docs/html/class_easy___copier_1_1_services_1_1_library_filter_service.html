@@ -131,27 +131,8 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('class_easy___c
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a654aeaabd5c8f5b81c596b3a72e62672" id="r_a654aeaabd5c8f5b81c596b3a72e62672"><td class="memItemLeft">IEnumerable&lt; <a class="el" href="namespace_easy___copier_1_1_models.html#a9c2abd1d64352c07d3085ba499cf2aae">GameEntry</a> &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a654aeaabd5c8f5b81c596b3a72e62672">FilterEntries</a> (IEnumerable&lt; <a class="el" href="namespace_easy___copier_1_1_models.html#a9c2abd1d64352c07d3085ba499cf2aae">GameEntry</a> &gt; source, string? query, <a class="el" href="namespace_easy___copier_1_1_models.html#a79b82f8099c51633e7a21698ac8835c5">GameCategory</a> categoryFilter)</td></tr>
-<tr class="memdesc:a654aeaabd5c8f5b81c596b3a72e62672"><td class="mdescLeft">&#160;</td><td class="mdescRight">Filters a collection of entries based on a search text query and category filter.<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">source</td><td>The source collection of entries.</td></tr>
-    <tr><td class="paramname">query</td><td>The text search query.</td></tr>
-    <tr><td class="paramname">categoryFilter</td><td>The category filter to match.</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>An enumerable of filtered entries.</dd></dl>
-  <br /></td></tr>
 <tr class="memitem:a0cd28b89ffe728d70b59abbf512e7a4f" id="r_a0cd28b89ffe728d70b59abbf512e7a4f"><td class="memItemLeft">IEnumerable&lt; <a class="el" href="namespace_easy___copier_1_1_models.html#a9c2abd1d64352c07d3085ba499cf2aae">GameEntry</a> &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a0cd28b89ffe728d70b59abbf512e7a4f">SortOsImages</a> (IEnumerable&lt; <a class="el" href="namespace_easy___copier_1_1_models.html#a9c2abd1d64352c07d3085ba499cf2aae">GameEntry</a> &gt; entries, <a class="el" href="namespace_easy___copier_1_1_models.html#a730e39ab051f5d5a6af5d61176138617">OsImageSortOption</a> sortOption, bool isAscending)</td></tr>
-<tr class="memdesc:a0cd28b89ffe728d70b59abbf512e7a4f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sorts OS image entries based on the specified sort option and direction.<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">entries</td><td>The OS image entries to sort.</td></tr>
-    <tr><td class="paramname">sortOption</td><td>The sorting option to apply.</td></tr>
-    <tr><td class="paramname">isAscending</td><td>Whether sorting should be in ascending order.</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>An enumerable of sorted OS image entries.</dd></dl>
-  <br /></td></tr>
+<tr class="memitem:aee33d9152a2c22599eb5bd540b52a2d6" id="r_aee33d9152a2c22599eb5bd540b52a2d6"><td class="memItemLeft">IEnumerable&lt; <a class="el" href="namespace_easy___copier_1_1_models.html#a9c2abd1d64352c07d3085ba499cf2aae">GameEntry</a> &gt;&#160;</td><td class="memItemRight"><a class="el" href="#aee33d9152a2c22599eb5bd540b52a2d6">SortTvAndFilms</a> (IEnumerable&lt; <a class="el" href="namespace_easy___copier_1_1_models.html#a9c2abd1d64352c07d3085ba499cf2aae">GameEntry</a> &gt; entries, <a class="el" href="namespace_easy___copier_1_1_models.html#a0e81f6516d5ea1952cb72d30b5bb20c7">TvAndFilmsSortOption</a> sortOption, bool isAscending)</td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Service that handles filtering and sorting operations for library entries. </p>
@@ -181,7 +162,6 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
 <p>Filters a collection of entries based on a search text query and category filter.<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">source</td><td>The source collection of entries.</td></tr>
@@ -191,11 +171,16 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>An enumerable of filtered entries.</dd></dl>
- </p>
+ </p><dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">ArgumentNullException</td><td>Thrown when <em>source</em>  is <code>null</code>.</td></tr>
+  </table>
+  </dd>
+</dl>
 
 <p>Implements <a class="el" href="interface_easy___copier_1_1_services_1_1_i_library_filter_service.html#ac378552c09565c670c026eefec6644c3">Easy_Copier.Services.ILibraryFilterService</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_library_filter_service_8cs_source.html#l00014">14</a> of file <a class="el" href="_library_filter_service_8cs_source.html">LibraryFilterService.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_library_filter_service_8cs_source.html#l00015">15</a> of file <a class="el" href="_library_filter_service_8cs_source.html">LibraryFilterService.cs</a>.</p>
 
 </div>
 </div>
@@ -222,7 +207,6 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
 <p>Sorts OS image entries based on the specified sort option and direction.<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">entries</td><td>The OS image entries to sort.</td></tr>
@@ -232,13 +216,65 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>An enumerable of sorted OS image entries.</dd></dl>
- </p>
+ </p><dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">ArgumentNullException</td><td>Thrown when <em>entries</em>  is <code>null</code>.</td></tr>
+  </table>
+  </dd>
+</dl>
 
 <p>Implements <a class="el" href="interface_easy___copier_1_1_services_1_1_i_library_filter_service.html#a0e019cfb76dcbe587e0fad765f3b32fb">Easy_Copier.Services.ILibraryFilterService</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_library_filter_service_8cs_source.html#l00033">33</a> of file <a class="el" href="_library_filter_service_8cs_source.html">LibraryFilterService.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_library_filter_service_8cs_source.html#l00035">35</a> of file <a class="el" href="_library_filter_service_8cs_source.html">LibraryFilterService.cs</a>.</p>
 
-<p class="reference">References <a class="el" href="_domain_models_8cs_source.html#l00083">Easy_Copier.Models.DateCreated</a>, <a class="el" href="_domain_models_8cs_source.html#l00080">Easy_Copier.Models.Name</a>, and <a class="el" href="_domain_models_8cs_source.html#l00086">Easy_Copier.Models.Size</a>.</p>
+<p class="reference">References <a class="el" href="_domain_models_8cs_source.html#l00119">Easy_Copier.Models.DateCreated</a>, <a class="el" href="_domain_models_8cs_source.html#l00116">Easy_Copier.Models.Name</a>, and <a class="el" href="_domain_models_8cs_source.html#l00122">Easy_Copier.Models.Size</a>.</p>
+
+</div>
+</div>
+<a id="aee33d9152a2c22599eb5bd540b52a2d6" name="aee33d9152a2c22599eb5bd540b52a2d6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aee33d9152a2c22599eb5bd540b52a2d6">&#9670;&#160;</a></span>SortTvAndFilms()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IEnumerable&lt; <a class="el" href="namespace_easy___copier_1_1_models.html#a9c2abd1d64352c07d3085ba499cf2aae">GameEntry</a> &gt; Easy_Copier.Services.LibraryFilterService.SortTvAndFilms </td>
+          <td>(</td>
+          <td class="paramtype">IEnumerable&lt; <a class="el" href="namespace_easy___copier_1_1_models.html#a9c2abd1d64352c07d3085ba499cf2aae">GameEntry</a> &gt;</td>          <td class="paramname"><span class="paramname"><em>entries</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespace_easy___copier_1_1_models.html#a0e81f6516d5ea1952cb72d30b5bb20c7">TvAndFilmsSortOption</a></td>          <td class="paramname"><span class="paramname"><em>sortOption</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>isAscending</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Sorts TV and film entries based on the specified sort option and direction.<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">entries</td><td>The TV and film entries to sort.</td></tr>
+    <tr><td class="paramname">sortOption</td><td>The sorting option to apply.</td></tr>
+    <tr><td class="paramname">isAscending</td><td>Whether sorting should be in ascending order.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>An enumerable of sorted TV and film entries.</dd></dl>
+ </p><dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">ArgumentNullException</td><td>Thrown when <em>entries</em>  is <code>null</code>.</td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implements <a class="el" href="interface_easy___copier_1_1_services_1_1_i_library_filter_service.html#a230ee763cf99c706cb62166a3ee32d55">Easy_Copier.Services.ILibraryFilterService</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="_library_filter_service_8cs_source.html#l00056">56</a> of file <a class="el" href="_library_filter_service_8cs_source.html">LibraryFilterService.cs</a>.</p>
+
+<p class="reference">References <a class="el" href="_domain_models_8cs_source.html#l00134">Easy_Copier.Models.DateCreated</a>, and <a class="el" href="_domain_models_8cs_source.html#l00131">Easy_Copier.Models.Name</a>.</p>
 
 </div>
 </div>

@@ -41,7 +41,7 @@
 <!-- Node2 -->
 <g id="Node000002" class="node">
 <title>Node2</title>
-<g id="a_Node000002"><a xlink:href="class_easy___copier_1_1_interop_1_1_file_operation_progress_sink.html#a2603964212d998b166ff5569e8d39820" target="_top" xlink:title=" ">
+<g id="a_Node000002"><a xlink:href="class_easy___copier_1_1_interop_1_1_file_operation_progress_sink.html#a2603964212d998b166ff5569e8d39820" target="_top" xlink:title="Performs caller&#45;defined actions after all file operations have completed.An HRESULT success code (0 f...">
 <polygon fill="white" stroke="#666666" points="148.38,-106 2.62,-106 2.62,-62 148.38,-62 148.38,-106"/>
 <text xml:space="preserve" text-anchor="start" x="10.62" y="-92.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Interop.File</text>
 <text xml:space="preserve" text-anchor="start" x="10.62" y="-80.5" font-family="Helvetica,sans-Serif" font-size="10.00">OperationProgressSink.Finish</text>
@@ -61,7 +61,7 @@
 <!-- Node3 -->
 <g id="Node000003" class="node">
 <title>Node3</title>
-<g id="a_Node000003"><a xlink:href="class_easy___copier_1_1_interop_1_1_file_operation_progress_sink.html#ac0fca37cba9cef3d6d058af3b33f1f4a" target="_top" xlink:title=" ">
+<g id="a_Node000003"><a xlink:href="class_easy___copier_1_1_interop_1_1_file_operation_progress_sink.html#ac0fca37cba9cef3d6d058af3b33f1f4a" target="_top" xlink:title="Provides progress measurement feedback for ongoing file operations.An HRESULT success code (0 for S_O...">
 <polygon fill="white" stroke="#666666" points="151,-44 0,-44 0,0 151,0 151,-44"/>
 <text xml:space="preserve" text-anchor="start" x="8" y="-30.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Interop.File</text>
 <text xml:space="preserve" text-anchor="start" x="8" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">OperationProgressSink.Update</text>

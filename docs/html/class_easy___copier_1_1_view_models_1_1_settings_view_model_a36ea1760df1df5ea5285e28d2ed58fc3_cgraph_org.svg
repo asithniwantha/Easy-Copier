@@ -11,7 +11,7 @@
 <!-- Node1 -->
 <g id="Node000001" class="node">
 <title>Node1</title>
-<g id="a_Node000001"><a xlink:title=" ">
+<g id="a_Node000001"><a xlink:title="Internal helper method to display a folder picker and add the chosen path to the specified collection...">
 <polygon fill="#999999" stroke="#666666" points="169.75,-32 0,-32 0,0 169.75,0 169.75,-32"/>
 <text xml:space="preserve" text-anchor="start" x="8" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.ViewModels.Settings</text>
 <text xml:space="preserve" text-anchor="middle" x="84.88" y="-6.5" font-family="Helvetica,sans-Serif" font-size="10.00">ViewModel.AddSourceFolderAsync</text>
@@ -21,7 +21,7 @@
 <!-- Node2 -->
 <g id="Node000002" class="node">
 <title>Node2</title>
-<g id="a_Node000002"><a xlink:href="class_easy___copier_1_1_view_models_1_1_settings_view_model.html#a99de34ff44c72df0891d3a3ac74790d5" target="_top" xlink:title=" ">
+<g id="a_Node000002"><a xlink:href="class_easy___copier_1_1_view_models_1_1_settings_view_model.html#a99de34ff44c72df0891d3a3ac74790d5" target="_top" xlink:title="Asynchronously persists current ViewModel field values to disk and updates logon auto&#45;start status.">
 <polygon fill="white" stroke="#666666" points="373.25,-32 205.75,-32 205.75,0 373.25,0 373.25,-32"/>
 <text xml:space="preserve" text-anchor="start" x="213.75" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.ViewModels.Settings</text>
 <text xml:space="preserve" text-anchor="middle" x="289.5" y="-6.5" font-family="Helvetica,sans-Serif" font-size="10.00">ViewModel.SaveSettingsAsync</text>
@@ -40,7 +40,7 @@
 <!-- Node3 -->
 <g id="Node000003" class="node">
 <title>Node3</title>
-<g id="a_Node000003"><a xlink:href="class_easy___copier_1_1_view_models_1_1_settings_view_model.html#a88a193f32fd7eb4b8ea344419992d14d" target="_top" xlink:title=" ">
+<g id="a_Node000003"><a xlink:href="class_easy___copier_1_1_view_models_1_1_settings_view_model.html#a88a193f32fd7eb4b8ea344419992d14d" target="_top" xlink:title="Constructs a new AppSettings snapshot from the current view model state.">
 <polygon fill="white" stroke="#666666" points="576.75,-32 409.25,-32 409.25,0 576.75,0 576.75,-32"/>
 <text xml:space="preserve" text-anchor="start" x="417.25" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.ViewModels.Settings</text>
 <text xml:space="preserve" text-anchor="middle" x="493" y="-6.5" font-family="Helvetica,sans-Serif" font-size="10.00">ViewModel.GetSettings</text>

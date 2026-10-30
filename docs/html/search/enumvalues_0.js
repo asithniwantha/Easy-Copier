@@ -5,6 +5,7 @@ var searchData=
   ['addosimagefolder_2',['AddOsImageFolder',['../namespace_easy___copier_1_1_infrastructure.html#acdb98b1b8cd21f93959d5bcd4f0db357a8ac874c3d27cee173aa40cc88e626e8f',1,'Easy_Copier::Infrastructure']]],
   ['addtvandfilmfolder_3',['AddTvAndFilmFolder',['../namespace_easy___copier_1_1_infrastructure.html#acdb98b1b8cd21f93959d5bcd4f0db357adc0af33881c087d45818704f66816c41',1,'Easy_Copier::Infrastructure']]],
   ['adventure_4',['Adventure',['../namespace_easy___copier_1_1_models.html#a79b82f8099c51633e7a21698ac8835c5adc1d2a4d591857f0a0dd38b4ebcf5a72',1,'Easy_Copier::Models']]],
-  ['all_5',['All',['../namespace_easy___copier_1_1_models.html#a79b82f8099c51633e7a21698ac8835c5ab1c94ca2fbc3e78fc30069c8d0f01680',1,'Easy_Copier::Models']]],
-  ['app_6',['App',['../namespace_easy___copier_1_1_models.html#aa1c98543798d7f84e29b2e4deba8a58baac863f346e618f9a959b5c95d5d28941',1,'Easy_Copier::Models']]]
+  ['all_5',['All',['../namespace_easy___copier_1_1_models.html#a79b82f8099c51633e7a21698ac8835c5ab1c94ca2fbc3e78fc30069c8d0f01680',1,'Easy_Copier.Models.All'],['../namespace_easy___copier_1_1_view_models.html#a9c60ee124af20b8cf2bd1bc4ca23eb35ab1c94ca2fbc3e78fc30069c8d0f01680',1,'Easy_Copier.ViewModels.All']]],
+  ['app_6',['App',['../namespace_easy___copier_1_1_models.html#a6bc9b872e9c9b7e08945d9e1b020df41aac863f346e618f9a959b5c95d5d28941',1,'Easy_Copier.Models.App'],['../namespace_easy___copier_1_1_models.html#aa1c98543798d7f84e29b2e4deba8a58baac863f346e618f9a959b5c95d5d28941',1,'Easy_Copier.Models.App']]],
+  ['apps_7',['Apps',['../namespace_easy___copier_1_1_models.html#a3c328fc9fcff93ad64bc50a418c402f5aa6f00c82b6eb55a13a1f242313aaf9c9',1,'Easy_Copier::Models']]]
 ];

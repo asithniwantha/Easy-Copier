@@ -102,11 +102,11 @@
 <!-- Node5 -->
 <g id="Node000005" class="node">
 <title>Node5</title>
-<g id="a_Node000005"><a xlink:href="class_easy___copier_1_1_easy___copier___xaml_type_info_1_1_xaml_type_info_provider.html#a9c25b473a166cb78ed4ce33fedf1f9dc" target="_top" xlink:title=" ">
-<polygon fill="white" stroke="#666666" points="650.25,-2784 461,-2784 461,-2740 650.25,-2740 650.25,-2784"/>
-<text xml:space="preserve" text-anchor="start" x="469" y="-2770.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Easy_Copier</text>
-<text xml:space="preserve" text-anchor="start" x="469" y="-2758.5" font-family="Helvetica,sans-Serif" font-size="10.00">_XamlTypeInfo.XamlTypeInfoProvider.</text>
-<text xml:space="preserve" text-anchor="middle" x="555.62" y="-2746.5" font-family="Helvetica,sans-Serif" font-size="10.00">Activate_102_NumericTextBoxBehavior</text>
+<g id="a_Node000005"><a xlink:href="class_easy___copier_1_1_easy___copier___xaml_type_info_1_1_xaml_type_info_provider.html#a1aaa68d0766b27461140a0da8d900a49" target="_top" xlink:title=" ">
+<polygon fill="white" stroke="#666666" points="647.25,-2784 464,-2784 464,-2740 647.25,-2740 647.25,-2784"/>
+<text xml:space="preserve" text-anchor="start" x="472" y="-2770.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Easy_Copier</text>
+<text xml:space="preserve" text-anchor="start" x="472" y="-2758.5" font-family="Helvetica,sans-Serif" font-size="10.00">_XamlTypeInfo.XamlTypeInfoProvider.</text>
+<text xml:space="preserve" text-anchor="middle" x="555.62" y="-2746.5" font-family="Helvetica,sans-Serif" font-size="10.00">Activate_101_FocusWithinBehavior</text>
 </a>
 </g>
 </g>
@@ -114,19 +114,19 @@
 <g id="edge4_Node000003_Node000005" class="edge">
 <title>Node3&#45;&gt;Node5</title>
 <g id="a_edge4_Node000003_Node000005"><a xlink:title=" ">
-<path fill="none" stroke="#63b8ff" d="M396.57,-1420.24C399.6,-1422.85 402.35,-1425.75 404.75,-1429 490.75,-1545.4 351.3,-2617.23 440.75,-2731 443.81,-2734.9 447.31,-2738.33 451.14,-2741.36"/>
-<polygon fill="#63b8ff" stroke="#63b8ff" points="449.11,-2744.21 459.36,-2746.87 453,-2738.4 449.11,-2744.21"/>
+<path fill="none" stroke="#63b8ff" d="M396.57,-1420.24C399.6,-1422.85 402.35,-1425.75 404.75,-1429 490.75,-1545.4 351.3,-2617.23 440.75,-2731 444.59,-2735.88 449.12,-2740.04 454.11,-2743.58"/>
+<polygon fill="#63b8ff" stroke="#63b8ff" points="451.91,-2746.34 462.27,-2748.53 455.53,-2740.35 451.91,-2746.34"/>
 </a>
 </g>
 </g>
 <!-- Node6 -->
 <g id="Node000006" class="node">
 <title>Node6</title>
-<g id="a_Node000006"><a xlink:href="class_easy___copier_1_1_easy___copier___xaml_type_info_1_1_xaml_type_info_provider.html#aa77b08f38f3428d9fca29f373df10f6c" target="_top" xlink:title=" ">
+<g id="a_Node000006"><a xlink:href="class_easy___copier_1_1_easy___copier___xaml_type_info_1_1_xaml_type_info_provider.html#a3d1761635c6b061adef857d4ecad310f" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="#666666" points="647.25,-2722 464,-2722 464,-2678 647.25,-2678 647.25,-2722"/>
 <text xml:space="preserve" text-anchor="start" x="472" y="-2708.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Easy_Copier</text>
 <text xml:space="preserve" text-anchor="start" x="472" y="-2696.5" font-family="Helvetica,sans-Serif" font-size="10.00">_XamlTypeInfo.XamlTypeInfoProvider.</text>
-<text xml:space="preserve" text-anchor="middle" x="555.62" y="-2684.5" font-family="Helvetica,sans-Serif" font-size="10.00">Activate_106_HoverBehavior</text>
+<text xml:space="preserve" text-anchor="middle" x="555.62" y="-2684.5" font-family="Helvetica,sans-Serif" font-size="10.00">Activate_106_TreeViewNode</text>
 </a>
 </g>
 </g>
@@ -142,11 +142,11 @@
 <!-- Node7 -->
 <g id="Node000007" class="node">
 <title>Node7</title>
-<g id="a_Node000007"><a xlink:href="class_easy___copier_1_1_easy___copier___xaml_type_info_1_1_xaml_type_info_provider.html#ae0f2b4e48b5df51ab007152a73e581b8" target="_top" xlink:title=" ">
+<g id="a_Node000007"><a xlink:href="class_easy___copier_1_1_easy___copier___xaml_type_info_1_1_xaml_type_info_provider.html#a946e39ad6cb1bab4e7afbd898e5d6269" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="#666666" points="647.25,-2660 464,-2660 464,-2616 647.25,-2616 647.25,-2660"/>
 <text xml:space="preserve" text-anchor="start" x="472" y="-2646.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Easy_Copier</text>
 <text xml:space="preserve" text-anchor="start" x="472" y="-2634.5" font-family="Helvetica,sans-Serif" font-size="10.00">_XamlTypeInfo.XamlTypeInfoProvider.</text>
-<text xml:space="preserve" text-anchor="middle" x="555.62" y="-2622.5" font-family="Helvetica,sans-Serif" font-size="10.00">Activate_109_FocusWithinBehavior</text>
+<text xml:space="preserve" text-anchor="middle" x="555.62" y="-2622.5" font-family="Helvetica,sans-Serif" font-size="10.00">Activate_12_BytesToSizeConverter</text>
 </a>
 </g>
 </g>
@@ -162,11 +162,11 @@
 <!-- Node8 -->
 <g id="Node000008" class="node">
 <title>Node8</title>
-<g id="a_Node000008"><a xlink:href="class_easy___copier_1_1_easy___copier___xaml_type_info_1_1_xaml_type_info_provider.html#ac7b4d6432a3b279e1ca9dc2711ffd3c4" target="_top" xlink:title=" ">
+<g id="a_Node000008"><a xlink:href="class_easy___copier_1_1_easy___copier___xaml_type_info_1_1_xaml_type_info_provider.html#a3509f7833093029574b24b1720d947d4" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="#666666" points="647.25,-2598 464,-2598 464,-2554 647.25,-2554 647.25,-2598"/>
 <text xml:space="preserve" text-anchor="start" x="472" y="-2584.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Easy_Copier</text>
 <text xml:space="preserve" text-anchor="start" x="472" y="-2572.5" font-family="Helvetica,sans-Serif" font-size="10.00">_XamlTypeInfo.XamlTypeInfoProvider.</text>
-<text xml:space="preserve" text-anchor="middle" x="555.62" y="-2560.5" font-family="Helvetica,sans-Serif" font-size="10.00">Activate_112_TreeViewNode</text>
+<text xml:space="preserve" text-anchor="middle" x="555.62" y="-2560.5" font-family="Helvetica,sans-Serif" font-size="10.00">Activate_13_BoolToVisibilityConverter</text>
 </a>
 </g>
 </g>
@@ -182,11 +182,11 @@
 <!-- Node9 -->
 <g id="Node000009" class="node">
 <title>Node9</title>
-<g id="a_Node000009"><a xlink:href="class_easy___copier_1_1_easy___copier___xaml_type_info_1_1_xaml_type_info_provider.html#a946e39ad6cb1bab4e7afbd898e5d6269" target="_top" xlink:title=" ">
-<polygon fill="white" stroke="#666666" points="647.25,-2536 464,-2536 464,-2492 647.25,-2492 647.25,-2536"/>
-<text xml:space="preserve" text-anchor="start" x="472" y="-2522.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Easy_Copier</text>
-<text xml:space="preserve" text-anchor="start" x="472" y="-2510.5" font-family="Helvetica,sans-Serif" font-size="10.00">_XamlTypeInfo.XamlTypeInfoProvider.</text>
-<text xml:space="preserve" text-anchor="middle" x="555.62" y="-2498.5" font-family="Helvetica,sans-Serif" font-size="10.00">Activate_12_BytesToSizeConverter</text>
+<g id="a_Node000009"><a xlink:href="class_easy___copier_1_1_easy___copier___xaml_type_info_1_1_xaml_type_info_provider.html#a99761ba6166bd969bea77cfe3580a5dd" target="_top" xlink:title=" ">
+<polygon fill="white" stroke="#666666" points="670.5,-2536 440.75,-2536 440.75,-2492 670.5,-2492 670.5,-2536"/>
+<text xml:space="preserve" text-anchor="start" x="448.75" y="-2522.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Easy_Copier</text>
+<text xml:space="preserve" text-anchor="start" x="448.75" y="-2510.5" font-family="Helvetica,sans-Serif" font-size="10.00">_XamlTypeInfo.XamlTypeInfoProvider.</text>
+<text xml:space="preserve" text-anchor="middle" x="555.62" y="-2498.5" font-family="Helvetica,sans-Serif" font-size="10.00">Activate_14_SeverityToInfoBarSeverityConverter</text>
 </a>
 </g>
 </g>
@@ -194,19 +194,19 @@
 <g id="edge8_Node000003_Node000009" class="edge">
 <title>Node3&#45;&gt;Node9</title>
 <g id="a_edge8_Node000003_Node000009"><a xlink:title=" ">
-<path fill="none" stroke="#63b8ff" d="M396.55,-1420.26C399.58,-1422.86 402.34,-1425.76 404.75,-1429 474.69,-1523.02 368.02,-2391.12 440.75,-2483 444.6,-2487.87 449.14,-2492.02 454.15,-2495.56"/>
-<polygon fill="#63b8ff" stroke="#63b8ff" points="451.95,-2498.32 462.32,-2500.49 455.57,-2492.33 451.95,-2498.32"/>
+<path fill="none" stroke="#63b8ff" d="M396.55,-1420.26C399.58,-1422.86 402.34,-1425.76 404.75,-1429 474.69,-1523.02 368.02,-2391.12 440.75,-2483 440.91,-2483.2 441.07,-2483.4 441.23,-2483.6"/>
+<polygon fill="#63b8ff" stroke="#63b8ff" points="438.65,-2485.96 448.15,-2490.65 443.64,-2481.06 438.65,-2485.96"/>
 </a>
 </g>
 </g>
 <!-- Node10 -->
 <g id="Node000010" class="node">
 <title>Node10</title>
-<g id="a_Node000010"><a xlink:href="class_easy___copier_1_1_easy___copier___xaml_type_info_1_1_xaml_type_info_provider.html#a3509f7833093029574b24b1720d947d4" target="_top" xlink:title=" ">
-<polygon fill="white" stroke="#666666" points="647.25,-2474 464,-2474 464,-2430 647.25,-2430 647.25,-2474"/>
-<text xml:space="preserve" text-anchor="start" x="472" y="-2460.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Easy_Copier</text>
-<text xml:space="preserve" text-anchor="start" x="472" y="-2448.5" font-family="Helvetica,sans-Serif" font-size="10.00">_XamlTypeInfo.XamlTypeInfoProvider.</text>
-<text xml:space="preserve" text-anchor="middle" x="555.62" y="-2436.5" font-family="Helvetica,sans-Serif" font-size="10.00">Activate_13_BoolToVisibilityConverter</text>
+<g id="a_Node000010"><a xlink:href="class_easy___copier_1_1_easy___copier___xaml_type_info_1_1_xaml_type_info_provider.html#a172949422808c65eabdde3abe44a1d92" target="_top" xlink:title=" ">
+<polygon fill="white" stroke="#666666" points="657.75,-2474 453.5,-2474 453.5,-2430 657.75,-2430 657.75,-2474"/>
+<text xml:space="preserve" text-anchor="start" x="461.5" y="-2460.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Easy_Copier</text>
+<text xml:space="preserve" text-anchor="start" x="461.5" y="-2448.5" font-family="Helvetica,sans-Serif" font-size="10.00">_XamlTypeInfo.XamlTypeInfoProvider.</text>
+<text xml:space="preserve" text-anchor="middle" x="555.62" y="-2436.5" font-family="Helvetica,sans-Serif" font-size="10.00">Activate_15_PathToImageSourceConverter</text>
 </a>
 </g>
 </g>
@@ -214,19 +214,19 @@
 <g id="edge9_Node000003_Node000010" class="edge">
 <title>Node3&#45;&gt;Node10</title>
 <g id="a_edge9_Node000003_Node000010"><a xlink:title=" ">
-<path fill="none" stroke="#63b8ff" d="M396.54,-1420.26C399.57,-1422.86 402.34,-1425.76 404.75,-1429 470.67,-1517.43 372.2,-2334.59 440.75,-2421 444.61,-2425.87 449.15,-2430.01 454.16,-2433.55"/>
-<polygon fill="#63b8ff" stroke="#63b8ff" points="451.97,-2436.31 462.34,-2438.48 455.58,-2430.32 451.97,-2436.31"/>
+<path fill="none" stroke="#63b8ff" d="M396.54,-1420.26C399.57,-1422.86 402.34,-1425.76 404.75,-1429 470.67,-1517.43 372.2,-2334.59 440.75,-2421 441.98,-2422.54 443.27,-2424.02 444.63,-2425.42"/>
+<polygon fill="#63b8ff" stroke="#63b8ff" points="442.04,-2427.81 451.88,-2431.73 446.63,-2422.53 442.04,-2427.81"/>
 </a>
 </g>
 </g>
 <!-- Node11 -->
 <g id="Node000011" class="node">
 <title>Node11</title>
-<g id="a_Node000011"><a xlink:href="class_easy___copier_1_1_easy___copier___xaml_type_info_1_1_xaml_type_info_provider.html#a99761ba6166bd969bea77cfe3580a5dd" target="_top" xlink:title=" ">
-<polygon fill="white" stroke="#666666" points="670.5,-2412 440.75,-2412 440.75,-2368 670.5,-2368 670.5,-2412"/>
-<text xml:space="preserve" text-anchor="start" x="448.75" y="-2398.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Easy_Copier</text>
-<text xml:space="preserve" text-anchor="start" x="448.75" y="-2386.5" font-family="Helvetica,sans-Serif" font-size="10.00">_XamlTypeInfo.XamlTypeInfoProvider.</text>
-<text xml:space="preserve" text-anchor="middle" x="555.62" y="-2374.5" font-family="Helvetica,sans-Serif" font-size="10.00">Activate_14_SeverityToInfoBarSeverityConverter</text>
+<g id="a_Node000011"><a xlink:href="class_easy___copier_1_1_easy___copier___xaml_type_info_1_1_xaml_type_info_provider.html#a63398e82045d5f5f24ec0520ce1cfe45" target="_top" xlink:title=" ">
+<polygon fill="white" stroke="#666666" points="652.88,-2412 458.38,-2412 458.38,-2368 652.88,-2368 652.88,-2412"/>
+<text xml:space="preserve" text-anchor="start" x="466.38" y="-2398.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Easy_Copier</text>
+<text xml:space="preserve" text-anchor="start" x="466.38" y="-2386.5" font-family="Helvetica,sans-Serif" font-size="10.00">_XamlTypeInfo.XamlTypeInfoProvider.</text>
+<text xml:space="preserve" text-anchor="middle" x="555.62" y="-2374.5" font-family="Helvetica,sans-Serif" font-size="10.00">Activate_16_GameSizeToPriceConverter</text>
 </a>
 </g>
 </g>
@@ -234,19 +234,19 @@
 <g id="edge10_Node000003_Node000011" class="edge">
 <title>Node3&#45;&gt;Node11</title>
 <g id="a_edge10_Node000003_Node000011"><a xlink:title=" ">
-<path fill="none" stroke="#63b8ff" d="M396.53,-1420.27C399.57,-1422.87 402.33,-1425.77 404.75,-1429 466.66,-1511.83 376.38,-2278.06 440.75,-2359 440.91,-2359.2 441.07,-2359.4 441.23,-2359.6"/>
-<polygon fill="#63b8ff" stroke="#63b8ff" points="438.66,-2361.97 448.17,-2366.64 443.64,-2357.06 438.66,-2361.97"/>
+<path fill="none" stroke="#63b8ff" d="M396.53,-1420.27C399.57,-1422.87 402.33,-1425.77 404.75,-1429 466.66,-1511.83 376.38,-2278.06 440.75,-2359 443.25,-2362.14 446.03,-2364.98 449.04,-2367.56"/>
+<polygon fill="#63b8ff" stroke="#63b8ff" points="446.7,-2370.18 456.85,-2373.22 450.81,-2364.51 446.7,-2370.18"/>
 </a>
 </g>
 </g>
 <!-- Node12 -->
 <g id="Node000012" class="node">
 <title>Node12</title>
-<g id="a_Node000012"><a xlink:href="class_easy___copier_1_1_easy___copier___xaml_type_info_1_1_xaml_type_info_provider.html#a172949422808c65eabdde3abe44a1d92" target="_top" xlink:title=" ">
-<polygon fill="white" stroke="#666666" points="657.75,-2350 453.5,-2350 453.5,-2306 657.75,-2306 657.75,-2350"/>
-<text xml:space="preserve" text-anchor="start" x="461.5" y="-2336.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Easy_Copier</text>
-<text xml:space="preserve" text-anchor="start" x="461.5" y="-2324.5" font-family="Helvetica,sans-Serif" font-size="10.00">_XamlTypeInfo.XamlTypeInfoProvider.</text>
-<text xml:space="preserve" text-anchor="middle" x="555.62" y="-2312.5" font-family="Helvetica,sans-Serif" font-size="10.00">Activate_15_PathToImageSourceConverter</text>
+<g id="a_Node000012"><a xlink:href="class_easy___copier_1_1_easy___copier___xaml_type_info_1_1_xaml_type_info_provider.html#a5134a93da0915e7d6223123f2e57ab5e" target="_top" xlink:title=" ">
+<polygon fill="white" stroke="#666666" points="670.12,-2350 441.12,-2350 441.12,-2306 670.12,-2306 670.12,-2350"/>
+<text xml:space="preserve" text-anchor="start" x="449.12" y="-2336.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Easy_Copier</text>
+<text xml:space="preserve" text-anchor="start" x="449.12" y="-2324.5" font-family="Helvetica,sans-Serif" font-size="10.00">_XamlTypeInfo.XamlTypeInfoProvider.</text>
+<text xml:space="preserve" text-anchor="middle" x="555.62" y="-2312.5" font-family="Helvetica,sans-Serif" font-size="10.00">Activate_17_GameCategoryToVisibilityConverter</text>
 </a>
 </g>
 </g>
@@ -254,19 +254,19 @@
 <g id="edge11_Node000003_Node000012" class="edge">
 <title>Node3&#45;&gt;Node12</title>
 <g id="a_edge11_Node000003_Node000012"><a xlink:title=" ">
-<path fill="none" stroke="#63b8ff" d="M396.52,-1420.28C399.56,-1422.88 402.33,-1425.77 404.75,-1429 462.64,-1506.24 380.56,-2221.53 440.75,-2297 441.98,-2298.54 443.28,-2300.01 444.64,-2301.41"/>
-<polygon fill="#63b8ff" stroke="#63b8ff" points="442.06,-2303.81 451.91,-2307.71 446.64,-2298.52 442.06,-2303.81"/>
+<path fill="none" stroke="#63b8ff" d="M396.52,-1420.28C399.56,-1422.88 402.33,-1425.77 404.75,-1429 462.64,-1506.24 380.56,-2221.53 440.75,-2297 440.91,-2297.2 441.07,-2297.4 441.23,-2297.6"/>
+<polygon fill="#63b8ff" stroke="#63b8ff" points="438.66,-2299.97 448.18,-2304.63 443.64,-2295.05 438.66,-2299.97"/>
 </a>
 </g>
 </g>
 <!-- Node13 -->
 <g id="Node000013" class="node">
 <title>Node13</title>
-<g id="a_Node000013"><a xlink:href="class_easy___copier_1_1_easy___copier___xaml_type_info_1_1_xaml_type_info_provider.html#a63398e82045d5f5f24ec0520ce1cfe45" target="_top" xlink:title=" ">
-<polygon fill="white" stroke="#666666" points="652.88,-2288 458.38,-2288 458.38,-2244 652.88,-2244 652.88,-2288"/>
-<text xml:space="preserve" text-anchor="start" x="466.38" y="-2274.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Easy_Copier</text>
-<text xml:space="preserve" text-anchor="start" x="466.38" y="-2262.5" font-family="Helvetica,sans-Serif" font-size="10.00">_XamlTypeInfo.XamlTypeInfoProvider.</text>
-<text xml:space="preserve" text-anchor="middle" x="555.62" y="-2250.5" font-family="Helvetica,sans-Serif" font-size="10.00">Activate_16_GameSizeToPriceConverter</text>
+<g id="a_Node000013"><a xlink:href="class_easy___copier_1_1_easy___copier___xaml_type_info_1_1_xaml_type_info_provider.html#a76372145f5057393422c2b892c75ee75" target="_top" xlink:title=" ">
+<polygon fill="white" stroke="#666666" points="660,-2288 451.25,-2288 451.25,-2244 660,-2244 660,-2288"/>
+<text xml:space="preserve" text-anchor="start" x="459.25" y="-2274.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Easy_Copier</text>
+<text xml:space="preserve" text-anchor="start" x="459.25" y="-2262.5" font-family="Helvetica,sans-Serif" font-size="10.00">_XamlTypeInfo.XamlTypeInfoProvider.</text>
+<text xml:space="preserve" text-anchor="middle" x="555.62" y="-2250.5" font-family="Helvetica,sans-Serif" font-size="10.00">Activate_18_QueueStatusToBrushConverter</text>
 </a>
 </g>
 </g>
@@ -274,19 +274,19 @@
 <g id="edge12_Node000003_Node000013" class="edge">
 <title>Node3&#45;&gt;Node13</title>
 <g id="a_edge12_Node000003_Node000013"><a xlink:title=" ">
-<path fill="none" stroke="#63b8ff" d="M396.51,-1420.29C399.55,-1422.88 402.32,-1425.77 404.75,-1429 458.63,-1500.65 384.74,-2165 440.75,-2235 443.26,-2238.13 446.05,-2240.97 449.07,-2243.54"/>
-<polygon fill="#63b8ff" stroke="#63b8ff" points="446.73,-2246.17 456.89,-2249.19 450.83,-2240.49 446.73,-2246.17"/>
+<path fill="none" stroke="#63b8ff" d="M396.51,-1420.29C399.55,-1422.88 402.32,-1425.77 404.75,-1429 458.63,-1500.65 384.74,-2165 440.75,-2235 441.42,-2235.84 442.11,-2236.66 442.83,-2237.46"/>
+<polygon fill="#63b8ff" stroke="#63b8ff" points="440.33,-2239.92 450.03,-2244.19 445.12,-2234.81 440.33,-2239.92"/>
 </a>
 </g>
 </g>
 <!-- Node14 -->
 <g id="Node000014" class="node">
 <title>Node14</title>
-<g id="a_Node000014"><a xlink:href="class_easy___copier_1_1_easy___copier___xaml_type_info_1_1_xaml_type_info_provider.html#a5134a93da0915e7d6223123f2e57ab5e" target="_top" xlink:title=" ">
-<polygon fill="white" stroke="#666666" points="670.12,-2226 441.12,-2226 441.12,-2182 670.12,-2182 670.12,-2226"/>
-<text xml:space="preserve" text-anchor="start" x="449.12" y="-2212.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Easy_Copier</text>
-<text xml:space="preserve" text-anchor="start" x="449.12" y="-2200.5" font-family="Helvetica,sans-Serif" font-size="10.00">_XamlTypeInfo.XamlTypeInfoProvider.</text>
-<text xml:space="preserve" text-anchor="middle" x="555.62" y="-2188.5" font-family="Helvetica,sans-Serif" font-size="10.00">Activate_17_GameCategoryToVisibilityConverter</text>
+<g id="a_Node000014"><a xlink:href="class_easy___copier_1_1_easy___copier___xaml_type_info_1_1_xaml_type_info_provider.html#a1603629e52785d426179d1df1471b843" target="_top" xlink:title=" ">
+<polygon fill="white" stroke="#666666" points="647.25,-2226 464,-2226 464,-2182 647.25,-2182 647.25,-2226"/>
+<text xml:space="preserve" text-anchor="start" x="472" y="-2212.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Easy_Copier</text>
+<text xml:space="preserve" text-anchor="start" x="472" y="-2200.5" font-family="Helvetica,sans-Serif" font-size="10.00">_XamlTypeInfo.XamlTypeInfoProvider.</text>
+<text xml:space="preserve" text-anchor="middle" x="555.62" y="-2188.5" font-family="Helvetica,sans-Serif" font-size="10.00">Activate_24_InfoBadge</text>
 </a>
 </g>
 </g>
@@ -294,19 +294,19 @@
 <g id="edge13_Node000003_Node000014" class="edge">
 <title>Node3&#45;&gt;Node14</title>
 <g id="a_edge13_Node000003_Node000014"><a xlink:title=" ">
-<path fill="none" stroke="#63b8ff" d="M396.49,-1420.3C399.54,-1422.89 402.32,-1425.78 404.75,-1429 504.48,-1561.11 337.1,-2043.95 440.75,-2173 440.91,-2173.2 441.07,-2173.4 441.23,-2173.6"/>
-<polygon fill="#63b8ff" stroke="#63b8ff" points="438.67,-2175.98 448.2,-2180.61 443.64,-2171.05 438.67,-2175.98"/>
+<path fill="none" stroke="#63b8ff" d="M396.49,-1420.3C399.54,-1422.89 402.32,-1425.78 404.75,-1429 504.48,-1561.11 337.1,-2043.95 440.75,-2173 444.64,-2177.84 449.2,-2181.97 454.23,-2185.49"/>
+<polygon fill="#63b8ff" stroke="#63b8ff" points="452.05,-2188.27 462.43,-2190.41 455.65,-2182.26 452.05,-2188.27"/>
 </a>
 </g>
 </g>
 <!-- Node15 -->
 <g id="Node000015" class="node">
 <title>Node15</title>
-<g id="a_Node000015"><a xlink:href="class_easy___copier_1_1_easy___copier___xaml_type_info_1_1_xaml_type_info_provider.html#a8f2fa2206b47258dfb657e37c59bfa55" target="_top" xlink:title=" ">
+<g id="a_Node000015"><a xlink:href="class_easy___copier_1_1_easy___copier___xaml_type_info_1_1_xaml_type_info_provider.html#a234e38351fd1727ffba52ca103103bcd" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="#666666" points="647.25,-2164 464,-2164 464,-2120 647.25,-2120 647.25,-2164"/>
 <text xml:space="preserve" text-anchor="start" x="472" y="-2150.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Easy_Copier</text>
 <text xml:space="preserve" text-anchor="start" x="472" y="-2138.5" font-family="Helvetica,sans-Serif" font-size="10.00">_XamlTypeInfo.XamlTypeInfoProvider.</text>
-<text xml:space="preserve" text-anchor="middle" x="555.62" y="-2126.5" font-family="Helvetica,sans-Serif" font-size="10.00">Activate_23_DataGrid</text>
+<text xml:space="preserve" text-anchor="middle" x="555.62" y="-2126.5" font-family="Helvetica,sans-Serif" font-size="10.00">Activate_2_XamlControlsResources</text>
 </a>
 </g>
 </g>
@@ -322,11 +322,11 @@
 <!-- Node16 -->
 <g id="Node000016" class="node">
 <title>Node16</title>
-<g id="a_Node000016"><a xlink:href="class_easy___copier_1_1_easy___copier___xaml_type_info_1_1_xaml_type_info_provider.html#a234e38351fd1727ffba52ca103103bcd" target="_top" xlink:title=" ">
+<g id="a_Node000016"><a xlink:href="class_easy___copier_1_1_easy___copier___xaml_type_info_1_1_xaml_type_info_provider.html#ad905e5100a27674f7ee51cc4d7c91fa4" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="#666666" points="647.25,-2102 464,-2102 464,-2058 647.25,-2058 647.25,-2102"/>
 <text xml:space="preserve" text-anchor="start" x="472" y="-2088.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Easy_Copier</text>
 <text xml:space="preserve" text-anchor="start" x="472" y="-2076.5" font-family="Helvetica,sans-Serif" font-size="10.00">_XamlTypeInfo.XamlTypeInfoProvider.</text>
-<text xml:space="preserve" text-anchor="middle" x="555.62" y="-2064.5" font-family="Helvetica,sans-Serif" font-size="10.00">Activate_2_XamlControlsResources</text>
+<text xml:space="preserve" text-anchor="middle" x="555.62" y="-2064.5" font-family="Helvetica,sans-Serif" font-size="10.00">Activate_30_ProgressRing</text>
 </a>
 </g>
 </g>
@@ -342,11 +342,11 @@
 <!-- Node17 -->
 <g id="Node000017" class="node">
 <title>Node17</title>
-<g id="a_Node000017"><a xlink:href="class_easy___copier_1_1_easy___copier___xaml_type_info_1_1_xaml_type_info_provider.html#aac657758a7ea6414dc5d06a9824f06ec" target="_top" xlink:title=" ">
+<g id="a_Node000017"><a xlink:href="class_easy___copier_1_1_easy___copier___xaml_type_info_1_1_xaml_type_info_provider.html#aa36967c273623e8d50f4f1e63e34bb15" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="#666666" points="647.25,-2040 464,-2040 464,-1996 647.25,-1996 647.25,-2040"/>
 <text xml:space="preserve" text-anchor="start" x="472" y="-2026.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Easy_Copier</text>
 <text xml:space="preserve" text-anchor="start" x="472" y="-2014.5" font-family="Helvetica,sans-Serif" font-size="10.00">_XamlTypeInfo.XamlTypeInfoProvider.</text>
-<text xml:space="preserve" text-anchor="middle" x="555.62" y="-2002.5" font-family="Helvetica,sans-Serif" font-size="10.00">Activate_30_Collection</text>
+<text xml:space="preserve" text-anchor="middle" x="555.62" y="-2002.5" font-family="Helvetica,sans-Serif" font-size="10.00">Activate_32_AppsTabView</text>
 </a>
 </g>
 </g>
@@ -362,11 +362,11 @@
 <!-- Node18 -->
 <g id="Node000018" class="node">
 <title>Node18</title>
-<g id="a_Node000018"><a xlink:href="class_easy___copier_1_1_easy___copier___xaml_type_info_1_1_xaml_type_info_provider.html#a21b6604f9995120ed1bd21e1ddf79b73" target="_top" xlink:title=" ">
+<g id="a_Node000018"><a xlink:href="class_easy___copier_1_1_easy___copier___xaml_type_info_1_1_xaml_type_info_provider.html#afad95f81840130b4e117ac1ebf8ef828" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="#666666" points="647.25,-1978 464,-1978 464,-1934 647.25,-1934 647.25,-1978"/>
 <text xml:space="preserve" text-anchor="start" x="472" y="-1964.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Easy_Copier</text>
 <text xml:space="preserve" text-anchor="start" x="472" y="-1952.5" font-family="Helvetica,sans-Serif" font-size="10.00">_XamlTypeInfo.XamlTypeInfoProvider.</text>
-<text xml:space="preserve" text-anchor="middle" x="555.62" y="-1940.5" font-family="Helvetica,sans-Serif" font-size="10.00">Activate_48_Collection</text>
+<text xml:space="preserve" text-anchor="middle" x="555.62" y="-1940.5" font-family="Helvetica,sans-Serif" font-size="10.00">Activate_41_GamesTabView</text>
 </a>
 </g>
 </g>
@@ -382,11 +382,11 @@
 <!-- Node19 -->
 <g id="Node000019" class="node">
 <title>Node19</title>
-<g id="a_Node000019"><a xlink:href="class_easy___copier_1_1_easy___copier___xaml_type_info_1_1_xaml_type_info_provider.html#a17fe24899b5091b2cc30b69a10ed4867" target="_top" xlink:title=" ">
+<g id="a_Node000019"><a xlink:href="class_easy___copier_1_1_easy___copier___xaml_type_info_1_1_xaml_type_info_provider.html#af4e60217a69ffc87d682ad484dff9fc6" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="#666666" points="647.25,-1916 464,-1916 464,-1872 647.25,-1872 647.25,-1916"/>
 <text xml:space="preserve" text-anchor="start" x="472" y="-1902.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Easy_Copier</text>
 <text xml:space="preserve" text-anchor="start" x="472" y="-1890.5" font-family="Helvetica,sans-Serif" font-size="10.00">_XamlTypeInfo.XamlTypeInfoProvider.</text>
-<text xml:space="preserve" text-anchor="middle" x="555.62" y="-1878.5" font-family="Helvetica,sans-Serif" font-size="10.00">Activate_50_DataGridTextColumn</text>
+<text xml:space="preserve" text-anchor="middle" x="555.62" y="-1878.5" font-family="Helvetica,sans-Serif" font-size="10.00">Activate_43_BoolToStringConverter</text>
 </a>
 </g>
 </g>
@@ -402,11 +402,11 @@
 <!-- Node20 -->
 <g id="Node000020" class="node">
 <title>Node20</title>
-<g id="a_Node000020"><a xlink:href="class_easy___copier_1_1_easy___copier___xaml_type_info_1_1_xaml_type_info_provider.html#adb2504f9a4147dcb927b65a5fc306dea" target="_top" xlink:title=" ">
-<polygon fill="white" stroke="#666666" points="651.38,-1854 459.88,-1854 459.88,-1810 651.38,-1810 651.38,-1854"/>
-<text xml:space="preserve" text-anchor="start" x="467.88" y="-1840.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Easy_Copier</text>
-<text xml:space="preserve" text-anchor="start" x="467.88" y="-1828.5" font-family="Helvetica,sans-Serif" font-size="10.00">_XamlTypeInfo.XamlTypeInfoProvider.</text>
-<text xml:space="preserve" text-anchor="middle" x="555.62" y="-1816.5" font-family="Helvetica,sans-Serif" font-size="10.00">Activate_55_DataGridCheckBoxColumn</text>
+<g id="a_Node000020"><a xlink:href="class_easy___copier_1_1_easy___copier___xaml_type_info_1_1_xaml_type_info_provider.html#aa2de315f824092162e12e6658d2b334f" target="_top" xlink:title=" ">
+<polygon fill="white" stroke="#666666" points="647.25,-1854 464,-1854 464,-1810 647.25,-1810 647.25,-1854"/>
+<text xml:space="preserve" text-anchor="start" x="472" y="-1840.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Easy_Copier</text>
+<text xml:space="preserve" text-anchor="start" x="472" y="-1828.5" font-family="Helvetica,sans-Serif" font-size="10.00">_XamlTypeInfo.XamlTypeInfoProvider.</text>
+<text xml:space="preserve" text-anchor="middle" x="555.62" y="-1816.5" font-family="Helvetica,sans-Serif" font-size="10.00">Activate_44_NullToVisibilityConverter</text>
 </a>
 </g>
 </g>
@@ -414,19 +414,19 @@
 <g id="edge19_Node000003_Node000020" class="edge">
 <title>Node3&#45;&gt;Node20</title>
 <g id="a_edge19_Node000003_Node000020"><a xlink:title=" ">
-<path fill="none" stroke="#63b8ff" d="M396.3,-1420.45C399.4,-1423 402.24,-1425.84 404.75,-1429 456.37,-1494.06 387.2,-1737.52 440.75,-1801 443.56,-1804.33 446.68,-1807.32 450.06,-1810"/>
-<polygon fill="#63b8ff" stroke="#63b8ff" points="448.02,-1812.85 458.26,-1815.56 451.95,-1807.05 448.02,-1812.85"/>
+<path fill="none" stroke="#63b8ff" d="M396.3,-1420.45C399.4,-1423 402.24,-1425.84 404.75,-1429 456.37,-1494.06 387.2,-1737.52 440.75,-1801 444.57,-1805.53 448.99,-1809.44 453.81,-1812.8"/>
+<polygon fill="#63b8ff" stroke="#63b8ff" points="451.86,-1815.71 462.25,-1817.83 455.45,-1809.7 451.86,-1815.71"/>
 </a>
 </g>
 </g>
 <!-- Node21 -->
 <g id="Node000021" class="node">
 <title>Node21</title>
-<g id="a_Node000021"><a xlink:href="class_easy___copier_1_1_easy___copier___xaml_type_info_1_1_xaml_type_info_provider.html#aff8fec2d2acb2bd82e8102bb04ffbe87" target="_top" xlink:title=" ">
+<g id="a_Node000021"><a xlink:href="class_easy___copier_1_1_easy___copier___xaml_type_info_1_1_xaml_type_info_provider.html#a3d7e95f35e25acab930d17badac4935a" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="#666666" points="647.25,-1792 464,-1792 464,-1748 647.25,-1748 647.25,-1792"/>
 <text xml:space="preserve" text-anchor="start" x="472" y="-1778.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Easy_Copier</text>
 <text xml:space="preserve" text-anchor="start" x="472" y="-1766.5" font-family="Helvetica,sans-Serif" font-size="10.00">_XamlTypeInfo.XamlTypeInfoProvider.</text>
-<text xml:space="preserve" text-anchor="middle" x="555.62" y="-1754.5" font-family="Helvetica,sans-Serif" font-size="10.00">Activate_56_HistoryPage</text>
+<text xml:space="preserve" text-anchor="middle" x="555.62" y="-1754.5" font-family="Helvetica,sans-Serif" font-size="10.00">Activate_45_HistoryPage</text>
 </a>
 </g>
 </g>
@@ -442,11 +442,11 @@
 <!-- Node22 -->
 <g id="Node000022" class="node">
 <title>Node22</title>
-<g id="a_Node000022"><a xlink:href="class_easy___copier_1_1_easy___copier___xaml_type_info_1_1_xaml_type_info_provider.html#aba00eb203974e98148b56eccad7b5833" target="_top" xlink:title=" ">
+<g id="a_Node000022"><a xlink:href="class_easy___copier_1_1_easy___copier___xaml_type_info_1_1_xaml_type_info_provider.html#a90c9a234dac5e584f4fa62e894bbad7b" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="#666666" points="647.25,-1730 464,-1730 464,-1686 647.25,-1686 647.25,-1730"/>
 <text xml:space="preserve" text-anchor="start" x="472" y="-1716.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Easy_Copier</text>
 <text xml:space="preserve" text-anchor="start" x="472" y="-1704.5" font-family="Helvetica,sans-Serif" font-size="10.00">_XamlTypeInfo.XamlTypeInfoProvider.</text>
-<text xml:space="preserve" text-anchor="middle" x="555.62" y="-1692.5" font-family="Helvetica,sans-Serif" font-size="10.00">Activate_5_MicaBackdrop</text>
+<text xml:space="preserve" text-anchor="middle" x="555.62" y="-1692.5" font-family="Helvetica,sans-Serif" font-size="10.00">Activate_49_InfoBar</text>
 </a>
 </g>
 </g>
@@ -462,11 +462,11 @@
 <!-- Node23 -->
 <g id="Node000023" class="node">
 <title>Node23</title>
-<g id="a_Node000023"><a xlink:href="class_easy___copier_1_1_easy___copier___xaml_type_info_1_1_xaml_type_info_provider.html#a29fc78461b35da0745ac0086e3f71046" target="_top" xlink:title=" ">
+<g id="a_Node000023"><a xlink:href="class_easy___copier_1_1_easy___copier___xaml_type_info_1_1_xaml_type_info_provider.html#afda729fc9a5b0d150cf984e303c5ab36" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="#666666" points="647.25,-1668 464,-1668 464,-1624 647.25,-1624 647.25,-1668"/>
 <text xml:space="preserve" text-anchor="start" x="472" y="-1654.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Easy_Copier</text>
 <text xml:space="preserve" text-anchor="start" x="472" y="-1642.5" font-family="Helvetica,sans-Serif" font-size="10.00">_XamlTypeInfo.XamlTypeInfoProvider.</text>
-<text xml:space="preserve" text-anchor="middle" x="555.62" y="-1630.5" font-family="Helvetica,sans-Serif" font-size="10.00">Activate_61_InfoBadge</text>
+<text xml:space="preserve" text-anchor="middle" x="555.62" y="-1630.5" font-family="Helvetica,sans-Serif" font-size="10.00">Activate_56_SmartAdderControl</text>
 </a>
 </g>
 </g>
@@ -482,11 +482,11 @@
 <!-- Node24 -->
 <g id="Node000024" class="node">
 <title>Node24</title>
-<g id="a_Node000024"><a xlink:href="class_easy___copier_1_1_easy___copier___xaml_type_info_1_1_xaml_type_info_provider.html#a59d3a24540f5ffa9343c87843ec4f88b" target="_top" xlink:title=" ">
+<g id="a_Node000024"><a xlink:href="class_easy___copier_1_1_easy___copier___xaml_type_info_1_1_xaml_type_info_provider.html#a36079e5a0f23d8e72824367ea8f25d3a" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="#666666" points="647.25,-1606 464,-1606 464,-1562 647.25,-1562 647.25,-1606"/>
 <text xml:space="preserve" text-anchor="start" x="472" y="-1592.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Easy_Copier</text>
 <text xml:space="preserve" text-anchor="start" x="472" y="-1580.5" font-family="Helvetica,sans-Serif" font-size="10.00">_XamlTypeInfo.XamlTypeInfoProvider.</text>
-<text xml:space="preserve" text-anchor="middle" x="555.62" y="-1568.5" font-family="Helvetica,sans-Serif" font-size="10.00">Activate_64_SmartAdderControl</text>
+<text xml:space="preserve" text-anchor="middle" x="555.62" y="-1568.5" font-family="Helvetica,sans-Serif" font-size="10.00">Activate_58_ProgressBar</text>
 </a>
 </g>
 </g>
@@ -502,11 +502,11 @@
 <!-- Node25 -->
 <g id="Node000025" class="node">
 <title>Node25</title>
-<g id="a_Node000025"><a xlink:href="class_easy___copier_1_1_easy___copier___xaml_type_info_1_1_xaml_type_info_provider.html#a1ca22ca2248a8b3d69e0d67a29684c9b" target="_top" xlink:title=" ">
+<g id="a_Node000025"><a xlink:href="class_easy___copier_1_1_easy___copier___xaml_type_info_1_1_xaml_type_info_provider.html#aba00eb203974e98148b56eccad7b5833" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="#666666" points="647.25,-1544 464,-1544 464,-1500 647.25,-1500 647.25,-1544"/>
 <text xml:space="preserve" text-anchor="start" x="472" y="-1530.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Easy_Copier</text>
 <text xml:space="preserve" text-anchor="start" x="472" y="-1518.5" font-family="Helvetica,sans-Serif" font-size="10.00">_XamlTypeInfo.XamlTypeInfoProvider.</text>
-<text xml:space="preserve" text-anchor="middle" x="555.62" y="-1506.5" font-family="Helvetica,sans-Serif" font-size="10.00">Activate_66_ProgressBar</text>
+<text xml:space="preserve" text-anchor="middle" x="555.62" y="-1506.5" font-family="Helvetica,sans-Serif" font-size="10.00">Activate_5_MicaBackdrop</text>
 </a>
 </g>
 </g>
@@ -522,11 +522,11 @@
 <!-- Node26 -->
 <g id="Node000026" class="node">
 <title>Node26</title>
-<g id="a_Node000026"><a xlink:href="class_easy___copier_1_1_easy___copier___xaml_type_info_1_1_xaml_type_info_provider.html#ab21a22754579e440fc585d331ddd5b30" target="_top" xlink:title=" ">
+<g id="a_Node000026"><a xlink:href="class_easy___copier_1_1_easy___copier___xaml_type_info_1_1_xaml_type_info_provider.html#a75a369f722bec34d9130d15ef8a593da" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="#666666" points="647.25,-1482 464,-1482 464,-1438 647.25,-1438 647.25,-1482"/>
 <text xml:space="preserve" text-anchor="start" x="472" y="-1468.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Easy_Copier</text>
 <text xml:space="preserve" text-anchor="start" x="472" y="-1456.5" font-family="Helvetica,sans-Serif" font-size="10.00">_XamlTypeInfo.XamlTypeInfoProvider.</text>
-<text xml:space="preserve" text-anchor="middle" x="555.62" y="-1444.5" font-family="Helvetica,sans-Serif" font-size="10.00">Activate_69_InfoBar</text>
+<text xml:space="preserve" text-anchor="middle" x="555.62" y="-1444.5" font-family="Helvetica,sans-Serif" font-size="10.00">Activate_61_OsImagesTabView</text>
 </a>
 </g>
 </g>
@@ -542,11 +542,11 @@
 <!-- Node27 -->
 <g id="Node000027" class="node">
 <title>Node27</title>
-<g id="a_Node000027"><a xlink:href="class_easy___copier_1_1_easy___copier___xaml_type_info_1_1_xaml_type_info_provider.html#a29122f6c1e012313c3c6eac01ea47ccf" target="_top" xlink:title=" ">
+<g id="a_Node000027"><a xlink:href="class_easy___copier_1_1_easy___copier___xaml_type_info_1_1_xaml_type_info_provider.html#a0d484003b4277af0f80e16c10b744191" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="#666666" points="647.25,-1420 464,-1420 464,-1376 647.25,-1376 647.25,-1420"/>
 <text xml:space="preserve" text-anchor="start" x="472" y="-1406.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Easy_Copier</text>
 <text xml:space="preserve" text-anchor="start" x="472" y="-1394.5" font-family="Helvetica,sans-Serif" font-size="10.00">_XamlTypeInfo.XamlTypeInfoProvider.</text>
-<text xml:space="preserve" text-anchor="middle" x="555.62" y="-1382.5" font-family="Helvetica,sans-Serif" font-size="10.00">Activate_74_ProgressRing</text>
+<text xml:space="preserve" text-anchor="middle" x="555.62" y="-1382.5" font-family="Helvetica,sans-Serif" font-size="10.00">Activate_63_TvAndFilmsTabView</text>
 </a>
 </g>
 </g>
@@ -562,11 +562,11 @@
 <!-- Node28 -->
 <g id="Node000028" class="node">
 <title>Node28</title>
-<g id="a_Node000028"><a xlink:href="class_easy___copier_1_1_easy___copier___xaml_type_info_1_1_xaml_type_info_provider.html#ab2283e8d5413946b3a26d1be8c5bd554" target="_top" xlink:title=" ">
+<g id="a_Node000028"><a xlink:href="class_easy___copier_1_1_easy___copier___xaml_type_info_1_1_xaml_type_info_provider.html#a4e8f47f62b0554e0611e396b286f1588" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="#666666" points="647.25,-1358 464,-1358 464,-1314 647.25,-1314 647.25,-1358"/>
 <text xml:space="preserve" text-anchor="start" x="472" y="-1344.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Easy_Copier</text>
 <text xml:space="preserve" text-anchor="start" x="472" y="-1332.5" font-family="Helvetica,sans-Serif" font-size="10.00">_XamlTypeInfo.XamlTypeInfoProvider.</text>
-<text xml:space="preserve" text-anchor="middle" x="555.62" y="-1320.5" font-family="Helvetica,sans-Serif" font-size="10.00">Activate_76_MainPage</text>
+<text xml:space="preserve" text-anchor="middle" x="555.62" y="-1320.5" font-family="Helvetica,sans-Serif" font-size="10.00">Activate_65_MainPage</text>
 </a>
 </g>
 </g>
@@ -582,11 +582,11 @@
 <!-- Node29 -->
 <g id="Node000029" class="node">
 <title>Node29</title>
-<g id="a_Node000029"><a xlink:href="class_easy___copier_1_1_easy___copier___xaml_type_info_1_1_xaml_type_info_provider.html#ab0356ffbe6ff5163db8f0046793d057b" target="_top" xlink:title=" ">
-<polygon fill="white" stroke="#666666" points="647.25,-1296 464,-1296 464,-1252 647.25,-1252 647.25,-1296"/>
-<text xml:space="preserve" text-anchor="start" x="472" y="-1282.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Easy_Copier</text>
-<text xml:space="preserve" text-anchor="start" x="472" y="-1270.5" font-family="Helvetica,sans-Serif" font-size="10.00">_XamlTypeInfo.XamlTypeInfoProvider.</text>
-<text xml:space="preserve" text-anchor="middle" x="555.62" y="-1258.5" font-family="Helvetica,sans-Serif" font-size="10.00">Activate_78_NavigationView</text>
+<g id="a_Node000029"><a xlink:href="class_easy___copier_1_1_easy___copier___xaml_type_info_1_1_xaml_type_info_provider.html#a6cd7ec91cf02c55b23ff09c59ce580d6" target="_top" xlink:title=" ">
+<polygon fill="white" stroke="#666666" points="654.75,-1296 456.5,-1296 456.5,-1252 654.75,-1252 654.75,-1296"/>
+<text xml:space="preserve" text-anchor="start" x="464.5" y="-1282.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Easy_Copier</text>
+<text xml:space="preserve" text-anchor="start" x="464.5" y="-1270.5" font-family="Helvetica,sans-Serif" font-size="10.00">_XamlTypeInfo.XamlTypeInfoProvider.</text>
+<text xml:space="preserve" text-anchor="middle" x="555.62" y="-1258.5" font-family="Helvetica,sans-Serif" font-size="10.00">Activate_69_SortDirectionGlyphConverter</text>
 </a>
 </g>
 </g>
@@ -594,19 +594,19 @@
 <g id="edge28_Node000003_Node000029" class="edge">
 <title>Node3&#45;&gt;Node29</title>
 <g id="a_edge28_Node000003_Node000029"><a xlink:title=" ">
-<path fill="none" stroke="#63b8ff" d="M392.13,-1375.64C396.59,-1373.06 400.84,-1370.19 404.75,-1367 429.42,-1346.83 415.49,-1324.42 440.75,-1305 444.74,-1301.93 449.02,-1299.17 453.48,-1296.68"/>
-<polygon fill="#63b8ff" stroke="#63b8ff" points="454.8,-1299.93 462.18,-1292.33 451.67,-1293.67 454.8,-1299.93"/>
+<path fill="none" stroke="#63b8ff" d="M392.13,-1375.64C396.59,-1373.06 400.84,-1370.19 404.75,-1367 429.42,-1346.83 415.49,-1324.42 440.75,-1305 442.55,-1303.62 444.4,-1302.3 446.31,-1301.04"/>
+<polygon fill="#63b8ff" stroke="#63b8ff" points="448.05,-1304.07 454.89,-1295.98 444.5,-1298.04 448.05,-1304.07"/>
 </a>
 </g>
 </g>
 <!-- Node30 -->
 <g id="Node000030" class="node">
 <title>Node30</title>
-<g id="a_Node000030"><a xlink:href="class_easy___copier_1_1_easy___copier___xaml_type_info_1_1_xaml_type_info_provider.html#a3ce92d093d265b617f932565ce08a0f8" target="_top" xlink:title=" ">
-<polygon fill="white" stroke="#666666" points="647.25,-1234 464,-1234 464,-1190 647.25,-1190 647.25,-1234"/>
-<text xml:space="preserve" text-anchor="start" x="472" y="-1220.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Easy_Copier</text>
-<text xml:space="preserve" text-anchor="start" x="472" y="-1208.5" font-family="Helvetica,sans-Serif" font-size="10.00">_XamlTypeInfo.XamlTypeInfoProvider.</text>
-<text xml:space="preserve" text-anchor="middle" x="555.62" y="-1196.5" font-family="Helvetica,sans-Serif" font-size="10.00">Activate_92_NavigationViewItem</text>
+<g id="a_Node000030"><a xlink:href="class_easy___copier_1_1_easy___copier___xaml_type_info_1_1_xaml_type_info_provider.html#a06ec80b73b4821deacaefd5b276dc62c" target="_top" xlink:title=" ">
+<polygon fill="white" stroke="#666666" points="657.75,-1234 453.5,-1234 453.5,-1190 657.75,-1190 657.75,-1234"/>
+<text xml:space="preserve" text-anchor="start" x="461.5" y="-1220.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Easy_Copier</text>
+<text xml:space="preserve" text-anchor="start" x="461.5" y="-1208.5" font-family="Helvetica,sans-Serif" font-size="10.00">_XamlTypeInfo.XamlTypeInfoProvider.</text>
+<text xml:space="preserve" text-anchor="middle" x="555.62" y="-1196.5" font-family="Helvetica,sans-Serif" font-size="10.00">Activate_70_SortDirectionToolTipConverter</text>
 </a>
 </g>
 </g>
@@ -614,19 +614,19 @@
 <g id="edge29_Node000003_Node000030" class="edge">
 <title>Node3&#45;&gt;Node30</title>
 <g id="a_edge29_Node000003_Node000030"><a xlink:title=" ">
-<path fill="none" stroke="#63b8ff" d="M394.78,-1375.54C398.37,-1372.99 401.73,-1370.16 404.75,-1367 444.44,-1325.55 399.83,-1283.24 440.75,-1243 444.7,-1239.12 449.08,-1235.71 453.76,-1232.72"/>
-<polygon fill="#63b8ff" stroke="#63b8ff" points="455.4,-1235.82 462.42,-1227.89 451.99,-1229.7 455.4,-1235.82"/>
+<path fill="none" stroke="#63b8ff" d="M394.78,-1375.54C398.37,-1372.99 401.73,-1370.16 404.75,-1367 444.44,-1325.55 399.83,-1283.24 440.75,-1243 441.82,-1241.95 442.92,-1240.93 444.05,-1239.95"/>
+<polygon fill="#63b8ff" stroke="#63b8ff" points="446.12,-1242.77 452.02,-1233.97 441.92,-1237.17 446.12,-1242.77"/>
 </a>
 </g>
 </g>
 <!-- Node31 -->
 <g id="Node000031" class="node">
 <title>Node31</title>
-<g id="a_Node000031"><a xlink:href="class_easy___copier_1_1_easy___copier___xaml_type_info_1_1_xaml_type_info_provider.html#a130ccb275845345d6c515890b37276be" target="_top" xlink:title=" ">
-<polygon fill="white" stroke="#666666" points="662.62,-1172 448.62,-1172 448.62,-1128 662.62,-1128 662.62,-1172"/>
-<text xml:space="preserve" text-anchor="start" x="456.62" y="-1158.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Easy_Copier</text>
-<text xml:space="preserve" text-anchor="start" x="456.62" y="-1146.5" font-family="Helvetica,sans-Serif" font-size="10.00">_XamlTypeInfo.XamlTypeInfoProvider.</text>
-<text xml:space="preserve" text-anchor="middle" x="555.62" y="-1134.5" font-family="Helvetica,sans-Serif" font-size="10.00">Activate_97_NegativeToForegroundConverter</text>
+<g id="a_Node000031"><a xlink:href="class_easy___copier_1_1_easy___copier___xaml_type_info_1_1_xaml_type_info_provider.html#a11f31ffa83fa392ad2ef6ede15c20dc9" target="_top" xlink:title=" ">
+<polygon fill="white" stroke="#666666" points="647.25,-1172 464,-1172 464,-1128 647.25,-1128 647.25,-1172"/>
+<text xml:space="preserve" text-anchor="start" x="472" y="-1158.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Easy_Copier</text>
+<text xml:space="preserve" text-anchor="start" x="472" y="-1146.5" font-family="Helvetica,sans-Serif" font-size="10.00">_XamlTypeInfo.XamlTypeInfoProvider.</text>
+<text xml:space="preserve" text-anchor="middle" x="555.62" y="-1134.5" font-family="Helvetica,sans-Serif" font-size="10.00">Activate_71_NavigationView</text>
 </a>
 </g>
 </g>
@@ -634,19 +634,19 @@
 <g id="edge30_Node000003_Node000031" class="edge">
 <title>Node3&#45;&gt;Node31</title>
 <g id="a_edge30_Node000003_Node000031"><a xlink:title=" ">
-<path fill="none" stroke="#63b8ff" d="M395.54,-1375.56C398.88,-1373.01 401.98,-1370.17 404.75,-1367 460.15,-1303.59 383.47,-1242.72 440.75,-1181 441.12,-1180.61 441.49,-1180.22 441.86,-1179.83"/>
-<polygon fill="#63b8ff" stroke="#63b8ff" points="443.96,-1182.65 449.18,-1173.43 439.35,-1177.38 443.96,-1182.65"/>
+<path fill="none" stroke="#63b8ff" d="M395.54,-1375.56C398.88,-1373.01 401.98,-1370.17 404.75,-1367 460.15,-1303.59 383.47,-1242.72 440.75,-1181 444.7,-1176.74 449.17,-1173.05 454,-1169.85"/>
+<polygon fill="#63b8ff" stroke="#63b8ff" points="455.45,-1173.05 462.37,-1165.03 451.95,-1166.99 455.45,-1173.05"/>
 </a>
 </g>
 </g>
 <!-- Node32 -->
 <g id="Node000032" class="node">
 <title>Node32</title>
-<g id="a_Node000032"><a xlink:href="class_easy___copier_1_1_easy___copier___xaml_type_info_1_1_xaml_type_info_provider.html#ad9db974861bc1bd98296552a93d984b5" target="_top" xlink:title=" ">
-<polygon fill="white" stroke="#666666" points="664.12,-1110 447.12,-1110 447.12,-1066 664.12,-1066 664.12,-1110"/>
-<text xml:space="preserve" text-anchor="start" x="455.12" y="-1096.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Easy_Copier</text>
-<text xml:space="preserve" text-anchor="start" x="455.12" y="-1084.5" font-family="Helvetica,sans-Serif" font-size="10.00">_XamlTypeInfo.XamlTypeInfoProvider.</text>
-<text xml:space="preserve" text-anchor="middle" x="555.62" y="-1072.5" font-family="Helvetica,sans-Serif" font-size="10.00">Activate_98_NegativeToBackgroundConverter</text>
+<g id="a_Node000032"><a xlink:href="class_easy___copier_1_1_easy___copier___xaml_type_info_1_1_xaml_type_info_provider.html#a89ea39789e3b2f0f1481fe576bd8a393" target="_top" xlink:title=" ">
+<polygon fill="white" stroke="#666666" points="647.25,-1110 464,-1110 464,-1066 647.25,-1066 647.25,-1110"/>
+<text xml:space="preserve" text-anchor="start" x="472" y="-1096.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Easy_Copier</text>
+<text xml:space="preserve" text-anchor="start" x="472" y="-1084.5" font-family="Helvetica,sans-Serif" font-size="10.00">_XamlTypeInfo.XamlTypeInfoProvider.</text>
+<text xml:space="preserve" text-anchor="middle" x="555.62" y="-1072.5" font-family="Helvetica,sans-Serif" font-size="10.00">Activate_84_NavigationViewItem</text>
 </a>
 </g>
 </g>
@@ -654,19 +654,19 @@
 <g id="edge31_Node000003_Node000032" class="edge">
 <title>Node3&#45;&gt;Node32</title>
 <g id="a_edge31_Node000003_Node000032"><a xlink:title=" ">
-<path fill="none" stroke="#63b8ff" d="M395.72,-1375.72C399.02,-1373.12 402.06,-1370.23 404.75,-1367 476.04,-1281.42 366.93,-1202.4 440.75,-1119 441.11,-1118.6 441.47,-1118.2 441.83,-1117.81"/>
-<polygon fill="#63b8ff" stroke="#63b8ff" points="443.97,-1120.6 449.01,-1111.28 439.26,-1115.42 443.97,-1120.6"/>
+<path fill="none" stroke="#63b8ff" d="M395.72,-1375.72C399.02,-1373.12 402.06,-1370.23 404.75,-1367 476.04,-1281.42 366.93,-1202.4 440.75,-1119 444.64,-1114.61 449.08,-1110.81 453.91,-1107.53"/>
+<polygon fill="#63b8ff" stroke="#63b8ff" points="455.46,-1110.68 462.31,-1102.6 451.92,-1104.64 455.46,-1110.68"/>
 </a>
 </g>
 </g>
 <!-- Node33 -->
 <g id="Node000033" class="node">
 <title>Node33</title>
-<g id="a_Node000033"><a xlink:href="class_easy___copier_1_1_easy___copier___xaml_type_info_1_1_xaml_type_info_provider.html#adf91714e0d9358aacd17362db123a17d" target="_top" xlink:title=" ">
-<polygon fill="#fff0f0" stroke="red" points="647.25,-1048 464,-1048 464,-1004 647.25,-1004 647.25,-1048"/>
-<text xml:space="preserve" text-anchor="start" x="472" y="-1034.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Easy_Copier</text>
-<text xml:space="preserve" text-anchor="start" x="472" y="-1022.5" font-family="Helvetica,sans-Serif" font-size="10.00">_XamlTypeInfo.XamlTypeInfoProvider.</text>
-<text xml:space="preserve" text-anchor="middle" x="555.62" y="-1010.5" font-family="Helvetica,sans-Serif" font-size="10.00">GetXamlTypeByName</text>
+<g id="a_Node000033"><a xlink:href="class_easy___copier_1_1_easy___copier___xaml_type_info_1_1_xaml_type_info_provider.html#a8ff141f6fc55a52e14d83fd67d2157ac" target="_top" xlink:title=" ">
+<polygon fill="white" stroke="#666666" points="662.62,-1048 448.62,-1048 448.62,-1004 662.62,-1004 662.62,-1048"/>
+<text xml:space="preserve" text-anchor="start" x="456.62" y="-1034.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Easy_Copier</text>
+<text xml:space="preserve" text-anchor="start" x="456.62" y="-1022.5" font-family="Helvetica,sans-Serif" font-size="10.00">_XamlTypeInfo.XamlTypeInfoProvider.</text>
+<text xml:space="preserve" text-anchor="middle" x="555.62" y="-1010.5" font-family="Helvetica,sans-Serif" font-size="10.00">Activate_89_NegativeToForegroundConverter</text>
 </a>
 </g>
 </g>
@@ -674,99 +674,99 @@
 <g id="edge32_Node000003_Node000033" class="edge">
 <title>Node3&#45;&gt;Node33</title>
 <g id="a_edge32_Node000003_Node000033"><a xlink:title=" ">
-<path fill="none" stroke="#63b8ff" d="M382.2,-1375.53C390.83,-1371.12 398.72,-1365.45 404.75,-1358 492,-1250.17 350.31,-1153.16 440.75,-1048 444.62,-1043.5 449.07,-1039.63 453.91,-1036.3"/>
-<polygon fill="#63b8ff" stroke="#63b8ff" points="455.53,-1039.41 462.38,-1031.33 451.98,-1033.38 455.53,-1039.41"/>
+<path fill="none" stroke="#63b8ff" d="M395.84,-1375.81C399.1,-1373.19 402.11,-1370.27 404.75,-1367 492,-1259.17 350.31,-1162.16 440.75,-1057 441.1,-1056.59 441.46,-1056.19 441.82,-1055.79"/>
+<polygon fill="#63b8ff" stroke="#63b8ff" points="443.97,-1058.57 448.91,-1049.19 439.2,-1053.44 443.97,-1058.57"/>
+</a>
+</g>
+</g>
+<!-- Node34 -->
+<g id="Node000034" class="node">
+<title>Node34</title>
+<g id="a_Node000034"><a xlink:href="class_easy___copier_1_1_easy___copier___xaml_type_info_1_1_xaml_type_info_provider.html#aeb0d72125a7d81932247f65a5bfabcdd" target="_top" xlink:title=" ">
+<polygon fill="white" stroke="#666666" points="664.12,-986 447.12,-986 447.12,-942 664.12,-942 664.12,-986"/>
+<text xml:space="preserve" text-anchor="start" x="455.12" y="-972.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Easy_Copier</text>
+<text xml:space="preserve" text-anchor="start" x="455.12" y="-960.5" font-family="Helvetica,sans-Serif" font-size="10.00">_XamlTypeInfo.XamlTypeInfoProvider.</text>
+<text xml:space="preserve" text-anchor="middle" x="555.62" y="-948.5" font-family="Helvetica,sans-Serif" font-size="10.00">Activate_90_NegativeToBackgroundConverter</text>
+</a>
+</g>
+</g>
+<!-- Node3&#45;&gt;Node34 -->
+<g id="edge33_Node000003_Node000034" class="edge">
+<title>Node3&#45;&gt;Node34</title>
+<g id="a_edge33_Node000003_Node000034"><a xlink:title=" ">
+<path fill="none" stroke="#63b8ff" d="M396.3,-1375.55C399.4,-1373 402.24,-1370.16 404.75,-1367 456.37,-1301.94 387.2,-1058.48 440.75,-995 440.92,-994.8 441.08,-994.61 441.25,-994.42"/>
+<polygon fill="#63b8ff" stroke="#63b8ff" points="443.62,-996.99 448.37,-987.53 438.75,-991.96 443.62,-996.99"/>
+</a>
+</g>
+</g>
+<!-- Node35 -->
+<g id="Node000035" class="node">
+<title>Node35</title>
+<g id="a_Node000035"><a xlink:href="class_easy___copier_1_1_easy___copier___xaml_type_info_1_1_xaml_type_info_provider.html#a6acf33cf66de8a0783cf81f0ecae19b8" target="_top" xlink:title=" ">
+<polygon fill="white" stroke="#666666" points="647.62,-924 463.62,-924 463.62,-880 647.62,-880 647.62,-924"/>
+<text xml:space="preserve" text-anchor="start" x="471.62" y="-910.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Easy_Copier</text>
+<text xml:space="preserve" text-anchor="start" x="471.62" y="-898.5" font-family="Helvetica,sans-Serif" font-size="10.00">_XamlTypeInfo.XamlTypeInfoProvider.</text>
+<text xml:space="preserve" text-anchor="middle" x="555.62" y="-886.5" font-family="Helvetica,sans-Serif" font-size="10.00">Activate_94_NumericTextBoxBehavior</text>
+</a>
+</g>
+</g>
+<!-- Node3&#45;&gt;Node35 -->
+<g id="edge34_Node000003_Node000035" class="edge">
+<title>Node3&#45;&gt;Node35</title>
+<g id="a_edge34_Node000003_Node000035"><a xlink:title=" ">
+<path fill="none" stroke="#63b8ff" d="M396.36,-1375.6C399.44,-1373.03 402.26,-1370.18 404.75,-1367 464.38,-1290.78 378.86,-1007.4 440.75,-933 444.5,-928.49 448.84,-924.6 453.59,-921.25"/>
+<polygon fill="#63b8ff" stroke="#63b8ff" points="455.13,-924.4 461.88,-916.23 451.51,-918.41 455.13,-924.4"/>
+</a>
+</g>
+</g>
+<!-- Node36 -->
+<g id="Node000036" class="node">
+<title>Node36</title>
+<g id="a_Node000036"><a xlink:href="class_easy___copier_1_1_easy___copier___xaml_type_info_1_1_xaml_type_info_provider.html#acfeffeed659441418dade38f71ac0495" target="_top" xlink:title=" ">
+<polygon fill="white" stroke="#666666" points="647.25,-862 464,-862 464,-818 647.25,-818 647.25,-862"/>
+<text xml:space="preserve" text-anchor="start" x="472" y="-848.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Easy_Copier</text>
+<text xml:space="preserve" text-anchor="start" x="472" y="-836.5" font-family="Helvetica,sans-Serif" font-size="10.00">_XamlTypeInfo.XamlTypeInfoProvider.</text>
+<text xml:space="preserve" text-anchor="middle" x="555.62" y="-824.5" font-family="Helvetica,sans-Serif" font-size="10.00">Activate_98_HoverBehavior</text>
+</a>
+</g>
+</g>
+<!-- Node3&#45;&gt;Node36 -->
+<g id="edge35_Node000003_Node000036" class="edge">
+<title>Node3&#45;&gt;Node36</title>
+<g id="a_edge35_Node000003_Node000036"><a xlink:title=" ">
+<path fill="none" stroke="#63b8ff" d="M396.4,-1375.63C399.47,-1373.06 402.28,-1370.19 404.75,-1367 472.39,-1279.61 370.51,-956.32 440.75,-871 444.56,-866.37 448.98,-862.4 453.84,-858.99"/>
+<polygon fill="#63b8ff" stroke="#63b8ff" points="455.57,-862.03 462.34,-853.88 451.97,-856.03 455.57,-862.03"/>
 </a>
 </g>
 </g>
 <!-- Node37 -->
 <g id="Node000037" class="node">
 <title>Node37</title>
-<g id="a_Node000037"><a xlink:href="class_easy___copier_1_1_easy___copier___xaml_type_info_1_1_xaml_type_info_provider.html#a27c688261598bf287116cd316d899f7a" target="_top" xlink:title=" ">
-<polygon fill="white" stroke="#666666" points="647.25,-986 464,-986 464,-942 647.25,-942 647.25,-986"/>
-<text xml:space="preserve" text-anchor="start" x="472" y="-972.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Easy_Copier</text>
-<text xml:space="preserve" text-anchor="start" x="472" y="-960.5" font-family="Helvetica,sans-Serif" font-size="10.00">_XamlTypeInfo.XamlTypeInfoProvider.</text>
-<text xml:space="preserve" text-anchor="middle" x="555.62" y="-948.5" font-family="Helvetica,sans-Serif" font-size="10.00">MapAdd_2_XamlControlsResources</text>
+<g id="a_Node000037"><a xlink:href="class_easy___copier_1_1_easy___copier___xaml_type_info_1_1_xaml_type_info_provider.html#adf91714e0d9358aacd17362db123a17d" target="_top" xlink:title=" ">
+<polygon fill="#fff0f0" stroke="red" points="647.25,-800 464,-800 464,-756 647.25,-756 647.25,-800"/>
+<text xml:space="preserve" text-anchor="start" x="472" y="-786.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Easy_Copier</text>
+<text xml:space="preserve" text-anchor="start" x="472" y="-774.5" font-family="Helvetica,sans-Serif" font-size="10.00">_XamlTypeInfo.XamlTypeInfoProvider.</text>
+<text xml:space="preserve" text-anchor="middle" x="555.62" y="-762.5" font-family="Helvetica,sans-Serif" font-size="10.00">GetXamlTypeByName</text>
 </a>
 </g>
 </g>
 <!-- Node3&#45;&gt;Node37 -->
-<g id="edge34_Node000003_Node000037" class="edge">
+<g id="edge36_Node000003_Node000037" class="edge">
 <title>Node3&#45;&gt;Node37</title>
-<g id="a_edge34_Node000003_Node000037"><a xlink:title=" ">
-<path fill="none" stroke="#63b8ff" d="M396.3,-1375.55C399.4,-1373 402.24,-1370.16 404.75,-1367 456.37,-1301.94 387.2,-1058.48 440.75,-995 444.57,-990.47 448.99,-986.56 453.81,-983.2"/>
-<polygon fill="#63b8ff" stroke="#63b8ff" points="455.45,-986.3 462.25,-978.17 451.86,-980.29 455.45,-986.3"/>
-</a>
-</g>
-</g>
-<!-- Node38 -->
-<g id="Node000038" class="node">
-<title>Node38</title>
-<g id="a_Node000038"><a xlink:href="class_easy___copier_1_1_easy___copier___xaml_type_info_1_1_xaml_type_info_provider.html#a35be5a97edacb5ba0914e62efc85d4a7" target="_top" xlink:title=" ">
-<polygon fill="white" stroke="#666666" points="660.38,-924 450.88,-924 450.88,-880 660.38,-880 660.38,-924"/>
-<text xml:space="preserve" text-anchor="start" x="458.88" y="-910.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Easy_Copier</text>
-<text xml:space="preserve" text-anchor="start" x="458.88" y="-898.5" font-family="Helvetica,sans-Serif" font-size="10.00">_XamlTypeInfo.XamlTypeInfoProvider.</text>
-<text xml:space="preserve" text-anchor="middle" x="555.62" y="-886.5" font-family="Helvetica,sans-Serif" font-size="10.00">StaticInitializer_0_CategoryFormatConverter</text>
-</a>
-</g>
-</g>
-<!-- Node3&#45;&gt;Node38 -->
-<g id="edge35_Node000003_Node000038" class="edge">
-<title>Node3&#45;&gt;Node38</title>
-<g id="a_edge35_Node000003_Node000038"><a xlink:title=" ">
-<path fill="none" stroke="#63b8ff" d="M396.36,-1375.6C399.44,-1373.03 402.26,-1370.18 404.75,-1367 464.38,-1290.78 378.86,-1007.4 440.75,-933 441.32,-932.32 441.89,-931.66 442.48,-931"/>
-<polygon fill="#63b8ff" stroke="#63b8ff" points="444.75,-933.68 449.72,-924.32 440,-928.53 444.75,-933.68"/>
-</a>
-</g>
-</g>
-<!-- Node39 -->
-<g id="Node000039" class="node">
-<title>Node39</title>
-<g id="a_Node000039"><a xlink:href="class_easy___copier_1_1_easy___copier___xaml_type_info_1_1_xaml_type_info_provider.html#a8c47a68b7d28503daa3f108a9f3ffb35" target="_top" xlink:title=" ">
-<polygon fill="white" stroke="#666666" points="649.88,-862 461.38,-862 461.38,-818 649.88,-818 649.88,-862"/>
-<text xml:space="preserve" text-anchor="start" x="469.38" y="-848.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Easy_Copier</text>
-<text xml:space="preserve" text-anchor="start" x="469.38" y="-836.5" font-family="Helvetica,sans-Serif" font-size="10.00">_XamlTypeInfo.XamlTypeInfoProvider.</text>
-<text xml:space="preserve" text-anchor="middle" x="555.62" y="-824.5" font-family="Helvetica,sans-Serif" font-size="10.00">StaticInitializer_100_BehaviorCollection</text>
-</a>
-</g>
-</g>
-<!-- Node3&#45;&gt;Node39 -->
-<g id="edge36_Node000003_Node000039" class="edge">
-<title>Node3&#45;&gt;Node39</title>
-<g id="a_edge36_Node000003_Node000039"><a xlink:title=" ">
-<path fill="none" stroke="#63b8ff" d="M396.4,-1375.63C399.47,-1373.06 402.28,-1370.19 404.75,-1367 472.39,-1279.61 370.51,-956.32 440.75,-871 443.9,-867.17 447.47,-863.79 451.36,-860.81"/>
-<polygon fill="#63b8ff" stroke="#63b8ff" points="453.22,-863.77 459.67,-855.37 449.39,-857.92 453.22,-863.77"/>
-</a>
-</g>
-</g>
-<!-- Node40 -->
-<g id="Node000040" class="node">
-<title>Node40</title>
-<g id="a_Node000040"><a xlink:href="class_easy___copier_1_1_easy___copier___xaml_type_info_1_1_xaml_type_info_provider.html#a27209be6ba475e5b68a934e92d429ebe" target="_top" xlink:title=" ">
-<polygon fill="white" stroke="#666666" points="664.5,-800 446.75,-800 446.75,-756 664.5,-756 664.5,-800"/>
-<text xml:space="preserve" text-anchor="start" x="454.75" y="-786.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Easy_Copier</text>
-<text xml:space="preserve" text-anchor="start" x="454.75" y="-774.5" font-family="Helvetica,sans-Serif" font-size="10.00">_XamlTypeInfo.XamlTypeInfoProvider.</text>
-<text xml:space="preserve" text-anchor="middle" x="555.62" y="-762.5" font-family="Helvetica,sans-Serif" font-size="10.00">StaticInitializer_102_NumericTextBoxBehavior</text>
-</a>
-</g>
-</g>
-<!-- Node3&#45;&gt;Node40 -->
-<g id="edge37_Node000003_Node000040" class="edge">
-<title>Node3&#45;&gt;Node40</title>
-<g id="a_edge37_Node000003_Node000040"><a xlink:title=" ">
-<path fill="none" stroke="#63b8ff" d="M396.43,-1375.65C399.49,-1373.07 402.29,-1370.2 404.75,-1367 480.41,-1268.43 362.16,-905.25 440.75,-809 440.91,-808.8 441.08,-808.6 441.24,-808.41"/>
-<polygon fill="#63b8ff" stroke="#63b8ff" points="443.63,-810.97 448.26,-801.44 438.7,-806 443.63,-810.97"/>
+<g id="a_edge36_Node000003_Node000037"><a xlink:title=" ">
+<path fill="none" stroke="#63b8ff" d="M383,-1375.57C391.4,-1371.15 399.02,-1365.47 404.75,-1358 480.41,-1259.43 362.16,-896.25 440.75,-800 444.54,-795.36 448.95,-791.37 453.79,-787.97"/>
+<polygon fill="#63b8ff" stroke="#63b8ff" points="455.49,-791.03 462.28,-782.89 451.9,-785.02 455.49,-791.03"/>
 </a>
 </g>
 </g>
 <!-- Node41 -->
 <g id="Node000041" class="node">
 <title>Node41</title>
-<g id="a_Node000041"><a xlink:href="class_easy___copier_1_1_easy___copier___xaml_type_info_1_1_xaml_type_info_provider.html#a0c6a260050f7e3556a80fd0a5f5746dc" target="_top" xlink:title=" ">
+<g id="a_Node000041"><a xlink:href="class_easy___copier_1_1_easy___copier___xaml_type_info_1_1_xaml_type_info_provider.html#a27c688261598bf287116cd316d899f7a" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="#666666" points="647.25,-738 464,-738 464,-694 647.25,-694 647.25,-738"/>
 <text xml:space="preserve" text-anchor="start" x="472" y="-724.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Easy_Copier</text>
 <text xml:space="preserve" text-anchor="start" x="472" y="-712.5" font-family="Helvetica,sans-Serif" font-size="10.00">_XamlTypeInfo.XamlTypeInfoProvider.</text>
-<text xml:space="preserve" text-anchor="middle" x="555.62" y="-700.5" font-family="Helvetica,sans-Serif" font-size="10.00">StaticInitializer_103_Behavior</text>
+<text xml:space="preserve" text-anchor="middle" x="555.62" y="-700.5" font-family="Helvetica,sans-Serif" font-size="10.00">MapAdd_2_XamlControlsResources</text>
 </a>
 </g>
 </g>
@@ -782,11 +782,11 @@
 <!-- Node42 -->
 <g id="Node000042" class="node">
 <title>Node42</title>
-<g id="a_Node000042"><a xlink:href="class_easy___copier_1_1_easy___copier___xaml_type_info_1_1_xaml_type_info_provider.html#a54c02b68198fa0c60aa7f0130466dc0c" target="_top" xlink:title=" ">
-<polygon fill="white" stroke="#666666" points="647.25,-676 464,-676 464,-632 647.25,-632 647.25,-676"/>
-<text xml:space="preserve" text-anchor="start" x="472" y="-662.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Easy_Copier</text>
-<text xml:space="preserve" text-anchor="start" x="472" y="-650.5" font-family="Helvetica,sans-Serif" font-size="10.00">_XamlTypeInfo.XamlTypeInfoProvider.</text>
-<text xml:space="preserve" text-anchor="middle" x="555.62" y="-638.5" font-family="Helvetica,sans-Serif" font-size="10.00">StaticInitializer_104_Behavior</text>
+<g id="a_Node000042"><a xlink:href="class_easy___copier_1_1_easy___copier___xaml_type_info_1_1_xaml_type_info_provider.html#a35be5a97edacb5ba0914e62efc85d4a7" target="_top" xlink:title=" ">
+<polygon fill="white" stroke="#666666" points="660.38,-676 450.88,-676 450.88,-632 660.38,-632 660.38,-676"/>
+<text xml:space="preserve" text-anchor="start" x="458.88" y="-662.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Easy_Copier</text>
+<text xml:space="preserve" text-anchor="start" x="458.88" y="-650.5" font-family="Helvetica,sans-Serif" font-size="10.00">_XamlTypeInfo.XamlTypeInfoProvider.</text>
+<text xml:space="preserve" text-anchor="middle" x="555.62" y="-638.5" font-family="Helvetica,sans-Serif" font-size="10.00">StaticInitializer_0_CategoryFormatConverter</text>
 </a>
 </g>
 </g>
@@ -794,19 +794,19 @@
 <g id="edge39_Node000003_Node000042" class="edge">
 <title>Node3&#45;&gt;Node42</title>
 <g id="a_edge39_Node000003_Node000042"><a xlink:title=" ">
-<path fill="none" stroke="#63b8ff" d="M396.47,-1375.69C399.52,-1373.1 402.31,-1370.22 404.75,-1367 496.46,-1246.08 345.45,-803.12 440.75,-685 444.65,-680.17 449.22,-676.04 454.25,-672.53"/>
-<polygon fill="#63b8ff" stroke="#63b8ff" points="455.68,-675.76 462.46,-667.62 452.08,-669.75 455.68,-675.76"/>
+<path fill="none" stroke="#63b8ff" d="M396.47,-1375.69C399.52,-1373.1 402.31,-1370.22 404.75,-1367 496.46,-1246.08 345.45,-803.12 440.75,-685 441.3,-684.31 441.87,-683.64 442.45,-682.98"/>
+<polygon fill="#63b8ff" stroke="#63b8ff" points="444.74,-685.64 449.6,-676.22 439.93,-680.55 444.74,-685.64"/>
 </a>
 </g>
 </g>
 <!-- Node43 -->
 <g id="Node000043" class="node">
 <title>Node43</title>
-<g id="a_Node000043"><a xlink:href="class_easy___copier_1_1_easy___copier___xaml_type_info_1_1_xaml_type_info_provider.html#a782f95ce6ee5a784d48810a9c6713427" target="_top" xlink:title=" ">
-<polygon fill="white" stroke="#666666" points="647.25,-614 464,-614 464,-570 647.25,-570 647.25,-614"/>
-<text xml:space="preserve" text-anchor="start" x="472" y="-600.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Easy_Copier</text>
-<text xml:space="preserve" text-anchor="start" x="472" y="-588.5" font-family="Helvetica,sans-Serif" font-size="10.00">_XamlTypeInfo.XamlTypeInfoProvider.</text>
-<text xml:space="preserve" text-anchor="middle" x="555.62" y="-576.5" font-family="Helvetica,sans-Serif" font-size="10.00">StaticInitializer_106_HoverBehavior</text>
+<g id="a_Node000043"><a xlink:href="class_easy___copier_1_1_easy___copier___xaml_type_info_1_1_xaml_type_info_provider.html#a862abb65f95419125a28b21b7d6045b9" target="_top" xlink:title=" ">
+<polygon fill="white" stroke="#666666" points="655.5,-614 455.75,-614 455.75,-570 655.5,-570 655.5,-614"/>
+<text xml:space="preserve" text-anchor="start" x="463.75" y="-600.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Easy_Copier</text>
+<text xml:space="preserve" text-anchor="start" x="463.75" y="-588.5" font-family="Helvetica,sans-Serif" font-size="10.00">_XamlTypeInfo.XamlTypeInfoProvider.</text>
+<text xml:space="preserve" text-anchor="middle" x="555.62" y="-576.5" font-family="Helvetica,sans-Serif" font-size="10.00">StaticInitializer_101_FocusWithinBehavior</text>
 </a>
 </g>
 </g>
@@ -814,19 +814,19 @@
 <g id="edge40_Node000003_Node000043" class="edge">
 <title>Node3&#45;&gt;Node43</title>
 <g id="a_edge40_Node000003_Node000043"><a xlink:title=" ">
-<path fill="none" stroke="#63b8ff" d="M396.49,-1375.7C399.54,-1373.11 402.32,-1370.22 404.75,-1367 504.48,-1234.89 337.1,-752.05 440.75,-623 444.64,-618.16 449.2,-614.03 454.23,-610.51"/>
-<polygon fill="#63b8ff" stroke="#63b8ff" points="455.65,-613.74 462.43,-605.59 452.05,-607.73 455.65,-613.74"/>
+<path fill="none" stroke="#63b8ff" d="M396.49,-1375.7C399.54,-1373.11 402.32,-1370.22 404.75,-1367 504.48,-1234.89 337.1,-752.05 440.75,-623 442.57,-620.73 444.55,-618.61 446.65,-616.65"/>
+<polygon fill="#63b8ff" stroke="#63b8ff" points="448.48,-619.66 454.14,-610.7 444.13,-614.17 448.48,-619.66"/>
 </a>
 </g>
 </g>
 <!-- Node44 -->
 <g id="Node000044" class="node">
 <title>Node44</title>
-<g id="a_Node000044"><a xlink:href="class_easy___copier_1_1_easy___copier___xaml_type_info_1_1_xaml_type_info_provider.html#a1ee62bee7ae8eff24ceb4e65f5895a41" target="_top" xlink:title=" ">
-<polygon fill="white" stroke="#666666" points="647.25,-552 464,-552 464,-508 647.25,-508 647.25,-552"/>
-<text xml:space="preserve" text-anchor="start" x="472" y="-538.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Easy_Copier</text>
-<text xml:space="preserve" text-anchor="start" x="472" y="-526.5" font-family="Helvetica,sans-Serif" font-size="10.00">_XamlTypeInfo.XamlTypeInfoProvider.</text>
-<text xml:space="preserve" text-anchor="middle" x="555.62" y="-514.5" font-family="Helvetica,sans-Serif" font-size="10.00">StaticInitializer_107_Behavior</text>
+<g id="a_Node000044"><a xlink:href="class_easy___copier_1_1_easy___copier___xaml_type_info_1_1_xaml_type_info_provider.html#a3dc7c8457c321ec3e00399343ded8dc1" target="_top" xlink:title=" ">
+<polygon fill="white" stroke="#666666" points="668.25,-552 443,-552 443,-508 668.25,-508 668.25,-552"/>
+<text xml:space="preserve" text-anchor="start" x="451" y="-538.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Easy_Copier</text>
+<text xml:space="preserve" text-anchor="start" x="451" y="-526.5" font-family="Helvetica,sans-Serif" font-size="10.00">_XamlTypeInfo.XamlTypeInfoProvider.</text>
+<text xml:space="preserve" text-anchor="middle" x="555.62" y="-514.5" font-family="Helvetica,sans-Serif" font-size="10.00">StaticInitializer_102_SmartAdderHistoryWindow</text>
 </a>
 </g>
 </g>
@@ -834,19 +834,20 @@
 <g id="edge41_Node000003_Node000044" class="edge">
 <title>Node3&#45;&gt;Node44</title>
 <g id="a_edge41_Node000003_Node000044"><a xlink:title=" ">
-<path fill="none" stroke="#63b8ff" d="M396.51,-1375.71C399.55,-1373.12 402.32,-1370.23 404.75,-1367 458.63,-1295.35 384.74,-631 440.75,-561 444.63,-556.15 449.19,-552.01 454.21,-548.49"/>
-<polygon fill="#63b8ff" stroke="#63b8ff" points="455.63,-551.72 462.4,-543.57 452.03,-545.72 455.63,-551.72"/>
+<path fill="none" stroke="#63b8ff" d="M396.51,-1375.71C399.55,-1373.12 402.32,-1370.23 404.75,-1367 458.63,-1295.35 384.74,-631 440.75,-561 440.91,-560.8 441.07,-560.6 441.23,-560.4"/>
+<polygon fill="#63b8ff" stroke="#63b8ff" points="443.64,-562.95 448.19,-553.38 438.67,-558.02 443.64,-562.95"/>
 </a>
 </g>
 </g>
 <!-- Node45 -->
 <g id="Node000045" class="node">
 <title>Node45</title>
-<g id="a_Node000045"><a xlink:href="class_easy___copier_1_1_easy___copier___xaml_type_info_1_1_xaml_type_info_provider.html#ad5912bc29e62dd42ae201b13ffbefe09" target="_top" xlink:title=" ">
-<polygon fill="white" stroke="#666666" points="655.5,-490 455.75,-490 455.75,-446 655.5,-446 655.5,-490"/>
-<text xml:space="preserve" text-anchor="start" x="463.75" y="-476.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Easy_Copier</text>
-<text xml:space="preserve" text-anchor="start" x="463.75" y="-464.5" font-family="Helvetica,sans-Serif" font-size="10.00">_XamlTypeInfo.XamlTypeInfoProvider.</text>
-<text xml:space="preserve" text-anchor="middle" x="555.62" y="-452.5" font-family="Helvetica,sans-Serif" font-size="10.00">StaticInitializer_109_FocusWithinBehavior</text>
+<g id="a_Node000045"><a xlink:href="class_easy___copier_1_1_easy___copier___xaml_type_info_1_1_xaml_type_info_provider.html#a5b1e616f0432cdf88544b0bc4eb3f001" target="_top" xlink:title=" ">
+<polygon fill="white" stroke="#666666" points="650.62,-490 460.62,-490 460.62,-434 650.62,-434 650.62,-490"/>
+<text xml:space="preserve" text-anchor="start" x="468.62" y="-476.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Easy_Copier</text>
+<text xml:space="preserve" text-anchor="start" x="468.62" y="-464.5" font-family="Helvetica,sans-Serif" font-size="10.00">_XamlTypeInfo.XamlTypeInfoProvider.</text>
+<text xml:space="preserve" text-anchor="start" x="468.62" y="-452.5" font-family="Helvetica,sans-Serif" font-size="10.00">StaticInitializer_103_SmartAdderHistory</text>
+<text xml:space="preserve" text-anchor="middle" x="555.62" y="-440.5" font-family="Helvetica,sans-Serif" font-size="10.00">ViewModel</text>
 </a>
 </g>
 </g>
@@ -854,19 +855,19 @@
 <g id="edge42_Node000003_Node000045" class="edge">
 <title>Node3&#45;&gt;Node45</title>
 <g id="a_edge42_Node000003_Node000045"><a xlink:title=" ">
-<path fill="none" stroke="#63b8ff" d="M396.52,-1375.72C399.56,-1373.12 402.33,-1370.23 404.75,-1367 462.64,-1289.76 380.56,-574.47 440.75,-499 442.57,-496.72 444.53,-494.6 446.63,-492.63"/>
-<polygon fill="#63b8ff" stroke="#63b8ff" points="448.47,-495.64 454.1,-486.67 444.1,-490.17 448.47,-495.64"/>
+<path fill="none" stroke="#63b8ff" d="M396.52,-1375.72C399.56,-1373.12 402.33,-1370.23 404.75,-1367 462.64,-1289.76 382.41,-575.9 440.75,-499 443.75,-495.04 447.19,-491.5 450.95,-488.33"/>
+<polygon fill="#63b8ff" stroke="#63b8ff" points="452.99,-491.18 459.04,-482.48 448.89,-485.5 452.99,-491.18"/>
 </a>
 </g>
 </g>
 <!-- Node46 -->
 <g id="Node000046" class="node">
 <title>Node46</title>
-<g id="a_Node000046"><a xlink:href="class_easy___copier_1_1_easy___copier___xaml_type_info_1_1_xaml_type_info_provider.html#a18a6bb8e2624fbdb199881db0e188523" target="_top" xlink:title=" ">
-<polygon fill="white" stroke="#666666" points="647.25,-428 464,-428 464,-384 647.25,-384 647.25,-428"/>
-<text xml:space="preserve" text-anchor="start" x="472" y="-414.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Easy_Copier</text>
-<text xml:space="preserve" text-anchor="start" x="472" y="-402.5" font-family="Helvetica,sans-Serif" font-size="10.00">_XamlTypeInfo.XamlTypeInfoProvider.</text>
-<text xml:space="preserve" text-anchor="middle" x="555.62" y="-390.5" font-family="Helvetica,sans-Serif" font-size="10.00">StaticInitializer_10_MainWindow</text>
+<g id="a_Node000046"><a xlink:href="class_easy___copier_1_1_easy___copier___xaml_type_info_1_1_xaml_type_info_provider.html#a9d0883aabb28d52b46ecf7f34947b243" target="_top" xlink:title=" ">
+<polygon fill="white" stroke="#666666" points="650.25,-416 461,-416 461,-372 650.25,-372 650.25,-416"/>
+<text xml:space="preserve" text-anchor="start" x="469" y="-402.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Easy_Copier</text>
+<text xml:space="preserve" text-anchor="start" x="469" y="-390.5" font-family="Helvetica,sans-Serif" font-size="10.00">_XamlTypeInfo.XamlTypeInfoProvider.</text>
+<text xml:space="preserve" text-anchor="middle" x="555.62" y="-378.5" font-family="Helvetica,sans-Serif" font-size="10.00">StaticInitializer_104_VideoDetailsFlyout</text>
 </a>
 </g>
 </g>
@@ -874,19 +875,19 @@
 <g id="edge43_Node000003_Node000046" class="edge">
 <title>Node3&#45;&gt;Node46</title>
 <g id="a_edge43_Node000003_Node000046"><a xlink:title=" ">
-<path fill="none" stroke="#63b8ff" d="M396.53,-1375.73C399.57,-1373.13 402.33,-1370.23 404.75,-1367 466.66,-1284.17 376.38,-517.94 440.75,-437 444.62,-432.14 449.16,-427.99 454.18,-424.46"/>
-<polygon fill="#63b8ff" stroke="#63b8ff" points="455.6,-427.69 462.36,-419.54 451.99,-421.7 455.6,-427.69"/>
+<path fill="none" stroke="#63b8ff" d="M396.53,-1375.73C399.57,-1373.13 402.34,-1370.23 404.75,-1367 467.43,-1283.09 375.57,-507 440.75,-425 443.83,-421.12 447.35,-417.7 451.19,-414.68"/>
+<polygon fill="#63b8ff" stroke="#63b8ff" points="453.06,-417.64 459.44,-409.19 449.17,-411.82 453.06,-417.64"/>
 </a>
 </g>
 </g>
 <!-- Node47 -->
 <g id="Node000047" class="node">
 <title>Node47</title>
-<g id="a_Node000047"><a xlink:href="class_easy___copier_1_1_easy___copier___xaml_type_info_1_1_xaml_type_info_provider.html#a4cbec0a8bb3db10a7bc1d309f00fc9ad" target="_top" xlink:title=" ">
-<polygon fill="white" stroke="#666666" points="667.88,-366 443.38,-366 443.38,-322 667.88,-322 667.88,-366"/>
-<text xml:space="preserve" text-anchor="start" x="451.38" y="-352.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Easy_Copier</text>
-<text xml:space="preserve" text-anchor="start" x="451.38" y="-340.5" font-family="Helvetica,sans-Serif" font-size="10.00">_XamlTypeInfo.XamlTypeInfoProvider.</text>
-<text xml:space="preserve" text-anchor="middle" x="555.62" y="-328.5" font-family="Helvetica,sans-Serif" font-size="10.00">StaticInitializer_110_SmartAdderHistoryWindow</text>
+<g id="a_Node000047"><a xlink:href="class_easy___copier_1_1_easy___copier___xaml_type_info_1_1_xaml_type_info_provider.html#ab5cefd007e5157c206317f5dc8c86425" target="_top" xlink:title=" ">
+<polygon fill="white" stroke="#666666" points="660.75,-354 450.5,-354 450.5,-310 660.75,-310 660.75,-354"/>
+<text xml:space="preserve" text-anchor="start" x="458.5" y="-340.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Easy_Copier</text>
+<text xml:space="preserve" text-anchor="start" x="458.5" y="-328.5" font-family="Helvetica,sans-Serif" font-size="10.00">_XamlTypeInfo.XamlTypeInfoProvider.</text>
+<text xml:space="preserve" text-anchor="middle" x="555.62" y="-316.5" font-family="Helvetica,sans-Serif" font-size="10.00">StaticInitializer_105_VideoDetailsViewModel</text>
 </a>
 </g>
 </g>
@@ -894,20 +895,19 @@
 <g id="edge44_Node000003_Node000047" class="edge">
 <title>Node3&#45;&gt;Node47</title>
 <g id="a_edge44_Node000003_Node000047"><a xlink:title=" ">
-<path fill="none" stroke="#63b8ff" d="M396.54,-1375.74C399.57,-1373.14 402.34,-1370.24 404.75,-1367 470.67,-1278.57 372.2,-461.41 440.75,-375 440.91,-374.8 441.07,-374.6 441.23,-374.4"/>
-<polygon fill="#63b8ff" stroke="#63b8ff" points="443.64,-376.94 448.16,-367.36 438.65,-372.03 443.64,-376.94"/>
+<path fill="none" stroke="#63b8ff" d="M396.54,-1375.74C399.57,-1373.14 402.34,-1370.24 404.75,-1367 471.45,-1277.49 371.39,-450.47 440.75,-363 441.19,-362.45 441.63,-361.91 442.09,-361.37"/>
+<polygon fill="#63b8ff" stroke="#63b8ff" points="444.36,-364.05 449.07,-354.56 439.47,-359.04 444.36,-364.05"/>
 </a>
 </g>
 </g>
 <!-- Node48 -->
 <g id="Node000048" class="node">
 <title>Node48</title>
-<g id="a_Node000048"><a xlink:href="class_easy___copier_1_1_easy___copier___xaml_type_info_1_1_xaml_type_info_provider.html#a8287a253d34455a6fbfebd166551fdcc" target="_top" xlink:title=" ">
-<polygon fill="white" stroke="#666666" points="649.88,-304 461.38,-304 461.38,-248 649.88,-248 649.88,-304"/>
-<text xml:space="preserve" text-anchor="start" x="469.38" y="-290.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Easy_Copier</text>
-<text xml:space="preserve" text-anchor="start" x="469.38" y="-278.5" font-family="Helvetica,sans-Serif" font-size="10.00">_XamlTypeInfo.XamlTypeInfoProvider.</text>
-<text xml:space="preserve" text-anchor="start" x="469.38" y="-266.5" font-family="Helvetica,sans-Serif" font-size="10.00">StaticInitializer_111_SmartAdderHistory</text>
-<text xml:space="preserve" text-anchor="middle" x="555.62" y="-254.5" font-family="Helvetica,sans-Serif" font-size="10.00">ViewModel</text>
+<g id="a_Node000048"><a xlink:href="class_easy___copier_1_1_easy___copier___xaml_type_info_1_1_xaml_type_info_provider.html#a59ec48b68f07431375fa6d25935f850e" target="_top" xlink:title=" ">
+<polygon fill="white" stroke="#666666" points="647.25,-292 464,-292 464,-248 647.25,-248 647.25,-292"/>
+<text xml:space="preserve" text-anchor="start" x="472" y="-278.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Easy_Copier</text>
+<text xml:space="preserve" text-anchor="start" x="472" y="-266.5" font-family="Helvetica,sans-Serif" font-size="10.00">_XamlTypeInfo.XamlTypeInfoProvider.</text>
+<text xml:space="preserve" text-anchor="middle" x="555.62" y="-254.5" font-family="Helvetica,sans-Serif" font-size="10.00">StaticInitializer_106_TreeViewNode</text>
 </a>
 </g>
 </g>
@@ -915,19 +915,19 @@
 <g id="edge45_Node000003_Node000048" class="edge">
 <title>Node3&#45;&gt;Node48</title>
 <g id="a_edge45_Node000003_Node000048"><a xlink:title=" ">
-<path fill="none" stroke="#63b8ff" d="M396.55,-1375.74C399.58,-1373.14 402.34,-1370.24 404.75,-1367 474.69,-1272.98 370.27,-406.61 440.75,-313 443.93,-308.78 447.6,-305.03 451.64,-301.7"/>
-<polygon fill="#63b8ff" stroke="#63b8ff" points="453.63,-304.57 459.77,-295.94 449.59,-298.86 453.63,-304.57"/>
+<path fill="none" stroke="#63b8ff" d="M396.55,-1375.74C399.58,-1373.14 402.34,-1370.24 404.75,-1367 475.46,-1271.9 367.21,-393.94 440.75,-301 444.6,-296.13 449.14,-291.98 454.15,-288.44"/>
+<polygon fill="#63b8ff" stroke="#63b8ff" points="455.57,-291.67 462.32,-283.51 451.95,-285.68 455.57,-291.67"/>
 </a>
 </g>
 </g>
 <!-- Node49 -->
 <g id="Node000049" class="node">
 <title>Node49</title>
-<g id="a_Node000049"><a xlink:href="class_easy___copier_1_1_easy___copier___xaml_type_info_1_1_xaml_type_info_provider.html#af9dadd3060608ecff443f455fb4514af" target="_top" xlink:title=" ">
+<g id="a_Node000049"><a xlink:href="class_easy___copier_1_1_easy___copier___xaml_type_info_1_1_xaml_type_info_provider.html#a18864bd4d4057a83d567c4504502776e" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="#666666" points="647.25,-230 464,-230 464,-186 647.25,-186 647.25,-230"/>
 <text xml:space="preserve" text-anchor="start" x="472" y="-216.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Easy_Copier</text>
 <text xml:space="preserve" text-anchor="start" x="472" y="-204.5" font-family="Helvetica,sans-Serif" font-size="10.00">_XamlTypeInfo.XamlTypeInfoProvider.</text>
-<text xml:space="preserve" text-anchor="middle" x="555.62" y="-192.5" font-family="Helvetica,sans-Serif" font-size="10.00">StaticInitializer_112_TreeViewNode</text>
+<text xml:space="preserve" text-anchor="middle" x="555.62" y="-192.5" font-family="Helvetica,sans-Serif" font-size="10.00">StaticInitializer_107_IList</text>
 </a>
 </g>
 </g>
@@ -943,11 +943,11 @@
 <!-- Node50 -->
 <g id="Node000050" class="node">
 <title>Node50</title>
-<g id="a_Node000050"><a xlink:href="class_easy___copier_1_1_easy___copier___xaml_type_info_1_1_xaml_type_info_provider.html#a820823130de072469c2298db74e98187" target="_top" xlink:title=" ">
+<g id="a_Node000050"><a xlink:href="class_easy___copier_1_1_easy___copier___xaml_type_info_1_1_xaml_type_info_provider.html#a18a6bb8e2624fbdb199881db0e188523" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="#666666" points="647.25,-168 464,-168 464,-124 647.25,-124 647.25,-168"/>
 <text xml:space="preserve" text-anchor="start" x="472" y="-154.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Easy_Copier</text>
 <text xml:space="preserve" text-anchor="start" x="472" y="-142.5" font-family="Helvetica,sans-Serif" font-size="10.00">_XamlTypeInfo.XamlTypeInfoProvider.</text>
-<text xml:space="preserve" text-anchor="middle" x="555.62" y="-130.5" font-family="Helvetica,sans-Serif" font-size="10.00">StaticInitializer_113_IList</text>
+<text xml:space="preserve" text-anchor="middle" x="555.62" y="-130.5" font-family="Helvetica,sans-Serif" font-size="10.00">StaticInitializer_10_MainWindow</text>
 </a>
 </g>
 </g>
@@ -1000,12 +1000,12 @@
 </a>
 </g>
 </g>
-<!-- Node33&#45;&gt;Node3 -->
-<g id="edge33_Node000033_Node000003" class="edge">
-<title>Node33&#45;&gt;Node3</title>
-<g id="a_edge33_Node000033_Node000003"><a xlink:title=" ">
-<path fill="none" stroke="#63b8ff" d="M463.69,-1048.45C455.01,-1052.91 447.1,-1058.62 440.75,-1066 352.78,-1168.28 484.42,-1262.86 410.81,-1367.89"/>
-<polygon fill="#63b8ff" stroke="#63b8ff" points="408.25,-1365.48 405.02,-1375.57 413.84,-1369.7 408.25,-1365.48"/>
+<!-- Node37&#45;&gt;Node3 -->
+<g id="edge37_Node000037_Node000003" class="edge">
+<title>Node37&#45;&gt;Node3</title>
+<g id="a_edge37_Node000037_Node000003"><a xlink:title=" ">
+<path fill="none" stroke="#63b8ff" d="M463.58,-799.99C454.86,-804.53 446.97,-810.38 440.75,-818 364.46,-911.43 473.65,-1256.38 410.05,-1367.75"/>
+<polygon fill="#63b8ff" stroke="#63b8ff" points="407.25,-1365.65 404.65,-1375.92 413.08,-1369.51 407.25,-1365.65"/>
 </a>
 </g>
 </g>

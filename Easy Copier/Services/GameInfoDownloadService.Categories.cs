@@ -31,6 +31,7 @@ namespace Easy_Copier.Services
             { "rpg", GameCategory.RPG },
             { "role-playing", GameCategory.RPG },
             { "roleplaying", GameCategory.RPG },
+            { "souls", GameCategory.RPG },
             { "strategy", GameCategory.Strategy },
             { "rts", GameCategory.Strategy },
             { "tactics", GameCategory.Strategy },
@@ -56,12 +57,13 @@ namespace Easy_Copier.Services
         /// </summary>
         /// <param name="gameName">The title of the game.</param>
         /// <param name="gameFolder">The local folder path for the game.</param>
+        /// <param name="overwriteExisting">Whether to force overwrite of an existing <c>categories.txt</c> file.</param>
         /// <param name="cancellationToken">Cancellation token to cancel operation.</param>
         /// <returns>A task representing the asynchronous operation.</returns>
-        private async Task DownloadCategoriesAsync(string gameName, string gameFolder, CancellationToken cancellationToken)
+        private async Task DownloadCategoriesAsync(string gameName, string gameFolder, bool overwriteExisting, CancellationToken cancellationToken)
         {
             string catFile = Path.Combine(gameFolder, "categories.txt");
-            if (File.Exists(catFile))
+            if (File.Exists(catFile) && !overwriteExisting)
             {
                 return;
             }
@@ -69,11 +71,11 @@ namespace Easy_Copier.Services
             try
             {
                 List<GameCategory> categories = [];
-                string? appId = await FetchSteamAppIdAsync(gameName, cancellationToken);
+                string? appId = await FetchSteamAppIdAsync(gameName, cancellationToken).ConfigureAwait(false);
 
                 if (appId != null)
                 {
-                    categories = await FetchSteamCategoriesAsync(appId, cancellationToken);
+                    categories = await FetchSteamCategoriesAsync(appId, cancellationToken).ConfigureAwait(false);
                 }
 
                 if (categories.Count == 0)
@@ -86,8 +88,9 @@ namespace Easy_Copier.Services
                     categories.Add(GameCategory.Uncategorized);
                 }
 
+                // Deduplicate categories while preserving priority order (e.g. RPG > Adventure)
                 categories = categories.Distinct().ToList();
-                await File.WriteAllLinesAsync(catFile, categories.Select(c => c.ToString()), cancellationToken);
+                await File.WriteAllLinesAsync(catFile, categories.Select(c => c.ToString()), cancellationToken).ConfigureAwait(false);
             }
             catch (Exception ex)
             {
@@ -98,7 +101,7 @@ namespace Easy_Copier.Services
         /// <summary>
         /// Fetches game genres from the Steam Web API for the specified app ID and maps them to <see cref="GameCategory"/> enum values.
         /// </summary>
-        /// <param name="appId">The Steam App ID.</param>
+        /// <param name="appId">The Steam App ID string.</param>
         /// <param name="cancellationToken">Cancellation token.</param>
         /// <returns>A task that represents the asynchronous operation. The task result contains a list of matched <see cref="GameCategory"/> values.</returns>
         private async Task<List<GameCategory>> FetchSteamCategoriesAsync(string appId, CancellationToken cancellationToken)
@@ -107,10 +110,10 @@ namespace Easy_Copier.Services
             Uri url = new($"https://store.steampowered.com/api/appdetails?appids={appId}");
             try
             {
-                HttpResponseMessage response = await _httpClient.GetAsync(url, cancellationToken);
+                HttpResponseMessage response = await _httpClient.GetAsync(url, cancellationToken).ConfigureAwait(false);
                 if (response.IsSuccessStatusCode)
                 {
-                    string content = await response.Content.ReadAsStringAsync(cancellationToken);
+                    string content = await response.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
                     using JsonDocument doc = JsonDocument.Parse(content);
                     if (doc.RootElement.TryGetProperty(appId, out JsonElement appData) && appData.GetProperty("success").GetBoolean())
                     {
@@ -128,6 +131,12 @@ namespace Easy_Copier.Services
                                         categories.Add(mapped);
                                     }
                                 }
+                            }
+
+                            // Prioritize distinct specific genres (e.g. RPG, Shooter) over generic Adventure
+                            if (categories.Count > 1 && categories.Contains(GameCategory.RPG))
+                            {
+                                categories = categories.OrderBy(c => c == GameCategory.RPG ? 0 : 1).ToList();
                             }
                         }
                     }
@@ -149,10 +158,13 @@ namespace Easy_Copier.Services
         {
             return steamGenre.ToUpperInvariant() switch
             {
-                "ACTION" => GameCategory.Shooter,
+                var s when s.Contains("SHOOT", StringComparison.OrdinalIgnoreCase) || s.Contains("FPS", StringComparison.OrdinalIgnoreCase) => GameCategory.Shooter,
                 "RPG" => GameCategory.RPG,
+                var s when s.Contains("ROLE-PLAYING", StringComparison.OrdinalIgnoreCase) => GameCategory.RPG,
                 "STRATEGY" => GameCategory.Strategy,
                 "ADVENTURE" => GameCategory.Adventure,
+                // "Action" on Steam represents Action/Adventure (not Shooter)
+                "ACTION" => GameCategory.Adventure,
                 "SIMULATION" => GameCategory.Simulation,
                 "RACING" => GameCategory.Racing,
                 "SPORTS" => GameCategory.Sports,

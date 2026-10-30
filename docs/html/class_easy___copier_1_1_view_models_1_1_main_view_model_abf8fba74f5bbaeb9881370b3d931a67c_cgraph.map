@@ -1,0 +1,5 @@
+<map id="Easy_Copier.ViewModels.MainViewModel.OnTvAndFilmsSearchTextChanged" name="Easy_Copier.ViewModels.MainViewModel.OnTvAndFilmsSearchTextChanged">
+<area shape="rect" id="Node000001" title="Handles changes to the TvAndFilmsSearchText property to re&#45;apply TV and films library filtering." alt="" coords="5,5,248,64"/>
+<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_view_models_1_1_main_view_model.html#abd35ddffc9ae4e957a2a8c26c24d3764" title="Applies search text query, category filtering, and sorting to the TV and films library collection." alt="" coords="296,13,517,56"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="248,32,283,34,277,35,248,37"/>
+</map>

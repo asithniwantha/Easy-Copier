@@ -53,7 +53,7 @@
 <!-- Node1 -->
 <g id="Node000001" class="node">
 <title>Node1</title>
-<g id="a_Node000001"><a xlink:title=" ">
+<g id="a_Node000001"><a xlink:title="Enables or disables mouse and keyboard input to the specified window or control.">
 <polygon fill="#999999" stroke="#666666" points="1056.5,-119 880,-119 880,-87 1056.5,-87 1056.5,-119"/>
 <text xml:space="preserve" text-anchor="start" x="888" y="-105.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Infrastructure.</text>
 <text xml:space="preserve" text-anchor="middle" x="968.25" y="-93.5" font-family="Helvetica,sans-Serif" font-size="10.00">NativeWindowHelper.EnableWindow</text>
@@ -178,7 +178,7 @@
 <!-- Node7 -->
 <g id="Node000007" class="node">
 <title>Node7</title>
-<g id="a_Node000007"><a xlink:href="class_easy___copier_1_1_views_1_1_settings_window.html#aa5c96a3985044d8ebabe043cd105e570" target="_top" xlink:title=" ">
+<g id="a_Node000007"><a xlink:href="class_easy___copier_1_1_views_1_1_settings_window.html#aa5c96a3985044d8ebabe043cd105e570" target="_top" xlink:title="Initializes a new instance of the SettingsWindow class.">
 <polygon fill="white" stroke="#666666" points="154.75,-94 13.5,-94 13.5,-62 154.75,-62 154.75,-94"/>
 <text xml:space="preserve" text-anchor="start" x="21.5" y="-80.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Views.Settings</text>
 <text xml:space="preserve" text-anchor="middle" x="84.12" y="-68.5" font-family="Helvetica,sans-Serif" font-size="10.00">Window.SettingsWindow</text>

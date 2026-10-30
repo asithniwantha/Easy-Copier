@@ -3,8 +3,9 @@ var class_easy___copier_1_1_services_1_1_game_info_download_service =
     [ "GameInfoDownloadService", "class_easy___copier_1_1_services_1_1_game_info_download_service.html#a6ac76e6b585071d140305138b3fa160d", null ],
     [ "Dispose", "class_easy___copier_1_1_services_1_1_game_info_download_service.html#a2a530455423f9a92c2ea366d9790a4b1", null ],
     [ "DownloadCategoriesAsync", "class_easy___copier_1_1_services_1_1_game_info_download_service.html#a40b2abb0052c08724a3c1ddd4ef72600", null ],
-    [ "DownloadCoverAsync", "class_easy___copier_1_1_services_1_1_game_info_download_service.html#a7ac978253ad5997bc4bb5558b5a7ca20", null ],
-    [ "DownloadGameInfoAsync", "class_easy___copier_1_1_services_1_1_game_info_download_service.html#ac477ae8ebd5151e39a13ea8a66aafafc", null ],
+    [ "DownloadCoverAsync", "class_easy___copier_1_1_services_1_1_game_info_download_service.html#a70b6fcb948e282bc1a6e12dcd149109c", null ],
+    [ "DownloadCoverForGameAsync", "class_easy___copier_1_1_services_1_1_game_info_download_service.html#a7c09a59fa448e293ccd9b43f09f70bb1", null ],
+    [ "DownloadGameInfoAsync", "class_easy___copier_1_1_services_1_1_game_info_download_service.html#a7c0fa0c7bb4c787407ecee735a6d503e", null ],
     [ "DownloadImageAsync", "class_easy___copier_1_1_services_1_1_game_info_download_service.html#aa5082d34c94299e50e9b4ec7213d3638", null ],
     [ "DownloadRequirementsAsync", "class_easy___copier_1_1_services_1_1_game_info_download_service.html#ae4954ebc673dc477713190cddf334372", null ],
     [ "FallbackExtractCategories", "class_easy___copier_1_1_services_1_1_game_info_download_service.html#a52925745092a234ad2ca782842d9b75d", null ],
@@ -15,7 +16,9 @@ var class_easy___copier_1_1_services_1_1_game_info_download_service =
     [ "MapSteamGenreToCore", "class_easy___copier_1_1_services_1_1_game_info_download_service.html#a5e8dd0f68d5c823f9b58034ae798e912", null ],
     [ "MyRegex", "class_easy___copier_1_1_services_1_1_game_info_download_service.html#a3be12a770e78f10afafac12d962ceeec", null ],
     [ "ParseSteamRequirements", "class_easy___copier_1_1_services_1_1_game_info_download_service.html#a0ac54d272f5be25a45615f2b4b473ad0", null ],
-    [ "ProcessGameAsync", "class_easy___copier_1_1_services_1_1_game_info_download_service.html#afd2968475c5e82f9f3f3317df4159411", null ],
+    [ "ProcessGameAsync", "class_easy___copier_1_1_services_1_1_game_info_download_service.html#af3fe1293f4c696730a68c27dea54c094", null ],
+    [ "readonly", "class_easy___copier_1_1_services_1_1_game_info_download_service.html#a6d9f14088fb40e4eba918498398da645", null ],
+    [ "TryFetchCheapSharkCoverAsync", "class_easy___copier_1_1_services_1_1_game_info_download_service.html#abacddc94afdcd8b0b7925c2253bedfb3", null ],
     [ "TryFetchGogCoverAsync", "class_easy___copier_1_1_services_1_1_game_info_download_service.html#a9cd6862f282d8d6d4612cb9c15eed770", null ],
     [ "TryFetchGsrCoverAsync", "class_easy___copier_1_1_services_1_1_game_info_download_service.html#abe5fa26f5662b94eea1d946a43f7e0da", null ],
     [ "TryFetchLutrisCoverAsync", "class_easy___copier_1_1_services_1_1_game_info_download_service.html#a632ff81276844ba2cb1151e84710bd2a", null ],
@@ -25,5 +28,6 @@ var class_easy___copier_1_1_services_1_1_game_info_download_service =
     [ "TryFetchWikipediaCoverAsync", "class_easy___copier_1_1_services_1_1_game_info_download_service.html#adae95494262fe3bfc1cedb49a21416a9", null ],
     [ "_httpClient", "class_easy___copier_1_1_services_1_1_game_info_download_service.html#ad00664a026fe0de5e9a58d6758e7df93", null ],
     [ "_logger", "class_easy___copier_1_1_services_1_1_game_info_download_service.html#a0fecaa335958b1a0f12b3ec933c487f5", null ],
-    [ "KeywordCategoryMapping", "class_easy___copier_1_1_services_1_1_game_info_download_service.html#ae37cb6a78341742e4e06ec6dd0e12cb4", null ]
+    [ "KeywordCategoryMapping", "class_easy___copier_1_1_services_1_1_game_info_download_service.html#ae37cb6a78341742e4e06ec6dd0e12cb4", null ],
+    [ "SteamCoverUrlTemplates", "class_easy___copier_1_1_services_1_1_game_info_download_service.html#a33252d87640c68a42695a31ee3308525", null ]
 ];

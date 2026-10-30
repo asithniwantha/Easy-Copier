@@ -237,7 +237,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Asynchronously checks if a new version release is available on GitHub via Velopack. </p>
-<dl class="section return"><dt>Returns</dt><dd>A task returning <code>true</code> if a newer update package is available; otherwise, <code>false</code>.</dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>A task that represents the asynchronous operation. The task result contains <code>true</code> if a newer update package is available; otherwise, <code>false</code>.</dd></dl>
 
 <p>Implements <a class="el" href="interface_easy___copier_1_1_services_1_1_i_update_service.html#a38e7cccdfa9eeefbb1f579ae3c625562">Easy_Copier.Services.IUpdateService</a>.</p>
 
@@ -269,7 +269,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Asynchronously downloads the latest update package files. </p>
-<dl class="section return"><dt>Returns</dt><dd>A task representing the download operation.</dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>A task that represents the asynchronous operation.</dd></dl>
 
 <p>Implements <a class="el" href="interface_easy___copier_1_1_services_1_1_i_update_service.html#a038e18dbbad7c4990d14a686a297c4cb">Easy_Copier.Services.IUpdateService</a>.</p>
 
@@ -358,6 +358,14 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Logger message when apply update fails. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">logger</td><td>The logger instance.</td></tr>
+    <tr><td class="paramname">ex</td><td>The exception thrown during update application.</td></tr>
+    <tr><td class="paramname">targetVersion</td><td>The target update version string.</td></tr>
+  </table>
+  </dd>
+</dl>
 
 <p class="reference">Referenced by <a class="el" href="_update_service_8cs_source.html#l00126">RestartAndApplyUpdate()</a>.</p>
 <div id="dynsection-6" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
@@ -397,6 +405,13 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Logger message when applying update and restarting. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">logger</td><td>The logger instance.</td></tr>
+    <tr><td class="paramname">targetVersion</td><td>The target update version string.</td></tr>
+  </table>
+  </dd>
+</dl>
 
 <p class="reference">Referenced by <a class="el" href="_update_service_8cs_source.html#l00126">RestartAndApplyUpdate()</a>.</p>
 <div id="dynsection-7" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
@@ -436,6 +451,13 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Logger message when error occurs during update check. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">logger</td><td>The logger instance.</td></tr>
+    <tr><td class="paramname">ex</td><td>The exception thrown during update check.</td></tr>
+  </table>
+  </dd>
+</dl>
 
 <p class="reference">Referenced by <a class="el" href="_update_service_8cs_source.html#l00063">CheckForUpdatesAsync()</a>.</p>
 <div id="dynsection-8" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
@@ -475,6 +497,13 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Logger message when starting update check. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">logger</td><td>The logger instance.</td></tr>
+    <tr><td class="paramname">localVersion</td><td>The currently installed local version string.</td></tr>
+  </table>
+  </dd>
+</dl>
 
 <p class="reference">Referenced by <a class="el" href="_update_service_8cs_source.html#l00063">CheckForUpdatesAsync()</a>.</p>
 <div id="dynsection-9" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
@@ -519,6 +548,14 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Logger message when update download fails. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">logger</td><td>The logger instance.</td></tr>
+    <tr><td class="paramname">ex</td><td>The exception thrown during update download.</td></tr>
+    <tr><td class="paramname">targetVersion</td><td>The target update version string.</td></tr>
+  </table>
+  </dd>
+</dl>
 
 <p class="reference">Referenced by <a class="el" href="_update_service_8cs_source.html#l00101">DownloadUpdateAsync()</a>.</p>
 <div id="dynsection-10" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
@@ -554,6 +591,12 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Logger message when download is skipped. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">logger</td><td>The logger instance.</td></tr>
+  </table>
+  </dd>
+</dl>
 
 <p class="reference">Referenced by <a class="el" href="_update_service_8cs_source.html#l00101">DownloadUpdateAsync()</a>.</p>
 <div id="dynsection-11" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
@@ -593,6 +636,13 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Logger message when update download starts. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">logger</td><td>The logger instance.</td></tr>
+    <tr><td class="paramname">targetVersion</td><td>The target update version string.</td></tr>
+  </table>
+  </dd>
+</dl>
 
 <p class="reference">Referenced by <a class="el" href="_update_service_8cs_source.html#l00101">DownloadUpdateAsync()</a>.</p>
 <div id="dynsection-12" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
@@ -632,6 +682,13 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Logger message when update download succeeds. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">logger</td><td>The logger instance.</td></tr>
+    <tr><td class="paramname">targetVersion</td><td>The target update version string.</td></tr>
+  </table>
+  </dd>
+</dl>
 
 <p class="reference">Referenced by <a class="el" href="_update_service_8cs_source.html#l00101">DownloadUpdateAsync()</a>.</p>
 <div id="dynsection-13" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
@@ -671,6 +728,13 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Logger message when no update is available. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">logger</td><td>The logger instance.</td></tr>
+    <tr><td class="paramname">localVersion</td><td>The current local version string.</td></tr>
+  </table>
+  </dd>
+</dl>
 
 <p class="reference">Referenced by <a class="el" href="_update_service_8cs_source.html#l00063">CheckForUpdatesAsync()</a>.</p>
 <div id="dynsection-14" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
@@ -706,6 +770,12 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Logger message when update check is skipped because app is not installed via Velopack. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">logger</td><td>The logger instance.</td></tr>
+  </table>
+  </dd>
+</dl>
 
 <p class="reference">Referenced by <a class="el" href="_update_service_8cs_source.html#l00063">CheckForUpdatesAsync()</a>.</p>
 <div id="dynsection-15" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
@@ -750,6 +820,14 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Logger message when a new update is found. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">logger</td><td>The logger instance.</td></tr>
+    <tr><td class="paramname">localVersion</td><td>The current local version string.</td></tr>
+    <tr><td class="paramname">remoteVersion</td><td>The available remote version string.</td></tr>
+  </table>
+  </dd>
+</dl>
 
 <p class="reference">Referenced by <a class="el" href="_update_service_8cs_source.html#l00063">CheckForUpdatesAsync()</a>.</p>
 <div id="dynsection-16" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
@@ -789,6 +867,13 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Logger message for initialization failures. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">logger</td><td>The logger instance.</td></tr>
+    <tr><td class="paramname">ex</td><td>The exception thrown during initialization.</td></tr>
+  </table>
+  </dd>
+</dl>
 
 <p class="reference">Referenced by <a class="el" href="_update_service_8cs_source.html#l00034">UpdateService()</a>.</p>
 <div id="dynsection-17" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>

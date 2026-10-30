@@ -1,15 +1,14 @@
 <map id="Easy_Copier.Views.MainPage.TabOrPivot_SelectionChanged" name="Easy_Copier.Views.MainPage.TabOrPivot_SelectionChanged">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,51,208,93"/>
-<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_views_1_1_main_page.html#ae7f49e65e70c8792555d54e61f49dc77" title=" " alt="" coords="256,51,458,93"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="208,69,243,72,238,72,208,75"/>
-<area shape="rect" id="Node000003" href="$class_easy___copier_1_1_views_1_1_os_images_tab_view.html#ac902e9029a9045732526d167c3338652" title="Retrieves the collection of currently selected GameEntry items in this view.An enumerable of selected..." alt="" coords="526,17,727,60"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="458,57,513,53,508,53,459,62"/>
-<area shape="rect" id="Node000005" href="$class_easy___copier_1_1_view_models_1_1_main_view_model.html#ac6ff8ed6c0a7a8d2998d5dd4c97b49f3" title=" " alt="" coords="506,84,747,127"/>
-<area shape="poly" id="edge5_Node000002_Node000005" title=" " alt="" coords="458,82,493,89,488,88,458,87"/>
-<area shape="rect" id="Node000004" href="$namespace_easy___copier_1_1_models.html#a9c2abd1d64352c07d3085ba499cf2aae" title="Represents a single scanned library entry (game, app, TV/film, or OS image)." alt="" coords="798,29,1010,56"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="727,37,785,41,780,41,727,43"/>
-<area shape="poly" id="edge4_Node000004_Node000004" title=" " alt="" coords="857,28,849,21,855,11,874,5,904,3,938,5,957,15,951,15,937,11,904,8,875,10,858,15,855,20,862,30"/>
-<area shape="poly" id="edge7_Node000005_Node000004" title=" " alt="" coords="724,81,824,60,829,60,724,86"/>
-<area shape="rect" id="Node000006" href="$class_easy___copier_1_1_infrastructure_1_1_formatting_helpers.html#afa356a97196bfd4bed7acd3c1a83bcea" title="Calculates the price tier based on size in gigabytes and configured pricing tiers." alt="" coords="795,84,1013,127"/>
-<area shape="poly" id="edge6_Node000005_Node000006" title=" " alt="" coords="748,103,783,105,777,105,748,108"/>
+<area shape="rect" id="Node000001" title="Handles pivot tab selection changes to recalculate and aggregate entry selections." alt="" coords="5,39,208,81"/>
+<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_views_1_1_main_page.html#ae7f49e65e70c8792555d54e61f49dc77" title="Recalculates combined library selection across tabs and updates the View Models selection summary." alt="" coords="256,39,458,81"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="208,57,243,59,238,61,209,63"/>
+<area shape="rect" id="Node000003" href="$class_easy___copier_1_1_views_1_1_main_page.html#ad0e15ac7d556d08bd9493e5221ddd5b3" title="Retrieves instantiated library tab views from direct control references." alt="" coords="526,5,728,48"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="458,45,513,41,507,42,459,50"/>
+<area shape="rect" id="Node000004" href="$class_easy___copier_1_1_view_models_1_1_main_view_model.html#ac6ff8ed6c0a7a8d2998d5dd4c97b49f3" title="Updates selected game entries and recalculates size, item count, and price summary values." alt="" coords="506,72,747,115"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="458,70,493,76,488,77,458,75"/>
+<area shape="rect" id="Node000005" href="$class_easy___copier_1_1_infrastructure_1_1_formatting_helpers.html#afa356a97196bfd4bed7acd3c1a83bcea" title="Calculates the price tier based on size in gigabytes and configured pricing tiers." alt="" coords="795,31,1013,73"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="747,73,777,71,783,70,748,78"/>
+<area shape="rect" id="Node000006" href="$namespace_easy___copier_1_1_models.html#a9c2abd1d64352c07d3085ba499cf2aae" title="Represents a single scanned library entry (game, app, TV/film, or OS image)." alt="" coords="798,121,1010,148"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="748,109,798,119,792,118,748,114"/>
+<area shape="poly" id="edge6_Node000006_Node000006" title=" " alt="" coords="857,120,849,113,855,103,874,97,904,95,938,97,957,107,951,107,937,103,904,100,875,102,858,107,855,112,862,122"/>
 </map>

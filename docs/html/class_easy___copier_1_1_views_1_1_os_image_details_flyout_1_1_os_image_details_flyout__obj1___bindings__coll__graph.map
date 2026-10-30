@@ -1,22 +1,29 @@
 <map id="Easy_Copier.Views.OsImageDetailsFlyout.OsImageDetailsFlyout_obj1_Bindings" name="Easy_Copier.Views.OsImageDetailsFlyout.OsImageDetailsFlyout_obj1_Bindings">
-<area shape="rect" id="Node000001" title=" " alt="" coords="745,145,977,204"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="745,135,977,193"/>
 <area shape="rect" id="Node000002" title=" " alt="" coords="359,5,580,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="567,50,592,57,658,78,722,103,807,144,801,145,720,108,656,83,590,63,567,55"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="545,50,631,73,722,103,788,134,783,134,720,108,630,78,546,55"/>
+<area shape="poly" id="edge5_Node000001_Node000002" title=" " alt="" coords="595,40,659,57,722,79,778,104,828,134,823,134,775,109,720,84,657,63,595,46"/>
 <area shape="rect" id="Node000003" title=" " alt="" coords="352,72,586,115"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="601,108,722,131,768,144,763,145,720,136,601,114"/>
-<area shape="rect" id="Node000004" title=" " alt="" coords="24,135,223,177"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="239,156,721,168,747,171,742,172,721,173,239,161"/>
-<area shape="rect" id="Node000006" href="$class_easy___copier_1_1_views_1_1_os_image_details_flyout.html" title="User control displaying detailed information and folder contents for an OS image item in a flyout." alt="" coords="373,209,566,252"/>
-<area shape="poly" id="edge7_Node000006_Node000004" title=" " alt="" coords="238,178,375,208,370,211,238,183"/>
-<area shape="rect" id="Node000005" href="$interface_easy___copier_1_1_views_1_1_os_image_details_flyout_1_1_i_os_image_details_flyout___bindings.html" title=" " alt="" coords="5,325,242,384"/>
-<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="256,326,323,313,457,290,590,261,688,233,781,204,776,205,690,238,592,267,458,295,324,319,257,332"/>
-<area shape="poly" id="edge10_Node000006_Node000005" title=" " alt="" coords="240,318,323,290,422,251,417,254,325,294,242,323"/>
-<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="581,212,721,192,747,191,742,192,721,197,582,217"/>
-<area shape="rect" id="Node000007" title=" " alt="" coords="41,204,206,247"/>
-<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="221,232,374,236,370,239,222,238"/>
-<area shape="poly" id="edge8_Node000006_Node000007" title=" " alt="" coords="221,216,374,219,370,223,222,221"/>
-<area shape="rect" id="Node000008" title=" " alt="" coords="78,271,169,297"/>
-<area shape="poly" id="edge9_Node000006_Node000008" title=" " alt="" coords="183,272,374,243,370,248,185,277"/>
-<area shape="rect" id="Node000009" href="$class_easy___copier_1_1_views_1_1_os_image_details_flyout_1_1_os_image_details_flyout__obj1___bi1429e4e636e7219308f9c4918a7a68fc.html" title=" " alt="" coords="348,401,591,476"/>
-<area shape="poly" id="edge11_Node000001_Node000009" title=" " alt="" coords="606,441,665,429,693,419,720,404,745,384,768,360,806,305,832,250,849,206,853,203,837,252,810,308,772,363,749,388,722,409,696,423,667,434,607,446"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="565,115,721,143,747,150,742,150,721,148,566,121"/>
+<area shape="poly" id="edge6_Node000001_Node000003" title=" " alt="" coords="602,99,721,119,783,134,778,134,721,124,602,104"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="24,163,223,205"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="238,185,491,180,747,173,742,175,491,186,239,190"/>
+<area shape="poly" id="edge7_Node000001_Node000004" title=" " alt="" coords="238,172,491,162,747,159,742,162,491,168,239,177"/>
+<area shape="rect" id="Node000006" href="$class_easy___copier_1_1_views_1_1_os_image_details_flyout.html" title="User control displaying detailed information and folder contents for an OS image item in a flyout." alt="" coords="373,360,566,403"/>
+<area shape="poly" id="edge11_Node000006_Node000004" title=" " alt="" coords="168,210,243,247,342,305,426,359,421,360,339,310,240,252,168,215"/>
+<area shape="poly" id="edge14_Node000006_Node000004" title=" " alt="" coords="216,210,243,223,360,294,449,359,444,360,357,298,240,228,217,215"/>
+<area shape="rect" id="Node000005" href="$interface_easy___copier_1_1_views_1_1_os_image_details_flyout_1_1_i_os_image_details_flyout___bindings.html" title=" " alt="" coords="5,249,242,308"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="256,263,503,226,747,188,742,190,504,231,258,268"/>
+<area shape="poly" id="edge8_Node000001_Node000005" title=" " alt="" coords="256,248,503,208,747,174,742,176,504,213,258,254"/>
+<area shape="poly" id="edge17_Node000006_Node000005" title=" " alt="" coords="210,311,266,331,375,361,370,362,265,336,211,317"/>
+<area shape="poly" id="edge9_Node000001_Node000006" title=" " alt="" coords="581,374,652,359,687,347,720,331,759,301,794,264,821,226,842,196,846,192,826,229,798,267,763,305,722,336,689,352,654,365,582,379"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="41,393,206,436"/>
+<area shape="poly" id="edge10_Node000006_Node000007" title=" " alt="" coords="221,427,331,418,431,403,426,404,332,424,222,432"/>
+<area shape="poly" id="edge12_Node000006_Node000007" title=" " alt="" coords="221,411,375,398,370,400,222,416"/>
+<area shape="poly" id="edge13_Node000006_Node000007" title=" " alt="" coords="221,394,375,381,370,384,222,400"/>
+<area shape="poly" id="edge15_Node000006_Node000007" title=" " alt="" coords="179,386,271,371,375,365,370,367,272,376,180,392"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="78,471,169,497"/>
+<area shape="poly" id="edge16_Node000006_Node000008" title=" " alt="" coords="183,463,241,445,347,412,385,404,390,402,348,417,242,451,185,468"/>
+<area shape="rect" id="Node000009" href="$class_easy___copier_1_1_views_1_1_os_image_details_flyout_1_1_os_image_details_flyout__obj1___bi1429e4e636e7219308f9c4918a7a68fc.html" title=" " alt="" coords="348,427,591,501"/>
+<area shape="poly" id="edge18_Node000001_Node000009" title=" " alt="" coords="605,447,665,428,693,415,719,398,745,376,767,351,804,294,831,239,849,196,853,192,836,241,809,297,771,354,748,380,723,402,696,419,667,433,606,452"/>
 </map>

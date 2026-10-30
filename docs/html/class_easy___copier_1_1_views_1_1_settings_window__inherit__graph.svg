@@ -22,7 +22,7 @@
 <!-- Node1 -->
 <g id="Node000001" class="node">
 <title>Node1</title>
-<g id="a_Node000001"><a xlink:title=" ">
+<g id="a_Node000001"><a xlink:title="Represents the settings dialog window for configuring source folders and application preferences.">
 <polygon fill="#999999" stroke="#666666" points="326.75,-120 185.5,-120 185.5,-88 326.75,-88 326.75,-120"/>
 <text xml:space="preserve" text-anchor="start" x="193.5" y="-106.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Views.Settings</text>
 <text xml:space="preserve" text-anchor="middle" x="256.12" y="-94.5" font-family="Helvetica,sans-Serif" font-size="10.00">Window</text>

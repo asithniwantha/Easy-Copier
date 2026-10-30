@@ -130,6 +130,8 @@ Properties</h2></td></tr>
 <tr class="memdesc:a6c92785aa33301fcf034ce36a06e7784"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets or sets the file path to the Rufus executable for bootable USB creation.  <br /></td></tr>
 <tr class="memitem:a81932bd8e322ad3d9e18204d1d4992bf" id="r_a81932bd8e322ad3d9e18204d1d4992bf"><td class="memItemLeft">string&#160;</td><td class="memItemRight"><a class="el" href="#a81932bd8e322ad3d9e18204d1d4992bf">VideoFileExtensions</a> = &quot;.mp4,.mkv,.avi&quot;<code> [get, set]</code></td></tr>
 <tr class="memdesc:a81932bd8e322ad3d9e18204d1d4992bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets or sets comma-separated video file extension filters.  <br /></td></tr>
+<tr class="memitem:ae48563ad85a11993a07a2d734b86b317" id="r_ae48563ad85a11993a07a2d734b86b317"><td class="memItemLeft">string&#160;</td><td class="memItemRight"><a class="el" href="#ae48563ad85a11993a07a2d734b86b317">AppFileExtensions</a> = &quot;.exe,.msi,.rar,.zip&quot;<code> [get, set]</code></td></tr>
+<tr class="memdesc:ae48563ad85a11993a07a2d734b86b317"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets or sets comma-separated app file extension filters.  <br /></td></tr>
 <tr class="memitem:aee9c0a5991860913463ea509d6b53d68" id="r_aee9c0a5991860913463ea509d6b53d68"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#aee9c0a5991860913463ea509d6b53d68">AutoScanOnStartup</a> = true<code> [get, set]</code></td></tr>
 <tr class="memdesc:aee9c0a5991860913463ea509d6b53d68"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets or sets a value indicating whether to auto-scan library folders at application startup.  <br /></td></tr>
 <tr class="memitem:a995882ba6e0b0e735eea68bd7fe25e47" id="r_a995882ba6e0b0e735eea68bd7fe25e47"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a995882ba6e0b0e735eea68bd7fe25e47">StartOnLogon</a><code> [get, set]</code></td></tr>
@@ -156,8 +158,36 @@ Properties</h2></td></tr>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Holds application configuration and user preference settings. </p>
 
-<p class="definition">Definition at line <a class="el" href="_domain_models_8cs_source.html#l00241">241</a> of file <a class="el" href="_domain_models_8cs_source.html">DomainModels.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_domain_models_8cs_source.html#l00292">292</a> of file <a class="el" href="_domain_models_8cs_source.html">DomainModels.cs</a>.</p>
 </div><a name="doc-property-members" id="doc-property-members"></a><h2 id="header-doc-property-members" class="groupheader">Property Documentation</h2>
+<a id="ae48563ad85a11993a07a2d734b86b317" name="ae48563ad85a11993a07a2d734b86b317"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae48563ad85a11993a07a2d734b86b317">&#9670;&#160;</a></span>AppFileExtensions</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">string Easy_Copier.Models.AppSettings.AppFileExtensions = &quot;.exe,.msi,.rar,.zip&quot;</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel get">get</span><span class="mlabel set">set</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gets or sets comma-separated app file extension filters. </p>
+
+<p class="definition">Definition at line <a class="el" href="_domain_models_8cs_source.html#l00313">313</a> of file <a class="el" href="_domain_models_8cs_source.html">DomainModels.cs</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_library_scanner_service_8cs_source.html#l00031">Easy_Copier.Services.LibraryScannerService.ScanAllLibrariesAsync()</a>.</p>
+
+</div>
+</div>
 <a id="afc9c21c21bc37e4a7a447119aaf4e920" name="afc9c21c21bc37e4a7a447119aaf4e920"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#afc9c21c21bc37e4a7a447119aaf4e920">&#9670;&#160;</a></span>AppSourceFolders</h2>
 
@@ -180,9 +210,9 @@ Properties</h2></td></tr>
 
 <p>Gets or sets the list of source directory paths for app libraries. </p>
 
-<p class="definition">Definition at line <a class="el" href="_domain_models_8cs_source.html#l00247">247</a> of file <a class="el" href="_domain_models_8cs_source.html">DomainModels.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_domain_models_8cs_source.html#l00298">298</a> of file <a class="el" href="_domain_models_8cs_source.html">DomainModels.cs</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_library_cache_service_8cs_source.html#l00431">Easy_Copier.Services.LibraryCacheService.CreateAndSaveSnapshotAsync()</a>, <a class="el" href="_main_view_model_8cs_source.html#l00316">Easy_Copier.ViewModels.MainViewModel.InitializeAsync()</a>, <a class="el" href="_settings_view_model_8_persistence_8cs_source.html#l00035">Easy_Copier.ViewModels.SettingsViewModel.LoadSettings()</a>, <a class="el" href="_settings_view_model_8_persistence_8cs_source.html#l00012">Easy_Copier.ViewModels.SettingsViewModel.LoadSettingsAsync()</a>, <a class="el" href="_library_scanner_service_8cs_source.html#l00037">Easy_Copier.Services.LibraryScannerService.ScanAllLibrariesAsync()</a>, and <a class="el" href="_main_view_model_8_scanning_8cs_source.html#l00017">Easy_Copier.ViewModels.MainViewModel.ScanLibraryAsync()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_library_cache_service_8cs_source.html#l00431">Easy_Copier.Services.LibraryCacheService.CreateAndSaveSnapshotAsync()</a>, <a class="el" href="_settings_view_model_8_persistence_8cs_source.html#l00047">Easy_Copier.ViewModels.SettingsViewModel.LoadSettings()</a>, <a class="el" href="_settings_view_model_8_persistence_8cs_source.html#l00019">Easy_Copier.ViewModels.SettingsViewModel.LoadSettingsAsync()</a>, and <a class="el" href="_library_scanner_service_8cs_source.html#l00031">Easy_Copier.Services.LibraryScannerService.ScanAllLibrariesAsync()</a>.</p>
 
 </div>
 </div>
@@ -208,9 +238,9 @@ Properties</h2></td></tr>
 
 <p>Gets or sets a value indicating whether updates should be downloaded automatically when available. </p>
 
-<p class="definition">Definition at line <a class="el" href="_domain_models_8cs_source.html#l00268">268</a> of file <a class="el" href="_domain_models_8cs_source.html">DomainModels.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_domain_models_8cs_source.html#l00323">323</a> of file <a class="el" href="_domain_models_8cs_source.html">DomainModels.cs</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_main_view_model_8_scanning_8cs_source.html#l00482">Easy_Copier.ViewModels.MainViewModel.CheckForUpdatesBackgroundAsync()</a>, and <a class="el" href="_settings_view_model_8_persistence_8cs_source.html#l00035">Easy_Copier.ViewModels.SettingsViewModel.LoadSettings()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_main_view_model_8_scanning_8cs_source.html#l00740">Easy_Copier.ViewModels.MainViewModel.CheckForUpdatesBackgroundAsync()</a>, and <a class="el" href="_settings_view_model_8_persistence_8cs_source.html#l00047">Easy_Copier.ViewModels.SettingsViewModel.LoadSettings()</a>.</p>
 
 </div>
 </div>
@@ -236,9 +266,9 @@ Properties</h2></td></tr>
 
 <p>Gets or sets a value indicating whether to auto-scan library folders at application startup. </p>
 
-<p class="definition">Definition at line <a class="el" href="_domain_models_8cs_source.html#l00262">262</a> of file <a class="el" href="_domain_models_8cs_source.html">DomainModels.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_domain_models_8cs_source.html#l00317">317</a> of file <a class="el" href="_domain_models_8cs_source.html">DomainModels.cs</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_main_view_model_8cs_source.html#l00316">Easy_Copier.ViewModels.MainViewModel.InitializeAsync()</a>, and <a class="el" href="_settings_view_model_8_persistence_8cs_source.html#l00035">Easy_Copier.ViewModels.SettingsViewModel.LoadSettings()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_main_view_model_8cs_source.html#l00576">Easy_Copier.ViewModels.MainViewModel.InitializeAsync()</a>, and <a class="el" href="_settings_view_model_8_persistence_8cs_source.html#l00047">Easy_Copier.ViewModels.SettingsViewModel.LoadSettings()</a>.</p>
 
 </div>
 </div>
@@ -264,9 +294,9 @@ Properties</h2></td></tr>
 
 <p>Gets or sets the list of source directory paths for game libraries. </p>
 
-<p class="definition">Definition at line <a class="el" href="_domain_models_8cs_source.html#l00244">244</a> of file <a class="el" href="_domain_models_8cs_source.html">DomainModels.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_domain_models_8cs_source.html#l00295">295</a> of file <a class="el" href="_domain_models_8cs_source.html">DomainModels.cs</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_library_cache_service_8cs_source.html#l00431">Easy_Copier.Services.LibraryCacheService.CreateAndSaveSnapshotAsync()</a>, <a class="el" href="_main_view_model_8cs_source.html#l00316">Easy_Copier.ViewModels.MainViewModel.InitializeAsync()</a>, <a class="el" href="_settings_view_model_8_persistence_8cs_source.html#l00035">Easy_Copier.ViewModels.SettingsViewModel.LoadSettings()</a>, <a class="el" href="_settings_view_model_8_persistence_8cs_source.html#l00012">Easy_Copier.ViewModels.SettingsViewModel.LoadSettingsAsync()</a>, <a class="el" href="_library_scanner_service_8cs_source.html#l00037">Easy_Copier.Services.LibraryScannerService.ScanAllLibrariesAsync()</a>, and <a class="el" href="_main_view_model_8_scanning_8cs_source.html#l00017">Easy_Copier.ViewModels.MainViewModel.ScanLibraryAsync()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_library_cache_service_8cs_source.html#l00431">Easy_Copier.Services.LibraryCacheService.CreateAndSaveSnapshotAsync()</a>, <a class="el" href="_settings_view_model_8_persistence_8cs_source.html#l00047">Easy_Copier.ViewModels.SettingsViewModel.LoadSettings()</a>, <a class="el" href="_settings_view_model_8_persistence_8cs_source.html#l00019">Easy_Copier.ViewModels.SettingsViewModel.LoadSettingsAsync()</a>, and <a class="el" href="_library_scanner_service_8cs_source.html#l00031">Easy_Copier.Services.LibraryScannerService.ScanAllLibrariesAsync()</a>.</p>
 
 </div>
 </div>
@@ -292,7 +322,7 @@ Properties</h2></td></tr>
 
 <p>Gets or sets the timestamp of the last library scan. </p>
 
-<p class="definition">Definition at line <a class="el" href="_domain_models_8cs_source.html#l00280">280</a> of file <a class="el" href="_domain_models_8cs_source.html">DomainModels.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_domain_models_8cs_source.html#l00335">335</a> of file <a class="el" href="_domain_models_8cs_source.html">DomainModels.cs</a>.</p>
 
 </div>
 </div>
@@ -318,7 +348,7 @@ Properties</h2></td></tr>
 
 <p>Gets or sets the drive letter of the last selected destination drive. </p>
 
-<p class="definition">Definition at line <a class="el" href="_domain_models_8cs_source.html#l00277">277</a> of file <a class="el" href="_domain_models_8cs_source.html">DomainModels.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_domain_models_8cs_source.html#l00332">332</a> of file <a class="el" href="_domain_models_8cs_source.html">DomainModels.cs</a>.</p>
 
 </div>
 </div>
@@ -344,9 +374,9 @@ Properties</h2></td></tr>
 
 <p>Gets or sets the list of source directory paths for OS image libraries. </p>
 
-<p class="definition">Definition at line <a class="el" href="_domain_models_8cs_source.html#l00253">253</a> of file <a class="el" href="_domain_models_8cs_source.html">DomainModels.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_domain_models_8cs_source.html#l00304">304</a> of file <a class="el" href="_domain_models_8cs_source.html">DomainModels.cs</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_main_view_model_8cs_source.html#l00316">Easy_Copier.ViewModels.MainViewModel.InitializeAsync()</a>, <a class="el" href="_settings_view_model_8_persistence_8cs_source.html#l00035">Easy_Copier.ViewModels.SettingsViewModel.LoadSettings()</a>, <a class="el" href="_library_scanner_service_8cs_source.html#l00037">Easy_Copier.Services.LibraryScannerService.ScanAllLibrariesAsync()</a>, and <a class="el" href="_main_view_model_8_scanning_8cs_source.html#l00017">Easy_Copier.ViewModels.MainViewModel.ScanLibraryAsync()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_main_view_model_8cs_source.html#l00686">Easy_Copier.ViewModels.MainViewModel.HasAnySourceFolders()</a>, <a class="el" href="_settings_view_model_8_persistence_8cs_source.html#l00047">Easy_Copier.ViewModels.SettingsViewModel.LoadSettings()</a>, and <a class="el" href="_library_scanner_service_8cs_source.html#l00031">Easy_Copier.Services.LibraryScannerService.ScanAllLibrariesAsync()</a>.</p>
 
 </div>
 </div>
@@ -372,9 +402,9 @@ Properties</h2></td></tr>
 
 <p>Gets or sets a value indicating whether sound effects play on completion/failure events. </p>
 
-<p class="definition">Definition at line <a class="el" href="_domain_models_8cs_source.html#l00271">271</a> of file <a class="el" href="_domain_models_8cs_source.html">DomainModels.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_domain_models_8cs_source.html#l00326">326</a> of file <a class="el" href="_domain_models_8cs_source.html">DomainModels.cs</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_transfer_queue_service_8cs_source.html#l00298">Easy_Copier.Services.TransferQueueService.CheckAndNotifyBatchCompletion()</a>, and <a class="el" href="_settings_view_model_8_persistence_8cs_source.html#l00035">Easy_Copier.ViewModels.SettingsViewModel.LoadSettings()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_batch_notification_service_8cs_source.html#l00060">Easy_Copier.Services.BatchNotificationService.EvaluateAndNotifyBatchCompletion()</a>, and <a class="el" href="_settings_view_model_8_persistence_8cs_source.html#l00047">Easy_Copier.ViewModels.SettingsViewModel.LoadSettings()</a>.</p>
 
 </div>
 </div>
@@ -400,9 +430,9 @@ Properties</h2></td></tr>
 
 <p>Gets or sets the base price for tier 1 content (e.g., &lt; 5 GB). </p>
 
-<p class="definition">Definition at line <a class="el" href="_domain_models_8cs_source.html#l00283">283</a> of file <a class="el" href="_domain_models_8cs_source.html">DomainModels.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_domain_models_8cs_source.html#l00338">338</a> of file <a class="el" href="_domain_models_8cs_source.html">DomainModels.cs</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_settings_view_model_8_persistence_8cs_source.html#l00035">Easy_Copier.ViewModels.SettingsViewModel.LoadSettings()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_settings_view_model_8_persistence_8cs_source.html#l00047">Easy_Copier.ViewModels.SettingsViewModel.LoadSettings()</a>.</p>
 
 </div>
 </div>
@@ -428,9 +458,9 @@ Properties</h2></td></tr>
 
 <p>Gets or sets the price for tier 2 content (e.g., 5-10 GB). </p>
 
-<p class="definition">Definition at line <a class="el" href="_domain_models_8cs_source.html#l00286">286</a> of file <a class="el" href="_domain_models_8cs_source.html">DomainModels.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_domain_models_8cs_source.html#l00341">341</a> of file <a class="el" href="_domain_models_8cs_source.html">DomainModels.cs</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_settings_view_model_8_persistence_8cs_source.html#l00035">Easy_Copier.ViewModels.SettingsViewModel.LoadSettings()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_settings_view_model_8_persistence_8cs_source.html#l00047">Easy_Copier.ViewModels.SettingsViewModel.LoadSettings()</a>.</p>
 
 </div>
 </div>
@@ -456,9 +486,9 @@ Properties</h2></td></tr>
 
 <p>Gets or sets the price for tier 3 content (e.g., 10-16 GB). </p>
 
-<p class="definition">Definition at line <a class="el" href="_domain_models_8cs_source.html#l00289">289</a> of file <a class="el" href="_domain_models_8cs_source.html">DomainModels.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_domain_models_8cs_source.html#l00344">344</a> of file <a class="el" href="_domain_models_8cs_source.html">DomainModels.cs</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_settings_view_model_8_persistence_8cs_source.html#l00035">Easy_Copier.ViewModels.SettingsViewModel.LoadSettings()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_settings_view_model_8_persistence_8cs_source.html#l00047">Easy_Copier.ViewModels.SettingsViewModel.LoadSettings()</a>.</p>
 
 </div>
 </div>
@@ -484,9 +514,9 @@ Properties</h2></td></tr>
 
 <p>Gets or sets the price for tier 4 content (e.g., &gt; 16 GB). </p>
 
-<p class="definition">Definition at line <a class="el" href="_domain_models_8cs_source.html#l00292">292</a> of file <a class="el" href="_domain_models_8cs_source.html">DomainModels.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_domain_models_8cs_source.html#l00347">347</a> of file <a class="el" href="_domain_models_8cs_source.html">DomainModels.cs</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_settings_view_model_8_persistence_8cs_source.html#l00035">Easy_Copier.ViewModels.SettingsViewModel.LoadSettings()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_settings_view_model_8_persistence_8cs_source.html#l00047">Easy_Copier.ViewModels.SettingsViewModel.LoadSettings()</a>.</p>
 
 </div>
 </div>
@@ -512,9 +542,9 @@ Properties</h2></td></tr>
 
 <p>Gets or sets the file path to the Rufus executable for bootable USB creation. </p>
 
-<p class="definition">Definition at line <a class="el" href="_domain_models_8cs_source.html#l00256">256</a> of file <a class="el" href="_domain_models_8cs_source.html">DomainModels.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_domain_models_8cs_source.html#l00307">307</a> of file <a class="el" href="_domain_models_8cs_source.html">DomainModels.cs</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_rufus_service_8cs_source.html#l00031">Easy_Copier.Services.RufusService.LaunchWithIsoAsync()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_rufus_service_8cs_source.html#l00039">Easy_Copier.Services.RufusService.LaunchWithIsoAsync()</a>.</p>
 
 </div>
 </div>
@@ -540,9 +570,9 @@ Properties</h2></td></tr>
 
 <p>Gets or sets a value indicating whether Windows toast notifications are enabled. </p>
 
-<p class="definition">Definition at line <a class="el" href="_domain_models_8cs_source.html#l00274">274</a> of file <a class="el" href="_domain_models_8cs_source.html">DomainModels.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_domain_models_8cs_source.html#l00329">329</a> of file <a class="el" href="_domain_models_8cs_source.html">DomainModels.cs</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_transfer_queue_service_8cs_source.html#l00298">Easy_Copier.Services.TransferQueueService.CheckAndNotifyBatchCompletion()</a>, and <a class="el" href="_settings_view_model_8_persistence_8cs_source.html#l00035">Easy_Copier.ViewModels.SettingsViewModel.LoadSettings()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_batch_notification_service_8cs_source.html#l00060">Easy_Copier.Services.BatchNotificationService.EvaluateAndNotifyBatchCompletion()</a>, and <a class="el" href="_settings_view_model_8_persistence_8cs_source.html#l00047">Easy_Copier.ViewModels.SettingsViewModel.LoadSettings()</a>.</p>
 
 </div>
 </div>
@@ -568,9 +598,9 @@ Properties</h2></td></tr>
 
 <p>Gets or sets a value indicating whether the application should launch automatically at Windows logon. </p>
 
-<p class="definition">Definition at line <a class="el" href="_domain_models_8cs_source.html#l00265">265</a> of file <a class="el" href="_domain_models_8cs_source.html">DomainModels.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_domain_models_8cs_source.html#l00320">320</a> of file <a class="el" href="_domain_models_8cs_source.html">DomainModels.cs</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_settings_view_model_8_persistence_8cs_source.html#l00035">Easy_Copier.ViewModels.SettingsViewModel.LoadSettings()</a>, and <a class="el" href="_settings_view_model_8cs_source.html#l00354">Easy_Copier.ViewModels.SettingsViewModel.SaveSettingsAsync()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_settings_view_model_8_persistence_8cs_source.html#l00047">Easy_Copier.ViewModels.SettingsViewModel.LoadSettings()</a>, and <a class="el" href="_settings_view_model_8cs_source.html#l00461">Easy_Copier.ViewModels.SettingsViewModel.SaveSettingsAsync()</a>.</p>
 
 </div>
 </div>
@@ -596,9 +626,9 @@ Properties</h2></td></tr>
 
 <p>Gets or sets the list of source directory paths for TV and film libraries. </p>
 
-<p class="definition">Definition at line <a class="el" href="_domain_models_8cs_source.html#l00250">250</a> of file <a class="el" href="_domain_models_8cs_source.html">DomainModels.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_domain_models_8cs_source.html#l00301">301</a> of file <a class="el" href="_domain_models_8cs_source.html">DomainModels.cs</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_main_view_model_8cs_source.html#l00316">Easy_Copier.ViewModels.MainViewModel.InitializeAsync()</a>, <a class="el" href="_settings_view_model_8_persistence_8cs_source.html#l00035">Easy_Copier.ViewModels.SettingsViewModel.LoadSettings()</a>, <a class="el" href="_library_scanner_service_8cs_source.html#l00037">Easy_Copier.Services.LibraryScannerService.ScanAllLibrariesAsync()</a>, and <a class="el" href="_main_view_model_8_scanning_8cs_source.html#l00017">Easy_Copier.ViewModels.MainViewModel.ScanLibraryAsync()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_main_view_model_8cs_source.html#l00686">Easy_Copier.ViewModels.MainViewModel.HasAnySourceFolders()</a>, <a class="el" href="_settings_view_model_8_persistence_8cs_source.html#l00047">Easy_Copier.ViewModels.SettingsViewModel.LoadSettings()</a>, and <a class="el" href="_library_scanner_service_8cs_source.html#l00031">Easy_Copier.Services.LibraryScannerService.ScanAllLibrariesAsync()</a>.</p>
 
 </div>
 </div>
@@ -624,9 +654,9 @@ Properties</h2></td></tr>
 
 <p>Gets or sets comma-separated video file extension filters. </p>
 
-<p class="definition">Definition at line <a class="el" href="_domain_models_8cs_source.html#l00259">259</a> of file <a class="el" href="_domain_models_8cs_source.html">DomainModels.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_domain_models_8cs_source.html#l00310">310</a> of file <a class="el" href="_domain_models_8cs_source.html">DomainModels.cs</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_library_scanner_service_8cs_source.html#l00037">Easy_Copier.Services.LibraryScannerService.ScanAllLibrariesAsync()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_library_scanner_service_8cs_source.html#l00031">Easy_Copier.Services.LibraryScannerService.ScanAllLibrariesAsync()</a>.</p>
 
 </div>
 </div>

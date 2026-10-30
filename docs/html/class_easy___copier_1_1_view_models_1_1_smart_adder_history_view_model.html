@@ -131,28 +131,36 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('class_easy___c
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:aafa41b80a87eefbf6e2d45aab6daabc2" id="r_aafa41b80a87eefbf6e2d45aab6daabc2"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#aafa41b80a87eefbf6e2d45aab6daabc2">SmartAdderHistoryViewModel</a> (<a class="el" href="interface_easy___copier_1_1_services_1_1_i_smart_adder_history_service.html">ISmartAdderHistoryService</a> smartAdderHistoryService)</td></tr>
+<tr class="memdesc:aafa41b80a87eefbf6e2d45aab6daabc2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes a new instance of the SmartAdderHistoryViewModel class.  <br /></td></tr>
 <tr class="memitem:a117a1cce4e1405d1b2dcbf231b211438" id="r_a117a1cce4e1405d1b2dcbf231b211438"><td class="memItemLeft">async Task&#160;</td><td class="memItemRight"><a class="el" href="#a117a1cce4e1405d1b2dcbf231b211438">InitializeAsync</a> ()</td></tr>
+<tr class="memdesc:a117a1cce4e1405d1b2dcbf231b211438"><td class="mdescLeft">&#160;</td><td class="mdescRight">Asynchronously loads recent history records from persistent storage into Records.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-properties" class="groupheader"><a id="properties" name="properties"></a>
 Properties</h2></td></tr>
 <tr class="memitem:a46663106b993f85aaa4be6815b43abd8" id="r_a46663106b993f85aaa4be6815b43abd8"><td class="memItemLeft">ObservableCollection&lt; <a class="el" href="class_easy___copier_1_1_view_models_1_1_smart_adder_history_entry_view_model.html">SmartAdderHistoryEntryViewModel</a> &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a46663106b993f85aaa4be6815b43abd8">Records</a> = []<code> [get]</code></td></tr>
+<tr class="memdesc:a46663106b993f85aaa4be6815b43abd8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the collection of history entry <a class="el" href="namespace_easy___copier_1_1_view_models.html">ViewModels</a> loaded from storage.  <br /></td></tr>
 <tr class="memitem:a95daa204c6cd4e0fcd54f47b517bf51b" id="r_a95daa204c6cd4e0fcd54f47b517bf51b"><td class="memItemLeft">partial bool&#160;</td><td class="memItemRight"><a class="el" href="#a95daa204c6cd4e0fcd54f47b517bf51b">IsEmpty</a><code> [get, set]</code></td></tr>
+<tr class="memdesc:a95daa204c6cd4e0fcd54f47b517bf51b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets or sets a value indicating whether there are no historical records available.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-events" class="groupheader"><a id="events" name="events"></a>
 Events</h2></td></tr>
 <tr class="memitem:a130da7f38fdb7f2e37fc1a04160dc8b7" id="r_a130da7f38fdb7f2e37fc1a04160dc8b7"><td class="memItemLeft">System.? EventHandler&#160;</td><td class="memItemRight"><a class="el" href="#a130da7f38fdb7f2e37fc1a04160dc8b7">CloseRequested</a></td></tr>
+<tr class="memdesc:a130da7f38fdb7f2e37fc1a04160dc8b7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Event raised when the view requests the containing window to close.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pri-methods" class="groupheader"><a id="pri-methods" name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
 <tr class="memitem:a00b00e58c2bd78cf79b65cac9c94943d" id="r_a00b00e58c2bd78cf79b65cac9c94943d"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a00b00e58c2bd78cf79b65cac9c94943d">CloseWindow</a> ()</td></tr>
+<tr class="memdesc:a00b00e58c2bd78cf79b65cac9c94943d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Invokes the CloseRequested event to notify the view to close the window.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pri-attribs" class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
 <tr class="memitem:a87d044e706de9a67e78c3586e574a259" id="r_a87d044e706de9a67e78c3586e574a259"><td class="memItemLeft">readonly <a class="el" href="interface_easy___copier_1_1_services_1_1_i_smart_adder_history_service.html">ISmartAdderHistoryService</a>&#160;</td><td class="memItemRight"><a class="el" href="#a87d044e706de9a67e78c3586e574a259">_smartAdderHistoryService</a></td></tr>
+<tr class="memdesc:a87d044e706de9a67e78c3586e574a259"><td class="mdescLeft">&#160;</td><td class="mdescRight">The service responsible for reading and managing SmartAdder history records.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pri-static-attribs" class="groupheader"><a id="pri-static-attribs" name="pri-static-attribs"></a>
 Static Private Attributes</h2></td></tr>
 <tr class="memitem:ab066681dd641256f2b25fe27a14231c8" id="r_ab066681dd641256f2b25fe27a14231c8"><td class="memItemLeft">const int&#160;</td><td class="memItemRight"><a class="el" href="#ab066681dd641256f2b25fe27a14231c8">MaxRecords</a> = 200</td></tr>
+<tr class="memdesc:ab066681dd641256f2b25fe27a14231c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Specifies the maximum number of history records retrieved from persistent storage.  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Backs the SmartAdder Calculation History window, listing previously logged calculation sessions in reverse-chronological order. </p>
@@ -174,9 +182,17 @@ Static Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_smart_adder_history_view_model_8cs_source.html#l00024">24</a> of file <a class="el" href="_smart_adder_history_view_model_8cs_source.html">SmartAdderHistoryViewModel.cs</a>.</p>
+<p>Initializes a new instance of the SmartAdderHistoryViewModel class. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">smartAdderHistoryService</td><td>The service for retrieving recorded calculation sessions.</td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p class="reference">References <a class="el" href="_smart_adder_history_view_model_8cs_source.html#l00017">_smartAdderHistoryService</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_smart_adder_history_view_model_8cs_source.html#l00040">40</a> of file <a class="el" href="_smart_adder_history_view_model_8cs_source.html">SmartAdderHistoryViewModel.cs</a>.</p>
+
+<p class="reference">References <a class="el" href="_smart_adder_history_view_model_8cs_source.html#l00023">_smartAdderHistoryService</a>.</p>
 
 </div>
 </div>
@@ -204,9 +220,11 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_smart_adder_history_view_model_8cs_source.html#l00032">32</a> of file <a class="el" href="_smart_adder_history_view_model_8cs_source.html">SmartAdderHistoryViewModel.cs</a>.</p>
+<p>Invokes the CloseRequested event to notify the view to close the window. </p>
 
-<p class="reference">References <a class="el" href="_smart_adder_history_view_model_8cs_source.html#l00029">CloseRequested</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_smart_adder_history_view_model_8cs_source.html#l00054">54</a> of file <a class="el" href="_smart_adder_history_view_model_8cs_source.html">SmartAdderHistoryViewModel.cs</a>.</p>
+
+<p class="reference">References <a class="el" href="_smart_adder_history_view_model_8cs_source.html#l00048">CloseRequested</a>.</p>
 
 </div>
 </div>
@@ -225,9 +243,12 @@ Static Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_smart_adder_history_view_model_8cs_source.html#l00037">37</a> of file <a class="el" href="_smart_adder_history_view_model_8cs_source.html">SmartAdderHistoryViewModel.cs</a>.</p>
+<p>Asynchronously loads recent history records from persistent storage into Records. </p>
+<dl class="section return"><dt>Returns</dt><dd>A task representing the asynchronous initialization operation.</dd></dl>
 
-<p class="reference">References <a class="el" href="_smart_adder_history_view_model_8cs_source.html#l00017">_smartAdderHistoryService</a>, <a class="el" href="_smart_adder_history_view_model_8cs_source.html#l00022">IsEmpty</a>, <a class="el" href="_smart_adder_history_view_model_8cs_source.html#l00015">MaxRecords</a>, <a class="el" href="_smart_adder_history_view_model_8cs_source.html#l00019">Records</a>, and <a class="el" href="_smart_adder_history_entry_view_model_8cs_source.html#l00025">Easy_Copier.ViewModels.SmartAdderHistoryEntryViewModel.SmartAdderHistoryEntryViewModel()</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_smart_adder_history_view_model_8cs_source.html#l00063">63</a> of file <a class="el" href="_smart_adder_history_view_model_8cs_source.html">SmartAdderHistoryViewModel.cs</a>.</p>
+
+<p class="reference">References <a class="el" href="_smart_adder_history_view_model_8cs_source.html#l00023">_smartAdderHistoryService</a>, <a class="el" href="_smart_adder_history_view_model_8cs_source.html#l00034">IsEmpty</a>, <a class="el" href="_smart_adder_history_view_model_8cs_source.html#l00018">MaxRecords</a>, <a class="el" href="_smart_adder_history_view_model_8cs_source.html#l00028">Records</a>, and <a class="el" href="_smart_adder_history_entry_view_model_8cs_source.html#l00045">Easy_Copier.ViewModels.SmartAdderHistoryEntryViewModel.SmartAdderHistoryEntryViewModel()</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="_smart_adder_history_window_8xaml_8cs_source.html#l00027">Easy_Copier.Views.SmartAdderHistoryWindow.SmartAdderHistoryWindow()</a>.</p>
 <div id="dynsection-2" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
@@ -266,9 +287,11 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_smart_adder_history_view_model_8cs_source.html#l00017">17</a> of file <a class="el" href="_smart_adder_history_view_model_8cs_source.html">SmartAdderHistoryViewModel.cs</a>.</p>
+<p>The service responsible for reading and managing SmartAdder history records. </p>
 
-<p class="reference">Referenced by <a class="el" href="_smart_adder_history_view_model_8cs_source.html#l00037">InitializeAsync()</a>, and <a class="el" href="_smart_adder_history_view_model_8cs_source.html#l00024">SmartAdderHistoryViewModel()</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_smart_adder_history_view_model_8cs_source.html#l00023">23</a> of file <a class="el" href="_smart_adder_history_view_model_8cs_source.html">SmartAdderHistoryViewModel.cs</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_smart_adder_history_view_model_8cs_source.html#l00063">InitializeAsync()</a>, and <a class="el" href="_smart_adder_history_view_model_8cs_source.html#l00040">SmartAdderHistoryViewModel()</a>.</p>
 
 </div>
 </div>
@@ -292,9 +315,11 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_smart_adder_history_view_model_8cs_source.html#l00015">15</a> of file <a class="el" href="_smart_adder_history_view_model_8cs_source.html">SmartAdderHistoryViewModel.cs</a>.</p>
+<p>Specifies the maximum number of history records retrieved from persistent storage. </p>
 
-<p class="reference">Referenced by <a class="el" href="_smart_adder_history_view_model_8cs_source.html#l00037">InitializeAsync()</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_smart_adder_history_view_model_8cs_source.html#l00018">18</a> of file <a class="el" href="_smart_adder_history_view_model_8cs_source.html">SmartAdderHistoryViewModel.cs</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_smart_adder_history_view_model_8cs_source.html#l00063">InitializeAsync()</a>.</p>
 
 </div>
 </div>
@@ -319,9 +344,11 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_smart_adder_history_view_model_8cs_source.html#l00022">22</a> of file <a class="el" href="_smart_adder_history_view_model_8cs_source.html">SmartAdderHistoryViewModel.cs</a>.</p>
+<p>Gets or sets a value indicating whether there are no historical records available. </p>
 
-<p class="reference">Referenced by <a class="el" href="_smart_adder_history_view_model_8cs_source.html#l00037">InitializeAsync()</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_smart_adder_history_view_model_8cs_source.html#l00034">34</a> of file <a class="el" href="_smart_adder_history_view_model_8cs_source.html">SmartAdderHistoryViewModel.cs</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_smart_adder_history_view_model_8cs_source.html#l00063">InitializeAsync()</a>.</p>
 
 </div>
 </div>
@@ -345,9 +372,11 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_smart_adder_history_view_model_8cs_source.html#l00019">19</a> of file <a class="el" href="_smart_adder_history_view_model_8cs_source.html">SmartAdderHistoryViewModel.cs</a>.</p>
+<p>Gets the collection of history entry <a class="el" href="namespace_easy___copier_1_1_view_models.html">ViewModels</a> loaded from storage. </p>
 
-<p class="reference">Referenced by <a class="el" href="_smart_adder_history_view_model_8cs_source.html#l00037">InitializeAsync()</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_smart_adder_history_view_model_8cs_source.html#l00028">28</a> of file <a class="el" href="_smart_adder_history_view_model_8cs_source.html">SmartAdderHistoryViewModel.cs</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_smart_adder_history_view_model_8cs_source.html#l00063">InitializeAsync()</a>.</p>
 
 </div>
 </div>
@@ -364,9 +393,11 @@ Static Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_smart_adder_history_view_model_8cs_source.html#l00029">29</a> of file <a class="el" href="_smart_adder_history_view_model_8cs_source.html">SmartAdderHistoryViewModel.cs</a>.</p>
+<p>Event raised when the view requests the containing window to close. </p>
 
-<p class="reference">Referenced by <a class="el" href="_smart_adder_history_view_model_8cs_source.html#l00032">CloseWindow()</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_smart_adder_history_view_model_8cs_source.html#l00048">48</a> of file <a class="el" href="_smart_adder_history_view_model_8cs_source.html">SmartAdderHistoryViewModel.cs</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_smart_adder_history_view_model_8cs_source.html#l00054">CloseWindow()</a>.</p>
 
 </div>
 </div>

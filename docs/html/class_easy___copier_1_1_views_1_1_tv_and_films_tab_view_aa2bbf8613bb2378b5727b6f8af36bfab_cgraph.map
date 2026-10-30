@@ -1,0 +1,10 @@
+<map id="Easy_Copier.Views.TvAndFilmsTabView.CoverArea_PointerEntered" name="Easy_Copier.Views.TvAndFilmsTabView.CoverArea_PointerEntered">
+<area shape="rect" id="Node000001" title="Starts a delayed hover preview so quick mouse passes don&#39;t spawn players." alt="" coords="5,88,235,131"/>
+<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_views_1_1_tv_and_films_tab_view.html#a9870b561940fab82d537020e8dd643d3" title="Resolves the first playable video for an entry, which may be a file or a folder." alt="" coords="284,5,494,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="191,85,305,52,300,54,193,90"/>
+<area shape="rect" id="Node000003" href="$namespace_easy___copier_1_1_models.html#a9c2abd1d64352c07d3085ba499cf2aae" title="Represents a single scanned library entry (game, app, TV/film, or OS image)." alt="" coords="283,96,495,123"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="235,107,270,109,265,110,235,112"/>
+<area shape="rect" id="Node000004" href="$class_easy___copier_1_1_views_1_1_tv_and_films_tab_view.html#ad60c45159233f3455ca576a68dac24f1" title="Cancels any pending preview and releases the active player." alt="" coords="284,147,494,189"/>
+<area shape="poly" id="edge4_Node000001_Node000004" title=" " alt="" coords="221,129,276,143,271,143,221,134"/>
+<area shape="poly" id="edge3_Node000003_Node000003" title=" " alt="" coords="344,95,336,87,341,77,359,71,389,69,421,72,440,81,434,81,420,77,389,75,360,77,345,82,341,87,349,96"/>
+</map>

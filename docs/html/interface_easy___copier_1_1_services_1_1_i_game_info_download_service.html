@@ -124,16 +124,57 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('interface_easy
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a1bd0831843e5c600eb2152069624b46b" id="r_a1bd0831843e5c600eb2152069624b46b"><td class="memItemLeft">Task&#160;</td><td class="memItemRight"><a class="el" href="#a1bd0831843e5c600eb2152069624b46b">DownloadGameInfoAsync</a> (IEnumerable&lt; string &gt; sourceFolders, IProgress&lt; string &gt;? progress=null, CancellationToken cancellationToken=default)</td></tr>
-<tr class="memdesc:a1bd0831843e5c600eb2152069624b46b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Asynchronously scans game source directories and downloads missing metadata (system requirements, cover art, genres/categories).  <br /></td></tr>
+<tr class="memitem:aba4c4e7948f233e896424aecd6aab0ab" id="r_aba4c4e7948f233e896424aecd6aab0ab"><td class="memItemLeft">Task&#160;</td><td class="memItemRight"><a class="el" href="#aba4c4e7948f233e896424aecd6aab0ab">DownloadGameInfoAsync</a> (IEnumerable&lt; string &gt; sourceFolders, IProgress&lt; string &gt;? progress=null, bool overwriteExistingCovers=false, CancellationToken cancellationToken=default)</td></tr>
+<tr class="memdesc:aba4c4e7948f233e896424aecd6aab0ab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Asynchronously scans game source directories and downloads missing metadata (system requirements, cover art, genres/categories).  <br /></td></tr>
+<tr class="memitem:a6de6032ea9f53274989cfd31ecb9b447" id="r_a6de6032ea9f53274989cfd31ecb9b447"><td class="memItemLeft">Task&lt; bool &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a6de6032ea9f53274989cfd31ecb9b447">DownloadCoverForGameAsync</a> (string gameFolder, bool overwrite=true, CancellationToken cancellationToken=default)</td></tr>
+<tr class="memdesc:a6de6032ea9f53274989cfd31ecb9b447"><td class="mdescLeft">&#160;</td><td class="mdescRight">Downloads or refreshes cover art for a single game directory.  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Defines operations for downloading game metadata, system requirements, covers, and category information for game directories. </p>
 
 <p class="definition">Definition at line <a class="el" href="_game_info_download_service_8cs_source.html#l00015">15</a> of file <a class="el" href="_game_info_download_service_8cs_source.html">GameInfoDownloadService.cs</a>.</p>
 </div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
-<a id="a1bd0831843e5c600eb2152069624b46b" name="a1bd0831843e5c600eb2152069624b46b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1bd0831843e5c600eb2152069624b46b">&#9670;&#160;</a></span>DownloadGameInfoAsync()</h2>
+<a id="a6de6032ea9f53274989cfd31ecb9b447" name="a6de6032ea9f53274989cfd31ecb9b447"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6de6032ea9f53274989cfd31ecb9b447">&#9670;&#160;</a></span>DownloadCoverForGameAsync()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Task&lt; bool &gt; Easy_Copier.Services.IGameInfoDownloadService.DownloadCoverForGameAsync </td>
+          <td>(</td>
+          <td class="paramtype">string</td>          <td class="paramname"><span class="paramname"><em>gameFolder</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>overwrite</em></span><span class="paramdefsep"> = </span><span class="paramdefval">true</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">CancellationToken</td>          <td class="paramname"><span class="paramname"><em>cancellationToken</em></span><span class="paramdefsep"> = </span><span class="paramdefval">default</span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Downloads or refreshes cover art for a single game directory. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">gameFolder</td><td>The directory path of the game.</td></tr>
+    <tr><td class="paramname">overwrite</td><td>Whether to overwrite any existing valid cover image.</td></tr>
+    <tr><td class="paramname">cancellationToken</td><td>Cancellation token.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A task returning <code>true</code> if a valid cover exists or was successfully downloaded; otherwise, <code>false</code>.</dd></dl>
+
+<p>Implemented in <a class="el" href="class_easy___copier_1_1_services_1_1_game_info_download_service.html#a7c09a59fa448e293ccd9b43f09f70bb1">Easy_Copier.Services.GameInfoDownloadService</a>.</p>
+
+</div>
+</div>
+<a id="aba4c4e7948f233e896424aecd6aab0ab" name="aba4c4e7948f233e896424aecd6aab0ab"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aba4c4e7948f233e896424aecd6aab0ab">&#9670;&#160;</a></span>DownloadGameInfoAsync()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -151,6 +192,11 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>overwriteExistingCovers</em></span><span class="paramdefsep"> = </span><span class="paramdefval">false</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
           <td class="paramtype">CancellationToken</td>          <td class="paramname"><span class="paramname"><em>cancellationToken</em></span><span class="paramdefsep"> = </span><span class="paramdefval">default</span>&#160;)</td>
         </tr>
       </table>
@@ -161,13 +207,14 @@ Public Member Functions</h2></td></tr>
   <table class="params">
     <tr><td class="paramname">sourceFolders</td><td>Collection of source folder directory paths to scan and process.</td></tr>
     <tr><td class="paramname">progress</td><td>An optional progress reporter for reporting status messages.</td></tr>
+    <tr><td class="paramname">overwriteExistingCovers</td><td>Whether to force re-download and replace existing cover art.</td></tr>
     <tr><td class="paramname">cancellationToken</td><td>A cancellation token that can be used to cancel the asynchronous operation.</td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>A task representing the asynchronous operation.</dd></dl>
 
-<p>Implemented in <a class="el" href="class_easy___copier_1_1_services_1_1_game_info_download_service.html#ac477ae8ebd5151e39a13ea8a66aafafc">Easy_Copier.Services.GameInfoDownloadService</a>.</p>
+<p>Implemented in <a class="el" href="class_easy___copier_1_1_services_1_1_game_info_download_service.html#a7c0fa0c7bb4c787407ecee735a6d503e">Easy_Copier.Services.GameInfoDownloadService</a>.</p>
 
 </div>
 </div>

@@ -1,22 +1,29 @@
 <map id="Easy_Copier.Views.ConflictDialogContent.ConflictDialogContent_obj1_Bindings" name="Easy_Copier.Views.ConflictDialogContent.ConflictDialogContent_obj1_Bindings">
-<area shape="rect" id="Node000001" title=" " alt="" coords="747,145,983,204"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="747,135,983,193"/>
 <area shape="rect" id="Node000002" title=" " alt="" coords="362,5,582,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="569,50,594,57,660,78,724,103,810,145,804,145,722,108,658,83,592,63,570,55"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="548,50,634,73,724,103,791,134,786,134,722,108,632,78,548,55"/>
+<area shape="poly" id="edge5_Node000001_Node000002" title=" " alt="" coords="597,40,661,58,724,79,781,104,832,134,826,134,778,109,722,84,660,63,598,46"/>
 <area shape="rect" id="Node000003" title=" " alt="" coords="355,72,590,115"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="605,109,724,131,770,144,765,145,722,136,605,114"/>
-<area shape="rect" id="Node000004" title=" " alt="" coords="26,135,225,177"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="241,156,723,168,749,171,744,172,723,173,241,161"/>
-<area shape="rect" id="Node000006" href="$class_easy___copier_1_1_views_1_1_conflict_dialog_content.html" title="UserControl content for folder conflict resolution dialogs." alt="" coords="380,209,565,252"/>
-<area shape="poly" id="edge7_Node000006_Node000004" title=" " alt="" coords="240,178,382,209,377,212,240,183"/>
-<area shape="rect" id="Node000005" href="$interface_easy___copier_1_1_views_1_1_conflict_dialog_content_1_1_i_conflict_dialog_content___bindings.html" title=" " alt="" coords="5,325,246,384"/>
-<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="260,331,420,301,592,261,691,232,785,204,780,205,693,238,594,267,421,306,262,336"/>
-<area shape="poly" id="edge10_Node000006_Node000005" title=" " alt="" coords="237,318,327,287,423,251,418,254,329,292,240,322"/>
-<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="580,213,749,191,744,192,581,218"/>
-<area shape="rect" id="Node000007" title=" " alt="" coords="43,204,208,247"/>
-<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="223,232,381,236,377,239,224,238"/>
-<area shape="poly" id="edge8_Node000006_Node000007" title=" " alt="" coords="223,216,381,220,377,223,224,221"/>
-<area shape="rect" id="Node000008" title=" " alt="" coords="80,271,171,297"/>
-<area shape="poly" id="edge9_Node000006_Node000008" title=" " alt="" coords="186,272,381,243,377,247,188,277"/>
-<area shape="rect" id="Node000009" href="$class_easy___copier_1_1_views_1_1_conflict_dialog_content_1_1_conflict_dialog_content__obj1___bif831f6fbba8421fd7cc7ec397c3662ec.html" title=" " alt="" coords="352,401,593,476"/>
-<area shape="poly" id="edge11_Node000001_Node000009" title=" " alt="" coords="608,440,667,429,695,419,722,404,748,384,771,360,809,305,836,250,853,206,857,203,840,252,813,308,775,363,751,388,724,409,698,423,669,434,609,446"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="568,115,723,143,749,150,744,150,723,148,568,121"/>
+<area shape="poly" id="edge6_Node000001_Node000003" title=" " alt="" coords="605,99,723,119,786,134,781,135,723,124,605,104"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="26,163,225,205"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="240,185,493,180,749,173,745,175,493,186,241,190"/>
+<area shape="poly" id="edge7_Node000001_Node000004" title=" " alt="" coords="240,172,493,162,749,159,745,162,493,168,241,177"/>
+<area shape="rect" id="Node000006" href="$class_easy___copier_1_1_views_1_1_conflict_dialog_content.html" title="UserControl content for folder conflict resolution dialogs." alt="" coords="380,360,565,403"/>
+<area shape="poly" id="edge11_Node000006_Node000004" title=" " alt="" coords="170,210,247,247,345,305,430,359,424,360,343,309,244,252,171,215"/>
+<area shape="poly" id="edge14_Node000006_Node000004" title=" " alt="" coords="220,210,247,223,364,294,453,360,448,360,361,299,244,228,220,215"/>
+<area shape="rect" id="Node000005" href="$interface_easy___copier_1_1_views_1_1_conflict_dialog_content_1_1_i_conflict_dialog_content___bindings.html" title=" " alt="" coords="5,249,246,308"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="260,262,506,226,749,188,744,190,507,231,262,268"/>
+<area shape="poly" id="edge8_Node000001_Node000005" title=" " alt="" coords="260,248,506,208,749,174,744,177,507,213,262,253"/>
+<area shape="poly" id="edge17_Node000006_Node000005" title=" " alt="" coords="213,311,270,331,382,361,377,363,269,336,214,317"/>
+<area shape="poly" id="edge9_Node000001_Node000006" title=" " alt="" coords="580,374,652,360,688,348,722,331,762,301,797,264,825,226,846,196,850,192,829,229,801,267,765,305,724,336,690,352,654,365,581,379"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="43,393,208,436"/>
+<area shape="poly" id="edge10_Node000006_Node000007" title=" " alt="" coords="224,427,334,418,434,403,429,404,335,424,224,432"/>
+<area shape="poly" id="edge12_Node000006_Node000007" title=" " alt="" coords="223,411,382,397,377,400,224,416"/>
+<area shape="poly" id="edge13_Node000006_Node000007" title=" " alt="" coords="223,394,382,381,377,383,224,400"/>
+<area shape="poly" id="edge15_Node000006_Node000007" title=" " alt="" coords="181,386,277,371,382,365,377,367,277,376,183,391"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="80,471,171,497"/>
+<area shape="poly" id="edge16_Node000006_Node000008" title=" " alt="" coords="185,464,245,445,351,412,389,404,394,403,352,417,246,451,186,469"/>
+<area shape="rect" id="Node000009" href="$class_easy___copier_1_1_views_1_1_conflict_dialog_content_1_1_conflict_dialog_content__obj1___bif831f6fbba8421fd7cc7ec397c3662ec.html" title=" " alt="" coords="352,427,593,501"/>
+<area shape="poly" id="edge18_Node000001_Node000009" title=" " alt="" coords="608,447,667,428,695,415,721,398,747,376,769,351,807,294,834,239,853,196,856,192,839,241,811,297,774,354,750,380,725,402,698,419,669,433,609,452"/>
 </map>

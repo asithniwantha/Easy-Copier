@@ -1,0 +1,7 @@
+<map id="Easy_Copier.ViewModels.LibraryTabViewModelBase.Dispose" name="Easy_Copier.ViewModels.LibraryTabViewModelBase.Dispose">
+<area shape="rect" id="Node000001" title="Disposes resources held by this instance." alt="" coords="5,13,220,56"/>
+<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_view_models_1_1_library_tab_view_model_base.html#a7b6fa40076011044e81370701ba6816c" title="Handles property change events from the parent MainViewModel." alt="" coords="268,5,517,64"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="220,32,255,34,250,35,220,37"/>
+<area shape="rect" id="Node000003" href="$class_easy___copier_1_1_view_models_1_1_library_tab_view_model_base.html#aab4fa9f48942ec585239b40635337ebe" title="Derived classes override this method to handle parent ViewModel property change notifications." alt="" coords="565,5,809,64"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="518,32,552,35,547,35,518,37"/>
+</map>

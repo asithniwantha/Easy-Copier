@@ -112,6 +112,9 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('class_easy___c
   <div class="headertitle"><div class="title">Easy_Copier.ViewModels.SmartAdderViewModel Class Reference<span class="mlabels"><span class="mlabel sealed">sealed</span></span></div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>ViewModel that drives the SmartAdder calculator panel for computing sequential totals and recording history.  
+ <a href="#details">More...</a></p>
 <div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Inheritance diagram for Easy_Copier.ViewModels.SmartAdderViewModel:</div>
 <div id="dynsection-0-summary" class="dynsummary">
 </div>
@@ -128,15 +131,22 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('class_easy___c
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a39d7cec1df46a4adcbb59860923acb73" id="r_a39d7cec1df46a4adcbb59860923acb73"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a39d7cec1df46a4adcbb59860923acb73">SmartAdderViewModel</a> (<a class="el" href="interface_easy___copier_1_1_infrastructure_1_1_i_window_service.html">IWindowService</a> windowService, <a class="el" href="interface_easy___copier_1_1_services_1_1_i_smart_adder_history_service.html">ISmartAdderHistoryService</a> smartAdderHistoryService, ILogger&lt; SmartAdderViewModel &gt; logger)</td></tr>
+<tr class="memdesc:a39d7cec1df46a4adcbb59860923acb73"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes a new instance of the SmartAdderViewModel class with necessary infrastructure services.  <br /></td></tr>
 <tr class="memitem:a841c157697c50b6d35391b3159979342" id="r_a841c157697c50b6d35391b3159979342"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a841c157697c50b6d35391b3159979342">DeleteCell</a> (<a class="el" href="class_easy___copier_1_1_models_1_1_number_cell.html">NumberCell</a> cell)</td></tr>
+<tr class="memdesc:a841c157697c50b6d35391b3159979342"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deletes the specified cell from the collection and updates the calculation total.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-properties" class="groupheader"><a id="properties" name="properties"></a>
 Properties</h2></td></tr>
 <tr class="memitem:ac312d3fe23ab0a1956274a56c7f43e09" id="r_ac312d3fe23ab0a1956274a56c7f43e09"><td class="memItemLeft">partial double&#160;</td><td class="memItemRight"><a class="el" href="#ac312d3fe23ab0a1956274a56c7f43e09">TotalSum</a><code> [get, set]</code></td></tr>
+<tr class="memdesc:ac312d3fe23ab0a1956274a56c7f43e09"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets or sets the total sum computed from all numeric input cells.  <br /></td></tr>
 <tr class="memitem:a0f5aca619281405416999159bf8ea79b" id="r_a0f5aca619281405416999159bf8ea79b"><td class="memItemLeft">partial bool&#160;</td><td class="memItemRight"><a class="el" href="#a0f5aca619281405416999159bf8ea79b">IsHovering</a><code> [get, set]</code></td></tr>
+<tr class="memdesc:a0f5aca619281405416999159bf8ea79b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets or sets a value indicating whether the pointer is hovering over the SmartAdder UI.  <br /></td></tr>
 <tr class="memitem:aafca1e355f8ec98aecc4f0e4717392c1" id="r_aafca1e355f8ec98aecc4f0e4717392c1"><td class="memItemLeft">partial bool&#160;</td><td class="memItemRight"><a class="el" href="#aafca1e355f8ec98aecc4f0e4717392c1">IsListFocused</a><code> [get, set]</code></td></tr>
+<tr class="memdesc:aafca1e355f8ec98aecc4f0e4717392c1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets or sets a value indicating whether an input field in the cell list currently holds focus.  <br /></td></tr>
 <tr class="memitem:a658456d05a35652185dd8ed50e846106" id="r_a658456d05a35652185dd8ed50e846106"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a658456d05a35652185dd8ed50e846106">IsPanelVisible</a><code> [get]</code></td></tr>
+<tr class="memdesc:a658456d05a35652185dd8ed50e846106"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets a value indicating whether the SmartAdder panel should remain visible based on hover or focus state.  <br /></td></tr>
 <tr class="memitem:ac1e10b4a9e7432bcfa7aa8f15cacbcc3" id="r_ac1e10b4a9e7432bcfa7aa8f15cacbcc3"><td class="memItemLeft">ObservableCollection&lt; <a class="el" href="class_easy___copier_1_1_models_1_1_number_cell.html">NumberCell</a> &gt;&#160;</td><td class="memItemRight"><a class="el" href="#ac1e10b4a9e7432bcfa7aa8f15cacbcc3">Cells</a> = []<code> [get]</code></td></tr>
+<tr class="memdesc:ac1e10b4a9e7432bcfa7aa8f15cacbcc3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the collection of dynamic numeric input cells.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pri-methods" class="groupheader"><a id="pri-methods" name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
@@ -146,6 +156,7 @@ Private Member Functions</h2></td></tr>
 <tr class="memitem:a38ec0b1f5d81921fc108806d7929f719" id="r_a38ec0b1f5d81921fc108806d7929f719"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a38ec0b1f5d81921fc108806d7929f719">RecalculateTotal</a> ()</td></tr>
 <tr class="memitem:a9680fdac8ab7294cff6c42dd82cd5a4a" id="r_a9680fdac8ab7294cff6c42dd82cd5a4a"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a9680fdac8ab7294cff6c42dd82cd5a4a">OpenHistory</a> ()</td></tr>
 <tr class="memitem:ad5ea0fe050eba3f0fff2e3505a394c07" id="r_ad5ea0fe050eba3f0fff2e3505a394c07"><td class="memItemLeft">async Task&#160;</td><td class="memItemRight"><a class="el" href="#ad5ea0fe050eba3f0fff2e3505a394c07">ClearAllAsync</a> ()</td></tr>
+<tr class="memdesc:ad5ea0fe050eba3f0fff2e3505a394c07"><td class="mdescLeft">&#160;</td><td class="mdescRight">Asynchronously logs the current valid non-zero entry list to history storage and resets all cells.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pri-attribs" class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -154,8 +165,9 @@ Private Attributes</h2></td></tr>
 <tr class="memitem:a169b2f605034ad71c928aafbc0ba46d5" id="r_a169b2f605034ad71c928aafbc0ba46d5"><td class="memItemLeft">readonly ILogger&lt; <a class="el" href="#a39d7cec1df46a4adcbb59860923acb73">SmartAdderViewModel</a> &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a169b2f605034ad71c928aafbc0ba46d5">_logger</a></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="_smart_adder_view_model_8cs_source.html#l00017">17</a> of file <a class="el" href="_smart_adder_view_model_8cs_source.html">SmartAdderViewModel.cs</a>.</p>
+<div class="textblock"><p>ViewModel that drives the SmartAdder calculator panel for computing sequential totals and recording history. </p>
+
+<p class="definition">Definition at line <a class="el" href="_smart_adder_view_model_8cs_source.html#l00020">20</a> of file <a class="el" href="_smart_adder_view_model_8cs_source.html">SmartAdderViewModel.cs</a>.</p>
 </div><a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a39d7cec1df46a4adcbb59860923acb73" name="a39d7cec1df46a4adcbb59860923acb73"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a39d7cec1df46a4adcbb59860923acb73">&#9670;&#160;</a></span>SmartAdderViewModel()</h2>
@@ -181,9 +193,19 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_smart_adder_view_model_8cs_source.html#l00037">37</a> of file <a class="el" href="_smart_adder_view_model_8cs_source.html">SmartAdderViewModel.cs</a>.</p>
+<p>Initializes a new instance of the SmartAdderViewModel class with necessary infrastructure services. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">windowService</td><td>The service for managing application window presentation.</td></tr>
+    <tr><td class="paramname">smartAdderHistoryService</td><td>The service for persisting calculation history records.</td></tr>
+    <tr><td class="paramname">logger</td><td>The logger instance for logging operation warnings and errors.</td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p class="reference">References <a class="el" href="_smart_adder_view_model_8cs_source.html#l00021">_logger</a>, <a class="el" href="_smart_adder_view_model_8cs_source.html#l00020">_smartAdderHistoryService</a>, <a class="el" href="_smart_adder_view_model_8cs_source.html#l00019">_windowService</a>, and <a class="el" href="_smart_adder_view_model_8cs_source.html#l00049">AddNewCell()</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_smart_adder_view_model_8cs_source.html#l00062">62</a> of file <a class="el" href="_smart_adder_view_model_8cs_source.html">SmartAdderViewModel.cs</a>.</p>
+
+<p class="reference">References <a class="el" href="_smart_adder_view_model_8cs_source.html#l00024">_logger</a>, <a class="el" href="_smart_adder_view_model_8cs_source.html#l00023">_smartAdderHistoryService</a>, <a class="el" href="_smart_adder_view_model_8cs_source.html#l00022">_windowService</a>, and <a class="el" href="_smart_adder_view_model_8cs_source.html#l00074">AddNewCell()</a>.</p>
 <div id="dynsection-2" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-2-summary" class="dynsummary">
 </div>
@@ -217,11 +239,11 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_smart_adder_view_model_8cs_source.html#l00049">49</a> of file <a class="el" href="_smart_adder_view_model_8cs_source.html">SmartAdderViewModel.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_smart_adder_view_model_8cs_source.html#l00074">74</a> of file <a class="el" href="_smart_adder_view_model_8cs_source.html">SmartAdderViewModel.cs</a>.</p>
 
-<p class="reference">References <a class="el" href="_smart_adder_view_model_8cs_source.html#l00056">Cell_PropertyChanged()</a>, and <a class="el" href="_smart_adder_view_model_8cs_source.html#l00035">Cells</a>.</p>
+<p class="reference">References <a class="el" href="_smart_adder_view_model_8cs_source.html#l00081">Cell_PropertyChanged()</a>, and <a class="el" href="_smart_adder_view_model_8cs_source.html#l00054">Cells</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_smart_adder_view_model_8cs_source.html#l00130">ClearAllAsync()</a>, <a class="el" href="_smart_adder_view_model_8cs_source.html#l00067">EnsureOneEmptyBottomCell()</a>, and <a class="el" href="_smart_adder_view_model_8cs_source.html#l00037">SmartAdderViewModel()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_smart_adder_view_model_8cs_source.html#l00163">ClearAllAsync()</a>, <a class="el" href="_smart_adder_view_model_8cs_source.html#l00092">EnsureOneEmptyBottomCell()</a>, and <a class="el" href="_smart_adder_view_model_8cs_source.html#l00062">SmartAdderViewModel()</a>.</p>
 <div id="dynsection-3" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-3-summary" class="dynsummary">
 </div>
@@ -264,16 +286,16 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_smart_adder_view_model_8cs_source.html#l00056">56</a> of file <a class="el" href="_smart_adder_view_model_8cs_source.html">SmartAdderViewModel.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_smart_adder_view_model_8cs_source.html#l00081">81</a> of file <a class="el" href="_smart_adder_view_model_8cs_source.html">SmartAdderViewModel.cs</a>.</p>
 
-<p class="reference">References <a class="el" href="_smart_adder_view_model_8cs_source.html#l00067">EnsureOneEmptyBottomCell()</a>, <a class="el" href="_number_cell_8cs_source.html#l00014">Easy_Copier.Models.NumberCell.InputValue</a>, and <a class="el" href="_smart_adder_view_model_8cs_source.html#l00086">RecalculateTotal()</a>.</p>
+<p class="reference">References <a class="el" href="_smart_adder_view_model_8cs_source.html#l00092">EnsureOneEmptyBottomCell()</a>, <a class="el" href="_number_cell_8cs_source.html#l00014">Easy_Copier.Models.NumberCell.InputValue</a>, and <a class="el" href="_smart_adder_view_model_8cs_source.html#l00111">RecalculateTotal()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_smart_adder_view_model_8cs_source.html#l00049">AddNewCell()</a>, <a class="el" href="_smart_adder_view_model_8cs_source.html#l00130">ClearAllAsync()</a>, <a class="el" href="_smart_adder_view_model_8cs_source.html#l00100">DeleteCell()</a>, and <a class="el" href="_smart_adder_view_model_8cs_source.html#l00067">EnsureOneEmptyBottomCell()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_smart_adder_view_model_8cs_source.html#l00074">AddNewCell()</a>, <a class="el" href="_smart_adder_view_model_8cs_source.html#l00163">ClearAllAsync()</a>, <a class="el" href="_smart_adder_view_model_8cs_source.html#l00129">DeleteCell()</a>, and <a class="el" href="_smart_adder_view_model_8cs_source.html#l00092">EnsureOneEmptyBottomCell()</a>.</p>
 <div id="dynsection-5" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-5-summary" class="dynsummary">
 </div>
 <div id="dynsection-5-content" class="dyncontent hidden">
-<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="class_easy___copier_1_1_view_models_1_1_smart_adder_view_model_aaf4aa6e4f4b74ea2a1eb3131f86483fe_cgraph.svg" width="100%" height="410"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="class_easy___copier_1_1_view_models_1_1_smart_adder_view_model_aaf4aa6e4f4b74ea2a1eb3131f86483fe_cgraph.svg" width="100%" height="428"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 <div id="dynsection-6" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
 <div id="dynsection-6-summary" class="dynsummary">
@@ -307,14 +329,17 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_smart_adder_view_model_8cs_source.html#l00130">130</a> of file <a class="el" href="_smart_adder_view_model_8cs_source.html">SmartAdderViewModel.cs</a>.</p>
+<p>Asynchronously logs the current valid non-zero entry list to history storage and resets all cells. </p>
+<dl class="section return"><dt>Returns</dt><dd>A task representing the asynchronous clear and history recording operation.</dd></dl>
 
-<p class="reference">References <a class="el" href="_smart_adder_view_model_8cs_source.html#l00021">_logger</a>, <a class="el" href="_smart_adder_view_model_8cs_source.html#l00020">_smartAdderHistoryService</a>, <a class="el" href="_smart_adder_view_model_8cs_source.html#l00049">AddNewCell()</a>, <a class="el" href="_smart_adder_view_model_8cs_source.html#l00056">Cell_PropertyChanged()</a>, <a class="el" href="_smart_adder_view_model_8cs_source.html#l00035">Cells</a>, and <a class="el" href="_smart_adder_view_model_8cs_source.html#l00024">TotalSum</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_smart_adder_view_model_8cs_source.html#l00163">163</a> of file <a class="el" href="_smart_adder_view_model_8cs_source.html">SmartAdderViewModel.cs</a>.</p>
+
+<p class="reference">References <a class="el" href="_smart_adder_view_model_8cs_source.html#l00024">_logger</a>, <a class="el" href="_smart_adder_view_model_8cs_source.html#l00023">_smartAdderHistoryService</a>, <a class="el" href="_smart_adder_view_model_8cs_source.html#l00074">AddNewCell()</a>, <a class="el" href="_smart_adder_view_model_8cs_source.html#l00081">Cell_PropertyChanged()</a>, <a class="el" href="_smart_adder_view_model_8cs_source.html#l00054">Cells</a>, <a class="el" href="_smart_adder_view_model_8cs_source.html#l00030">TotalSum</a>, and <a class="el" href="_number_cell_8cs_source.html#l00036">Easy_Copier.Models.NumberCell.TryGetNumericValue()</a>.</p>
 <div id="dynsection-7" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-7-summary" class="dynsummary">
 </div>
 <div id="dynsection-7-content" class="dyncontent hidden">
-<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="class_easy___copier_1_1_view_models_1_1_smart_adder_view_model_ad5ea0fe050eba3f0fff2e3505a394c07_cgraph.svg" width="100%" height="412"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="class_easy___copier_1_1_view_models_1_1_smart_adder_view_model_ad5ea0fe050eba3f0fff2e3505a394c07_cgraph.svg" width="100%" height="424"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -334,9 +359,17 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_smart_adder_view_model_8cs_source.html#l00100">100</a> of file <a class="el" href="_smart_adder_view_model_8cs_source.html">SmartAdderViewModel.cs</a>.</p>
+<p>Deletes the specified cell from the collection and updates the calculation total. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">cell</td><td>The NumberCell instance to remove.</td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p class="reference">References <a class="el" href="_smart_adder_view_model_8cs_source.html#l00056">Cell_PropertyChanged()</a>, <a class="el" href="_smart_adder_view_model_8cs_source.html#l00035">Cells</a>, <a class="el" href="_smart_adder_view_model_8cs_source.html#l00067">EnsureOneEmptyBottomCell()</a>, and <a class="el" href="_smart_adder_view_model_8cs_source.html#l00086">RecalculateTotal()</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_smart_adder_view_model_8cs_source.html#l00129">129</a> of file <a class="el" href="_smart_adder_view_model_8cs_source.html">SmartAdderViewModel.cs</a>.</p>
+
+<p class="reference">References <a class="el" href="_smart_adder_view_model_8cs_source.html#l00081">Cell_PropertyChanged()</a>, <a class="el" href="_smart_adder_view_model_8cs_source.html#l00054">Cells</a>, <a class="el" href="_smart_adder_view_model_8cs_source.html#l00092">EnsureOneEmptyBottomCell()</a>, and <a class="el" href="_smart_adder_view_model_8cs_source.html#l00111">RecalculateTotal()</a>.</p>
 <div id="dynsection-8" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-8-summary" class="dynsummary">
 </div>
@@ -369,11 +402,11 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_smart_adder_view_model_8cs_source.html#l00067">67</a> of file <a class="el" href="_smart_adder_view_model_8cs_source.html">SmartAdderViewModel.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_smart_adder_view_model_8cs_source.html#l00092">92</a> of file <a class="el" href="_smart_adder_view_model_8cs_source.html">SmartAdderViewModel.cs</a>.</p>
 
-<p class="reference">References <a class="el" href="_smart_adder_view_model_8cs_source.html#l00049">AddNewCell()</a>, <a class="el" href="_smart_adder_view_model_8cs_source.html#l00056">Cell_PropertyChanged()</a>, and <a class="el" href="_smart_adder_view_model_8cs_source.html#l00035">Cells</a>.</p>
+<p class="reference">References <a class="el" href="_smart_adder_view_model_8cs_source.html#l00074">AddNewCell()</a>, <a class="el" href="_smart_adder_view_model_8cs_source.html#l00081">Cell_PropertyChanged()</a>, and <a class="el" href="_smart_adder_view_model_8cs_source.html#l00054">Cells</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_smart_adder_view_model_8cs_source.html#l00056">Cell_PropertyChanged()</a>, and <a class="el" href="_smart_adder_view_model_8cs_source.html#l00100">DeleteCell()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_smart_adder_view_model_8cs_source.html#l00081">Cell_PropertyChanged()</a>, and <a class="el" href="_smart_adder_view_model_8cs_source.html#l00129">DeleteCell()</a>.</p>
 <div id="dynsection-9" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-9-summary" class="dynsummary">
 </div>
@@ -412,9 +445,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_smart_adder_view_model_8cs_source.html#l00124">124</a> of file <a class="el" href="_smart_adder_view_model_8cs_source.html">SmartAdderViewModel.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_smart_adder_view_model_8cs_source.html#l00153">153</a> of file <a class="el" href="_smart_adder_view_model_8cs_source.html">SmartAdderViewModel.cs</a>.</p>
 
-<p class="reference">References <a class="el" href="_smart_adder_view_model_8cs_source.html#l00019">_windowService</a>.</p>
+<p class="reference">References <a class="el" href="_smart_adder_view_model_8cs_source.html#l00022">_windowService</a>.</p>
 
 </div>
 </div>
@@ -441,15 +474,21 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_smart_adder_view_model_8cs_source.html#l00086">86</a> of file <a class="el" href="_smart_adder_view_model_8cs_source.html">SmartAdderViewModel.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_smart_adder_view_model_8cs_source.html#l00111">111</a> of file <a class="el" href="_smart_adder_view_model_8cs_source.html">SmartAdderViewModel.cs</a>.</p>
 
-<p class="reference">References <a class="el" href="_smart_adder_view_model_8cs_source.html#l00035">Cells</a>, <a class="el" href="_number_cell_8cs_source.html#l00014">Easy_Copier.Models.NumberCell.InputValue</a>, and <a class="el" href="_smart_adder_view_model_8cs_source.html#l00024">TotalSum</a>.</p>
+<p class="reference">References <a class="el" href="_smart_adder_view_model_8cs_source.html#l00054">Cells</a>, <a class="el" href="_smart_adder_view_model_8cs_source.html#l00030">TotalSum</a>, and <a class="el" href="_number_cell_8cs_source.html#l00036">Easy_Copier.Models.NumberCell.TryGetNumericValue()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_smart_adder_view_model_8cs_source.html#l00056">Cell_PropertyChanged()</a>, and <a class="el" href="_smart_adder_view_model_8cs_source.html#l00100">DeleteCell()</a>.</p>
-<div id="dynsection-11" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<p class="reference">Referenced by <a class="el" href="_smart_adder_view_model_8cs_source.html#l00081">Cell_PropertyChanged()</a>, and <a class="el" href="_smart_adder_view_model_8cs_source.html#l00129">DeleteCell()</a>.</p>
+<div id="dynsection-11" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-11-summary" class="dynsummary">
 </div>
 <div id="dynsection-11-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="class_easy___copier_1_1_view_models_1_1_smart_adder_view_model_a38ec0b1f5d81921fc108806d7929f719_cgraph.svg" width="472" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div id="dynsection-12" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-12-summary" class="dynsummary">
+</div>
+<div id="dynsection-12-content" class="dyncontent hidden">
 <div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="class_easy___copier_1_1_view_models_1_1_smart_adder_view_model_a38ec0b1f5d81921fc108806d7929f719_icgraph.svg" width="100%" height="487"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
@@ -476,9 +515,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_smart_adder_view_model_8cs_source.html#l00021">21</a> of file <a class="el" href="_smart_adder_view_model_8cs_source.html">SmartAdderViewModel.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_smart_adder_view_model_8cs_source.html#l00024">24</a> of file <a class="el" href="_smart_adder_view_model_8cs_source.html">SmartAdderViewModel.cs</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_smart_adder_view_model_8cs_source.html#l00130">ClearAllAsync()</a>, and <a class="el" href="_smart_adder_view_model_8cs_source.html#l00037">SmartAdderViewModel()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_smart_adder_view_model_8cs_source.html#l00163">ClearAllAsync()</a>, and <a class="el" href="_smart_adder_view_model_8cs_source.html#l00062">SmartAdderViewModel()</a>.</p>
 
 </div>
 </div>
@@ -502,9 +541,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_smart_adder_view_model_8cs_source.html#l00020">20</a> of file <a class="el" href="_smart_adder_view_model_8cs_source.html">SmartAdderViewModel.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_smart_adder_view_model_8cs_source.html#l00023">23</a> of file <a class="el" href="_smart_adder_view_model_8cs_source.html">SmartAdderViewModel.cs</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_smart_adder_view_model_8cs_source.html#l00130">ClearAllAsync()</a>, and <a class="el" href="_smart_adder_view_model_8cs_source.html#l00037">SmartAdderViewModel()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_smart_adder_view_model_8cs_source.html#l00163">ClearAllAsync()</a>, and <a class="el" href="_smart_adder_view_model_8cs_source.html#l00062">SmartAdderViewModel()</a>.</p>
 
 </div>
 </div>
@@ -528,9 +567,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_smart_adder_view_model_8cs_source.html#l00019">19</a> of file <a class="el" href="_smart_adder_view_model_8cs_source.html">SmartAdderViewModel.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_smart_adder_view_model_8cs_source.html#l00022">22</a> of file <a class="el" href="_smart_adder_view_model_8cs_source.html">SmartAdderViewModel.cs</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_smart_adder_view_model_8cs_source.html#l00124">OpenHistory()</a>, and <a class="el" href="_smart_adder_view_model_8cs_source.html#l00037">SmartAdderViewModel()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_smart_adder_view_model_8cs_source.html#l00153">OpenHistory()</a>, and <a class="el" href="_smart_adder_view_model_8cs_source.html#l00062">SmartAdderViewModel()</a>.</p>
 
 </div>
 </div>
@@ -555,9 +594,11 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_smart_adder_view_model_8cs_source.html#l00035">35</a> of file <a class="el" href="_smart_adder_view_model_8cs_source.html">SmartAdderViewModel.cs</a>.</p>
+<p>Gets the collection of dynamic numeric input cells. </p>
 
-<p class="reference">Referenced by <a class="el" href="_smart_adder_view_model_8cs_source.html#l00049">AddNewCell()</a>, <a class="el" href="_smart_adder_view_model_8cs_source.html#l00130">ClearAllAsync()</a>, <a class="el" href="_smart_adder_view_model_8cs_source.html#l00100">DeleteCell()</a>, <a class="el" href="_smart_adder_view_model_8cs_source.html#l00067">EnsureOneEmptyBottomCell()</a>, and <a class="el" href="_smart_adder_view_model_8cs_source.html#l00086">RecalculateTotal()</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_smart_adder_view_model_8cs_source.html#l00054">54</a> of file <a class="el" href="_smart_adder_view_model_8cs_source.html">SmartAdderViewModel.cs</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_smart_adder_view_model_8cs_source.html#l00074">AddNewCell()</a>, <a class="el" href="_smart_adder_view_model_8cs_source.html#l00163">ClearAllAsync()</a>, <a class="el" href="_smart_adder_view_model_8cs_source.html#l00129">DeleteCell()</a>, <a class="el" href="_smart_adder_view_model_8cs_source.html#l00092">EnsureOneEmptyBottomCell()</a>, and <a class="el" href="_smart_adder_view_model_8cs_source.html#l00111">RecalculateTotal()</a>.</p>
 
 </div>
 </div>
@@ -581,7 +622,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_smart_adder_view_model_8cs_source.html#l00028">28</a> of file <a class="el" href="_smart_adder_view_model_8cs_source.html">SmartAdderViewModel.cs</a>.</p>
+<p>Gets or sets a value indicating whether the pointer is hovering over the SmartAdder UI. </p>
+
+<p class="definition">Definition at line <a class="el" href="_smart_adder_view_model_8cs_source.html#l00037">37</a> of file <a class="el" href="_smart_adder_view_model_8cs_source.html">SmartAdderViewModel.cs</a>.</p>
 
 </div>
 </div>
@@ -605,7 +648,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_smart_adder_view_model_8cs_source.html#l00032">32</a> of file <a class="el" href="_smart_adder_view_model_8cs_source.html">SmartAdderViewModel.cs</a>.</p>
+<p>Gets or sets a value indicating whether an input field in the cell list currently holds focus. </p>
+
+<p class="definition">Definition at line <a class="el" href="_smart_adder_view_model_8cs_source.html#l00044">44</a> of file <a class="el" href="_smart_adder_view_model_8cs_source.html">SmartAdderViewModel.cs</a>.</p>
 
 </div>
 </div>
@@ -629,7 +674,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_smart_adder_view_model_8cs_source.html#l00034">34</a> of file <a class="el" href="_smart_adder_view_model_8cs_source.html">SmartAdderViewModel.cs</a>.</p>
+<p>Gets a value indicating whether the SmartAdder panel should remain visible based on hover or focus state. </p>
+
+<p class="definition">Definition at line <a class="el" href="_smart_adder_view_model_8cs_source.html#l00049">49</a> of file <a class="el" href="_smart_adder_view_model_8cs_source.html">SmartAdderViewModel.cs</a>.</p>
 
 </div>
 </div>
@@ -653,9 +700,11 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_smart_adder_view_model_8cs_source.html#l00024">24</a> of file <a class="el" href="_smart_adder_view_model_8cs_source.html">SmartAdderViewModel.cs</a>.</p>
+<p>Gets or sets the total sum computed from all numeric input cells. </p>
 
-<p class="reference">Referenced by <a class="el" href="_smart_adder_view_model_8cs_source.html#l00130">ClearAllAsync()</a>, and <a class="el" href="_smart_adder_view_model_8cs_source.html#l00086">RecalculateTotal()</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_smart_adder_view_model_8cs_source.html#l00030">30</a> of file <a class="el" href="_smart_adder_view_model_8cs_source.html">SmartAdderViewModel.cs</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_smart_adder_view_model_8cs_source.html#l00163">ClearAllAsync()</a>, and <a class="el" href="_smart_adder_view_model_8cs_source.html#l00111">RecalculateTotal()</a>.</p>
 
 </div>
 </div>

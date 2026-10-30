@@ -119,15 +119,20 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('interface_easy
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:ab8ef06a437f984d889986a68aec3f23c" id="r_ab8ef06a437f984d889986a68aec3f23c"><td class="memItemLeft">uint&#160;</td><td class="memItemRight"><a class="el" href="#ab8ef06a437f984d889986a68aec3f23c">BindToHandler</a> (IntPtr pbc, [MarshalAs(UnmanagedType.LPStruct)] Guid bhid, [MarshalAs(UnmanagedType.LPStruct)] Guid riid, out IntPtr ppv)</td></tr>
+<tr class="memdesc:ab8ef06a437f984d889986a68aec3f23c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Binds to a handler for an item as specified by the handler ID value.  <br /></td></tr>
 <tr class="memitem:ae41b813a9e9f835b9a9aa5a8f7db5ee1" id="r_ae41b813a9e9f835b9a9aa5a8f7db5ee1"><td class="memItemLeft">uint&#160;</td><td class="memItemRight"><a class="el" href="#ae41b813a9e9f835b9a9aa5a8f7db5ee1">GetParent</a> (out <a class="el" href="interface_easy___copier_1_1_interop_1_1_i_shell_item.html">IShellItem</a> ppsi)</td></tr>
+<tr class="memdesc:ae41b813a9e9f835b9a9aa5a8f7db5ee1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the parent of an IShellItem object.  <br /></td></tr>
 <tr class="memitem:aa0d7dae05e3f34aea9c8515d499555d1" id="r_aa0d7dae05e3f34aea9c8515d499555d1"><td class="memItemLeft">uint&#160;</td><td class="memItemRight"><a class="el" href="#aa0d7dae05e3f34aea9c8515d499555d1">GetDisplayName</a> (<a class="el" href="namespace_easy___copier_1_1_interop.html#afd900c2991e05496e7482283f060be9c">SIGDN</a> sigdnName, [MarshalAs(UnmanagedType.LPWStr)] out string ppszName)</td></tr>
+<tr class="memdesc:aa0d7dae05e3f34aea9c8515d499555d1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the display name of the IShellItem object.  <br /></td></tr>
 <tr class="memitem:a631c17647ced101654f0d30fda209c73" id="r_a631c17647ced101654f0d30fda209c73"><td class="memItemLeft">uint&#160;</td><td class="memItemRight"><a class="el" href="#a631c17647ced101654f0d30fda209c73">GetAttributes</a> (uint sfgaoMask, out uint psfgaoAttribs)</td></tr>
+<tr class="memdesc:a631c17647ced101654f0d30fda209c73"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets a requested set of attributes of the IShellItem object.  <br /></td></tr>
 <tr class="memitem:a776ebb361d834bd908b657b97347c27c" id="r_a776ebb361d834bd908b657b97347c27c"><td class="memItemLeft">uint&#160;</td><td class="memItemRight"><a class="el" href="#a776ebb361d834bd908b657b97347c27c">Compare</a> (<a class="el" href="interface_easy___copier_1_1_interop_1_1_i_shell_item.html">IShellItem</a> psi, uint hint, out int piOrder)</td></tr>
+<tr class="memdesc:a776ebb361d834bd908b657b97347c27c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compares two IShellItem objects.  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Exposes methods that retrieve information about a Shell item. </p>
 
-<p class="definition">Definition at line <a class="el" href="_file_operation_interop_8cs_source.html#l00109">109</a> of file <a class="el" href="_file_operation_interop_8cs_source.html">FileOperationInterop.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_file_operation_interop_8cs_source.html#l00381">381</a> of file <a class="el" href="_file_operation_interop_8cs_source.html">FileOperationInterop.cs</a>.</p>
 </div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
 <a id="ab8ef06a437f984d889986a68aec3f23c" name="ab8ef06a437f984d889986a68aec3f23c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab8ef06a437f984d889986a68aec3f23c">&#9670;&#160;</a></span>BindToHandler()</h2>
@@ -158,6 +163,18 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Binds to a handler for an item as specified by the handler ID value. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pbc</td><td>Pointer to an IBindCtx interface on a bind context object.</td></tr>
+    <tr><td class="paramname">bhid</td><td>Reference to the GUID specifying the handler handler type.</td></tr>
+    <tr><td class="paramname">riid</td><td>Reference to the IID of the interface to return through <em>ppv</em> .</td></tr>
+    <tr><td class="paramname">ppv</td><td>When this method returns, contains the interface pointer requested in <em>riid</em> .</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>An HRESULT success code (0 for S_OK).</dd></dl>
+
 </div>
 </div>
 <a id="a776ebb361d834bd908b657b97347c27c" name="a776ebb361d834bd908b657b97347c27c"></a>
@@ -184,6 +201,17 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Compares two IShellItem objects. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">psi</td><td>Pointer to an IShellItem object to compare with the current item.</td></tr>
+    <tr><td class="paramname">hint</td><td>Flags that determine how the comparison is made.</td></tr>
+    <tr><td class="paramname">piOrder</td><td>When this method returns, contains less than 0 if this item comes before <em>psi</em> , 0 if equal, or greater than 0 if after.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>An HRESULT success code (0 for S_OK).</dd></dl>
+
 </div>
 </div>
 <a id="a631c17647ced101654f0d30fda209c73" name="a631c17647ced101654f0d30fda209c73"></a>
@@ -204,6 +232,16 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Gets a requested set of attributes of the IShellItem object. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sfgaoMask</td><td>Mask of attributes to request.</td></tr>
+    <tr><td class="paramname">psfgaoAttribs</td><td>When this method returns, contains the requested attribute flags.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>An HRESULT success code (0 for S_OK).</dd></dl>
 
 </div>
 </div>
@@ -226,6 +264,16 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Gets the display name of the IShellItem object. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sigdnName</td><td>One of the SIGDN values that indicates how the name should look.</td></tr>
+    <tr><td class="paramname">ppszName</td><td>When this method returns, contains the retrieved display name string.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>An HRESULT success code (0 for S_OK).</dd></dl>
+
 </div>
 </div>
 <a id="ae41b813a9e9f835b9a9aa5a8f7db5ee1" name="ae41b813a9e9f835b9a9aa5a8f7db5ee1"></a>
@@ -242,6 +290,15 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Gets the parent of an IShellItem object. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ppsi</td><td>When this method returns, contains the parent IShellItem pointer.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>An HRESULT success code (0 for S_OK).</dd></dl>
 
 </div>
 </div>

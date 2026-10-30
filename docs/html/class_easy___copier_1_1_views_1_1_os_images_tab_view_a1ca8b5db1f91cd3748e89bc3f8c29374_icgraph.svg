@@ -22,7 +22,7 @@
 <!-- Node1 -->
 <g id="Node000001" class="node">
 <title>Node1</title>
-<g id="a_Node000001"><a xlink:title=" ">
+<g id="a_Node000001"><a xlink:title="Handles the Selector.SelectionChanged event for the OS Images grid.">
 <polygon fill="#999999" stroke="#666666" points="336.5,-44 186.25,-44 186.25,0 336.5,0 336.5,-44"/>
 <text xml:space="preserve" text-anchor="start" x="194.25" y="-30.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Views.OsImages</text>
 <text xml:space="preserve" text-anchor="start" x="194.25" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">TabView.OsImagesGridView</text>

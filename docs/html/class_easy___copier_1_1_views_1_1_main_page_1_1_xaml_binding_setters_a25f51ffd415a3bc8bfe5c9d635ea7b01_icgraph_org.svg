@@ -22,10 +22,10 @@
 <!-- Node2 -->
 <g id="Node000002" class="node">
 <title>Node2</title>
-<g id="a_Node000002"><a xlink:href="class_easy___copier_1_1_views_1_1_main_page_1_1_main_page__obj13___bindings.html#a7e02ca2855cc8034724e9cea926b9837" target="_top" xlink:title=" ">
+<g id="a_Node000002"><a xlink:href="class_easy___copier_1_1_views_1_1_main_page_1_1_main_page__obj20___bindings.html#a7ff27385a31f693d28aa4cbabdb13e79" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="#666666" points="1619.5,-813.42 1454.25,-813.42 1454.25,-769.42 1619.5,-769.42 1619.5,-813.42"/>
 <text xml:space="preserve" text-anchor="start" x="1462.25" y="-799.92" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Views.MainPage.</text>
-<text xml:space="preserve" text-anchor="start" x="1462.25" y="-787.92" font-family="Helvetica,sans-Serif" font-size="10.00">MainPage_obj13_Bindings.Update</text>
+<text xml:space="preserve" text-anchor="start" x="1462.25" y="-787.92" font-family="Helvetica,sans-Serif" font-size="10.00">MainPage_obj20_Bindings.Update</text>
 <text xml:space="preserve" text-anchor="middle" x="1536.88" y="-775.92" font-family="Helvetica,sans-Serif" font-size="10.00">_StatusGlyph</text>
 </a>
 </g>
@@ -82,11 +82,11 @@
 <!-- Node3 -->
 <g id="Node000003" class="node">
 <title>Node3</title>
-<g id="a_Node000003"><a xlink:href="class_easy___copier_1_1_views_1_1_main_page_1_1_main_page__obj13___bindings_1_1_main_page__obj13___bindings_tracking.html#a7694b70bd4079e993be91d596685954e" target="_top" xlink:title=" ">
+<g id="a_Node000003"><a xlink:href="class_easy___copier_1_1_views_1_1_main_page_1_1_main_page__obj20___bindings_1_1_main_page__obj20___bindings_tracking.html#a0f267c196cd255b15a495efe15d7971b" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="#666666" points="1418.25,-870.42 1209.5,-870.42 1209.5,-826.42 1418.25,-826.42 1418.25,-870.42"/>
 <text xml:space="preserve" text-anchor="start" x="1217.5" y="-856.92" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Views.MainPage.</text>
-<text xml:space="preserve" text-anchor="start" x="1217.5" y="-844.92" font-family="Helvetica,sans-Serif" font-size="10.00">MainPage_obj13_Bindings.MainPage</text>
-<text xml:space="preserve" text-anchor="middle" x="1313.88" y="-832.92" font-family="Helvetica,sans-Serif" font-size="10.00">_obj13_BindingsTracking.PropertyChanged_</text>
+<text xml:space="preserve" text-anchor="start" x="1217.5" y="-844.92" font-family="Helvetica,sans-Serif" font-size="10.00">MainPage_obj20_Bindings.MainPage</text>
+<text xml:space="preserve" text-anchor="middle" x="1313.88" y="-832.92" font-family="Helvetica,sans-Serif" font-size="10.00">_obj20_BindingsTracking.PropertyChanged_</text>
 </a>
 </g>
 </g>
@@ -102,10 +102,10 @@
 <!-- Node14 -->
 <g id="Node000014" class="node">
 <title>Node14</title>
-<g id="a_Node000014"><a xlink:href="class_easy___copier_1_1_views_1_1_main_page_1_1_main_page__obj13___bindings.html#a3e860d06b091177ebf93778b714f1590" target="_top" xlink:title=" ">
+<g id="a_Node000014"><a xlink:href="class_easy___copier_1_1_views_1_1_main_page_1_1_main_page__obj20___bindings.html#a6ec6df5bec48282516bd397161114317" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="#666666" points="888.62,-807.42 718.12,-807.42 718.12,-775.42 888.62,-775.42 888.62,-807.42"/>
 <text xml:space="preserve" text-anchor="start" x="726.12" y="-793.92" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Views.MainPage.</text>
-<text xml:space="preserve" text-anchor="middle" x="803.38" y="-781.92" font-family="Helvetica,sans-Serif" font-size="10.00">MainPage_obj13_Bindings.Update_</text>
+<text xml:space="preserve" text-anchor="middle" x="803.38" y="-781.92" font-family="Helvetica,sans-Serif" font-size="10.00">MainPage_obj20_Bindings.Update_</text>
 </a>
 </g>
 </g>
@@ -121,11 +121,11 @@
 <!-- Node4 -->
 <g id="Node000004" class="node">
 <title>Node4</title>
-<g id="a_Node000004"><a xlink:href="class_easy___copier_1_1_views_1_1_main_page_1_1_main_page__obj13___bindings_1_1_main_page__obj13___bindings_tracking.html#ae946fe80debf8c3a28eb069e3a287b79" target="_top" xlink:title=" ">
+<g id="a_Node000004"><a xlink:href="class_easy___copier_1_1_views_1_1_main_page_1_1_main_page__obj20___bindings_1_1_main_page__obj20___bindings_tracking.html#ad6addf6355fbd01f9b5a858cd8f3442d" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="#666666" points="1173.5,-870.42 946.75,-870.42 946.75,-826.42 1173.5,-826.42 1173.5,-870.42"/>
 <text xml:space="preserve" text-anchor="start" x="954.75" y="-856.92" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Views.MainPage.</text>
-<text xml:space="preserve" text-anchor="start" x="954.75" y="-844.92" font-family="Helvetica,sans-Serif" font-size="10.00">MainPage_obj13_Bindings.MainPage</text>
-<text xml:space="preserve" text-anchor="middle" x="1060.12" y="-832.92" font-family="Helvetica,sans-Serif" font-size="10.00">_obj13_BindingsTracking.UpdateChildListeners_</text>
+<text xml:space="preserve" text-anchor="start" x="954.75" y="-844.92" font-family="Helvetica,sans-Serif" font-size="10.00">MainPage_obj20_Bindings.MainPage</text>
+<text xml:space="preserve" text-anchor="middle" x="1060.12" y="-832.92" font-family="Helvetica,sans-Serif" font-size="10.00">_obj20_BindingsTracking.UpdateChildListeners_</text>
 </a>
 </g>
 </g>
@@ -141,11 +141,11 @@
 <!-- Node5 -->
 <g id="Node000005" class="node">
 <title>Node5</title>
-<g id="a_Node000005"><a xlink:href="class_easy___copier_1_1_views_1_1_main_page_1_1_main_page__obj13___bindings_1_1_main_page__obj13___bindings_tracking.html#aad94d2227742f59edff9d5e823b81508" target="_top" xlink:title=" ">
+<g id="a_Node000005"><a xlink:href="class_easy___copier_1_1_views_1_1_main_page_1_1_main_page__obj20___bindings_1_1_main_page__obj20___bindings_tracking.html#af39bde1efaff3c211b1e94e49c2a9f49" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="#666666" points="910.75,-870.42 696,-870.42 696,-826.42 910.75,-826.42 910.75,-870.42"/>
 <text xml:space="preserve" text-anchor="start" x="704" y="-856.92" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Views.MainPage.</text>
-<text xml:space="preserve" text-anchor="start" x="704" y="-844.92" font-family="Helvetica,sans-Serif" font-size="10.00">MainPage_obj13_Bindings.MainPage</text>
-<text xml:space="preserve" text-anchor="middle" x="803.38" y="-832.92" font-family="Helvetica,sans-Serif" font-size="10.00">_obj13_BindingsTracking.ReleaseAllListeners</text>
+<text xml:space="preserve" text-anchor="start" x="704" y="-844.92" font-family="Helvetica,sans-Serif" font-size="10.00">MainPage_obj20_Bindings.MainPage</text>
+<text xml:space="preserve" text-anchor="middle" x="803.38" y="-832.92" font-family="Helvetica,sans-Serif" font-size="10.00">_obj20_BindingsTracking.ReleaseAllListeners</text>
 </a>
 </g>
 </g>
@@ -170,10 +170,10 @@
 <!-- Node6 -->
 <g id="Node000006" class="node">
 <title>Node6</title>
-<g id="a_Node000006"><a xlink:href="class_easy___copier_1_1_views_1_1_main_page_1_1_main_page__obj13___bindings.html#ac16810a5760b55e9da25ca0b2792a116" target="_top" xlink:title=" ">
+<g id="a_Node000006"><a xlink:href="class_easy___copier_1_1_views_1_1_main_page_1_1_main_page__obj20___bindings.html#a9ed7dc7afcad652c13ac3588fb3cf140" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="#666666" points="635.62,-851.42 465.88,-851.42 465.88,-819.42 635.62,-819.42 635.62,-851.42"/>
 <text xml:space="preserve" text-anchor="start" x="473.88" y="-837.92" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Views.MainPage.</text>
-<text xml:space="preserve" text-anchor="middle" x="550.75" y="-825.92" font-family="Helvetica,sans-Serif" font-size="10.00">MainPage_obj13_Bindings.Recycle</text>
+<text xml:space="preserve" text-anchor="middle" x="550.75" y="-825.92" font-family="Helvetica,sans-Serif" font-size="10.00">MainPage_obj20_Bindings.Recycle</text>
 </a>
 </g>
 </g>
@@ -189,10 +189,10 @@
 <!-- Node8 -->
 <g id="Node000008" class="node">
 <title>Node8</title>
-<g id="a_Node000008"><a xlink:href="class_easy___copier_1_1_views_1_1_main_page_1_1_main_page__obj13___bindings.html#ad70a737fee7569ec803f8c019e4ace6d" target="_top" xlink:title=" ">
+<g id="a_Node000008"><a xlink:href="class_easy___copier_1_1_views_1_1_main_page_1_1_main_page__obj20___bindings.html#aa1303dafaa383dad1ebff97a29fbcaa3" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="#666666" points="646.12,-763.42 455.38,-763.42 455.38,-731.42 646.12,-731.42 646.12,-763.42"/>
 <text xml:space="preserve" text-anchor="start" x="463.38" y="-749.92" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Views.MainPage.</text>
-<text xml:space="preserve" text-anchor="middle" x="550.75" y="-737.92" font-family="Helvetica,sans-Serif" font-size="10.00">MainPage_obj13_Bindings.SetDataRoot</text>
+<text xml:space="preserve" text-anchor="middle" x="550.75" y="-737.92" font-family="Helvetica,sans-Serif" font-size="10.00">MainPage_obj20_Bindings.SetDataRoot</text>
 </a>
 </g>
 </g>
@@ -208,10 +208,10 @@
 <!-- Node12 -->
 <g id="Node000012" class="node">
 <title>Node12</title>
-<g id="a_Node000012"><a xlink:href="class_easy___copier_1_1_views_1_1_main_page_1_1_main_page__obj13___bindings.html#a154713077f5dff7960841075060c9756" target="_top" xlink:title=" ">
+<g id="a_Node000012"><a xlink:href="class_easy___copier_1_1_views_1_1_main_page_1_1_main_page__obj20___bindings.html#a0e50026ad590a41426d17fab8ece6e4e" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="#666666" points="646.5,-901.42 455,-901.42 455,-869.42 646.5,-869.42 646.5,-901.42"/>
 <text xml:space="preserve" text-anchor="start" x="463" y="-887.92" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Views.MainPage.</text>
-<text xml:space="preserve" text-anchor="middle" x="550.75" y="-875.92" font-family="Helvetica,sans-Serif" font-size="10.00">MainPage_obj13_Bindings.StopTracking</text>
+<text xml:space="preserve" text-anchor="middle" x="550.75" y="-875.92" font-family="Helvetica,sans-Serif" font-size="10.00">MainPage_obj20_Bindings.StopTracking</text>
 </a>
 </g>
 </g>
@@ -227,11 +227,11 @@
 <!-- Node13 -->
 <g id="Node000013" class="node">
 <title>Node13</title>
-<g id="a_Node000013"><a xlink:href="class_easy___copier_1_1_views_1_1_main_page_1_1_main_page__obj13___bindings_1_1_main_page__obj13___bindings_tracking.html#a3d35467e937dd6cd2398125212dc2a2b" target="_top" xlink:title=" ">
+<g id="a_Node000013"><a xlink:href="class_easy___copier_1_1_views_1_1_main_page_1_1_main_page__obj20___bindings_1_1_main_page__obj20___bindings_tracking.html#aeda62e07521d5df8dcb15bb19665dd82" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="#666666" points="660,-963.42 441.5,-963.42 441.5,-919.42 660,-919.42 660,-963.42"/>
 <text xml:space="preserve" text-anchor="start" x="449.5" y="-949.92" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Views.MainPage.</text>
-<text xml:space="preserve" text-anchor="start" x="449.5" y="-937.92" font-family="Helvetica,sans-Serif" font-size="10.00">MainPage_obj13_Bindings.MainPage</text>
-<text xml:space="preserve" text-anchor="middle" x="550.75" y="-925.92" font-family="Helvetica,sans-Serif" font-size="10.00">_obj13_BindingsTracking.TryGetBindingObject</text>
+<text xml:space="preserve" text-anchor="start" x="449.5" y="-937.92" font-family="Helvetica,sans-Serif" font-size="10.00">MainPage_obj20_Bindings.MainPage</text>
+<text xml:space="preserve" text-anchor="middle" x="550.75" y="-925.92" font-family="Helvetica,sans-Serif" font-size="10.00">_obj20_BindingsTracking.TryGetBindingObject</text>
 </a>
 </g>
 </g>
@@ -247,10 +247,10 @@
 <!-- Node7 -->
 <g id="Node000007" class="node">
 <title>Node7</title>
-<g id="a_Node000007"><a xlink:href="class_easy___copier_1_1_views_1_1_main_page_1_1_main_page__obj13___bindings.html#a23096476f93243a8c19eea9f831554d4" target="_top" xlink:title=" ">
+<g id="a_Node000007"><a xlink:href="class_easy___copier_1_1_views_1_1_main_page_1_1_main_page__obj20___bindings.html#aa067533653c2542ae8e3a51af92856b3" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="#666666" points="405.5,-851.42 205.75,-851.42 205.75,-819.42 405.5,-819.42 405.5,-851.42"/>
 <text xml:space="preserve" text-anchor="start" x="213.75" y="-837.92" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Views.MainPage.</text>
-<text xml:space="preserve" text-anchor="middle" x="305.62" y="-825.92" font-family="Helvetica,sans-Serif" font-size="10.00">MainPage_obj13_Bindings.ResetTemplate</text>
+<text xml:space="preserve" text-anchor="middle" x="305.62" y="-825.92" font-family="Helvetica,sans-Serif" font-size="10.00">MainPage_obj20_Bindings.ResetTemplate</text>
 </a>
 </g>
 </g>
@@ -266,10 +266,10 @@
 <!-- Node9 -->
 <g id="Node000009" class="node">
 <title>Node9</title>
-<g id="a_Node000009"><a xlink:href="class_easy___copier_1_1_views_1_1_main_page_1_1_main_page__obj13___bindings.html#a15ec616a4e1b4fa01f6a2a6daccb5051" target="_top" xlink:title=" ">
+<g id="a_Node000009"><a xlink:href="class_easy___copier_1_1_views_1_1_main_page_1_1_main_page__obj20___bindings.html#a41a824f0dbb043739a59e5cd2dce17e6" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="#666666" points="400.25,-725.42 211,-725.42 211,-681.42 400.25,-681.42 400.25,-725.42"/>
 <text xml:space="preserve" text-anchor="start" x="219" y="-711.92" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Views.MainPage.</text>
-<text xml:space="preserve" text-anchor="start" x="219" y="-699.92" font-family="Helvetica,sans-Serif" font-size="10.00">MainPage_obj13_Bindings.DataContext</text>
+<text xml:space="preserve" text-anchor="start" x="219" y="-699.92" font-family="Helvetica,sans-Serif" font-size="10.00">MainPage_obj20_Bindings.DataContext</text>
 <text xml:space="preserve" text-anchor="middle" x="305.62" y="-687.92" font-family="Helvetica,sans-Serif" font-size="10.00">ChangedHandler</text>
 </a>
 </g>
@@ -305,10 +305,10 @@
 <!-- Node11 -->
 <g id="Node000011" class="node">
 <title>Node11</title>
-<g id="a_Node000011"><a xlink:href="class_easy___copier_1_1_views_1_1_main_page_1_1_main_page__obj13___bindings.html#a045289ef9277e3d7a36e44ac1f255595" target="_top" xlink:title=" ">
+<g id="a_Node000011"><a xlink:href="class_easy___copier_1_1_views_1_1_main_page_1_1_main_page__obj20___bindings.html#a14877d1b1cb0228074f39b4083d0701c" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="#666666" points="169.75,-775.42 0,-775.42 0,-731.42 169.75,-731.42 169.75,-775.42"/>
 <text xml:space="preserve" text-anchor="start" x="8" y="-761.92" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Views.MainPage.</text>
-<text xml:space="preserve" text-anchor="start" x="8" y="-749.92" font-family="Helvetica,sans-Serif" font-size="10.00">MainPage_obj13_Bindings.Process</text>
+<text xml:space="preserve" text-anchor="start" x="8" y="-749.92" font-family="Helvetica,sans-Serif" font-size="10.00">MainPage_obj20_Bindings.Process</text>
 <text xml:space="preserve" text-anchor="middle" x="84.88" y="-737.92" font-family="Helvetica,sans-Serif" font-size="10.00">Bindings</text>
 </a>
 </g>
@@ -370,10 +370,10 @@
 <!-- Node15 -->
 <g id="Node000015" class="node">
 <title>Node15</title>
-<g id="a_Node000015"><a xlink:href="class_easy___copier_1_1_views_1_1_main_page_1_1_main_page__obj13___bindings.html#a907acc97fa58f226990bf699d30439b5" target="_top" xlink:title=" ">
+<g id="a_Node000015"><a xlink:href="class_easy___copier_1_1_views_1_1_main_page_1_1_main_page__obj20___bindings.html#a1aba73017e4d84a6ea95bf061b2141b6" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="#666666" points="633.38,-713.42 468.12,-713.42 468.12,-681.42 633.38,-681.42 633.38,-713.42"/>
 <text xml:space="preserve" text-anchor="start" x="476.12" y="-699.92" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Views.MainPage.</text>
-<text xml:space="preserve" text-anchor="middle" x="550.75" y="-687.92" font-family="Helvetica,sans-Serif" font-size="10.00">MainPage_obj13_Bindings.Update</text>
+<text xml:space="preserve" text-anchor="middle" x="550.75" y="-687.92" font-family="Helvetica,sans-Serif" font-size="10.00">MainPage_obj20_Bindings.Update</text>
 </a>
 </g>
 </g>
@@ -398,10 +398,10 @@
 <!-- Node16 -->
 <g id="Node000016" class="node">
 <title>Node16</title>
-<g id="a_Node000016"><a xlink:href="class_easy___copier_1_1_views_1_1_main_page_1_1_main_page__obj13___bindings.html#a6bde7a558513ef122b6211cd97251a0d" target="_top" xlink:title=" ">
+<g id="a_Node000016"><a xlink:href="class_easy___copier_1_1_views_1_1_main_page_1_1_main_page__obj20___bindings.html#a8a471c03c2340f29bb4ae65c86656297" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="#666666" points="390.5,-625.42 220.75,-625.42 220.75,-593.42 390.5,-593.42 390.5,-625.42"/>
 <text xml:space="preserve" text-anchor="start" x="228.75" y="-611.92" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Views.MainPage.</text>
-<text xml:space="preserve" text-anchor="middle" x="305.62" y="-599.92" font-family="Helvetica,sans-Serif" font-size="10.00">MainPage_obj13_Bindings.Initialize</text>
+<text xml:space="preserve" text-anchor="middle" x="305.62" y="-599.92" font-family="Helvetica,sans-Serif" font-size="10.00">MainPage_obj20_Bindings.Initialize</text>
 </a>
 </g>
 </g>

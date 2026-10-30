@@ -1,0 +1,10 @@
+<map id="Easy_Copier.Views.VideoDetailsFlyout.GetBindingConnector" name="Easy_Copier.Views.VideoDetailsFlyout.GetBindingConnector">
+<area shape="rect" id="Node000001" title="GetBindingConnector(int connectionId, object target)." alt="" coords="5,79,220,121"/>
+<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_views_1_1_video_details_flyout_1_1_video_details_flyout__obj1___bindings.html#ad2a02cdf410121766ba89467ed93195b" title=" " alt="" coords="268,13,491,88"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="219,78,255,73,250,75,221,83"/>
+<area shape="rect" id="Node000004" href="$class_easy___copier_1_1_views_1_1_video_details_flyout_1_1_video_details_flyout__obj8___bindings.html#a56932c40d4a7f6d1c0644c7596c9eef7" title=" " alt="" coords="268,112,491,187"/>
+<area shape="poly" id="edge4_Node000001_Node000004" title=" " alt="" coords="220,117,255,126,249,126,220,123"/>
+<area shape="rect" id="Node000003" href="$class_easy___copier_1_1_views_1_1_video_details_flyout_1_1_video_details_flyout__obj1___bindings3b595ad506db0af72f128bbaada2d7b6.html#a5289f98152571ba6e51124ae8c6486d1" title=" " alt="" coords="539,5,812,96"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="491,57,526,59,521,60,492,62"/>
+<area shape="poly" id="edge3_Node000003_Node000002" title=" " alt="" coords="536,42,507,44,506,39,541,41"/>
+</map>

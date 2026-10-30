@@ -1,5 +1,5 @@
 <map id="Easy_Copier.Interop.IFileOperation.PerformOperations" name="Easy_Copier.Interop.IFileOperation.PerformOperations">
-<area shape="rect" id="Node000001" title=" " alt="" coords="605,55,795,97"/>
+<area shape="rect" id="Node000001" title="Executes all configured file operations." alt="" coords="605,55,795,97"/>
 <area shape="rect" id="Node000002" href="$class_easy___copier_1_1_services_1_1_windows_shell_transfer_service.html#afb76277cd4d95e6647183bc15cc68f32" title="Copies a source file or directory to a destination folder using Windows Shell IFileOperation COM inte..." alt="" coords="327,5,557,64"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="587,58,558,56,558,51,592,58"/>
 <area shape="rect" id="Node000004" href="$class_easy___copier_1_1_services_1_1_windows_shell_transfer_service.html#ab2a27fa82dcd964d45d832b0afcf8065" title="Deletes a file or folder using native Windows Shell IFileOperation COM interface." alt="" coords="337,88,547,147"/>

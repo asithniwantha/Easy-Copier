@@ -151,6 +151,11 @@
                                         Command="{x:Bind ViewModel.DownloadGameInfoCommand}"
                                         ToolTipService.ToolTip="Downloads cover images and system requirements for all games in configured folders"
                                         HorizontalAlignment="Left"/>
+                                <CheckBox Content="Overwrite existing covers"
+                                          IsChecked="{x:Bind ViewModel.OverwriteExistingCovers, Mode=TwoWay}"
+                                          ToolTipService.ToolTip="Re-download and replace existing cover images even if already present"
+                                          VerticalAlignment="Center"
+                                        HorizontalAlignment="Left"/>
                             </StackPanel>
                         </StackPanel>
                     </StackPanel>

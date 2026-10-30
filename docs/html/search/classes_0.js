@@ -12,5 +12,6 @@ var searchData=
   ['appstabview_5fobj3_5fbindings_9',['AppsTabView_obj3_Bindings',['../class_easy___copier_1_1_views_1_1_apps_tab_view_1_1_apps_tab_view__obj3___bindings.html',1,'Easy_Copier::Views::AppsTabView']]],
   ['appstabviewmodel_10',['AppsTabViewModel',['../class_easy___copier_1_1_view_models_1_1_apps_tab_view_model.html',1,'Easy_Copier::ViewModels']]],
   ['appwindowcontext_11',['AppWindowContext',['../class_easy___copier_1_1_infrastructure_1_1_app_window_context.html',1,'Easy_Copier::Infrastructure']]],
-  ['audioplaybackservice_12',['AudioPlaybackService',['../class_easy___copier_1_1_services_1_1_audio_playback_service.html',1,'Easy_Copier::Services']]]
+  ['audioplaybackservice_12',['AudioPlaybackService',['../class_easy___copier_1_1_services_1_1_audio_playback_service.html',1,'Easy_Copier::Services']]],
+  ['autosuggestboxhelper_13',['AutoSuggestBoxHelper',['../class_easy___copier_1_1_infrastructure_1_1_auto_suggest_box_helper.html',1,'Easy_Copier::Infrastructure']]]
 ];

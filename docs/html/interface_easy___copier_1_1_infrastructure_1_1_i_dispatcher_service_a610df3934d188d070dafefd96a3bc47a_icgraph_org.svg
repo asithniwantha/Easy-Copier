@@ -21,7 +21,7 @@
 <!-- Node2 -->
 <g id="Node000002" class="node">
 <title>Node2</title>
-<g id="a_Node000002"><a xlink:href="class_easy___copier_1_1_view_models_1_1_main_view_model.html#ae4a022cc308b4bc6edfd608f979979b0" target="_top" xlink:title=" ">
+<g id="a_Node000002"><a xlink:href="class_easy___copier_1_1_view_models_1_1_main_view_model.html#aa4243f0e35a458b0e83441c196308ec7" target="_top" xlink:title="Displays a global in&#45;app notification bar with the specified title and message.">
 <polygon fill="white" stroke="#666666" points="546,-57 377,-57 377,-25 546,-25 546,-57"/>
 <text xml:space="preserve" text-anchor="start" x="385" y="-43.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.ViewModels.Main</text>
 <text xml:space="preserve" text-anchor="middle" x="461.5" y="-31.5" font-family="Helvetica,sans-Serif" font-size="10.00">ViewModel.ShowGlobalNotification</text>
@@ -40,7 +40,7 @@
 <!-- Node3 -->
 <g id="Node000003" class="node">
 <title>Node3</title>
-<g id="a_Node000003"><a xlink:href="class_easy___copier_1_1_view_models_1_1_main_view_model.html#aa60e7b9b4c8fa06d820dee7b2776a9d1" target="_top" xlink:title=" ">
+<g id="a_Node000003"><a xlink:href="class_easy___copier_1_1_view_models_1_1_main_view_model.html#af6a5e40aaf95c322393e3ee246107bb0" target="_top" xlink:title="Event handler triggered when a transfer queue batch operation completes to display a global notificat...">
 <polygon fill="white" stroke="#666666" points="341,-57 188.5,-57 188.5,-25 341,-25 341,-57"/>
 <text xml:space="preserve" text-anchor="start" x="196.5" y="-43.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.ViewModels.Main</text>
 <text xml:space="preserve" text-anchor="middle" x="264.75" y="-31.5" font-family="Helvetica,sans-Serif" font-size="10.00">ViewModel.OnBatchCompleted</text>
@@ -78,7 +78,7 @@
 <!-- Node5 -->
 <g id="Node000005" class="node">
 <title>Node5</title>
-<g id="a_Node000005"><a xlink:href="class_easy___copier_1_1_view_models_1_1_main_view_model.html#a6830d696738ef2c2694eca4f3cfb2e1e" target="_top" xlink:title=" ">
+<g id="a_Node000005"><a xlink:href="class_easy___copier_1_1_view_models_1_1_main_view_model.html#ac00dd69c74c965e1718624bfd92e4ed8" target="_top" xlink:title="Initializes a new instance of the MainViewModel class with required infrastructure and domain service...">
 <polygon fill="white" stroke="#666666" points="152.5,-32 0,-32 0,0 152.5,0 152.5,-32"/>
 <text xml:space="preserve" text-anchor="start" x="8" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.ViewModels.Main</text>
 <text xml:space="preserve" text-anchor="middle" x="76.25" y="-6.5" font-family="Helvetica,sans-Serif" font-size="10.00">ViewModel.MainViewModel</text>

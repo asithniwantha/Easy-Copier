@@ -1,0 +1,5 @@
+<map id="Easy_Copier.ViewModels.VideoDetailsViewModel.InitializeAsync" name="Easy_Copier.ViewModels.VideoDetailsViewModel.InitializeAsync">
+<area shape="rect" id="Node000001" title="Loads the file list for the given folder off the UI thread." alt="" coords="339,5,554,48"/>
+<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_infrastructure_1_1_flyout_service.html#a552adf435a13799b629162248e493faa" title="Displays the film/TV details flyout (path, files and sizes) when a video card is right&#45;tapped...." alt="" coords="5,5,291,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="320,27,291,29,291,24,326,27"/>
+</map>

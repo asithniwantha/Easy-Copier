@@ -22,7 +22,7 @@
 <!-- Node1 -->
 <g id="Node000001" class="node">
 <title>Node1</title>
-<g id="a_Node000001"><a xlink:title=" ">
+<g id="a_Node000001"><a xlink:title="Initializes a new instance of the App class, registering global exception handlers and configuring se...">
 <polygon fill="#999999" stroke="#666666" points="112.75,-126 0,-126 0,-106 112.75,-106 112.75,-126"/>
 <text xml:space="preserve" text-anchor="middle" x="56.38" y="-112.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.App.App</text>
 </a>
@@ -31,7 +31,7 @@
 <!-- Node2 -->
 <g id="Node000002" class="node">
 <title>Node2</title>
-<g id="a_Node000002"><a xlink:href="class_easy___copier_1_1_app.html#ae71efec3121752e104971bb41f6e80a2" target="_top" xlink:title=" ">
+<g id="a_Node000002"><a xlink:href="class_easy___copier_1_1_app.html#ae71efec3121752e104971bb41f6e80a2" target="_top" xlink:title="Handles unhandled exceptions thrown within the XAML framework layer.">
 <polygon fill="white" stroke="#666666" points="285.88,-232 173.12,-232 173.12,-200 285.88,-200 285.88,-232"/>
 <text xml:space="preserve" text-anchor="start" x="181.12" y="-218.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.App.App</text>
 <text xml:space="preserve" text-anchor="middle" x="229.5" y="-206.5" font-family="Helvetica,sans-Serif" font-size="10.00">_UnhandledException</text>
@@ -50,7 +50,7 @@
 <!-- Node3 -->
 <g id="Node000003" class="node">
 <title>Node3</title>
-<g id="a_Node000003"><a xlink:href="class_easy___copier_1_1_app.html#a4190d363a2ee41844c16ca66e4d82c87" target="_top" xlink:title=" ">
+<g id="a_Node000003"><a xlink:href="class_easy___copier_1_1_app.html#a4190d363a2ee41844c16ca66e4d82c87" target="_top" xlink:title="Configures the Dependency Injection container with services and view models.">
 <polygon fill="white" stroke="#666666" points="298.25,-182 160.75,-182 160.75,-150 298.25,-150 298.25,-182"/>
 <text xml:space="preserve" text-anchor="start" x="168.75" y="-168.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.App.Configure</text>
 <text xml:space="preserve" text-anchor="middle" x="229.5" y="-156.5" font-family="Helvetica,sans-Serif" font-size="10.00">Services</text>
@@ -69,7 +69,7 @@
 <!-- Node4 -->
 <g id="Node000004" class="node">
 <title>Node4</title>
-<g id="a_Node000004"><a xlink:href="class_easy___copier_1_1_app.html#a1b3677ab966f4883699e99f15da82a6a" target="_top" xlink:title=" ">
+<g id="a_Node000004"><a xlink:href="class_easy___copier_1_1_app.html#a1b3677ab966f4883699e99f15da82a6a" target="_top" xlink:title="Handles unhandled exceptions originating from the application domain.">
 <polygon fill="white" stroke="#666666" points="310.25,-132 148.75,-132 148.75,-100 310.25,-100 310.25,-132"/>
 <text xml:space="preserve" text-anchor="start" x="156.75" y="-118.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.App.CurrentDomain</text>
 <text xml:space="preserve" text-anchor="middle" x="229.5" y="-106.5" font-family="Helvetica,sans-Serif" font-size="10.00">_UnhandledException</text>
@@ -107,7 +107,7 @@
 <!-- Node6 -->
 <g id="Node000006" class="node">
 <title>Node6</title>
-<g id="a_Node000006"><a xlink:href="class_easy___copier_1_1_app.html#aebfb9a350502857e15ed56c03d408ff1" target="_top" xlink:title=" ">
+<g id="a_Node000006"><a xlink:href="class_easy___copier_1_1_app.html#aebfb9a350502857e15ed56c03d408ff1" target="_top" xlink:title="Handles unobserved task exceptions from background task executions.">
 <polygon fill="white" stroke="#666666" points="309.5,-32 149.5,-32 149.5,0 309.5,0 309.5,-32"/>
 <text xml:space="preserve" text-anchor="start" x="157.5" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.App.TaskScheduler</text>
 <text xml:space="preserve" text-anchor="middle" x="229.5" y="-6.5" font-family="Helvetica,sans-Serif" font-size="10.00">_UnobservedTaskException</text>

@@ -1,0 +1,8 @@
+<map id="Easy_Copier.ViewModels.VideoFileInfo" name="Easy_Copier.ViewModels.VideoFileInfo">
+<area shape="rect" id="Node000001" title="Represents a single file listed in the video details flyout." alt="" coords="602,29,810,72"/>
+<area shape="poly" id="edge3_Node000001_Node000001" title=" " alt="" coords="747,13,733,10,706,8,682,10,666,15,660,21,662,30,658,27,655,19,663,10,680,5,706,3,734,5,752,14"/>
+<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_view_models_1_1_video_details_view_model.html#a0ea98c83f7ad7a94c36429844ce5c467" title="Loads the file list for the given folder off the UI thread." alt="" coords="339,29,554,72"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="584,51,554,53,554,48,589,51"/>
+<area shape="rect" id="Node000003" href="$class_easy___copier_1_1_infrastructure_1_1_flyout_service.html#a552adf435a13799b629162248e493faa" title="Displays the film/TV details flyout (path, files and sizes) when a video card is right&#45;tapped...." alt="" coords="5,29,291,72"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="320,51,291,53,291,48,326,51"/>
+</map>

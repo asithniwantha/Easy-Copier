@@ -1,6 +1,8 @@
 var class_easy___copier_1_1_view_models_1_1_os_image_details_view_model =
 [
+    [ "OsImageDetailsViewModel", "class_easy___copier_1_1_view_models_1_1_os_image_details_view_model.html#ac0407d927c6493c74dbbadd1141aded2", null ],
     [ "Initialize", "class_easy___copier_1_1_view_models_1_1_os_image_details_view_model.html#a4da5a2ff8f4938af03fe4c9322dd53f5", null ],
+    [ "_fileSystemService", "class_easy___copier_1_1_view_models_1_1_os_image_details_view_model.html#ac0e1f1b40c8f0c7fa33b1c5a46eec971", null ],
     [ "DateAccessedFormatted", "class_easy___copier_1_1_view_models_1_1_os_image_details_view_model.html#aae841e8977320c717b48895c754785f4", null ],
     [ "DateCreatedFormatted", "class_easy___copier_1_1_view_models_1_1_os_image_details_view_model.html#af2cd33396953c7ff6c1cc42b11894ef6", null ],
     [ "DateModifiedFormatted", "class_easy___copier_1_1_view_models_1_1_os_image_details_view_model.html#a68451694eb330ebc99a5043919890de1", null ],

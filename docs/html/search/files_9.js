@@ -1,7 +1,19 @@
 var searchData=
 [
-  ['librarycacheservice_2ecs_0',['LibraryCacheService.cs',['../_library_cache_service_8cs.html',1,'']]],
-  ['libraryfilterservice_2ecs_1',['LibraryFilterService.cs',['../_library_filter_service_8cs.html',1,'']]],
-  ['libraryscannerservice_2ecs_2',['LibraryScannerService.cs',['../_library_scanner_service_8cs.html',1,'']]],
-  ['librarytabviewmodelbase_2ecs_3',['LibraryTabViewModelBase.cs',['../_library_tab_view_model_base_8cs.html',1,'']]]
+  ['iappwindowcontext_2ecs_0',['IAppWindowContext.cs',['../_i_app_window_context_8cs.html',1,'']]],
+  ['ibatchnotificationservice_2ecs_1',['IBatchNotificationService.cs',['../_i_batch_notification_service_8cs.html',1,'']]],
+  ['idialogservice_2ecs_2',['IDialogService.cs',['../_i_dialog_service_8cs.html',1,'']]],
+  ['idispatcherservice_2ecs_3',['IDispatcherService.cs',['../_i_dispatcher_service_8cs.html',1,'']]],
+  ['ifilesystemservice_2ecs_4',['IFileSystemService.cs',['../_i_file_system_service_8cs.html',1,'']]],
+  ['iflyoutservice_2ecs_5',['IFlyoutService.cs',['../_i_flyout_service_8cs.html',1,'']]],
+  ['ifolderpickerservice_2ecs_6',['IFolderPickerService.cs',['../_i_folder_picker_service_8cs.html',1,'']]],
+  ['igamerequirementsservice_2ecs_7',['IGameRequirementsService.cs',['../_i_game_requirements_service_8cs.html',1,'']]],
+  ['ihistoryanalysisservice_2ecs_8',['IHistoryAnalysisService.cs',['../_i_history_analysis_service_8cs.html',1,'']]],
+  ['ilibraryfilterservice_2ecs_9',['ILibraryFilterService.cs',['../_i_library_filter_service_8cs.html',1,'']]],
+  ['ilibraryscannerservice_2ecs_10',['ILibraryScannerService.cs',['../_i_library_scanner_service_8cs.html',1,'']]],
+  ['ilibrarytabview_2ecs_11',['ILibraryTabView.cs',['../_i_library_tab_view_8cs.html',1,'']]],
+  ['irufusservice_2ecs_12',['IRufusService.cs',['../_i_rufus_service_8cs.html',1,'']]],
+  ['isearchabletabviewmodel_2ecs_13',['ISearchableTabViewModel.cs',['../_i_searchable_tab_view_model_8cs.html',1,'']]],
+  ['ithumbnailservice_2ecs_14',['IThumbnailService.cs',['../_i_thumbnail_service_8cs.html',1,'']]],
+  ['iupdateservice_2ecs_15',['IUpdateService.cs',['../_i_update_service_8cs.html',1,'']]]
 ];

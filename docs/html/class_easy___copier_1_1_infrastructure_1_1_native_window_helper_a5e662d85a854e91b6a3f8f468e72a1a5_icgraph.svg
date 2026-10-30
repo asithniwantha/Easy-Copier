@@ -63,7 +63,7 @@
 <!-- Node2 -->
 <g id="Node000002" class="node">
 <title>Node2</title>
-<g id="a_Node000002"><a xlink:href="class_easy___copier_1_1_main_window.html#a4e6ac266bd9303e598362aa71aa60f39" target="_top" xlink:title=" ">
+<g id="a_Node000002"><a xlink:href="class_easy___copier_1_1_main_window.html#a4e6ac266bd9303e598362aa71aa60f39" target="_top" xlink:title="Initializes a new instance of the MainWindow class.">
 <polygon fill="white" stroke="#666666" points="341,-32 186.25,-32 186.25,0 341,0 341,-32"/>
 <text xml:space="preserve" text-anchor="start" x="194.25" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.MainWindow.Main</text>
 <text xml:space="preserve" text-anchor="middle" x="263.62" y="-6.5" font-family="Helvetica,sans-Serif" font-size="10.00">Window</text>

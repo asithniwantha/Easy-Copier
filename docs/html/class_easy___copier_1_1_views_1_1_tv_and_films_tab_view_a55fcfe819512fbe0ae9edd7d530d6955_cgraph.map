@@ -1,0 +1,5 @@
+<map id="Easy_Copier.Views.TvAndFilmsTabView.CoverArea_PointerExited" name="Easy_Copier.Views.TvAndFilmsTabView.CoverArea_PointerExited">
+<area shape="rect" id="Node000001" title="Stops the hover preview when the pointer leaves the cover art." alt="" coords="5,5,227,48"/>
+<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_views_1_1_tv_and_films_tab_view.html#ad60c45159233f3455ca576a68dac24f1" title="Cancels any pending preview and releases the active player." alt="" coords="275,5,485,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="227,24,262,27,256,27,227,29"/>
+</map>

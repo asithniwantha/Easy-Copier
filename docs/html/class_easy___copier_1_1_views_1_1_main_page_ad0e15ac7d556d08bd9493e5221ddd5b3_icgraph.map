@@ -1,7 +1,21 @@
 <map id="Easy_Copier.Views.MainPage.GetTabViews" name="Easy_Copier.Views.MainPage.GetTabViews">
-<area shape="rect" id="Node000001" title=" " alt="" coords="506,5,708,48"/>
-<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_views_1_1_main_page.html#a7003d006cfeb81142d2e3efd566cb01b" title=" " alt="" coords="256,5,458,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="488,27,458,29,458,24,493,27"/>
-<area shape="rect" id="Node000003" href="$class_easy___copier_1_1_views_1_1_main_page.html#a1892f28feb0fd22b9cff5ebb690f1bea" title=" " alt="" coords="5,5,208,48"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="237,27,208,29,208,24,243,27"/>
+<area shape="rect" id="Node000001" title="Retrieves instantiated library tab views from direct control references." alt="" coords="756,105,959,148"/>
+<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_views_1_1_main_page.html#a7003d006cfeb81142d2e3efd566cb01b" title="Clears entry selections across all loaded library tab views." alt="" coords="506,72,708,115"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="738,111,709,109,709,104,743,111"/>
+<area shape="rect" id="Node000007" href="$class_easy___copier_1_1_views_1_1_main_page.html#ae7f49e65e70c8792555d54e61f49dc77" title="Recalculates combined library selection across tabs and updates the View Models selection summary." alt="" coords="506,139,708,181"/>
+<area shape="poly" id="edge8_Node000001_Node000007" title=" " alt="" coords="743,142,709,149,708,144,738,142"/>
+<area shape="rect" id="Node000003" href="$class_easy___copier_1_1_views_1_1_main_page.html#a30fdb1cd60832b9d23d149e39f6d3ed0" title="Handles the MainViewModel.ClearSelectionRequested event by clearing active library selections." alt="" coords="256,5,458,48"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="507,68,440,51,440,46,513,67"/>
+<area shape="rect" id="Node000006" href="$class_easy___copier_1_1_views_1_1_main_page.html#a703459dd86f262ae635a964742a54c76" title="Handles the MainViewModel.ItemQueued event by clearing active library selections." alt="" coords="256,72,458,115"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="488,94,459,96,458,91,493,93"/>
+<area shape="rect" id="Node000004" href="$class_easy___copier_1_1_views_1_1_main_page.html#a5c1229f7d5a82d6007836245fec94943" title=" " alt="" coords="5,72,208,115"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="257,54,190,74,188,69,262,51"/>
+<area shape="rect" id="Node000005" href="$class_easy___copier_1_1_views_1_1_main_page.html#a1892f28feb0fd22b9cff5ebb690f1bea" title=" " alt="" coords="5,5,208,48"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="238,28,209,29,207,24,243,26"/>
+<area shape="poly" id="edge6_Node000006_Node000004" title=" " alt="" coords="237,94,208,96,208,91,243,93"/>
+<area shape="poly" id="edge7_Node000006_Node000005" title=" " alt="" coords="257,68,189,51,189,46,262,67"/>
+<area shape="rect" id="Node000008" href="$class_easy___copier_1_1_views_1_1_main_page.html#aa1f6c103fbea1a24dc808f04a1bba28c" title="Handles pivot tab selection changes to recalculate and aggregate entry selections." alt="" coords="256,139,458,181"/>
+<area shape="poly" id="edge9_Node000007_Node000008" title=" " alt="" coords="488,160,458,163,458,157,493,160"/>
+<area shape="rect" id="Node000009" href="$class_easy___copier_1_1_views_1_1_main_page.html#ae8c8697ec0b54f454eb9cf3d3c0fe5df" title="Connect()." alt="" coords="5,139,208,181"/>
+<area shape="poly" id="edge10_Node000008_Node000009" title=" " alt="" coords="237,160,208,163,208,157,243,160"/>
 </map>

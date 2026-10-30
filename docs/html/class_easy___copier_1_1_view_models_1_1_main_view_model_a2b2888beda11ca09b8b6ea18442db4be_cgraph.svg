@@ -47,7 +47,7 @@
   </g>
 </defs>
 <script type="application/ecmascript" xlink:href="svg.min.js"/>
-<svg id="graph" class="graph" data-view-width="887" data-view-height="62" data-section-id="dynsection-23">
+<svg id="graph" class="graph" data-view-width="887" data-view-height="62" data-section-id="dynsection-41">
 <g id="viewport">
 <title>Easy_Copier.ViewModels.MainViewModel.OnUpdateCheckTimerTick</title>
 <!-- Node1 -->
@@ -101,7 +101,7 @@
 <!-- Node3 -->
 <g id="Node000003" class="node">
 <title>Node3</title>
-<g id="a_Node000003"><a xlink:href="class_easy___copier_1_1_view_models_1_1_main_view_model.html#a6bd36630ee4a6685f9a6482ae4048e8f" target="_top" xlink:title=" ">
+<g id="a_Node000003"><a xlink:href="class_easy___copier_1_1_view_models_1_1_main_view_model.html#a6bd36630ee4a6685f9a6482ae4048e8f" target="_top" xlink:title="Checks for application updates in the background and optionally triggers automatic download if enable...">
 <polygon fill="white" stroke="#666666" points="689.25,-54 463.25,-54 463.25,-22 689.25,-22 689.25,-54"/>
 <text xml:space="preserve" text-anchor="start" x="471.25" y="-40.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.ViewModels.Main</text>
 <text xml:space="preserve" text-anchor="middle" x="576.25" y="-28.5" font-family="Helvetica,sans-Serif" font-size="10.00">ViewModel.CheckForUpdatesBackgroundAsync</text>

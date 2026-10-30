@@ -1,8 +1,7 @@
 <map id="Easy_Copier.Views.AppsTabView.OpenFolderButton_Click" name="Easy_Copier.Views.AppsTabView.OpenFolderButton_Click">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,21,201,64"/>
-<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_infrastructure_1_1_flyout_helper.html#a45ed191cae19aa7c8da5127da35d04fb" title="Handles the click event for opening an item&#39;s folder in File Explorer." alt="" coords="249,21,486,64"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="201,40,236,42,230,43,201,45"/>
-<area shape="rect" id="Node000003" href="$namespace_easy___copier_1_1_models.html#a9c2abd1d64352c07d3085ba499cf2aae" title="Represents a single scanned library entry (game, app, TV/film, or OS image)." alt="" coords="534,29,746,56"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="486,40,521,43,515,43,486,45"/>
-<area shape="poly" id="edge3_Node000003_Node000003" title=" " alt="" coords="594,28,586,21,592,11,610,5,640,3,673,5,692,15,686,14,672,11,640,8,611,10,595,15,592,20,599,30"/>
+<area shape="rect" id="Node000001" title="Handles the Click event for the Open Folder button on an application card." alt="" coords="5,5,201,48"/>
+<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_infrastructure_1_1_flyout_helper.html#ac43027e6babaf9b025dcdaffed298734" title="Handles the click event for opening an item&#39;s folder in File Explorer." alt="" coords="249,5,486,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="201,24,236,26,230,27,201,29"/>
+<area shape="rect" id="Node000003" href="$interface_easy___copier_1_1_infrastructure_1_1_i_flyout_service.html#a7a95fdeb564c1ab3597c7df912110c82" title="Handles button click events to open an item&#39;s folder in File Explorer." alt="" coords="534,5,781,48"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="486,24,521,27,516,27,487,29"/>
 </map>

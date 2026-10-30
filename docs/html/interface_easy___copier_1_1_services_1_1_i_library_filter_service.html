@@ -128,6 +128,8 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:ac378552c09565c670c026eefec6644c3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Filters a collection of entries based on a search text query and category filter.  <br /></td></tr>
 <tr class="memitem:a0e019cfb76dcbe587e0fad765f3b32fb" id="r_a0e019cfb76dcbe587e0fad765f3b32fb"><td class="memItemLeft">IEnumerable&lt; <a class="el" href="namespace_easy___copier_1_1_models.html#a9c2abd1d64352c07d3085ba499cf2aae">GameEntry</a> &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a0e019cfb76dcbe587e0fad765f3b32fb">SortOsImages</a> (IEnumerable&lt; <a class="el" href="namespace_easy___copier_1_1_models.html#a9c2abd1d64352c07d3085ba499cf2aae">GameEntry</a> &gt; entries, <a class="el" href="namespace_easy___copier_1_1_models.html#a730e39ab051f5d5a6af5d61176138617">OsImageSortOption</a> sortOption, bool isAscending)</td></tr>
 <tr class="memdesc:a0e019cfb76dcbe587e0fad765f3b32fb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sorts OS image entries based on the specified sort option and direction.  <br /></td></tr>
+<tr class="memitem:a230ee763cf99c706cb62166a3ee32d55" id="r_a230ee763cf99c706cb62166a3ee32d55"><td class="memItemLeft">IEnumerable&lt; <a class="el" href="namespace_easy___copier_1_1_models.html#a9c2abd1d64352c07d3085ba499cf2aae">GameEntry</a> &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a230ee763cf99c706cb62166a3ee32d55">SortTvAndFilms</a> (IEnumerable&lt; <a class="el" href="namespace_easy___copier_1_1_models.html#a9c2abd1d64352c07d3085ba499cf2aae">GameEntry</a> &gt; entries, <a class="el" href="namespace_easy___copier_1_1_models.html#a0e81f6516d5ea1952cb72d30b5bb20c7">TvAndFilmsSortOption</a> sortOption, bool isAscending)</td></tr>
+<tr class="memdesc:a230ee763cf99c706cb62166a3ee32d55"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sorts TV and film entries based on the specified sort option and direction.  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Defines operations for filtering and sorting library items (games, apps, films/TV, OS images). </p>
@@ -209,6 +211,45 @@ Public Member Functions</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>An enumerable of sorted OS image entries.</dd></dl>
 
 <p>Implemented in <a class="el" href="class_easy___copier_1_1_services_1_1_library_filter_service.html#a0cd28b89ffe728d70b59abbf512e7a4f">Easy_Copier.Services.LibraryFilterService</a>.</p>
+
+</div>
+</div>
+<a id="a230ee763cf99c706cb62166a3ee32d55" name="a230ee763cf99c706cb62166a3ee32d55"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a230ee763cf99c706cb62166a3ee32d55">&#9670;&#160;</a></span>SortTvAndFilms()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IEnumerable&lt; <a class="el" href="namespace_easy___copier_1_1_models.html#a9c2abd1d64352c07d3085ba499cf2aae">GameEntry</a> &gt; Easy_Copier.Services.ILibraryFilterService.SortTvAndFilms </td>
+          <td>(</td>
+          <td class="paramtype">IEnumerable&lt; <a class="el" href="namespace_easy___copier_1_1_models.html#a9c2abd1d64352c07d3085ba499cf2aae">GameEntry</a> &gt;</td>          <td class="paramname"><span class="paramname"><em>entries</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespace_easy___copier_1_1_models.html#a0e81f6516d5ea1952cb72d30b5bb20c7">TvAndFilmsSortOption</a></td>          <td class="paramname"><span class="paramname"><em>sortOption</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>isAscending</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sorts TV and film entries based on the specified sort option and direction. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">entries</td><td>The TV and film entries to sort.</td></tr>
+    <tr><td class="paramname">sortOption</td><td>The sorting option to apply.</td></tr>
+    <tr><td class="paramname">isAscending</td><td>Whether sorting should be in ascending order.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>An enumerable of sorted TV and film entries.</dd></dl>
+
+<p>Implemented in <a class="el" href="class_easy___copier_1_1_services_1_1_library_filter_service.html#aee33d9152a2c22599eb5bd540b52a2d6">Easy_Copier.Services.LibraryFilterService</a>.</p>
 
 </div>
 </div>

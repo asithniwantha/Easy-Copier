@@ -1,0 +1,16 @@
+<map id="Easy_Copier.Views.VideoDetailsFlyout.VideoDetailsFlyout_obj8_Bindings.Initialize" name="Easy_Copier.Views.VideoDetailsFlyout.VideoDetailsFlyout_obj8_Bindings.Initialize">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,55,220,113"/>
+<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_views_1_1_video_details_flyout_1_1_video_details_flyout__obj8___bindings.html#a4c6664cbd7897500af3cee1af614b67d" title=" " alt="" coords="268,55,482,113"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="220,81,255,83,250,85,221,87"/>
+<area shape="rect" id="Node000003" href="$class_easy___copier_1_1_views_1_1_video_details_flyout_1_1_video_details_flyout__obj8___bindings.html#ab0abe80b10e4825a8406dd2e8cbee8a6" title=" " alt="" coords="530,55,744,113"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="482,81,517,84,512,84,483,87"/>
+<area shape="rect" id="Node000004" href="$class_easy___copier_1_1_views_1_1_video_details_flyout_1_1_video_details_flyout__obj8___bindings.html#a6f587ac5ec7f2497725bd6badb30e555" title=" " alt="" coords="809,96,1023,155"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="745,97,796,107,791,107,745,103"/>
+<area shape="rect" id="Node000007" href="$class_easy___copier_1_1_views_1_1_video_details_flyout_1_1_video_details_flyout__obj8___bindings.html#ad2d4fae1589dc080f00e066ae1551ccb" title=" " alt="" coords="792,13,1040,72"/>
+<area shape="poly" id="edge6_Node000003_Node000007" title=" " alt="" coords="744,65,774,64,779,63,745,71"/>
+<area shape="rect" id="Node000005" href="$class_easy___copier_1_1_views_1_1_video_details_flyout_1_1_xaml_binding_setters.html#afb657b52250587b2586a5381b17ef0b6" title=" " alt="" coords="1088,5,1302,80"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="1017,93,1070,79,1075,78,1018,98"/>
+<area shape="rect" id="Node000006" href="$class_easy___copier_1_1_views_1_1_video_details_flyout_1_1_xaml_binding_setters.html#a366cf2d4613fdacf9df0f2901a10d9d7" title=" " alt="" coords="1088,104,1302,179"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="1024,129,1075,134,1069,134,1024,134"/>
+<area shape="poly" id="edge7_Node000007_Node000005" title=" " alt="" coords="1040,40,1074,42,1069,43,1040,45"/>
+</map>

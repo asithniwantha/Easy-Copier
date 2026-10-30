@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['osimage_0',['OsImage',['../namespace_easy___copier_1_1_models.html#aa1c98543798d7f84e29b2e4deba8a58bab19958e8f8f2f0afecec67d3d08c4a88',1,'Easy_Copier::Models']]]
+  ['name_0',['Name',['../namespace_easy___copier_1_1_models.html#a730e39ab051f5d5a6af5d61176138617a49ee3087348e8d44e1feda1917443987',1,'Easy_Copier.Models.Name'],['../namespace_easy___copier_1_1_models.html#a0e81f6516d5ea1952cb72d30b5bb20c7a49ee3087348e8d44e1feda1917443987',1,'Easy_Copier.Models.Name']]],
+  ['none_1',['None',['../namespace_easy___copier_1_1_infrastructure.html#acdb98b1b8cd21f93959d5bcd4f0db357a6adf97f83acf6453d4a6a4b1070f3754',1,'Easy_Copier::Infrastructure']]],
+  ['normaldisplay_2',['NORMALDISPLAY',['../namespace_easy___copier_1_1_interop.html#afd900c2991e05496e7482283f060be9ca367d3a6959faa0fbf206013e125aaf28',1,'Easy_Copier::Interop']]]
 ];

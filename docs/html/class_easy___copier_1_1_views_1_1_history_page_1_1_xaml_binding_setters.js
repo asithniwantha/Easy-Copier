@@ -3,8 +3,10 @@ var class_easy___copier_1_1_views_1_1_history_page_1_1_xaml_binding_setters =
     [ "Set_CommunityToolkit_WinUI_UI_Controls_DataGrid_ItemsSource", "class_easy___copier_1_1_views_1_1_history_page_1_1_xaml_binding_setters.html#a313a56a0d6a390499a05603fc46daee1", null ],
     [ "Set_CommunityToolkit_WinUI_UI_Controls_DataGrid_ItemsSource", "class_easy___copier_1_1_views_1_1_history_page_1_1_xaml_binding_setters.html#a313a56a0d6a390499a05603fc46daee1", null ],
     [ "Set_CommunityToolkit_WinUI_UI_Controls_DataGrid_ItemsSource", "class_easy___copier_1_1_views_1_1_history_page_1_1_xaml_binding_setters.html#a313a56a0d6a390499a05603fc46daee1", null ],
-    [ "Set_CommunityToolkit_WinUI_UI_Controls_DataGrid_ItemsSource", "class_easy___copier_1_1_views_1_1_history_page_1_1_xaml_binding_setters.html#a313a56a0d6a390499a05603fc46daee1", null ],
-    [ "Set_CommunityToolkit_WinUI_UI_Controls_DataGrid_ItemsSource", "class_easy___copier_1_1_views_1_1_history_page_1_1_xaml_binding_setters.html#a313a56a0d6a390499a05603fc46daee1", null ],
+    [ "Set_Microsoft_UI_Xaml_Controls_AutoSuggestBox_Text", "class_easy___copier_1_1_views_1_1_history_page_1_1_xaml_binding_setters.html#aea216043a1e37af571ed49796cd9884c", null ],
+    [ "Set_Microsoft_UI_Xaml_Controls_AutoSuggestBox_Text", "class_easy___copier_1_1_views_1_1_history_page_1_1_xaml_binding_setters.html#aea216043a1e37af571ed49796cd9884c", null ],
+    [ "Set_Microsoft_UI_Xaml_Controls_ContentControl_Content", "class_easy___copier_1_1_views_1_1_history_page_1_1_xaml_binding_setters.html#a095c12c45973ff8e8c5528af310ce614", null ],
+    [ "Set_Microsoft_UI_Xaml_Controls_ContentControl_Content", "class_easy___copier_1_1_views_1_1_history_page_1_1_xaml_binding_setters.html#a095c12c45973ff8e8c5528af310ce614", null ],
     [ "Set_Microsoft_UI_Xaml_Controls_ItemsControl_ItemsSource", "class_easy___copier_1_1_views_1_1_history_page_1_1_xaml_binding_setters.html#aa3ab9595c85d5fd1a5a8bafd000ae81c", null ],
     [ "Set_Microsoft_UI_Xaml_Controls_ItemsControl_ItemsSource", "class_easy___copier_1_1_views_1_1_history_page_1_1_xaml_binding_setters.html#aa3ab9595c85d5fd1a5a8bafd000ae81c", null ],
     [ "Set_Microsoft_UI_Xaml_Controls_ItemsControl_ItemsSource", "class_easy___copier_1_1_views_1_1_history_page_1_1_xaml_binding_setters.html#aa3ab9595c85d5fd1a5a8bafd000ae81c", null ],
@@ -20,6 +22,8 @@ var class_easy___copier_1_1_views_1_1_history_page_1_1_xaml_binding_setters =
     [ "Set_Microsoft_UI_Xaml_Controls_Primitives_Selector_SelectedItem", "class_easy___copier_1_1_views_1_1_history_page_1_1_xaml_binding_setters.html#ac589e2196664de6229b121186305d72a", null ],
     [ "Set_Microsoft_UI_Xaml_Controls_Primitives_Selector_SelectedItem", "class_easy___copier_1_1_views_1_1_history_page_1_1_xaml_binding_setters.html#ac589e2196664de6229b121186305d72a", null ],
     [ "Set_Microsoft_UI_Xaml_Controls_Primitives_Selector_SelectedItem", "class_easy___copier_1_1_views_1_1_history_page_1_1_xaml_binding_setters.html#ac589e2196664de6229b121186305d72a", null ],
+    [ "Set_Microsoft_UI_Xaml_Controls_SplitView_IsPaneOpen", "class_easy___copier_1_1_views_1_1_history_page_1_1_xaml_binding_setters.html#ae9062afe3ce350622989cdcf815ea005", null ],
+    [ "Set_Microsoft_UI_Xaml_Controls_SplitView_IsPaneOpen", "class_easy___copier_1_1_views_1_1_history_page_1_1_xaml_binding_setters.html#ae9062afe3ce350622989cdcf815ea005", null ],
     [ "Set_Microsoft_UI_Xaml_Controls_TextBlock_Text", "class_easy___copier_1_1_views_1_1_history_page_1_1_xaml_binding_setters.html#af0d91a9f5d7555854b56b4a2c06b81d3", null ],
     [ "Set_Microsoft_UI_Xaml_Controls_TextBlock_Text", "class_easy___copier_1_1_views_1_1_history_page_1_1_xaml_binding_setters.html#af0d91a9f5d7555854b56b4a2c06b81d3", null ],
     [ "Set_Microsoft_UI_Xaml_Controls_TextBlock_Text", "class_easy___copier_1_1_views_1_1_history_page_1_1_xaml_binding_setters.html#af0d91a9f5d7555854b56b4a2c06b81d3", null ],
@@ -29,5 +33,9 @@ var class_easy___copier_1_1_views_1_1_history_page_1_1_xaml_binding_setters =
     [ "Set_Microsoft_UI_Xaml_Documents_Run_Text", "class_easy___copier_1_1_views_1_1_history_page_1_1_xaml_binding_setters.html#af86e906401824026e06aa43519771657", null ],
     [ "Set_Microsoft_UI_Xaml_Documents_Run_Text", "class_easy___copier_1_1_views_1_1_history_page_1_1_xaml_binding_setters.html#af86e906401824026e06aa43519771657", null ],
     [ "Set_Microsoft_UI_Xaml_Documents_Run_Text", "class_easy___copier_1_1_views_1_1_history_page_1_1_xaml_binding_setters.html#af86e906401824026e06aa43519771657", null ],
-    [ "Set_Microsoft_UI_Xaml_Documents_Run_Text", "class_easy___copier_1_1_views_1_1_history_page_1_1_xaml_binding_setters.html#af86e906401824026e06aa43519771657", null ]
+    [ "Set_Microsoft_UI_Xaml_Documents_Run_Text", "class_easy___copier_1_1_views_1_1_history_page_1_1_xaml_binding_setters.html#af86e906401824026e06aa43519771657", null ],
+    [ "Set_Microsoft_UI_Xaml_FrameworkElement_Height", "class_easy___copier_1_1_views_1_1_history_page_1_1_xaml_binding_setters.html#aead0317be54759ba36177bdd7a3fbe3e", null ],
+    [ "Set_Microsoft_UI_Xaml_FrameworkElement_Height", "class_easy___copier_1_1_views_1_1_history_page_1_1_xaml_binding_setters.html#aead0317be54759ba36177bdd7a3fbe3e", null ],
+    [ "Set_Microsoft_UI_Xaml_UIElement_Visibility", "class_easy___copier_1_1_views_1_1_history_page_1_1_xaml_binding_setters.html#ab71747249fdee9b579f7779712088f47", null ],
+    [ "Set_Microsoft_UI_Xaml_UIElement_Visibility", "class_easy___copier_1_1_views_1_1_history_page_1_1_xaml_binding_setters.html#ab71747249fdee9b579f7779712088f47", null ]
 ];

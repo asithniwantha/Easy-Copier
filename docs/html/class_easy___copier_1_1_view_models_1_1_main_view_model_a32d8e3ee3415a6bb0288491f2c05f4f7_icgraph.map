@@ -1,0 +1,5 @@
+<map id="Easy_Copier.ViewModels.MainViewModel.BuildItemsToQueueAsync" name="Easy_Copier.ViewModels.MainViewModel.BuildItemsToQueueAsync">
+<area shape="rect" id="Node000001" title="Builds the list of transfer items to queue, prompting the user for conflict resolution decisions when..." alt="" coords="304,5,544,48"/>
+<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_view_models_1_1_main_view_model.html#a0f7fe2253298f83580cbd8544d2c11b7" title="Validates selected items and target drive space, resolves folder conflicts, and enqueues new transfer..." alt="" coords="5,5,256,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="285,27,256,29,256,24,291,27"/>
+</map>

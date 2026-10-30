@@ -47,7 +47,7 @@
   </g>
 </defs>
 <script type="application/ecmascript" xlink:href="svg.min.js"/>
-<svg id="graph" class="graph" data-view-width="647" data-view-height="90" data-section-id="dynsection-3">
+<svg id="graph" class="graph" data-view-width="827" data-view-height="90" data-section-id="dynsection-3">
 <g id="viewport">
 <title>Easy_Copier.ViewModels.SmartAdderViewModel.AddNewCell</title>
 <!-- Node1 -->
@@ -132,6 +132,25 @@
 <g id="a_edge4_Node000003_Node000002"><a xlink:title=" ">
 <path fill="none" stroke="#63b8ff" d="M420.03,-62.7C412.03,-62 403.97,-61.25 395.99,-60.47"/>
 <polygon fill="#63b8ff" stroke="#63b8ff" points="396.58,-57.01 386.28,-59.5 395.89,-63.98 396.58,-57.01"/>
+</a>
+</g>
+</g>
+<!-- Node5 -->
+<g id="Node000005" class="node">
+<title>Node5</title>
+<g id="a_Node000005"><a xlink:href="class_easy___copier_1_1_models_1_1_number_cell.html#ae49c3d41a9bcb4605ea1cdb2a1e1f790" target="_top" xlink:title="Attempts to parse the numeric value from InputValue using standard invariant float formatting.">
+<polygon fill="white" stroke="#666666" points="819.25,-32 675,-32 675,0 819.25,0 819.25,-32"/>
+<text xml:space="preserve" text-anchor="start" x="683" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Models.Number</text>
+<text xml:space="preserve" text-anchor="middle" x="747.12" y="-6.5" font-family="Helvetica,sans-Serif" font-size="10.00">Cell.TryGetNumericValue</text>
+</a>
+</g>
+</g>
+<!-- Node4&#45;&gt;Node5 -->
+<g id="edge6_Node000004_Node000005" class="edge">
+<title>Node4&#45;&gt;Node5</title>
+<g id="a_edge6_Node000004_Node000005"><a xlink:title=" ">
+<path fill="none" stroke="#63b8ff" d="M612.79,-16C629.3,-16 646.68,-16 663.22,-16"/>
+<polygon fill="#63b8ff" stroke="#63b8ff" points="663.01,-19.5 673.01,-16 663.01,-12.5 663.01,-19.5"/>
 </a>
 </g>
 </g>

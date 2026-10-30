@@ -1,0 +1,5 @@
+<map id="Easy_Copier.Converters.BoolToStringConverter" name="Easy_Copier.Converters.BoolToStringConverter">
+<area shape="rect" id="Node000001" title="Converts a boolean value to a formatted string using a pipe&#45;separated string parameter (&quot;TrueText|Fal..." alt="" coords="5,80,200,123"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="45,5,160,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="104,46,105,81,100,79,101,50"/>
+</map>

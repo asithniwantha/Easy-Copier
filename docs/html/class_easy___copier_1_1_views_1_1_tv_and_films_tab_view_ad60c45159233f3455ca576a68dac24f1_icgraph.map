@@ -1,0 +1,10 @@
+<map id="Easy_Copier.Views.TvAndFilmsTabView.StopPreview" name="Easy_Copier.Views.TvAndFilmsTabView.StopPreview">
+<area shape="rect" id="Node000001" title="Cancels any pending preview and releases the active player." alt="" coords="541,39,751,81"/>
+<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_views_1_1_tv_and_films_tab_view.html#aa2bbf8613bb2378b5727b6f8af36bfab" title="Starts a delayed hover preview so quick mouse passes don&#39;t spawn players." alt="" coords="264,5,493,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="523,45,494,44,494,38,528,45"/>
+<area shape="rect" id="Node000004" href="$class_easy___copier_1_1_views_1_1_tv_and_films_tab_view.html#a55fcfe819512fbe0ae9edd7d530d6955" title="Stops the hover preview when the pointer leaves the cover art." alt="" coords="268,72,489,115"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="528,75,490,82,489,77,523,75"/>
+<area shape="rect" id="Node000003" href="$class_easy___copier_1_1_views_1_1_tv_and_films_tab_view.html#a6aea0d345958634c0faa92277586c1fe" title="Connect()." alt="" coords="5,39,216,81"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="245,44,217,50,216,44,251,42"/>
+<area shape="poly" id="edge4_Node000004_Node000003" title=" " alt="" coords="249,78,216,76,216,70,255,77"/>
+</map>

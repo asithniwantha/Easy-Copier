@@ -11,7 +11,7 @@
 <!-- Node1 -->
 <g id="Node000001" class="node">
 <title>Node1</title>
-<g id="a_Node000001"><a xlink:title=" ">
+<g id="a_Node000001"><a xlink:title="Clears entry selections across all loaded library tab views.">
 <polygon fill="#999999" stroke="#666666" points="151.75,-57 0,-57 0,-25 151.75,-25 151.75,-57"/>
 <text xml:space="preserve" text-anchor="start" x="8" y="-43.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Views.MainPage.</text>
 <text xml:space="preserve" text-anchor="middle" x="75.88" y="-31.5" font-family="Helvetica,sans-Serif" font-size="10.00">ClearGameSelection</text>
@@ -40,7 +40,7 @@
 <!-- Node3 -->
 <g id="Node000003" class="node">
 <title>Node3</title>
-<g id="a_Node000003"><a xlink:href="class_easy___copier_1_1_views_1_1_main_page.html#ad0e15ac7d556d08bd9493e5221ddd5b3" target="_top" xlink:title=" ">
+<g id="a_Node000003"><a xlink:href="class_easy___copier_1_1_views_1_1_main_page.html#ad0e15ac7d556d08bd9493e5221ddd5b3" target="_top" xlink:title="Retrieves instantiated library tab views from direct control references.">
 <polygon fill="white" stroke="#666666" points="339.5,-32 187.75,-32 187.75,0 339.5,0 339.5,-32"/>
 <text xml:space="preserve" text-anchor="start" x="195.75" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Views.MainPage.</text>
 <text xml:space="preserve" text-anchor="middle" x="263.62" y="-6.5" font-family="Helvetica,sans-Serif" font-size="10.00">GetTabViews</text>

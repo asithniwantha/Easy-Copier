@@ -1,5 +1,6 @@
 var namespace_easy___copier_1_1_converters =
 [
+    [ "BoolToStringConverter", "class_easy___copier_1_1_converters_1_1_bool_to_string_converter.html", "class_easy___copier_1_1_converters_1_1_bool_to_string_converter" ],
     [ "BoolToVisibilityConverter", "class_easy___copier_1_1_converters_1_1_bool_to_visibility_converter.html", "class_easy___copier_1_1_converters_1_1_bool_to_visibility_converter" ],
     [ "BytesToSizeConverter", "class_easy___copier_1_1_converters_1_1_bytes_to_size_converter.html", "class_easy___copier_1_1_converters_1_1_bytes_to_size_converter" ],
     [ "CategoryFormatConverter", "class_easy___copier_1_1_converters_1_1_category_format_converter.html", "class_easy___copier_1_1_converters_1_1_category_format_converter" ],
@@ -7,7 +8,9 @@ var namespace_easy___copier_1_1_converters =
     [ "GameSizeToPriceConverter", "class_easy___copier_1_1_converters_1_1_game_size_to_price_converter.html", "class_easy___copier_1_1_converters_1_1_game_size_to_price_converter" ],
     [ "NegativeToBackgroundConverter", "class_easy___copier_1_1_converters_1_1_negative_to_background_converter.html", "class_easy___copier_1_1_converters_1_1_negative_to_background_converter" ],
     [ "NegativeToForegroundConverter", "class_easy___copier_1_1_converters_1_1_negative_to_foreground_converter.html", "class_easy___copier_1_1_converters_1_1_negative_to_foreground_converter" ],
+    [ "NullToVisibilityConverter", "class_easy___copier_1_1_converters_1_1_null_to_visibility_converter.html", "class_easy___copier_1_1_converters_1_1_null_to_visibility_converter" ],
     [ "PathToImageSourceConverter", "class_easy___copier_1_1_converters_1_1_path_to_image_source_converter.html", "class_easy___copier_1_1_converters_1_1_path_to_image_source_converter" ],
+    [ "QueueStatusToBrushConverter", "class_easy___copier_1_1_converters_1_1_queue_status_to_brush_converter.html", "class_easy___copier_1_1_converters_1_1_queue_status_to_brush_converter" ],
     [ "SeverityToInfoBarSeverityConverter", "class_easy___copier_1_1_converters_1_1_severity_to_info_bar_severity_converter.html", "class_easy___copier_1_1_converters_1_1_severity_to_info_bar_severity_converter" ],
     [ "SortDirectionGlyphConverter", "class_easy___copier_1_1_converters_1_1_sort_direction_glyph_converter.html", "class_easy___copier_1_1_converters_1_1_sort_direction_glyph_converter" ],
     [ "SortDirectionToolTipConverter", "class_easy___copier_1_1_converters_1_1_sort_direction_tool_tip_converter.html", "class_easy___copier_1_1_converters_1_1_sort_direction_tool_tip_converter" ]

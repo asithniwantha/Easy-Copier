@@ -140,13 +140,13 @@ Properties</h2></td></tr>
 Events</h2></td></tr>
 <tr class="memitem:a6092b70d17226b9ea3d5bb9895e0b615" id="r_a6092b70d17226b9ea3d5bb9895e0b615"><td class="memItemLeft">EventHandler&lt; <a class="el" href="class_easy___copier_1_1_models_1_1_transfer_queue_item.html">TransferQueueItem</a> &gt;?&#160;</td><td class="memItemRight"><a class="el" href="#a6092b70d17226b9ea3d5bb9895e0b615">ItemCompleted</a></td></tr>
 <tr class="memdesc:a6092b70d17226b9ea3d5bb9895e0b615"><td class="mdescLeft">&#160;</td><td class="mdescRight">Event raised when an individual transfer queue item finishes processing.  <br /></td></tr>
-<tr class="memitem:a2bb8fef32aab7a946e1bd1b949d76ae4" id="r_a2bb8fef32aab7a946e1bd1b949d76ae4"><td class="memItemLeft">EventHandler&lt;(string Title, string Message)&gt;?&#160;</td><td class="memItemRight"><a class="el" href="#a2bb8fef32aab7a946e1bd1b949d76ae4">BatchCompleted</a></td></tr>
-<tr class="memdesc:a2bb8fef32aab7a946e1bd1b949d76ae4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Event raised when an entire drive batch queue finishes processing, providing title and message details.  <br /></td></tr>
+<tr class="memitem:ab781bd5caa4a53e1d1cc475a345a76b2" id="r_ab781bd5caa4a53e1d1cc475a345a76b2"><td class="memItemLeft">EventHandler&lt;(string Title, string Message, bool IsSuccess)&gt;?&#160;</td><td class="memItemRight"><a class="el" href="#ab781bd5caa4a53e1d1cc475a345a76b2">BatchCompleted</a></td></tr>
+<tr class="memdesc:ab781bd5caa4a53e1d1cc475a345a76b2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Event raised when an entire drive batch queue finishes processing, providing title (<code>Title</code>), message (<code>Message</code>), and success status (<code>IsSuccess</code>) details.  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Defines operations for managing the background transfer queue, enqueuing transfer items, and listening for completion events. </p>
 
-<p class="definition">Definition at line <a class="el" href="_transfer_queue_service_8cs_source.html#l00018">18</a> of file <a class="el" href="_transfer_queue_service_8cs_source.html">TransferQueueService.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_transfer_queue_service_8cs_source.html#l00016">16</a> of file <a class="el" href="_transfer_queue_service_8cs_source.html">TransferQueueService.cs</a>.</p>
 </div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
 <a id="a6fc34f4b3bad238f2601e7f94221b5ce" name="a6fc34f4b3bad238f2601e7f94221b5ce"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a6fc34f4b3bad238f2601e7f94221b5ce">&#9670;&#160;</a></span>ClearFinished()</h2>
@@ -206,7 +206,7 @@ Events</h2></td></tr>
 
 <p>Implemented in <a class="el" href="class_easy___copier_1_1_services_1_1_transfer_queue_service.html#a5652702431c6d1b7a185da7e3c383e29">Easy_Copier.Services.TransferQueueService</a>.</p>
 
-<p class="reference">References <a class="el" href="_domain_models_8cs_source.html#l00131">Easy_Copier.Models.RemovableDrive()</a>.</p>
+<p class="reference">References <a class="el" href="_domain_models_8cs_source.html#l00179">Easy_Copier.Models.RemovableDrive()</a>.</p>
 <div id="dynsection-1" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-1-summary" class="dynsummary">
 </div>
@@ -269,26 +269,26 @@ Events</h2></td></tr>
 
 <p>Implemented in <a class="el" href="class_easy___copier_1_1_services_1_1_transfer_queue_service.html#a32c8b68392cefee2f9fa533d69b025dc">Easy_Copier.Services.TransferQueueService</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_transfer_queue_service_8cs_source.html#l00023">23</a> of file <a class="el" href="_transfer_queue_service_8cs_source.html">TransferQueueService.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_transfer_queue_service_8cs_source.html#l00021">21</a> of file <a class="el" href="_transfer_queue_service_8cs_source.html">TransferQueueService.cs</a>.</p>
 
 </div>
 </div>
 <a name="doc-event-members" id="doc-event-members"></a><h2 id="header-doc-event-members" class="groupheader">Event Documentation</h2>
-<a id="a2bb8fef32aab7a946e1bd1b949d76ae4" name="a2bb8fef32aab7a946e1bd1b949d76ae4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2bb8fef32aab7a946e1bd1b949d76ae4">&#9670;&#160;</a></span>BatchCompleted</h2>
+<a id="ab781bd5caa4a53e1d1cc475a345a76b2" name="ab781bd5caa4a53e1d1cc475a345a76b2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab781bd5caa4a53e1d1cc475a345a76b2">&#9670;&#160;</a></span>BatchCompleted</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">EventHandler&lt;(string Title, string Message)&gt;? Easy_Copier.Services.ITransferQueueService.BatchCompleted</td>
+          <td class="memname">EventHandler&lt;(string Title, string Message, bool IsSuccess)&gt;? Easy_Copier.Services.ITransferQueueService.BatchCompleted</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Event raised when an entire drive batch queue finishes processing, providing title and message details. </p>
+<p>Event raised when an entire drive batch queue finishes processing, providing title (<code>Title</code>), message (<code>Message</code>), and success status (<code>IsSuccess</code>) details. </p>
 
-<p class="definition">Definition at line <a class="el" href="_transfer_queue_service_8cs_source.html#l00054">54</a> of file <a class="el" href="_transfer_queue_service_8cs_source.html">TransferQueueService.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_transfer_queue_service_8cs_source.html#l00052">52</a> of file <a class="el" href="_transfer_queue_service_8cs_source.html">TransferQueueService.cs</a>.</p>
 
 </div>
 </div>
@@ -306,7 +306,7 @@ Events</h2></td></tr>
 
 <p>Event raised when an individual transfer queue item finishes processing. </p>
 
-<p class="definition">Definition at line <a class="el" href="_transfer_queue_service_8cs_source.html#l00049">49</a> of file <a class="el" href="_transfer_queue_service_8cs_source.html">TransferQueueService.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_transfer_queue_service_8cs_source.html#l00047">47</a> of file <a class="el" href="_transfer_queue_service_8cs_source.html">TransferQueueService.cs</a>.</p>
 
 </div>
 </div>

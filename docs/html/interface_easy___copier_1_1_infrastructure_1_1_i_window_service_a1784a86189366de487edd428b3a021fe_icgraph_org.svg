@@ -21,7 +21,7 @@
 <!-- Node2 -->
 <g id="Node000002" class="node">
 <title>Node2</title>
-<g id="a_Node000002"><a xlink:href="class_easy___copier_1_1_view_models_1_1_main_view_model.html#ab510c1e6a9cf59ba4dca545667572e25" target="_top" xlink:title=" ">
+<g id="a_Node000002"><a xlink:href="class_easy___copier_1_1_view_models_1_1_main_view_model.html#ab510c1e6a9cf59ba4dca545667572e25" target="_top" xlink:title="Opens the settings window configured to add a new source folder for the active tab category.">
 <polygon fill="white" stroke="#666666" points="152.5,-82 0,-82 0,-50 152.5,-50 152.5,-82"/>
 <text xml:space="preserve" text-anchor="start" x="8" y="-68.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.ViewModels.Main</text>
 <text xml:space="preserve" text-anchor="middle" x="76.25" y="-56.5" font-family="Helvetica,sans-Serif" font-size="10.00">ViewModel.AddSourceFolder</text>
@@ -40,7 +40,7 @@
 <!-- Node3 -->
 <g id="Node000003" class="node">
 <title>Node3</title>
-<g id="a_Node000003"><a xlink:href="class_easy___copier_1_1_view_models_1_1_main_view_model.html#a7e04c9f1b8f92bdb0e0b615df032cd6b" target="_top" xlink:title=" ">
+<g id="a_Node000003"><a xlink:href="class_easy___copier_1_1_view_models_1_1_main_view_model.html#a7e04c9f1b8f92bdb0e0b615df032cd6b" target="_top" xlink:title="Displays the settings window.">
 <polygon fill="white" stroke="#666666" points="152.5,-32 0,-32 0,0 152.5,0 152.5,-32"/>
 <text xml:space="preserve" text-anchor="start" x="8" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.ViewModels.Main</text>
 <text xml:space="preserve" text-anchor="middle" x="76.25" y="-6.5" font-family="Helvetica,sans-Serif" font-size="10.00">ViewModel.OpenSettings</text>

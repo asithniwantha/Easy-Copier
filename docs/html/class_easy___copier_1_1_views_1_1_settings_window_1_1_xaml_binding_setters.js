@@ -11,6 +11,7 @@ var class_easy___copier_1_1_views_1_1_settings_window_1_1_xaml_binding_setters =
     [ "Set_Microsoft_UI_Xaml_Controls_Primitives_ButtonBase_Command", "class_easy___copier_1_1_views_1_1_settings_window_1_1_xaml_binding_setters.html#a443cb8ecae38d4cd5b141ee2a2f1a851", null ],
     [ "Set_Microsoft_UI_Xaml_Controls_Primitives_ButtonBase_Command", "class_easy___copier_1_1_views_1_1_settings_window_1_1_xaml_binding_setters.html#a443cb8ecae38d4cd5b141ee2a2f1a851", null ],
     [ "Set_Microsoft_UI_Xaml_Controls_Primitives_ButtonBase_CommandParameter", "class_easy___copier_1_1_views_1_1_settings_window_1_1_xaml_binding_setters.html#a366a0eb77b5ffce2fa6e3b4ac6835700", null ],
+    [ "Set_Microsoft_UI_Xaml_Controls_Primitives_ButtonBase_CommandParameter", "class_easy___copier_1_1_views_1_1_settings_window_1_1_xaml_binding_setters.html#a366a0eb77b5ffce2fa6e3b4ac6835700", null ],
     [ "Set_Microsoft_UI_Xaml_Controls_TextBlock_Text", "class_easy___copier_1_1_views_1_1_settings_window_1_1_xaml_binding_setters.html#a4333519c13e9fdbef213832a207388e0", null ],
     [ "Set_Microsoft_UI_Xaml_Controls_TextBlock_Text", "class_easy___copier_1_1_views_1_1_settings_window_1_1_xaml_binding_setters.html#a4333519c13e9fdbef213832a207388e0", null ],
     [ "Set_Microsoft_UI_Xaml_Controls_TextBlock_Text", "class_easy___copier_1_1_views_1_1_settings_window_1_1_xaml_binding_setters.html#a4333519c13e9fdbef213832a207388e0", null ],
@@ -26,7 +27,6 @@ var class_easy___copier_1_1_views_1_1_settings_window_1_1_xaml_binding_setters =
     [ "Set_Microsoft_UI_Xaml_Controls_ToggleSwitch_IsOn", "class_easy___copier_1_1_views_1_1_settings_window_1_1_xaml_binding_setters.html#ab82170ef77f984fb32b15821d817035c", null ],
     [ "Set_Microsoft_UI_Xaml_Controls_ToggleSwitch_IsOn", "class_easy___copier_1_1_views_1_1_settings_window_1_1_xaml_binding_setters.html#ab82170ef77f984fb32b15821d817035c", null ],
     [ "Set_Microsoft_UI_Xaml_Controls_ToggleSwitch_IsOn", "class_easy___copier_1_1_views_1_1_settings_window_1_1_xaml_binding_setters.html#ab82170ef77f984fb32b15821d817035c", null ],
-    [ "Set_Microsoft_UI_Xaml_FrameworkElement_Tag", "class_easy___copier_1_1_views_1_1_settings_window_1_1_xaml_binding_setters.html#a378a6e59046b9af6eb33ff28a950fa0c", null ],
     [ "Set_Microsoft_UI_Xaml_FrameworkElement_Tag", "class_easy___copier_1_1_views_1_1_settings_window_1_1_xaml_binding_setters.html#a378a6e59046b9af6eb33ff28a950fa0c", null ],
     [ "Set_Microsoft_UI_Xaml_FrameworkElement_Tag", "class_easy___copier_1_1_views_1_1_settings_window_1_1_xaml_binding_setters.html#a378a6e59046b9af6eb33ff28a950fa0c", null ],
     [ "Set_Microsoft_UI_Xaml_FrameworkElement_Tag", "class_easy___copier_1_1_views_1_1_settings_window_1_1_xaml_binding_setters.html#a378a6e59046b9af6eb33ff28a950fa0c", null ]

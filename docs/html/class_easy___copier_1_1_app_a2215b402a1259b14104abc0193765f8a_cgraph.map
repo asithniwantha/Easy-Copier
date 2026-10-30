@@ -1,23 +1,25 @@
 <map id="Easy_Copier.App.OnLaunched" name="Easy_Copier.App.OnLaunched">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,131,206,157"/>
-<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_app.html#a2b1996d5cb932d741170e24a2534ce2b" title=" " alt="" coords="261,5,477,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="126,128,182,93,253,58,272,52,267,55,255,62,185,98,129,132"/>
-<area shape="rect" id="Node000003" href="$class_easy___copier_1_1_app.html#a486900138a583253029b476a2e8f0a6a" title=" " alt="" coords="256,72,482,99"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="167,128,253,108,292,101,288,104,254,113,169,132"/>
-<area shape="rect" id="Node000004" href="$interface_easy___copier_1_1_services_1_1_i_copy_history_service.html#a6867d761ff9d16ab2e8df2da66d293df" title="Initializes the underlying SQLite database schema and applies any pending migrations." alt="" coords="271,123,467,165"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="205,141,258,143,253,145,207,147"/>
-<area shape="rect" id="Node000005" href="$interface_easy___copier_1_1_services_1_1_i_smart_adder_history_service.html#aaddc783b61b267dc6a9cce276b8b7506" title="Asynchronously initializes the SmartAdderHistory table in SQLite database." alt="" coords="254,189,484,232"/>
-<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="161,155,269,184,265,186,162,161"/>
-<area shape="rect" id="Node000006" href="$class_easy___copier_1_1_main_window.html#a4e6ac266bd9303e598362aa71aa60f39" title=" " alt="" coords="266,256,472,299"/>
-<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="124,155,181,198,255,242,271,250,265,250,252,246,178,202,123,161"/>
-<area shape="rect" id="Node000007" href="$class_easy___copier_1_1_main_window.html#addce742f888856d950f0d30050604f97" title="InitializeComponent()." alt="" coords="542,189,769,232"/>
-<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="463,253,549,235,543,237,464,258"/>
-<area shape="rect" id="Node000008" href="$class_easy___copier_1_1_infrastructure_1_1_native_window_helper.html#aefed850ce6ac9058e32444fc6a9ecb70" title="Initializes standard window parameters including window dimensions and default window icons." alt="" coords="534,256,777,299"/>
-<area shape="poly" id="edge7_Node000006_Node000008" title=" " alt="" coords="472,275,521,277,516,278,473,280"/>
-<area shape="rect" id="Node000009" href="$class_easy___copier_1_1_infrastructure_1_1_native_window_helper.html#a5e662d85a854e91b6a3f8f468e72a1a5" title="Sets the minimum window size preferences taking high DPI display scaling into account." alt="" coords="532,323,779,365"/>
-<area shape="poly" id="edge8_Node000006_Node000009" title=" " alt="" coords="464,297,549,319,543,319,463,302"/>
-<area shape="rect" id="Node000010" href="$class_easy___copier_1_1_infrastructure_1_1_native_window_helper.html#a95738f648a74872e265d231e37718f42" title=" " alt="" coords="827,323,1107,365"/>
-<area shape="poly" id="edge9_Node000009_Node000010" title=" " alt="" coords="780,341,814,344,809,344,780,347"/>
-<area shape="rect" id="Node000011" href="$class_easy___copier_1_1_infrastructure_1_1_native_window_helper.html#a1fc73b66e5307797eba4e1b88ef3e4e7" title=" " alt="" coords="1155,323,1410,365"/>
-<area shape="poly" id="edge10_Node000010_Node000011" title=" " alt="" coords="1107,341,1142,344,1137,344,1107,347"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,164,206,191"/>
+<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_app.html#a2b1996d5cb932d741170e24a2534ce2b" title="Handles notification invocation callbacks when a user clicks a desktop toast notification." alt="" coords="261,5,477,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="118,162,174,111,212,83,252,58,268,53,264,56,255,62,215,87,177,116,122,165"/>
+<area shape="rect" id="Node000003" href="$class_easy___copier_1_1_app.html#a486900138a583253029b476a2e8f0a6a" title="Disposes the dependency injection service provider and flushes pending log sinks." alt="" coords="256,72,482,99"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="131,162,186,135,253,108,283,101,278,104,255,113,189,140,134,166"/>
+<area shape="rect" id="Node000004" href="$class_easy___copier_1_1_infrastructure_1_1_flyout_helper.html#a19e225ee58145f014dcf0ffeb508c88a" title="Configures the static helper with an IFlyoutService instance for UI views that use static helper meth..." alt="" coords="278,123,460,165"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="205,162,265,156,261,159,207,167"/>
+<area shape="rect" id="Node000005" href="$interface_easy___copier_1_1_services_1_1_i_copy_history_service.html#a6867d761ff9d16ab2e8df2da66d293df" title="Initializes the underlying SQLite database schema and applies any pending migrations." alt="" coords="271,189,467,232"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="205,187,258,195,253,197,207,193"/>
+<area shape="rect" id="Node000006" href="$interface_easy___copier_1_1_services_1_1_i_smart_adder_history_service.html#aaddc783b61b267dc6a9cce276b8b7506" title="Asynchronously initializes the SmartAdderHistory table in SQLite database." alt="" coords="254,256,484,299"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="134,189,190,215,255,242,276,250,270,251,253,246,188,220,135,194"/>
+<area shape="rect" id="Node000007" href="$class_easy___copier_1_1_main_window.html#a4e6ac266bd9303e598362aa71aa60f39" title="Initializes a new instance of the MainWindow class." alt="" coords="266,323,472,365"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="119,189,175,247,213,280,255,308,267,316,262,316,252,313,210,284,171,251,118,194"/>
+<area shape="rect" id="Node000008" href="$class_easy___copier_1_1_main_window.html#addce742f888856d950f0d30050604f97" title="InitializeComponent()." alt="" coords="542,256,769,299"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="463,319,549,302,543,303,464,325"/>
+<area shape="rect" id="Node000009" href="$class_easy___copier_1_1_infrastructure_1_1_native_window_helper.html#aefed850ce6ac9058e32444fc6a9ecb70" title="Initializes standard window parameters including window dimensions and default window icons." alt="" coords="534,323,777,365"/>
+<area shape="poly" id="edge8_Node000007_Node000009" title=" " alt="" coords="472,341,521,344,516,344,473,347"/>
+<area shape="rect" id="Node000010" href="$class_easy___copier_1_1_infrastructure_1_1_native_window_helper.html#a5e662d85a854e91b6a3f8f468e72a1a5" title="Sets the minimum window size preferences taking high DPI display scaling into account." alt="" coords="532,389,779,432"/>
+<area shape="poly" id="edge9_Node000007_Node000010" title=" " alt="" coords="464,363,549,385,543,385,463,369"/>
+<area shape="rect" id="Node000011" href="$class_easy___copier_1_1_infrastructure_1_1_native_window_helper.html#a95738f648a74872e265d231e37718f42" title="Calculates the display rasterization scale factor for the specified window handle based on system DPI..." alt="" coords="827,389,1107,432"/>
+<area shape="poly" id="edge10_Node000010_Node000011" title=" " alt="" coords="780,408,814,411,809,411,780,413"/>
+<area shape="rect" id="Node000012" href="$class_easy___copier_1_1_infrastructure_1_1_native_window_helper.html#a1fc73b66e5307797eba4e1b88ef3e4e7" title="Returns the dots per inch (DPI) value for the specified window." alt="" coords="1155,389,1410,432"/>
+<area shape="poly" id="edge11_Node000011_Node000012" title=" " alt="" coords="1107,408,1142,411,1137,411,1107,413"/>
 </map>

@@ -1,0 +1,5 @@
+<map id="Easy_Copier.ViewModels.MainViewModel.OnAppsSearchTextChanged" name="Easy_Copier.ViewModels.MainViewModel.OnAppsSearchTextChanged">
+<area shape="rect" id="Node000001" title="Handles changes to the AppsSearchText property to re&#45;apply apps library filtering." alt="" coords="5,5,260,48"/>
+<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_view_models_1_1_main_view_model.html#a74768a1f58ff1ee9c59c479d0dfae2bd" title="Applies search text query and category filtering to the applications library collection." alt="" coords="308,5,511,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="260,24,294,27,289,27,260,29"/>
+</map>

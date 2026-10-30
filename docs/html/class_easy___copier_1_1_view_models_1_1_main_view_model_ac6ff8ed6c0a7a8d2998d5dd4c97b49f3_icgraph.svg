@@ -47,13 +47,13 @@
   </g>
 </defs>
 <script type="application/ecmascript" xlink:href="svg.min.js"/>
-<svg id="graph" class="graph" data-view-width="752" data-view-height="40" data-section-id="dynsection-45">
+<svg id="graph" class="graph" data-view-width="752" data-view-height="40" data-section-id="dynsection-59">
 <g id="viewport">
 <title>Easy_Copier.ViewModels.MainViewModel.UpdateSelectionSummary</title>
 <!-- Node1 -->
 <g id="Node000001" class="node">
 <title>Node1</title>
-<g id="a_Node000001"><a xlink:title=" ">
+<g id="a_Node000001"><a xlink:title="Updates selected game entries and recalculates size, item count, and price summary values.">
 <polygon fill="#999999" stroke="#666666" points="744.25,-32 563.25,-32 563.25,0 744.25,0 744.25,-32"/>
 <text xml:space="preserve" text-anchor="start" x="571.25" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.ViewModels.Main</text>
 <text xml:space="preserve" text-anchor="middle" x="653.75" y="-6.5" font-family="Helvetica,sans-Serif" font-size="10.00">ViewModel.UpdateSelectionSummary</text>
@@ -63,7 +63,7 @@
 <!-- Node2 -->
 <g id="Node000002" class="node">
 <title>Node2</title>
-<g id="a_Node000002"><a xlink:href="class_easy___copier_1_1_views_1_1_main_page.html#ae7f49e65e70c8792555d54e61f49dc77" target="_top" xlink:title=" ">
+<g id="a_Node000002"><a xlink:href="class_easy___copier_1_1_views_1_1_main_page.html#ae7f49e65e70c8792555d54e61f49dc77" target="_top" xlink:title="Recalculates combined library selection across tabs and updates the View Models selection summary.">
 <polygon fill="white" stroke="#666666" points="527.25,-32 375.5,-32 375.5,0 527.25,0 527.25,-32"/>
 <text xml:space="preserve" text-anchor="start" x="383.5" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Views.MainPage.</text>
 <text xml:space="preserve" text-anchor="middle" x="451.38" y="-6.5" font-family="Helvetica,sans-Serif" font-size="10.00">UpdateCombinedSelection</text>
@@ -82,7 +82,7 @@
 <!-- Node3 -->
 <g id="Node000003" class="node">
 <title>Node3</title>
-<g id="a_Node000003"><a xlink:href="class_easy___copier_1_1_views_1_1_main_page.html#aa1f6c103fbea1a24dc808f04a1bba28c" target="_top" xlink:title=" ">
+<g id="a_Node000003"><a xlink:href="class_easy___copier_1_1_views_1_1_main_page.html#aa1f6c103fbea1a24dc808f04a1bba28c" target="_top" xlink:title="Handles pivot tab selection changes to recalculate and aggregate entry selections.">
 <polygon fill="white" stroke="#666666" points="339.5,-32 187.75,-32 187.75,0 339.5,0 339.5,-32"/>
 <text xml:space="preserve" text-anchor="start" x="195.75" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Views.MainPage.</text>
 <text xml:space="preserve" text-anchor="middle" x="263.62" y="-6.5" font-family="Helvetica,sans-Serif" font-size="10.00">TabOrPivot_SelectionChanged</text>

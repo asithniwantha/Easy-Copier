@@ -14,5 +14,6 @@ var dir_8382525909e83ffbb829323be44c6102 =
     [ "SettingsWindow.xaml.cs", "_settings_window_8xaml_8cs.html", "_settings_window_8xaml_8cs" ],
     [ "SmartAdderControl.xaml.cs", "_smart_adder_control_8xaml_8cs.html", "_smart_adder_control_8xaml_8cs" ],
     [ "SmartAdderHistoryWindow.xaml.cs", "_smart_adder_history_window_8xaml_8cs.html", "_smart_adder_history_window_8xaml_8cs" ],
-    [ "TvAndFilmsTabView.xaml.cs", "_tv_and_films_tab_view_8xaml_8cs.html", "_tv_and_films_tab_view_8xaml_8cs" ]
+    [ "TvAndFilmsTabView.xaml.cs", "_tv_and_films_tab_view_8xaml_8cs.html", "_tv_and_films_tab_view_8xaml_8cs" ],
+    [ "VideoDetailsFlyout.xaml.cs", "_video_details_flyout_8xaml_8cs.html", "_video_details_flyout_8xaml_8cs" ]
 ];

@@ -1,0 +1,5 @@
+<map id="Easy_Copier.Services.GameTitleSanitizer.ComputeMatchScore" name="Easy_Copier.Services.GameTitleSanitizer.ComputeMatchScore">
+<area shape="rect" id="Node000001" title="Computes a title match similarity score between a target query title and an online service candidate ..." alt="" coords="5,5,230,48"/>
+<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_services_1_1_game_title_sanitizer.html#aaa2daf6d34206e953c7b5d4807aa4407" title="Normalizes a title for comparison by lowercasing, removing punctuation, and collapsing whitespace." alt="" coords="278,5,527,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="230,24,265,27,260,27,230,29"/>
+</map>

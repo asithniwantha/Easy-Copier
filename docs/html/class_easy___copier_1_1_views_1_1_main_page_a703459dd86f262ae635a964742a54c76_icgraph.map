@@ -1,0 +1,7 @@
+<map id="Easy_Copier.Views.MainPage.OnItemQueued" name="Easy_Copier.Views.MainPage.OnItemQueued">
+<area shape="rect" id="Node000001" title="Handles the MainViewModel.ItemQueued event by clearing active library selections." alt="" coords="256,39,458,81"/>
+<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_views_1_1_main_page.html#a5c1229f7d5a82d6007836245fec94943" title=" " alt="" coords="5,5,208,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="237,45,208,43,208,37,243,44"/>
+<area shape="rect" id="Node000003" href="$class_easy___copier_1_1_views_1_1_main_page.html#a1892f28feb0fd22b9cff5ebb690f1bea" title=" " alt="" coords="5,72,208,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="237,76,208,82,208,77,243,75"/>
+</map>

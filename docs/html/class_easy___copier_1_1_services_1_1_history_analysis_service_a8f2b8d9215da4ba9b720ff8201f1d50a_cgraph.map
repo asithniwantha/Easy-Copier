@@ -1,0 +1,6 @@
+<map id="Easy_Copier.Services.HistoryAnalysisService.ApplyBatchClustering" name="Easy_Copier.Services.HistoryAnalysisService.ApplyBatchClustering">
+<area shape="rect" id="Node000001" title="Clusters records targeting the same destination drive within a 15&#45;minute time window and populates ba..." alt="" coords="5,29,251,72"/>
+<area shape="rect" id="Node000002" href="$namespace_easy___copier_1_1_models.html#a3bede7aa95515ae50b6531404c887ee2" title="Represents a persistent database history entry recording a completed transfer." alt="" coords="299,29,518,72"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="251,48,286,51,281,51,251,53"/>
+<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="356,27,354,19,362,10,381,5,408,3,438,5,458,14,453,14,437,10,408,8,382,10,365,15,359,21,361,30"/>
+</map>

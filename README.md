@@ -16,6 +16,7 @@ Easy Copier helps shop environments prepare customer drives without guessing whi
 ## ✨ Features
 
 * **🎮 Game Categorization & OS Image Integration:** Automatically fetches categories from Steam and applies keyword fallbacks. Filter games by category directly within the Games tab, sort OS images by Name, Date Added, and Size, view creation/modification/access dates via right-click flyout on OS image tiles, browse for Rufus executable path in Settings, and automatically launch ISO images in the latest Rufus update found in the folder.
+* **🖼️ Intelligent Multi-Service Cover Art Retrieval:** Automatically fetches high-resolution vertical cover art from Steam CDN (with resolution and capsule fallbacks), CheapShark, GOG, PCGamingWiki, Wikipedia, OpenCritic, Lutris, and GSR. Includes automated folder name cleaning (stripping repack/scene groups, build numbers, and language tags), edition fallbacks, title match scoring (preventing wrong covers from soundtracks, demos, or DLCs), payload magic-byte validation, automatic self-healing for corrupted covers, and an "Overwrite existing covers" toggle in Settings.
 * **⚡ High-Speed Transfers:** Optimized file I/O operations tailored for handling massive game files and nested directories using native Windows Shell `IFileOperation`.
 * **🎨 Modern UI:** A beautiful, responsive interface built with WinUI 3 that feels right at home on Windows 11.
 * **📐 Dynamic View Resizing:** The application cleanly abstracts responsive window resizing and UI teardowns (e.g., Settings, History) directly to a unified `NativeWindowHelper`.
@@ -216,3 +217,10 @@ Distributed under the MIT License. See `LICENSE` for more information.
 * Refactored `HistoryViewModel` date and status record filtering to use strongly-typed `DateFilter` and `StatusFilter` enums with C# switch expressions, defaulting history view filter selection to "Today" and status filter to "All". 📈
 * Refactored selection aggregation in `MainPage.xaml.cs` to query `ILibraryTabView` contracts uniformly via `GetTabViews()`, eliminating direct property coupling to `OsImagesTab`. 🧩
 * Centralized `CancellationTokenSource` cancellation and disposal in `MainViewModel` using a dedicated `CancelAndDisposeTokenSource` helper routine. ⚡
+* Introduced `GameTitleSanitizer` utility to sanitize raw folder titles (stripping scene release tags, version numbers, brackets, and edition suffixes) and generate prioritized search candidates. 🏷️
+* Implemented title match scoring with negative keyword rejection (filtering soundtracks, DLCs, demos, and servers) across Steam, CheapShark, GOG, PCGamingWiki, Wikipedia, OpenCritic, Lutris, and GSR to eliminate wrong game covers. 🎯
+* Added payload magic-byte validation and automated self-healing of corrupt/0-byte cover images in `GameInfoDownloadService`. 🛡️
+* Added `OverwriteExistingCovers` configuration toggle in `SettingsViewModel` and `SettingsWindow.xaml` to force refresh covers on demand. ⚙️
+* Added `DownloadCoverForGameAsync` to `IGameInfoDownloadService` for single-game cover downloading and refreshing. 🎮
+* Implemented franchise sequel and installment number extraction (`ExtractSequelNumber`) to strictly eliminate cross-installment mismatches (e.g. preventing *Dark Souls II* from matching *Dark Souls*). ⚔️
+* Corrected Steam genre mapping in `GameInfoDownloadService.Categories.cs` to prevent generic "Action" genres from mapping to "Shooter", prioritizing RPG and Action-Adventure classifications. 🛡️

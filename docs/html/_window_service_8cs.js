@@ -1,5 +1,6 @@
 var _window_service_8cs =
 [
+    [ "Easy_Copier.Infrastructure.SettingsOpenActionExtensions", "class_easy___copier_1_1_infrastructure_1_1_settings_open_action_extensions.html", "class_easy___copier_1_1_infrastructure_1_1_settings_open_action_extensions" ],
     [ "Easy_Copier.Infrastructure.IWindowService", "interface_easy___copier_1_1_infrastructure_1_1_i_window_service.html", "interface_easy___copier_1_1_infrastructure_1_1_i_window_service" ],
     [ "Easy_Copier.Infrastructure.WindowService", "class_easy___copier_1_1_infrastructure_1_1_window_service.html", "class_easy___copier_1_1_infrastructure_1_1_window_service" ],
     [ "Easy_Copier.Infrastructure.SettingsOpenAction", "namespace_easy___copier_1_1_infrastructure.html#acdb98b1b8cd21f93959d5bcd4f0db357", [

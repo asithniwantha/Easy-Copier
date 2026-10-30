@@ -1,0 +1,19 @@
+<map id="Easy_Copier.Services.GameScannerService.ScanLibraryAsync" name="Easy_Copier.Services.GameScannerService.ScanLibraryAsync">
+<area shape="rect" id="Node000001" title="Asynchronously scans specified source folders for items belonging to the given library category...." alt="" coords="5,213,229,256"/>
+<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_services_1_1_game_scanner_service.html#ad02afc9dc82d4dbc5162a245d3a000fa" title="Locates a cover image file within a game folder if available.The full path to the cover image file if..." alt="" coords="291,5,504,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="130,211,187,136,228,94,275,58,287,53,284,57,278,62,232,98,191,139,134,214"/>
+<area shape="rect" id="Node000003" href="$namespace_easy___copier_1_1_models.html#a9c2abd1d64352c07d3085ba499cf2aae" title="Represents a single scanned library entry (game, app, TV/film, or OS image)." alt="" coords="292,96,504,123"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="144,211,203,170,276,132,300,126,295,129,278,137,205,175,148,215"/>
+<area shape="rect" id="Node000004" href="$class_easy___copier_1_1_services_1_1_game_scanner_service.html#ab383305abb0feb67093cedb7073fd161" title="Reads genre categories for a game from its local categories.txt file.A read&#45;only list of parsed GameC..." alt="" coords="297,147,498,189"/>
+<area shape="poly" id="edge4_Node000001_Node000004" title=" " alt="" coords="209,210,292,192,288,195,211,215"/>
+<area shape="rect" id="Node000005" href="$class_easy___copier_1_1_services_1_1_game_scanner_service.html#a7b30922461e6cc77a917e38c1276d45a" title="Calculates the total byte size and determines if any contained file exceeds the specified size limit...." alt="" coords="277,213,519,256"/>
+<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="228,232,263,233,259,236,230,237"/>
+<area shape="rect" id="Node000006" href="$class_easy___copier_1_1_services_1_1_game_scanner_service.html#ae83383ac60473067e85e187c3fc17aae" title="Determines whether a folder should be excluded from scanning (e.g., system directories,..." alt="" coords="289,280,507,323"/>
+<area shape="poly" id="edge6_Node000001_Node000006" title=" " alt="" coords="209,254,292,275,288,277,210,259"/>
+<area shape="rect" id="Node000007" href="$class_easy___copier_1_1_services_1_1_game_scanner_service.html#abc76fa38827d312a158fe546fad6da2c" title="Parses a delimited string of file extensions into a normalized list of lowercase extension strings wi..." alt="" coords="283,347,513,389"/>
+<area shape="poly" id="edge7_Node000001_Node000007" title=" " alt="" coords="147,254,207,294,278,332,295,341,290,341,276,337,204,298,147,259"/>
+<area shape="rect" id="Node000008" href="$namespace_easy___copier_1_1_models.html#af8f0175620d1cdd9a06d3e52ae12ba12" title="Represents information about a detected removable drive or storage volume." alt="" coords="292,437,504,480"/>
+<area shape="poly" id="edge8_Node000001_Node000008" title=" " alt="" coords="135,254,195,324,235,363,278,399,329,431,324,430,275,404,231,367,191,327,134,259"/>
+<area shape="poly" id="edge3_Node000003_Node000003" title=" " alt="" coords="351,96,343,87,348,77,367,71,398,69,432,72,451,81,446,82,431,77,398,75,368,77,352,82,348,87,356,95"/>
+<area shape="poly" id="edge9_Node000008_Node000008" title=" " alt="" coords="345,435,343,427,352,418,370,413,398,411,428,413,448,422,442,422,427,418,398,416,371,418,355,423,348,429,350,438"/>
+</map>

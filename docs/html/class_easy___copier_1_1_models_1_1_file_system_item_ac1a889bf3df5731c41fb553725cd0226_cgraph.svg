@@ -32,7 +32,7 @@
 <!-- Node2 -->
 <g id="Node000002" class="node">
 <title>Node2</title>
-<g id="a_Node000002"><a xlink:href="class_easy___copier_1_1_infrastructure_1_1_formatting_helpers.html#a84e7e7edafb126e73d0143de49561316" target="_top" xlink:title="Formats a byte size into a human&#45;readable string with units (e.g. KB, MB, GB).">
+<g id="a_Node000002"><a xlink:href="class_easy___copier_1_1_infrastructure_1_1_formatting_helpers.html#a84e7e7edafb126e73d0143de49561316" target="_top" xlink:title="Formats a byte size into a human&#45;readable string with units (e.g., KB, MB, GB, TB).">
 <polygon fill="white" stroke="#666666" points="350.75,-32 195.25,-32 195.25,0 350.75,0 350.75,-32"/>
 <text xml:space="preserve" text-anchor="start" x="203.25" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Infrastructure.</text>
 <text xml:space="preserve" text-anchor="middle" x="273" y="-6.5" font-family="Helvetica,sans-Serif" font-size="10.00">FormattingHelpers.FormatBytes</text>

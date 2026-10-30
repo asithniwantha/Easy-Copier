@@ -23,20 +23,20 @@ namespace Easy_Copier.Services
         /// <returns>A task that represents the asynchronous operation. The task result contains a nested dictionary of requirements (minimum and recommended), or <c>null</c> if not found.</returns>
         private async Task<Dictionary<string, Dictionary<string, string>>?> FetchSteamRequirementsAsync(string gameName, CancellationToken cancellationToken)
         {
-            string? appId = await FetchSteamAppIdAsync(gameName, cancellationToken);
+            string? appId = await FetchSteamAppIdAsync(gameName, cancellationToken).ConfigureAwait(false);
             if (appId == null)
             {
                 return null;
             }
 
             Uri url = new($"https://store.steampowered.com/api/appdetails?appids={appId}");
-            HttpResponseMessage response = await _httpClient.GetAsync(url, cancellationToken);
+            HttpResponseMessage response = await _httpClient.GetAsync(url, cancellationToken).ConfigureAwait(false);
             if (!response.IsSuccessStatusCode)
             {
                 return null;
             }
 
-            string content = await response.Content.ReadAsStringAsync(cancellationToken);
+            string content = await response.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
             using JsonDocument doc = JsonDocument.Parse(content);
             if (!doc.RootElement.TryGetProperty(appId, out JsonElement appData) || !appData.GetProperty("success").GetBoolean())
             {
@@ -159,34 +159,177 @@ namespace Easy_Copier.Services
         }
 
         /// <summary>
-        /// Queries the Steam community app search endpoint to find the Steam App ID for a game title.
+        /// Queries the Steam community app search, Steam store search, and CheapShark endpoints to accurately
+        /// resolve the Steam App ID for a game title, using candidate title sanitization and title similarity scoring.
         /// </summary>
-        /// <param name="gameName">The title of the game.</param>
+        /// <param name="gameName">The raw or cleaned title of the game.</param>
         /// <param name="cancellationToken">Cancellation token.</param>
         /// <returns>A task that represents the asynchronous operation. The task result contains the Steam App ID string if found; otherwise, <c>null</c>.</returns>
         private async Task<string?> FetchSteamAppIdAsync(string gameName, CancellationToken cancellationToken)
         {
-            Uri url = new($"https://steamcommunity.com/actions/SearchApps/{Uri.EscapeDataString(gameName)}");
-            try
+            if (string.IsNullOrWhiteSpace(gameName))
             {
-                HttpResponseMessage response = await _httpClient.GetAsync(url, cancellationToken);
-                if (!response.IsSuccessStatusCode)
+                return null;
+            }
+
+            // Generate sanitized candidates (e.g., cleaned title, edition stripped, year stripped)
+            IReadOnlyList<string> candidates = GameTitleSanitizer.GenerateSearchCandidates(gameName);
+
+            string? bestAppId = null;
+            double bestScore = 0.0;
+
+            foreach (string candidate in candidates)
+            {
+                if (cancellationToken.IsCancellationRequested)
                 {
-                    return null;
+                    break;
                 }
 
-                string content = await response.Content.ReadAsStringAsync(cancellationToken);
-                using JsonDocument doc = JsonDocument.Parse(content);
-                if (doc.RootElement.GetArrayLength() > 0)
+                // 1. Steam Community Actions/SearchApps
+                try
                 {
-                    return doc.RootElement[0].GetProperty("appid").GetString();
+                    Uri searchAppsUrl = new($"https://steamcommunity.com/actions/SearchApps/{Uri.EscapeDataString(candidate)}");
+                    HttpResponseMessage response = await _httpClient.GetAsync(searchAppsUrl, cancellationToken).ConfigureAwait(false);
+                    if (response.IsSuccessStatusCode)
+                    {
+                        string content = await response.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
+                        using JsonDocument doc = JsonDocument.Parse(content);
+                        if (doc.RootElement.ValueKind == JsonValueKind.Array)
+                        {
+                            foreach (JsonElement item in doc.RootElement.EnumerateArray())
+                            {
+                                if (item.TryGetProperty("name", out JsonElement nameProp) &&
+                                    item.TryGetProperty("appid", out JsonElement appidProp))
+                                {
+                                    string? appName = nameProp.GetString();
+                                    string? appId = appidProp.GetString();
+                                    if (!string.IsNullOrEmpty(appName) && !string.IsNullOrEmpty(appId))
+                                    {
+                                        double score = GameTitleSanitizer.ComputeMatchScore(candidate, appName);
+                                        if (score > bestScore && score >= 0.55)
+                                        {
+                                            bestScore = score;
+                                            bestAppId = appId;
+
+                                            // Early exit on exact match
+                                            if (score >= 0.95)
+                                            {
+                                                return bestAppId;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    _logger.LogDebug(ex, "Steam Community SearchApps failed for candidate: {Candidate}", candidate);
+                }
+
+                // If a strong match was found, return it
+                if (bestScore >= 0.85 && bestAppId != null)
+                {
+                    return bestAppId;
+                }
+
+                // 2. Steam Store Search API fallback
+                try
+                {
+                    Uri storeSearchUrl = new($"https://store.steampowered.com/api/storesearch/?term={Uri.EscapeDataString(candidate)}&l=english&cc=US");
+                    HttpResponseMessage storeResp = await _httpClient.GetAsync(storeSearchUrl, cancellationToken).ConfigureAwait(false);
+                    if (storeResp.IsSuccessStatusCode)
+                    {
+                        string storeContent = await storeResp.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
+                        using JsonDocument storeDoc = JsonDocument.Parse(storeContent);
+                        if (storeDoc.RootElement.TryGetProperty("items", out JsonElement items) && items.GetArrayLength() > 0)
+                        {
+                            foreach (JsonElement item in items.EnumerateArray())
+                            {
+                                if (item.TryGetProperty("name", out JsonElement nameProp) &&
+                                    item.TryGetProperty("id", out JsonElement idProp))
+                                {
+                                    string? appName = nameProp.GetString();
+                                    int appId = idProp.GetInt32();
+                                    if (!string.IsNullOrEmpty(appName) && appId > 0)
+                                    {
+                                        double score = GameTitleSanitizer.ComputeMatchScore(candidate, appName);
+                                        if (score > bestScore && score >= 0.55)
+                                        {
+                                            bestScore = score;
+                                            bestAppId = appId.ToString(System.Globalization.CultureInfo.InvariantCulture);
+
+                                            if (score >= 0.95)
+                                            {
+                                                return bestAppId;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    _logger.LogDebug(ex, "Steam Store search failed for candidate: {Candidate}", candidate);
+                }
+
+                if (bestScore >= 0.80 && bestAppId != null)
+                {
+                    return bestAppId;
+                }
+
+                // 3. CheapShark aggregator API fallback to resolve Steam App ID
+                try
+                {
+                    Uri cheapSharkUrl = new($"https://www.cheapshark.com/api/1.0/games?title={Uri.EscapeDataString(candidate)}&limit=5");
+                    HttpResponseMessage csResp = await _httpClient.GetAsync(cheapSharkUrl, cancellationToken).ConfigureAwait(false);
+                    if (csResp.IsSuccessStatusCode)
+                    {
+                        string csContent = await csResp.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
+                        using JsonDocument csDoc = JsonDocument.Parse(csContent);
+                        if (csDoc.RootElement.ValueKind == JsonValueKind.Array)
+                        {
+                            foreach (JsonElement item in csDoc.RootElement.EnumerateArray())
+                            {
+                                if (item.TryGetProperty("external", out JsonElement extProp) &&
+                                    item.TryGetProperty("steamAppID", out JsonElement steamProp))
+                                {
+                                    string? extName = extProp.GetString();
+                                    string? steamId = steamProp.GetString();
+                                    if (!string.IsNullOrEmpty(extName) && !string.IsNullOrEmpty(steamId) && steamId != "0")
+                                    {
+                                        double score = GameTitleSanitizer.ComputeMatchScore(candidate, extName);
+                                        if (score > bestScore && score >= 0.60)
+                                        {
+                                            bestScore = score;
+                                            bestAppId = steamId;
+
+                                            if (score >= 0.95)
+                                            {
+                                                return bestAppId;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    _logger.LogDebug(ex, "CheapShark AppId lookup failed for candidate: {Candidate}", candidate);
+                }
+
+                if (bestAppId != null && bestScore >= 0.65)
+                {
+                    return bestAppId;
                 }
             }
-            catch (Exception ex)
-            {
-                _logger.LogWarning(ex, "Steam AppId fetch failed for {GameName}", gameName);
-            }
-            return null;
+
+            return bestAppId;
         }
     }
 }

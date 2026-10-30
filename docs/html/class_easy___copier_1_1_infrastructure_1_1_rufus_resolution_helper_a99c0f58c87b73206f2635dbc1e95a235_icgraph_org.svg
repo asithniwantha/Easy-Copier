@@ -22,7 +22,7 @@
 <!-- Node2 -->
 <g id="Node000002" class="node">
 <title>Node2</title>
-<g id="a_Node000002"><a xlink:href="class_easy___copier_1_1_view_models_1_1_settings_view_model.html#a6aaaa719e0c2c48ca059f1ed8753e0a4" target="_top" xlink:title=" ">
+<g id="a_Node000002"><a xlink:href="class_easy___copier_1_1_view_models_1_1_settings_view_model.html#a6aaaa719e0c2c48ca059f1ed8753e0a4" target="_top" xlink:title="Asynchronously prompts the user to select a Rufus executable file using a file picker.">
 <polygon fill="white" stroke="#666666" points="557.25,-132 354.5,-132 354.5,-100 557.25,-100 557.25,-132"/>
 <text xml:space="preserve" text-anchor="start" x="362.5" y="-118.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.ViewModels.Settings</text>
 <text xml:space="preserve" text-anchor="middle" x="455.88" y="-106.5" font-family="Helvetica,sans-Serif" font-size="10.00">ViewModel.BrowseRufusExecutableAsync</text>
@@ -60,7 +60,7 @@
 <!-- Node4 -->
 <g id="Node000004" class="node">
 <title>Node4</title>
-<g id="a_Node000004"><a xlink:href="class_easy___copier_1_1_view_models_1_1_settings_view_model.html#a6348434751494a82036ccfef6961f24c" target="_top" xlink:title=" ">
+<g id="a_Node000004"><a xlink:href="class_easy___copier_1_1_view_models_1_1_settings_view_model.html#a6348434751494a82036ccfef6961f24c" target="_top" xlink:title="Asynchronously loads settings from persistent storage and validates configured source library folders...">
 <polygon fill="white" stroke="#666666" points="539.62,-32 372.12,-32 372.12,0 539.62,0 539.62,-32"/>
 <text xml:space="preserve" text-anchor="start" x="380.12" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.ViewModels.Settings</text>
 <text xml:space="preserve" text-anchor="middle" x="455.88" y="-6.5" font-family="Helvetica,sans-Serif" font-size="10.00">ViewModel.LoadSettingsAsync</text>
@@ -79,7 +79,7 @@
 <!-- Node5 -->
 <g id="Node000005" class="node">
 <title>Node5</title>
-<g id="a_Node000005"><a xlink:href="class_easy___copier_1_1_views_1_1_settings_window.html#accf917a45f4d17ebb1686716a3cc5ff0" target="_top" xlink:title=" ">
+<g id="a_Node000005"><a xlink:href="class_easy___copier_1_1_views_1_1_settings_window.html#accf917a45f4d17ebb1686716a3cc5ff0" target="_top" xlink:title="Asynchronously loads settings and executes any initial action specified when opening settings.">
 <polygon fill="white" stroke="#666666" points="318.5,-32 177.25,-32 177.25,0 318.5,0 318.5,-32"/>
 <text xml:space="preserve" text-anchor="start" x="185.25" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Views.Settings</text>
 <text xml:space="preserve" text-anchor="middle" x="247.88" y="-6.5" font-family="Helvetica,sans-Serif" font-size="10.00">Window.LoadAsync</text>
@@ -98,7 +98,7 @@
 <!-- Node6 -->
 <g id="Node000006" class="node">
 <title>Node6</title>
-<g id="a_Node000006"><a xlink:href="class_easy___copier_1_1_views_1_1_settings_window.html#aa5c96a3985044d8ebabe043cd105e570" target="_top" xlink:title=" ">
+<g id="a_Node000006"><a xlink:href="class_easy___copier_1_1_views_1_1_settings_window.html#aa5c96a3985044d8ebabe043cd105e570" target="_top" xlink:title="Initializes a new instance of the SettingsWindow class.">
 <polygon fill="white" stroke="#666666" points="141.25,-32 0,-32 0,0 141.25,0 141.25,-32"/>
 <text xml:space="preserve" text-anchor="start" x="8" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Views.Settings</text>
 <text xml:space="preserve" text-anchor="middle" x="70.62" y="-6.5" font-family="Helvetica,sans-Serif" font-size="10.00">Window.SettingsWindow</text>

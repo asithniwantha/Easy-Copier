@@ -13,6 +13,7 @@ var class_easy___copier_1_1_models_1_1_transfer_queue_item =
     [ "SpeedText", "class_easy___copier_1_1_models_1_1_transfer_queue_item.html#ac61cdd9969984032eb51940b2d25f9b4", null ],
     [ "Status", "class_easy___copier_1_1_models_1_1_transfer_queue_item.html#a1de6634af1a766282785a87d10b9c157", null ],
     [ "StatusGlyph", "class_easy___copier_1_1_models_1_1_transfer_queue_item.html#a5bb1c34374cac24bee899adab5c97f61", null ],
+    [ "StatusLabel", "class_easy___copier_1_1_models_1_1_transfer_queue_item.html#a5c47180a959e3ca42b7687497d9269af", null ],
     [ "StatusMessage", "class_easy___copier_1_1_models_1_1_transfer_queue_item.html#aa49fdd8a6c9add423b4886e91ab67605", null ],
     [ "TargetDrive", "class_easy___copier_1_1_models_1_1_transfer_queue_item.html#a2756f829d018931633b07358420b74f2", null ],
     [ "TotalBytes", "class_easy___copier_1_1_models_1_1_transfer_queue_item.html#ad612cbf251bcaeab86c0f97fbdfc6df2", null ],

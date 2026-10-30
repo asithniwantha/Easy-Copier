@@ -1,7 +1,7 @@
 <map id="Easy_Copier.Infrastructure.IProcessService.OpenInExplorer" name="Easy_Copier.Infrastructure.IProcessService.OpenInExplorer">
 <area shape="rect" id="Node000001" title="Opens Windows File Explorer to the specified directory or file path." alt="" coords="264,39,475,81"/>
-<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_view_models_1_1_main_view_model.html#a195375d57bfc44705a42912953779fc8" title=" " alt="" coords="5,5,216,48"/>
+<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_view_models_1_1_main_view_model.html#a195375d57bfc44705a42912953779fc8" title="Opens the root directory of the selected drive in Windows File Explorer." alt="" coords="5,5,216,48"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="245,45,216,43,216,38,251,44"/>
-<area shape="rect" id="Node000003" href="$class_easy___copier_1_1_view_models_1_1_main_view_model.html#a63d690ccd06a437c3b6bcbb1855c1e50" title=" " alt="" coords="9,72,212,115"/>
+<area shape="rect" id="Node000003" href="$class_easy___copier_1_1_view_models_1_1_main_view_model.html#a63d690ccd06a437c3b6bcbb1855c1e50" title="Opens the specified item folder path in Windows File Explorer." alt="" coords="9,72,212,115"/>
 <area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="245,76,213,83,212,78,251,75"/>
 </map>

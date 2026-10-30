@@ -118,12 +118,19 @@ Classes</h2></td></tr>
 <tr class="memitem:FileOperationInterop" id="r_FileOperationInterop"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="class_easy___copier_1_1_interop_1_1_file_operation_interop.html">FileOperationInterop</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Provides interop helper constants and P/Invoke declarations for Windows Shell file operations.  <a href="class_easy___copier_1_1_interop_1_1_file_operation_interop.html#details">More...</a><br /></td></tr>
 <tr class="memitem:FileOperationProgressSink" id="r_FileOperationProgressSink"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="class_easy___copier_1_1_interop_1_1_file_operation_progress_sink.html">FileOperationProgressSink</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Receives progress updates from Windows Shell IFileOperation and reports transfer status and speed metrics.  <a href="class_easy___copier_1_1_interop_1_1_file_operation_progress_sink.html#details">More...</a><br /></td></tr>
+<tr class="memitem:Gdi32Interop" id="r_Gdi32Interop"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="class_easy___copier_1_1_interop_1_1_gdi32_interop.html">Gdi32Interop</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Provides interop helper constants and P/Invoke declarations for GDI32.  <a href="class_easy___copier_1_1_interop_1_1_gdi32_interop.html#details">More...</a><br /></td></tr>
 <tr class="memitem:IFileOperation" id="r_IFileOperation"><td class="memItemLeft">interface &#160;</td><td class="memItemRight"><a class="el" href="interface_easy___copier_1_1_interop_1_1_i_file_operation.html">IFileOperation</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Exposes methods for copying, moving, renaming, deleting, and creating Shell items.  <a href="interface_easy___copier_1_1_interop_1_1_i_file_operation.html#details">More...</a><br /></td></tr>
 <tr class="memitem:IFileOperationProgressSink" id="r_IFileOperationProgressSink"><td class="memItemLeft">interface &#160;</td><td class="memItemRight"><a class="el" href="interface_easy___copier_1_1_interop_1_1_i_file_operation_progress_sink.html">IFileOperationProgressSink</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Exposes status and notification methods for file operation events.  <a href="interface_easy___copier_1_1_interop_1_1_i_file_operation_progress_sink.html#details">More...</a><br /></td></tr>
 <tr class="memitem:IShellItem" id="r_IShellItem"><td class="memItemLeft">interface &#160;</td><td class="memItemRight"><a class="el" href="interface_easy___copier_1_1_interop_1_1_i_shell_item.html">IShellItem</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Exposes methods that retrieve information about a Shell item.  <a href="interface_easy___copier_1_1_interop_1_1_i_shell_item.html#details">More...</a><br /></td></tr>
+<tr class="memitem:IShellItemImageFactory" id="r_IShellItemImageFactory"><td class="memItemLeft">interface &#160;</td><td class="memItemRight"><a class="el" href="interface_easy___copier_1_1_interop_1_1_i_shell_item_image_factory.html">IShellItemImageFactory</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Exposes a method to return either icons or thumbnails for Shell items.  <a href="interface_easy___copier_1_1_interop_1_1_i_shell_item_image_factory.html#details">More...</a><br /></td></tr>
+<tr class="memitem:SIZE" id="r_SIZE"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="struct_easy___copier_1_1_interop_1_1_s_i_z_e.html">SIZE</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents the native <a class="el" href="struct_easy___copier_1_1_interop_1_1_s_i_z_e.html" title="Represents the native SIZE structure.">SIZE</a> structure.  <a href="struct_easy___copier_1_1_interop_1_1_s_i_z_e.html#details">More...</a><br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-enum-members" class="groupheader"><a id="enum-members" name="enum-members"></a>
 Enumerations</h2></td></tr>
@@ -142,7 +149,7 @@ Enumerations</h2></td></tr>
 , <a class="el" href="#afd900c2991e05496e7482283f060be9cad7c63115ffa44d08f6634fe965fe2855">PARENTRELATIVEFORUI</a> = unchecked((int)0x80094001)
 <br />
  }</td></tr>
-<tr class="memdesc:afd900c2991e05496e7482283f060be9c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Requests the form of an item's display name to retrieve through <a class="el" href="interface_easy___copier_1_1_interop_1_1_i_shell_item.html#aa0d7dae05e3f34aea9c8515d499555d1">IShellItem.GetDisplayName</a>.  <a href="#afd900c2991e05496e7482283f060be9c">More...</a><br /></td></tr>
+<tr class="memdesc:afd900c2991e05496e7482283f060be9c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Requests the form of an item's display name to retrieve through IShellItem.GetDisplayName.  <a href="#afd900c2991e05496e7482283f060be9c">More...</a><br /></td></tr>
 <tr class="memitem:af4c32f2a5129cc8e5cca17819f42d6ea" id="r_af4c32f2a5129cc8e5cca17819f42d6ea"><td class="memItemLeft">enum &#160;</td><td class="memItemRight"><a class="el" href="#af4c32f2a5129cc8e5cca17819f42d6ea">FILEOP_FLAGS</a> : uint { <br />
 &#160;&#160;<a class="el" href="#af4c32f2a5129cc8e5cca17819f42d6eaa916c6edcca26fcbe92e409c10aea6de8">FOF_MULTIDESTFILES</a> = 0x0001
 , <a class="el" href="#af4c32f2a5129cc8e5cca17819f42d6eaabb01ac41b17c19d7d5fcdbdd923cecc4">FOF_CONFIRMMOUSE</a> = 0x0002
@@ -185,7 +192,18 @@ Enumerations</h2></td></tr>
 , <a class="el" href="#af4c32f2a5129cc8e5cca17819f42d6eaae8e03f14ffd207342270705304ad7626">FOFX_DONTDISPLAYLOCATIONS</a> = 0x80000000
 <br />
  }</td></tr>
-<tr class="memdesc:af4c32f2a5129cc8e5cca17819f42d6ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Flags that control file operations performed by <a class="el" href="interface_easy___copier_1_1_interop_1_1_i_file_operation.html" title="Exposes methods for copying, moving, renaming, deleting, and creating Shell items.">IFileOperation</a>.  <a href="#af4c32f2a5129cc8e5cca17819f42d6ea">More...</a><br /></td></tr>
+<tr class="memdesc:af4c32f2a5129cc8e5cca17819f42d6ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Flags that control file operations performed by IFileOperation.  <a href="#af4c32f2a5129cc8e5cca17819f42d6ea">More...</a><br /></td></tr>
+<tr class="memitem:ad7ee0e4c2122ee03076db127c19eba8f" id="r_ad7ee0e4c2122ee03076db127c19eba8f"><td class="memItemLeft">enum &#160;</td><td class="memItemRight"><a class="el" href="#ad7ee0e4c2122ee03076db127c19eba8f">SIIGBF</a> { <br />
+&#160;&#160;<a class="el" href="#ad7ee0e4c2122ee03076db127c19eba8fa2930dede2635d6bc570302f485c042a9">SIIGBF_RESIZETOFIT</a> = 0x00
+, <a class="el" href="#ad7ee0e4c2122ee03076db127c19eba8fac105684d0383b44be267410b0baa7cd6">SIIGBF_BIGGERSIZEOK</a> = 0x01
+, <a class="el" href="#ad7ee0e4c2122ee03076db127c19eba8fa35c87dfd2f7686b658039b63c989c8ca">SIIGBF_MEMORYONLY</a> = 0x02
+, <a class="el" href="#ad7ee0e4c2122ee03076db127c19eba8fa287a587db034541d4e483f1eb813ff48">SIIGBF_ICONONLY</a> = 0x04
+, <br />
+&#160;&#160;<a class="el" href="#ad7ee0e4c2122ee03076db127c19eba8fa9781dd39cd5a4b601122a5630bf848e7">SIIGBF_THUMBNAILONLY</a> = 0x08
+, <a class="el" href="#ad7ee0e4c2122ee03076db127c19eba8fa197c3431ccdf6e2b3827b12b6a3df022">SIIGBF_INCACHEONLY</a> = 0x10
+<br />
+ }</td></tr>
+<tr class="memdesc:ad7ee0e4c2122ee03076db127c19eba8f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Flags that specify how the image should be generated for <a class="el" href="interface_easy___copier_1_1_interop_1_1_i_shell_item_image_factory.html" title="Exposes a method to return either icons or thumbnails for Shell items.">IShellItemImageFactory</a>.  <a href="#ad7ee0e4c2122ee03076db127c19eba8f">More...</a><br /></td></tr>
 </table>
 <a name="doc-enum-members" id="doc-enum-members"></a><h2 id="header-doc-enum-members" class="groupheader">Enumeration Type Documentation</h2>
 <a id="af4c32f2a5129cc8e5cca17819f42d6ea" name="af4c32f2a5129cc8e5cca17819f42d6ea"></a>
@@ -200,43 +218,75 @@ Enumerations</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Flags that control file operations performed by <a class="el" href="interface_easy___copier_1_1_interop_1_1_i_file_operation.html" title="Exposes methods for copying, moving, renaming, deleting, and creating Shell items.">IFileOperation</a>. </p>
+<p>Flags that control file operations performed by IFileOperation. </p>
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="af4c32f2a5129cc8e5cca17819f42d6eaa916c6edcca26fcbe92e409c10aea6de8" name="af4c32f2a5129cc8e5cca17819f42d6eaa916c6edcca26fcbe92e409c10aea6de8"></a>FOF_MULTIDESTFILES&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="af4c32f2a5129cc8e5cca17819f42d6eaabb01ac41b17c19d7d5fcdbdd923cecc4" name="af4c32f2a5129cc8e5cca17819f42d6eaabb01ac41b17c19d7d5fcdbdd923cecc4"></a>FOF_CONFIRMMOUSE&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="af4c32f2a5129cc8e5cca17819f42d6eaa8bf7b312d5b93da887ab2844b18aed1a" name="af4c32f2a5129cc8e5cca17819f42d6eaa8bf7b312d5b93da887ab2844b18aed1a"></a>FOF_SILENT&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="af4c32f2a5129cc8e5cca17819f42d6eaac5ad41e647e0a644896a4b39571b8182" name="af4c32f2a5129cc8e5cca17819f42d6eaac5ad41e647e0a644896a4b39571b8182"></a>FOF_RENAMEONCOLLISION&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="af4c32f2a5129cc8e5cca17819f42d6eaa605b21fe766602589f2270f9949134f4" name="af4c32f2a5129cc8e5cca17819f42d6eaa605b21fe766602589f2270f9949134f4"></a>FOF_NOCONFIRMATION&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="af4c32f2a5129cc8e5cca17819f42d6eaa9db8e499bdd27ea2b39e861af3c25536" name="af4c32f2a5129cc8e5cca17819f42d6eaa9db8e499bdd27ea2b39e861af3c25536"></a>FOF_WANTMAPPINGHANDLE&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="af4c32f2a5129cc8e5cca17819f42d6eaaf1342f67dcae2e207190efe86a7ed006" name="af4c32f2a5129cc8e5cca17819f42d6eaaf1342f67dcae2e207190efe86a7ed006"></a>FOF_ALLOWUNDO&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="af4c32f2a5129cc8e5cca17819f42d6eaa65126f2f8e311ffbac5cd34985fc1f18" name="af4c32f2a5129cc8e5cca17819f42d6eaa65126f2f8e311ffbac5cd34985fc1f18"></a>FOF_FILESONLY&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="af4c32f2a5129cc8e5cca17819f42d6eaa040716cf07855cda0dd8f18b598b39be" name="af4c32f2a5129cc8e5cca17819f42d6eaa040716cf07855cda0dd8f18b598b39be"></a>FOF_SIMPLEPROGRESS&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="af4c32f2a5129cc8e5cca17819f42d6eaaf8309d11191e5db5fb6b784306de8db6" name="af4c32f2a5129cc8e5cca17819f42d6eaaf8309d11191e5db5fb6b784306de8db6"></a>FOF_NOCONFIRMMKDIR&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="af4c32f2a5129cc8e5cca17819f42d6eaaa83f80db09d540edbcb586ebc43b8cdc" name="af4c32f2a5129cc8e5cca17819f42d6eaaa83f80db09d540edbcb586ebc43b8cdc"></a>FOF_NOERRORUI&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="af4c32f2a5129cc8e5cca17819f42d6eaaec36111205cd05b954cfe299096fb3f5" name="af4c32f2a5129cc8e5cca17819f42d6eaaec36111205cd05b954cfe299096fb3f5"></a>FOF_NOCOPYSECURITYATTRIBS&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="af4c32f2a5129cc8e5cca17819f42d6eaae2412885c319dae075332c518e259b36" name="af4c32f2a5129cc8e5cca17819f42d6eaae2412885c319dae075332c518e259b36"></a>FOF_NORECURSION&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="af4c32f2a5129cc8e5cca17819f42d6eaaea442d22929ea12b3fe08e3e751a0e4b" name="af4c32f2a5129cc8e5cca17819f42d6eaaea442d22929ea12b3fe08e3e751a0e4b"></a>FOF_NO_CONNECTED_ELEMENTS&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="af4c32f2a5129cc8e5cca17819f42d6eaa586fd255f96cf64e04bd34527dfe03a3" name="af4c32f2a5129cc8e5cca17819f42d6eaa586fd255f96cf64e04bd34527dfe03a3"></a>FOF_WANTNUKEWARNING&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="af4c32f2a5129cc8e5cca17819f42d6eaaac1059a42115816cd8d0b617a266f393" name="af4c32f2a5129cc8e5cca17819f42d6eaaac1059a42115816cd8d0b617a266f393"></a>FOF_NORECURSEREPARSE&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="af4c32f2a5129cc8e5cca17819f42d6eaa057797dc1ea95b6771a2d227c65565c4" name="af4c32f2a5129cc8e5cca17819f42d6eaa057797dc1ea95b6771a2d227c65565c4"></a>FOFX_NOSKIPWARNINGS&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="af4c32f2a5129cc8e5cca17819f42d6eaa40fd67c93d90f03184041979ec380f29" name="af4c32f2a5129cc8e5cca17819f42d6eaa40fd67c93d90f03184041979ec380f29"></a>FOFX_PREFERHARDLINK&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="af4c32f2a5129cc8e5cca17819f42d6eaa3dc8b5132753ca4305521e0dc0918ff1" name="af4c32f2a5129cc8e5cca17819f42d6eaa3dc8b5132753ca4305521e0dc0918ff1"></a>FOFX_SHOWELEVATIONPROMPT&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="af4c32f2a5129cc8e5cca17819f42d6eaad022c62dcb3ef1c54c3b5c9d409f603d" name="af4c32f2a5129cc8e5cca17819f42d6eaad022c62dcb3ef1c54c3b5c9d409f603d"></a>FOFX_RECYCLEONDELETE&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="af4c32f2a5129cc8e5cca17819f42d6eaa9473df36de14f0e72ac1db28715e8c4c" name="af4c32f2a5129cc8e5cca17819f42d6eaa9473df36de14f0e72ac1db28715e8c4c"></a>FOFX_EARLYFAILURE&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="af4c32f2a5129cc8e5cca17819f42d6eaa1e9acabfbb765c59aac36c91c1bbd954" name="af4c32f2a5129cc8e5cca17819f42d6eaa1e9acabfbb765c59aac36c91c1bbd954"></a>FOFX_PRESERVEFILEEXTENSIONS&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="af4c32f2a5129cc8e5cca17819f42d6eaaf3f809cc75585a509cb1b3b9ae81ef28" name="af4c32f2a5129cc8e5cca17819f42d6eaaf3f809cc75585a509cb1b3b9ae81ef28"></a>FOFX_KEEPNEWERFILE&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="af4c32f2a5129cc8e5cca17819f42d6eaaaab59459c8bed1ef36e080fbf7a11fe0" name="af4c32f2a5129cc8e5cca17819f42d6eaaaab59459c8bed1ef36e080fbf7a11fe0"></a>FOFX_NOCOPYHOOKS&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="af4c32f2a5129cc8e5cca17819f42d6eaad9417d618e01c9ee0a8105ac8ec381cf" name="af4c32f2a5129cc8e5cca17819f42d6eaad9417d618e01c9ee0a8105ac8ec381cf"></a>FOFX_NOMINIMIZEBOX&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="af4c32f2a5129cc8e5cca17819f42d6eaa64a21dd5757c16cea4ddb7dd80f1bb3e" name="af4c32f2a5129cc8e5cca17819f42d6eaa64a21dd5757c16cea4ddb7dd80f1bb3e"></a>FOFX_MOVEACLSACROSSVOLUMES&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="af4c32f2a5129cc8e5cca17819f42d6eaa9ad5fc52631eff6c4951943441c4b152" name="af4c32f2a5129cc8e5cca17819f42d6eaa9ad5fc52631eff6c4951943441c4b152"></a>FOFX_DONTDISPLAYSOURCEPATH&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="af4c32f2a5129cc8e5cca17819f42d6eaac097cccc73bcd162e852b79ec21169da" name="af4c32f2a5129cc8e5cca17819f42d6eaac097cccc73bcd162e852b79ec21169da"></a>FOFX_DONTDISPLAYDESTPATH&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="af4c32f2a5129cc8e5cca17819f42d6eaac954d40b8f6bba7dcb34d31fb489b89a" name="af4c32f2a5129cc8e5cca17819f42d6eaac954d40b8f6bba7dcb34d31fb489b89a"></a>FOFX_REQUIREELEVATION&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="af4c32f2a5129cc8e5cca17819f42d6eaa3833156cddb923584030c4082a2b572b" name="af4c32f2a5129cc8e5cca17819f42d6eaa3833156cddb923584030c4082a2b572b"></a>FOFX_ADDUNDORECORD&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="af4c32f2a5129cc8e5cca17819f42d6eaa0b519aea9d39fbb1d6165ee2e60802d4" name="af4c32f2a5129cc8e5cca17819f42d6eaa0b519aea9d39fbb1d6165ee2e60802d4"></a>FOFX_COPYASDOWNLOAD&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="af4c32f2a5129cc8e5cca17819f42d6eaae8e03f14ffd207342270705304ad7626" name="af4c32f2a5129cc8e5cca17819f42d6eaae8e03f14ffd207342270705304ad7626"></a>FOFX_DONTDISPLAYLOCATIONS&#160;</td><td class="fielddoc"></td></tr>
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="af4c32f2a5129cc8e5cca17819f42d6eaa916c6edcca26fcbe92e409c10aea6de8" name="af4c32f2a5129cc8e5cca17819f42d6eaa916c6edcca26fcbe92e409c10aea6de8"></a>FOF_MULTIDESTFILES&#160;</td><td class="fielddoc"><p>Assigns multiple destination files for each source file. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="af4c32f2a5129cc8e5cca17819f42d6eaabb01ac41b17c19d7d5fcdbdd923cecc4" name="af4c32f2a5129cc8e5cca17819f42d6eaabb01ac41b17c19d7d5fcdbdd923cecc4"></a>FOF_CONFIRMMOUSE&#160;</td><td class="fielddoc"><p>Not used. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="af4c32f2a5129cc8e5cca17819f42d6eaa8bf7b312d5b93da887ab2844b18aed1a" name="af4c32f2a5129cc8e5cca17819f42d6eaa8bf7b312d5b93da887ab2844b18aed1a"></a>FOF_SILENT&#160;</td><td class="fielddoc"><p>Does not display a progress dialog box. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="af4c32f2a5129cc8e5cca17819f42d6eaac5ad41e647e0a644896a4b39571b8182" name="af4c32f2a5129cc8e5cca17819f42d6eaac5ad41e647e0a644896a4b39571b8182"></a>FOF_RENAMEONCOLLISION&#160;</td><td class="fielddoc"><p>Gives the item being operated on a new name in collision operations. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="af4c32f2a5129cc8e5cca17819f42d6eaa605b21fe766602589f2270f9949134f4" name="af4c32f2a5129cc8e5cca17819f42d6eaa605b21fe766602589f2270f9949134f4"></a>FOF_NOCONFIRMATION&#160;</td><td class="fielddoc"><p>Responds with 'Yes to All' for any dialog box presented. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="af4c32f2a5129cc8e5cca17819f42d6eaa9db8e499bdd27ea2b39e861af3c25536" name="af4c32f2a5129cc8e5cca17819f42d6eaa9db8e499bdd27ea2b39e861af3c25536"></a>FOF_WANTMAPPINGHANDLE&#160;</td><td class="fielddoc"><p>Preserves undo information if possible. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="af4c32f2a5129cc8e5cca17819f42d6eaaf1342f67dcae2e207190efe86a7ed006" name="af4c32f2a5129cc8e5cca17819f42d6eaaf1342f67dcae2e207190efe86a7ed006"></a>FOF_ALLOWUNDO&#160;</td><td class="fielddoc"><p>Preserves undo information, if possible. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="af4c32f2a5129cc8e5cca17819f42d6eaa65126f2f8e311ffbac5cd34985fc1f18" name="af4c32f2a5129cc8e5cca17819f42d6eaa65126f2f8e311ffbac5cd34985fc1f18"></a>FOF_FILESONLY&#160;</td><td class="fielddoc"><p>Performs the operation on files only if a wildcard file name is specified. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="af4c32f2a5129cc8e5cca17819f42d6eaa040716cf07855cda0dd8f18b598b39be" name="af4c32f2a5129cc8e5cca17819f42d6eaa040716cf07855cda0dd8f18b598b39be"></a>FOF_SIMPLEPROGRESS&#160;</td><td class="fielddoc"><p>Displays a progress dialog box but does not show file names. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="af4c32f2a5129cc8e5cca17819f42d6eaaf8309d11191e5db5fb6b784306de8db6" name="af4c32f2a5129cc8e5cca17819f42d6eaaf8309d11191e5db5fb6b784306de8db6"></a>FOF_NOCONFIRMMKDIR&#160;</td><td class="fielddoc"><p>Does not confirm creation of a new directory if the operation requires one to be created. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="af4c32f2a5129cc8e5cca17819f42d6eaaa83f80db09d540edbcb586ebc43b8cdc" name="af4c32f2a5129cc8e5cca17819f42d6eaaa83f80db09d540edbcb586ebc43b8cdc"></a>FOF_NOERRORUI&#160;</td><td class="fielddoc"><p>Does not display a user interface if an error occurs. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="af4c32f2a5129cc8e5cca17819f42d6eaaec36111205cd05b954cfe299096fb3f5" name="af4c32f2a5129cc8e5cca17819f42d6eaaec36111205cd05b954cfe299096fb3f5"></a>FOF_NOCOPYSECURITYATTRIBS&#160;</td><td class="fielddoc"><p>Does not copy security attributes of the file. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="af4c32f2a5129cc8e5cca17819f42d6eaae2412885c319dae075332c518e259b36" name="af4c32f2a5129cc8e5cca17819f42d6eaae2412885c319dae075332c518e259b36"></a>FOF_NORECURSION&#160;</td><td class="fielddoc"><p>Only operates in the local directory. Does not operate recursively into subdirectories. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="af4c32f2a5129cc8e5cca17819f42d6eaaea442d22929ea12b3fe08e3e751a0e4b" name="af4c32f2a5129cc8e5cca17819f42d6eaaea442d22929ea12b3fe08e3e751a0e4b"></a>FOF_NO_CONNECTED_ELEMENTS&#160;</td><td class="fielddoc"><p>Does not move connected items as a group. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="af4c32f2a5129cc8e5cca17819f42d6eaa586fd255f96cf64e04bd34527dfe03a3" name="af4c32f2a5129cc8e5cca17819f42d6eaa586fd255f96cf64e04bd34527dfe03a3"></a>FOF_WANTNUKEWARNING&#160;</td><td class="fielddoc"><p>Warns if an item is being permanently destroyed during delete. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="af4c32f2a5129cc8e5cca17819f42d6eaaac1059a42115816cd8d0b617a266f393" name="af4c32f2a5129cc8e5cca17819f42d6eaaac1059a42115816cd8d0b617a266f393"></a>FOF_NORECURSEREPARSE&#160;</td><td class="fielddoc"><p>Does not traverse reparse points. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="af4c32f2a5129cc8e5cca17819f42d6eaa057797dc1ea95b6771a2d227c65565c4" name="af4c32f2a5129cc8e5cca17819f42d6eaa057797dc1ea95b6771a2d227c65565c4"></a>FOFX_NOSKIPWARNINGS&#160;</td><td class="fielddoc"><p>Does not skip warnings. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="af4c32f2a5129cc8e5cca17819f42d6eaa40fd67c93d90f03184041979ec380f29" name="af4c32f2a5129cc8e5cca17819f42d6eaa40fd67c93d90f03184041979ec380f29"></a>FOFX_PREFERHARDLINK&#160;</td><td class="fielddoc"><p>Prefers creation of a hard link over copying. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="af4c32f2a5129cc8e5cca17819f42d6eaa3dc8b5132753ca4305521e0dc0918ff1" name="af4c32f2a5129cc8e5cca17819f42d6eaa3dc8b5132753ca4305521e0dc0918ff1"></a>FOFX_SHOWELEVATIONPROMPT&#160;</td><td class="fielddoc"><p>Shows elevation prompt if required. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="af4c32f2a5129cc8e5cca17819f42d6eaad022c62dcb3ef1c54c3b5c9d409f603d" name="af4c32f2a5129cc8e5cca17819f42d6eaad022c62dcb3ef1c54c3b5c9d409f603d"></a>FOFX_RECYCLEONDELETE&#160;</td><td class="fielddoc"><p>Recycles items on delete if possible. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="af4c32f2a5129cc8e5cca17819f42d6eaa9473df36de14f0e72ac1db28715e8c4c" name="af4c32f2a5129cc8e5cca17819f42d6eaa9473df36de14f0e72ac1db28715e8c4c"></a>FOFX_EARLYFAILURE&#160;</td><td class="fielddoc"><p>Fails immediately if any single operation fails. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="af4c32f2a5129cc8e5cca17819f42d6eaa1e9acabfbb765c59aac36c91c1bbd954" name="af4c32f2a5129cc8e5cca17819f42d6eaa1e9acabfbb765c59aac36c91c1bbd954"></a>FOFX_PRESERVEFILEEXTENSIONS&#160;</td><td class="fielddoc"><p>Preserves file extensions during rename operations. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="af4c32f2a5129cc8e5cca17819f42d6eaaf3f809cc75585a509cb1b3b9ae81ef28" name="af4c32f2a5129cc8e5cca17819f42d6eaaf3f809cc75585a509cb1b3b9ae81ef28"></a>FOFX_KEEPNEWERFILE&#160;</td><td class="fielddoc"><p>Keeps the newer file during collisions. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="af4c32f2a5129cc8e5cca17819f42d6eaaaab59459c8bed1ef36e080fbf7a11fe0" name="af4c32f2a5129cc8e5cca17819f42d6eaaaab59459c8bed1ef36e080fbf7a11fe0"></a>FOFX_NOCOPYHOOKS&#160;</td><td class="fielddoc"><p>Does not execute copy hooks. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="af4c32f2a5129cc8e5cca17819f42d6eaad9417d618e01c9ee0a8105ac8ec381cf" name="af4c32f2a5129cc8e5cca17819f42d6eaad9417d618e01c9ee0a8105ac8ec381cf"></a>FOFX_NOMINIMIZEBOX&#160;</td><td class="fielddoc"><p>Does not display a minimize box on progress dialogs. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="af4c32f2a5129cc8e5cca17819f42d6eaa64a21dd5757c16cea4ddb7dd80f1bb3e" name="af4c32f2a5129cc8e5cca17819f42d6eaa64a21dd5757c16cea4ddb7dd80f1bb3e"></a>FOFX_MOVEACLSACROSSVOLUMES&#160;</td><td class="fielddoc"><p>Moves access control lists across volumes. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="af4c32f2a5129cc8e5cca17819f42d6eaa9ad5fc52631eff6c4951943441c4b152" name="af4c32f2a5129cc8e5cca17819f42d6eaa9ad5fc52631eff6c4951943441c4b152"></a>FOFX_DONTDISPLAYSOURCEPATH&#160;</td><td class="fielddoc"><p>Does not display source path in progress UI. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="af4c32f2a5129cc8e5cca17819f42d6eaac097cccc73bcd162e852b79ec21169da" name="af4c32f2a5129cc8e5cca17819f42d6eaac097cccc73bcd162e852b79ec21169da"></a>FOFX_DONTDISPLAYDESTPATH&#160;</td><td class="fielddoc"><p>Does not display destination path in progress UI. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="af4c32f2a5129cc8e5cca17819f42d6eaac954d40b8f6bba7dcb34d31fb489b89a" name="af4c32f2a5129cc8e5cca17819f42d6eaac954d40b8f6bba7dcb34d31fb489b89a"></a>FOFX_REQUIREELEVATION&#160;</td><td class="fielddoc"><p>Requires UAC elevation for the operation. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="af4c32f2a5129cc8e5cca17819f42d6eaa3833156cddb923584030c4082a2b572b" name="af4c32f2a5129cc8e5cca17819f42d6eaa3833156cddb923584030c4082a2b572b"></a>FOFX_ADDUNDORECORD&#160;</td><td class="fielddoc"><p>Adds an undo record. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="af4c32f2a5129cc8e5cca17819f42d6eaa0b519aea9d39fbb1d6165ee2e60802d4" name="af4c32f2a5129cc8e5cca17819f42d6eaa0b519aea9d39fbb1d6165ee2e60802d4"></a>FOFX_COPYASDOWNLOAD&#160;</td><td class="fielddoc"><p>Treats copy operation as a download. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="af4c32f2a5129cc8e5cca17819f42d6eaae8e03f14ffd207342270705304ad7626" name="af4c32f2a5129cc8e5cca17819f42d6eaae8e03f14ffd207342270705304ad7626"></a>FOFX_DONTDISPLAYLOCATIONS&#160;</td><td class="fielddoc"><p>Does not display source or destination locations in progress UI. </p>
+</td></tr>
 </table>
 
-<p class="definition">Definition at line <a class="el" href="_file_operation_interop_8cs_source.html#l00140">140</a> of file <a class="el" href="_file_operation_interop_8cs_source.html">FileOperationInterop.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_file_operation_interop_8cs_source.html#l00467">467</a> of file <a class="el" href="_file_operation_interop_8cs_source.html">FileOperationInterop.cs</a>.</p>
 
 </div>
 </div>
@@ -252,21 +302,63 @@ Enumerations</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Requests the form of an item's display name to retrieve through <a class="el" href="interface_easy___copier_1_1_interop_1_1_i_shell_item.html#aa0d7dae05e3f34aea9c8515d499555d1">IShellItem.GetDisplayName</a>. </p>
+<p>Requests the form of an item's display name to retrieve through IShellItem.GetDisplayName. </p>
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="afd900c2991e05496e7482283f060be9ca367d3a6959faa0fbf206013e125aaf28" name="afd900c2991e05496e7482283f060be9ca367d3a6959faa0fbf206013e125aaf28"></a>NORMALDISPLAY&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="afd900c2991e05496e7482283f060be9ca1362f71b03c94a9e90f498d5287f12ac" name="afd900c2991e05496e7482283f060be9ca1362f71b03c94a9e90f498d5287f12ac"></a>PARENTRELATIVEPARSING&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="afd900c2991e05496e7482283f060be9cad946f987c0d6b322d8849ac1165846b0" name="afd900c2991e05496e7482283f060be9cad946f987c0d6b322d8849ac1165846b0"></a>DESKTOPABSOLUTEPARSING&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="afd900c2991e05496e7482283f060be9ca1200628191f26929eede5b9d28f6a9f4" name="afd900c2991e05496e7482283f060be9ca1200628191f26929eede5b9d28f6a9f4"></a>PARENTRELATIVEEDITING&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="afd900c2991e05496e7482283f060be9ca976d2aab22b402b4579d55cac800ce46" name="afd900c2991e05496e7482283f060be9ca976d2aab22b402b4579d55cac800ce46"></a>DESKTOPABSOLUTEEDITING&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="afd900c2991e05496e7482283f060be9cac7d6bdf390115c42b2bec98aaa5c15e6" name="afd900c2991e05496e7482283f060be9cac7d6bdf390115c42b2bec98aaa5c15e6"></a>FILESYSPATH&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="afd900c2991e05496e7482283f060be9cae6b391a8d2c4d45902a23a8b6585703d" name="afd900c2991e05496e7482283f060be9cae6b391a8d2c4d45902a23a8b6585703d"></a>URL&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="afd900c2991e05496e7482283f060be9caa2c9b381459c4aca115c9f862348aaa9" name="afd900c2991e05496e7482283f060be9caa2c9b381459c4aca115c9f862348aaa9"></a>PARENTRELATIVEFORADDRESSBAR&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="afd900c2991e05496e7482283f060be9ca118affedc10214f0799076f42f40f3e5" name="afd900c2991e05496e7482283f060be9ca118affedc10214f0799076f42f40f3e5"></a>PARENTRELATIVE&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="afd900c2991e05496e7482283f060be9cad7c63115ffa44d08f6634fe965fe2855" name="afd900c2991e05496e7482283f060be9cad7c63115ffa44d08f6634fe965fe2855"></a>PARENTRELATIVEFORUI&#160;</td><td class="fielddoc"></td></tr>
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="afd900c2991e05496e7482283f060be9ca367d3a6959faa0fbf206013e125aaf28" name="afd900c2991e05496e7482283f060be9ca367d3a6959faa0fbf206013e125aaf28"></a>NORMALDISPLAY&#160;</td><td class="fielddoc"><p>Returns the display name relative to the parent folder. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="afd900c2991e05496e7482283f060be9ca1362f71b03c94a9e90f498d5287f12ac" name="afd900c2991e05496e7482283f060be9ca1362f71b03c94a9e90f498d5287f12ac"></a>PARENTRELATIVEPARSING&#160;</td><td class="fielddoc"><p>Returns the parsing name relative to the parent folder. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="afd900c2991e05496e7482283f060be9cad946f987c0d6b322d8849ac1165846b0" name="afd900c2991e05496e7482283f060be9cad946f987c0d6b322d8849ac1165846b0"></a>DESKTOPABSOLUTEPARSING&#160;</td><td class="fielddoc"><p>Returns the path relative to the desktop. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="afd900c2991e05496e7482283f060be9ca1200628191f26929eede5b9d28f6a9f4" name="afd900c2991e05496e7482283f060be9ca1200628191f26929eede5b9d28f6a9f4"></a>PARENTRELATIVEEDITING&#160;</td><td class="fielddoc"><p>Returns the editing name relative to the parent folder. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="afd900c2991e05496e7482283f060be9ca976d2aab22b402b4579d55cac800ce46" name="afd900c2991e05496e7482283f060be9ca976d2aab22b402b4579d55cac800ce46"></a>DESKTOPABSOLUTEEDITING&#160;</td><td class="fielddoc"><p>Returns the editing name relative to the desktop. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="afd900c2991e05496e7482283f060be9cac7d6bdf390115c42b2bec98aaa5c15e6" name="afd900c2991e05496e7482283f060be9cac7d6bdf390115c42b2bec98aaa5c15e6"></a>FILESYSPATH&#160;</td><td class="fielddoc"><p>Returns the item's file system path, if available. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="afd900c2991e05496e7482283f060be9cae6b391a8d2c4d45902a23a8b6585703d" name="afd900c2991e05496e7482283f060be9cae6b391a8d2c4d45902a23a8b6585703d"></a>URL&#160;</td><td class="fielddoc"><p>Returns the item's URL path, if available. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="afd900c2991e05496e7482283f060be9caa2c9b381459c4aca115c9f862348aaa9" name="afd900c2991e05496e7482283f060be9caa2c9b381459c4aca115c9f862348aaa9"></a>PARENTRELATIVEFORADDRESSBAR&#160;</td><td class="fielddoc"><p>Returns the path relative to the parent folder suitable for display in an address bar. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="afd900c2991e05496e7482283f060be9ca118affedc10214f0799076f42f40f3e5" name="afd900c2991e05496e7482283f060be9ca118affedc10214f0799076f42f40f3e5"></a>PARENTRELATIVE&#160;</td><td class="fielddoc"><p>Returns the name relative to the parent folder. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="afd900c2991e05496e7482283f060be9cad7c63115ffa44d08f6634fe965fe2855" name="afd900c2991e05496e7482283f060be9cad7c63115ffa44d08f6634fe965fe2855"></a>PARENTRELATIVEFORUI&#160;</td><td class="fielddoc"><p>Returns the name relative to the parent folder suitable for display in UI. </p>
+</td></tr>
 </table>
 
-<p class="definition">Definition at line <a class="el" href="_file_operation_interop_8cs_source.html#l00121">121</a> of file <a class="el" href="_file_operation_interop_8cs_source.html">FileOperationInterop.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_file_operation_interop_8cs_source.html#l00429">429</a> of file <a class="el" href="_file_operation_interop_8cs_source.html">FileOperationInterop.cs</a>.</p>
+
+</div>
+</div>
+<a id="ad7ee0e4c2122ee03076db127c19eba8f" name="ad7ee0e4c2122ee03076db127c19eba8f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad7ee0e4c2122ee03076db127c19eba8f">&#9670;&#160;</a></span>SIIGBF</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="#ad7ee0e4c2122ee03076db127c19eba8f">Easy_Copier.Interop.SIIGBF</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Flags that specify how the image should be generated for <a class="el" href="interface_easy___copier_1_1_interop_1_1_i_shell_item_image_factory.html" title="Exposes a method to return either icons or thumbnails for Shell items.">IShellItemImageFactory</a>. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="ad7ee0e4c2122ee03076db127c19eba8fa2930dede2635d6bc570302f485c042a9" name="ad7ee0e4c2122ee03076db127c19eba8fa2930dede2635d6bc570302f485c042a9"></a>SIIGBF_RESIZETOFIT&#160;</td><td class="fielddoc"><p>Shrink the bitmap as necessary to fit, preserving its aspect ratio. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ad7ee0e4c2122ee03076db127c19eba8fac105684d0383b44be267410b0baa7cd6" name="ad7ee0e4c2122ee03076db127c19eba8fac105684d0383b44be267410b0baa7cd6"></a>SIIGBF_BIGGERSIZEOK&#160;</td><td class="fielddoc"><p>Passed by callers if they want to stretch the returned image themselves. For example, if the caller passes an icon size of 80x80, a 96x96 thumbnail could be returned. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ad7ee0e4c2122ee03076db127c19eba8fa35c87dfd2f7686b658039b63c989c8ca" name="ad7ee0e4c2122ee03076db127c19eba8fa35c87dfd2f7686b658039b63c989c8ca"></a>SIIGBF_MEMORYONLY&#160;</td><td class="fielddoc"><p>Return the item only if it is already in memory. Do not access the disk even if the item is cached. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ad7ee0e4c2122ee03076db127c19eba8fa287a587db034541d4e483f1eb813ff48" name="ad7ee0e4c2122ee03076db127c19eba8fa287a587db034541d4e483f1eb813ff48"></a>SIIGBF_ICONONLY&#160;</td><td class="fielddoc"><p>Return only the icon, never the thumbnail. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ad7ee0e4c2122ee03076db127c19eba8fa9781dd39cd5a4b601122a5630bf848e7" name="ad7ee0e4c2122ee03076db127c19eba8fa9781dd39cd5a4b601122a5630bf848e7"></a>SIIGBF_THUMBNAILONLY&#160;</td><td class="fielddoc"><p>Return only the thumbnail, never the icon. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ad7ee0e4c2122ee03076db127c19eba8fa197c3431ccdf6e2b3827b12b6a3df022" name="ad7ee0e4c2122ee03076db127c19eba8fa197c3431ccdf6e2b3827b12b6a3df022"></a>SIIGBF_INCACHEONLY&#160;</td><td class="fielddoc"><p>Allows access to the disk, but only to retrieve a cached item. </p>
+</td></tr>
+</table>
+
+<p class="definition">Definition at line <a class="el" href="_shell_interop_8cs_source.html#l00062">62</a> of file <a class="el" href="_shell_interop_8cs_source.html">ShellInterop.cs</a>.</p>
 
 </div>
 </div>

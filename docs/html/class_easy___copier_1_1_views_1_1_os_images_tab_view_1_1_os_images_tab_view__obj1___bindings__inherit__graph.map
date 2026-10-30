@@ -1,11 +1,15 @@
 <map id="Easy_Copier.Views.OsImagesTabView.OsImagesTabView_obj1_Bindings" name="Easy_Copier.Views.OsImagesTabView.OsImagesTabView_obj1_Bindings">
 <area shape="rect" id="Node000001" title=" " alt="" coords="288,97,488,156"/>
 <area shape="rect" id="Node000002" title=" " alt="" coords="12,5,233,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="219,50,241,58,328,96,323,98,239,62,220,56"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="182,51,241,69,303,96,298,97,239,75,183,56"/>
+<area shape="poly" id="edge5_Node000001_Node000002" title=" " alt="" coords="248,48,350,96,345,98,247,54"/>
 <area shape="rect" id="Node000003" title=" " alt="" coords="5,72,240,115"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="255,107,290,113,284,115,256,113"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="242,115,290,122,285,124,243,120"/>
+<area shape="poly" id="edge6_Node000001_Node000003" title=" " alt="" coords="255,98,290,105,285,106,256,104"/>
 <area shape="rect" id="Node000004" title=" " alt="" coords="23,139,222,181"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="237,143,290,138,285,140,238,148"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="237,152,290,147,285,149,238,157"/>
+<area shape="poly" id="edge7_Node000001_Node000004" title=" " alt="" coords="237,134,290,130,285,131,238,139"/>
 <area shape="rect" id="Node000005" href="$interface_easy___copier_1_1_views_1_1_os_images_tab_view_1_1_i_os_images_tab_view___bindings.html" title=" " alt="" coords="22,205,223,264"/>
-<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="223,197,239,191,321,157,326,156,241,196,225,202"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="236,204,239,203,343,157,348,156,241,208,238,209"/>
+<area shape="poly" id="edge8_Node000001_Node000005" title=" " alt="" coords="192,197,239,179,296,157,301,156,241,184,194,202"/>
 </map>

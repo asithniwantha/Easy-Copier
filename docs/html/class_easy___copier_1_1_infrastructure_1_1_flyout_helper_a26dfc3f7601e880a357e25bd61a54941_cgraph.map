@@ -1,0 +1,5 @@
+<map id="Easy_Copier.Infrastructure.FlyoutHelper.ShowVideoDetailsFlyoutAsync" name="Easy_Copier.Infrastructure.FlyoutHelper.ShowVideoDetailsFlyoutAsync">
+<area shape="rect" id="Node000001" title="Displays the film/TV details flyout when right&#45;tapping a video card." alt="" coords="5,13,285,56"/>
+<area shape="rect" id="Node000002" href="$interface_easy___copier_1_1_infrastructure_1_1_i_flyout_service.html#aa1268e0ea7da674c4f2bc97935679f83" title="Displays the film/TV details flyout (path, files and sizes) when a video card is right&#45;tapped." alt="" coords="333,5,549,64"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="285,32,320,35,314,35,285,37"/>
+</map>

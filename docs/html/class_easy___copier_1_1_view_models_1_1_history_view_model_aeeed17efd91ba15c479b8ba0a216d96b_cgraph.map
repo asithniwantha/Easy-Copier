@@ -1,0 +1,5 @@
+<map id="Easy_Copier.ViewModels.HistoryViewModel.OnSearchQueryChanged" name="Easy_Copier.ViewModels.HistoryViewModel.OnSearchQueryChanged">
+<area shape="rect" id="Node000001" title="Partial notification handler invoked when SearchQuery changes." alt="" coords="5,5,240,48"/>
+<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_view_models_1_1_history_view_model.html#ab58625a0341896a6e3b4caa9b0b76d84" title="Filters and sorts in&#45;memory records based on active date, status, and search query parameters." alt="" coords="288,5,505,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="240,24,275,27,270,27,240,29"/>
+</map>

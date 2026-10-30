@@ -27,6 +27,6 @@ var class_easy___copier_1_1_views_1_1_smart_adder_history_window =
     [ "UnloadObject", "class_easy___copier_1_1_views_1_1_smart_adder_history_window.html#a148be72a39945507e66ab1b1f26db18e", null ],
     [ "_contentLoaded", "class_easy___copier_1_1_views_1_1_smart_adder_history_window.html#aa624af2893e2b051bf0ad04256369c88", null ],
     [ "_owner", "class_easy___copier_1_1_views_1_1_smart_adder_history_window.html#a4c08607a05be3e11502db78400359bb3", null ],
-    [ "Bindings", "class_easy___copier_1_1_views_1_1_smart_adder_history_window.html#a8f84f8895f0193944d15d48e2e5e06aa", null ],
+    [ "Bindings", "class_easy___copier_1_1_views_1_1_smart_adder_history_window.html#aec36c6079b949ea409dcc5c6713ae590", null ],
     [ "ViewModel", "class_easy___copier_1_1_views_1_1_smart_adder_history_window.html#a7eba739ede0d8b66f7bec85ee6d90ce5", null ]
 ];

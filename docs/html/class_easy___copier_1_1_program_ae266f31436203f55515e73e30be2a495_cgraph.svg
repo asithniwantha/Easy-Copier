@@ -47,13 +47,13 @@
   </g>
 </defs>
 <script type="application/ecmascript" xlink:href="svg.min.js"/>
-<svg id="graph" class="graph" data-view-width="738" data-view-height="296" data-section-id="dynsection-0">
+<svg id="graph" class="graph" data-view-width="738" data-view-height="296" data-section-id="dynsection-5">
 <g id="viewport">
 <title>Easy_Copier.Program.Main</title>
 <!-- Node1 -->
 <g id="Node000001" class="node">
 <title>Node1</title>
-<g id="a_Node000001"><a xlink:title=" ">
+<g id="a_Node000001"><a xlink:title="The main entry point for the application.">
 <polygon fill="#999999" stroke="#666666" points="136,-107 0,-107 0,-87 136,-87 136,-107"/>
 <text xml:space="preserve" text-anchor="middle" x="68" y="-93.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Program.Main</text>
 </a>
@@ -62,7 +62,7 @@
 <!-- Node2 -->
 <g id="Node000002" class="node">
 <title>Node2</title>
-<g id="a_Node000002"><a xlink:href="class_easy___copier_1_1_app.html#ac87772e615c45c04880b62d94507f70b" target="_top" xlink:title=" ">
+<g id="a_Node000002"><a xlink:href="class_easy___copier_1_1_app.html#ac87772e615c45c04880b62d94507f70b" target="_top" xlink:title="Initializes a new instance of the App class, registering global exception handlers and configuring se...">
 <polygon fill="white" stroke="#666666" points="296.38,-157 183.62,-157 183.62,-137 296.38,-137 296.38,-157"/>
 <text xml:space="preserve" text-anchor="middle" x="240" y="-143.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.App.App</text>
 </a>
@@ -80,7 +80,7 @@
 <!-- Node8 -->
 <g id="Node000008" class="node">
 <title>Node8</title>
-<g id="a_Node000008"><a xlink:href="class_easy___copier_1_1_program.html#a9d85cb2db15488b2dda4028ab26108de" target="_top" xlink:title=" ">
+<g id="a_Node000008"><a xlink:href="class_easy___copier_1_1_program.html#a9d85cb2db15488b2dda4028ab26108de" target="_top" xlink:title="Handles the Microsoft.Windows.AppLifecycle.AppInstance.Activated event when a secondary instance trig...">
 <polygon fill="white" stroke="#666666" points="308,-91 172,-91 172,-59 308,-59 308,-91"/>
 <text xml:space="preserve" text-anchor="start" x="180" y="-77.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Program.Main</text>
 <text xml:space="preserve" text-anchor="middle" x="240" y="-65.5" font-family="Helvetica,sans-Serif" font-size="10.00">Instance_Activated</text>
@@ -99,7 +99,7 @@
 <!-- Node3 -->
 <g id="Node000003" class="node">
 <title>Node3</title>
-<g id="a_Node000003"><a xlink:href="class_easy___copier_1_1_app.html#ae71efec3121752e104971bb41f6e80a2" target="_top" xlink:title=" ">
+<g id="a_Node000003"><a xlink:href="class_easy___copier_1_1_app.html#ae71efec3121752e104971bb41f6e80a2" target="_top" xlink:title="Handles unhandled exceptions thrown within the XAML framework layer.">
 <polygon fill="white" stroke="#666666" points="487.88,-288 375.12,-288 375.12,-256 487.88,-256 487.88,-288"/>
 <text xml:space="preserve" text-anchor="start" x="383.12" y="-274.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.App.App</text>
 <text xml:space="preserve" text-anchor="middle" x="431.5" y="-262.5" font-family="Helvetica,sans-Serif" font-size="10.00">_UnhandledException</text>
@@ -118,7 +118,7 @@
 <!-- Node4 -->
 <g id="Node000004" class="node">
 <title>Node4</title>
-<g id="a_Node000004"><a xlink:href="class_easy___copier_1_1_app.html#a4190d363a2ee41844c16ca66e4d82c87" target="_top" xlink:title=" ">
+<g id="a_Node000004"><a xlink:href="class_easy___copier_1_1_app.html#a4190d363a2ee41844c16ca66e4d82c87" target="_top" xlink:title="Configures the Dependency Injection container with services and view models.">
 <polygon fill="white" stroke="#666666" points="500.25,-238 362.75,-238 362.75,-206 500.25,-206 500.25,-238"/>
 <text xml:space="preserve" text-anchor="start" x="370.75" y="-224.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.App.Configure</text>
 <text xml:space="preserve" text-anchor="middle" x="431.5" y="-212.5" font-family="Helvetica,sans-Serif" font-size="10.00">Services</text>
@@ -137,7 +137,7 @@
 <!-- Node5 -->
 <g id="Node000005" class="node">
 <title>Node5</title>
-<g id="a_Node000005"><a xlink:href="class_easy___copier_1_1_app.html#a1b3677ab966f4883699e99f15da82a6a" target="_top" xlink:title=" ">
+<g id="a_Node000005"><a xlink:href="class_easy___copier_1_1_app.html#a1b3677ab966f4883699e99f15da82a6a" target="_top" xlink:title="Handles unhandled exceptions originating from the application domain.">
 <polygon fill="white" stroke="#666666" points="512.25,-188 350.75,-188 350.75,-156 512.25,-156 512.25,-188"/>
 <text xml:space="preserve" text-anchor="start" x="358.75" y="-174.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.App.CurrentDomain</text>
 <text xml:space="preserve" text-anchor="middle" x="431.5" y="-162.5" font-family="Helvetica,sans-Serif" font-size="10.00">_UnhandledException</text>
@@ -175,7 +175,7 @@
 <!-- Node7 -->
 <g id="Node000007" class="node">
 <title>Node7</title>
-<g id="a_Node000007"><a xlink:href="class_easy___copier_1_1_app.html#aebfb9a350502857e15ed56c03d408ff1" target="_top" xlink:title=" ">
+<g id="a_Node000007"><a xlink:href="class_easy___copier_1_1_app.html#aebfb9a350502857e15ed56c03d408ff1" target="_top" xlink:title="Handles unobserved task exceptions from background task executions.">
 <polygon fill="white" stroke="#666666" points="511.5,-88 351.5,-88 351.5,-56 511.5,-56 511.5,-88"/>
 <text xml:space="preserve" text-anchor="start" x="359.5" y="-74.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.App.TaskScheduler</text>
 <text xml:space="preserve" text-anchor="middle" x="431.5" y="-62.5" font-family="Helvetica,sans-Serif" font-size="10.00">_UnobservedTaskException</text>
@@ -213,7 +213,7 @@
 <!-- Node10 -->
 <g id="Node000010" class="node">
 <title>Node10</title>
-<g id="a_Node000010"><a xlink:href="class_easy___copier_1_1_infrastructure_1_1_native_window_helper.html#a8ddfd36499035568510b6cb9e4b88459" target="_top" xlink:title=" ">
+<g id="a_Node000010"><a xlink:href="class_easy___copier_1_1_infrastructure_1_1_native_window_helper.html#a8ddfd36499035568510b6cb9e4b88459" target="_top" xlink:title="Brings the thread that created the specified window into the foreground and activates the window.">
 <polygon fill="white" stroke="#666666" points="730,-44 555,-44 555,0 730,0 730,-44"/>
 <text xml:space="preserve" text-anchor="start" x="563" y="-30.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Infrastructure.</text>
 <text xml:space="preserve" text-anchor="start" x="563" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">NativeWindowHelper.SetForeground</text>

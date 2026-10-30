@@ -1,11 +1,37 @@
 <map id="Easy_Copier.Services.GameInfoDownloadService.DownloadCategoriesAsync" name="Easy_Copier.Services.GameInfoDownloadService.DownloadCategoriesAsync">
-<area shape="rect" id="Node000001" title="Downloads category information for a game and writes it to a categories.txt file within the game fold..." alt="" coords="5,96,313,139"/>
-<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_services_1_1_game_info_download_service.html#a52925745092a234ad2ca782842d9b75d" title="Extracts categories from the game name or folder name using keyword matching as a fallback when onlin..." alt="" coords="361,5,601,64"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="244,93,352,67,347,70,246,98"/>
-<area shape="rect" id="Node000003" href="$class_easy___copier_1_1_services_1_1_game_info_download_service.html#aeea730db504e9ee979c0426e61115c3e" title="Queries the Steam community app search endpoint to find the Steam App ID for a game title." alt="" coords="371,88,591,147"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="313,115,358,117,353,118,313,120"/>
-<area shape="rect" id="Node000004" href="$class_easy___copier_1_1_services_1_1_game_info_download_service.html#a96fb38b012fb0f9237e24791c6c46eec" title="Fetches game genres from the Steam Web API for the specified app ID and maps them to GameCategory enu..." alt="" coords="371,171,591,229"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="245,137,358,167,353,169,245,142"/>
-<area shape="rect" id="Node000005" href="$class_easy___copier_1_1_services_1_1_game_info_download_service.html#a5e8dd0f68d5c823f9b58034ae798e912" title="Maps a Steam genre description string to a corresponding GameCategory." alt="" coords="649,171,896,229"/>
-<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="591,197,636,200,631,200,592,203"/>
+<area shape="rect" id="Node000001" title="Downloads category information for a game and writes it to a categories.txt file within the game fold..." alt="" coords="5,347,313,389"/>
+<area shape="rect" id="Node000002" href="$class_easy___copier_1_1_services_1_1_game_info_download_service.html#a52925745092a234ad2ca782842d9b75d" title="Extracts categories from the game name or folder name using keyword matching as a fallback when onlin..." alt="" coords="361,256,601,315"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="244,344,352,318,347,320,246,349"/>
+<area shape="rect" id="Node000003" href="$class_easy___copier_1_1_services_1_1_game_info_download_service.html#aeea730db504e9ee979c0426e61115c3e" title="Queries the Steam community app search, Steam store search, and CheapShark endpoints to accurately re..." alt="" coords="371,339,591,397"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="313,365,358,367,353,369,313,371"/>
+<area shape="rect" id="Node000016" href="$class_easy___copier_1_1_services_1_1_game_info_download_service.html#a96fb38b012fb0f9237e24791c6c46eec" title="Fetches game genres from the Steam Web API for the specified app ID and maps them to GameCategory enu..." alt="" coords="371,421,591,480"/>
+<area shape="poly" id="edge17_Node000001_Node000016" title=" " alt="" coords="245,387,358,418,353,419,245,393"/>
+<area shape="rect" id="Node000004" href="$class_easy___copier_1_1_services_1_1_game_title_sanitizer.html#a031580959c3251f8f2557e6d299ddccb" title="Computes a title match similarity score between a target query title and an online service candidate ..." alt="" coords="668,351,892,393"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="591,367,654,370,649,371,592,372"/>
+<area shape="rect" id="Node000006" href="$class_easy___copier_1_1_services_1_1_game_title_sanitizer.html#a29f16ffead5645872c81f0e36e485450" title="Generates a prioritized list of search candidate queries for a given raw game folder or title string." alt="" coords="649,255,910,297"/>
+<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="578,335,691,303,696,302,579,341"/>
+<area shape="rect" id="Node000005" href="$class_easy___copier_1_1_services_1_1_game_title_sanitizer.html#aaa2daf6d34206e953c7b5d4807aa4407" title="Normalizes a title for comparison by lowercasing, removing punctuation, and collapsing whitespace." alt="" coords="958,380,1208,423"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="892,380,946,388,940,388,892,386"/>
+<area shape="rect" id="Node000007" href="$class_easy___copier_1_1_services_1_1_game_title_sanitizer.html#a87c1ca9ffee5561c51b2210f2ddc526c" title="Cleans multiple spaces and edge punctuation from a title string." alt="" coords="1287,288,1491,331"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="911,280,1274,303,1269,303,911,286"/>
+<area shape="rect" id="Node000008" href="$class_easy___copier_1_1_services_1_1_game_title_sanitizer.html#a694c2e626574caa1e2342ed820748629" title="Cleans a raw folder or file name by stripping repack tags, scene suffixes, version tags,..." alt="" coords="988,196,1178,239"/>
+<area shape="poly" id="edge7_Node000006_Node000008" title=" " alt="" coords="893,251,975,238,970,239,894,257"/>
+<area shape="rect" id="Node000013" href="$class_easy___copier_1_1_services_1_1_game_title_sanitizer.html#a8d2f725e0d49dd2a8e9b901252873ff7" title="Strips common game edition keywords (e.g. &quot;Game of the Year Edition&quot;, &quot;Deluxe Edition&quot;,..." alt="" coords="988,313,1178,356"/>
+<area shape="poly" id="edge13_Node000006_Node000013" title=" " alt="" coords="893,295,975,313,970,313,893,301"/>
+<area shape="rect" id="Node000015" href="$class_easy___copier_1_1_services_1_1_game_title_sanitizer.html#a084689e990fdc8dc6f316865ce06a221" title="Regular expression matching four&#45;digit years in parentheses or at word boundaries (e...." alt="" coords="988,129,1178,172"/>
+<area shape="poly" id="edge16_Node000006_Node000015" title=" " alt="" coords="817,252,881,216,957,182,975,178,980,176,959,186,883,221,819,256"/>
+<area shape="poly" id="edge8_Node000008_Node000007" title=" " alt="" coords="1155,237,1209,255,1257,273,1282,283,1277,283,1255,279,1207,260,1154,242"/>
+<area shape="rect" id="Node000009" href="$class_easy___copier_1_1_services_1_1_game_title_sanitizer.html#a698d6d3d03e950e1c42108404d9d9d72" title="Regular expression matching parentheses containing non&#45;essential metadata (e.g. cracked,..." alt="" coords="1256,72,1522,115"/>
+<area shape="poly" id="edge9_Node000008_Node000009" title=" " alt="" coords="1178,196,1206,182,1221,168,1229,154,1238,139,1254,125,1262,123,1266,121,1257,129,1242,142,1234,157,1225,172,1209,186,1179,201"/>
+<area shape="rect" id="Node000010" href="$class_easy___copier_1_1_services_1_1_game_title_sanitizer.html#a2bfc8daeddc23d966ac67c0273720224" title="Regular expression matching scene release groups and repack tags commonly appended to game folder nam..." alt="" coords="1282,139,1496,197"/>
+<area shape="poly" id="edge10_Node000008_Node000010" title=" " alt="" coords="1178,199,1269,187,1263,188,1179,205"/>
+<area shape="rect" id="Node000011" href="$class_easy___copier_1_1_services_1_1_game_title_sanitizer.html#ac304069202ad3797629c7b0b24ff8ff4" title="Regular expression matching trailing scene release group names (e.g. &#45;CODEX, &#45;EMPRESS,..." alt="" coords="1267,221,1511,264"/>
+<area shape="poly" id="edge11_Node000008_Node000011" title=" " alt="" coords="1178,223,1254,231,1249,231,1179,228"/>
+<area shape="rect" id="Node000012" href="$class_easy___copier_1_1_services_1_1_game_title_sanitizer.html#a3bb38630f30ec32b34df1587b9918bdd" title="Regular expression matching build numbers, patch versions, and update identifiers." alt="" coords="1272,5,1506,48"/>
+<area shape="poly" id="edge12_Node000008_Node000012" title=" " alt="" coords="1178,200,1206,182,1218,168,1225,153,1229,122,1233,90,1240,74,1254,58,1257,58,1262,56,1258,62,1245,76,1238,91,1234,122,1230,154,1223,170,1209,186,1180,204"/>
+<area shape="poly" id="edge14_Node000013_Node000007" title=" " alt="" coords="1178,324,1274,319,1269,319,1179,329"/>
+<area shape="rect" id="Node000014" href="$class_easy___copier_1_1_services_1_1_game_title_sanitizer.html#a196c4508abae750777564507bf1c456b" title="Regular expression matching common edition suffixes that should be stripped when falling back to base..." alt="" coords="1276,355,1502,397"/>
+<area shape="poly" id="edge15_Node000013_Node000014" title=" " alt="" coords="1179,345,1263,359,1257,359,1179,350"/>
+<area shape="rect" id="Node000017" href="$class_easy___copier_1_1_services_1_1_game_info_download_service.html#a5e8dd0f68d5c823f9b58034ae798e912" title="Maps a Steam genre description string to a corresponding GameCategory." alt="" coords="656,421,903,480"/>
+<area shape="poly" id="edge18_Node000016_Node000017" title=" " alt="" coords="592,448,643,451,638,451,592,453"/>
 </map>

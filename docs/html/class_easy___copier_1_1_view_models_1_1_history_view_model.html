@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>easy copier: Easy_Copier.ViewModels.HistoryViewModel(ICopyHistoryService copyHistoryService, IReportService reportService, Infrastructure.IFilePickerService filePickerService) Class Reference</title>
+<title>easy copier: Easy_Copier.ViewModels.HistoryViewModel Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="dynsections.js"></script>
 <script type="text/javascript" src="codefolding.js"></script>
@@ -109,9 +109,12 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('class_easy___c
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">Easy_Copier.ViewModels.HistoryViewModel(ICopyHistoryService copyHistoryService, IReportService reportService, Infrastructure.IFilePickerService filePickerService) Class Reference</div></div>
+  <div class="headertitle"><div class="title">Easy_Copier.ViewModels.HistoryViewModel Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>ViewModel for managing file transfer history records, filtering options, aggregated statistics, and CSV exports.  
+ <a href="#details">More...</a></p>
 <div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Inheritance diagram for Easy_Copier.ViewModels.HistoryViewModel:</div>
 <div id="dynsection-0-summary" class="dynsummary">
 </div>
@@ -122,45 +125,271 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('class_easy___c
 <div id="dynsection-1-summary" class="dynsummary">
 </div>
 <div id="dynsection-1-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="class_easy___copier_1_1_view_models_1_1_history_view_model__coll__graph.svg" width="228" height="128"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="class_easy___copier_1_1_view_models_1_1_history_view_model__coll__graph.svg" width="626" height="304"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr class="memitem:afbafa133079d932593f23f7e47224d42" id="r_afbafa133079d932593f23f7e47224d42"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#afbafa133079d932593f23f7e47224d42">HistoryViewModel</a> (<a class="el" href="interface_easy___copier_1_1_services_1_1_i_copy_history_service.html">ICopyHistoryService</a> copyHistoryService, <a class="el" href="interface_easy___copier_1_1_services_1_1_i_report_service.html">IReportService</a> reportService, <a class="el" href="interface_easy___copier_1_1_infrastructure_1_1_i_file_picker_service.html">IFilePickerService</a> filePickerService, <a class="el" href="interface_easy___copier_1_1_services_1_1_i_history_analysis_service.html">IHistoryAnalysisService</a> historyAnalysisService)</td></tr>
+<tr class="memdesc:afbafa133079d932593f23f7e47224d42"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes a new instance of the HistoryViewModel class.  <br /></td></tr>
 <tr class="memitem:ae6b79afced2e2ee68f5d8f7033c5e8c7" id="r_ae6b79afced2e2ee68f5d8f7033c5e8c7"><td class="memItemLeft">async Task&#160;</td><td class="memItemRight"><a class="el" href="#ae6b79afced2e2ee68f5d8f7033c5e8c7">InitializeAsync</a> ()</td></tr>
+<tr class="memdesc:ae6b79afced2e2ee68f5d8f7033c5e8c7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Asynchronously loads history records from storage and applies active filters.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-properties" class="groupheader"><a id="properties" name="properties"></a>
 Properties</h2></td></tr>
-<tr class="memitem:a6ad8394a9542a21fb19f01a419e2c2e3" id="r_a6ad8394a9542a21fb19f01a419e2c2e3"><td class="memItemLeft">partial <a class="el" href="namespace_easy___copier_1_1_view_models.html#adba81577e9747d96266b616b1a51b680">HistoryStats</a>&#160;</td><td class="memItemRight"><a class="el" href="#a6ad8394a9542a21fb19f01a419e2c2e3">TodayStats</a> = new <a class="el" href="namespace_easy___copier_1_1_view_models.html#adba81577e9747d96266b616b1a51b680">HistoryStats</a>(0, 0, 0, 0)<code> [get, set]</code></td></tr>
-<tr class="memitem:ac7bb5ca06db96da6cb3315083b254106" id="r_ac7bb5ca06db96da6cb3315083b254106"><td class="memItemLeft">partial <a class="el" href="namespace_easy___copier_1_1_view_models.html#adba81577e9747d96266b616b1a51b680">HistoryStats</a>&#160;</td><td class="memItemRight"><a class="el" href="#ac7bb5ca06db96da6cb3315083b254106">WeekStats</a> = new <a class="el" href="namespace_easy___copier_1_1_view_models.html#adba81577e9747d96266b616b1a51b680">HistoryStats</a>(0, 0, 0, 0)<code> [get, set]</code></td></tr>
-<tr class="memitem:af0bb21ff5a5cf59564bbe30ea7ef4d44" id="r_af0bb21ff5a5cf59564bbe30ea7ef4d44"><td class="memItemLeft">partial <a class="el" href="namespace_easy___copier_1_1_view_models.html#adba81577e9747d96266b616b1a51b680">HistoryStats</a>&#160;</td><td class="memItemRight"><a class="el" href="#af0bb21ff5a5cf59564bbe30ea7ef4d44">MonthStats</a> = new <a class="el" href="namespace_easy___copier_1_1_view_models.html#adba81577e9747d96266b616b1a51b680">HistoryStats</a>(0, 0, 0, 0)<code> [get, set]</code></td></tr>
-<tr class="memitem:a263f96143d4a404e15efc5b14d5c498b" id="r_a263f96143d4a404e15efc5b14d5c498b"><td class="memItemLeft">partial <a class="el" href="namespace_easy___copier_1_1_view_models.html#adba81577e9747d96266b616b1a51b680">HistoryStats</a>&#160;</td><td class="memItemRight"><a class="el" href="#a263f96143d4a404e15efc5b14d5c498b">SelectedFilterStats</a> = new <a class="el" href="namespace_easy___copier_1_1_view_models.html#adba81577e9747d96266b616b1a51b680">HistoryStats</a>(0, 0, 0, 0)<code> [get, set]</code></td></tr>
-<tr class="memitem:ac55a8e18f76589fd51ee646258ca0767" id="r_ac55a8e18f76589fd51ee646258ca0767"><td class="memItemLeft">partial string&#160;</td><td class="memItemRight"><a class="el" href="#ac55a8e18f76589fd51ee646258ca0767">SelectedFilterName</a> = string.Empty<code> [get, set]</code></td></tr>
-<tr class="memitem:aee8c85c48a1766e419c7f60e143d42fb" id="r_aee8c85c48a1766e419c7f60e143d42fb"><td class="memItemLeft">partial ObservableCollection&lt; <a class="el" href="namespace_easy___copier_1_1_models.html#a22cad9581ea699aafef9d310c84f0836">CopyHistoryRecord</a> &gt;&#160;</td><td class="memItemRight"><a class="el" href="#aee8c85c48a1766e419c7f60e143d42fb">Records</a> = []<code> [get, set]</code></td></tr>
-<tr class="memitem:a57f616895f38890349dbab2527680c6f" id="r_a57f616895f38890349dbab2527680c6f"><td class="memItemLeft">partial ObservableCollection&lt; <a class="el" href="namespace_easy___copier_1_1_view_models.html#accd6e708af51e819bb782802bf50f029">WeekOption</a> &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a57f616895f38890349dbab2527680c6f">AvailableWeeks</a> = []<code> [get, set]</code></td></tr>
-<tr class="memitem:ab0795c3645d39dcc1e4c51cf8d237c86" id="r_ab0795c3645d39dcc1e4c51cf8d237c86"><td class="memItemLeft">partial ObservableCollection&lt; <a class="el" href="namespace_easy___copier_1_1_view_models.html#a6df37162e88c91166366b621ad08bb8b">MonthOption</a> &gt;&#160;</td><td class="memItemRight"><a class="el" href="#ab0795c3645d39dcc1e4c51cf8d237c86">AvailableMonths</a> = []<code> [get, set]</code></td></tr>
-<tr class="memitem:ab5928394b31f5932be5acaf648563495" id="r_ab5928394b31f5932be5acaf648563495"><td class="memItemLeft">partial? <a class="el" href="namespace_easy___copier_1_1_view_models.html#accd6e708af51e819bb782802bf50f029">WeekOption</a>&#160;</td><td class="memItemRight"><a class="el" href="#ab5928394b31f5932be5acaf648563495">SelectedWeek</a><code> [get, set]</code></td></tr>
-<tr class="memitem:adab933bdcca26ae3196288037746a309" id="r_adab933bdcca26ae3196288037746a309"><td class="memItemLeft">partial? <a class="el" href="namespace_easy___copier_1_1_view_models.html#a6df37162e88c91166366b621ad08bb8b">MonthOption</a>&#160;</td><td class="memItemRight"><a class="el" href="#adab933bdcca26ae3196288037746a309">SelectedMonth</a><code> [get, set]</code></td></tr>
+<tr class="memitem:a263f96143d4a404e15efc5b14d5c498b" id="r_a263f96143d4a404e15efc5b14d5c498b"><td class="memItemLeft">partial <a class="el" href="namespace_easy___copier_1_1_models.html#a25649c73b8e0d9b440f231c739a2d560">HistoryStats</a>&#160;</td><td class="memItemRight"><a class="el" href="#a263f96143d4a404e15efc5b14d5c498b">SelectedFilterStats</a> = new <a class="el" href="namespace_easy___copier_1_1_models.html#a25649c73b8e0d9b440f231c739a2d560">HistoryStats</a>(0, 0, 0, 0, &quot;0%&quot;)<code> [get, set]</code></td></tr>
+<tr class="memdesc:a263f96143d4a404e15efc5b14d5c498b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets or sets the aggregated summary statistics for the currently filtered history records.  <br /></td></tr>
+<tr class="memitem:aee8c85c48a1766e419c7f60e143d42fb" id="r_aee8c85c48a1766e419c7f60e143d42fb"><td class="memItemLeft">partial ObservableCollection&lt; <a class="el" href="namespace_easy___copier_1_1_models.html#a3bede7aa95515ae50b6531404c887ee2">CopyHistoryRecord</a> &gt;&#160;</td><td class="memItemRight"><a class="el" href="#aee8c85c48a1766e419c7f60e143d42fb">Records</a> = []<code> [get, set]</code></td></tr>
+<tr class="memdesc:aee8c85c48a1766e419c7f60e143d42fb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets or sets the collection of copy history records matching the active search and filter criteria.  <br /></td></tr>
+<tr class="memitem:a809d322533f4c99d0d05a5afcd844c8d" id="r_a809d322533f4c99d0d05a5afcd844c8d"><td class="memItemLeft">partial? <a class="el" href="namespace_easy___copier_1_1_models.html#a3bede7aa95515ae50b6531404c887ee2">CopyHistoryRecord</a>&#160;</td><td class="memItemRight"><a class="el" href="#a809d322533f4c99d0d05a5afcd844c8d">SelectedRecord</a><code> [get, set]</code></td></tr>
+<tr class="memdesc:a809d322533f4c99d0d05a5afcd844c8d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets or sets the currently selected copy history record for detail inspection in the side drawer.  <br /></td></tr>
 <tr class="memitem:a607090308d0d94bdd4b4ff7130da34d3" id="r_a607090308d0d94bdd4b4ff7130da34d3"><td class="memItemLeft">partial string&#160;</td><td class="memItemRight"><a class="el" href="#a607090308d0d94bdd4b4ff7130da34d3">StatusMessage</a> = string.Empty<code> [get, set]</code></td></tr>
+<tr class="memdesc:a607090308d0d94bdd4b4ff7130da34d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets or sets the status message string presented in the history interface.  <br /></td></tr>
+<tr class="memitem:ab90271289a277014892b4fd341a6c833" id="r_ab90271289a277014892b4fd341a6c833"><td class="memItemLeft">partial string&#160;</td><td class="memItemRight"><a class="el" href="#ab90271289a277014892b4fd341a6c833">SearchQuery</a> = string.Empty<code> [get, set]</code></td></tr>
+<tr class="memdesc:ab90271289a277014892b4fd341a6c833"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets or sets the search query string used to filter history entries by item or drive name.  <br /></td></tr>
+<tr class="memitem:a703aece29f2d1516c9279739415613fa" id="r_a703aece29f2d1516c9279739415613fa"><td class="memItemLeft">partial string&#160;</td><td class="memItemRight"><a class="el" href="#a703aece29f2d1516c9279739415613fa">HeaderSubtitle</a> = string.Empty<code> [get, set]</code></td></tr>
+<tr class="memdesc:a703aece29f2d1516c9279739415613fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets or sets the header subtitle summarizing results and filters.  <br /></td></tr>
+<tr class="memitem:aad4222a4a930474eb8e6ac5d738b956c" id="r_aad4222a4a930474eb8e6ac5d738b956c"><td class="memItemLeft">partial bool&#160;</td><td class="memItemRight"><a class="el" href="#aad4222a4a930474eb8e6ac5d738b956c">HasNoRecords</a><code> [get, set]</code></td></tr>
+<tr class="memdesc:aad4222a4a930474eb8e6ac5d738b956c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets or sets a value indicating whether the filtered list is empty.  <br /></td></tr>
+<tr class="memitem:a3c70f573960df297cf9aa2a46727211e" id="r_a3c70f573960df297cf9aa2a46727211e"><td class="memItemLeft">IReadOnlyList&lt; <a class="el" href="namespace_easy___copier_1_1_view_models.html#aefb4bbcfbd3ec37f288a971520283d98">DateFilter</a> &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a3c70f573960df297cf9aa2a46727211e">AvailableDateFilters</a> = Enum.GetValues&lt;<a class="el" href="namespace_easy___copier_1_1_view_models.html#aefb4bbcfbd3ec37f288a971520283d98">DateFilter</a>&gt;()<code> [get]</code></td></tr>
+<tr class="memdesc:a3c70f573960df297cf9aa2a46727211e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the available date filter options for UI selection.  <br /></td></tr>
+<tr class="memitem:ac1556a19e621294a46436888ca72b110" id="r_ac1556a19e621294a46436888ca72b110"><td class="memItemLeft">IReadOnlyList&lt; <a class="el" href="namespace_easy___copier_1_1_view_models.html#a9c60ee124af20b8cf2bd1bc4ca23eb35">StatusFilter</a> &gt;&#160;</td><td class="memItemRight"><a class="el" href="#ac1556a19e621294a46436888ca72b110">AvailableStatusFilters</a> = Enum.GetValues&lt;<a class="el" href="namespace_easy___copier_1_1_view_models.html#a9c60ee124af20b8cf2bd1bc4ca23eb35">StatusFilter</a>&gt;()<code> [get]</code></td></tr>
+<tr class="memdesc:ac1556a19e621294a46436888ca72b110"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the available status filter options for UI selection.  <br /></td></tr>
+<tr class="memitem:a6c2487adb355456341cf6de50fbd3aef" id="r_a6c2487adb355456341cf6de50fbd3aef"><td class="memItemLeft">partial <a class="el" href="namespace_easy___copier_1_1_view_models.html#aefb4bbcfbd3ec37f288a971520283d98">DateFilter</a>&#160;</td><td class="memItemRight"><a class="el" href="#a6c2487adb355456341cf6de50fbd3aef">SelectedDateFilter</a> = <a class="el" href="namespace_easy___copier_1_1_view_models.html#aefb4bbcfbd3ec37f288a971520283d98a1dd1c5fb7f25cd41b291d43a89e3aefd">DateFilter.Today</a><code> [get, set]</code></td></tr>
+<tr class="memdesc:a6c2487adb355456341cf6de50fbd3aef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets or sets the currently selected date filter option.  <br /></td></tr>
+<tr class="memitem:a37ce81efcbe36904299bba033d38aa7d" id="r_a37ce81efcbe36904299bba033d38aa7d"><td class="memItemLeft">partial <a class="el" href="namespace_easy___copier_1_1_view_models.html#a9c60ee124af20b8cf2bd1bc4ca23eb35">StatusFilter</a>&#160;</td><td class="memItemRight"><a class="el" href="#a37ce81efcbe36904299bba033d38aa7d">SelectedStatusFilter</a> = <a class="el" href="namespace_easy___copier_1_1_view_models.html#a9c60ee124af20b8cf2bd1bc4ca23eb35ab1c94ca2fbc3e78fc30069c8d0f01680">StatusFilter.All</a><code> [get, set]</code></td></tr>
+<tr class="memdesc:a37ce81efcbe36904299bba033d38aa7d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets or sets the currently selected status filter option.  <br /></td></tr>
+<tr class="memitem:aee4b0c1e846329fc1a91c39156ec0db2" id="r_aee4b0c1e846329fc1a91c39156ec0db2"><td class="memItemLeft">partial ObservableCollection&lt; string &gt;&#160;</td><td class="memItemRight"><a class="el" href="#aee4b0c1e846329fc1a91c39156ec0db2">AvailableDateFilterStrings</a><code> [get, set]</code></td></tr>
+<tr class="memdesc:aee4b0c1e846329fc1a91c39156ec0db2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets or sets the collection of available date filter option strings for UI binding compatibility.  <br /></td></tr>
+<tr class="memitem:a9c40ccd6a617c1248995b117bc237cc8" id="r_a9c40ccd6a617c1248995b117bc237cc8"><td class="memItemLeft">partial ObservableCollection&lt; string &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a9c40ccd6a617c1248995b117bc237cc8">AvailableStatusFilterStrings</a><code> [get, set]</code></td></tr>
+<tr class="memdesc:a9c40ccd6a617c1248995b117bc237cc8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets or sets the collection of available status filter option strings for UI binding compatibility.  <br /></td></tr>
+<tr class="memitem:a805f9a2cf638864bc9ffda2fd3f7958d" id="r_a805f9a2cf638864bc9ffda2fd3f7958d"><td class="memItemLeft">partial string&#160;</td><td class="memItemRight"><a class="el" href="#a805f9a2cf638864bc9ffda2fd3f7958d">SelectedDateFilterString</a><code> [get, set]</code></td></tr>
+<tr class="memdesc:a805f9a2cf638864bc9ffda2fd3f7958d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets or sets the currently selected date filter option string for UI dropdown binding.  <br /></td></tr>
+<tr class="memitem:aa55b9cd9d293b836aaead7e62a990f82" id="r_aa55b9cd9d293b836aaead7e62a990f82"><td class="memItemLeft">partial string&#160;</td><td class="memItemRight"><a class="el" href="#aa55b9cd9d293b836aaead7e62a990f82">SelectedStatusFilterString</a><code> [get, set]</code></td></tr>
+<tr class="memdesc:aa55b9cd9d293b836aaead7e62a990f82"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets or sets the currently selected status filter option string for UI dropdown binding.  <br /></td></tr>
+<tr class="memitem:a95679ab5cd0c871eb69cb0a8b6a6c818" id="r_a95679ab5cd0c871eb69cb0a8b6a6c818"><td class="memItemLeft">partial bool&#160;</td><td class="memItemRight"><a class="el" href="#a95679ab5cd0c871eb69cb0a8b6a6c818">IsDrawerOpen</a><code> [get, set]</code></td></tr>
+<tr class="memdesc:a95679ab5cd0c871eb69cb0a8b6a6c818"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets or sets a value indicating whether the detail inspection drawer panel is open.  <br /></td></tr>
+<tr class="memitem:a9c0ce03c5be65a6f1c7c48ccf63971ec" id="r_a9c0ce03c5be65a6f1c7c48ccf63971ec"><td class="memItemLeft">partial ObservableCollection&lt; string &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a9c0ce03c5be65a6f1c7c48ccf63971ec">SelectedRecordSubFiles</a> = []<code> [get, set]</code></td></tr>
+<tr class="memdesc:a9c0ce03c5be65a6f1c7c48ccf63971ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets or sets the list of sub-file paths associated with the SelectedRecord.  <br /></td></tr>
+<tr class="memitem:a41622a9ce79dd5df33e13eb5b4a746cb" id="r_a41622a9ce79dd5df33e13eb5b4a746cb"><td class="memItemLeft">IReadOnlyList&lt; string &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a41622a9ce79dd5df33e13eb5b4a746cb">DashboardRangeOptions</a> = [&quot;Last 7 Days&quot;, &quot;Last 30 Days&quot;, &quot;Last 90 Days&quot;]<code> [get]</code></td></tr>
+<tr class="memdesc:a41622a9ce79dd5df33e13eb5b4a746cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the available dashboard range options.  <br /></td></tr>
+<tr class="memitem:afd641ce9c32d890ee8d243830d4df2a4" id="r_afd641ce9c32d890ee8d243830d4df2a4"><td class="memItemLeft">partial string&#160;</td><td class="memItemRight"><a class="el" href="#afd641ce9c32d890ee8d243830d4df2a4">SelectedDashboardRange</a> = &quot;Last 7 Days&quot;<code> [get, set]</code></td></tr>
+<tr class="memdesc:afd641ce9c32d890ee8d243830d4df2a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets or sets the selected dashboard range option.  <br /></td></tr>
+<tr class="memitem:ac57a69f6d07f7a210e1548292cce11ce" id="r_ac57a69f6d07f7a210e1548292cce11ce"><td class="memItemLeft">partial? <a class="el" href="namespace_easy___copier_1_1_models.html#afa937e185f1ca6308d5878174058c5ce">DashboardStats</a>&#160;</td><td class="memItemRight"><a class="el" href="#ac57a69f6d07f7a210e1548292cce11ce">Dashboard</a><code> [get, set]</code></td></tr>
+<tr class="memdesc:ac57a69f6d07f7a210e1548292cce11ce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets or sets the dashboard reporting data for the selected range.  <br /></td></tr>
+<tr class="memitem:a62fbabe23e5f2282e579c70d6b41e146" id="r_a62fbabe23e5f2282e579c70d6b41e146"><td class="memItemLeft">partial ObservableCollection&lt; <a class="el" href="namespace_easy___copier_1_1_models.html#ab813735a114819bca751ccd47305d780">PeriodTotal</a> &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a62fbabe23e5f2282e579c70d6b41e146">DailyTotals</a> = []<code> [get, set]</code></td></tr>
+<tr class="memdesc:a62fbabe23e5f2282e579c70d6b41e146"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets or sets the daily totals shown in the dashboard chart.  <br /></td></tr>
+<tr class="memitem:a725de48ad163d1e836b19617193c6786" id="r_a725de48ad163d1e836b19617193c6786"><td class="memItemLeft">partial ObservableCollection&lt; <a class="el" href="namespace_easy___copier_1_1_models.html#ab813735a114819bca751ccd47305d780">PeriodTotal</a> &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a725de48ad163d1e836b19617193c6786">WeeklyTotals</a> = []<code> [get, set]</code></td></tr>
+<tr class="memdesc:a725de48ad163d1e836b19617193c6786"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets or sets the weekly totals shown in the dashboard.  <br /></td></tr>
+<tr class="memitem:a38903b3decfbba8a36c192d7a19eed4e" id="r_a38903b3decfbba8a36c192d7a19eed4e"><td class="memItemLeft">partial ObservableCollection&lt; <a class="el" href="namespace_easy___copier_1_1_models.html#a9c75112e0bc37dbeea1968aebcb62637">TopCopiedItem</a> &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a38903b3decfbba8a36c192d7a19eed4e">TopItems</a> = []<code> [get, set]</code></td></tr>
+<tr class="memdesc:a38903b3decfbba8a36c192d7a19eed4e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets or sets the most-copied items shown in the dashboard.  <br /></td></tr>
+<tr class="memitem:a9bdb3ddcae8e4b0dde17920fff45bd8a" id="r_a9bdb3ddcae8e4b0dde17920fff45bd8a"><td class="memItemLeft">partial string&#160;</td><td class="memItemRight"><a class="el" href="#a9bdb3ddcae8e4b0dde17920fff45bd8a">FailureRateText</a> = &quot;0%&quot;<code> [get, set]</code></td></tr>
+<tr class="memdesc:a9bdb3ddcae8e4b0dde17920fff45bd8a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets or sets the overall failure rate text for the dashboard range.  <br /></td></tr>
+<tr class="memitem:af45140ac2cb720ca461460780158694f" id="r_af45140ac2cb720ca461460780158694f"><td class="memItemLeft">partial bool&#160;</td><td class="memItemRight"><a class="el" href="#af45140ac2cb720ca461460780158694f">IsDashboardVisible</a><code> [get, set]</code></td></tr>
+<tr class="memdesc:af45140ac2cb720ca461460780158694f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets or sets a value indicating whether the dashboard panel is visible.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pri-methods" class="groupheader"><a id="pri-methods" name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
-<tr class="memitem:a5f1cff489b96d8b3ea84b34343a0f1ce" id="r_a5f1cff489b96d8b3ea84b34343a0f1ce"><td class="memItemLeft">async Task&#160;</td><td class="memItemRight"><a class="el" href="#a5f1cff489b96d8b3ea84b34343a0f1ce">LoadStatsAsync</a> ()</td></tr>
-<tr class="memitem:a80e21f10de84c862aea543e30ef75b2e" id="r_a80e21f10de84c862aea543e30ef75b2e"><td class="memItemLeft">partial void&#160;</td><td class="memItemRight"><a class="el" href="#a80e21f10de84c862aea543e30ef75b2e">OnSelectedWeekChanged</a> (<a class="el" href="namespace_easy___copier_1_1_view_models.html#accd6e708af51e819bb782802bf50f029">WeekOption</a>? oldValue, <a class="el" href="namespace_easy___copier_1_1_view_models.html#accd6e708af51e819bb782802bf50f029">WeekOption</a>? newValue)</td></tr>
-<tr class="memitem:a49528f55b23d42cb2aa93df4f3813702" id="r_a49528f55b23d42cb2aa93df4f3813702"><td class="memItemLeft">partial void&#160;</td><td class="memItemRight"><a class="el" href="#a49528f55b23d42cb2aa93df4f3813702">OnSelectedMonthChanged</a> (<a class="el" href="namespace_easy___copier_1_1_view_models.html#a6df37162e88c91166366b621ad08bb8b">MonthOption</a>? oldValue, <a class="el" href="namespace_easy___copier_1_1_view_models.html#a6df37162e88c91166366b621ad08bb8b">MonthOption</a>? newValue)</td></tr>
-<tr class="memitem:a7bc5319f97e5d0799de3ef71f9086784" id="r_a7bc5319f97e5d0799de3ef71f9086784"><td class="memItemLeft">async Task&#160;</td><td class="memItemRight"><a class="el" href="#a7bc5319f97e5d0799de3ef71f9086784">LoadRecordsByWeekAsync</a> (DateTime startOfWeek, DateTime endOfWeek)</td></tr>
-<tr class="memitem:a1f296fdc4d87cdf38e600b3cb5daaf36" id="r_a1f296fdc4d87cdf38e600b3cb5daaf36"><td class="memItemLeft">async Task&#160;</td><td class="memItemRight"><a class="el" href="#a1f296fdc4d87cdf38e600b3cb5daaf36">LoadRecordsByMonthAsync</a> (int year, int month)</td></tr>
-<tr class="memitem:aa213ac871ec14e0897dc9d330434184c" id="r_aa213ac871ec14e0897dc9d330434184c"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#aa213ac871ec14e0897dc9d330434184c">ProcessLoadedRecords</a> (List&lt; <a class="el" href="namespace_easy___copier_1_1_models.html#a22cad9581ea699aafef9d310c84f0836">CopyHistoryRecord</a> &gt; records)</td></tr>
+<tr class="memitem:a340a8cb50aa7100e8e2cbdee30e52d79" id="r_a340a8cb50aa7100e8e2cbdee30e52d79"><td class="memItemLeft">partial void&#160;</td><td class="memItemRight"><a class="el" href="#a340a8cb50aa7100e8e2cbdee30e52d79">OnSelectedDashboardRangeChanged</a> (string value)</td></tr>
+<tr class="memdesc:a340a8cb50aa7100e8e2cbdee30e52d79"><td class="mdescLeft">&#160;</td><td class="mdescRight">Partial notification handler invoked when SelectedDashboardRange changes.  <br /></td></tr>
+<tr class="memitem:acf1eaae87cbd0086345435531808c472" id="r_acf1eaae87cbd0086345435531808c472"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#acf1eaae87cbd0086345435531808c472">ToggleDashboard</a> ()</td></tr>
+<tr class="memdesc:acf1eaae87cbd0086345435531808c472"><td class="mdescLeft">&#160;</td><td class="mdescRight">Toggles dashboard visibility.  <br /></td></tr>
+<tr class="memitem:a120bf81d952235228249368ea2228eef" id="r_a120bf81d952235228249368ea2228eef"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a120bf81d952235228249368ea2228eef">RefreshDashboard</a> ()</td></tr>
+<tr class="memdesc:a120bf81d952235228249368ea2228eef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Recomputes dashboard data from all loaded records.  <br /></td></tr>
+<tr class="memitem:aeeed17efd91ba15c479b8ba0a216d96b" id="r_aeeed17efd91ba15c479b8ba0a216d96b"><td class="memItemLeft">partial void&#160;</td><td class="memItemRight"><a class="el" href="#aeeed17efd91ba15c479b8ba0a216d96b">OnSearchQueryChanged</a> (string value)</td></tr>
+<tr class="memdesc:aeeed17efd91ba15c479b8ba0a216d96b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Partial notification handler invoked when SearchQuery changes.  <br /></td></tr>
+<tr class="memitem:aa3967841886c6e0c7bd728f46f642146" id="r_aa3967841886c6e0c7bd728f46f642146"><td class="memItemLeft">partial void&#160;</td><td class="memItemRight"><a class="el" href="#aa3967841886c6e0c7bd728f46f642146">OnSelectedDateFilterChanged</a> (<a class="el" href="namespace_easy___copier_1_1_view_models.html#aefb4bbcfbd3ec37f288a971520283d98">DateFilter</a> value)</td></tr>
+<tr class="memdesc:aa3967841886c6e0c7bd728f46f642146"><td class="mdescLeft">&#160;</td><td class="mdescRight">Partial notification handler invoked when SelectedDateFilter changes.  <br /></td></tr>
+<tr class="memitem:a7a506617f6404fac97c2376577de4101" id="r_a7a506617f6404fac97c2376577de4101"><td class="memItemLeft">partial void&#160;</td><td class="memItemRight"><a class="el" href="#a7a506617f6404fac97c2376577de4101">OnSelectedStatusFilterChanged</a> (<a class="el" href="namespace_easy___copier_1_1_view_models.html#a9c60ee124af20b8cf2bd1bc4ca23eb35">StatusFilter</a> value)</td></tr>
+<tr class="memdesc:a7a506617f6404fac97c2376577de4101"><td class="mdescLeft">&#160;</td><td class="mdescRight">Partial notification handler invoked when SelectedStatusFilter changes.  <br /></td></tr>
+<tr class="memitem:a61dec5cc36de6b254dcc6a9685fb4bde" id="r_a61dec5cc36de6b254dcc6a9685fb4bde"><td class="memItemLeft">partial void&#160;</td><td class="memItemRight"><a class="el" href="#a61dec5cc36de6b254dcc6a9685fb4bde">OnSelectedDateFilterStringChanged</a> (string value)</td></tr>
+<tr class="memdesc:a61dec5cc36de6b254dcc6a9685fb4bde"><td class="mdescLeft">&#160;</td><td class="mdescRight">Partial notification handler invoked when SelectedDateFilterString changes.  <br /></td></tr>
+<tr class="memitem:a692de2072e6019bdb858d44a8e93a65e" id="r_a692de2072e6019bdb858d44a8e93a65e"><td class="memItemLeft">partial void&#160;</td><td class="memItemRight"><a class="el" href="#a692de2072e6019bdb858d44a8e93a65e">OnSelectedStatusFilterStringChanged</a> (string value)</td></tr>
+<tr class="memdesc:a692de2072e6019bdb858d44a8e93a65e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Partial notification handler invoked when SelectedStatusFilterString changes.  <br /></td></tr>
+<tr class="memitem:a2564b8987b9b3f3e3180e51a56af4231" id="r_a2564b8987b9b3f3e3180e51a56af4231"><td class="memItemLeft">partial void&#160;</td><td class="memItemRight"><a class="el" href="#a2564b8987b9b3f3e3180e51a56af4231">OnSelectedRecordChanged</a> (<a class="el" href="namespace_easy___copier_1_1_models.html#a3bede7aa95515ae50b6531404c887ee2">CopyHistoryRecord</a>? value)</td></tr>
+<tr class="memdesc:a2564b8987b9b3f3e3180e51a56af4231"><td class="mdescLeft">&#160;</td><td class="mdescRight">Partial notification handler invoked when SelectedRecord changes to toggle drawer visibility and populate sub-files.  <br /></td></tr>
+<tr class="memitem:a28b1b921676acec408f93d056057a495" id="r_a28b1b921676acec408f93d056057a495"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a28b1b921676acec408f93d056057a495">CloseDrawer</a> ()</td></tr>
+<tr class="memdesc:a28b1b921676acec408f93d056057a495"><td class="mdescLeft">&#160;</td><td class="mdescRight">Closes the detail inspection drawer by clearing the active selection.  <br /></td></tr>
+<tr class="memitem:ab58625a0341896a6e3b4caa9b0b76d84" id="r_ab58625a0341896a6e3b4caa9b0b76d84"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ab58625a0341896a6e3b4caa9b0b76d84">ApplyFilters</a> ()</td></tr>
+<tr class="memdesc:ab58625a0341896a6e3b4caa9b0b76d84"><td class="mdescLeft">&#160;</td><td class="mdescRight">Filters and sorts in-memory records based on active date, status, and search query parameters.  <br /></td></tr>
+<tr class="memitem:a775d21f28f30c7e9baded173f36d3285" id="r_a775d21f28f30c7e9baded173f36d3285"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a775d21f28f30c7e9baded173f36d3285">ClearFilters</a> ()</td></tr>
+<tr class="memdesc:a775d21f28f30c7e9baded173f36d3285"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resets the date, status and search filters to defaults.  <br /></td></tr>
 <tr class="memitem:ab9105b6094e7427b8ab2cf543439a9f3" id="r_ab9105b6094e7427b8ab2cf543439a9f3"><td class="memItemLeft">async Task&#160;</td><td class="memItemRight"><a class="el" href="#ab9105b6094e7427b8ab2cf543439a9f3">ExportToCsvAsync</a> ()</td></tr>
+<tr class="memdesc:ab9105b6094e7427b8ab2cf543439a9f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Asynchronously prompts the user for a destination file path and exports the active records list to CSV.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pri-attribs" class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
-<tr class="memitem:ad87d5c487c6ecd67d0c1921096b5e1a9" id="r_ad87d5c487c6ecd67d0c1921096b5e1a9"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#ad87d5c487c6ecd67d0c1921096b5e1a9">_isClearingSelection</a></td></tr>
+<tr class="memitem:a27c508b87a767f4e54a7e4b14e9daf17" id="r_a27c508b87a767f4e54a7e4b14e9daf17"><td class="memItemLeft">readonly <a class="el" href="interface_easy___copier_1_1_services_1_1_i_copy_history_service.html">ICopyHistoryService</a>&#160;</td><td class="memItemRight"><a class="el" href="#a27c508b87a767f4e54a7e4b14e9daf17">_copyHistoryService</a></td></tr>
+<tr class="memdesc:a27c508b87a767f4e54a7e4b14e9daf17"><td class="mdescLeft">&#160;</td><td class="mdescRight">Service for querying copy operation history records from storage.  <br /></td></tr>
+<tr class="memitem:a6b531909f66317b0942e72ecdc557820" id="r_a6b531909f66317b0942e72ecdc557820"><td class="memItemLeft">readonly <a class="el" href="interface_easy___copier_1_1_services_1_1_i_report_service.html">IReportService</a>&#160;</td><td class="memItemRight"><a class="el" href="#a6b531909f66317b0942e72ecdc557820">_reportService</a></td></tr>
+<tr class="memdesc:a6b531909f66317b0942e72ecdc557820"><td class="mdescLeft">&#160;</td><td class="mdescRight">Service for exporting operation records to external formats such as CSV.  <br /></td></tr>
+<tr class="memitem:a5614b2651ff503ade3c6e26bd4095d3c" id="r_a5614b2651ff503ade3c6e26bd4095d3c"><td class="memItemLeft">readonly <a class="el" href="interface_easy___copier_1_1_infrastructure_1_1_i_file_picker_service.html">IFilePickerService</a>&#160;</td><td class="memItemRight"><a class="el" href="#a5614b2651ff503ade3c6e26bd4095d3c">_filePickerService</a></td></tr>
+<tr class="memdesc:a5614b2651ff503ade3c6e26bd4095d3c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Service for displaying save file picker dialogs.  <br /></td></tr>
+<tr class="memitem:adf47188af3cf1cbb4b6caccec42e4ba3" id="r_adf47188af3cf1cbb4b6caccec42e4ba3"><td class="memItemLeft">readonly <a class="el" href="interface_easy___copier_1_1_services_1_1_i_history_analysis_service.html">IHistoryAnalysisService</a>&#160;</td><td class="memItemRight"><a class="el" href="#adf47188af3cf1cbb4b6caccec42e4ba3">_historyAnalysisService</a></td></tr>
+<tr class="memdesc:adf47188af3cf1cbb4b6caccec42e4ba3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Service for grouping history records and computing aggregate history statistics.  <br /></td></tr>
+<tr class="memitem:a1022633fffd0ac4b470b9bec707f9810" id="r_a1022633fffd0ac4b470b9bec707f9810"><td class="memItemLeft">List&lt; <a class="el" href="namespace_easy___copier_1_1_models.html#a3bede7aa95515ae50b6531404c887ee2">CopyHistoryRecord</a> &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a1022633fffd0ac4b470b9bec707f9810">_allRecords</a> = []</td></tr>
+<tr class="memdesc:a1022633fffd0ac4b470b9bec707f9810"><td class="mdescLeft">&#160;</td><td class="mdescRight">Internal list holding all un-filtered copy history records loaded from storage.  <br /></td></tr>
+<tr class="memitem:af13b96ba37f1a0313ebf84f5be90e55f" id="r_af13b96ba37f1a0313ebf84f5be90e55f"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#af13b96ba37f1a0313ebf84f5be90e55f">_isInitialized</a></td></tr>
+<tr class="memdesc:af13b96ba37f1a0313ebf84f5be90e55f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Flag indicating whether initial record loading has been executed.  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pri-static-attribs" class="groupheader"><a id="pri-static-attribs" name="pri-static-attribs"></a>
+Static Private Attributes</h2></td></tr>
+<tr class="memitem:a5d0dc817f5d29f6eb0febe66a7fa5ab1" id="r_a5d0dc817f5d29f6eb0febe66a7fa5ab1"><td class="memItemLeft">static readonly string[]&#160;</td><td class="memItemRight"><a class="el" href="#a5d0dc817f5d29f6eb0febe66a7fa5ab1">DefaultDateFilterStrings</a> = [&quot;Today&quot;, &quot;Last 7 Days&quot;, &quot;This Month&quot;, &quot;All Time&quot;]</td></tr>
+<tr class="memitem:a28d9795bdfd1f1315b75fd4a69eb7305" id="r_a28d9795bdfd1f1315b75fd4a69eb7305"><td class="memItemLeft">static readonly string[]&#160;</td><td class="memItemRight"><a class="el" href="#a28d9795bdfd1f1315b75fd4a69eb7305">DefaultStatusFilterStrings</a> = [&quot;All&quot;, &quot;Completed&quot;, &quot;Failed&quot;]</td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="_history_view_model_8cs_source.html#l00014">14</a> of file <a class="el" href="_history_view_model_8cs_source.html">HistoryViewModel.cs</a>.</p>
-</div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
+<div class="textblock"><p>ViewModel for managing file transfer history records, filtering options, aggregated statistics, and CSV exports. </p>
+
+<p class="definition">Definition at line <a class="el" href="_history_view_model_8cs_source.html#l00051">51</a> of file <a class="el" href="_history_view_model_8cs_source.html">HistoryViewModel.cs</a>.</p>
+</div><a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="afbafa133079d932593f23f7e47224d42" name="afbafa133079d932593f23f7e47224d42"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afbafa133079d932593f23f7e47224d42">&#9670;&#160;</a></span>HistoryViewModel()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Easy_Copier.ViewModels.HistoryViewModel.HistoryViewModel </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="interface_easy___copier_1_1_services_1_1_i_copy_history_service.html">ICopyHistoryService</a></td>          <td class="paramname"><span class="paramname"><em>copyHistoryService</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="interface_easy___copier_1_1_services_1_1_i_report_service.html">IReportService</a></td>          <td class="paramname"><span class="paramname"><em>reportService</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="interface_easy___copier_1_1_infrastructure_1_1_i_file_picker_service.html">IFilePickerService</a></td>          <td class="paramname"><span class="paramname"><em>filePickerService</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="interface_easy___copier_1_1_services_1_1_i_history_analysis_service.html">IHistoryAnalysisService</a></td>          <td class="paramname"><span class="paramname"><em>historyAnalysisService</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Initializes a new instance of the HistoryViewModel class. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">copyHistoryService</td><td>The copy history service used to query past transfer records.</td></tr>
+    <tr><td class="paramname">reportService</td><td>The report service used to export records.</td></tr>
+    <tr><td class="paramname">filePickerService</td><td>The file picker service used to select export file destinations.</td></tr>
+    <tr><td class="paramname">historyAnalysisService</td><td>The history analysis service used to group records and compute summary statistics.</td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="_history_view_model_8cs_source.html#l00260">260</a> of file <a class="el" href="_history_view_model_8cs_source.html">HistoryViewModel.cs</a>.</p>
+
+<p class="reference">References <a class="el" href="_history_view_model_8cs_source.html#l00054">_copyHistoryService</a>, <a class="el" href="_history_view_model_8cs_source.html#l00060">_filePickerService</a>, <a class="el" href="_history_view_model_8cs_source.html#l00063">_historyAnalysisService</a>, <a class="el" href="_history_view_model_8cs_source.html#l00057">_reportService</a>, <a class="el" href="_history_view_model_8cs_source.html#l00135">AvailableDateFilterStrings</a>, <a class="el" href="_history_view_model_8cs_source.html#l00141">AvailableStatusFilterStrings</a>, <a class="el" href="_history_view_model_8cs_source.html#l00167">DefaultDateFilterStrings</a>, <a class="el" href="_history_view_model_8cs_source.html#l00168">DefaultStatusFilterStrings</a>, <a class="el" href="_history_view_model_8cs_source.html#l00147">SelectedDateFilterString</a>, and <a class="el" href="_history_view_model_8cs_source.html#l00153">SelectedStatusFilterString</a>.</p>
+
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
+<a id="ab58625a0341896a6e3b4caa9b0b76d84" name="ab58625a0341896a6e3b4caa9b0b76d84"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab58625a0341896a6e3b4caa9b0b76d84">&#9670;&#160;</a></span>ApplyFilters()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Easy_Copier.ViewModels.HistoryViewModel.ApplyFilters </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Filters and sorts in-memory records based on active date, status, and search query parameters. </p>
+
+<p class="definition">Definition at line <a class="el" href="_history_view_model_8cs_source.html#l00389">389</a> of file <a class="el" href="_history_view_model_8cs_source.html">HistoryViewModel.cs</a>.</p>
+
+<p class="reference">References <a class="el" href="_history_view_model_8cs_source.html#l00066">_allRecords</a>, <a class="el" href="_history_view_model_8cs_source.html#l00063">_historyAnalysisService</a>, <a class="el" href="_history_view_model_8cs_source.html#l00069">_isInitialized</a>, <a class="el" href="_history_view_model_8cs_source.html#l00042">Easy_Copier.ViewModels.Completed</a>, <a class="el" href="_history_view_model_8cs_source.html#l00045">Easy_Copier.ViewModels.Failed</a>, <a class="el" href="_history_view_model_8cs_source.html#l00107">HasNoRecords</a>, <a class="el" href="_history_view_model_8cs_source.html#l00103">HeaderSubtitle</a>, <a class="el" href="_history_view_model_8cs_source.html#l00024">Easy_Copier.ViewModels.Last7Days</a>, <a class="el" href="_history_view_model_8cs_source.html#l00081">Records</a>, <a class="el" href="_history_view_model_8cs_source.html#l00099">SearchQuery</a>, <a class="el" href="_history_view_model_8cs_source.html#l00123">SelectedDateFilter</a>, <a class="el" href="_history_view_model_8cs_source.html#l00075">SelectedFilterStats</a>, <a class="el" href="_history_view_model_8cs_source.html#l00129">SelectedStatusFilter</a>, <a class="el" href="_history_view_model_8cs_source.html#l00093">StatusMessage</a>, <a class="el" href="_history_view_model_8cs_source.html#l00027">Easy_Copier.ViewModels.ThisMonth</a>, and <a class="el" href="_history_view_model_8cs_source.html#l00021">Easy_Copier.ViewModels.Today</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_history_view_model_8cs_source.html#l00281">InitializeAsync()</a>, <a class="el" href="_history_view_model_8cs_source.html#l00302">OnSearchQueryChanged()</a>, <a class="el" href="_history_view_model_8cs_source.html#l00307">OnSelectedDateFilterChanged()</a>, <a class="el" href="_history_view_model_8cs_source.html#l00318">OnSelectedDateFilterStringChanged()</a>, <a class="el" href="_history_view_model_8cs_source.html#l00312">OnSelectedStatusFilterChanged()</a>, and <a class="el" href="_history_view_model_8cs_source.html#l00334">OnSelectedStatusFilterStringChanged()</a>.</p>
+<div id="dynsection-2" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-2-summary" class="dynsummary">
+</div>
+<div id="dynsection-2-content" class="dyncontent hidden">
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="class_easy___copier_1_1_view_models_1_1_history_view_model_ab58625a0341896a6e3b4caa9b0b76d84_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a775d21f28f30c7e9baded173f36d3285" name="a775d21f28f30c7e9baded173f36d3285"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a775d21f28f30c7e9baded173f36d3285">&#9670;&#160;</a></span>ClearFilters()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Easy_Copier.ViewModels.HistoryViewModel.ClearFilters </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Resets the date, status and search filters to defaults. </p>
+
+<p class="definition">Definition at line <a class="el" href="_history_view_model_8cs_source.html#l00439">439</a> of file <a class="el" href="_history_view_model_8cs_source.html">HistoryViewModel.cs</a>.</p>
+
+<p class="reference">References <a class="el" href="_history_view_model_8cs_source.html#l00167">DefaultDateFilterStrings</a>, <a class="el" href="_history_view_model_8cs_source.html#l00168">DefaultStatusFilterStrings</a>, <a class="el" href="_history_view_model_8cs_source.html#l00099">SearchQuery</a>, <a class="el" href="_history_view_model_8cs_source.html#l00147">SelectedDateFilterString</a>, and <a class="el" href="_history_view_model_8cs_source.html#l00153">SelectedStatusFilterString</a>.</p>
+
+</div>
+</div>
+<a id="a28b1b921676acec408f93d056057a495" name="a28b1b921676acec408f93d056057a495"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a28b1b921676acec408f93d056057a495">&#9670;&#160;</a></span>CloseDrawer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Easy_Copier.ViewModels.HistoryViewModel.CloseDrawer </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Closes the detail inspection drawer by clearing the active selection. </p>
+
+<p class="definition">Definition at line <a class="el" href="_history_view_model_8cs_source.html#l00381">381</a> of file <a class="el" href="_history_view_model_8cs_source.html">HistoryViewModel.cs</a>.</p>
+
+<p class="reference">References <a class="el" href="_history_view_model_8cs_source.html#l00087">SelectedRecord</a>.</p>
+
+</div>
+</div>
 <a id="ab9105b6094e7427b8ab2cf543439a9f3" name="ab9105b6094e7427b8ab2cf543439a9f3"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab9105b6094e7427b8ab2cf543439a9f3">&#9670;&#160;</a></span>ExportToCsvAsync()</h2>
 
@@ -184,9 +413,12 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_history_view_model_8cs_source.html#l00194">194</a> of file <a class="el" href="_history_view_model_8cs_source.html">HistoryViewModel.cs</a>.</p>
+<p>Asynchronously prompts the user for a destination file path and exports the active records list to CSV. </p>
+<dl class="section return"><dt>Returns</dt><dd>A task representing the asynchronous export operation.</dd></dl>
 
-<p class="reference">References <a class="el" href="_history_view_model_8cs_source.html#l00033">Records</a>, <a class="el" href="_history_view_model_8cs_source.html#l00044">SelectedMonth</a>, <a class="el" href="_history_view_model_8cs_source.html#l00041">SelectedWeek</a>, and <a class="el" href="_history_view_model_8cs_source.html#l00047">StatusMessage</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_history_view_model_8cs_source.html#l00451">451</a> of file <a class="el" href="_history_view_model_8cs_source.html">HistoryViewModel.cs</a>.</p>
+
+<p class="reference">References <a class="el" href="_history_view_model_8cs_source.html#l00060">_filePickerService</a>, <a class="el" href="_history_view_model_8cs_source.html#l00057">_reportService</a>, <a class="el" href="_history_view_model_8cs_source.html#l00081">Records</a>, and <a class="el" href="_history_view_model_8cs_source.html#l00093">StatusMessage</a>.</p>
 
 </div>
 </div>
@@ -205,28 +437,31 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_history_view_model_8cs_source.html#l00051">51</a> of file <a class="el" href="_history_view_model_8cs_source.html">HistoryViewModel.cs</a>.</p>
+<p>Asynchronously loads history records from storage and applies active filters. </p>
+<dl class="section return"><dt>Returns</dt><dd>A task representing the asynchronous initialization operation.</dd></dl>
 
-<p class="reference">References <a class="el" href="_history_view_model_8cs_source.html#l00038">AvailableMonths</a>, <a class="el" href="_history_view_model_8cs_source.html#l00035">AvailableWeeks</a>, <a class="el" href="_history_view_model_8cs_source.html#l00071">LoadStatsAsync()</a>, <a class="el" href="namespace_easy___copier_1_1_view_models.html#a6df37162e88c91166366b621ad08bb8b">Easy_Copier.ViewModels.MonthOption()</a>, <a class="el" href="_history_view_model_8cs_source.html#l00044">SelectedMonth</a>, <a class="el" href="_history_view_model_8cs_source.html#l00041">SelectedWeek</a>, and <a class="el" href="namespace_easy___copier_1_1_view_models.html#accd6e708af51e819bb782802bf50f029">Easy_Copier.ViewModels.WeekOption()</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_history_view_model_8cs_source.html#l00281">281</a> of file <a class="el" href="_history_view_model_8cs_source.html">HistoryViewModel.cs</a>.</p>
+
+<p class="reference">References <a class="el" href="_history_view_model_8cs_source.html#l00066">_allRecords</a>, <a class="el" href="_history_view_model_8cs_source.html#l00054">_copyHistoryService</a>, <a class="el" href="_history_view_model_8cs_source.html#l00069">_isInitialized</a>, <a class="el" href="_history_view_model_8cs_source.html#l00389">ApplyFilters()</a>, <a class="el" href="_history_view_model_8cs_source.html#l00231">RefreshDashboard()</a>, and <a class="el" href="_history_view_model_8cs_source.html#l00093">StatusMessage</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="_history_page_8xaml_8cs_source.html#l00025">Easy_Copier.Views.HistoryPage.OnNavigatedTo()</a>.</p>
-<div id="dynsection-2" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-2-summary" class="dynsummary">
-</div>
-<div id="dynsection-2-content" class="dyncontent hidden">
-<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="class_easy___copier_1_1_view_models_1_1_history_view_model_ae6b79afced2e2ee68f5d8f7033c5e8c7_cgraph.svg" width="100%" height="494"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
-</div>
-<div id="dynsection-3" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-3" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-3-summary" class="dynsummary">
 </div>
 <div id="dynsection-3-content" class="dyncontent hidden">
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="class_easy___copier_1_1_view_models_1_1_history_view_model_ae6b79afced2e2ee68f5d8f7033c5e8c7_cgraph.svg" width="100%" height="390"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+<div id="dynsection-4" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-4-summary" class="dynsummary">
+</div>
+<div id="dynsection-4-content" class="dyncontent hidden">
 <div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="class_easy___copier_1_1_view_models_1_1_history_view_model_ae6b79afced2e2ee68f5d8f7033c5e8c7_icgraph.svg" width="459" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
 </div>
-<a id="a1f296fdc4d87cdf38e600b3cb5daaf36" name="a1f296fdc4d87cdf38e600b3cb5daaf36"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1f296fdc4d87cdf38e600b3cb5daaf36">&#9670;&#160;</a></span>LoadRecordsByMonthAsync()</h2>
+<a id="aeeed17efd91ba15c479b8ba0a216d96b" name="aeeed17efd91ba15c479b8ba0a216d96b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeeed17efd91ba15c479b8ba0a216d96b">&#9670;&#160;</a></span>OnSearchQueryChanged()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -235,14 +470,10 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">async Task Easy_Copier.ViewModels.HistoryViewModel.LoadRecordsByMonthAsync </td>
+          <td class="memname">partial void Easy_Copier.ViewModels.HistoryViewModel.OnSearchQueryChanged </td>
           <td>(</td>
-          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>year</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramtype">string</td>          <td class="paramname"><span class="paramname"><em>value</em></span></td><td>)</td>
           <td></td>
-          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>month</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
@@ -252,28 +483,28 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_history_view_model_8cs_source.html#l00140">140</a> of file <a class="el" href="_history_view_model_8cs_source.html">HistoryViewModel.cs</a>.</p>
+<p>Partial notification handler invoked when SearchQuery changes. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value</td><td>The new search query value.</td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p class="reference">References <a class="el" href="_history_view_model_8cs_source.html#l00149">ProcessLoadedRecords()</a>, <a class="el" href="_history_view_model_8cs_source.html#l00030">SelectedFilterName</a>, and <a class="el" href="_history_view_model_8cs_source.html#l00047">StatusMessage</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_history_view_model_8cs_source.html#l00302">302</a> of file <a class="el" href="_history_view_model_8cs_source.html">HistoryViewModel.cs</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_history_view_model_8cs_source.html#l00113">OnSelectedMonthChanged()</a>.</p>
-<div id="dynsection-4" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-4-summary" class="dynsummary">
-</div>
-<div id="dynsection-4-content" class="dyncontent hidden">
-<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="class_easy___copier_1_1_view_models_1_1_history_view_model_a1f296fdc4d87cdf38e600b3cb5daaf36_cgraph.svg" width="100%" height="426"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
-</div>
-<div id="dynsection-5" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<p class="reference">References <a class="el" href="_history_view_model_8cs_source.html#l00389">ApplyFilters()</a>.</p>
+<div id="dynsection-5" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-5-summary" class="dynsummary">
 </div>
 <div id="dynsection-5-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="class_easy___copier_1_1_view_models_1_1_history_view_model_a1f296fdc4d87cdf38e600b3cb5daaf36_icgraph.svg" width="560" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="class_easy___copier_1_1_view_models_1_1_history_view_model_aeeed17efd91ba15c479b8ba0a216d96b_cgraph.svg" width="511" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
 </div>
-<a id="a7bc5319f97e5d0799de3ef71f9086784" name="a7bc5319f97e5d0799de3ef71f9086784"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7bc5319f97e5d0799de3ef71f9086784">&#9670;&#160;</a></span>LoadRecordsByWeekAsync()</h2>
+<a id="a340a8cb50aa7100e8e2cbdee30e52d79" name="a340a8cb50aa7100e8e2cbdee30e52d79"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a340a8cb50aa7100e8e2cbdee30e52d79">&#9670;&#160;</a></span>OnSelectedDashboardRangeChanged()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -282,14 +513,10 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">async Task Easy_Copier.ViewModels.HistoryViewModel.LoadRecordsByWeekAsync </td>
+          <td class="memname">partial void Easy_Copier.ViewModels.HistoryViewModel.OnSelectedDashboardRangeChanged </td>
           <td>(</td>
-          <td class="paramtype">DateTime</td>          <td class="paramname"><span class="paramname"><em>startOfWeek</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramtype">string</td>          <td class="paramname"><span class="paramname"><em>value</em></span></td><td>)</td>
           <td></td>
-          <td class="paramtype">DateTime</td>          <td class="paramname"><span class="paramname"><em>endOfWeek</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
@@ -299,28 +526,22 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_history_view_model_8cs_source.html#l00131">131</a> of file <a class="el" href="_history_view_model_8cs_source.html">HistoryViewModel.cs</a>.</p>
+<p>Partial notification handler invoked when SelectedDashboardRange changes. </p>
 
-<p class="reference">References <a class="el" href="_history_view_model_8cs_source.html#l00149">ProcessLoadedRecords()</a>, <a class="el" href="_history_view_model_8cs_source.html#l00030">SelectedFilterName</a>, and <a class="el" href="_history_view_model_8cs_source.html#l00047">StatusMessage</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_history_view_model_8cs_source.html#l00220">220</a> of file <a class="el" href="_history_view_model_8cs_source.html">HistoryViewModel.cs</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_history_view_model_8cs_source.html#l00095">OnSelectedWeekChanged()</a>.</p>
+<p class="reference">References <a class="el" href="_history_view_model_8cs_source.html#l00231">RefreshDashboard()</a>.</p>
 <div id="dynsection-6" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-6-summary" class="dynsummary">
 </div>
 <div id="dynsection-6-content" class="dyncontent hidden">
-<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="class_easy___copier_1_1_view_models_1_1_history_view_model_a7bc5319f97e5d0799de3ef71f9086784_cgraph.svg" width="100%" height="426"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
-</div>
-<div id="dynsection-7" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
-<div id="dynsection-7-summary" class="dynsummary">
-</div>
-<div id="dynsection-7-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="class_easy___copier_1_1_view_models_1_1_history_view_model_a7bc5319f97e5d0799de3ef71f9086784_icgraph.svg" width="554" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="class_easy___copier_1_1_view_models_1_1_history_view_model_a340a8cb50aa7100e8e2cbdee30e52d79_cgraph.svg" width="100%" height="364"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
 </div>
-<a id="a5f1cff489b96d8b3ea84b34343a0f1ce" name="a5f1cff489b96d8b3ea84b34343a0f1ce"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5f1cff489b96d8b3ea84b34343a0f1ce">&#9670;&#160;</a></span>LoadStatsAsync()</h2>
+<a id="aa3967841886c6e0c7bd728f46f642146" name="aa3967841886c6e0c7bd728f46f642146"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa3967841886c6e0c7bd728f46f642146">&#9670;&#160;</a></span>OnSelectedDateFilterChanged()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -329,7 +550,210 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">async Task Easy_Copier.ViewModels.HistoryViewModel.LoadStatsAsync </td>
+          <td class="memname">partial void Easy_Copier.ViewModels.HistoryViewModel.OnSelectedDateFilterChanged </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_easy___copier_1_1_view_models.html#aefb4bbcfbd3ec37f288a971520283d98">DateFilter</a></td>          <td class="paramname"><span class="paramname"><em>value</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Partial notification handler invoked when SelectedDateFilter changes. </p>
+
+<p class="definition">Definition at line <a class="el" href="_history_view_model_8cs_source.html#l00307">307</a> of file <a class="el" href="_history_view_model_8cs_source.html">HistoryViewModel.cs</a>.</p>
+
+<p class="reference">References <a class="el" href="_history_view_model_8cs_source.html#l00389">ApplyFilters()</a>.</p>
+<div id="dynsection-7" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-7-summary" class="dynsummary">
+</div>
+<div id="dynsection-7-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="class_easy___copier_1_1_view_models_1_1_history_view_model_aa3967841886c6e0c7bd728f46f642146_cgraph.svg" width="543" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a61dec5cc36de6b254dcc6a9685fb4bde" name="a61dec5cc36de6b254dcc6a9685fb4bde"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a61dec5cc36de6b254dcc6a9685fb4bde">&#9670;&#160;</a></span>OnSelectedDateFilterStringChanged()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">partial void Easy_Copier.ViewModels.HistoryViewModel.OnSelectedDateFilterStringChanged </td>
+          <td>(</td>
+          <td class="paramtype">string</td>          <td class="paramname"><span class="paramname"><em>value</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Partial notification handler invoked when SelectedDateFilterString changes. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value</td><td>The new date filter string value.</td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="_history_view_model_8cs_source.html#l00318">318</a> of file <a class="el" href="_history_view_model_8cs_source.html">HistoryViewModel.cs</a>.</p>
+
+<p class="reference">References <a class="el" href="_history_view_model_8cs_source.html#l00389">ApplyFilters()</a>, <a class="el" href="_history_view_model_8cs_source.html#l00030">Easy_Copier.ViewModels.Custom</a>, and <a class="el" href="_history_view_model_8cs_source.html#l00123">SelectedDateFilter</a>.</p>
+<div id="dynsection-8" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-8-summary" class="dynsummary">
+</div>
+<div id="dynsection-8-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="class_easy___copier_1_1_view_models_1_1_history_view_model_a61dec5cc36de6b254dcc6a9685fb4bde_cgraph.svg" width="524" height="70"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a2564b8987b9b3f3e3180e51a56af4231" name="a2564b8987b9b3f3e3180e51a56af4231"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2564b8987b9b3f3e3180e51a56af4231">&#9670;&#160;</a></span>OnSelectedRecordChanged()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">partial void Easy_Copier.ViewModels.HistoryViewModel.OnSelectedRecordChanged </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_easy___copier_1_1_models.html#a3bede7aa95515ae50b6531404c887ee2">CopyHistoryRecord</a>?</td>          <td class="paramname"><span class="paramname"><em>value</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Partial notification handler invoked when SelectedRecord changes to toggle drawer visibility and populate sub-files. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value</td><td>The newly selected CopyHistoryRecord instance, or <code>null</code>.</td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="_history_view_model_8cs_source.html#l00349">349</a> of file <a class="el" href="_history_view_model_8cs_source.html">HistoryViewModel.cs</a>.</p>
+
+<p class="reference">References <a class="el" href="_domain_models_8cs_source.html#l00442">Easy_Copier.Models.CopyHistoryRecord()</a>, <a class="el" href="_history_view_model_8cs_source.html#l00159">IsDrawerOpen</a>, and <a class="el" href="_history_view_model_8cs_source.html#l00165">SelectedRecordSubFiles</a>.</p>
+<div id="dynsection-9" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-9-summary" class="dynsummary">
+</div>
+<div id="dynsection-9-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="class_easy___copier_1_1_view_models_1_1_history_view_model_a2564b8987b9b3f3e3180e51a56af4231_cgraph.svg" width="530" height="78"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a7a506617f6404fac97c2376577de4101" name="a7a506617f6404fac97c2376577de4101"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7a506617f6404fac97c2376577de4101">&#9670;&#160;</a></span>OnSelectedStatusFilterChanged()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">partial void Easy_Copier.ViewModels.HistoryViewModel.OnSelectedStatusFilterChanged </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_easy___copier_1_1_view_models.html#a9c60ee124af20b8cf2bd1bc4ca23eb35">StatusFilter</a></td>          <td class="paramname"><span class="paramname"><em>value</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Partial notification handler invoked when SelectedStatusFilter changes. </p>
+
+<p class="definition">Definition at line <a class="el" href="_history_view_model_8cs_source.html#l00312">312</a> of file <a class="el" href="_history_view_model_8cs_source.html">HistoryViewModel.cs</a>.</p>
+
+<p class="reference">References <a class="el" href="_history_view_model_8cs_source.html#l00389">ApplyFilters()</a>.</p>
+<div id="dynsection-10" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-10-summary" class="dynsummary">
+</div>
+<div id="dynsection-10-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="class_easy___copier_1_1_view_models_1_1_history_view_model_a7a506617f6404fac97c2376577de4101_cgraph.svg" width="500" height="70"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a692de2072e6019bdb858d44a8e93a65e" name="a692de2072e6019bdb858d44a8e93a65e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a692de2072e6019bdb858d44a8e93a65e">&#9670;&#160;</a></span>OnSelectedStatusFilterStringChanged()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">partial void Easy_Copier.ViewModels.HistoryViewModel.OnSelectedStatusFilterStringChanged </td>
+          <td>(</td>
+          <td class="paramtype">string</td>          <td class="paramname"><span class="paramname"><em>value</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Partial notification handler invoked when SelectedStatusFilterString changes. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value</td><td>The new status filter string value.</td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="_history_view_model_8cs_source.html#l00334">334</a> of file <a class="el" href="_history_view_model_8cs_source.html">HistoryViewModel.cs</a>.</p>
+
+<p class="reference">References <a class="el" href="_history_view_model_8cs_source.html#l00039">Easy_Copier.ViewModels.All</a>, <a class="el" href="_history_view_model_8cs_source.html#l00389">ApplyFilters()</a>, and <a class="el" href="_history_view_model_8cs_source.html#l00129">SelectedStatusFilter</a>.</p>
+<div id="dynsection-11" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-11-summary" class="dynsummary">
+</div>
+<div id="dynsection-11-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="class_easy___copier_1_1_view_models_1_1_history_view_model_a692de2072e6019bdb858d44a8e93a65e_cgraph.svg" width="500" height="70"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a120bf81d952235228249368ea2228eef" name="a120bf81d952235228249368ea2228eef"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a120bf81d952235228249368ea2228eef">&#9670;&#160;</a></span>RefreshDashboard()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Easy_Copier.ViewModels.HistoryViewModel.RefreshDashboard </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
@@ -342,150 +766,30 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_history_view_model_8cs_source.html#l00071">71</a> of file <a class="el" href="_history_view_model_8cs_source.html">HistoryViewModel.cs</a>.</p>
+<p>Recomputes dashboard data from all loaded records. </p>
 
-<p class="reference">References <a class="el" href="namespace_easy___copier_1_1_view_models.html#adba81577e9747d96266b616b1a51b680">Easy_Copier.ViewModels.HistoryStats()</a>, <a class="el" href="_history_view_model_8cs_source.html#l00024">MonthStats</a>, <a class="el" href="_history_view_model_8cs_source.html#l00018">TodayStats</a>, and <a class="el" href="_history_view_model_8cs_source.html#l00021">WeekStats</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_history_view_model_8cs_source.html#l00231">231</a> of file <a class="el" href="_history_view_model_8cs_source.html">HistoryViewModel.cs</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_history_view_model_8cs_source.html#l00051">InitializeAsync()</a>.</p>
-<div id="dynsection-8" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-8-summary" class="dynsummary">
-</div>
-<div id="dynsection-8-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="class_easy___copier_1_1_view_models_1_1_history_view_model_a5f1cff489b96d8b3ea84b34343a0f1ce_cgraph.svg" width="494" height="78"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-<div id="dynsection-9" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
-<div id="dynsection-9-summary" class="dynsummary">
-</div>
-<div id="dynsection-9-content" class="dyncontent hidden">
-<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="class_easy___copier_1_1_view_models_1_1_history_view_model_a5f1cff489b96d8b3ea84b34343a0f1ce_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
-</div>
+<p class="reference">References <a class="el" href="_history_view_model_8cs_source.html#l00066">_allRecords</a>, <a class="el" href="_history_view_model_8cs_source.html#l00063">_historyAnalysisService</a>, <a class="el" href="_history_view_model_8cs_source.html#l00069">_isInitialized</a>, <a class="el" href="_history_view_model_8cs_source.html#l00191">DailyTotals</a>, <a class="el" href="_history_view_model_8cs_source.html#l00185">Dashboard</a>, <a class="el" href="namespace_easy___copier_1_1_models.html#afa937e185f1ca6308d5878174058c5ce">Easy_Copier.Models.DashboardStats()</a>, <a class="el" href="_history_view_model_8cs_source.html#l00209">FailureRateText</a>, <a class="el" href="_history_view_model_8cs_source.html#l00179">SelectedDashboardRange</a>, <a class="el" href="_history_view_model_8cs_source.html#l00203">TopItems</a>, and <a class="el" href="_history_view_model_8cs_source.html#l00197">WeeklyTotals</a>.</p>
 
-</div>
-</div>
-<a id="a49528f55b23d42cb2aa93df4f3813702" name="a49528f55b23d42cb2aa93df4f3813702"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a49528f55b23d42cb2aa93df4f3813702">&#9670;&#160;</a></span>OnSelectedMonthChanged()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">partial void Easy_Copier.ViewModels.HistoryViewModel.OnSelectedMonthChanged </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="namespace_easy___copier_1_1_view_models.html#a6df37162e88c91166366b621ad08bb8b">MonthOption</a>?</td>          <td class="paramname"><span class="paramname"><em>oldValue</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="namespace_easy___copier_1_1_view_models.html#a6df37162e88c91166366b621ad08bb8b">MonthOption</a>?</td>          <td class="paramname"><span class="paramname"><em>newValue</em></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_history_view_model_8cs_source.html#l00113">113</a> of file <a class="el" href="_history_view_model_8cs_source.html">HistoryViewModel.cs</a>.</p>
-
-<p class="reference">References <a class="el" href="_history_view_model_8cs_source.html#l00049">_isClearingSelection</a>, <a class="el" href="_history_view_model_8cs_source.html#l00140">LoadRecordsByMonthAsync()</a>, <a class="el" href="namespace_easy___copier_1_1_view_models.html#a6df37162e88c91166366b621ad08bb8b">Easy_Copier.ViewModels.MonthOption()</a>, <a class="el" href="_history_view_model_8cs_source.html#l00033">Records</a>, and <a class="el" href="_history_view_model_8cs_source.html#l00041">SelectedWeek</a>.</p>
-<div id="dynsection-10" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-10-summary" class="dynsummary">
-</div>
-<div id="dynsection-10-content" class="dyncontent hidden">
-<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="class_easy___copier_1_1_view_models_1_1_history_view_model_a49528f55b23d42cb2aa93df4f3813702_cgraph.svg" width="100%" height="460"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
-</div>
-
-</div>
-</div>
-<a id="a80e21f10de84c862aea543e30ef75b2e" name="a80e21f10de84c862aea543e30ef75b2e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a80e21f10de84c862aea543e30ef75b2e">&#9670;&#160;</a></span>OnSelectedWeekChanged()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">partial void Easy_Copier.ViewModels.HistoryViewModel.OnSelectedWeekChanged </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="namespace_easy___copier_1_1_view_models.html#accd6e708af51e819bb782802bf50f029">WeekOption</a>?</td>          <td class="paramname"><span class="paramname"><em>oldValue</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="namespace_easy___copier_1_1_view_models.html#accd6e708af51e819bb782802bf50f029">WeekOption</a>?</td>          <td class="paramname"><span class="paramname"><em>newValue</em></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_history_view_model_8cs_source.html#l00095">95</a> of file <a class="el" href="_history_view_model_8cs_source.html">HistoryViewModel.cs</a>.</p>
-
-<p class="reference">References <a class="el" href="_history_view_model_8cs_source.html#l00049">_isClearingSelection</a>, <a class="el" href="_history_view_model_8cs_source.html#l00131">LoadRecordsByWeekAsync()</a>, <a class="el" href="_history_view_model_8cs_source.html#l00033">Records</a>, <a class="el" href="_history_view_model_8cs_source.html#l00044">SelectedMonth</a>, and <a class="el" href="namespace_easy___copier_1_1_view_models.html#accd6e708af51e819bb782802bf50f029">Easy_Copier.ViewModels.WeekOption()</a>.</p>
-<div id="dynsection-11" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-11-summary" class="dynsummary">
-</div>
-<div id="dynsection-11-content" class="dyncontent hidden">
-<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="class_easy___copier_1_1_view_models_1_1_history_view_model_a80e21f10de84c862aea543e30ef75b2e_cgraph.svg" width="100%" height="460"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
-</div>
-
-</div>
-</div>
-<a id="aa213ac871ec14e0897dc9d330434184c" name="aa213ac871ec14e0897dc9d330434184c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa213ac871ec14e0897dc9d330434184c">&#9670;&#160;</a></span>ProcessLoadedRecords()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Easy_Copier.ViewModels.HistoryViewModel.ProcessLoadedRecords </td>
-          <td>(</td>
-          <td class="paramtype">List&lt; <a class="el" href="namespace_easy___copier_1_1_models.html#a22cad9581ea699aafef9d310c84f0836">CopyHistoryRecord</a> &gt;</td>          <td class="paramname"><span class="paramname"><em>records</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_history_view_model_8cs_source.html#l00149">149</a> of file <a class="el" href="_history_view_model_8cs_source.html">HistoryViewModel.cs</a>.</p>
-
-<p class="reference">References <a class="el" href="_domain_models_8cs_source.html#l00383">Easy_Copier.Models.CopyHistoryRecord()</a>, <a class="el" href="namespace_easy___copier_1_1_view_models.html#adba81577e9747d96266b616b1a51b680">Easy_Copier.ViewModels.HistoryStats()</a>, <a class="el" href="_history_view_model_8cs_source.html#l00033">Records</a>, <a class="el" href="_history_view_model_8cs_source.html#l00027">SelectedFilterStats</a>, and <a class="el" href="_history_view_model_8cs_source.html#l00047">StatusMessage</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="_history_view_model_8cs_source.html#l00140">LoadRecordsByMonthAsync()</a>, and <a class="el" href="_history_view_model_8cs_source.html#l00131">LoadRecordsByWeekAsync()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_history_view_model_8cs_source.html#l00281">InitializeAsync()</a>, and <a class="el" href="_history_view_model_8cs_source.html#l00220">OnSelectedDashboardRangeChanged()</a>.</p>
 <div id="dynsection-12" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-12-summary" class="dynsummary">
 </div>
 <div id="dynsection-12-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="class_easy___copier_1_1_view_models_1_1_history_view_model_aa213ac871ec14e0897dc9d330434184c_cgraph.svg" width="507" height="168"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="class_easy___copier_1_1_view_models_1_1_history_view_model_a120bf81d952235228249368ea2228eef_cgraph.svg" width="486" height="78"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <div id="dynsection-13" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
 <div id="dynsection-13-summary" class="dynsummary">
 </div>
 <div id="dynsection-13-content" class="dyncontent hidden">
-<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="class_easy___copier_1_1_view_models_1_1_history_view_model_aa213ac871ec14e0897dc9d330434184c_icgraph.svg" width="100%" height="390"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="class_easy___copier_1_1_view_models_1_1_history_view_model_a120bf81d952235228249368ea2228eef_icgraph.svg" width="100%" height="402"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
 </div>
-<a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Member Data Documentation</h2>
-<a id="ad87d5c487c6ecd67d0c1921096b5e1a9" name="ad87d5c487c6ecd67d0c1921096b5e1a9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad87d5c487c6ecd67d0c1921096b5e1a9">&#9670;&#160;</a></span>_isClearingSelection</h2>
+<a id="acf1eaae87cbd0086345435531808c472" name="acf1eaae87cbd0086345435531808c472"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acf1eaae87cbd0086345435531808c472">&#9670;&#160;</a></span>ToggleDashboard()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -494,7 +798,10 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool Easy_Copier.ViewModels.HistoryViewModel._isClearingSelection</td>
+          <td class="memname">void Easy_Copier.ViewModels.HistoryViewModel.ToggleDashboard </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
         </tr>
       </table>
   </td>
@@ -504,15 +811,238 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_history_view_model_8cs_source.html#l00049">49</a> of file <a class="el" href="_history_view_model_8cs_source.html">HistoryViewModel.cs</a>.</p>
+<p>Toggles dashboard visibility. </p>
 
-<p class="reference">Referenced by <a class="el" href="_history_view_model_8cs_source.html#l00113">OnSelectedMonthChanged()</a>, and <a class="el" href="_history_view_model_8cs_source.html#l00095">OnSelectedWeekChanged()</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_history_view_model_8cs_source.html#l00226">226</a> of file <a class="el" href="_history_view_model_8cs_source.html">HistoryViewModel.cs</a>.</p>
+
+<p class="reference">References <a class="el" href="_history_view_model_8cs_source.html#l00215">IsDashboardVisible</a>.</p>
+
+</div>
+</div>
+<a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Member Data Documentation</h2>
+<a id="a1022633fffd0ac4b470b9bec707f9810" name="a1022633fffd0ac4b470b9bec707f9810"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1022633fffd0ac4b470b9bec707f9810">&#9670;&#160;</a></span>_allRecords</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">List&lt;<a class="el" href="namespace_easy___copier_1_1_models.html#a3bede7aa95515ae50b6531404c887ee2">CopyHistoryRecord</a>&gt; Easy_Copier.ViewModels.HistoryViewModel._allRecords = []</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Internal list holding all un-filtered copy history records loaded from storage. </p>
+
+<p class="definition">Definition at line <a class="el" href="_history_view_model_8cs_source.html#l00066">66</a> of file <a class="el" href="_history_view_model_8cs_source.html">HistoryViewModel.cs</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_history_view_model_8cs_source.html#l00389">ApplyFilters()</a>, <a class="el" href="_history_view_model_8cs_source.html#l00281">InitializeAsync()</a>, and <a class="el" href="_history_view_model_8cs_source.html#l00231">RefreshDashboard()</a>.</p>
+
+</div>
+</div>
+<a id="a27c508b87a767f4e54a7e4b14e9daf17" name="a27c508b87a767f4e54a7e4b14e9daf17"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a27c508b87a767f4e54a7e4b14e9daf17">&#9670;&#160;</a></span>_copyHistoryService</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">readonly <a class="el" href="interface_easy___copier_1_1_services_1_1_i_copy_history_service.html">ICopyHistoryService</a> Easy_Copier.ViewModels.HistoryViewModel._copyHistoryService</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Service for querying copy operation history records from storage. </p>
+
+<p class="definition">Definition at line <a class="el" href="_history_view_model_8cs_source.html#l00054">54</a> of file <a class="el" href="_history_view_model_8cs_source.html">HistoryViewModel.cs</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_history_view_model_8cs_source.html#l00260">HistoryViewModel()</a>, and <a class="el" href="_history_view_model_8cs_source.html#l00281">InitializeAsync()</a>.</p>
+
+</div>
+</div>
+<a id="a5614b2651ff503ade3c6e26bd4095d3c" name="a5614b2651ff503ade3c6e26bd4095d3c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5614b2651ff503ade3c6e26bd4095d3c">&#9670;&#160;</a></span>_filePickerService</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">readonly <a class="el" href="interface_easy___copier_1_1_infrastructure_1_1_i_file_picker_service.html">IFilePickerService</a> Easy_Copier.ViewModels.HistoryViewModel._filePickerService</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Service for displaying save file picker dialogs. </p>
+
+<p class="definition">Definition at line <a class="el" href="_history_view_model_8cs_source.html#l00060">60</a> of file <a class="el" href="_history_view_model_8cs_source.html">HistoryViewModel.cs</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_history_view_model_8cs_source.html#l00451">ExportToCsvAsync()</a>, and <a class="el" href="_history_view_model_8cs_source.html#l00260">HistoryViewModel()</a>.</p>
+
+</div>
+</div>
+<a id="adf47188af3cf1cbb4b6caccec42e4ba3" name="adf47188af3cf1cbb4b6caccec42e4ba3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adf47188af3cf1cbb4b6caccec42e4ba3">&#9670;&#160;</a></span>_historyAnalysisService</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">readonly <a class="el" href="interface_easy___copier_1_1_services_1_1_i_history_analysis_service.html">IHistoryAnalysisService</a> Easy_Copier.ViewModels.HistoryViewModel._historyAnalysisService</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Service for grouping history records and computing aggregate history statistics. </p>
+
+<p class="definition">Definition at line <a class="el" href="_history_view_model_8cs_source.html#l00063">63</a> of file <a class="el" href="_history_view_model_8cs_source.html">HistoryViewModel.cs</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_history_view_model_8cs_source.html#l00389">ApplyFilters()</a>, <a class="el" href="_history_view_model_8cs_source.html#l00260">HistoryViewModel()</a>, and <a class="el" href="_history_view_model_8cs_source.html#l00231">RefreshDashboard()</a>.</p>
+
+</div>
+</div>
+<a id="af13b96ba37f1a0313ebf84f5be90e55f" name="af13b96ba37f1a0313ebf84f5be90e55f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af13b96ba37f1a0313ebf84f5be90e55f">&#9670;&#160;</a></span>_isInitialized</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Easy_Copier.ViewModels.HistoryViewModel._isInitialized</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Flag indicating whether initial record loading has been executed. </p>
+
+<p class="definition">Definition at line <a class="el" href="_history_view_model_8cs_source.html#l00069">69</a> of file <a class="el" href="_history_view_model_8cs_source.html">HistoryViewModel.cs</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_history_view_model_8cs_source.html#l00389">ApplyFilters()</a>, <a class="el" href="_history_view_model_8cs_source.html#l00281">InitializeAsync()</a>, and <a class="el" href="_history_view_model_8cs_source.html#l00231">RefreshDashboard()</a>.</p>
+
+</div>
+</div>
+<a id="a6b531909f66317b0942e72ecdc557820" name="a6b531909f66317b0942e72ecdc557820"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6b531909f66317b0942e72ecdc557820">&#9670;&#160;</a></span>_reportService</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">readonly <a class="el" href="interface_easy___copier_1_1_services_1_1_i_report_service.html">IReportService</a> Easy_Copier.ViewModels.HistoryViewModel._reportService</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Service for exporting operation records to external formats such as CSV. </p>
+
+<p class="definition">Definition at line <a class="el" href="_history_view_model_8cs_source.html#l00057">57</a> of file <a class="el" href="_history_view_model_8cs_source.html">HistoryViewModel.cs</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_history_view_model_8cs_source.html#l00451">ExportToCsvAsync()</a>, and <a class="el" href="_history_view_model_8cs_source.html#l00260">HistoryViewModel()</a>.</p>
+
+</div>
+</div>
+<a id="a5d0dc817f5d29f6eb0febe66a7fa5ab1" name="a5d0dc817f5d29f6eb0febe66a7fa5ab1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5d0dc817f5d29f6eb0febe66a7fa5ab1">&#9670;&#160;</a></span>DefaultDateFilterStrings</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">readonly string [] Easy_Copier.ViewModels.HistoryViewModel.DefaultDateFilterStrings = [&quot;Today&quot;, &quot;Last 7 Days&quot;, &quot;This Month&quot;, &quot;All Time&quot;]</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_history_view_model_8cs_source.html#l00167">167</a> of file <a class="el" href="_history_view_model_8cs_source.html">HistoryViewModel.cs</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_history_view_model_8cs_source.html#l00439">ClearFilters()</a>, and <a class="el" href="_history_view_model_8cs_source.html#l00260">HistoryViewModel()</a>.</p>
+
+</div>
+</div>
+<a id="a28d9795bdfd1f1315b75fd4a69eb7305" name="a28d9795bdfd1f1315b75fd4a69eb7305"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a28d9795bdfd1f1315b75fd4a69eb7305">&#9670;&#160;</a></span>DefaultStatusFilterStrings</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">readonly string [] Easy_Copier.ViewModels.HistoryViewModel.DefaultStatusFilterStrings = [&quot;All&quot;, &quot;Completed&quot;, &quot;Failed&quot;]</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_history_view_model_8cs_source.html#l00168">168</a> of file <a class="el" href="_history_view_model_8cs_source.html">HistoryViewModel.cs</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_history_view_model_8cs_source.html#l00439">ClearFilters()</a>, and <a class="el" href="_history_view_model_8cs_source.html#l00260">HistoryViewModel()</a>.</p>
 
 </div>
 </div>
 <a name="doc-property-members" id="doc-property-members"></a><h2 id="header-doc-property-members" class="groupheader">Property Documentation</h2>
-<a id="ab0795c3645d39dcc1e4c51cf8d237c86" name="ab0795c3645d39dcc1e4c51cf8d237c86"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab0795c3645d39dcc1e4c51cf8d237c86">&#9670;&#160;</a></span>AvailableMonths</h2>
+<a id="a3c70f573960df297cf9aa2a46727211e" name="a3c70f573960df297cf9aa2a46727211e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3c70f573960df297cf9aa2a46727211e">&#9670;&#160;</a></span>AvailableDateFilters</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -521,7 +1051,33 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">partial ObservableCollection&lt;<a class="el" href="namespace_easy___copier_1_1_view_models.html#a6df37162e88c91166366b621ad08bb8b">MonthOption</a>&gt; Easy_Copier.ViewModels.HistoryViewModel.AvailableMonths = []</td>
+          <td class="memname">IReadOnlyList&lt;<a class="el" href="namespace_easy___copier_1_1_view_models.html#aefb4bbcfbd3ec37f288a971520283d98">DateFilter</a>&gt; Easy_Copier.ViewModels.HistoryViewModel.AvailableDateFilters = Enum.GetValues&lt;<a class="el" href="namespace_easy___copier_1_1_view_models.html#aefb4bbcfbd3ec37f288a971520283d98">DateFilter</a>&gt;()</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel get">get</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gets the available date filter options for UI selection. </p>
+
+<p class="definition">Definition at line <a class="el" href="_history_view_model_8cs_source.html#l00112">112</a> of file <a class="el" href="_history_view_model_8cs_source.html">HistoryViewModel.cs</a>.</p>
+
+</div>
+</div>
+<a id="aee4b0c1e846329fc1a91c39156ec0db2" name="aee4b0c1e846329fc1a91c39156ec0db2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aee4b0c1e846329fc1a91c39156ec0db2">&#9670;&#160;</a></span>AvailableDateFilterStrings</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">partial ObservableCollection&lt;string&gt; Easy_Copier.ViewModels.HistoryViewModel.AvailableDateFilterStrings</td>
         </tr>
       </table>
   </td>
@@ -531,14 +1087,16 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_history_view_model_8cs_source.html#l00038">38</a> of file <a class="el" href="_history_view_model_8cs_source.html">HistoryViewModel.cs</a>.</p>
+<p>Gets or sets the collection of available date filter option strings for UI binding compatibility. </p>
 
-<p class="reference">Referenced by <a class="el" href="_history_view_model_8cs_source.html#l00051">InitializeAsync()</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_history_view_model_8cs_source.html#l00135">135</a> of file <a class="el" href="_history_view_model_8cs_source.html">HistoryViewModel.cs</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_history_view_model_8cs_source.html#l00260">HistoryViewModel()</a>.</p>
 
 </div>
 </div>
-<a id="a57f616895f38890349dbab2527680c6f" name="a57f616895f38890349dbab2527680c6f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a57f616895f38890349dbab2527680c6f">&#9670;&#160;</a></span>AvailableWeeks</h2>
+<a id="ac1556a19e621294a46436888ca72b110" name="ac1556a19e621294a46436888ca72b110"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac1556a19e621294a46436888ca72b110">&#9670;&#160;</a></span>AvailableStatusFilters</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -547,7 +1105,33 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">partial ObservableCollection&lt;<a class="el" href="namespace_easy___copier_1_1_view_models.html#accd6e708af51e819bb782802bf50f029">WeekOption</a>&gt; Easy_Copier.ViewModels.HistoryViewModel.AvailableWeeks = []</td>
+          <td class="memname">IReadOnlyList&lt;<a class="el" href="namespace_easy___copier_1_1_view_models.html#a9c60ee124af20b8cf2bd1bc4ca23eb35">StatusFilter</a>&gt; Easy_Copier.ViewModels.HistoryViewModel.AvailableStatusFilters = Enum.GetValues&lt;<a class="el" href="namespace_easy___copier_1_1_view_models.html#a9c60ee124af20b8cf2bd1bc4ca23eb35">StatusFilter</a>&gt;()</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel get">get</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gets the available status filter options for UI selection. </p>
+
+<p class="definition">Definition at line <a class="el" href="_history_view_model_8cs_source.html#l00117">117</a> of file <a class="el" href="_history_view_model_8cs_source.html">HistoryViewModel.cs</a>.</p>
+
+</div>
+</div>
+<a id="a9c40ccd6a617c1248995b117bc237cc8" name="a9c40ccd6a617c1248995b117bc237cc8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9c40ccd6a617c1248995b117bc237cc8">&#9670;&#160;</a></span>AvailableStatusFilterStrings</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">partial ObservableCollection&lt;string&gt; Easy_Copier.ViewModels.HistoryViewModel.AvailableStatusFilterStrings</td>
         </tr>
       </table>
   </td>
@@ -557,14 +1141,16 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_history_view_model_8cs_source.html#l00035">35</a> of file <a class="el" href="_history_view_model_8cs_source.html">HistoryViewModel.cs</a>.</p>
+<p>Gets or sets the collection of available status filter option strings for UI binding compatibility. </p>
 
-<p class="reference">Referenced by <a class="el" href="_history_view_model_8cs_source.html#l00051">InitializeAsync()</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_history_view_model_8cs_source.html#l00141">141</a> of file <a class="el" href="_history_view_model_8cs_source.html">HistoryViewModel.cs</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_history_view_model_8cs_source.html#l00260">HistoryViewModel()</a>.</p>
 
 </div>
 </div>
-<a id="af0bb21ff5a5cf59564bbe30ea7ef4d44" name="af0bb21ff5a5cf59564bbe30ea7ef4d44"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af0bb21ff5a5cf59564bbe30ea7ef4d44">&#9670;&#160;</a></span>MonthStats</h2>
+<a id="a62fbabe23e5f2282e579c70d6b41e146" name="a62fbabe23e5f2282e579c70d6b41e146"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a62fbabe23e5f2282e579c70d6b41e146">&#9670;&#160;</a></span>DailyTotals</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -573,7 +1159,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">partial <a class="el" href="namespace_easy___copier_1_1_view_models.html#adba81577e9747d96266b616b1a51b680">HistoryStats</a> Easy_Copier.ViewModels.HistoryViewModel.MonthStats = new <a class="el" href="namespace_easy___copier_1_1_view_models.html#adba81577e9747d96266b616b1a51b680">HistoryStats</a>(0, 0, 0, 0)</td>
+          <td class="memname">partial ObservableCollection&lt;<a class="el" href="namespace_easy___copier_1_1_models.html#ab813735a114819bca751ccd47305d780">PeriodTotal</a>&gt; Easy_Copier.ViewModels.HistoryViewModel.DailyTotals = []</td>
         </tr>
       </table>
   </td>
@@ -583,9 +1169,205 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_history_view_model_8cs_source.html#l00024">24</a> of file <a class="el" href="_history_view_model_8cs_source.html">HistoryViewModel.cs</a>.</p>
+<p>Gets or sets the daily totals shown in the dashboard chart. </p>
 
-<p class="reference">Referenced by <a class="el" href="_history_view_model_8cs_source.html#l00071">LoadStatsAsync()</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_history_view_model_8cs_source.html#l00191">191</a> of file <a class="el" href="_history_view_model_8cs_source.html">HistoryViewModel.cs</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_history_view_model_8cs_source.html#l00231">RefreshDashboard()</a>.</p>
+
+</div>
+</div>
+<a id="ac57a69f6d07f7a210e1548292cce11ce" name="ac57a69f6d07f7a210e1548292cce11ce"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac57a69f6d07f7a210e1548292cce11ce">&#9670;&#160;</a></span>Dashboard</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">partial? <a class="el" href="namespace_easy___copier_1_1_models.html#afa937e185f1ca6308d5878174058c5ce">DashboardStats</a> Easy_Copier.ViewModels.HistoryViewModel.Dashboard</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel get">get</span><span class="mlabel set">set</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gets or sets the dashboard reporting data for the selected range. </p>
+
+<p class="definition">Definition at line <a class="el" href="_history_view_model_8cs_source.html#l00185">185</a> of file <a class="el" href="_history_view_model_8cs_source.html">HistoryViewModel.cs</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_history_view_model_8cs_source.html#l00231">RefreshDashboard()</a>.</p>
+
+</div>
+</div>
+<a id="a41622a9ce79dd5df33e13eb5b4a746cb" name="a41622a9ce79dd5df33e13eb5b4a746cb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a41622a9ce79dd5df33e13eb5b4a746cb">&#9670;&#160;</a></span>DashboardRangeOptions</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">IReadOnlyList&lt;string&gt; Easy_Copier.ViewModels.HistoryViewModel.DashboardRangeOptions = [&quot;Last 7 Days&quot;, &quot;Last 30 Days&quot;, &quot;Last 90 Days&quot;]</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel get">get</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gets the available dashboard range options. </p>
+
+<p class="definition">Definition at line <a class="el" href="_history_view_model_8cs_source.html#l00173">173</a> of file <a class="el" href="_history_view_model_8cs_source.html">HistoryViewModel.cs</a>.</p>
+
+</div>
+</div>
+<a id="a9bdb3ddcae8e4b0dde17920fff45bd8a" name="a9bdb3ddcae8e4b0dde17920fff45bd8a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9bdb3ddcae8e4b0dde17920fff45bd8a">&#9670;&#160;</a></span>FailureRateText</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">partial string Easy_Copier.ViewModels.HistoryViewModel.FailureRateText = &quot;0%&quot;</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel get">get</span><span class="mlabel set">set</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gets or sets the overall failure rate text for the dashboard range. </p>
+
+<p class="definition">Definition at line <a class="el" href="_history_view_model_8cs_source.html#l00209">209</a> of file <a class="el" href="_history_view_model_8cs_source.html">HistoryViewModel.cs</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_history_view_model_8cs_source.html#l00231">RefreshDashboard()</a>.</p>
+
+</div>
+</div>
+<a id="aad4222a4a930474eb8e6ac5d738b956c" name="aad4222a4a930474eb8e6ac5d738b956c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aad4222a4a930474eb8e6ac5d738b956c">&#9670;&#160;</a></span>HasNoRecords</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">partial bool Easy_Copier.ViewModels.HistoryViewModel.HasNoRecords</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel get">get</span><span class="mlabel set">set</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gets or sets a value indicating whether the filtered list is empty. </p>
+
+<p class="definition">Definition at line <a class="el" href="_history_view_model_8cs_source.html#l00107">107</a> of file <a class="el" href="_history_view_model_8cs_source.html">HistoryViewModel.cs</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_history_view_model_8cs_source.html#l00389">ApplyFilters()</a>.</p>
+
+</div>
+</div>
+<a id="a703aece29f2d1516c9279739415613fa" name="a703aece29f2d1516c9279739415613fa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a703aece29f2d1516c9279739415613fa">&#9670;&#160;</a></span>HeaderSubtitle</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">partial string Easy_Copier.ViewModels.HistoryViewModel.HeaderSubtitle = string.Empty</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel get">get</span><span class="mlabel set">set</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gets or sets the header subtitle summarizing results and filters. </p>
+
+<p class="definition">Definition at line <a class="el" href="_history_view_model_8cs_source.html#l00103">103</a> of file <a class="el" href="_history_view_model_8cs_source.html">HistoryViewModel.cs</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_history_view_model_8cs_source.html#l00389">ApplyFilters()</a>.</p>
+
+</div>
+</div>
+<a id="af45140ac2cb720ca461460780158694f" name="af45140ac2cb720ca461460780158694f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af45140ac2cb720ca461460780158694f">&#9670;&#160;</a></span>IsDashboardVisible</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">partial bool Easy_Copier.ViewModels.HistoryViewModel.IsDashboardVisible</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel get">get</span><span class="mlabel set">set</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gets or sets a value indicating whether the dashboard panel is visible. </p>
+
+<p class="definition">Definition at line <a class="el" href="_history_view_model_8cs_source.html#l00215">215</a> of file <a class="el" href="_history_view_model_8cs_source.html">HistoryViewModel.cs</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_history_view_model_8cs_source.html#l00226">ToggleDashboard()</a>.</p>
+
+</div>
+</div>
+<a id="a95679ab5cd0c871eb69cb0a8b6a6c818" name="a95679ab5cd0c871eb69cb0a8b6a6c818"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a95679ab5cd0c871eb69cb0a8b6a6c818">&#9670;&#160;</a></span>IsDrawerOpen</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">partial bool Easy_Copier.ViewModels.HistoryViewModel.IsDrawerOpen</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel get">get</span><span class="mlabel set">set</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gets or sets a value indicating whether the detail inspection drawer panel is open. </p>
+
+<p class="definition">Definition at line <a class="el" href="_history_view_model_8cs_source.html#l00159">159</a> of file <a class="el" href="_history_view_model_8cs_source.html">HistoryViewModel.cs</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_history_view_model_8cs_source.html#l00349">OnSelectedRecordChanged()</a>.</p>
 
 </div>
 </div>
@@ -599,7 +1381,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">partial ObservableCollection&lt;<a class="el" href="namespace_easy___copier_1_1_models.html#a22cad9581ea699aafef9d310c84f0836">CopyHistoryRecord</a>&gt; Easy_Copier.ViewModels.HistoryViewModel.Records = []</td>
+          <td class="memname">partial ObservableCollection&lt;<a class="el" href="namespace_easy___copier_1_1_models.html#a3bede7aa95515ae50b6531404c887ee2">CopyHistoryRecord</a>&gt; Easy_Copier.ViewModels.HistoryViewModel.Records = []</td>
         </tr>
       </table>
   </td>
@@ -609,14 +1391,16 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_history_view_model_8cs_source.html#l00033">33</a> of file <a class="el" href="_history_view_model_8cs_source.html">HistoryViewModel.cs</a>.</p>
+<p>Gets or sets the collection of copy history records matching the active search and filter criteria. </p>
 
-<p class="reference">Referenced by <a class="el" href="_history_view_model_8cs_source.html#l00194">ExportToCsvAsync()</a>, <a class="el" href="_history_view_model_8cs_source.html#l00113">OnSelectedMonthChanged()</a>, <a class="el" href="_history_view_model_8cs_source.html#l00095">OnSelectedWeekChanged()</a>, and <a class="el" href="_history_view_model_8cs_source.html#l00149">ProcessLoadedRecords()</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_history_view_model_8cs_source.html#l00081">81</a> of file <a class="el" href="_history_view_model_8cs_source.html">HistoryViewModel.cs</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_history_view_model_8cs_source.html#l00389">ApplyFilters()</a>, and <a class="el" href="_history_view_model_8cs_source.html#l00451">ExportToCsvAsync()</a>.</p>
 
 </div>
 </div>
-<a id="ac55a8e18f76589fd51ee646258ca0767" name="ac55a8e18f76589fd51ee646258ca0767"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac55a8e18f76589fd51ee646258ca0767">&#9670;&#160;</a></span>SelectedFilterName</h2>
+<a id="ab90271289a277014892b4fd341a6c833" name="ab90271289a277014892b4fd341a6c833"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab90271289a277014892b4fd341a6c833">&#9670;&#160;</a></span>SearchQuery</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -625,7 +1409,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">partial string Easy_Copier.ViewModels.HistoryViewModel.SelectedFilterName = string.Empty</td>
+          <td class="memname">partial string Easy_Copier.ViewModels.HistoryViewModel.SearchQuery = string.Empty</td>
         </tr>
       </table>
   </td>
@@ -635,9 +1419,95 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_history_view_model_8cs_source.html#l00030">30</a> of file <a class="el" href="_history_view_model_8cs_source.html">HistoryViewModel.cs</a>.</p>
+<p>Gets or sets the search query string used to filter history entries by item or drive name. </p>
 
-<p class="reference">Referenced by <a class="el" href="_history_view_model_8cs_source.html#l00140">LoadRecordsByMonthAsync()</a>, and <a class="el" href="_history_view_model_8cs_source.html#l00131">LoadRecordsByWeekAsync()</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_history_view_model_8cs_source.html#l00099">99</a> of file <a class="el" href="_history_view_model_8cs_source.html">HistoryViewModel.cs</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_history_view_model_8cs_source.html#l00389">ApplyFilters()</a>, and <a class="el" href="_history_view_model_8cs_source.html#l00439">ClearFilters()</a>.</p>
+
+</div>
+</div>
+<a id="afd641ce9c32d890ee8d243830d4df2a4" name="afd641ce9c32d890ee8d243830d4df2a4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afd641ce9c32d890ee8d243830d4df2a4">&#9670;&#160;</a></span>SelectedDashboardRange</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">partial string Easy_Copier.ViewModels.HistoryViewModel.SelectedDashboardRange = &quot;Last 7 Days&quot;</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel get">get</span><span class="mlabel set">set</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gets or sets the selected dashboard range option. </p>
+
+<p class="definition">Definition at line <a class="el" href="_history_view_model_8cs_source.html#l00179">179</a> of file <a class="el" href="_history_view_model_8cs_source.html">HistoryViewModel.cs</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_history_view_model_8cs_source.html#l00231">RefreshDashboard()</a>.</p>
+
+</div>
+</div>
+<a id="a6c2487adb355456341cf6de50fbd3aef" name="a6c2487adb355456341cf6de50fbd3aef"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6c2487adb355456341cf6de50fbd3aef">&#9670;&#160;</a></span>SelectedDateFilter</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">partial <a class="el" href="namespace_easy___copier_1_1_view_models.html#aefb4bbcfbd3ec37f288a971520283d98">DateFilter</a> Easy_Copier.ViewModels.HistoryViewModel.SelectedDateFilter = <a class="el" href="namespace_easy___copier_1_1_view_models.html#aefb4bbcfbd3ec37f288a971520283d98a1dd1c5fb7f25cd41b291d43a89e3aefd">DateFilter.Today</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel get">get</span><span class="mlabel set">set</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gets or sets the currently selected date filter option. </p>
+
+<p class="definition">Definition at line <a class="el" href="_history_view_model_8cs_source.html#l00123">123</a> of file <a class="el" href="_history_view_model_8cs_source.html">HistoryViewModel.cs</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_history_view_model_8cs_source.html#l00389">ApplyFilters()</a>, and <a class="el" href="_history_view_model_8cs_source.html#l00318">OnSelectedDateFilterStringChanged()</a>.</p>
+
+</div>
+</div>
+<a id="a805f9a2cf638864bc9ffda2fd3f7958d" name="a805f9a2cf638864bc9ffda2fd3f7958d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a805f9a2cf638864bc9ffda2fd3f7958d">&#9670;&#160;</a></span>SelectedDateFilterString</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">partial string Easy_Copier.ViewModels.HistoryViewModel.SelectedDateFilterString</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel get">get</span><span class="mlabel set">set</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gets or sets the currently selected date filter option string for UI dropdown binding. </p>
+
+<p class="definition">Definition at line <a class="el" href="_history_view_model_8cs_source.html#l00147">147</a> of file <a class="el" href="_history_view_model_8cs_source.html">HistoryViewModel.cs</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_history_view_model_8cs_source.html#l00439">ClearFilters()</a>, and <a class="el" href="_history_view_model_8cs_source.html#l00260">HistoryViewModel()</a>.</p>
 
 </div>
 </div>
@@ -651,7 +1521,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">partial <a class="el" href="namespace_easy___copier_1_1_view_models.html#adba81577e9747d96266b616b1a51b680">HistoryStats</a> Easy_Copier.ViewModels.HistoryViewModel.SelectedFilterStats = new <a class="el" href="namespace_easy___copier_1_1_view_models.html#adba81577e9747d96266b616b1a51b680">HistoryStats</a>(0, 0, 0, 0)</td>
+          <td class="memname">partial <a class="el" href="namespace_easy___copier_1_1_models.html#a25649c73b8e0d9b440f231c739a2d560">HistoryStats</a> Easy_Copier.ViewModels.HistoryViewModel.SelectedFilterStats = new <a class="el" href="namespace_easy___copier_1_1_models.html#a25649c73b8e0d9b440f231c739a2d560">HistoryStats</a>(0, 0, 0, 0, &quot;0%&quot;)</td>
         </tr>
       </table>
   </td>
@@ -661,14 +1531,16 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_history_view_model_8cs_source.html#l00027">27</a> of file <a class="el" href="_history_view_model_8cs_source.html">HistoryViewModel.cs</a>.</p>
+<p>Gets or sets the aggregated summary statistics for the currently filtered history records. </p>
 
-<p class="reference">Referenced by <a class="el" href="_history_view_model_8cs_source.html#l00149">ProcessLoadedRecords()</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_history_view_model_8cs_source.html#l00075">75</a> of file <a class="el" href="_history_view_model_8cs_source.html">HistoryViewModel.cs</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_history_view_model_8cs_source.html#l00389">ApplyFilters()</a>.</p>
 
 </div>
 </div>
-<a id="adab933bdcca26ae3196288037746a309" name="adab933bdcca26ae3196288037746a309"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adab933bdcca26ae3196288037746a309">&#9670;&#160;</a></span>SelectedMonth</h2>
+<a id="a809d322533f4c99d0d05a5afcd844c8d" name="a809d322533f4c99d0d05a5afcd844c8d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a809d322533f4c99d0d05a5afcd844c8d">&#9670;&#160;</a></span>SelectedRecord</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -677,7 +1549,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">partial? <a class="el" href="namespace_easy___copier_1_1_view_models.html#a6df37162e88c91166366b621ad08bb8b">MonthOption</a> Easy_Copier.ViewModels.HistoryViewModel.SelectedMonth</td>
+          <td class="memname">partial? <a class="el" href="namespace_easy___copier_1_1_models.html#a3bede7aa95515ae50b6531404c887ee2">CopyHistoryRecord</a> Easy_Copier.ViewModels.HistoryViewModel.SelectedRecord</td>
         </tr>
       </table>
   </td>
@@ -687,14 +1559,16 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_history_view_model_8cs_source.html#l00044">44</a> of file <a class="el" href="_history_view_model_8cs_source.html">HistoryViewModel.cs</a>.</p>
+<p>Gets or sets the currently selected copy history record for detail inspection in the side drawer. </p>
 
-<p class="reference">Referenced by <a class="el" href="_history_view_model_8cs_source.html#l00194">ExportToCsvAsync()</a>, <a class="el" href="_history_view_model_8cs_source.html#l00051">InitializeAsync()</a>, and <a class="el" href="_history_view_model_8cs_source.html#l00095">OnSelectedWeekChanged()</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_history_view_model_8cs_source.html#l00087">87</a> of file <a class="el" href="_history_view_model_8cs_source.html">HistoryViewModel.cs</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_history_view_model_8cs_source.html#l00381">CloseDrawer()</a>.</p>
 
 </div>
 </div>
-<a id="ab5928394b31f5932be5acaf648563495" name="ab5928394b31f5932be5acaf648563495"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab5928394b31f5932be5acaf648563495">&#9670;&#160;</a></span>SelectedWeek</h2>
+<a id="a9c0ce03c5be65a6f1c7c48ccf63971ec" name="a9c0ce03c5be65a6f1c7c48ccf63971ec"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9c0ce03c5be65a6f1c7c48ccf63971ec">&#9670;&#160;</a></span>SelectedRecordSubFiles</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -703,7 +1577,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">partial? <a class="el" href="namespace_easy___copier_1_1_view_models.html#accd6e708af51e819bb782802bf50f029">WeekOption</a> Easy_Copier.ViewModels.HistoryViewModel.SelectedWeek</td>
+          <td class="memname">partial ObservableCollection&lt;string&gt; Easy_Copier.ViewModels.HistoryViewModel.SelectedRecordSubFiles = []</td>
         </tr>
       </table>
   </td>
@@ -713,9 +1587,67 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_history_view_model_8cs_source.html#l00041">41</a> of file <a class="el" href="_history_view_model_8cs_source.html">HistoryViewModel.cs</a>.</p>
+<p>Gets or sets the list of sub-file paths associated with the SelectedRecord. </p>
 
-<p class="reference">Referenced by <a class="el" href="_history_view_model_8cs_source.html#l00194">ExportToCsvAsync()</a>, <a class="el" href="_history_view_model_8cs_source.html#l00051">InitializeAsync()</a>, and <a class="el" href="_history_view_model_8cs_source.html#l00113">OnSelectedMonthChanged()</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_history_view_model_8cs_source.html#l00165">165</a> of file <a class="el" href="_history_view_model_8cs_source.html">HistoryViewModel.cs</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_history_view_model_8cs_source.html#l00349">OnSelectedRecordChanged()</a>.</p>
+
+</div>
+</div>
+<a id="a37ce81efcbe36904299bba033d38aa7d" name="a37ce81efcbe36904299bba033d38aa7d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a37ce81efcbe36904299bba033d38aa7d">&#9670;&#160;</a></span>SelectedStatusFilter</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">partial <a class="el" href="namespace_easy___copier_1_1_view_models.html#a9c60ee124af20b8cf2bd1bc4ca23eb35">StatusFilter</a> Easy_Copier.ViewModels.HistoryViewModel.SelectedStatusFilter = <a class="el" href="namespace_easy___copier_1_1_view_models.html#a9c60ee124af20b8cf2bd1bc4ca23eb35ab1c94ca2fbc3e78fc30069c8d0f01680">StatusFilter.All</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel get">get</span><span class="mlabel set">set</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gets or sets the currently selected status filter option. </p>
+
+<p class="definition">Definition at line <a class="el" href="_history_view_model_8cs_source.html#l00129">129</a> of file <a class="el" href="_history_view_model_8cs_source.html">HistoryViewModel.cs</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_history_view_model_8cs_source.html#l00389">ApplyFilters()</a>, and <a class="el" href="_history_view_model_8cs_source.html#l00334">OnSelectedStatusFilterStringChanged()</a>.</p>
+
+</div>
+</div>
+<a id="aa55b9cd9d293b836aaead7e62a990f82" name="aa55b9cd9d293b836aaead7e62a990f82"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa55b9cd9d293b836aaead7e62a990f82">&#9670;&#160;</a></span>SelectedStatusFilterString</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">partial string Easy_Copier.ViewModels.HistoryViewModel.SelectedStatusFilterString</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel get">get</span><span class="mlabel set">set</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gets or sets the currently selected status filter option string for UI dropdown binding. </p>
+
+<p class="definition">Definition at line <a class="el" href="_history_view_model_8cs_source.html#l00153">153</a> of file <a class="el" href="_history_view_model_8cs_source.html">HistoryViewModel.cs</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_history_view_model_8cs_source.html#l00439">ClearFilters()</a>, and <a class="el" href="_history_view_model_8cs_source.html#l00260">HistoryViewModel()</a>.</p>
 
 </div>
 </div>
@@ -739,14 +1671,16 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_history_view_model_8cs_source.html#l00047">47</a> of file <a class="el" href="_history_view_model_8cs_source.html">HistoryViewModel.cs</a>.</p>
+<p>Gets or sets the status message string presented in the history interface. </p>
 
-<p class="reference">Referenced by <a class="el" href="_history_view_model_8cs_source.html#l00194">ExportToCsvAsync()</a>, <a class="el" href="_history_view_model_8cs_source.html#l00140">LoadRecordsByMonthAsync()</a>, <a class="el" href="_history_view_model_8cs_source.html#l00131">LoadRecordsByWeekAsync()</a>, and <a class="el" href="_history_view_model_8cs_source.html#l00149">ProcessLoadedRecords()</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_history_view_model_8cs_source.html#l00093">93</a> of file <a class="el" href="_history_view_model_8cs_source.html">HistoryViewModel.cs</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_history_view_model_8cs_source.html#l00389">ApplyFilters()</a>, <a class="el" href="_history_view_model_8cs_source.html#l00451">ExportToCsvAsync()</a>, and <a class="el" href="_history_view_model_8cs_source.html#l00281">InitializeAsync()</a>.</p>
 
 </div>
 </div>
-<a id="a6ad8394a9542a21fb19f01a419e2c2e3" name="a6ad8394a9542a21fb19f01a419e2c2e3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6ad8394a9542a21fb19f01a419e2c2e3">&#9670;&#160;</a></span>TodayStats</h2>
+<a id="a38903b3decfbba8a36c192d7a19eed4e" name="a38903b3decfbba8a36c192d7a19eed4e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a38903b3decfbba8a36c192d7a19eed4e">&#9670;&#160;</a></span>TopItems</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -755,7 +1689,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">partial <a class="el" href="namespace_easy___copier_1_1_view_models.html#adba81577e9747d96266b616b1a51b680">HistoryStats</a> Easy_Copier.ViewModels.HistoryViewModel.TodayStats = new <a class="el" href="namespace_easy___copier_1_1_view_models.html#adba81577e9747d96266b616b1a51b680">HistoryStats</a>(0, 0, 0, 0)</td>
+          <td class="memname">partial ObservableCollection&lt;<a class="el" href="namespace_easy___copier_1_1_models.html#a9c75112e0bc37dbeea1968aebcb62637">TopCopiedItem</a>&gt; Easy_Copier.ViewModels.HistoryViewModel.TopItems = []</td>
         </tr>
       </table>
   </td>
@@ -765,14 +1699,16 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_history_view_model_8cs_source.html#l00018">18</a> of file <a class="el" href="_history_view_model_8cs_source.html">HistoryViewModel.cs</a>.</p>
+<p>Gets or sets the most-copied items shown in the dashboard. </p>
 
-<p class="reference">Referenced by <a class="el" href="_history_view_model_8cs_source.html#l00071">LoadStatsAsync()</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_history_view_model_8cs_source.html#l00203">203</a> of file <a class="el" href="_history_view_model_8cs_source.html">HistoryViewModel.cs</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_history_view_model_8cs_source.html#l00231">RefreshDashboard()</a>.</p>
 
 </div>
 </div>
-<a id="ac7bb5ca06db96da6cb3315083b254106" name="ac7bb5ca06db96da6cb3315083b254106"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac7bb5ca06db96da6cb3315083b254106">&#9670;&#160;</a></span>WeekStats</h2>
+<a id="a725de48ad163d1e836b19617193c6786" name="a725de48ad163d1e836b19617193c6786"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a725de48ad163d1e836b19617193c6786">&#9670;&#160;</a></span>WeeklyTotals</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -781,7 +1717,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">partial <a class="el" href="namespace_easy___copier_1_1_view_models.html#adba81577e9747d96266b616b1a51b680">HistoryStats</a> Easy_Copier.ViewModels.HistoryViewModel.WeekStats = new <a class="el" href="namespace_easy___copier_1_1_view_models.html#adba81577e9747d96266b616b1a51b680">HistoryStats</a>(0, 0, 0, 0)</td>
+          <td class="memname">partial ObservableCollection&lt;<a class="el" href="namespace_easy___copier_1_1_models.html#ab813735a114819bca751ccd47305d780">PeriodTotal</a>&gt; Easy_Copier.ViewModels.HistoryViewModel.WeeklyTotals = []</td>
         </tr>
       </table>
   </td>
@@ -791,9 +1727,11 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_history_view_model_8cs_source.html#l00021">21</a> of file <a class="el" href="_history_view_model_8cs_source.html">HistoryViewModel.cs</a>.</p>
+<p>Gets or sets the weekly totals shown in the dashboard. </p>
 
-<p class="reference">Referenced by <a class="el" href="_history_view_model_8cs_source.html#l00071">LoadStatsAsync()</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_history_view_model_8cs_source.html#l00197">197</a> of file <a class="el" href="_history_view_model_8cs_source.html">HistoryViewModel.cs</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_history_view_model_8cs_source.html#l00231">RefreshDashboard()</a>.</p>
 
 </div>
 </div>

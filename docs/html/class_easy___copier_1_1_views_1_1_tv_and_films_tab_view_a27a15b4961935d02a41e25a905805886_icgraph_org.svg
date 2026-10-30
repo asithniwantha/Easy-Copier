@@ -11,7 +11,7 @@
 <!-- Node1 -->
 <g id="Node000001" class="node">
 <title>Node1</title>
-<g id="a_Node000001"><a xlink:title=" ">
+<g id="a_Node000001"><a xlink:title="Handles the Selector.SelectionChanged event for the TV and films grid.">
 <polygon fill="#999999" stroke="#666666" points="351.5,-44 193.75,-44 193.75,0 351.5,0 351.5,-44"/>
 <text xml:space="preserve" text-anchor="start" x="201.75" y="-30.5" font-family="Helvetica,sans-Serif" font-size="10.00">Easy_Copier.Views.TvAndFilms</text>
 <text xml:space="preserve" text-anchor="start" x="201.75" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">TabView.TvAndFilmsGridView</text>

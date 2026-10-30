@@ -5,6 +5,7 @@ var dir_b948a4e9f3ea17c6617d6cbd63f1f4fc =
     [ "GameDetailsViewModel.cs", "_game_details_view_model_8cs.html", "_game_details_view_model_8cs" ],
     [ "GamesTabViewModel.cs", "_games_tab_view_model_8cs.html", "_games_tab_view_model_8cs" ],
     [ "HistoryViewModel.cs", "_history_view_model_8cs.html", "_history_view_model_8cs" ],
+    [ "ISearchableTabViewModel.cs", "_i_searchable_tab_view_model_8cs.html", "_i_searchable_tab_view_model_8cs" ],
     [ "LibraryTabViewModelBase.cs", "_library_tab_view_model_base_8cs.html", "_library_tab_view_model_base_8cs" ],
     [ "MainViewModel.cs", "_main_view_model_8cs.html", "_main_view_model_8cs" ],
     [ "MainViewModel.Scanning.cs", "_main_view_model_8_scanning_8cs.html", "_main_view_model_8_scanning_8cs" ],
@@ -16,5 +17,6 @@ var dir_b948a4e9f3ea17c6617d6cbd63f1f4fc =
     [ "SmartAdderHistoryEntryViewModel.cs", "_smart_adder_history_entry_view_model_8cs.html", "_smart_adder_history_entry_view_model_8cs" ],
     [ "SmartAdderHistoryViewModel.cs", "_smart_adder_history_view_model_8cs.html", "_smart_adder_history_view_model_8cs" ],
     [ "SmartAdderViewModel.cs", "_smart_adder_view_model_8cs.html", "_smart_adder_view_model_8cs" ],
-    [ "TvAndFilmsTabViewModel.cs", "_tv_and_films_tab_view_model_8cs.html", "_tv_and_films_tab_view_model_8cs" ]
+    [ "TvAndFilmsTabViewModel.cs", "_tv_and_films_tab_view_model_8cs.html", "_tv_and_films_tab_view_model_8cs" ],
+    [ "VideoDetailsViewModel.cs", "_video_details_view_model_8cs.html", "_video_details_view_model_8cs" ]
 ];
