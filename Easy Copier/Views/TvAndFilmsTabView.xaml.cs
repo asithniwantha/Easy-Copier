@@ -45,8 +45,11 @@ namespace Easy_Copier.Views
         public event SelectionChangedEventHandler? SelectionChanged;
 
         /// <summary>
-        /// Gets the selected items from the TV and films grid.
+        /// Gets the collection of currently selected items from the TV and films grid.
         /// </summary>
+        /// <value>
+        /// An <see cref="IList{T}"/> containing the selected objects in the TV and films grid view.
+        /// </value>
         public IList<object> SelectedItems => TvAndFilmsGridView.SelectedItems;
 
         /// <inheritdoc />
@@ -226,6 +229,7 @@ namespace Easy_Copier.Views
         /// Resolves the first playable video for an entry, which may be a file or a folder.
         /// </summary>
         /// <param name="path">The entry path; external input, so failures yield null.</param>
+        /// <returns>The file path to the first playable video file found, or <see langword="null"/> if none exists or the directory cannot be read.</returns>
         private static string? FindPreviewVideo(string path)
         {
             try
@@ -252,7 +256,7 @@ namespace Easy_Copier.Views
         }
 
         /// <summary>
-        /// Handles text changes in the search box
+        /// Handles text changes in the search box to provide suggestions and update background highlights.
         /// </summary>
         /// <param name="sender">The source <see cref="AutoSuggestBox"/> control.</param>
         /// <param name="args">The event arguments containing text change details.</param>
