@@ -42,6 +42,12 @@ namespace Easy_Copier.Services
         void ClearFinished();
 
         /// <summary>
+        /// Cancels a queued or in-progress transfer queue item.
+        /// </summary>
+        /// <param name="item">The transfer queue item to cancel.</param>
+        void CancelItem(TransferQueueItem item);
+
+        /// <summary>
         /// Event raised when an individual transfer queue item finishes processing.
         /// </summary>
         event EventHandler<TransferQueueItem>? ItemCompleted;
@@ -192,6 +198,21 @@ namespace Easy_Copier.Services
             }
         }
 
+        /// <inheritdoc />
+        public void CancelItem(TransferQueueItem item)
+        {
+            if (item == null)
+            {
+                return;
+            }
+
+            if (item.IsActive)
+            {
+                _logger.LogInformation("User requested cancellation of queue item {Id} for drive {Drive}", item.Id, item.TargetDrive.DriveLetter);
+                item.Cancel();
+            }
+        }
+
         /// <summary>
         /// Main background loop reading items from the primary channel and routing them to per-drive execution channels.
         /// </summary>
@@ -235,6 +256,12 @@ namespace Easy_Copier.Services
         /// <returns>A task representing the execution.</returns>
         private async Task ProcessItemAsync(TransferQueueItem item)
         {
+            if (item.Status == TransferQueueItemStatus.Cancelled)
+            {
+                _logger.LogInformation("Queue item {Id} was cancelled before starting; skipping.", item.Id);
+                return;
+            }
+
             RunOnUiThread(() =>
             {
                 item.Status = TransferQueueItemStatus.InProgress;
@@ -256,7 +283,7 @@ namespace Easy_Copier.Services
                 });
 
                 TransferRequest request = new(item.Items, item.TargetDrive, item.DestinationPath);
-                outcome = await _fileTransferService.TransferGamesAsync(request, progress);
+                outcome = await _fileTransferService.TransferGamesAsync(request, progress, item.CancellationToken);
             }
             catch (Exception ex)
             {

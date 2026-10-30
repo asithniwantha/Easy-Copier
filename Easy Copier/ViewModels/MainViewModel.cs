@@ -20,8 +20,7 @@ namespace Easy_Copier.ViewModels
         private readonly ISettingsService _settingsService;
         private readonly ILibraryCacheService _libraryCacheService;
         private readonly ILibraryScannerService _libraryScannerService;
-        private readonly IDriveDiscoveryService _driveDiscoveryService;
-        private readonly IDriveValidationService _driveValidationService;
+        private readonly IDriveCoordinatorService _driveCoordinatorService;
         private readonly IFileTransferService _fileTransferService;
         private readonly ITransferQueueService _transferQueueService;
         private readonly IWindowService _windowService;
@@ -42,7 +41,10 @@ namespace Easy_Copier.ViewModels
         private List<GameEntry> _selectedGames = [];
         private AppSettings? _cachedSettings;
         private System.Threading.Timer? _updateCheckTimer;
-        private bool _isCheckingForUpdates;
+        /// <summary>
+        /// Flag used with atomic Interlocked operations to ensure only one background update check runs at a time.
+        /// </summary>
+        private int _isCheckingForUpdates;
         private int _isDisposed;
 
         /// <summary>
@@ -324,22 +326,22 @@ namespace Easy_Copier.ViewModels
         /// <summary>
         /// Gets the observable collection of game items in the active library view.
         /// </summary>
-        public ObservableCollection<GameEntry> Games { get; } = [];
+        public ObservableCollection<GameEntry> Games { get; } = new BulkObservableCollection<GameEntry>();
 
         /// <summary>
         /// Gets the observable collection of application items in the active library view.
         /// </summary>
-        public ObservableCollection<GameEntry> Apps { get; } = [];
+        public ObservableCollection<GameEntry> Apps { get; } = new BulkObservableCollection<GameEntry>();
 
         /// <summary>
         /// Gets the observable collection of film and TV series items in the active library view.
         /// </summary>
-        public ObservableCollection<GameEntry> TvAndFilms { get; } = [];
+        public ObservableCollection<GameEntry> TvAndFilms { get; } = new BulkObservableCollection<GameEntry>();
 
         /// <summary>
         /// Gets the observable collection of OS image items in the active library view.
         /// </summary>
-        public ObservableCollection<GameEntry> OsImages { get; } = [];
+        public ObservableCollection<GameEntry> OsImages { get; } = new BulkObservableCollection<GameEntry>();
 
         /// <summary>
         /// Gets the observable collection of discovered removable drives available for transfer operations.
@@ -389,8 +391,7 @@ namespace Easy_Copier.ViewModels
         /// <param name="settingsService">The settings service for loading and persisting user configuration.</param>
         /// <param name="libraryCacheService">The library cache service for snapshot storage and validation.</param>
         /// <param name="libraryScannerService">The library scanner service for folder indexing.</param>
-        /// <param name="driveDiscoveryService">The drive discovery service for detecting removable media.</param>
-        /// <param name="driveValidationService">The drive validation service for checking destination space and file system constraints.</param>
+        /// <param name="driveCoordinatorService">The drive coordinator service managing drive discovery, monitoring, and transfer validation.</param>
         /// <param name="fileTransferService">The file transfer service executing underlying disk I/O operations.</param>
         /// <param name="transferQueueService">The transfer queue service managing batch execution and notifications.</param>
         /// <param name="windowService">The window service for launching dialogs and windows.</param>
@@ -411,8 +412,7 @@ namespace Easy_Copier.ViewModels
             ISettingsService settingsService,
             ILibraryCacheService libraryCacheService,
             ILibraryScannerService libraryScannerService,
-            IDriveDiscoveryService driveDiscoveryService,
-            IDriveValidationService driveValidationService,
+            IDriveCoordinatorService driveCoordinatorService,
             IFileTransferService fileTransferService,
             ITransferQueueService transferQueueService,
             IWindowService windowService,
@@ -432,8 +432,7 @@ namespace Easy_Copier.ViewModels
             _settingsService = settingsService;
             _libraryCacheService = libraryCacheService;
             _libraryScannerService = libraryScannerService;
-            _driveDiscoveryService = driveDiscoveryService;
-            _driveValidationService = driveValidationService;
+            _driveCoordinatorService = driveCoordinatorService;
             _fileTransferService = fileTransferService;
             _transferQueueService = transferQueueService;
             _windowService = windowService;
@@ -454,7 +453,7 @@ namespace Easy_Copier.ViewModels
             TvAndFilmsTabViewModel = new TvAndFilmsTabViewModel(this);
             OsImagesTabViewModel = new OsImagesTabViewModel(this);
 
-            _driveDiscoveryService.DrivesChanged += OnDrivesChanged;
+            _driveCoordinatorService.DrivesChanged += OnDrivesChanged;
             _transferQueueService.ItemCompleted += OnQueueItemCompleted;
             _transferQueueService.BatchCompleted += OnBatchCompleted;
             TransferQueue.CollectionChanged += (_, _) =>
@@ -597,7 +596,7 @@ namespace Easy_Copier.ViewModels
                 AppSettings settings = await _settingsService.LoadSettingsAsync();
                 _cachedSettings = settings;
 
-                _driveDiscoveryService.StartWatching();
+                _driveCoordinatorService.StartWatching();
                 await RefreshDrivesAsync();
 
                 if (!HasAnySourceFolders(settings))
@@ -656,7 +655,14 @@ namespace Easy_Copier.ViewModels
             }
             catch (Exception ex)
             {
+                _logger.LogError(ex, "Fatal error during application initialization.");
                 StatusMessage = $"Error during initialization: {ex.Message}";
+
+                // Present a modal dialog for critical startup failures so users are immediately aware of configuration issues.
+                await _dialogService.ShowMessageDialogAsync(
+                    "Initialization Error",
+                    $"An error occurred while initializing the application:\n\n{ex.Message}\n\nPlease verify your configured source folders and application settings.",
+                    "OK");
             }
             finally
             {

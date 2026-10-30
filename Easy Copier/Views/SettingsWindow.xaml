@@ -149,7 +149,12 @@
                                         HorizontalAlignment="Left"/>
                                 <Button Content="Download Covers &amp; Requirements"
                                         Command="{x:Bind ViewModel.DownloadGameInfoCommand}"
+                                        IsEnabled="{x:Bind ViewModel.CanDownloadCovers, Mode=OneWay}"
                                         ToolTipService.ToolTip="Downloads cover images and system requirements for all games in configured folders"
+                                        HorizontalAlignment="Left"/>
+                                <Button Content="Cancel Download"
+                                        Command="{Binding CancelDownloadGameInfoCommand}"
+                                        Visibility="{Binding IsDownloadingCovers, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}"
                                         HorizontalAlignment="Left"/>
                                 <CheckBox Content="Overwrite existing covers"
                                           IsChecked="{x:Bind ViewModel.OverwriteExistingCovers, Mode=TwoWay}"

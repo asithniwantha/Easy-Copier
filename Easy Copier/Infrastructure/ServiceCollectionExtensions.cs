@@ -51,6 +51,7 @@ namespace Easy_Copier.Infrastructure
             _ = services.AddSingleton<Services.IBatchNotificationService, Services.BatchNotificationService>();
             _ = services.AddSingleton<Services.IDriveDiscoveryService, Services.DriveDiscoveryService>();
             _ = services.AddSingleton<Services.IDriveValidationService, Services.DriveValidationService>();
+            _ = services.AddSingleton<Services.IDriveCoordinatorService, Services.DriveCoordinatorService>();
             _ = services.AddSingleton<Services.IFileTransferService, Services.WindowsShellTransferService>();
             _ = services.AddSingleton<Services.ITransferQueueService, Services.TransferQueueService>();
             _ = services.AddSingleton<Services.IStartupService, Services.StartupService>();
@@ -60,6 +61,17 @@ namespace Easy_Copier.Infrastructure
             _ = services.AddSingleton<IDispatcherService, DispatcherService>();
             _ = services.AddSingleton<IDialogService, DialogService>();
             _ = services.AddSingleton<IAppWindowContext, AppWindowContext>();
+            _ = services.AddSingleton<System.Net.Http.HttpClient>(sp =>
+            {
+                System.Net.Http.SocketsHttpHandler handler = new()
+                {
+                    PooledConnectionLifetime = TimeSpan.FromMinutes(15),
+                    AutomaticDecompression = System.Net.DecompressionMethods.All
+                };
+                System.Net.Http.HttpClient client = new(handler, disposeHandler: true);
+                client.DefaultRequestHeaders.UserAgent.ParseAdd("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36");
+                return client;
+            });
             _ = services.AddSingleton<Services.IGameInfoDownloadService, Services.GameInfoDownloadService>();
             _ = services.AddSingleton<Services.IUpdateService, Services.UpdateService>();
             _ = services.AddSingleton<Services.ISmartAdderHistoryService, Services.SmartAdderHistoryService>();
@@ -91,6 +103,10 @@ namespace Easy_Copier.Infrastructure
             _ = services.AddTransient<ViewModels.OsImageDetailsViewModel>();
             _ = services.AddTransient<ViewModels.VideoDetailsViewModel>();
 
+            _ = services.AddSingleton<Func<ViewModels.SettingsViewModel>>(provider => () => provider.GetRequiredService<ViewModels.SettingsViewModel>());
+            _ = services.AddSingleton<Func<ViewModels.HistoryViewModel>>(provider => () => provider.GetRequiredService<ViewModels.HistoryViewModel>());
+            _ = services.AddSingleton<Func<ViewModels.SmartAdderHistoryViewModel>>(provider => () => provider.GetRequiredService<ViewModels.SmartAdderHistoryViewModel>());
+            _ = services.AddSingleton<Func<ViewModels.AboutViewModel>>(provider => () => provider.GetRequiredService<ViewModels.AboutViewModel>());
             _ = services.AddSingleton<Func<ViewModels.GameDetailsViewModel>>(provider => () => provider.GetRequiredService<ViewModels.GameDetailsViewModel>());
             _ = services.AddSingleton<Func<ViewModels.OsImageDetailsViewModel>>(provider => () => provider.GetRequiredService<ViewModels.OsImageDetailsViewModel>());
             _ = services.AddSingleton<Func<ViewModels.VideoDetailsViewModel>>(provider => () => provider.GetRequiredService<ViewModels.VideoDetailsViewModel>());

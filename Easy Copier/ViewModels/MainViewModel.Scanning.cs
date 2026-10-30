@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 namespace Easy_Copier.ViewModels
 {
     /// <summary>
-    /// Partial class implementation of <see cref="MainViewModel"/> handling library scanning, filtering, drive actions, and background update checks.
+    /// Partial class implementation of <see cref="MainViewModel"/> handling library scanning, filtering, and removable drive actions.
     /// </summary>
     public sealed partial class MainViewModel
     {
@@ -140,7 +140,12 @@ namespace Easy_Copier.ViewModels
         /// </summary>
         /// <param name="oldValue">The previous category value.</param>
         /// <param name="newValue">The new category value.</param>
-        partial void OnSelectedCategoryChanged(GameCategory oldValue, GameCategory newValue) => ApplyFilter();
+        // Scope category filtering to relevant tabs (Games and Apps) rather than rebuilding all four collections.
+        partial void OnSelectedCategoryChanged(GameCategory oldValue, GameCategory newValue)
+        {
+            ApplyGamesFilter();
+            ApplyAppsFilter();
+        }
 
         /// <summary>
         /// Handles changes to the SelectedOsImageSortOption property to re-apply OS image sorting.
@@ -156,7 +161,7 @@ namespace Easy_Copier.ViewModels
                 OsImageSortOption.Size => false,
                 _ => true
             };
-            ApplyFilter();
+            ApplyOsImagesFilter();
         }
 
         /// <summary>
@@ -164,7 +169,7 @@ namespace Easy_Copier.ViewModels
         /// </summary>
         /// <param name="oldValue">The previous sort direction value.</param>
         /// <param name="newValue">The new sort direction value.</param>
-        partial void OnIsOsImageSortAscendingChanged(bool oldValue, bool newValue) => ApplyFilter();
+        partial void OnIsOsImageSortAscendingChanged(bool oldValue, bool newValue) => ApplyOsImagesFilter();
 
         /// <summary>
         /// Handles changes to the SelectedTvAndFilmsSortOption property to re-apply TV and film sorting.
@@ -179,7 +184,7 @@ namespace Easy_Copier.ViewModels
                 TvAndFilmsSortOption.DateCreated => false,
                 _ => true
             };
-            ApplyFilter();
+            ApplyTvAndFilmsFilter();
         }
 
         /// <summary>
@@ -187,7 +192,7 @@ namespace Easy_Copier.ViewModels
         /// </summary>
         /// <param name="oldValue">The previous sort direction value.</param>
         /// <param name="newValue">The new sort direction value.</param>
-        partial void OnIsTvAndFilmsSortAscendingChanged(bool oldValue, bool newValue) => ApplyFilter();
+        partial void OnIsTvAndFilmsSortAscendingChanged(bool oldValue, bool newValue) => ApplyTvAndFilmsFilter();
 
 
         /// <summary>
@@ -278,7 +283,7 @@ namespace Easy_Copier.ViewModels
             {
                 StatusMessage = "Refreshing drives...";
 
-                IReadOnlyList<RemovableDrive> drives = await _driveDiscoveryService.GetRemovableDrivesAsync();
+                IReadOnlyList<RemovableDrive> drives = await _driveCoordinatorService.GetRemovableDrivesAsync();
 
                 AvailableDrives.UpdateFrom(drives);
 
@@ -369,7 +374,7 @@ namespace Easy_Copier.ViewModels
 
                 RemovableDrive driveForValidation = GetDriveForValidation(SelectedDrive);
 
-                IReadOnlyList<ValidationResult> validation = await _driveValidationService.ValidateTransferAsync(
+                IReadOnlyList<ValidationResult> validation = await _driveCoordinatorService.ValidateTransferAsync(
                     _selectedGames, driveForValidation, destinationPath);
 
                 ValidationMessages.UpdateFrom(validation);
@@ -560,6 +565,19 @@ namespace Easy_Copier.ViewModels
         }
 
         /// <summary>
+        /// Cancels a queued or in-progress transfer queue item.
+        /// </summary>
+        /// <param name="item">The transfer queue item to cancel.</param>
+        [RelayCommand]
+        private void CancelQueueItem(TransferQueueItem? item)
+        {
+            if (item != null)
+            {
+                _transferQueueService.CancelItem(item);
+            }
+        }
+
+        /// <summary>
         /// Determines whether the copy command can execute based on selection and target drive availability.
         /// </summary>
         /// <returns><c>true</c> if at least one item is selected and a target drive is chosen; otherwise, <c>false</c>.</returns>
@@ -712,10 +730,10 @@ namespace Easy_Copier.ViewModels
             }
 
             // Stop external notifications first so teardown does not race queued UI work.
-            _driveDiscoveryService.DrivesChanged -= OnDrivesChanged;
+            _driveCoordinatorService.DrivesChanged -= OnDrivesChanged;
             _transferQueueService.ItemCompleted -= OnQueueItemCompleted;
             _transferQueueService.BatchCompleted -= OnBatchCompleted;
-            _driveDiscoveryService.StopWatching();
+            _driveCoordinatorService.StopWatching();
 
             _ = (_updateCheckTimer?.Change(Timeout.Infinite, Timeout.Infinite));
             _updateCheckTimer?.Dispose();
@@ -733,94 +751,6 @@ namespace Easy_Copier.ViewModels
             GC.SuppressFinalize(this);
         }
 
-        /// <summary>
-        /// Checks for application updates in the background and optionally triggers automatic download if enabled.
-        /// </summary>
-        /// <returns>A task representing the asynchronous background update check.</returns>
-        private async Task CheckForUpdatesBackgroundAsync()
-        {
-            if (IsDisposed || _isCheckingForUpdates)
-            {
-                return;
-            }
 
-            try
-            {
-                _isCheckingForUpdates = true;
-                _logger.LogInformation("Checking for new updates in the background...");
-                bool hasUpdate = await _updateService.CheckForUpdatesAsync();
-                if (hasUpdate)
-                {
-                    _logger.LogInformation("A new update is available.");
-                    AppSettings settings = await _settingsService.LoadSettingsAsync();
-                    if (settings.AutoDownloadUpdates)
-                    {
-                        _logger.LogInformation("Automatic update download is enabled. Starting background download...");
-                        _ = TryEnqueueIfActive(() =>
-                        {
-                            IsUpdateAvailable = true;
-                            UpdateMessage = "Downloading update in background...";
-                        });
-
-                        await _updateService.DownloadUpdateAsync();
-
-                        _logger.LogInformation("Background update download completed. Update is ready to install.");
-                        _ = TryEnqueueIfActive(() =>
-                        {
-                            IsUpdateAvailable = false;
-                            IsUpdateReadyToInstall = true;
-                            UpdateMessage = "Update ready to install. Restart to apply.";
-                        });
-                    }
-                    else
-                    {
-                        _logger.LogInformation("Automatic update download is disabled. Notifying user.");
-                        _ = TryEnqueueIfActive(() =>
-                        {
-                            IsUpdateAvailable = true;
-                            UpdateMessage = "A new update is available!";
-                        });
-                    }
-                }
-                else
-                {
-                    _logger.LogInformation("No new updates found in the background.");
-                }
-            }
-            catch (Exception ex)
-            {
-                _logger.LogError(ex, "Error checking for updates in background");
-                System.Diagnostics.Debug.WriteLine($"Error checking for updates in background: {ex}");
-            }
-            finally
-            {
-                _isCheckingForUpdates = false;
-            }
-        }
-
-        /// <summary>
-        /// Initiates manual download of an available application update.
-        /// </summary>
-        /// <returns>A task representing the asynchronous update download operation.</returns>
-        [RelayCommand]
-        private async Task DownloadUpdateAsync()
-        {
-            try
-            {
-                IsUpdateAvailable = true;
-                UpdateMessage = "Downloading update...";
-
-                await _updateService.DownloadUpdateAsync();
-
-                IsUpdateAvailable = false;
-                IsUpdateReadyToInstall = true;
-                UpdateMessage = "Update ready to install. Restart to apply.";
-            }
-            catch (Exception ex)
-            {
-                System.Diagnostics.Debug.WriteLine($"Error downloading update manually: {ex}");
-                UpdateMessage = "Failed to download update.";
-            }
-        }
     }
 }

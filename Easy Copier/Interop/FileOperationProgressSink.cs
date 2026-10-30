@@ -21,6 +21,11 @@ namespace Easy_Copier.Interop
         private readonly long _totalBytes;
 
         /// <summary>
+        /// The cancellation token used to abort in-flight transfer operations.
+        /// </summary>
+        private readonly System.Threading.CancellationToken _cancellationToken;
+
+        /// <summary>
         /// The stopwatch for tracking transfer elapsed duration.
         /// </summary>
         private readonly Stopwatch _stopwatch;
@@ -35,10 +40,11 @@ namespace Easy_Copier.Interop
         /// </summary>
         /// <param name="progress">The progress reporter callback for sending transfer updates.</param>
         /// <param name="totalBytes">The total size in bytes of all items involved in the file operation.</param>
-        public FileOperationProgressSink(IProgress<TransferProgress>? progress, long totalBytes)
+        public FileOperationProgressSink(IProgress<TransferProgress>? progress, long totalBytes, System.Threading.CancellationToken cancellationToken = default)
         {
             _progress = progress;
             _totalBytes = totalBytes;
+            _cancellationToken = cancellationToken;
             _stopwatch = new Stopwatch();
         }
 
@@ -84,6 +90,11 @@ namespace Easy_Copier.Interop
         /// <inheritdoc />
         public uint PreCopyItem(uint dwFlags, IShellItem psiItem, IShellItem psiDestinationFolder, string pszNewName)
         {
+            if (_cancellationToken.IsCancellationRequested)
+            {
+                const uint COPYENGINE_E_USER_CANCELLED = 0x80270000;
+                return COPYENGINE_E_USER_CANCELLED;
+            }
             return 0;
         }
 
@@ -120,6 +131,11 @@ namespace Easy_Copier.Interop
         /// <inheritdoc />
         public uint UpdateProgress(uint iWorkTotal, uint iWorkSoFar)
         {
+            if (_cancellationToken.IsCancellationRequested)
+            {
+                const uint COPYENGINE_E_USER_CANCELLED = 0x80270000;
+                return COPYENGINE_E_USER_CANCELLED;
+            }
             if (_progress != null && iWorkTotal > 0 && _totalBytes > 0)
             {
                 double fraction = (double)iWorkSoFar / iWorkTotal;

@@ -267,15 +267,23 @@
                                                         <Grid.ColumnDefinitions>
                                                             <ColumnDefinition Width="*"/>
                                                             <ColumnDefinition Width="Auto"/>
+                                                            <ColumnDefinition Width="Auto"/>
                                                         </Grid.ColumnDefinitions>
                                                         <TextBlock Text="{x:Bind ItemsSummary}" Style="{ThemeResource BodyStrongTextBlockStyle}"
                                                                    TextTrimming="CharacterEllipsis" VerticalAlignment="Center"/>
-                                                        <StackPanel Grid.Column="1" Orientation="Horizontal" Spacing="4" Margin="8,0,0,0">
+                                                        <StackPanel Grid.Column="1" Orientation="Horizontal" Spacing="4" Margin="8,0,0,0" VerticalAlignment="Center">
                                                             <FontIcon Glyph="{x:Bind StatusGlyph, Mode=OneWay}" FontSize="12"
                                                                       Foreground="{x:Bind Status, Mode=OneWay, Converter={StaticResource QueueStatusToBrushConverter}}"/>
                                                             <TextBlock Text="{x:Bind StatusLabel, Mode=OneWay}" FontSize="12" FontWeight="SemiBold"
                                                                        Foreground="{x:Bind Status, Mode=OneWay, Converter={StaticResource QueueStatusToBrushConverter}}"/>
                                                         </StackPanel>
+                                                        <Button Grid.Column="2" Style="{StaticResource SubtleButtonStyle}" Padding="4" Margin="6,0,0,0"
+                                                                ToolTipService.ToolTip="Cancel transfer"
+                                                                Visibility="{x:Bind IsActive, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}"
+                                                                Command="{Binding ElementName=RootGrid, Path=DataContext.CancelQueueItemCommand}"
+                                                                CommandParameter="{x:Bind}">
+                                                            <FontIcon Glyph="&#xE711;" FontSize="11" Foreground="{ThemeResource SystemFillColorCriticalBrush}"/>
+                                                        </Button>
                                                     </Grid>
 
                                                     <StackPanel Orientation="Horizontal" Spacing="6">

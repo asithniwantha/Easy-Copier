@@ -20,7 +20,7 @@ namespace Easy_Copier.Services
         /// <param name="request">The transfer request containing target destination details and items to copy.</param>
         /// <param name="progress">An optional progress reporter for tracking transfer speed, completion percentage, and remaining time.</param>
         /// <returns>A task returning the <see cref="TransferOutcome"/> containing the result summary.</returns>
-        Task<TransferOutcome> TransferGamesAsync(TransferRequest request, IProgress<TransferProgress>? progress = null);
+        Task<TransferOutcome> TransferGamesAsync(TransferRequest request, IProgress<TransferProgress>? progress = null, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Calculates the total byte size and total count of files contained within a specified directory or file path.
@@ -128,7 +128,7 @@ namespace Easy_Copier.Services
         /// <param name="request">The transfer request specifying items and target drive destination.</param>
         /// <param name="progress">Optional progress reporter for granular transfer progress updates.</param>
         /// <returns>A task returning a <see cref="TransferOutcome"/> containing the result summary.</returns>
-        public Task<TransferOutcome> TransferGamesAsync(TransferRequest request, IProgress<TransferProgress>? progress = null)
+        public Task<TransferOutcome> TransferGamesAsync(TransferRequest request, IProgress<TransferProgress>? progress = null, System.Threading.CancellationToken cancellationToken = default)
         {
             TaskCompletionSource<TransferOutcome> tcs = new();
 
@@ -160,6 +160,13 @@ namespace Easy_Copier.Services
 
                     foreach (TransferItem item in request.Items)
                     {
+                        if (cancellationToken.IsCancellationRequested)
+                        {
+                            _logger.LogInformation("Transfer operation cancelled by user before copying remaining items.");
+                            errors.Add("Transfer cancelled by user");
+                            break;
+                        }
+
                         try
                         {
                             // Verify that both the transfer item and its associated game entry are not null.
@@ -192,7 +199,7 @@ namespace Easy_Copier.Services
 
                             bool result = item.Action == CopyAction.Merge && Directory.Exists(destPath) && Directory.Exists(game.FolderPath)
                                 ? MergeDirectory(game.FolderPath, destPath)
-                                : CopyItemWithFileOperation(game.FolderPath, request.DestinationPath, destPath, progress, game.TotalBytes);
+                                : CopyItemWithFileOperation(game.FolderPath, request.DestinationPath, destPath, progress, game.TotalBytes, cancellationToken);
                             string errorMsg = "";
                             string subFilesJson = "";
                             try
@@ -413,7 +420,7 @@ namespace Easy_Copier.Services
         /// <param name="progress">An optional progress sink reporter.</param>
         /// <param name="totalBytes">The total size in bytes of the item being transferred.</param>
         /// <returns><c>true</c> if the copy completed successfully without cancellation or failure; otherwise, <c>false</c>.</returns>
-        private bool CopyItemWithFileOperation(string sourcePath, string destFolder, string destPath, IProgress<TransferProgress>? progress, long totalBytes)
+        private bool CopyItemWithFileOperation(string sourcePath, string destFolder, string destPath, IProgress<TransferProgress>? progress, long totalBytes, System.Threading.CancellationToken cancellationToken = default)
         {
             object? fileOpObj = null;
             IFileOperation? fileOp = null;
@@ -440,7 +447,7 @@ namespace Easy_Copier.Services
                 FILEOP_FLAGS flags = FILEOP_FLAGS.FOF_NOCONFIRMMKDIR | FILEOP_FLAGS.FOFX_SHOWELEVATIONPROMPT;
                 _ = fileOp.SetOperationFlags(flags);
 
-                IFileOperationProgressSink? sink = new FileOperationProgressSink(progress, totalBytes);
+                IFileOperationProgressSink? sink = new FileOperationProgressSink(progress, totalBytes, cancellationToken);
                 _ = fileOp.Advise(sink, out cookie);
 
                 FileOperationInterop.SHCreateItemFromParsingName(sourcePath, IntPtr.Zero, typeof(IShellItem).GUID, out sourceItem);

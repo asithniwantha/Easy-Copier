@@ -5,7 +5,9 @@ using Easy_Copier.Models;
 using Easy_Copier.Services;
 using Microsoft.Extensions.Logging;
 using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -14,7 +16,7 @@ namespace Easy_Copier.ViewModels
     /// <summary>
     /// ViewModel managing application settings, source folder configurations, price tiers, and updates.
     /// </summary>
-    public partial class SettingsViewModel : ObservableObject
+    public sealed partial class SettingsViewModel : ObservableObject, IDisposable
     {
         private readonly ISettingsService _settingsService;
         private readonly IFolderPickerService _folderPickerService;
@@ -73,6 +75,16 @@ namespace Easy_Copier.ViewModels
         /// <summary>Gets or sets a value indicating whether game cover downloads should force re-download and overwrite existing covers.</summary>
         [ObservableProperty]
         public partial bool OverwriteExistingCovers { get; set; } = false;
+
+        /// <summary>Gets or sets a value indicating whether cover art and requirements downloading is actively running.</summary>
+        [ObservableProperty]
+        [NotifyPropertyChangedFor(nameof(CanDownloadCovers))]
+        public partial bool IsDownloadingCovers { get; set; } = false;
+
+        /// <summary>Gets a value indicating whether cover downloading can currently be initiated.</summary>
+        public bool CanDownloadCovers => !IsDownloadingCovers;
+
+        private CancellationTokenSource? _downloadGameInfoCts;
 
         /// <summary>Gets the collection of configured game source directory paths.</summary>
         public ObservableCollection<string> GameSourceFolders { get; } = [];
@@ -323,6 +335,15 @@ namespace Easy_Copier.ViewModels
                 return;
             }
 
+            if (_downloadGameInfoCts != null)
+            {
+                await _downloadGameInfoCts.CancelAsync();
+                _downloadGameInfoCts.Dispose();
+            }
+            _downloadGameInfoCts = new CancellationTokenSource();
+            CancellationToken token = _downloadGameInfoCts.Token;
+
+            IsDownloadingCovers = true;
             StatusMessage = "Downloading game covers and requirements...";
 
             try
@@ -332,14 +353,47 @@ namespace Easy_Copier.ViewModels
                     _ = _dispatcherService.TryEnqueue(() => StatusMessage = msg);
                 });
 
-                await _gameInfoDownloadService.DownloadGameInfoAsync(GameSourceFolders, progress, OverwriteExistingCovers, CancellationToken.None);
+                await _gameInfoDownloadService.DownloadGameInfoAsync(GameSourceFolders, progress, OverwriteExistingCovers, token);
 
                 StatusMessage = "Game info download complete";
+            }
+            catch (OperationCanceledException)
+            {
+                StatusMessage = "Game info download canceled.";
             }
             catch (Exception ex)
             {
                 StatusMessage = $"Error downloading game info: {ex.Message}";
             }
+            finally
+            {
+                IsDownloadingCovers = false;
+                _downloadGameInfoCts?.Dispose();
+                _downloadGameInfoCts = null;
+            }
+        }
+
+        /// <summary>
+        /// Cancels an in-progress bulk cover art and requirements download operation.
+        /// </summary>
+        [RelayCommand]
+        private async Task CancelDownloadGameInfoAsync()
+        {
+            if (_downloadGameInfoCts != null && !_downloadGameInfoCts.IsCancellationRequested)
+            {
+                StatusMessage = "Canceling download...";
+                await _downloadGameInfoCts.CancelAsync();
+            }
+        }
+
+        /// <summary>
+        /// Disposes managed resources and active cancellation tokens.
+        /// </summary>
+        public void Dispose()
+        {
+            _downloadGameInfoCts?.Dispose();
+            _downloadGameInfoCts = null;
+            GC.SuppressFinalize(this);
         }
 
         /// <summary>
@@ -392,6 +446,13 @@ namespace Easy_Copier.ViewModels
 
             if (!string.IsNullOrEmpty(folderPath))
             {
+                if (!System.IO.Directory.Exists(folderPath))
+                {
+                    StatusMessage = $"Selected folder does not exist or is not accessible: {folderPath}";
+                    await _dialogService.ShowMessageDialogAsync("Folder Inaccessible", $"The selected directory '{folderPath}' cannot be accessed or does not exist.");
+                    return;
+                }
+
                 if (!targetFolders.Contains(folderPath))
                 {
                     targetFolders.Add(folderPath);
@@ -460,9 +521,36 @@ namespace Easy_Copier.ViewModels
         [RelayCommand]
         private async Task SaveSettingsAsync()
         {
-            StatusMessage = "Saving settings...";
+            StatusMessage = "Validating folders...";
 
             AppSettings settings = GetSettings();
+
+            // Validate configured source folders before saving to alert user of inaccessible or detached drives
+            IReadOnlyList<SourceFolder> validatedGame = await _sourceLibraryService.ValidateSourceFoldersAsync(settings.GameSourceFolders);
+            IReadOnlyList<SourceFolder> validatedApp = await _sourceLibraryService.ValidateSourceFoldersAsync(settings.AppSourceFolders);
+            IReadOnlyList<SourceFolder> validatedTv = await _sourceLibraryService.ValidateSourceFoldersAsync(settings.TvAndFilmSourceFolders ?? []);
+            IReadOnlyList<SourceFolder> validatedOs = await _sourceLibraryService.ValidateSourceFoldersAsync(settings.OsImageSourceFolders ?? []);
+
+            List<string> inaccessibleFolders = validatedGame.Concat(validatedApp).Concat(validatedTv).Concat(validatedOs)
+                .Where(f => !f.IsValid)
+                .Select(f => f.FolderPath)
+                .Distinct()
+                .ToList();
+
+            if (inaccessibleFolders.Count > 0)
+            {
+                string folderList = string.Join("\n", inaccessibleFolders.Select(p => $"• {p}"));
+                string prompt = $"The following {inaccessibleFolders.Count} configured source folder(s) are currently inaccessible or do not exist:\n\n{folderList}\n\nDo you want to save anyway?";
+                bool proceed = await _dialogService.ShowConfirmationDialogAsync("Inaccessible Source Folders", prompt, "Save Anyway", "Cancel");
+                if (!proceed)
+                {
+                    StatusMessage = "Save cancelled: resolve inaccessible source folders.";
+                    return;
+                }
+            }
+
+            StatusMessage = "Saving settings...";
+
             await _settingsService.SaveSettingsAsync(settings);
 
             _startupService.UpdateStartOnLogon(settings.StartOnLogon);
@@ -496,11 +584,21 @@ namespace Easy_Copier.ViewModels
         }
 
         /// <summary>
+        /// Guard flag preventing re-entrant property changed notifications when resetting <see cref="StartOnLogon"/> upon validation failure.
+        /// </summary>
+        private bool _isUpdatingStartOnLogon;
+
+        /// <summary>
         /// Partial notification handler invoked when <see cref="StartOnLogon"/> changes to validate application executable directory location.
         /// </summary>
         /// <param name="value">The new start on logon boolean flag.</param>
         partial void OnStartOnLogonChanged(bool value)
         {
+            if (_isUpdatingStartOnLogon)
+            {
+                return;
+            }
+
             if (value)
             {
                 string? executablePath = Environment.ProcessPath;
@@ -509,7 +607,17 @@ namespace Easy_Copier.ViewModels
                 if (string.IsNullOrEmpty(executablePath) || !executablePath.StartsWith(expectedFolder, StringComparison.OrdinalIgnoreCase))
                 {
                     _logger.LogWarning("Cannot enable start on logon: Application is not running from {ExpectedFolder}. Current path: {ExecutablePath}", expectedFolder, executablePath);
-                    StartOnLogon = false;
+
+                    _isUpdatingStartOnLogon = true;
+                    try
+                    {
+                        StartOnLogon = false;
+                    }
+                    finally
+                    {
+                        _isUpdatingStartOnLogon = false;
+                    }
+
                     StatusMessage = "Cannot enable startup. App is not in AppData\\Local\\EasyCopier.";
                 }
             }

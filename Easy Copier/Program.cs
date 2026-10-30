@@ -39,7 +39,11 @@ namespace Easy_Copier
 
                 mainInstance.Activated += MainInstance_Activated;
             }
-            catch { }
+            catch (Exception ex)
+            {
+                // Trace the single-instance registration error so startup issues can be diagnosed.
+                System.Diagnostics.Trace.TraceWarning("Failed to register single-instance application lifecycle key: {0}", ex);
+            }
 
             Microsoft.UI.Xaml.Application.Start((p) =>
             {

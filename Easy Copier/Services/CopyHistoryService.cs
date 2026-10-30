@@ -177,6 +177,10 @@ namespace Easy_Copier.Services
                     _logger.LogInformation("Added details columns to CopyHistory table via schema migration.");
                 }
 
+                // Create index on Timestamp for fast range queries and dashboard aggregation.
+                command.CommandText = "CREATE INDEX IF NOT EXISTS idx_copyhistory_timestamp ON CopyHistory (Timestamp DESC);";
+                _ = await command.ExecuteNonQueryAsync();
+
                 _logger.LogInformation("CopyHistory DB initialized at {Path}", _dbPath);
             }
             catch (Exception ex)
@@ -226,10 +230,10 @@ namespace Easy_Copier.Services
         }
 
         /// <summary>
-        /// Helper method that reads all history records stored in the database.
+        /// Executes a parameterized query against CopyHistory, populating records using an index-optimized SQL query.
         /// </summary>
-        /// <returns>A task that represents the asynchronous operation. The task result contains a list of all <see cref="CopyHistoryRecord"/> items.</returns>
-        private async Task<List<CopyHistoryRecord>> GetAllRecordsAsync()
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Security", "CA2100:Review SQL queries for security vulnerabilities", Justification = "Internal helper receiving compile-time constant where-clause fragments with parameterized values.")]
+        private async Task<List<CopyHistoryRecord>> QueryRecordsInternalAsync(string? whereClause = null, Action<SqliteCommand>? parameterBinder = null)
         {
             List<CopyHistoryRecord> records = [];
             try
@@ -238,7 +242,11 @@ namespace Easy_Copier.Services
                 await connection.OpenAsync();
 
                 SqliteCommand command = connection.CreateCommand();
-                command.CommandText = "SELECT Id, Timestamp, GameName, TargetDriveLetter, TargetDriveLabel, BytesTransferred, IsSuccess, Amount, SourcePath, DestinationPath, ErrorLog, SubFilesJson FROM CopyHistory";
+                command.CommandText = whereClause != null
+                    ? $"SELECT Id, Timestamp, GameName, TargetDriveLetter, TargetDriveLabel, BytesTransferred, IsSuccess, Amount, SourcePath, DestinationPath, ErrorLog, SubFilesJson FROM CopyHistory WHERE {whereClause} ORDER BY Timestamp DESC"
+                    : "SELECT Id, Timestamp, GameName, TargetDriveLetter, TargetDriveLabel, BytesTransferred, IsSuccess, Amount, SourcePath, DestinationPath, ErrorLog, SubFilesJson FROM CopyHistory ORDER BY Timestamp DESC";
+
+                parameterBinder?.Invoke(command);
 
                 using SqliteDataReader reader = await command.ExecuteReaderAsync();
                 while (await reader.ReadAsync())
@@ -269,31 +277,38 @@ namespace Easy_Copier.Services
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "Failed to get all copy history records");
+                _logger.LogError(ex, "Failed to execute query on copy history records");
             }
             return records;
         }
 
         /// <summary>
-        /// Retrieves records matching the designated week date range, sorted by timestamp descending.
+        /// Helper method that reads all history records stored in the database.
+        /// </summary>
+        /// <returns>A task that represents the asynchronous operation. The task result contains a list of all <see cref="CopyHistoryRecord"/> items.</returns>
+        private async Task<List<CopyHistoryRecord>> GetAllRecordsAsync()
+        {
+            return await QueryRecordsInternalAsync();
+        }
+
+        /// <summary>
+        /// Retrieves records matching the designated week date range, sorted by timestamp descending using SQL filtering.
         /// </summary>
         /// <param name="startOfWeek">The start date of the week.</param>
         /// <param name="endOfWeek">The end date of the week.</param>
         /// <returns>A task that represents the asynchronous operation. The task result contains a list of matching <see cref="CopyHistoryRecord"/> items.</returns>
         public async Task<List<CopyHistoryRecord>> GetRecordsByWeekAsync(DateTime startOfWeek, DateTime endOfWeek)
         {
-            List<CopyHistoryRecord> allRecords = await GetAllRecordsAsync();
-
-            // Adjust endOfWeek to be exclusive for < comparison, since endOfWeek is currently the date (e.g. 23:59:59 implied, or start of next day)
-            // But since startOfWeek and endOfWeek logic usually uses >= and <=, let's just do inclusive if it's the exact day,
-            // but normally endOfWeek is startOfWeek.AddDays(6).
             DateTime start = startOfWeek.Date;
             DateTime end = endOfWeek.Date.AddDays(1); // Make it exclusive
 
-            return allRecords
-                .Where(r => r.Timestamp >= start && r.Timestamp < end)
-                .OrderByDescending(r => r.Timestamp)
-                .ToList();
+            return await QueryRecordsInternalAsync(
+                "Timestamp >= $start AND Timestamp < $end",
+                cmd =>
+                {
+                    _ = cmd.Parameters.AddWithValue("$start", start.ToString("O"));
+                    _ = cmd.Parameters.AddWithValue("$end", end.ToString("O"));
+                });
         }
 
         /// <summary>
@@ -319,18 +334,23 @@ namespace Easy_Copier.Services
         }
 
         /// <summary>
-        /// Retrieves history records matching the specified year and month.
+        /// Retrieves history records matching the specified year and month using SQL range query.
         /// </summary>
         /// <param name="year">The target year.</param>
         /// <param name="month">The target month (1–12).</param>
         /// <returns>A task that represents the asynchronous operation. The task result contains a list of matching <see cref="CopyHistoryRecord"/> items.</returns>
         public async Task<List<CopyHistoryRecord>> GetRecordsByMonthAsync(int year, int month)
         {
-            List<CopyHistoryRecord> allRecords = await GetAllRecordsAsync();
-            return allRecords
-                .Where(r => r.Timestamp.Year == year && r.Timestamp.Month == month)
-                .OrderByDescending(r => r.Timestamp)
-                .ToList();
+            DateTime start = new(year, month, 1);
+            DateTime end = start.AddMonths(1);
+
+            return await QueryRecordsInternalAsync(
+                "Timestamp >= $start AND Timestamp < $end",
+                cmd =>
+                {
+                    _ = cmd.Parameters.AddWithValue("$start", start.ToString("O"));
+                    _ = cmd.Parameters.AddWithValue("$end", end.ToString("O"));
+                });
         }
 
         /// <summary>
@@ -353,33 +373,47 @@ namespace Easy_Copier.Services
         }
 
         /// <summary>
-        /// Asynchronously computes summary statistics for copy operations within the specified date range.
+        /// Asynchronously computes summary statistics for copy operations within the specified date range using SQL aggregation.
         /// </summary>
         /// <param name="startDate">Start boundary date (inclusive).</param>
         /// <param name="endDate">End boundary date (exclusive).</param>
-        /// <returns>
-        /// A task that represents the asynchronous operation. The task result contains a tuple containing:
-        /// <list type="bullet">
-        ///   <item><description><c>TotalItems</c>: Total number of recorded copy operations.</description></item>
-        ///   <item><description><c>SuccessfulItems</c>: Count of operations that completed successfully.</description></item>
-        ///   <item><description><c>TotalBytes</c>: Total number of bytes transferred across all operations.</description></item>
-        ///   <item><description><c>TotalAmount</c>: Total monetary value calculated across all operations.</description></item>
-        /// </list>
-        /// </returns>
+        /// <returns>A tuple containing total items, successful items, total bytes, and total amount.</returns>
         public async Task<(int TotalItems, int SuccessfulItems, long TotalBytes, int TotalAmount)> GetStatsAsync(DateTime startDate, DateTime endDate)
         {
-            List<CopyHistoryRecord> allRecords = await GetAllRecordsAsync();
+            try
+            {
+                using SqliteConnection connection = new(_connectionString);
+                await connection.OpenAsync();
 
-            List<CopyHistoryRecord> filteredRecords = allRecords
-                .Where(r => r.Timestamp >= startDate && r.Timestamp < endDate)
-                .ToList();
+                SqliteCommand command = connection.CreateCommand();
+                command.CommandText = @"
+                    SELECT 
+                        COUNT(*), 
+                        COALESCE(SUM(CASE WHEN IsSuccess = 1 THEN 1 ELSE 0 END), 0),
+                        COALESCE(SUM(BytesTransferred), 0),
+                        COALESCE(SUM(Amount), 0)
+                    FROM CopyHistory 
+                    WHERE Timestamp >= $start AND Timestamp < $end";
 
-            int totalItems = filteredRecords.Count;
-            int successfulItems = filteredRecords.Count(r => r.IsSuccess);
-            long totalBytes = filteredRecords.Sum(r => r.BytesTransferred);
-            int totalAmount = filteredRecords.Sum(r => r.Amount);
+                _ = command.Parameters.AddWithValue("$start", startDate.ToString("O"));
+                _ = command.Parameters.AddWithValue("$end", endDate.ToString("O"));
 
-            return (totalItems, successfulItems, totalBytes, totalAmount);
+                using SqliteDataReader reader = await command.ExecuteReaderAsync();
+                if (await reader.ReadAsync())
+                {
+                    int totalItems = reader.GetInt32(0);
+                    int successfulItems = reader.GetInt32(1);
+                    long totalBytes = reader.GetInt64(2);
+                    int totalAmount = reader.GetInt32(3);
+                    return (totalItems, successfulItems, totalBytes, totalAmount);
+                }
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Failed to compute stats for date range {Start} - {End}", startDate, endDate);
+            }
+
+            return (0, 0, 0L, 0);
         }
     }
 }

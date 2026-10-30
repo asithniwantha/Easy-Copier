@@ -85,16 +85,17 @@ namespace Easy_Copier.ViewModels
             StatusMessage = string.Empty;
             const string dateFormat = "dd/MM/yyyy hh:mm tt";
 
+            // Format dates using the user's current culture so standard AM/PM designators and locale preferences are honored.
             DateCreatedFormatted = created.HasValue
-                ? created.Value.ToString(dateFormat, CultureInfo.InvariantCulture)
+                ? created.Value.ToString(dateFormat, CultureInfo.CurrentCulture)
                 : "N/A";
 
             DateModifiedFormatted = modified.HasValue
-                ? modified.Value.ToString(dateFormat, CultureInfo.InvariantCulture)
+                ? modified.Value.ToString(dateFormat, CultureInfo.CurrentCulture)
                 : "N/A";
 
             DateAccessedFormatted = accessed.HasValue
-                ? accessed.Value.ToString(dateFormat, CultureInfo.InvariantCulture)
+                ? accessed.Value.ToString(dateFormat, CultureInfo.CurrentCulture)
                 : "N/A";
         }
     }

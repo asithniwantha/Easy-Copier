@@ -9,6 +9,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text.Json;
 using System.Threading.Tasks;
+using Microsoft.Extensions.Logging;
 
 namespace Easy_Copier.ViewModels
 {
@@ -62,6 +63,9 @@ namespace Easy_Copier.ViewModels
         /// <summary>Service for grouping history records and computing aggregate history statistics.</summary>
         private readonly IHistoryAnalysisService _historyAnalysisService;
 
+        /// <summary>Logger instance for recording history operations and diagnostic warnings.</summary>
+        private readonly Microsoft.Extensions.Logging.ILogger<HistoryViewModel>? _logger;
+
         /// <summary>Internal list holding all un-filtered copy history records loaded from storage.</summary>
         private List<CopyHistoryRecord> _allRecords = [];
 
@@ -78,7 +82,7 @@ namespace Easy_Copier.ViewModels
         /// Gets or sets the collection of copy history records matching the active search and filter criteria.
         /// </summary>
         [ObservableProperty]
-        public partial ObservableCollection<CopyHistoryRecord> Records { get; set; } = [];
+        public partial ObservableCollection<CopyHistoryRecord> Records { get; set; } = new BulkObservableCollection<CopyHistoryRecord>();
 
         /// <summary>
         /// Gets or sets the currently selected copy history record for detail inspection in the side drawer.
@@ -164,8 +168,17 @@ namespace Easy_Copier.ViewModels
         [ObservableProperty]
         public partial ObservableCollection<string> SelectedRecordSubFiles { get; set; } = [];
 
-        private static readonly string[] DefaultDateFilterStrings = ["Today", "Last 7 Days", "This Month", "All Time"];
-        private static readonly string[] DefaultStatusFilterStrings = ["All", "Completed", "Failed"];
+        public const string FilterToday = "Today";
+        public const string FilterLast7Days = "Last 7 Days";
+        public const string FilterThisMonth = "This Month";
+        public const string FilterAllTime = "All Time";
+
+        public const string StatusAll = "All";
+        public const string StatusCompleted = "Completed";
+        public const string StatusFailed = "Failed";
+
+        private static readonly string[] DefaultDateFilterStrings = [FilterToday, FilterLast7Days, FilterThisMonth, FilterAllTime];
+        private static readonly string[] DefaultStatusFilterStrings = [StatusAll, StatusCompleted, StatusFailed];
 
         /// <summary>
         /// Gets the available dashboard range options.
@@ -261,17 +274,19 @@ namespace Easy_Copier.ViewModels
             ICopyHistoryService copyHistoryService,
             IReportService reportService,
             IFilePickerService filePickerService,
-            IHistoryAnalysisService historyAnalysisService)
+            IHistoryAnalysisService historyAnalysisService,
+            Microsoft.Extensions.Logging.ILogger<HistoryViewModel>? logger = null)
         {
             _copyHistoryService = copyHistoryService;
             _reportService = reportService;
             _filePickerService = filePickerService;
             _historyAnalysisService = historyAnalysisService;
+            _logger = logger;
 
             AvailableDateFilterStrings = [.. DefaultDateFilterStrings];
             AvailableStatusFilterStrings = [.. DefaultStatusFilterStrings];
-            SelectedDateFilterString = "Today";
-            SelectedStatusFilterString = "All";
+            SelectedDateFilterString = FilterToday;
+            SelectedStatusFilterString = StatusAll;
         }
 
         /// <summary>
@@ -286,8 +301,9 @@ namespace Easy_Copier.ViewModels
             }
 
             StatusMessage = "Loading records...";
-            DateTime minDate = new(2000, 1, 1);
-            DateTime maxDate = new(2100, 1, 1);
+            // Scope initial retrieval to the past 90 days to cover dashboard metrics without pulling all historical records.
+            DateTime minDate = DateTime.Today.AddDays(-90);
+            DateTime maxDate = DateTime.Today.AddDays(1);
             List<CopyHistoryRecord> records = await _copyHistoryService.GetRecordsByWeekAsync(minDate, maxDate);
             _allRecords = records;
             _isInitialized = true;
@@ -317,14 +333,14 @@ namespace Easy_Copier.ViewModels
         /// <param name="value">The new date filter string value.</param>
         partial void OnSelectedDateFilterStringChanged(string value)
         {
+            // Setting SelectedDateFilter automatically triggers OnSelectedDateFilterChanged, which invokes ApplyFilters().
             SelectedDateFilter = value switch
             {
-                "Today" => DateFilter.Today,
-                "Last 7 Days" => DateFilter.Last7Days,
-                "This Month" => DateFilter.ThisMonth,
+                FilterToday => DateFilter.Today,
+                FilterLast7Days => DateFilter.Last7Days,
+                FilterThisMonth => DateFilter.ThisMonth,
                 _ => DateFilter.Custom
             };
-            ApplyFilters();
         }
 
         /// <summary>
@@ -333,13 +349,13 @@ namespace Easy_Copier.ViewModels
         /// <param name="value">The new status filter string value.</param>
         partial void OnSelectedStatusFilterStringChanged(string value)
         {
+            // Setting SelectedStatusFilter automatically triggers OnSelectedStatusFilterChanged, which invokes ApplyFilters().
             SelectedStatusFilter = value switch
             {
-                "Completed" => StatusFilter.Completed,
-                "Failed" => StatusFilter.Failed,
+                StatusCompleted => StatusFilter.Completed,
+                StatusFailed => StatusFilter.Failed,
                 _ => StatusFilter.All
             };
-            ApplyFilters();
         }
 
         /// <summary>
@@ -363,9 +379,9 @@ namespace Easy_Copier.ViewModels
                         }
                     }
                 }
-                catch
+                catch (Exception ex)
                 {
-                    // Ignore parsing errors
+                    _logger?.LogWarning(ex, "Failed to deserialize sub-files JSON for history record ID {RecordId}", value.Id);
                 }
             }
             else
@@ -439,8 +455,8 @@ namespace Easy_Copier.ViewModels
         private void ClearFilters()
         {
             SearchQuery = string.Empty;
-            SelectedStatusFilterString = DefaultStatusFilterStrings[0];
-            SelectedDateFilterString = DefaultDateFilterStrings[3];
+            SelectedStatusFilterString = StatusAll;
+            SelectedDateFilterString = FilterAllTime;
         }
 
         /// <summary>

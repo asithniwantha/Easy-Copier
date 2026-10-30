@@ -509,4 +509,113 @@ namespace Easy_Copier.Services
             });
         }
     }
+
+    /// <summary>
+    /// Coordinates drive discovery, hardware monitoring, and transfer validation operations across connected storage volumes.
+    /// </summary>
+    public interface IDriveCoordinatorService : IDisposable
+    {
+        /// <summary>
+        /// Gets the underlying drive discovery service.
+        /// </summary>
+        IDriveDiscoveryService Discovery { get; }
+
+        /// <summary>
+        /// Gets the underlying drive validation service.
+        /// </summary>
+        IDriveValidationService Validation { get; }
+
+        /// <summary>
+        /// Asynchronously queries and returns a list of connected removable and USB drives.
+        /// </summary>
+        /// <returns>A task returning a read-only list of <see cref="RemovableDrive"/> objects.</returns>
+        Task<IReadOnlyList<RemovableDrive>> GetRemovableDrivesAsync();
+
+        /// <summary>
+        /// Validates whether the selected items can be safely copied to the specified target drive and path.
+        /// </summary>
+        /// <param name="items">The collection of library entries to copy.</param>
+        /// <param name="targetDrive">The target drive information.</param>
+        /// <param name="destinationBasePath">The destination root directory path.</param>
+        /// <returns>A task returning a read-only list of <see cref="ValidationResult"/> objects.</returns>
+        Task<IReadOnlyList<ValidationResult>> ValidateTransferAsync(
+            IEnumerable<GameEntry> items,
+            RemovableDrive targetDrive,
+            string destinationBasePath);
+
+        /// <summary>
+        /// Starts watching for hardware volume change events via WMI.
+        /// </summary>
+        void StartWatching();
+
+        /// <summary>
+        /// Stops watching for hardware volume change events.
+        /// </summary>
+        void StopWatching();
+
+        /// <summary>
+        /// Occurs when a volume change event is detected (e.g., drive insertion or removal).
+        /// </summary>
+        event EventHandler? DrivesChanged;
+    }
+
+    /// <summary>
+    /// Implementation of <see cref="IDriveCoordinatorService"/> that coordinates drive discovery, real-time volume monitoring, and copy validation.
+    /// </summary>
+    public sealed class DriveCoordinatorService : IDriveCoordinatorService
+    {
+        /// <summary>
+        /// The underlying drive discovery service instance.
+        /// </summary>
+        public IDriveDiscoveryService Discovery { get; }
+
+        /// <summary>
+        /// The underlying drive validation service instance.
+        /// </summary>
+        public IDriveValidationService Validation { get; }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="DriveCoordinatorService"/> class.
+        /// </summary>
+        /// <param name="discovery">The drive discovery service for device enumeration.</param>
+        /// <param name="validation">The drive validation service for capacity and file system checks.</param>
+        public DriveCoordinatorService(IDriveDiscoveryService discovery, IDriveValidationService validation)
+        {
+            Discovery = discovery ?? throw new ArgumentNullException(nameof(discovery));
+            Validation = validation ?? throw new ArgumentNullException(nameof(validation));
+            Discovery.DrivesChanged += OnDrivesChanged;
+        }
+
+        /// <inheritdoc />
+        public Task<IReadOnlyList<RemovableDrive>> GetRemovableDrivesAsync() => Discovery.GetRemovableDrivesAsync();
+
+        /// <inheritdoc />
+        public Task<IReadOnlyList<ValidationResult>> ValidateTransferAsync(
+            IEnumerable<GameEntry> items,
+            RemovableDrive targetDrive,
+            string destinationBasePath) => Validation.ValidateTransferAsync(items, targetDrive, destinationBasePath);
+
+        /// <inheritdoc />
+        public void StartWatching() => Discovery.StartWatching();
+
+        /// <inheritdoc />
+        public void StopWatching() => Discovery.StopWatching();
+
+        /// <inheritdoc />
+        public event EventHandler? DrivesChanged;
+
+        /// <summary>
+        /// Relays drive change events from the underlying discovery service.
+        /// </summary>
+        private void OnDrivesChanged(object? sender, EventArgs e) => DrivesChanged?.Invoke(sender, e);
+
+        /// <summary>
+        /// Disposes event subscriptions and underlying resources.
+        /// </summary>
+        public void Dispose()
+        {
+            Discovery.DrivesChanged -= OnDrivesChanged;
+            Discovery.Dispose();
+        }
+    }
 }

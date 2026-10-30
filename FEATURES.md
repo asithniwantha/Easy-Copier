@@ -1,203 +1,463 @@
 # 🚀 Easy Copier - Features
 
+
+
 ## 📚 Library Management
+
 - Scan configured source folders for **Games**, **Apps**, and **Film & TV**.
+
 - Automatically expand folders ending in "collection" to scan their subdirectories.
+
 - Support automatic scanning at startup and on-demand rescanning.
+
 - Display library items in separate tabs (Games / Apps / Film & TV / OS Images) implementing `ILibraryTabView` with `IsOsImagesTab` abstraction for decoupled selection handling.
+
 - Sort OS Images by Name, Date Added, and Size with Ascending and Descending direction toggles.
+
 - Display creation, modification, and access timestamps in a right-click flyout for OS image tiles.
+
 - Search and filter items by name with dynamic light yellow/amber background highlight feedback when search text is active, and an enlarged clear button (24px font size with 40x40px touch/hover target).
+
 - **Game Categorization:** Extracts metadata from Steam with keyword fallbacks, displayed and filterable directly within the Games tab.
+
 - Multi-select items and show combined selection size.
+
 - Exclude folders starting with `$`, `recyclebin`, and `System Volume Information` from scanning.
+
 - Use optimized single-pass folder scanning for accurate file sizes and large-file checks.
 
+
+
 ## 🎨 Visual Presentation
+
 - Cover-art grid view for items.
+
 - Fallback icon for entries without cover images.
+
 - **Intelligent Cover Art Retrieval Pipeline:** Automatically downloads high-resolution vertical cover art from 8 online services in priority order:
+
   1. **Steam CDN:** Fetches high-resolution vertical library covers (600x900_2x, 600x900), falling back to hero and landscape capsules.
+
   2. **CheapShark Aggregator:** Free, key-less store aggregator resolving Steam App IDs or providing direct game thumbnails.
+
   3. **GOG Catalog API:** Matches games with custom formatters (`product_card_v2_mobile_slider_639`, `glados_432`) and JPG/WebP fallbacks.
+
   4. **PCGamingWiki (PCGW):** MediaWiki search generator API finding covers even across spelling and subtitle differences.
+
   5. **Wikipedia / Wikimedia Commons:** MediaWiki search API with page images and REST summary endpoints for video games.
+
   6. **OpenCritic API:** Queries review aggregator metadata with box art and banner image extraction.
+
   7. **Lutris API & Search:** REST API with title validation and HTML search fallback.
+
   8. **GameSystemRequirements (GSR):** Scrapes game search results with verified title match scoring.
+
 - **Game Title Sanitization (`GameTitleSanitizer`):** Automatically cleans raw folder names by stripping repack tags (`[FitGirl Repack]`, `[DODI]`, etc.), scene group suffixes (`-CODEX`, `-EMPRESS`, `-RUNE`, etc.), build/version numbers (`v1.0.4`, `build 12345`), and non-essential bracketed metadata.
+
 - **Multi-Candidate Querying:** Automatically produces prioritized search candidates (cleaned full title, edition-stripped base title, year-stripped title, and subtitle-stripped title) to maximize hit rate on all services.
+
 - **Negative Keyword Rejection:** Eliminates wrong covers by rejecting results containing non-game keywords (`Soundtrack`, `OST`, `Demo`, `Playtest`, `DLC`, `Expansion`, `Server`, `Artbook`) unless specifically queried.
+
 - **Image Payload Validation & Self-Healing:** Validates magic bytes (JPEG, PNG, WebP, BMP) and enforces minimum payload sizes (>= 1500 bytes) to reject HTML error pages or empty spacer GIFs. Automatically detects, deletes, and re-downloads 0-byte or corrupt covers.
+
 - Automatic background thumbnail generation (via IShellItemImageFactory) for standalone TV & Film video files.
+
 - Item size display with human-readable formatting.
+
 - Large-file indicator badge for FAT32 incompatibility risk.
+
 - Right-click context flyout displaying color-formatted system requirements and scrollable folder contents via `FlyoutHelper`.
+
 - Films & TV details flyout (`VideoDetailsFlyout`, `VideoDetailsViewModel`): right-click a card to see the folder path, file count, total size, and a scrollable per-file size list; files are loaded asynchronously and unreadable folders show a status message.
+
 - Films & TV hover preview: hovering the mouse over a card's cover art for ~0.5s plays a muted, looping preview of the largest video in the item (starting ~20% in for long videos). The preview stops when the pointer leaves. Implemented in `TvAndFilmsTabView` with `MediaPlayerElement`.
+
 - Game pricing tags displayed in the library based on file size thresholds configured in App Settings.
+
 - Total price of selected games shown in the library view based on configured price tiers.
+
 - Smart Adder tool for quick Excel-like calculations during selection and pricing workflows.
 
+
+
 ## 🔌 Drive Discovery and Selection
+
 - Detect connected removable USB drives.
+
 - Detect USB-attached fixed disks (portable HDD/SSD/NVMe enclosures).
+
 - Show drive details:
+
   - Drive letter.
+
   - Volume label.
+
   - Model/brand.
+
   - File system.
+
   - Free space and total capacity.
+
   - Usage percentage.
+
 - Auto-refresh drive list on attach/remove events.
+
 - Open selected drive directly in File Explorer.
 
+
+
 ## 🛡️ Transfer Validation & Dialogs
+
 - Validate that items are selected before copying.
+
 - Validate destination free space against required size.
+
 - Validate FAT32 single-file constraints (>4 GB).
+
 - Validate source folder accessibility.
+
 - Warn when destination folders already exist and provide Merge / Replace / Skip options using a dedicated XAML view (`ConflictDialogContent.xaml`).
+
 - Display validation messages with severity levels (Info / Warning / Error).
 
+
+
 ## 🚀 Copy Operations
+
 - Copy selected items asynchronously to the target drive.
+
 - Non-blocking transfer queue: add more items to the queue while a copy is in progress.
+
 - Copies are processed in parallel across different target drives.
+
 - Copies targeting the same drive are processed one at a time, in the order they were queued.
+
 - Use native Windows Shell `IFileOperation` for transfer operations.
+
 - Reserve space for queued/in-progress transfers targeting the same drive so validation reflects true remaining capacity.
+
 - View live queue status (queued, in progress, completed, failed) with per-item details.
+
 - Show the total price of selected games in the copy queue after total size calculation.
+
 - Clear finished (completed/failed) items from the queue view.
+
 - Keep UI responsive during transfers.
+
 - Provide transfer status and completion feedback.
+
 - Refresh drive information after each successful copy completes.
 
+
+
 ## 📊 History and Reporting
+
 - View detailed history of all past copy operations.
+
 - Track success and failure states, including transfer times.
+
 - Play sound notifications (success/failure) when an entire drive's queue batch completes. Toggleable via settings.
+
 - Generate and export detailed reports (e.g., CSV) for completed and failed operations.
+
 - Automatically track transfer metrics like operation timestamps and destination details.
+
 - History dashboard (toggle in History window): daily volume bar chart, weekly totals, most-copied items, and failure rate over 7/30/90 days via `IHistoryAnalysisService.BuildDashboard`.
+
 - Fluent polish: Mica backdrop on modal windows, staggered entrance/reposition transitions on all library grids and the transfer queue, rounded tile containers, card-style queue items, and History redesign: card-style transfer list (replacing the DataGrid), pill-style Completed/Failed badges, icon KPI cards, header subtitle with active filters, Clear filters button and an empty state.
 
+
+
 ## ⚙️ Settings and Persistence
+
 - Manage source folders for Games, Apps, and Media (add/remove).
+
 - Scan for standalone app files (.exe, .msi, .rar, .zip, etc) within App Libraries, with configurable extensions in Settings.
+
 - Toggle auto-scan on startup.
+
 - Toggle application to start automatically on Windows log-on.
+
 - Persist settings in roaming app data (`%AppData%\EasyCopier`).
+
 - Persist library cache for faster startup experience.
+
 - Validate cache contents against current filesystem state.
+
 - Configurable price tiers for game size categories.
+
 - Navigational sidebar (`NavigationView`) for organized settings categories (General, Games, etc.).
+
 - Modal-like behavior for secondary windows (Settings, History, About) to prevent main window interaction while open.
+
 - About window with app version, developer details, and repository/issue links.
+
 - Automatic update checking and release notifications, with support for automatic background downloads and manual checking.
+
 - Automatically resize the Settings window to fit content.
+
 - Duplicate detection tool across all configured source libraries, identifying duplicates by name and providing actionable cleanup recommendations.
+
 - Toggle to overwrite existing game covers in Settings, allowing users to force refresh and replace outdated or inaccurate cover images.
 
+
+
 ## 🏗️ Architecture & Code Quality
+
 - Clean view-model separation enforcing zero View-to-ViewModel UI coupling through rigorous Dependency Injection (completely removing AppServiceLocator).
+
 - Extracted `IRufusService` / `RufusService` into `Services/` to encapsulate Rufus executable path discovery and ISO launching, keeping `MainViewModel` lean.
+
 - Streamlined child tab ViewModels (`GamesTabViewModel`, `AppsTabViewModel`, `TvAndFilmsTabViewModel`, `OsImagesTabViewModel`) using `ForwardParentPropertyChanges` in `LibraryTabViewModelBase`.
+
 - Introduced `ISearchableTabViewModel` contract implemented across child tab ViewModels (`GamesTabViewModel`, `AppsTabViewModel`, `TvAndFilmsTabViewModel`, `OsImagesTabViewModel`) to standardize search query binding and autocomplete suggestions.
+
 - Centralized autocomplete suggestion query evaluation via static `GetSuggestionsFromEntries` helper in `LibraryTabViewModelBase`.
+
 - Extracted `AutoSuggestBoxHelper` in `Infrastructure/` to handle search box text changes, suggestion updates, query submission, and active search background brush formatting across all child library tab views.
+
 - Extracted `ILibraryFilterService` to handle text search query filtering, `GameCategory` matching, and OS image sorting in a dedicated service.
+
 - Refactored `ILibraryCacheService` to encapsulate snapshot fingerprinting and JSON cache file creation (`CreateAndSaveSnapshotAsync`).
+
 - Introduced `IFileSystemService` and `FileSystemService` in `Services/` to encapsulate directory listing, size calculations, and path existence checks, decoupling ViewModels from direct disk I/O.
+
 - Relocated and decoupled `IFlyoutService` and `FlyoutService` in `Infrastructure/` to encapsulate right-click item details flyout presentation (`GameDetailsFlyout`, `OsImageDetailsFlyout`) and folder launch interactions by injecting `IProcessService` and ViewModel factories directly, completely eliminating `MainViewModel` parameters from flyout contracts.
+
 - Refactored `MainViewModel` to use `IFileSystemService` for file and directory checks during queue item construction, and cached `AppSettings` in memory to eliminate synchronous disk I/O on UI selection summary updates.
+
 - Decoupled library tab views using `ILibraryTabView` contract with `IsOsImagesTab` property to eliminate view-to-view tight coupling, leveraging dynamic Pivot tab retrieval in `MainPage.xaml.cs`.
+
 - Refactored child tab view code-behinds (`GamesTabView`, `AppsTabView`, `TvAndFilmsTabView`, `OsImagesTabView`) to use unified `LibraryViewExtensions` (`GetSelectedEntries`, `ClearMultiSelection`, `ClearSingleSelection`), eliminating selection clearing boilerplate across all library tab views.
+
 - Refactored `SettingsViewModel` navigation panel visibility toggles and source folder lookup/removal logic into clean, expressive, DRY methods using modern C# pattern matching.
+
 - Replaced imperative C# UI construction in `DialogService.cs` with declarative `ConflictDialogContent.xaml` XAML controls.
+
 - Centralized flyout logic in `FlyoutHelper.cs` for right-click details flyouts.
+
 - Extracted `IGameRequirementsService` and `GameRequirementsService` to handle retrieving and formatting game system requirements.
+
 - Extracted `IHistoryAnalysisService` and `HistoryAnalysisService` to handle 15-minute window drive clustering and statistic summary computations (`HistoryStats`) for history records, with `HistoryStats` moved to `DomainModels.cs` to fully decouple Services from ViewModels.
+
 - Extracted `IBatchNotificationService` and `BatchNotificationService` to handle batch transfer status evaluation, sound alerts, and Windows desktop toast notifications.
+
 - Implemented `IDisposable` event unsubscription cleanup in `LibraryTabViewModelBase` to prevent memory leaks during child tab ViewModel lifecycle transitions.
+
 - Refactored price tier calculation in `FormattingHelpers.CalculatePrice` using modern C# relational pattern matching (`gb switch { <= 5.0 => ... }`).
+
 - Applied C# switch expressions in `MainViewModel.Scanning.cs` using strongly-typed `LibraryTabIndex` enum (`Games`, `Apps`, `TvAndFilms`, `OsImages`) to eliminate magic integers.
+
 - Refactored `SettingsViewModel` to use strongly-typed `SourceFolderCategory` enum (`Game`, `App`, `TvAndFilm`, `OsImage`) and cached collection arrays to prevent heap allocations during source folder removals.
+
 - Encapsulated invariant numeric parsing in `NumberCell.TryGetNumericValue` and refactored `SmartAdderViewModel` calculations to maintain strict parsing consistency across recalculation and history logging.
+
 - Optimized `WindowsShellTransferService` by snapshotting `AppSettings` once per transfer batch instead of reading settings synchronously from disk on every item transfer loop.
+
 - Optimized `LibraryTabViewModelBase.ForwardParentPropertyChanges` using C# `ReadOnlySpan` params to eliminate array heap allocations during parent ViewModel property change forwarding.
+
 - Encapsulated source folder configuration checks in `MainViewModel` and `MainViewModel.Scanning.cs` using `HasAnySourceFolders` helper routines.
+
 - Refactored `MainPage.xaml.cs` selection management to query `ILibraryTabView` direct control references in `GetTabViews`, completely removing fragile `PivotItem` collection reflection and decoupling view interactions.
+
 - Extracted `IFolderPickerService` into a standalone file (`Services/IFolderPickerService.cs`) for clean single responsibility.
+
 - Enhanced `MainViewModel.Dispose` lifecycle teardown to explicitly dispose child tab ViewModels (`GamesTabViewModel`, `AppsTabViewModel`, `TvAndFilmsTabViewModel`, `OsImagesTabViewModel`) and eliminate event listener memory leaks.
+
 - Streamlined `GameScannerService` extension string parsing into a clean static `ParseExtensionList` helper routine.
+
 - Refactored `HistoryViewModel` filtering using strongly-typed `DateFilter` and `StatusFilter` enums with C# switch expressions, defaulting history view filter selection to "Today" and status filter to "All".
+
 - Refactored selection aggregation in `MainPage.xaml.cs` to query `ILibraryTabView` contracts uniformly via `GetTabViews()`, eliminating direct property coupling to `OsImagesTab`.
+
 - Centralized `CancellationTokenSource` cancellation and disposal in `MainViewModel` using a dedicated `CancelAndDisposeTokenSource` helper routine.
+
 - Strict adherence to SOLID principles through decoupled, highly-focused service abstractions.
+
 - Extracted `GameTitleSanitizer` in `Services/` to isolate folder cleaning regexes, title match scoring, and image payload validation logic.
+
 - Implemented franchise sequel and installment number extraction (`ExtractSequelNumber`) to eliminate cross-installment mismatches (e.g. preventing *Dark Souls II* from matching *Dark Souls*).
+
 - Corrected Steam genre mapping in `GameInfoDownloadService.Categories.cs` so generic "Action" genres map to Action-Adventure instead of "Shooter", prioritizing specific genres like RPG.
+
 - Extended `IGameInfoDownloadService` with `DownloadCoverForGameAsync` to support targeted per-game cover downloads and updates.
+
 - Refactored `FetchSteamAppIdAsync` with multi-candidate search, Store API fallback, and CheapShark integration for elevated accuracy across covers, system requirements, and categories.
+
 - Proper Dependency Injection flow used to instantiate View Models across pages and windows, eliminating service-locator anti-patterns.
+
 - UI elements decoupled from Services by leveraging `IDispatcherService` and `IWindowService` interfaces.
+
 - Centralized Win32 NativeWindow lifecycle hooks reducing duplicated window initialization logic.
+
 - Implements `IDisposable` effectively for unmanaged resource and cancellation token lifecycle management.
+
 - Comprehensive event logging utilizing Serilog to ensure troubleshooting is easy and traceable.
 
+- Hardened `ThumbnailService` by eliminating raw OS thread spawns and unobserved `async void` thread execution, switching to managed ThreadPool execution with a `SemaphoreSlim` concurrency throttle (4 concurrent extractions) and `IDisposable` lifecycle management to eliminate thread and I/O pool exhaustion during media scans.
+
+- Hardened application launch sequence with top-level error boundaries in `App.OnLaunched` to safeguard against unhandled exceptions during startup and ensure fatal launch errors are logged.
+
+- Added diagnostic trace logging during single-instance application lifecycle registration in `Program.cs`.
+
+- Integrated modal error alerts in `MainViewModel.InitializeAsync` via `IDialogService` to notify users immediately if initialization fails due to corrupted configurations or storage path errors.
+
+- Hardened thread-safety for background update checks in `MainViewModel` via atomic `Interlocked.CompareExchange` on `_isCheckingForUpdates` to eliminate race conditions between periodic timer checks and manual invocations.
+
+- Guarded `SettingsViewModel.OnStartOnLogonChanged` against re-entrant property-changed notifications when resetting `StartOnLogon` upon directory validation failures.
+
+- Fixed date formatting in `OsImageDetailsViewModel` to use `CultureInfo.CurrentCulture`, ensuring correct localized AM/PM designators and system locale conventions.
+
+- Introduced `BulkObservableCollection<T>` with `ReplaceRange` and `AddRange` batching to suppress N intermediate collection change notifications, raising a single `Reset` event and eliminating UI churn when scanning or filtering hundreds of library items.
+
+- Scoped search and sorting updates in `MainViewModel.Scanning.cs` to only rebuild the active/relevant category collections (`ApplyGamesFilter`, `ApplyAppsFilter`, `ApplyTvAndFilmsFilter`, `ApplyOsImagesFilter`) instead of reconstructing all four library collections on every sort or category change.
+
+- Replaced direct `HttpClient` creation in `GameInfoDownloadService` with dependency-injected connection-pooled `HttpClient` backed by `SocketsHttpHandler` (`PooledConnectionLifetime = 15m`) registered in `ServiceCollectionExtensions` to prevent socket exhaustion and respect DNS rotations.
+
+- Optimized `CopyHistoryService` queries by indexing `Timestamp DESC` in SQLite and executing direct parameterized SQL queries (`WHERE Timestamp >= $start AND Timestamp < $end`) and server-side aggregation for stats, while scoping `HistoryViewModel.InitializeAsync` to the active date range instead of pulling centuries of history into memory, and eliminating duplicate filter invocations.
+
+- Implemented an in-memory directory timestamp cache (`_folderStatsCache`) in `GameScannerService.GetFolderStatsAsync` to avoid redundant recursive disk traversal when folder `LastWriteTimeUtc` has not changed.
+
+- Hardened error handling in `HistoryViewModel.OnSelectedRecordChanged` by logging sub-files JSON deserialization warnings via `ILogger`.
+
+- Comprehensive source folder accessibility validation in `SettingsViewModel.Persistence.cs` covering TV/Film and OS Image directories alongside game and application paths.
+
+- Converted `FileSystemHelpers.CalculateDirectorySize` from recursive to iterative queue traversal with reparse point (symlink/junction) loop protection to eliminate stack overflow risk.
+
+- Optimized `GameScannerService` by consolidating 5 repeated inline `new DirectoryInfo` constructions into a single cached instance.
+
+- Streamlined `GameDetailsViewModel.LoadFolderContentsAsync` to return `Task.CompletedTask` directly, eliminating dead async state machine overhead.
+
+- Added structured warning logging and trace diagnostics to `ProcessService.OpenInExplorer` and administrator privilege checks.
+
+- Eliminated Service Locator anti-pattern in `WindowService` by replacing direct `IServiceProvider` calls with strongly-typed ViewModel factory delegates (`Func<SettingsViewModel>`, `Func<HistoryViewModel>`, `Func<SmartAdderHistoryViewModel>`, `Func<AboutViewModel>`).
+
+- Introduced `IDriveCoordinatorService` and `DriveCoordinatorService` in `Services/` to coordinate drive discovery, real-time volume change monitoring, and transfer validation, streamlining `MainViewModel` constructor dependencies.
+
+- Consolidated application update checking, downloading, and restarting logic into `MainViewModel.Updates.cs`, replacing the legacy `MainViewModel.Transfer.cs`.
+
+- Aliased `GameEntry` to `LibraryEntry` and `ContentEntry` via global usings in `DomainModels.cs` with unified domain documentation across Games, Apps, TV/Films, and OS Images.
+
+- Synchronized SQLite startup sequence in `App.OnLaunched` by awaiting `ICopyHistoryService.InitializeAsync` and `ISmartAdderHistoryService.InitializeAsync` before invoking `_window.Activate()`.
+
+- Documented architectural synchronization between `DataContext` and `ViewModel` dependency property in `SmartAdderControl.xaml.cs` for ambient template binding support.
+
+- Replaced positional index filter clearing in `HistoryViewModel` with strongly-typed named constant `FilterAllTime` to eliminate array order dependency.
+- Added per-item copy cancellation for queued and in-progress transfers: users can cancel active copy operations from the queue UI, which signals `FileOperationProgressSink` to return `COPYENGINE_E_USER_CANCELLED` and immediately abort the underlying Windows Shell `IFileOperation`.
+- Added cancel capability for bulk cover art and system requirements downloads via `CancelDownloadGameInfoCommand` in `SettingsViewModel` and dedicated Cancel button in `SettingsWindow.xaml`.
+- Added prominent confirmation modal (`ShowConfirmationDialogAsync`) in `SettingsViewModel` when saving configurations that include inaccessible or missing source library folders, preventing silent errors.
+- Added in-app banner warning (`ShowGlobalNotification`) in `App.xaml.cs` when desktop toast notification registration fails (e.g. running as Administrator or missing App SDK runtime components).
+- Structured logging and return-code tracking for native drive formatting dialogs (`SHFormatDrive`) in `ProcessService.cs`.
+- Documented inline safety rationale for the 1,500-byte cover image threshold in `GameInfoDownloadService` guarding against HTML 404 pages and 1x1 spacer images.
+
+
+
 ## 🛠️ Technical Stack
+
 - WinUI 3 + Windows App SDK.
+
 - C# 14 with .NET 10.
+
 - MVVM pattern via `CommunityToolkit.Mvvm` utilizing source generators (`partial` property observables).
+
 - DI and logging via `Microsoft.Extensions.*` and `Serilog`.
+
 - Storage discovery via `DriveInfo` + WMI.
+
 - GitHub Actions for CI/CD workflows, update and release automation.
 
+
+
 ## 📅 Future Enhancements (To-Do List)
+
 - [ ] Add transfer profiles and presets for one-click queueing of common game/app/media bundles.
+
 - [ ] Add optional post-copy verification (hash/size) to confirm file integrity.
+
 - [ ] Add automatic best-fit suggestions based on selected drive free space.
+
 - [x] Add duplicate detection across source libraries with cleanup recommendations.
+
 - [ ] Add retry and resume support for transient copy failures.
+
 - [x] Add advanced reporting dashboards (daily/weekly totals, most-copied items, and failure-rate trends).
+
 - [ ] Add portable backup/restore for settings, price tiers, source folders, and library cache metadata.
+
+- [x] Add per-item copy cancellation for active and queued transfers.
 - [ ] Add pause and resume capabilities for active transfers.
+
 - [ ] Add speed throttling for copy operations to limit maximum disk read/write speeds.
+
 - [ ] Add parallel small file transfers for directories with many small files.
+
 - [ ] Add receipt generation and exporting for customer transactions.
+
 - [ ] Add customer or drive profiles using volume serial numbers to track previously copied games.
+
 - [ ] Add advanced pricing and promotional discounts support.
+
 - [ ] Add system tray integration to minimize the app during long copies and push toast notifications.
+
 - [ ] Add native drag-and-drop support from Windows File Explorer to the Copy Queue or Library.
+
 - [ ] Add a real-time transfer speed graph showing current MB/s in the active transfer view.
+
 - [ ] Add cloud backup functionality for the SQLite database to secure historical and financial records.
+
 - [x] Show notifications for copy failures and successes batch completion.
+
 - [x] Add an OS images tab and instruct Rufus to open with a specific image file (e.g., `rufus.exe -i "C:\path\to\your\image.iso"`).
+
+
 
 ## 🗄️ Database Schema
 
+
+
 ### `CopyHistory` Table
+
 Tracks detailed history of all copy operations.
 
+
+
 | Column Name | Type | Description |
+
 | :--- | :--- | :--- |
+
 | `Id` | `INTEGER` | Primary key, auto-incremented. |
+
 | `Timestamp` | `TEXT` | ISO 8601 formatted timestamp of the operation. |
+
 | `GameName` | `TEXT` | Name of the copied item (game, app, or media). |
+
 | `TargetDriveLetter` | `TEXT` | Drive letter of the destination. |
+
 | `TargetDriveLabel` | `TEXT` | Volume label of the destination drive. |
+
 | `BytesTransferred` | `INTEGER` | Total size of the item transferred in bytes. |
+
 | `IsSuccess` | `INTEGER` | Boolean representation (`1` = Success, `0` = Failure). |
+
 | `Amount` | `INTEGER` | Price or amount associated with the copied item. |
 
+
+
 ### `SmartAdderHistory` Table
+
 Tracks records of calculations made using the Smart Adder tool.
 
+
+
 | Column Name | Type | Description |
+
 | :--- | :--- | :--- |
+
 | `Id` | `INTEGER` | Primary key, auto-incremented. |
+
 | `Timestamp` | `TEXT` | ISO 8601 formatted timestamp of the calculation record. |
+
 | `EntriesJson` | `TEXT` | JSON formatted string containing the individual calculation entries. |
+
 | `Total` | `REAL` | Total calculated sum of all entries. |
+

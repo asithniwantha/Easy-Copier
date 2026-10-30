@@ -70,6 +70,27 @@ namespace Easy_Copier.Models
         /// </summary>
         public int TotalPrice { get; } = totalPrice;
 
+        private System.Threading.CancellationTokenSource? _cancellationTokenSource;
+
+        /// <summary>
+        /// Gets the cancellation token associated with this queue item transfer operation.
+        /// </summary>
+        public System.Threading.CancellationToken CancellationToken => (_cancellationTokenSource ??= new System.Threading.CancellationTokenSource()).Token;
+
+        /// <summary>
+        /// Cancels this queue item transfer operation if currently queued or in-progress.
+        /// </summary>
+        public void Cancel()
+        {
+            if (Status is TransferQueueItemStatus.Queued or TransferQueueItemStatus.InProgress)
+            {
+                _cancellationTokenSource?.Cancel();
+                Status = TransferQueueItemStatus.Cancelled;
+                StatusMessage = "Transfer cancelled by user";
+                CompletedAt = DateTime.Now;
+            }
+        }
+
         /// <summary>
         /// Gets or sets the current execution status of the queue item.
         /// </summary>

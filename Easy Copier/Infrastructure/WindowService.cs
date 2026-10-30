@@ -88,14 +88,29 @@ namespace Easy_Copier.Infrastructure
     }
 
     /// <summary>
-    /// Implements window creation and activation services using Dependency Injection.
+    /// Implements window creation and activation services using strongly-typed ViewModel factory delegates.
     /// </summary>
     public class WindowService : IWindowService
     {
         /// <summary>
-        /// The service provider instance for resolving ViewModels and dependencies.
+        /// Factory delegate for creating transient <see cref="SettingsViewModel"/> instances.
         /// </summary>
-        private readonly IServiceProvider _serviceProvider;
+        private readonly Func<SettingsViewModel> _settingsViewModelFactory;
+
+        /// <summary>
+        /// Factory delegate for creating transient <see cref="HistoryViewModel"/> instances.
+        /// </summary>
+        private readonly Func<HistoryViewModel> _historyViewModelFactory;
+
+        /// <summary>
+        /// Factory delegate for creating transient <see cref="SmartAdderHistoryViewModel"/> instances.
+        /// </summary>
+        private readonly Func<SmartAdderHistoryViewModel> _smartAdderHistoryViewModelFactory;
+
+        /// <summary>
+        /// Factory delegate for creating transient <see cref="AboutViewModel"/> instances.
+        /// </summary>
+        private readonly Func<AboutViewModel> _aboutViewModelFactory;
 
         /// <summary>
         /// The application window context provider used for retrieving the main window.
@@ -103,14 +118,25 @@ namespace Easy_Copier.Infrastructure
         private readonly IAppWindowContext _appWindowContext;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="WindowService"/> class.
+        /// Initializes a new instance of the <see cref="WindowService"/> class using typed ViewModel factories.
         /// </summary>
-        /// <param name="serviceProvider">The service provider used to resolve ViewModels.</param>
+        /// <param name="settingsViewModelFactory">Factory delegate for resolving <see cref="SettingsViewModel"/> instances.</param>
+        /// <param name="historyViewModelFactory">Factory delegate for resolving <see cref="HistoryViewModel"/> instances.</param>
+        /// <param name="smartAdderHistoryViewModelFactory">Factory delegate for resolving <see cref="SmartAdderHistoryViewModel"/> instances.</param>
+        /// <param name="aboutViewModelFactory">Factory delegate for resolving <see cref="AboutViewModel"/> instances.</param>
         /// <param name="appWindowContext">The main application window context provider.</param>
-        public WindowService(IServiceProvider serviceProvider, IAppWindowContext appWindowContext)
+        public WindowService(
+            Func<SettingsViewModel> settingsViewModelFactory,
+            Func<HistoryViewModel> historyViewModelFactory,
+            Func<SmartAdderHistoryViewModel> smartAdderHistoryViewModelFactory,
+            Func<AboutViewModel> aboutViewModelFactory,
+            IAppWindowContext appWindowContext)
         {
-            _serviceProvider = serviceProvider;
-            _appWindowContext = appWindowContext;
+            _settingsViewModelFactory = settingsViewModelFactory ?? throw new ArgumentNullException(nameof(settingsViewModelFactory));
+            _historyViewModelFactory = historyViewModelFactory ?? throw new ArgumentNullException(nameof(historyViewModelFactory));
+            _smartAdderHistoryViewModelFactory = smartAdderHistoryViewModelFactory ?? throw new ArgumentNullException(nameof(smartAdderHistoryViewModelFactory));
+            _aboutViewModelFactory = aboutViewModelFactory ?? throw new ArgumentNullException(nameof(aboutViewModelFactory));
+            _appWindowContext = appWindowContext ?? throw new ArgumentNullException(nameof(appWindowContext));
         }
 
         /// <summary>
@@ -125,7 +151,8 @@ namespace Easy_Copier.Infrastructure
         /// <param name="openAction">The initial action to perform upon opening Settings.</param>
         public void ShowSettingsWindow(Action? onClosed = null, SettingsOpenAction openAction = SettingsOpenAction.None)
         {
-            SettingsViewModel viewModel = _serviceProvider.GetRequiredService<SettingsViewModel>();
+            // Resolve a fresh transient SettingsViewModel instance via typed factory delegate (no service locator)
+            SettingsViewModel viewModel = _settingsViewModelFactory();
             // Pass the primary application window context to modal dialogs as the owner window
             SettingsWindow settingsWindow = new(viewModel, MainWindow!, openAction);
             if (onClosed != null)
@@ -140,7 +167,8 @@ namespace Easy_Copier.Infrastructure
         /// </summary>
         public void ShowHistoryWindow()
         {
-            HistoryViewModel viewModel = _serviceProvider.GetRequiredService<HistoryViewModel>();
+            // Resolve a fresh transient HistoryViewModel instance via typed factory delegate
+            HistoryViewModel viewModel = _historyViewModelFactory();
             // Pass the primary application window context to modal dialogs as the owner window
             HistoryWindow historyWindow = new(viewModel, MainWindow!);
             historyWindow.Activate();
@@ -151,7 +179,8 @@ namespace Easy_Copier.Infrastructure
         /// </summary>
         public void ShowSmartAdderHistoryWindow()
         {
-            SmartAdderHistoryViewModel viewModel = _serviceProvider.GetRequiredService<SmartAdderHistoryViewModel>();
+            // Resolve a fresh transient SmartAdderHistoryViewModel instance via typed factory delegate
+            SmartAdderHistoryViewModel viewModel = _smartAdderHistoryViewModelFactory();
             // Pass the primary application window context to modal dialogs as the owner window
             SmartAdderHistoryWindow smartAdderHistoryWindow = new(viewModel, MainWindow!);
             smartAdderHistoryWindow.Activate();
@@ -162,7 +191,8 @@ namespace Easy_Copier.Infrastructure
         /// </summary>
         public void ShowAboutWindow()
         {
-            AboutViewModel viewModel = _serviceProvider.GetRequiredService<AboutViewModel>();
+            // Resolve a fresh transient AboutViewModel instance via typed factory delegate
+            AboutViewModel viewModel = _aboutViewModelFactory();
             // Pass the primary application window context to modal dialogs as the owner window
             AboutWindow aboutWindow = new(viewModel, MainWindow!);
             aboutWindow.Activate();
