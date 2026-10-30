@@ -38,8 +38,11 @@ namespace Easy_Copier.Views
         public event SelectionChangedEventHandler? SelectionChanged;
 
         /// <summary>
-        /// Gets the selected items from the games grid.
+        /// Gets the collection of currently selected items from the games grid.
         /// </summary>
+        /// <value>
+        /// An <see cref="IList{T}"/> containing the selected objects in the games grid view.
+        /// </value>
         public IList<object> SelectedItems => GamesGridView.SelectedItems;
 
         /// <inheritdoc />
