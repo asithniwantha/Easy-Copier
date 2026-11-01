@@ -50,14 +50,44 @@ namespace Easy_Copier.Services
         private readonly HttpClient _httpClient;
 
         /// <summary>
+        /// Indicates whether this instance owns and must dispose the HttpClient.
+        /// </summary>
+        private readonly bool _ownsClient;
+
+        /// <summary>
         /// Initializes a new instance of the <see cref="GameInfoDownloadService"/> class.
         /// </summary>
         /// <param name="logger">The logger instance for logging operation details.</param>
-        public GameInfoDownloadService(ILogger<GameInfoDownloadService> logger)
+        /// <param name="httpClient">The HTTP client instance, or <c>null</c> to initialize an optimized pooled client.</param>
+        public GameInfoDownloadService(ILogger<GameInfoDownloadService> logger, HttpClient? httpClient = null)
         {
             _logger = logger;
-            _httpClient = new HttpClient();
-            _httpClient.DefaultRequestHeaders.UserAgent.ParseAdd("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36");
+            if (httpClient != null)
+            {
+                _httpClient = httpClient;
+                _ownsClient = false;
+            }
+            else
+            {
+                SocketsHttpHandler? handler = null;
+                try
+                {
+                    handler = new SocketsHttpHandler
+                    {
+                        PooledConnectionLifetime = TimeSpan.FromMinutes(15),
+                        AutomaticDecompression = System.Net.DecompressionMethods.All
+                    };
+                    _httpClient = new HttpClient(handler, disposeHandler: true);
+                    handler = null; // Ownership transferred to HttpClient
+                }
+                finally
+                {
+                    handler?.Dispose();
+                }
+
+                _httpClient.DefaultRequestHeaders.UserAgent.ParseAdd("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36");
+                _ownsClient = true;
+            }
         }
 
         /// <summary>
@@ -158,6 +188,8 @@ namespace Easy_Copier.Services
             await DownloadCoverAsync(gameName, gameFolder, overwrite, cancellationToken).ConfigureAwait(false);
 
             string coverPath = Path.Combine(gameFolder, "cover.jpg");
+            // Minimum payload threshold of 1,500 bytes ensures that empty spacer GIFs or small HTML 404 error pages
+            // are treated as failed downloads rather than valid cover artwork.
             return File.Exists(coverPath) && new FileInfo(coverPath).Length >= 1500;
         }
 
@@ -227,6 +259,8 @@ namespace Easy_Copier.Services
             {
                 FileInfo fi = new(coverPath);
                 // Self-healing: if existing cover is valid and overwrite was not requested, keep it.
+                // The 1,500-byte threshold distinguishes genuine cover art (typically 10KB-500KB) from truncated 0-byte files,
+                // 1x1 transparent tracking pixels, or small textual HTML error responses (usually < 1.5KB).
                 if (fi.Length >= 1500 && !overwriteExisting)
                 {
                     return;
@@ -370,7 +404,10 @@ namespace Easy_Copier.Services
         /// </summary>
         public void Dispose()
         {
-            _httpClient?.Dispose();
+            if (_ownsClient)
+            {
+                _httpClient?.Dispose();
+            }
             GC.SuppressFinalize(this);
         }
 

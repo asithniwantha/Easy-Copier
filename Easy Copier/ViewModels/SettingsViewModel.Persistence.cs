@@ -10,7 +10,7 @@ namespace Easy_Copier.ViewModels
     /// <summary>
     /// Partial class implementation of <see cref="SettingsViewModel"/> providing settings persistence and initialization routines.
     /// </summary>
-    public partial class SettingsViewModel
+    public sealed partial class SettingsViewModel
     {
         /// <summary>
         /// Asynchronously loads settings from persistent storage and validates configured source library folders.
@@ -31,7 +31,13 @@ namespace Easy_Copier.ViewModels
 
             IReadOnlyList<SourceFolder> validatedGameFolders = await _sourceLibraryService.ValidateSourceFoldersAsync(settings.GameSourceFolders);
             IReadOnlyList<SourceFolder> validatedAppFolders = await _sourceLibraryService.ValidateSourceFoldersAsync(settings.AppSourceFolders);
-            int invalidCount = validatedGameFolders.Count(f => !f.IsValid) + validatedAppFolders.Count(f => !f.IsValid);
+            IReadOnlyList<SourceFolder> validatedTvFolders = await _sourceLibraryService.ValidateSourceFoldersAsync(settings.TvAndFilmSourceFolders ?? []);
+            IReadOnlyList<SourceFolder> validatedOsFolders = await _sourceLibraryService.ValidateSourceFoldersAsync(settings.OsImageSourceFolders ?? []);
+
+            int invalidCount = validatedGameFolders.Count(f => !f.IsValid)
+                + validatedAppFolders.Count(f => !f.IsValid)
+                + validatedTvFolders.Count(f => !f.IsValid)
+                + validatedOsFolders.Count(f => !f.IsValid);
 
             if (invalidCount > 0)
             {

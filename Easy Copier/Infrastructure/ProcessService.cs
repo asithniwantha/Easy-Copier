@@ -1,6 +1,7 @@
 using System;
 using System.Diagnostics;
 using System.Security.Principal;
+using Microsoft.Extensions.Logging;
 
 namespace Easy_Copier.Infrastructure
 {
@@ -34,6 +35,17 @@ namespace Easy_Copier.Infrastructure
     /// </summary>
     public class ProcessService : IProcessService
     {
+        private readonly Microsoft.Extensions.Logging.ILogger<ProcessService>? _logger;
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ProcessService"/> class.
+        /// </summary>
+        /// <param name="logger">Optional logger instance for recording process execution diagnostics.</param>
+        public ProcessService(Microsoft.Extensions.Logging.ILogger<ProcessService>? logger = null)
+        {
+            _logger = logger;
+        }
+
         /// <inheritdoc />
         public void OpenInExplorer(string path)
         {
@@ -46,9 +58,10 @@ namespace Easy_Copier.Infrastructure
                     UseShellExecute = true
                 });
             }
-            catch
+            catch (Exception ex)
             {
-                // Ignore failure to open explorer
+                _logger?.LogWarning(ex, "Failed to launch Windows Explorer for path: {Path}", path);
+                System.Diagnostics.Trace.TraceWarning("Failed to launch Windows Explorer for path '{0}': {1}", path, ex);
             }
         }
 
@@ -61,8 +74,9 @@ namespace Easy_Copier.Infrastructure
                 WindowsPrincipal principal = new(identity);
                 return principal.IsInRole(WindowsBuiltInRole.Administrator);
             }
-            catch
+            catch (Exception ex)
             {
+                _logger?.LogWarning(ex, "Failed to determine administrator execution role.");
                 return false;
             }
         }
@@ -83,6 +97,13 @@ namespace Easy_Copier.Infrastructure
         /// </summary>
         private const uint SHFMT_ID_DEFAULT = 0xFFFF;
 
+        /// <summary>
+        /// Native return codes for <see cref="SHFormatDrive(IntPtr, uint, uint, uint)"/>.
+        /// </summary>
+        private const uint SHFMT_ERROR = 0xFFFFFFFF;
+        private const uint SHFMT_CANCEL = 0xFFFFFFFE;
+        private const uint SHFMT_NOFORMAT = 0xFFFFFFFD;
+
         /// <inheritdoc />
         public void OpenFormatDialog(string driveLetter)
         {
@@ -98,8 +119,25 @@ namespace Easy_Copier.Infrastructure
             }
 
             uint driveIndex = (uint)(char.ToUpperInvariant(letter) - 'A');
+            _logger?.LogInformation("Launching Windows native format dialog for drive {DriveLetter} (index {Index})", driveLetter, driveIndex);
 
-            _ = SHFormatDrive(IntPtr.Zero, driveIndex, SHFMT_ID_DEFAULT, 0);
+            uint result = SHFormatDrive(IntPtr.Zero, driveIndex, SHFMT_ID_DEFAULT, 0);
+
+            switch (result)
+            {
+                case SHFMT_CANCEL:
+                    _logger?.LogInformation("Format dialog cancelled by user for drive {DriveLetter}", driveLetter);
+                    break;
+                case SHFMT_ERROR:
+                    _logger?.LogWarning("Format dialog encountered an error for drive {DriveLetter}", driveLetter);
+                    break;
+                case SHFMT_NOFORMAT:
+                    _logger?.LogWarning("Drive {DriveLetter} is not formattable", driveLetter);
+                    break;
+                default:
+                    _logger?.LogInformation("Format dialog completed successfully for drive {DriveLetter} (result: 0x{Result:X8})", driveLetter, result);
+                    break;
+            }
         }
 
     }

@@ -11,6 +11,8 @@ namespace Easy_Copier.Infrastructure
     {
         /// <summary>
         /// Replaces the contents of an <see cref="ObservableCollection{T}"/> with a new collection of items.
+        /// When the target collection is a <see cref="BulkObservableCollection{T}"/>, batch suppression is used
+        /// so only a single Reset notification is raised to prevent UI rendering overhead.
         /// </summary>
         /// <typeparam name="T">The type of elements in the collection.</typeparam>
         /// <param name="collection">The target collection to update.</param>
@@ -20,6 +22,12 @@ namespace Easy_Copier.Infrastructure
         {
             ArgumentNullException.ThrowIfNull(collection);
             ArgumentNullException.ThrowIfNull(newItems);
+
+            if (collection is BulkObservableCollection<T> bulkCollection)
+            {
+                bulkCollection.ReplaceRange(newItems);
+                return;
+            }
 
             collection.Clear();
             foreach (T item in newItems)

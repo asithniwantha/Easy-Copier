@@ -38,6 +38,8 @@ namespace Easy_Copier.Views
 
         /// <summary>
         /// Callback invoked when the <see cref="ViewModelProperty"/> dependency property value changes.
+        /// Synchronizes the control's DataContext with the ViewModel property so that child XAML elements
+        /// utilizing ambient DataContext bindings work seamlessly alongside typed compiled bindings.
         /// </summary>
         /// <param name="d">The target dependency object instance.</param>
         /// <param name="e">Event data for the property change event.</param>
@@ -47,6 +49,9 @@ namespace Easy_Copier.Views
             {
                 if (e.NewValue is SmartAdderViewModel newVm)
                 {
+                    // Intentionally synchronize DataContext with the ViewModel dependency property.
+                    // This allows child XAML controls and DataTemplates relying on ambient DataContext inheritance
+                    // to resolve bindings, while allowing parent views to bind to the strongly-typed ViewModel property.
                     control.DataContext = newVm;
                 }
             }

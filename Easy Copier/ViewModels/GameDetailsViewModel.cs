@@ -57,7 +57,7 @@ namespace Easy_Copier.ViewModels
         /// </summary>
         /// <param name="folderPath">The file system folder path to read.</param>
         /// <returns>A task representing the asynchronous folder content loading operation.</returns>
-        public async Task LoadFolderContentsAsync(string folderPath)
+        public Task LoadFolderContentsAsync(string folderPath)
         {
             FolderContents.Clear();
             IsFolderStatusVisible = false;
@@ -99,7 +99,7 @@ namespace Easy_Copier.ViewModels
                 IsFolderStatusVisible = true;
             }
 
-            await Task.CompletedTask;
+            return Task.CompletedTask;
         }
 
         /// <summary>

@@ -19,24 +19,39 @@ namespace Easy_Copier.Infrastructure
             ArgumentNullException.ThrowIfNull(directoryInfo);
 
             long size = 0;
-            try
-            {
-                FileInfo[] files = directoryInfo.GetFiles();
-                foreach (FileInfo file in files)
-                {
-                    size += file.Length;
-                }
+            System.Collections.Generic.Queue<DirectoryInfo> queue = new();
+            queue.Enqueue(directoryInfo);
 
-                DirectoryInfo[] subDirs = directoryInfo.GetDirectories();
-                foreach (DirectoryInfo dir in subDirs)
+            const int maxDirectories = 100_000;
+            int directoryCount = 0;
+
+            while (queue.Count > 0 && directoryCount < maxDirectories)
+            {
+                DirectoryInfo current = queue.Dequeue();
+                directoryCount++;
+
+                try
                 {
-                    size += CalculateDirectorySize(dir);
+                    foreach (FileInfo file in current.EnumerateFiles())
+                    {
+                        size += file.Length;
+                    }
+
+                    foreach (DirectoryInfo subDir in current.EnumerateDirectories())
+                    {
+                        // Exclude reparse points (symlinks, junctions) to avoid circular reference loops.
+                        if ((subDir.Attributes & FileAttributes.ReparsePoint) == 0)
+                        {
+                            queue.Enqueue(subDir);
+                        }
+                    }
+                }
+                catch (Exception)
+                {
+                    // Ignore access-denied or transient I/O exceptions on individual directories.
                 }
             }
-            catch
-            {
-                // Ignore access errors
-            }
+
             return size;
         }
     }

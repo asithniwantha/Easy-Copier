@@ -1,3 +1,6 @@
+global using LibraryEntry = Easy_Copier.Models.GameEntry;
+global using ContentEntry = Easy_Copier.Models.GameEntry;
+
 using System;
 using System.Collections.Generic;
 
@@ -135,8 +138,13 @@ namespace Easy_Copier.Models
     }
 
     /// <summary>
-    /// Represents a single scanned library entry (game, app, TV/film, or OS image).
+    /// Represents a single scanned library entry across any category (game, app, TV/film, or OS image).
     /// </summary>
+    /// <remarks>
+    /// Note: While the record name is retained as <see cref="GameEntry"/> for serialization compatibility with existing
+    /// cached metadata and JSON schemas, it acts as the universal content model for the application (aliased globally as
+    /// <see cref="LibraryEntry"/> and <see cref="ContentEntry"/>).
+    /// </remarks>
     /// <param name="Name">The display name of the item.</param>
     /// <param name="FolderPath">The full path to the item directory or file.</param>
     /// <param name="TotalBytes">The total size of the item in bytes.</param>

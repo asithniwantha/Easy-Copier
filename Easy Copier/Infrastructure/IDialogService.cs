@@ -27,5 +27,15 @@ namespace Easy_Copier.Infrastructure
         /// <param name="closeButtonText">The text displayed on the close button. Defaults to "OK".</param>
         /// <returns>A task representing the asynchronous operation.</returns>
         Task ShowMessageDialogAsync(string title, string message, string closeButtonText = "OK");
+
+        /// <summary>
+        /// Displays a confirmation dialog with primary and cancel action buttons.
+        /// </summary>
+        /// <param name="title">The dialog title.</param>
+        /// <param name="message">The confirmation message body.</param>
+        /// <param name="primaryButtonText">Text for the primary/confirm button. Defaults to "Yes".</param>
+        /// <param name="closeButtonText">Text for the cancel/close button. Defaults to "No".</param>
+        /// <returns><see langword="true"/> if the user chose the primary button; otherwise, <see langword="false"/>.</returns>
+        Task<bool> ShowConfirmationDialogAsync(string title, string message, string primaryButtonText = "Yes", string closeButtonText = "No");
     }
 }

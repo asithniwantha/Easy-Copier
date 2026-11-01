@@ -82,6 +82,11 @@ namespace Easy_Copier.Services
         private static readonly char[] VideoExtensionSeparators = [',', ';', ' '];
 
         /// <summary>
+        /// In-memory cache mapping directory or file paths to their last write timestamp and computed stats (TotalSize, HasLargeFiles).
+        /// </summary>
+        private readonly System.Collections.Concurrent.ConcurrentDictionary<string, (DateTime LastModified, long TotalSize, bool HasLargeFiles)> _folderStatsCache = new(StringComparer.OrdinalIgnoreCase);
+
+        /// <summary>
         /// Initializes a new instance of the <see cref="GameScannerService"/> class.
         /// </summary>
         /// <param name="logger">Logger instance for diagnostic logging.</param>
@@ -307,12 +312,17 @@ namespace Easy_Copier.Services
                                 }
                                 IReadOnlyList<GameCategory> categoriesList = GetCategories(gameFolder);
 
+                                DirectoryInfo dirInfo = new(gameFolder);
+                                DateTime dateCreated = dirInfo.LastWriteTime < dirInfo.CreationTime && dirInfo.LastWriteTime != DateTime.MinValue
+                                    ? dirInfo.LastWriteTime
+                                    : dirInfo.CreationTime;
+
                                 GameEntry game = new(
                                     gameName,
                                     gameFolder,
                                     TotalSize,
                                     coverImage,
-                                    new DirectoryInfo(gameFolder).LastWriteTime < new DirectoryInfo(gameFolder).CreationTime && new DirectoryInfo(gameFolder).LastWriteTime != DateTime.MinValue ? new DirectoryInfo(gameFolder).LastWriteTime : new DirectoryInfo(gameFolder).CreationTime,
+                                    dateCreated,
                                     HasLargeFiles,
                                     category,
                                     categoriesList);
@@ -358,11 +368,31 @@ namespace Easy_Copier.Services
                 {
                     if (File.Exists(folderPath))
                     {
-                        long size = new FileInfo(folderPath).Length;
-                        return (size, size > sizeLimit);
+                        FileInfo fileInfo = new(folderPath);
+                        DateTime fileLastWrite = fileInfo.LastWriteTimeUtc;
+                        if (_folderStatsCache.TryGetValue(folderPath, out var cachedFile) && cachedFile.LastModified == fileLastWrite)
+                        {
+                            return (cachedFile.TotalSize, cachedFile.HasLargeFiles);
+                        }
+
+                        long size = fileInfo.Length;
+                        bool hasLarge = size > sizeLimit;
+                        _folderStatsCache[folderPath] = (fileLastWrite, size, hasLarge);
+                        return (size, hasLarge);
+                    }
+
+                    if (!Directory.Exists(folderPath))
+                    {
+                        return (0L, false);
                     }
 
                     DirectoryInfo dirInfo = new(folderPath);
+                    DateTime dirLastWrite = dirInfo.LastWriteTimeUtc;
+                    if (_folderStatsCache.TryGetValue(folderPath, out var cachedDir) && cachedDir.LastModified == dirLastWrite)
+                    {
+                        return (cachedDir.TotalSize, cachedDir.HasLargeFiles);
+                    }
+
                     long totalSize = 0;
                     bool hasLargeFiles = false;
 
@@ -379,6 +409,11 @@ namespace Easy_Copier.Services
                         {
                             hasLargeFiles = true;
                         }
+                    }
+
+                    if (!cancellationToken.IsCancellationRequested)
+                    {
+                        _folderStatsCache[folderPath] = (dirLastWrite, totalSize, hasLargeFiles);
                     }
 
                     return (totalSize, hasLargeFiles);

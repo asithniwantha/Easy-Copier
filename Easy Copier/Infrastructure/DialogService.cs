@@ -98,5 +98,27 @@ namespace Easy_Copier.Infrastructure
 
             _ = await dialog.ShowAsync();
         }
+
+        /// <inheritdoc />
+        public async Task<bool> ShowConfirmationDialogAsync(string title, string message, string primaryButtonText = "Yes", string closeButtonText = "No")
+        {
+            if (_appWindowContext.MainXamlRoot is not XamlRoot xamlRoot)
+            {
+                return false;
+            }
+
+            ContentDialog dialog = new()
+            {
+                Title = title,
+                Content = new TextBlock { Text = message, TextWrapping = TextWrapping.Wrap },
+                PrimaryButtonText = primaryButtonText,
+                CloseButtonText = closeButtonText,
+                XamlRoot = xamlRoot,
+                DefaultButton = ContentDialogButton.Primary
+            };
+
+            ContentDialogResult result = await dialog.ShowAsync();
+            return result == ContentDialogResult.Primary;
+        }
     }
 }

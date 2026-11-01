@@ -13,14 +13,22 @@ using System.Threading.Tasks;
 namespace Easy_Copier.Services
 {
     /// <summary>
-    /// Service for extracting and caching file thumbnails using the Windows Shell API.
+    /// Service for extracting and caching file thumbnails using the Windows Shell API,
+    /// WinRT StorageItemThumbnail fallback, and NReco FFMpeg fallback.
     /// </summary>
-    public class ThumbnailService : IThumbnailService
+    public class ThumbnailService : IThumbnailService, IDisposable
     {
         /// <summary>
         /// Logger instance used for recording thumbnail extraction diagnostics and errors.
         /// </summary>
         private readonly ILogger<ThumbnailService> _logger;
+
+        /// <summary>
+        /// Limits concurrent thumbnail extraction tasks to 4 to prevent CPU, disk I/O,
+        /// and thread pool saturation during bulk video library scans.
+        /// </summary>
+        private readonly SemaphoreSlim _extractionThrottle = new(4, 4);
+        private bool _disposed;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ThumbnailService"/> class.
@@ -32,11 +40,11 @@ namespace Easy_Copier.Services
         }
 
         /// <inheritdoc />
-        public Task<string?> ExtractThumbnailAsync(string sourceFilePath, string cacheDirectoryPath, CancellationToken cancellationToken = default)
+        public async Task<string?> ExtractThumbnailAsync(string sourceFilePath, string cacheDirectoryPath, CancellationToken cancellationToken = default)
         {
             if (string.IsNullOrWhiteSpace(sourceFilePath) || !File.Exists(sourceFilePath))
             {
-                return Task.FromResult<string?>(null);
+                return null;
             }
 
             if (!Directory.Exists(cacheDirectoryPath))
@@ -49,14 +57,17 @@ namespace Easy_Copier.Services
 
             if (File.Exists(cacheFilePath))
             {
-                return Task.FromResult<string?>(cacheFilePath);
+                return cacheFilePath;
             }
 
-            TaskCompletionSource<string?> tcs = new();
+            // Await a slot in the concurrency throttle to prevent thread starvation and I/O thrashing.
+            await _extractionThrottle.WaitAsync(cancellationToken).ConfigureAwait(false);
 
-            Thread staThread = new(async () =>
+            try
             {
-                try
+                // Run extraction on thread pool workers rather than creating raw unbounded OS threads.
+                // This eliminates unobserved async void crashes and properly propagates task cancellations.
+                return await Task.Run(async () =>
                 {
                     cancellationToken.ThrowIfCancellationRequested();
                     bool shellExtractionSucceeded = false;
@@ -81,7 +92,7 @@ namespace Easy_Copier.Services
                                     image.Save(cacheFilePath, ImageFormat.Jpeg);
                                 }
                                 shellExtractionSucceeded = true;
-                                _ = tcs.TrySetResult(cacheFilePath);
+                                return cacheFilePath;
                             }
                             finally
                             {
@@ -113,71 +124,63 @@ namespace Easy_Copier.Services
                                     using Image image = Image.FromStream(stream);
                                     image.Save(cacheFilePath, ImageFormat.Jpeg);
                                 }
-                                _ = tcs.TrySetResult(cacheFilePath);
+                                return cacheFilePath;
                             }
                             else
                             {
                                 _logger.LogWarning("Fallback failed to extract a valid thumbnail for {FilePath}. Attempting NReco FFMpeg extraction...", sourceFilePath);
-                                try
-                                {
-                                    FFMpegConverter ffMpeg = new();
-                                    using MemoryStream memoryStream = new();
-                                    ffMpeg.GetVideoThumbnail(sourceFilePath, memoryStream, 5f);
-                                    using (Image image = Image.FromStream(memoryStream))
-                                    {
-                                        image.Save(cacheFilePath, ImageFormat.Jpeg);
-                                    }
-                                    _ = tcs.TrySetResult(cacheFilePath);
-                                }
-                                catch (Exception ffmpegEx)
-                                {
-                                    _logger.LogWarning(ffmpegEx, "NReco FFMpeg Fallback error extracting thumbnail for {FilePath}", sourceFilePath);
-                                    _ = tcs.TrySetResult(null);
-                                }
+                                return ExtractWithFFMpeg(sourceFilePath, cacheFilePath);
                             }
                         }
                         catch (Exception winrtEx)
                         {
                             _logger.LogWarning(winrtEx, "WinRT Fallback error extracting thumbnail for {FilePath}. Attempting NReco FFMpeg extraction...", sourceFilePath);
-                            try
-                            {
-                                FFMpegConverter ffMpeg = new();
-                                using MemoryStream memoryStream = new();
-                                ffMpeg.GetVideoThumbnail(sourceFilePath, memoryStream, 5f);
-                                using (Image image = Image.FromStream(memoryStream))
-                                {
-                                    image.Save(cacheFilePath, ImageFormat.Jpeg);
-                                }
-                                _ = tcs.TrySetResult(cacheFilePath);
-                            }
-                            catch (Exception ffmpegEx)
-                            {
-                                _logger.LogWarning(ffmpegEx, "NReco FFMpeg Fallback error extracting thumbnail for {FilePath}", sourceFilePath);
-                                _ = tcs.TrySetResult(null);
-                            }
+                            return ExtractWithFFMpeg(sourceFilePath, cacheFilePath);
                         }
                     }
-                }
-                catch (OperationCanceledException)
-                {
-                    _ = tcs.TrySetCanceled(cancellationToken);
-                }
-                catch (Exception ex)
-                {
-                    _logger.LogWarning(ex, "General error extracting thumbnail for {FilePath}", sourceFilePath);
-                    _ = tcs.TrySetResult(null);
-                }
-            })
+
+                    return null;
+                }, cancellationToken).ConfigureAwait(false);
+            }
+            catch (OperationCanceledException)
             {
-                IsBackground = true
-            };
+                return null;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogWarning(ex, "General error extracting thumbnail for {FilePath}", sourceFilePath);
+                return null;
+            }
+            finally
+            {
+                _ = _extractionThrottle.Release();
+            }
+        }
 
-            staThread.SetApartmentState(ApartmentState.STA);
-            staThread.Start();
-
-            _ = cancellationToken.Register(() => tcs.TrySetCanceled(cancellationToken));
-
-            return tcs.Task;
+        /// <summary>
+        /// Extracts a frame from the video using NReco FFMpeg converter as the final fallback.
+        /// </summary>
+        /// <param name="sourceFilePath">The source video path.</param>
+        /// <param name="cacheFilePath">The destination thumbnail image file path.</param>
+        /// <returns>The cache file path if extraction succeeded; otherwise, <c>null</c>.</returns>
+        private string? ExtractWithFFMpeg(string sourceFilePath, string cacheFilePath)
+        {
+            try
+            {
+                FFMpegConverter ffMpeg = new();
+                using MemoryStream memoryStream = new();
+                ffMpeg.GetVideoThumbnail(sourceFilePath, memoryStream, 5f);
+                using (Image image = Image.FromStream(memoryStream))
+                {
+                    image.Save(cacheFilePath, ImageFormat.Jpeg);
+                }
+                return cacheFilePath;
+            }
+            catch (Exception ffmpegEx)
+            {
+                _logger.LogWarning(ffmpegEx, "NReco FFMpeg Fallback error extracting thumbnail for {FilePath}", sourceFilePath);
+                return null;
+            }
         }
 
         /// <summary>
@@ -190,6 +193,31 @@ namespace Easy_Copier.Services
             byte[] inputBytes = Encoding.UTF8.GetBytes(input.ToUpperInvariant());
             byte[] hashBytes = SHA256.HashData(inputBytes);
             return Convert.ToHexString(hashBytes).ToUpperInvariant();
+        }
+
+        /// <summary>
+        /// Disposes managed resources used by the <see cref="ThumbnailService"/>.
+        /// </summary>
+        public void Dispose()
+        {
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+
+        /// <summary>
+        /// Releases unmanaged and optionally managed resources.
+        /// </summary>
+        /// <param name="disposing"><c>true</c> to release both managed and unmanaged resources; <c>false</c> to release only unmanaged resources.</param>
+        protected virtual void Dispose(bool disposing)
+        {
+            if (!_disposed)
+            {
+                if (disposing)
+                {
+                    _extractionThrottle.Dispose();
+                }
+                _disposed = true;
+            }
         }
     }
 }
