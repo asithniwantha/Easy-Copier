@@ -70,6 +70,9 @@ namespace Easy_Copier.Models
         /// </summary>
         public int TotalPrice { get; } = totalPrice;
 
+        /// <summary>
+        /// The cancellation token source used to cancel the active transfer batch.
+        /// </summary>
         private System.Threading.CancellationTokenSource? _cancellationTokenSource;
 
         /// <summary>

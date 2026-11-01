@@ -28,6 +28,10 @@ namespace Easy_Copier.Services
         /// and thread pool saturation during bulk video library scans.
         /// </summary>
         private readonly SemaphoreSlim _extractionThrottle = new(4, 4);
+
+        /// <summary>
+        /// Tracks whether the instance has already been disposed.
+        /// </summary>
         private bool _disposed;
 
         /// <summary>
