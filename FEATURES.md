@@ -1,7 +1,5 @@
 # 🚀 Easy Copier - Features
 
-
-
 ## 📚 Library Management
 
 - Scan configured source folders for **Games**, **Apps**, and **Film & TV**.
@@ -25,8 +23,6 @@
 - Exclude folders starting with `$`, `recyclebin`, and `System Volume Information` from scanning.
 
 - Use optimized single-pass folder scanning for accurate file sizes and large-file checks.
-
-
 
 ## 🎨 Visual Presentation
 
@@ -78,8 +74,6 @@
 
 - Smart Adder tool for quick Excel-like calculations during selection and pricing workflows.
 
-
-
 ## 🔌 Drive Discovery and Selection
 
 - Detect connected removable USB drives.
@@ -104,8 +98,6 @@
 
 - Open selected drive directly in File Explorer.
 
-
-
 ## 🛡️ Transfer Validation & Dialogs
 
 - Validate that items are selected before copying.
@@ -119,8 +111,6 @@
 - Warn when destination folders already exist and provide Merge / Replace / Skip options using a dedicated XAML view (`ConflictDialogContent.xaml`).
 
 - Display validation messages with severity levels (Info / Warning / Error).
-
-
 
 ## 🚀 Copy Operations
 
@@ -148,8 +138,6 @@
 
 - Refresh drive information after each successful copy completes.
 
-
-
 ## 📊 History and Reporting
 
 - View detailed history of all past copy operations.
@@ -165,8 +153,6 @@
 - History dashboard (toggle in History window): daily volume bar chart, weekly totals, most-copied items, and failure rate over 7/30/90 days via `IHistoryAnalysisService.BuildDashboard`.
 
 - Fluent polish: Mica backdrop on modal windows, staggered entrance/reposition transitions on all library grids and the transfer queue, rounded tile containers, card-style queue items, and History redesign: card-style transfer list (replacing the DataGrid), pill-style Completed/Failed badges, icon KPI cards, header subtitle with active filters, Clear filters button and an empty state.
-
-
 
 ## ⚙️ Settings and Persistence
 
@@ -199,8 +185,6 @@
 - Duplicate detection tool across all configured source libraries, identifying duplicates by name and providing actionable cleanup recommendations.
 
 - Toggle to overwrite existing game covers in Settings, allowing users to force refresh and replace outdated or inaccurate cover images.
-
-
 
 ## 🏗️ Architecture & Code Quality
 
@@ -350,8 +334,6 @@
 - Structured logging and return-code tracking for native drive formatting dialogs (`SHFormatDrive`) in `ProcessService.cs`.
 - Documented inline safety rationale for the 1,500-byte cover image threshold in `GameInfoDownloadService` guarding against HTML 404 pages and 1x1 spacer images.
 
-
-
 ## 🛠️ Technical Stack
 
 - WinUI 3 + Windows App SDK.
@@ -366,9 +348,9 @@
 
 - GitHub Actions for CI/CD workflows, update and release automation.
 
-
-
 ## 📅 Future Enhancements (To-Do List)
+
+> 🔮 For in-depth architectural specifications and implementation roadmaps for capabilities M1 through M7, see [FUTURE_WORK.md](FUTURE_WORK.md).
 
 - [ ] Add transfer profiles and presets for one-click queueing of common game/app/media bundles.
 
@@ -409,17 +391,11 @@
 
 - [x] Add an OS images tab and instruct Rufus to open with a specific image file (e.g., `rufus.exe -i "C:\path\to\your\image.iso"`).
 
-
-
 ## 🗄️ Database Schema
-
-
 
 ### `CopyHistory` Table
 
 Tracks detailed history of all copy operations.
-
-
 
 | Column Name | Type | Description |
 
@@ -441,13 +417,9 @@ Tracks detailed history of all copy operations.
 
 | `Amount` | `INTEGER` | Price or amount associated with the copied item. |
 
-
-
 ### `SmartAdderHistory` Table
 
 Tracks records of calculations made using the Smart Adder tool.
-
-
 
 | Column Name | Type | Description |
 

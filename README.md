@@ -1,7 +1,5 @@
 # 🚀 Easy Copier
 
-
-
 ![Platform](https://img.shields.io/badge/Platform-Windows-blue)
 
 ![Framework](https://img.shields.io/badge/Framework-WinUI%203-blueviolet)
@@ -10,27 +8,15 @@
 
 ![License](https://img.shields.io/badge/License-MIT-green)
 
-
-
 **Easy Copier** is a modern, blazing-fast application designed to seamlessly copy and manage large game, app, and media directories. Built from the ground up utilizing the latest **C# 14 & WinUI 3** framework, it delivers a sleek native Windows experience powered by a robust **MVVM** (Model-View-ViewModel) architecture.
-
-
 
 > 💾 A Windows app for quickly and safely copying game libraries and large application files to USB storage.
 
-
-
 Easy Copier helps shop environments prepare customer drives without guessing which disk to use. Select games, apps, or media from a visual library, identify the correct USB drive from its details, and copy everything with storage and file-system validation.
-
-
 
 ---
 
-
-
 ## ✨ Features
-
-
 
 * **🎮 Game Categorization & OS Image Integration:** Automatically fetches categories from Steam and applies keyword fallbacks. Filter games by category directly within the Games tab, sort OS images by Name, Date Added, and Size, view creation/modification/access dates via right-click flyout on OS image tiles, browse for Rufus executable path in Settings, and automatically launch ISO images in the latest Rufus update found in the folder.
 
@@ -62,15 +48,9 @@ Easy Copier helps shop environments prepare customer drives without guessing whi
 
 * **🧯 Shutdown Stability:** Coordinated watcher and background-callback cleanup reduces close-time crashes during app teardown.
 
-
-
 ---
 
-
-
 ## 🌟 Highlights
-
-
 
 | Feature | Description |
 
@@ -88,15 +68,9 @@ Easy Copier helps shop environments prepare customer drives without guessing whi
 
 | ⚙️ **Settings UI** | Sidebar-based navigation for configuration, size-to-content window logic, and modal protection. |
 
-
-
 ---
 
-
-
 ## 📸 Screenshots
-
-
 
 <dl>
 
@@ -120,19 +94,11 @@ Easy Copier helps shop environments prepare customer drives without guessing whi
 
 </dl>
 
-
-
 ---
-
-
 
 ## 💾 Drive Selection
 
-
-
 Connected drives are refreshed automatically when storage is attached or removed. Each target-drive entry is displayed as:
-
-
 
 ```text
 
@@ -144,15 +110,9 @@ Samsung Portable SSD T7 • exFAT
 
 ```
 
-
-
 The selected-drive panel also shows a usage bar, free space, total capacity, and the drive's identifying details to help avoid copying to the wrong disk.
 
-
-
 ## 🗂️ Library & Copy Operations
-
-
 
 ### 📚 Game & App Library
 
@@ -173,8 +133,6 @@ The selected-drive panel also shows a usage bar, free space, total capacity, and
 - Right-click a film or TV card to see its folder path, total size, and every file with its size.
 
 - Use Smart Adder for quick Excel-like calculations.
-
-
 
 ### 🚀 Copy Operations
 
@@ -198,8 +156,6 @@ The selected-drive panel also shows a usage bar, free space, total capacity, and
 
 - Refresh drive capacity after successful copy operations.
 
-
-
 ### 📊 History and Reporting
 
 - View a detailed history of past copy operations.
@@ -207,8 +163,6 @@ The selected-drive panel also shows a usage bar, free space, total capacity, and
 - Track success, failures, and transfer statuses.
 
 - Generate and export reports (e.g., CSV) containing historical transfer data and logs.
-
-
 
 ### ⚙️ Settings & Updates
 
@@ -222,11 +176,7 @@ The selected-drive panel also shows a usage bar, free space, total capacity, and
 
 - Detect and report duplicate items across all configured source libraries, offering a cleanup recommendation.
 
-
-
 ## 🛠️ Technology
-
-
 
 | Component | Details |
 
@@ -246,8 +196,6 @@ The selected-drive panel also shows a usage bar, free space, total capacity, and
 
 | **Target Platform** | x64 |
 
-
-
 ## Development Environment
 
 ### What each folder is for
@@ -266,8 +214,6 @@ The selected-drive panel also shows a usage bar, free space, total capacity, and
 
 * **docs/**: Generated/static documentation assets.
 
-
-
 ### How to decide where to add something
 
 1. Is it UI layout/window/control? → `Views/`
@@ -282,15 +228,9 @@ The selected-drive panel also shows a usage bar, free space, total capacity, and
 
 6. Is it verification for behavior? → `Easy Copier.Tests/`
 
-
-
 ---
 
-
-
 ## 💻 Requirements
-
-
 
 - Windows 11, version 24H2 or later
 
@@ -298,15 +238,11 @@ The selected-drive panel also shows a usage bar, free space, total capacity, and
 
 - Visual Studio 2026 with Windows App SDK / WinUI development tools
 
-
-
 ---
-
-
 
 ## 📅 Future Enhancements
 
-
+> 🔮 For technical designs, architecture blueprints, and implementation specs for pending roadmap items (M2, M4, M5, M6, M7), see [FUTURE_WORK.md](FUTURE_WORK.md).
 
 - [ ] Add transfer profiles and presets for one-click queueing of common game/app/media bundles.
 
@@ -322,17 +258,11 @@ The selected-drive panel also shows a usage bar, free space, total capacity, and
 
 - [ ] Add portable backup/restore for settings, price tiers, source folders, and library cache metadata.
 
-
-
 ---
-
-
 
 ## 🤝 Contributing
 
 Contributions, issues, and feature requests are welcome!
-
-
 
 Feel free to check the [issues page](https://github.com/asithniwantha/Easy-Copier/issues) if you want to contribute or have suggestions.
 
@@ -346,21 +276,13 @@ Feel free to check the [issues page](https://github.com/asithniwantha/Easy-Copie
 
 5. Open a Pull Request
 
-
-
 ## 📝 License
 
 Distributed under the MIT License. See `LICENSE` for more information.
 
-
-
 ⭐️ **If you find this project helpful or interesting, please consider giving it a star!**
 
-
-
 ---
-
-
 
 ## 🏗️ Updated Architecture
 
