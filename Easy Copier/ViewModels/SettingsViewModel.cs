@@ -89,14 +89,26 @@ namespace Easy_Copier.ViewModels
         /// <summary>Gets the collection of configured game source directory paths.</summary>
         public ObservableCollection<string> GameSourceFolders { get; } = [];
 
+        /// <summary>Gets a value indicating whether no game source folders are configured.</summary>
+        public bool HasNoGameSourceFolders => GameSourceFolders.Count == 0;
+
         /// <summary>Gets the collection of configured application source directory paths.</summary>
         public ObservableCollection<string> AppSourceFolders { get; } = [];
+
+        /// <summary>Gets a value indicating whether no app source folders are configured.</summary>
+        public bool HasNoAppSourceFolders => AppSourceFolders.Count == 0;
 
         /// <summary>Gets the collection of configured TV and film source directory paths.</summary>
         public ObservableCollection<string> TvAndFilmSourceFolders { get; } = [];
 
+        /// <summary>Gets a value indicating whether no film/TV source folders are configured.</summary>
+        public bool HasNoTvAndFilmSourceFolders => TvAndFilmSourceFolders.Count == 0;
+
         /// <summary>Gets the collection of configured OS image source directory paths.</summary>
         public ObservableCollection<string> OsImageSourceFolders { get; } = [];
+
+        /// <summary>Gets a value indicating whether no OS image source folders are configured.</summary>
+        public bool HasNoOsImageSourceFolders => OsImageSourceFolders.Count == 0;
 
         /// <summary>Gets or sets the file path to the Rufus executable used for bootable USB creation.</summary>
         [ObservableProperty]
@@ -184,6 +196,12 @@ namespace Easy_Copier.ViewModels
             _libraryScannerService = libraryScannerService;
 
             _allFolderCollections = [GameSourceFolders, AppSourceFolders, TvAndFilmSourceFolders, OsImageSourceFolders];
+
+            // Notify UI when folder collections change so empty states update dynamically
+            GameSourceFolders.CollectionChanged += (_, _) => OnPropertyChanged(nameof(HasNoGameSourceFolders));
+            AppSourceFolders.CollectionChanged += (_, _) => OnPropertyChanged(nameof(HasNoAppSourceFolders));
+            TvAndFilmSourceFolders.CollectionChanged += (_, _) => OnPropertyChanged(nameof(HasNoTvAndFilmSourceFolders));
+            OsImageSourceFolders.CollectionChanged += (_, _) => OnPropertyChanged(nameof(HasNoOsImageSourceFolders));
         }
 
         /// <summary>

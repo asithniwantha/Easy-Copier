@@ -7,9 +7,20 @@
     mc:Ignorable="d">
 
     <StackPanel Spacing="12">
-        <TextBlock
-            Text="{x:Bind ItemNameMessage, Mode=OneTime}"
-            TextWrapping="Wrap" />
+        <Grid ColumnSpacing="12">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <FontIcon Grid.Column="0" Glyph="&#xE7BA;" FontSize="24"
+                      Foreground="{ThemeResource SystemFillColorCautionBrush}"
+                      VerticalAlignment="Center" />
+            <TextBlock
+                Grid.Column="1"
+                Text="{x:Bind ItemNameMessage, Mode=OneTime}"
+                TextWrapping="Wrap"
+                VerticalAlignment="Center" />
+        </Grid>
 
         <Grid ColumnSpacing="16">
             <Grid.ColumnDefinitions>

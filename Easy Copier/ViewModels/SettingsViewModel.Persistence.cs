@@ -70,6 +70,11 @@ namespace Easy_Copier.ViewModels
             AppSourceFolders.UpdateFrom(settings.AppSourceFolders);
             TvAndFilmSourceFolders.UpdateFrom(settings.TvAndFilmSourceFolders ?? []);
             OsImageSourceFolders.UpdateFrom(settings.OsImageSourceFolders ?? []);
+
+            OnPropertyChanged(nameof(HasNoGameSourceFolders));
+            OnPropertyChanged(nameof(HasNoAppSourceFolders));
+            OnPropertyChanged(nameof(HasNoTvAndFilmSourceFolders));
+            OnPropertyChanged(nameof(HasNoOsImageSourceFolders));
         }
 
         /// <summary>

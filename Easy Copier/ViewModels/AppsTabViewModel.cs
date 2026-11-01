@@ -26,6 +26,20 @@ namespace Easy_Copier.ViewModels
         public bool IsAppsEmpty => MainViewModel.IsAppsEmpty;
 
         /// <summary>
+        /// Gets the list of available categories for filtering.
+        /// </summary>
+        public IReadOnlyList<GameCategory> AvailableCategories => MainViewModel.AvailableCategories;
+
+        /// <summary>
+        /// Gets or sets the currently selected category filter.
+        /// </summary>
+        public GameCategory SelectedCategory
+        {
+            get => MainViewModel.SelectedCategory;
+            set => MainViewModel.SelectedCategory = value;
+        }
+
+        /// <summary>
         /// Gets or sets the search filter text query.
         /// </summary>
         public string SearchText
@@ -49,6 +63,7 @@ namespace Easy_Copier.ViewModels
             ForwardParentPropertyChanges(propertyName,
                 (nameof(MainViewModel.IsAppsEmpty), nameof(IsAppsEmpty)),
                 (nameof(MainViewModel.EmptyAppsMessage), nameof(EmptyAppsMessage)),
+                (nameof(MainViewModel.SelectedCategory), nameof(SelectedCategory)),
                 (nameof(MainViewModel.AppsSearchText), nameof(SearchText)));
         }
 

@@ -61,6 +61,7 @@ namespace Easy_Copier.ViewModels
         /// Gets or sets a value indicating whether the global in-app notification bar is currently visible.
         /// </summary>
         [ObservableProperty]
+        [NotifyPropertyChangedFor(nameof(CanDisplayGlobalNotification))]
         public partial bool IsGlobalNotificationVisible { get; set; }
 
         /// <summary>
@@ -91,13 +92,29 @@ namespace Easy_Copier.ViewModels
         /// Gets or sets a value indicating whether a new software update is available for download.
         /// </summary>
         [ObservableProperty]
+        [NotifyPropertyChangedFor(nameof(ShowUpdateAvailableNotification))]
+        [NotifyPropertyChangedFor(nameof(CanDisplayGlobalNotification))]
         public partial bool IsUpdateAvailable { get; set; }
 
         /// <summary>
         /// Gets or sets a value indicating whether a downloaded software update is ready to be installed.
         /// </summary>
         [ObservableProperty]
+        [NotifyPropertyChangedFor(nameof(ShowUpdateAvailableNotification))]
+        [NotifyPropertyChangedFor(nameof(CanDisplayGlobalNotification))]
         public partial bool IsUpdateReadyToInstall { get; set; }
+
+        /// <summary>
+        /// Gets a value indicating whether the update available notification should be displayed,
+        /// prioritized behind an update that is already downloaded and ready to install.
+        /// </summary>
+        public bool ShowUpdateAvailableNotification => IsUpdateAvailable && !IsUpdateReadyToInstall;
+
+        /// <summary>
+        /// Gets a value indicating whether the global in-app notification bar should be displayed,
+        /// prioritized behind application update alerts to prevent multiple stacked InfoBars.
+        /// </summary>
+        public bool CanDisplayGlobalNotification => IsGlobalNotificationVisible && !IsUpdateReadyToInstall && !IsUpdateAvailable;
 
         /// <summary>
         /// Gets or sets the update status message string presented to the user.

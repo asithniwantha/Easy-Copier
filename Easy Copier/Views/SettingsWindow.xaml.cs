@@ -1,6 +1,8 @@
 using Easy_Copier.Infrastructure;
 using Easy_Copier.ViewModels;
+using Easy_Copier.Views.Settings;
 using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Controls;
 using System;
 using System.Threading.Tasks;
 
@@ -22,6 +24,7 @@ namespace Easy_Copier.Views
         public event EventHandler? SettingsClosed;
 
         private readonly Window _owner;
+        private readonly SettingsOpenAction _openAction;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="SettingsWindow"/> class.
@@ -33,6 +36,7 @@ namespace Easy_Copier.Views
         {
             ViewModel = viewModel;
             _owner = owner;
+            _openAction = openAction;
             InitializeComponent();
             SettingsRoot.DataContext = ViewModel;
             NativeWindowHelper.InitializeModalWindow(this, _owner, ViewModel, 960, 720);
@@ -44,7 +48,6 @@ namespace Easy_Copier.Views
             };
 
             _ = LoadAsync(openAction);
-
 
             // Adjust size to content dynamically when layout updates
             if (Content is FrameworkElement rootElement)
@@ -68,12 +71,31 @@ namespace Easy_Copier.Views
         }
 
         /// <summary>
-        /// Handles the <see cref="FrameworkElement.Loaded"/> event of the navigation view to select the default menu item.
+        /// Handles the <see cref="FrameworkElement.Loaded"/> event of the navigation view to select the target menu item.
         /// </summary>
         /// <param name="sender">The source of the event.</param>
         /// <param name="e">The event data.</param>
         private void SettingsNav_Loaded(object sender, RoutedEventArgs e)
         {
+            // If openAction specified a category, select the appropriate tab
+            string targetTag = _openAction switch
+            {
+                SettingsOpenAction.AddGameFolder => "Games",
+                SettingsOpenAction.AddAppFolder => "Apps",
+                SettingsOpenAction.AddTvAndFilmFolder => "FilmAndTv",
+                SettingsOpenAction.AddOsImageFolder => "OsImages",
+                _ => "General"
+            };
+
+            foreach (var item in SettingsNav.MenuItems)
+            {
+                if (item is NavigationViewItem navItem && navItem.Tag?.ToString() == targetTag)
+                {
+                    SettingsNav.SelectedItem = navItem;
+                    return;
+                }
+            }
+
             if (SettingsNav.MenuItems.Count > 0)
             {
                 SettingsNav.SelectedItem = SettingsNav.MenuItems[0];
@@ -81,16 +103,32 @@ namespace Easy_Copier.Views
         }
 
         /// <summary>
-        /// Handles navigation selection changes to switch active setting sections.
+        /// Handles navigation selection changes to navigate the content frame to the appropriate settings page.
         /// </summary>
         /// <param name="sender">The navigation view control.</param>
         /// <param name="args">Event arguments containing the newly selected item.</param>
-        private void SettingsNav_SelectionChanged(Microsoft.UI.Xaml.Controls.NavigationView sender, Microsoft.UI.Xaml.Controls.NavigationViewSelectionChangedEventArgs args)
+        private void SettingsNav_SelectionChanged(NavigationView sender, NavigationViewSelectionChangedEventArgs args)
         {
-            if (args.SelectedItem is Microsoft.UI.Xaml.Controls.NavigationViewItem selectedItem)
+            if (args.SelectedItem is NavigationViewItem selectedItem)
             {
                 string tag = selectedItem.Tag?.ToString() ?? string.Empty;
                 ViewModel.SelectedNavTag = tag;
+
+                Type pageType = tag switch
+                {
+                    "General" => typeof(GeneralSettingsPage),
+                    "Games" => typeof(GamesSettingsPage),
+                    "Apps" => typeof(AppsSettingsPage),
+                    "FilmAndTv" => typeof(FilmAndTvSettingsPage),
+                    "OsImages" => typeof(OsImagesSettingsPage),
+                    "Logs" => typeof(LogsSettingsPage),
+                    _ => typeof(GeneralSettingsPage)
+                };
+
+                if (ContentFrame.CurrentSourcePageType != pageType)
+                {
+                    ContentFrame.Navigate(pageType, ViewModel);
+                }
             }
         }
     }

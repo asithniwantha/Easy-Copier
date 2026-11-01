@@ -22,7 +22,7 @@
             <StackPanel Spacing="4">
                 <TextBlock Text="{x:Bind ViewModel.FolderStatusMessage, Mode=OneWay}"
                            Visibility="{x:Bind ViewModel.IsFolderStatusVisible, Mode=OneWay}"
-                           Foreground="Red" Opacity="0.5" FontStyle="Italic" />
+                           Foreground="{ThemeResource SystemFillColorCriticalBrush}" FontStyle="Italic" />
                 <ItemsControl ItemsSource="{x:Bind ViewModel.FolderContents, Mode=OneWay}">
                     <ItemsControl.ItemTemplate>
                         <DataTemplate x:DataType="models:FileSystemItem">
