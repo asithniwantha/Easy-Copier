@@ -1,0 +1,34 @@
+<Page
+    x:Class="Easy_Copier.Views.Settings.GeneralSettingsPage"
+    x:Name="RootPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <ScrollViewer Padding="24">
+        <StackPanel Spacing="16">
+            <TextBlock Text="General Settings" FontSize="20" FontWeight="SemiBold" />
+            <ToggleSwitch Header="Auto-scan library on startup"
+                          IsOn="{x:Bind ViewModel.AutoScanOnStartup, Mode=TwoWay}"/>
+            <ToggleSwitch Header="Start application on Windows log-on"
+                          IsOn="{x:Bind ViewModel.StartOnLogon, Mode=TwoWay}"/>
+            <ToggleSwitch Header="Automatically download updates in the background"
+                          IsOn="{x:Bind ViewModel.AutoDownloadUpdates, Mode=TwoWay}"/>
+            <ToggleSwitch Header="Play sound notifications when transfers complete"
+                          IsOn="{x:Bind ViewModel.PlayNotificationSounds, Mode=TwoWay}"/>
+            <ToggleSwitch Header="Show desktop notifications when transfers complete"
+                          IsOn="{x:Bind ViewModel.ShowDesktopNotifications, Mode=TwoWay}"/>
+
+            <StackPanel Orientation="Horizontal" Spacing="8" Margin="0,8,0,0">
+                <Button Content="Check for updates now"
+                        Command="{x:Bind ViewModel.CheckForUpdatesNowCommand}"/>
+                <Button Content="Find Duplicates"
+                        Command="{x:Bind ViewModel.FindDuplicatesCommand}"
+                        ToolTipService.ToolTip="Detect duplicates across all source libraries"/>
+            </StackPanel>
+        </StackPanel>
+    </ScrollViewer>
+</Page>
+

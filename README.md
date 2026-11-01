@@ -18,13 +18,13 @@ Easy Copier helps shop environments prepare customer drives without guessing whi
 
 ## ✨ Features
 
-* **🎮 Game Categorization & OS Image Integration:** Automatically fetches categories from Steam and applies keyword fallbacks. Filter games by category directly within the Games tab, sort OS images by Name, Date Added, and Size, view creation/modification/access dates via right-click flyout on OS image tiles, browse for Rufus executable path in Settings, and automatically launch ISO images in the latest Rufus update found in the folder.
+* **🎮 Game & App Categorization:** Automatically fetches categories from Steam and applies keyword fallbacks for games, with category filtering dropdowns provided across both Games and Apps tabs. Sort OS images by Name, Date Added, and Size, view creation/modification/access dates via right-click flyout on OS image tiles, browse for Rufus executable path in Settings, and automatically launch ISO images in the latest Rufus update found in the folder.
 
 * **🖼️ Intelligent Multi-Service Cover Art Retrieval:** Automatically fetches high-resolution vertical cover art from Steam CDN (with resolution and capsule fallbacks), CheapShark, GOG, PCGamingWiki, Wikipedia, OpenCritic, Lutris, and GSR. Includes automated folder name cleaning (stripping repack/scene groups, build numbers, and language tags), edition fallbacks, title match scoring (preventing wrong covers from soundtracks, demos, or DLCs), payload magic-byte validation, automatic self-healing for corrupted covers, and an "Overwrite existing covers" toggle in Settings.
 
 * **⚡ High-Speed Transfers:** Optimized file I/O operations tailored for handling massive game files and nested directories using native Windows Shell `IFileOperation`.
 
-* **🎨 Modern UI:** A beautiful, responsive interface built with WinUI 3 that feels right at home on Windows 11.
+* **🎨 Modern UI & Component Architecture:** A beautiful, responsive interface built with WinUI 3 that feels right at home on Windows 11. Features unified reusable card controls (`LibraryCardControl`) with hover-reveal folder actions, modular page-navigated settings (`SettingsWindow` with cached page frames), adaptive Action Center width, and consolidated single-slot notifications.
 
 * **📐 Dynamic View Resizing:** The application cleanly abstracts responsive window resizing and UI teardowns (e.g., Settings, History) directly to a unified `NativeWindowHelper`.
 
@@ -66,7 +66,7 @@ Easy Copier helps shop environments prepare customer drives without guessing whi
 
 | 🧮 **Smart Adder** | Provides an Excel-like calculator for fast operational calculations. |
 
-| ⚙️ **Settings UI** | Sidebar-based navigation for configuration, size-to-content window logic, and modal protection. |
+| ⚙️ **Settings UI** | Modular WinUI 3 page navigation with cached views, folder list empty-state guidance, deep linking, size-to-content window logic, and modal protection. |
 
 ---
 

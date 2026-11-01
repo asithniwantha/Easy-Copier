@@ -1,3 +1,4 @@
+using Easy_Copier.Models;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Input;
 using System.Threading.Tasks;
@@ -71,6 +72,43 @@ namespace Easy_Copier.Infrastructure
             if (s_flyoutService != null)
             {
                 await s_flyoutService.ShowVideoDetailsFlyoutAsync(sender, position);
+            }
+        }
+
+        /// <summary>
+        /// Displays the appropriate item details flyout based on the entry's category.
+        /// </summary>
+        /// <param name="sender">The framework element triggering the right-tap.</param>
+        /// <param name="e">The right-tapped routed event args.</param>
+        /// <param name="entry">The optional library entry; if null, retrieved from the sender's data context.</param>
+        /// <returns>A task that represents the asynchronous flyout display operation.</returns>
+        public static async Task ShowDetailsFlyoutAsync(object sender, RightTappedRoutedEventArgs e, GameEntry? entry = null)
+        {
+            entry ??= (sender as FrameworkElement)?.DataContext as GameEntry;
+            if (entry == null)
+            {
+                return;
+            }
+
+            // Ensure the sender's DataContext is assigned so downstream flyout handlers can access the entry
+            if (sender is FrameworkElement fe && fe.DataContext == null)
+            {
+                fe.DataContext = entry;
+            }
+
+            switch (entry.Category)
+            {
+                case LibraryCategory.TvAndFilm:
+                    await ShowVideoDetailsFlyoutAsync(sender, e);
+                    break;
+                case LibraryCategory.OsImage:
+                    ShowOsImageDetailsFlyout(sender, e);
+                    break;
+                case LibraryCategory.Game:
+                case LibraryCategory.App:
+                default:
+                    await ShowGameDetailsFlyoutAsync(sender, e);
+                    break;
             }
         }
     }

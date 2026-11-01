@@ -16,7 +16,9 @@
 
 - Search and filter items by name with dynamic light yellow/amber background highlight feedback when search text is active, and an enlarged clear button (24px font size with 40x40px touch/hover target).
 
-- **Game Categorization:** Extracts metadata from Steam with keyword fallbacks, displayed and filterable directly within the Games tab.
+- **Game & App Categorization:** Extracts metadata from Steam with keyword fallbacks for games, and provides category filtering across both the Games and Apps tabs via dynamic category selection dropdowns.
+
+- **Consistent Tab Naming:** Unified media library tab and settings headers under standard `"Films & TV"` terminology.
 
 - Multi-select items and show combined selection size.
 
@@ -62,17 +64,33 @@
 
 - Large-file indicator badge for FAT32 incompatibility risk.
 
+- **Unified Library Card Architecture (`LibraryCardControl`):** Centralizes library item presentation (cover art, FAT32 large-file indicator badge, open-folder button, title, category tags, item size, and game price) across all library tabs into a single reusable UserControl referenced via a shared `LibraryItemTemplate` in `Styles.xaml`.
+
+- **Consolidated Single-Slot Notification Banner:** Prioritizes in-app alerts into a single unified top notification bar (`Grid.Row="0"`): Update Ready to Install > Update Available > Global In-App Notifications (`CanDisplayGlobalNotification`), eliminating stacked and duplicate InfoBars and reclaiming vertical screen space for the library view.
+
+- **Responsive Action Center Layout:** Employs WinUI 3 `VisualStateManager` with `AdaptiveTrigger` to dynamically adapt the Action Center width (400px on screens >= 1200px; 340px on narrower laptop displays or split-screen views) with a 380px default and flexible constraints (`MinWidth="320"`, `MaxWidth="440"`).
+
+- **Non-Obscuring Transfer History Details Drawer:** Configures `SplitView` in `HistoryPage` to `DisplayMode="Inline"`, ensuring that selecting a history record pushes the record list rather than obscuring it, keeping the active row visible during detail inspection.
+
+- **Clean History Filter Layout:** Dedicated column-aligned controls for Search, Date, Status, and Filter Reset ("Clear") without margin offsets or layout clipping.
+
 - Right-click context flyout displaying color-formatted system requirements and scrollable folder contents via `FlyoutHelper`.
 
 - Films & TV details flyout (`VideoDetailsFlyout`, `VideoDetailsViewModel`): right-click a card to see the folder path, file count, total size, and a scrollable per-file size list; files are loaded asynchronously and unreadable folders show a status message.
 
-- Films & TV hover preview: hovering the mouse over a card's cover art for ~0.5s plays a muted, looping preview of the largest video in the item (starting ~20% in for long videos). The preview stops when the pointer leaves. Implemented in `TvAndFilmsTabView` with `MediaPlayerElement`.
+- Films & TV hover preview: hovering the mouse over a card's cover art for ~0.5s plays a muted, looping preview of the largest video in the item (starting ~20% in for long videos). The preview stops when the pointer leaves. Encapsulated within `LibraryCardControl` with `MediaPlayerElement` and automatic resource disposal on card unload.
 
 - Game pricing tags displayed in the library based on file size thresholds configured in App Settings.
 
 - Total price of selected games shown in the library view based on configured price tiers.
 
-- Smart Adder tool for quick Excel-like calculations during selection and pricing workflows.
+- **Hover-Reveal Card Actions:** The "Open folder" action button on library cards is hidden by default and smoothly reveals upon pointer hover, minimizing visual clutter while maintaining immediate accessibility.
+
+- **Theme-Aware Status & Error Indicators:** Contextual flyouts (such as `GameDetailsFlyout`) utilize theme-adaptive brushes (`SystemFillColorCriticalBrush`) instead of hard-coded colors, ensuring crisp contrast across light and dark modes.
+
+- **Constrained Smart Adder Layout:** The floating Smart Adder panel's entry list is bounded within a dedicated scroll container (`ScrollViewer` with `MaxHeight="400"`), preventing unconstrained overflow or hidden entries during large number input sequences.
+
+- **Interactive History Bar Chart:** The Daily Volume transfer bar chart in `HistoryPage` features interactive tooltips (`ToolTipService.ToolTip`) and legible date/day labels underneath each volume column for instant temporal context.
 
 ## 🔌 Drive Discovery and Selection
 
@@ -94,7 +112,7 @@
 
   - Usage percentage.
 
-- Auto-refresh drive list on attach/remove events.
+- Auto-refresh drive list on attach/remove events, accompanied by an inline drive refresh button (`&#xE72C;`) integrated directly in the drive selection toolbar row for instant manual rescanning.
 
 - Open selected drive directly in File Explorer.
 
@@ -108,7 +126,7 @@
 
 - Validate source folder accessibility.
 
-- Warn when destination folders already exist and provide Merge / Replace / Skip options using a dedicated XAML view (`ConflictDialogContent.xaml`).
+- Warn when destination folders already exist and provide Merge / Replace / Skip options using a dedicated XAML view (`ConflictDialogContent.xaml`) enhanced with caution iconography (`&#xE7BA;`) and side-by-side source and destination size/file counts.
 
 - Display validation messages with severity levels (Info / Warning / Error).
 
@@ -172,7 +190,11 @@
 
 - Configurable price tiers for game size categories.
 
-- Navigational sidebar (`NavigationView`) for organized settings categories (General, Games, etc.).
+- **Modular Settings Architecture:** `SettingsWindow` leverages a modern WinUI 3 `Frame`-navigated architecture decoupling settings sections into standalone pages (`GeneralSettingsPage`, `GamesSettingsPage`, `AppsSettingsPage`, `FilmAndTvSettingsPage`, `OsImagesSettingsPage`, `LogsSettingsPage`) with page caching (`NavigationCacheMode.Required`) for instant transitions and retained scroll states.
+
+- **Context-Aware Settings Deep-Linking:** Automatically navigates directly to the relevant settings tab when launched via `SettingsOpenAction` (e.g. clicking "Add App Folder" on an empty Apps library opens Settings directly on the Apps configuration page).
+
+- **Empty State Guidance in Folder Lists:** Folder configuration lists across all categories display helpful visual empty states with contextual icons and actionable button guidance when no folders are yet configured (`HasNoGameSourceFolders`, etc.).
 
 - Modal-like behavior for secondary windows (Settings, History, About) to prevent main window interaction while open.
 
