@@ -483,3 +483,34 @@ Tracks records of calculations made using the Smart Adder tool.
 
 | `Total` | `REAL` | Total calculated sum of all entries. |
 
+## 🏗️ Architectural Abstractions & Clean Code Enhancements
+
+### 🧩 Decoupled Selection Architecture (ILibrarySelectionCoordinator)
+- Replaces direct view-to-view coupling where MainPage previously queried child tab controls (GamesTab, AppsTab, TvAndFilmsTab, OsImagesTab).
+- Encapsulates multi-tab selection state, active tab exclusivity rules (e.g., OS Images selection being isolated from general media selection), and aggregate byte and pricing totals into a dedicated, testable service.
+- Child tab ViewModels synchronize selection changes through LibraryTabViewModelBase.UpdateSelection(entries) and handle reset requests through ClearRequested events without parent view intervention.
+
+### ⚡ Declarative Search Behavior (AutoSuggestBoxSearchBehavior)
+- Eliminates 12 duplicated event handler methods previously copy-pasted across all four tab view code-behind files (GamesTabView, AppsTabView, TvAndFilmsTabView, and OsImagesTabView).
+- Binds declaratively in XAML using Microsoft XAML Behaviors to any ISearchableTabViewModel.
+- Automatically manages user input text changes, suggestion population, chosen suggestion commits, and search highlight styling (TextControlBackground brushes).
+
+### 📋 Platform Clipboard Abstraction (IClipboardService)
+- Decouples ViewModels (specifically AboutViewModel) from platform-specific WinRT APIs (Windows.ApplicationModel.DataTransfer.Clipboard and DataPackage).
+- Provides a clean, mockable IClipboardService contract implemented by ClipboardService in the infrastructure layer.
+
+### 🪟 Unified Window Close Handling (ICloseableViewModel & CloseableViewModelBase)
+- Extracts common window close event logic and commands (CloseRequested, RequestClose(), CloseWindowCommand) into CloseableViewModelBase.
+- Standardizes modal dialog teardown in NativeWindowHelper.InitializeModalWindow, which automatically subscribes to ICloseableViewModel.CloseRequested and unhooks upon window disposal to eliminate event leaks.
+
+### 🧭 Decoupled Settings Navigation (ISettingsNavigationService)
+- Resolves target navigation tags from startup SettingsOpenAction values.
+- Dynamically resolves Page types for settings categories (GeneralSettingsPage, GamesSettingsPage, AppsSettingsPage, etc.), eliminating concrete Page dependencies and switch statements from SettingsWindow.xaml.cs.
+
+### 📁 File System Decoupling for Video Details (VideoDetailsViewModel)
+- Replaces direct disk I/O (DirectoryInfo, FileInfo) inside VideoDetailsViewModel with IFileSystemService.EnumerateFilesRelative.
+- Allows film and TV series file lists and sizes to be tested and mocked without requiring physical directories on disk.
+
+### 🧹 Deduplicated Formatting & Dead Code Elimination
+- Centralized library empty-state messages into FormattingHelpers.FormatEmptyLibraryMessage, providing uniform, localized wording across all tabs.
+- Cleaned up unused legacy panel visibility properties (IsGeneralPanelVisible, IsGamesPanelVisible, etc.) from SettingsViewModel.

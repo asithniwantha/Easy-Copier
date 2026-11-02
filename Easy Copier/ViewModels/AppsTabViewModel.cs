@@ -13,6 +13,9 @@ namespace Easy_Copier.ViewModels
         /// <summary>
         /// Gets the list of filtered application entries.
         /// </summary>
+        /// <inheritdoc />
+        public override LibraryCategory Category => LibraryCategory.App;
+
         public ObservableCollection<GameEntry> Apps => MainViewModel.Apps;
 
         /// <summary>

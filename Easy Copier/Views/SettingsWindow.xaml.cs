@@ -1,6 +1,6 @@
 using Easy_Copier.Infrastructure;
+using Easy_Copier.Services;
 using Easy_Copier.ViewModels;
-using Easy_Copier.Views.Settings;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Media.Animation;
@@ -35,25 +35,33 @@ namespace Easy_Copier.Views
         private readonly SettingsOpenAction _openAction;
 
         /// <summary>
+        /// The settings navigation service used to map actions and tags to Page types.
+        /// </summary>
+        private readonly ISettingsNavigationService _navigationService;
+
+        /// <summary>
         /// Initializes a new instance of the <see cref="SettingsWindow"/> class.
         /// </summary>
         /// <param name="viewModel">The view model instance associated with settings.</param>
         /// <param name="owner">The owner window for modal positioning.</param>
         /// <param name="openAction">The action to execute immediately upon opening settings.</param>
-        public SettingsWindow(SettingsViewModel viewModel, Window owner, SettingsOpenAction openAction = SettingsOpenAction.None)
+        /// <param name="navigationService">The navigation service for resolving pages.</param>
+        public SettingsWindow(
+            SettingsViewModel viewModel,
+            Window owner,
+            SettingsOpenAction openAction = SettingsOpenAction.None,
+            ISettingsNavigationService? navigationService = null)
         {
             ViewModel = viewModel;
             _owner = owner;
             _openAction = openAction;
+            _navigationService = navigationService ?? new SettingsNavigationService();
+
             InitializeComponent();
             SettingsRoot.DataContext = ViewModel;
             NativeWindowHelper.InitializeModalWindow(this, _owner, ViewModel, 1200, 720);
 
-            ViewModel.CloseRequested += (s, e) =>
-            {
-                SettingsClosed?.Invoke(this, EventArgs.Empty);
-                Close();
-            };
+            Closed += (s, e) => SettingsClosed?.Invoke(this, EventArgs.Empty);
 
             _ = LoadAsync(openAction);
 
@@ -85,17 +93,9 @@ namespace Easy_Copier.Views
         /// <param name="e">The event data.</param>
         private void SettingsNav_Loaded(object sender, RoutedEventArgs e)
         {
-            // If openAction specified a category, select the appropriate tab
-            string targetTag = _openAction switch
-            {
-                SettingsOpenAction.AddGameFolder => "Games",
-                SettingsOpenAction.AddAppFolder => "Apps",
-                SettingsOpenAction.AddTvAndFilmFolder => "FilmAndTv",
-                SettingsOpenAction.AddOsImageFolder => "OsImages",
-                _ => "General"
-            };
+            string targetTag = _navigationService.GetTargetTagForAction(_openAction);
 
-            foreach (var item in SettingsNav.MenuItems)
+            foreach (object item in SettingsNav.MenuItems)
             {
                 if (item is NavigationViewItem navItem && navItem.Tag?.ToString() == targetTag)
                 {
@@ -123,16 +123,7 @@ namespace Easy_Copier.Views
                 string tag = selectedItem.Tag?.ToString() ?? string.Empty;
                 ViewModel.SelectedNavTag = tag;
 
-                Type pageType = tag switch
-                {
-                    "General" => typeof(GeneralSettingsPage),
-                    "Games" => typeof(GamesSettingsPage),
-                    "Apps" => typeof(AppsSettingsPage),
-                    "FilmAndTv" => typeof(FilmAndTvSettingsPage),
-                    "OsImages" => typeof(OsImagesSettingsPage),
-                    "Logs" => typeof(LogsSettingsPage),
-                    _ => typeof(GeneralSettingsPage)
-                };
+                Type pageType = _navigationService.GetPageTypeForTag(tag);
 
                 if (ContentFrame.CurrentSourcePageType != pageType)
                 {

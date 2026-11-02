@@ -14,6 +14,9 @@ namespace Easy_Copier.ViewModels
         /// <summary>
         /// Gets the list of filtered film and TV series entries.
         /// </summary>
+        /// <inheritdoc />
+        public override LibraryCategory Category => LibraryCategory.TvAndFilm;
+
         public ObservableCollection<GameEntry> TvAndFilms => MainViewModel.TvAndFilms;
 
         /// <summary>

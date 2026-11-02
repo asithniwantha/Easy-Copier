@@ -1,9 +1,6 @@
-using Easy_Copier.Models;
 using Easy_Copier.ViewModels;
 using Microsoft.UI.Xaml.Controls;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace Easy_Copier.Views
 {
@@ -12,7 +9,6 @@ namespace Easy_Copier.Views
     /// </summary>
     public sealed partial class MainPage : Page
     {
-
         /// <summary>
         /// Gets the <see cref="MainViewModel"/> bound to this page.
         /// </summary>
@@ -49,92 +45,9 @@ namespace Easy_Copier.Views
             {
                 ViewModel = viewModel;
                 DataContext = ViewModel;
-                ViewModel.ItemQueued += OnItemQueued;
-                ViewModel.ClearSelectionRequested += OnClearSelectionRequested;
                 Bindings.Update();
 
                 _ = ViewModel.InitializeAsync();
-            }
-        }
-
-        /// <inheritdoc />
-        protected override void OnNavigatedFrom(Microsoft.UI.Xaml.Navigation.NavigationEventArgs e)
-        {
-            base.OnNavigatedFrom(e);
-
-            if (ViewModel != null)
-            {
-                ViewModel.ItemQueued -= OnItemQueued;
-                ViewModel.ClearSelectionRequested -= OnClearSelectionRequested;
-            }
-        }
-
-        /// <summary>
-        /// Handles the <see cref="MainViewModel.ItemQueued"/> event by clearing active library selections.
-        /// </summary>
-        /// <param name="sender">The source of the event.</param>
-        /// <param name="e">Event args.</param>
-        private void OnItemQueued(object? sender, EventArgs e)
-        {
-            ClearGameSelection();
-        }
-
-        /// <summary>
-        /// Handles the <see cref="MainViewModel.ClearSelectionRequested"/> event by clearing active library selections.
-        /// </summary>
-        /// <param name="sender">The source of the event.</param>
-        /// <param name="e">Event args.</param>
-        private void OnClearSelectionRequested(object? sender, EventArgs e)
-        {
-            ClearGameSelection();
-        }
-
-        /// <summary>
-        /// Handles pivot tab selection changes to recalculate and aggregate entry selections.
-        /// </summary>
-        /// <param name="sender">The selection control.</param>
-        /// <param name="e">Event args containing selection change info.</param>
-        private void TabOrPivot_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            UpdateCombinedSelection();
-        }
-
-        /// <summary>
-        /// Retrieves instantiated library tab views from direct control references.
-        /// </summary>
-        /// <returns>An enumeration of active <see cref="ILibraryTabView"/> instances.</returns>
-        private IEnumerable<ILibraryTabView> GetTabViews()
-        {
-            ILibraryTabView?[] tabs = [GamesTab, AppsTab, TvAndFilmsTab, OsImagesTab];
-            return tabs.OfType<ILibraryTabView>();
-        }
-
-        /// <summary>
-        /// Recalculates combined library selection across tabs and updates the View Models selection summary.
-        /// </summary>
-        private void UpdateCombinedSelection()
-        {
-            if (ViewModel == null)
-            {
-                return;
-            }
-
-            IEnumerable<ILibraryTabView> tabs = GetTabViews();
-            IEnumerable<GameEntry> selectedItems = ViewModel.IsOsImagesTabActive
-                ? tabs.Where(tab => tab.IsOsImagesTab).SelectMany(tab => tab.GetSelectedEntries())
-                : tabs.Where(tab => !tab.IsOsImagesTab).SelectMany(tab => tab.GetSelectedEntries());
-
-            ViewModel.UpdateSelectionSummary(selectedItems);
-        }
-
-        /// <summary>
-        /// Clears entry selections across all loaded library tab views.
-        /// </summary>
-        private void ClearGameSelection()
-        {
-            foreach (ILibraryTabView tab in GetTabViews())
-            {
-                tab.ClearSelection();
             }
         }
     }

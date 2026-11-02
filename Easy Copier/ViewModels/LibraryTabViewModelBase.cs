@@ -23,6 +23,16 @@ namespace Easy_Copier.ViewModels
         public MainViewModel MainViewModel { get; }
 
         /// <summary>
+        /// Gets the <see cref="LibraryCategory"/> represented by this tab.
+        /// </summary>
+        public abstract LibraryCategory Category { get; }
+
+        /// <summary>
+        /// Occurs when an external action requests clearing the active selection in this tab.
+        /// </summary>
+        public event EventHandler? ClearSelectionRequested;
+
+        /// <summary>
         /// Gets a value indicating whether library scanning is in progress.
         /// </summary>
         public bool IsScanning => MainViewModel.IsScanning;
@@ -35,6 +45,24 @@ namespace Easy_Copier.ViewModels
         {
             MainViewModel = mainViewModel ?? throw new ArgumentNullException(nameof(mainViewModel));
             MainViewModel.PropertyChanged += OnMainViewModelPropertyChanged;
+            MainViewModel.SelectionCoordinator.ClearRequested += OnCoordinatorClearRequested;
+        }
+
+        /// <summary>
+        /// Updates the selection coordinator with the selected entries for this tab category.
+        /// </summary>
+        /// <param name="entries">The collection of selected entries in this tab view.</param>
+        public void UpdateSelection(IEnumerable<GameEntry> entries)
+        {
+            MainViewModel.SelectionCoordinator.SetCategorySelection(Category, entries);
+        }
+
+        /// <summary>
+        /// Requests this tab view to clear its item selection.
+        /// </summary>
+        public void RequestClearSelection()
+        {
+            ClearSelectionRequested?.Invoke(this, EventArgs.Empty);
         }
 
         /// <summary>
@@ -70,6 +98,14 @@ namespace Easy_Copier.ViewModels
             }
 
             OnParentPropertyChanged(e.PropertyName);
+        }
+
+        /// <summary>
+        /// Handles clear selection requests broadcast by the selection coordinator.
+        /// </summary>
+        private void OnCoordinatorClearRequested(object? sender, EventArgs e)
+        {
+            RequestClearSelection();
         }
 
         /// <summary>
@@ -124,6 +160,7 @@ namespace Easy_Copier.ViewModels
             if (disposing)
             {
                 MainViewModel.PropertyChanged -= OnMainViewModelPropertyChanged;
+                MainViewModel.SelectionCoordinator.ClearRequested -= OnCoordinatorClearRequested;
             }
 
             _isDisposed = true;

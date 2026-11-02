@@ -388,9 +388,21 @@ namespace Easy_Copier.Infrastructure
             window.SystemBackdrop ??= new Microsoft.UI.Xaml.Media.MicaBackdrop();
             ShowAsModal(window, owner);
 
+            EventHandler? closeHandler = null;
+            if (viewModel is ViewModels.ICloseableViewModel closeable)
+            {
+                closeHandler = (s, e) => window.Close();
+                closeable.CloseRequested += closeHandler;
+            }
+
             // Ensure cleanup on close
             window.Closed += (s, args) =>
             {
+                if (closeHandler != null && viewModel is ViewModels.ICloseableViewModel closeableVm)
+                {
+                    closeableVm.CloseRequested -= closeHandler;
+                }
+
                 RestoreOwnerInput(owner);
                 if (s is Microsoft.UI.Xaml.Window w)
                 {

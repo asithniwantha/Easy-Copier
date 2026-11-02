@@ -48,5 +48,19 @@ namespace Easy_Copier.Infrastructure
                 _ => settings.PriceTier4
             };
         }
+
+        /// <summary>
+        /// Formats an empty state message for a library tab, reflecting whether a search query is active.
+        /// </summary>
+        /// <param name="entityPlural">The plural display name of the entity (e.g. "games", "apps", "films/TV series", "OS images").</param>
+        /// <param name="folderType">The singular display name of the folder type (e.g. "game", "app", "film/TV", "OS image").</param>
+        /// <param name="searchText">The active search query string.</param>
+        /// <returns>A formatted message describing the empty or filtered state.</returns>
+        public static string FormatEmptyLibraryMessage(string entityPlural, string folderType, string? searchText)
+        {
+            return string.IsNullOrWhiteSpace(searchText)
+                ? $"No {entityPlural} found. Add a {folderType} folder in Settings and scan your library."
+                : $"No {entityPlural} match \"{searchText}\".";
+        }
     }
 }

@@ -409,3 +409,14 @@ Distributed under the MIT License. See `LICENSE` for more information.
 * Implemented implicit WinUI 3 `BrushTransition` and `ScalarTransition` animations on `LibraryCardControl` for fluid card surface elevation on pointer hover, smooth folder reveal, and cover art load fade-in. 🎭
 * Enhanced Action Center visual hierarchy with theme-aware section dividers and enriched primary call-to-action buttons with contextual icons. 🚀
 
+* **Decoupled View-to-View Architecture (ILibrarySelectionCoordinator):** Fully decoupled MainPage from concrete child tab view controls (GamesTab, AppsTab, TvAndFilmsTab, OsImagesTab). Extracted selection tracking, active tab exclusivity (OS Images vs. general media), and real-time pricing summation into a dedicated ILibrarySelectionCoordinator service, completely eliminating direct control traversal and view-to-view coupling in code-behind. 🧩
+
+* **UI Platform Decoupling in ViewModels (IClipboardService & CloseableViewModelBase):** Extracted Windows WinRT clipboard operations into IClipboardService / ClipboardService to allow AboutViewModel to be tested without platform dependencies. Extracted modal window close events and commands into ICloseableViewModel and CloseableViewModelBase, with NativeWindowHelper.InitializeModalWindow automatically managing close event lifecycle and unhooking. 🪟
+
+* **Attached AutoSuggest Search Behavior (AutoSuggestBoxSearchBehavior):** Replaced 12 duplicated event handler methods across all library tab code-behind files with a unified WinUI 3 XAML behavior that manages search suggestion generation, query commits to ISearchableTabViewModel, and active search background highlight styling. ⚡
+
+* **Decoupled Settings Navigation (ISettingsNavigationService):** Introduced ISettingsNavigationService to resolve navigation tags from SettingsOpenAction and map tags to Page types, decoupling SettingsWindow from concrete page classes and removing hardcoded navigation switches. ⚙️
+
+* **File System Service Decoupling (VideoDetailsViewModel):** Abstracted recursive file enumeration in VideoDetailsViewModel through IFileSystemService.EnumerateFilesRelative, eliminating direct DirectoryInfo and FileInfo disk access from the presentation layer. 📁
+
+* **Deduplicated Empty Message Formatter & Dead Code Cleanup:** Centralized empty-state library string interpolation into FormattingHelpers.FormatEmptyLibraryMessage across MainViewModel, and eliminated obsolete visibility properties from SettingsViewModel. 🧹

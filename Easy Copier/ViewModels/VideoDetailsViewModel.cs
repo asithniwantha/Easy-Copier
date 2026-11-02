@@ -1,5 +1,6 @@
 using CommunityToolkit.Mvvm.ComponentModel;
 using Easy_Copier.Infrastructure;
+using Easy_Copier.Services;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -26,6 +27,11 @@ namespace Easy_Copier.ViewModels
         /// FAT32 maximum file size (4GB - 1 byte); larger files cannot be copied to FAT32 drives.
         /// </summary>
         private const long Fat32MaxFileBytes = 4_294_967_295;
+
+        /// <summary>
+        /// The file system service used for file enumeration and disk inspection.
+        /// </summary>
+        private readonly IFileSystemService _fileSystemService;
 
         /// <summary>
         /// Gets or sets the display title of the film or series.
@@ -63,6 +69,15 @@ namespace Easy_Copier.ViewModels
         public ObservableCollection<VideoFileInfo> Files { get; } = [];
 
         /// <summary>
+        /// Initializes a new instance of the <see cref="VideoDetailsViewModel"/> class.
+        /// </summary>
+        /// <param name="fileSystemService">The file system service used for file enumeration.</param>
+        public VideoDetailsViewModel(IFileSystemService fileSystemService)
+        {
+            _fileSystemService = fileSystemService ?? throw new ArgumentNullException(nameof(fileSystemService));
+        }
+
+        /// <summary>
         /// Loads the file list for the given folder off the UI thread.
         /// </summary>
         /// <param name="title">The display title.</param>
@@ -90,31 +105,30 @@ namespace Easy_Copier.ViewModels
                 Files.Add(file);
             }
 
-            Summary = $"{files.Count} file(s) • {FormattingHelpers.FormatBytes(total)}";
+            Summary = $"{files.Count} file(s) \u2022 {FormattingHelpers.FormatBytes(total)}";
         }
 
         /// <summary>
-        /// Enumerates files recursively, skipping unreadable entries.
+        /// Enumerates files recursively using <see cref="IFileSystemService"/>, skipping unreadable entries.
         /// </summary>
-        private static (List<VideoFileInfo> Files, long Total, string? Error) LoadFiles(string folderPath)
+        private (List<VideoFileInfo> Files, long Total, string? Error) LoadFiles(string folderPath)
         {
             try
             {
-                if (string.IsNullOrWhiteSpace(folderPath) || !Directory.Exists(folderPath))
+                if (string.IsNullOrWhiteSpace(folderPath) || !_fileSystemService.DirectoryExists(folderPath))
                 {
                     return ([], 0, "Folder not found");
                 }
 
-                EnumerationOptions options = new() { RecurseSubdirectories = true, IgnoreInaccessible = true };
-                List<FileInfo> infos = [.. new DirectoryInfo(folderPath).EnumerateFiles("*", options)];
-                List<VideoFileInfo> files = [.. infos
-                    .OrderBy(f => f.FullName, StringComparer.OrdinalIgnoreCase)
+                List<(string RelativePath, long Length)> rawFiles = [.. _fileSystemService.EnumerateFilesRelative(folderPath)];
+                List<VideoFileInfo> files = [.. rawFiles
+                    .OrderBy(f => f.RelativePath, StringComparer.OrdinalIgnoreCase)
                     .Select(f => new VideoFileInfo(
-                        Path.GetRelativePath(folderPath, f.FullName),
+                        f.RelativePath,
                         FormattingHelpers.FormatBytes(f.Length),
                         f.Length > Fat32MaxFileBytes))];
 
-                return (files, infos.Sum(f => f.Length), null);
+                return (files, rawFiles.Sum(f => f.Length), null);
             }
             catch (Exception ex) when (ex is IOException or UnauthorizedAccessException or ArgumentException)
             {
