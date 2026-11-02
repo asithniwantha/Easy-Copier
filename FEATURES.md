@@ -112,7 +112,7 @@
 
 - **Action Center Call-to-Action & Layout Hierarchy:** Added contextual iconography (`&#xE896;`, `&#xE7FC;`) and enhanced sizing to primary queue and Rufus buttons, alongside a theme-aware visual separator dividing target drive selection from the transfer queue.
 
-- **Settings Modern Card Groupings:** Re-architected all settings pages (`GeneralSettingsPage`, `GamesSettingsPage`, `AppsSettingsPage`, `FilmAndTvSettingsPage`, `OsImagesSettingsPage`, `LogsSettingsPage`) with card containers (`CardBackgroundFillColorDefaultBrush`, `CardStrokeColorDefaultBrush`, `CornerRadius="8"`) featuring theme-accented header glyphs (`&#xE7E8;`, `&#xE895;`, `&#xEA8F;`, `&#xE8D8;`, `&#xE8F4;`, `&#xE71D;`, `&#xE714;`, `&#xE7C5;`, `&#xE7BA;`) to logically partition preferences and eliminate flat layout fatigue.
+- **CommunityToolkit SettingsControls Architecture:** Implemented modern Windows 11 `SettingsCard` and `SettingsExpander` controls from `CommunityToolkit.WinUI.Controls.SettingsControls` across all settings pages (`GeneralSettingsPage`, `GamesSettingsPage`, `AppsSettingsPage`, `FilmAndTvSettingsPage`, `OsImagesSettingsPage`, `LogsSettingsPage`). Features themed header icons (`&#xE7E8;`, `&#xE895;`, `&#xEA8F;`, `&#xE8D8;`, `&#xE8F4;`, `&#xE71D;`, `&#xE714;`, `&#xE7C5;`, `&#xE7BA;`), descriptions, right-aligned controls, and interactive `IsClickEnabled` command cards.
 
 - **Category-Aware Fallback Glyphs:** Differentiated placeholder iconography in `LibraryCardControl` via the `FallbackGlyph` domain model property, presenting tailor-made glyphs for Games (`\uE7FC`), Apps (`\uE71D`), Films & TV (`\uE714`), and OS Images (`\uE7C5`) when cover art is not available.
 

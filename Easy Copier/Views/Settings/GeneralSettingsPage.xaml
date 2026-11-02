@@ -5,72 +5,79 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:controls="using:CommunityToolkit.WinUI.Controls"
     mc:Ignorable="d">
 
     <ScrollViewer Padding="24">
         <StackPanel Spacing="16">
             <TextBlock Text="General Settings" Style="{StaticResource SectionHeaderStyle}" />
 
-            <!-- Startup & Windows Integration Card -->
-            <Border Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
-                    BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
-                    BorderThickness="1" CornerRadius="8" Padding="16">
-                <StackPanel Spacing="12">
-                    <StackPanel Orientation="Horizontal" Spacing="8">
-                        <FontIcon Glyph="&#xE7E8;" FontSize="16" Foreground="{ThemeResource AccentTextFillColorPrimaryBrush}"/>
-                        <TextBlock Text="Startup &amp; Windows Integration" FontWeight="SemiBold"/>
-                    </StackPanel>
-                    <ToggleSwitch Header="Auto-scan library on startup"
-                                  IsOn="{x:Bind ViewModel.AutoScanOnStartup, Mode=TwoWay}"/>
-                    <ToggleSwitch Header="Start application on Windows log-on"
-                                  IsOn="{x:Bind ViewModel.StartOnLogon, Mode=TwoWay}"/>
-                </StackPanel>
-            </Border>
+            <!-- Startup & Windows Integration Expander -->
+            <controls:SettingsExpander Header="Startup &amp; Windows Integration"
+                                       Description="Configure how Easy Copier interacts with Windows on launch"
+                                       IsExpanded="True">
+                <controls:SettingsExpander.HeaderIcon>
+                    <FontIcon Glyph="&#xE7E8;"/>
+                </controls:SettingsExpander.HeaderIcon>
+                <controls:SettingsExpander.Items>
+                    <controls:SettingsCard Header="Auto-scan library on startup"
+                                           Description="Automatically scan configured library folders when Easy Copier launches">
+                        <ToggleSwitch IsOn="{x:Bind ViewModel.AutoScanOnStartup, Mode=TwoWay}"/>
+                    </controls:SettingsCard>
+                    <controls:SettingsCard Header="Start on Windows log-on"
+                                           Description="Automatically launch Easy Copier in the background when signing into Windows">
+                        <ToggleSwitch IsOn="{x:Bind ViewModel.StartOnLogon, Mode=TwoWay}"/>
+                    </controls:SettingsCard>
+                </controls:SettingsExpander.Items>
+            </controls:SettingsExpander>
 
-            <!-- Updates & Maintenance Card -->
-            <Border Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
-                    BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
-                    BorderThickness="1" CornerRadius="8" Padding="16">
-                <StackPanel Spacing="12">
-                    <StackPanel Orientation="Horizontal" Spacing="8">
-                        <FontIcon Glyph="&#xE895;" FontSize="16" Foreground="{ThemeResource AccentTextFillColorPrimaryBrush}"/>
-                        <TextBlock Text="Updates &amp; Maintenance" FontWeight="SemiBold"/>
-                    </StackPanel>
-                    <ToggleSwitch Header="Automatically download updates in the background"
-                                  IsOn="{x:Bind ViewModel.AutoDownloadUpdates, Mode=TwoWay}"/>
-                    <StackPanel Orientation="Horizontal" Spacing="8" Margin="0,4,0,0">
-                        <Button Command="{x:Bind ViewModel.CheckForUpdatesNowCommand}">
-                            <StackPanel Orientation="Horizontal" Spacing="6">
-                                <FontIcon Glyph="&#xE72C;" FontSize="12"/>
-                                <TextBlock Text="Check for updates now"/>
-                            </StackPanel>
-                        </Button>
-                        <Button Command="{x:Bind ViewModel.FindDuplicatesCommand}"
-                                ToolTipService.ToolTip="Detect duplicates across all source libraries">
-                            <StackPanel Orientation="Horizontal" Spacing="6">
-                                <FontIcon Glyph="&#xE721;" FontSize="12"/>
-                                <TextBlock Text="Find Duplicates"/>
-                            </StackPanel>
-                        </Button>
-                    </StackPanel>
-                </StackPanel>
-            </Border>
+            <!-- Updates & Maintenance Expander -->
+            <controls:SettingsExpander Header="Updates &amp; Maintenance"
+                                       Description="Manage updates and database maintenance tools"
+                                       IsExpanded="True">
+                <controls:SettingsExpander.HeaderIcon>
+                    <FontIcon Glyph="&#xE895;"/>
+                </controls:SettingsExpander.HeaderIcon>
+                <controls:SettingsExpander.Items>
+                    <controls:SettingsCard Header="Automatic background updates"
+                                           Description="Automatically download and prepare new updates in the background">
+                        <ToggleSwitch IsOn="{x:Bind ViewModel.AutoDownloadUpdates, Mode=TwoWay}"/>
+                    </controls:SettingsCard>
+                    <controls:SettingsCard Header="Check for updates now"
+                                           Description="Manually query for latest releases and patches"
+                                           ActionIconToolTip="Check for updates"
+                                           IsClickEnabled="True"
+                                           Command="{x:Bind ViewModel.CheckForUpdatesNowCommand}">
+                        <FontIcon Glyph="&#xE72C;" FontSize="14"/>
+                    </controls:SettingsCard>
+                    <controls:SettingsCard Header="Find duplicate library items"
+                                           Description="Detect and report duplicates across all configured source libraries"
+                                           ActionIconToolTip="Find duplicates"
+                                           IsClickEnabled="True"
+                                           Command="{x:Bind ViewModel.FindDuplicatesCommand}">
+                        <FontIcon Glyph="&#xE721;" FontSize="14"/>
+                    </controls:SettingsCard>
+                </controls:SettingsExpander.Items>
+            </controls:SettingsExpander>
 
-            <!-- Notifications Card -->
-            <Border Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
-                    BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
-                    BorderThickness="1" CornerRadius="8" Padding="16">
-                <StackPanel Spacing="12">
-                    <StackPanel Orientation="Horizontal" Spacing="8">
-                        <FontIcon Glyph="&#xEA8F;" FontSize="16" Foreground="{ThemeResource AccentTextFillColorPrimaryBrush}"/>
-                        <TextBlock Text="Notifications &amp; Feedback" FontWeight="SemiBold"/>
-                    </StackPanel>
-                    <ToggleSwitch Header="Play sound notifications when transfers complete"
-                                  IsOn="{x:Bind ViewModel.PlayNotificationSounds, Mode=TwoWay}"/>
-                    <ToggleSwitch Header="Show desktop notifications when transfers complete"
-                                  IsOn="{x:Bind ViewModel.ShowDesktopNotifications, Mode=TwoWay}"/>
-                </StackPanel>
-            </Border>
+            <!-- Notifications Expander -->
+            <controls:SettingsExpander Header="Notifications &amp; Feedback"
+                                       Description="Manage audio and visual alerts for transfer operations"
+                                       IsExpanded="True">
+                <controls:SettingsExpander.HeaderIcon>
+                    <FontIcon Glyph="&#xEA8F;"/>
+                </controls:SettingsExpander.HeaderIcon>
+                <controls:SettingsExpander.Items>
+                    <controls:SettingsCard Header="Sound notifications"
+                                           Description="Play sound effects when file copy tasks complete or fail">
+                        <ToggleSwitch IsOn="{x:Bind ViewModel.PlayNotificationSounds, Mode=TwoWay}"/>
+                    </controls:SettingsCard>
+                    <controls:SettingsCard Header="Desktop toast notifications"
+                                           Description="Display native Windows notifications upon batch transfer completion">
+                        <ToggleSwitch IsOn="{x:Bind ViewModel.ShowDesktopNotifications, Mode=TwoWay}"/>
+                    </controls:SettingsCard>
+                </controls:SettingsExpander.Items>
+            </controls:SettingsExpander>
         </StackPanel>
     </ScrollViewer>
 </Page>
