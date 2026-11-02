@@ -108,6 +108,10 @@
 
 - **Polished About Window & Smart Adder Control:** Redesigned `AboutWindow` with centered elevation card styling, version badge pill, and action iconography, alongside a balanced 2-column action grid for `SmartAdderControl`.
 
+- **Implicit Transitions & Card Depth Elevation:** Implemented WinUI 3 `BrushTransition` and `ScalarTransition` implicit animations on `LibraryCardControl` for smooth hover surface elevation, fluid open-folder action button reveals, and graceful cover art decoding fade-in upon image load.
+
+- **Action Center Call-to-Action & Layout Hierarchy:** Added contextual iconography (`&#xE896;`, `&#xE7FC;`) and enhanced sizing to primary queue and Rufus buttons, alongside a theme-aware visual separator dividing target drive selection from the transfer queue.
+
 ## 🔌 Drive Discovery and Selection
 
 - Detect connected removable USB drives.

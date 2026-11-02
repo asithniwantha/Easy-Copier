@@ -70,6 +70,10 @@ namespace Easy_Copier.Views
                 if (DataContext is GameEntry entry)
                 {
                     Entry = entry;
+                    if (CoverImage != null)
+                    {
+                        CoverImage.Opacity = 0.0;
+                    }
                 }
             };
 
@@ -78,19 +82,38 @@ namespace Easy_Copier.Views
         }
 
         /// <summary>
-        /// Reveals the open folder action button when the cursor hovers over the card.
+        /// Reveals the open folder action button and smoothly elevates card surface on pointer hover.
         /// </summary>
         private void Card_PointerEntered(object sender, PointerRoutedEventArgs e)
         {
             OpenFolderButton.Opacity = 1.0;
+            if (Application.Current.Resources.TryGetValue("CardBackgroundFillColorDefaultBrush", out var brush) && brush is Microsoft.UI.Xaml.Media.Brush b)
+            {
+                CardBorder.Background = b;
+            }
         }
 
         /// <summary>
-        /// Hides the open folder action button when the cursor leaves the card.
+        /// Restores standard card surface background and hides the open folder button when pointer exits.
         /// </summary>
         private void Card_PointerExited(object sender, PointerRoutedEventArgs e)
         {
             OpenFolderButton.Opacity = 0.0;
+            if (Application.Current.Resources.TryGetValue("CardBackgroundFillColorSecondaryBrush", out var brush) && brush is Microsoft.UI.Xaml.Media.Brush b)
+            {
+                CardBorder.Background = b;
+            }
+        }
+
+        /// <summary>
+        /// Smoothly reveals the cover art image when decoded from disk or downloaded from CDN.
+        /// </summary>
+        private void CoverImage_ImageOpened(object sender, RoutedEventArgs e)
+        {
+            if (sender is Image img)
+            {
+                img.Opacity = 1.0;
+            }
         }
 
         /// <summary>
@@ -268,4 +291,3 @@ namespace Easy_Copier.Views
         }
     }
 }
-

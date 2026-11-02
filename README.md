@@ -406,4 +406,6 @@ Distributed under the MIT License. See `LICENSE` for more information.
 * Eliminated hardcoded colors across `MainPage`, flyouts, and dialogs in favor of dynamic theme brushes (`SystemFillColorCriticalBrush`, `SystemFillColorCautionBrush`, `DividerStrokeColorDefaultBrush`, `TextOnAccentFillColorPrimaryBrush`). 🎨
 * Upgraded empty states across all library tab views (Games, Apps, Films & TV, OS Images) and Action Center with dedicated glyph iconography, clear visual hierarchy, and actionable secondary hints. 📭
 * Integrated `SlideNavigationTransitionInfo` for smooth, fluid page transitions in `SettingsWindow` and added card-styled comparison containers in `ConflictDialogContent`. ⚡
+* Implemented implicit WinUI 3 `BrushTransition` and `ScalarTransition` animations on `LibraryCardControl` for fluid card surface elevation on pointer hover, smooth folder reveal, and cover art load fade-in. 🎭
+* Enhanced Action Center visual hierarchy with theme-aware section dividers and enriched primary call-to-action buttons with contextual icons. 🚀
 

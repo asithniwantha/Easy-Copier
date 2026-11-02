@@ -8,13 +8,18 @@
     xmlns:models="using:Easy_Copier.Models"
     mc:Ignorable="d">
 
-    <Border Style="{StaticResource GameCardStyle}"
+    <Border x:Name="CardBorder"
+            Style="{StaticResource GameCardStyle}"
             Width="{StaticResource GameCardWidth}"
             Height="{StaticResource GameCardHeight}"
             RightTapped="Card_RightTapped"
             PointerEntered="Card_PointerEntered"
             PointerExited="Card_PointerExited"
             PointerCanceled="Card_PointerExited">
+        <Border.BackgroundTransition>
+            <BrushTransition Duration="0:0:0.15"/>
+        </Border.BackgroundTransition>
+
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
@@ -31,9 +36,15 @@
                   PointerEntered="CoverArea_PointerEntered"
                   PointerExited="CoverArea_PointerExited"
                   PointerCanceled="CoverArea_PointerExited">
-                <Image Source="{x:Bind Entry.CoverImagePath, Mode=OneWay, Converter={StaticResource PathToImageSourceConverter}}"
+                <Image x:Name="CoverImage"
+                       Source="{x:Bind Entry.CoverImagePath, Mode=OneWay, Converter={StaticResource PathToImageSourceConverter}}"
                        Stretch="UniformToFill"
-                       Visibility="{x:Bind Entry.HasCover, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}"/>
+                       ImageOpened="CoverImage_ImageOpened"
+                       Visibility="{x:Bind Entry.HasCover, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}">
+                    <Image.OpacityTransition>
+                        <ScalarTransition Duration="0:0:0.2"/>
+                    </Image.OpacityTransition>
+                </Image>
                 <FontIcon Glyph="&#xE7FC;" FontSize="48" Opacity="0.35"
                           HorizontalAlignment="Center" VerticalAlignment="Center"
                           Visibility="{x:Bind Entry.HasNoCover, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}"/>
@@ -51,6 +62,9 @@
                         Opacity="0"
                         Click="OpenFolderButton_Click"
                         ToolTipService.ToolTip="Open folder in File Explorer">
+                    <Button.OpacityTransition>
+                        <ScalarTransition Duration="0:0:0.15"/>
+                    </Button.OpacityTransition>
                     <FontIcon Glyph="&#xE838;" FontSize="12"/>
                 </Button>
             </Grid>
