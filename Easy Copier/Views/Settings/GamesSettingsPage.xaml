@@ -5,96 +5,113 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:controls="using:CommunityToolkit.WinUI.Controls"
     mc:Ignorable="d">
 
     <ScrollViewer Padding="24">
         <StackPanel Spacing="16">
-            <TextBlock Text="Games Settings" FontSize="20" FontWeight="SemiBold" />
+            <TextBlock Text="Games Settings" Style="{StaticResource SectionHeaderStyle}" />
 
-            <StackPanel Spacing="8">
-                <TextBlock Text="Game Prices (Rs.)" FontWeight="SemiBold"/>
-                <Grid ColumnSpacing="16" RowSpacing="8">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto"/>
-                        <ColumnDefinition Width="100"/>
-                        <ColumnDefinition Width="16"/>
-                        <ColumnDefinition Width="Auto"/>
-                        <ColumnDefinition Width="100"/>
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
-                    </Grid.RowDefinitions>
+            <!-- Pricing Tiers SettingsExpander -->
+            <controls:SettingsExpander Header="Pricing Tiers (Rs.)"
+                                       Description="Configure game copy charges by file size thresholds"
+                                       IsExpanded="True">
+                <controls:SettingsExpander.HeaderIcon>
+                    <FontIcon Glyph="&#xE8D8;"/>
+                </controls:SettingsExpander.HeaderIcon>
+                <controls:SettingsExpander.Items>
+                    <controls:SettingsCard Header="Tier 1 (Up to 5 GB)"
+                                           Description="Base price for smaller games under 5 GB"
+                                           ContentAlignment="Right">
+                        <TextBox Text="{x:Bind ViewModel.PriceTier1, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="100"/>
+                    </controls:SettingsCard>
+                    <controls:SettingsCard Header="Tier 2 (5.1 GB to 10 GB)"
+                                           Description="Price for games between 5.1 GB and 10 GB"
+                                           ContentAlignment="Right">
+                        <TextBox Text="{x:Bind ViewModel.PriceTier2, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="100"/>
+                    </controls:SettingsCard>
+                    <controls:SettingsCard Header="Tier 3 (10.1 GB to 15.9 GB)"
+                                           Description="Price for mid-sized games between 10.1 GB and 15.9 GB"
+                                           ContentAlignment="Right">
+                        <TextBox Text="{x:Bind ViewModel.PriceTier3, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="100"/>
+                    </controls:SettingsCard>
+                    <controls:SettingsCard Header="Tier 4 (16 GB and above)"
+                                           Description="Price for large games 16 GB and above"
+                                           ContentAlignment="Right">
+                        <TextBox Text="{x:Bind ViewModel.PriceTier4, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="100"/>
+                    </controls:SettingsCard>
+                </controls:SettingsExpander.Items>
+            </controls:SettingsExpander>
 
-                    <TextBlock Grid.Row="0" Grid.Column="0" Text="Up to 5 GB:" VerticalAlignment="Center"/>
-                    <TextBox Grid.Row="0" Grid.Column="1" Text="{x:Bind ViewModel.PriceTier1, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-
-                    <TextBlock Grid.Row="0" Grid.Column="3" Text="5.1 GB to 10 GB:" VerticalAlignment="Center"/>
-                    <TextBox Grid.Row="0" Grid.Column="4" Text="{x:Bind ViewModel.PriceTier2, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-
-                    <TextBlock Grid.Row="1" Grid.Column="0" Text="10.1 GB to 15.9 GB:" VerticalAlignment="Center"/>
-                    <TextBox Grid.Row="1" Grid.Column="1" Text="{x:Bind ViewModel.PriceTier3, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-
-                    <TextBlock Grid.Row="1" Grid.Column="3" Text="16 GB and above:" VerticalAlignment="Center"/>
-                    <TextBox Grid.Row="1" Grid.Column="4" Text="{x:Bind ViewModel.PriceTier4, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-                </Grid>
-            </StackPanel>
-
-            <StackPanel Spacing="8">
-                <TextBlock Text="Game Folders" FontWeight="SemiBold"/>
-                <Grid MinHeight="80">
-                    <ListView x:Name="GameSourceFoldersListView"
-                              ItemsSource="{x:Bind ViewModel.GameSourceFolders, Mode=OneWay}"
-                              BorderBrush="{ThemeResource SurfaceStrokeColorDefaultBrush}"
-                              BorderThickness="1"
-                              CornerRadius="4"
-                              MinHeight="80">
-                        <ListView.ItemTemplate>
-                            <DataTemplate x:DataType="x:String">
-                                <Grid>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="*"/>
-                                        <ColumnDefinition Width="Auto"/>
-                                    </Grid.ColumnDefinitions>
-                                    <TextBlock Grid.Column="0" Text="{x:Bind}" VerticalAlignment="Center"
-                                               TextTrimming="CharacterEllipsis"/>
-                                    <Button Grid.Column="1" Content="Remove"
-                                            Command="{Binding ElementName=RootPage, Path=ViewModel.RemoveSourceFolderByPathCommand}"
-                                            CommandParameter="{x:Bind}"/>
-                                </Grid>
-                            </DataTemplate>
-                        </ListView.ItemTemplate>
-                    </ListView>
-
-                    <!-- Empty state when no game folders are configured -->
-                    <StackPanel Visibility="{x:Bind ViewModel.HasNoGameSourceFolders, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}"
-                                HorizontalAlignment="Center" VerticalAlignment="Center" Spacing="6" IsHitTestVisible="False">
-                        <FontIcon Glyph="&#xE8B7;" FontSize="24" Opacity="0.4" HorizontalAlignment="Center"/>
-                        <TextBlock Text="No game folders added yet. Click 'Add Game Folder' below to begin."
-                                   Opacity="0.6" FontSize="13" TextAlignment="Center"/>
+            <!-- Game Source Folders SettingsExpander -->
+            <controls:SettingsExpander Header="Game Source Folders"
+                                       Description="Manage directories scanned for game titles"
+                                       ItemsSource="{x:Bind ViewModel.GameSourceFolders, Mode=OneWay}"
+                                       IsExpanded="True">
+                <controls:SettingsExpander.HeaderIcon>
+                    <FontIcon Glyph="&#xE8F4;"/>
+                </controls:SettingsExpander.HeaderIcon>
+                <Button Command="{x:Bind ViewModel.AddNewSourceFolderCommand}" CommandParameter="Game">
+                    <StackPanel Orientation="Horizontal" Spacing="6">
+                        <FontIcon Glyph="&#xE710;" FontSize="12"/>
+                        <TextBlock Text="Add Folder"/>
                     </StackPanel>
-                </Grid>
+                </Button>
+                <controls:SettingsExpander.ItemTemplate>
+                    <DataTemplate x:DataType="x:String">
+                        <controls:SettingsCard Header="{x:Bind}">
+                            <controls:SettingsCard.HeaderIcon>
+                                <FontIcon Glyph="&#xE8F4;"/>
+                            </controls:SettingsCard.HeaderIcon>
+                            <Button Command="{Binding ElementName=RootPage, Path=ViewModel.RemoveSourceFolderByPathCommand}"
+                                    CommandParameter="{x:Bind}"
+                                    ToolTipService.ToolTip="Remove folder"
+                                    Padding="8,6">
+                                <FontIcon Glyph="&#xE74D;" FontSize="14"/>
+                            </Button>
+                        </controls:SettingsCard>
+                    </DataTemplate>
+                </controls:SettingsExpander.ItemTemplate>
+                <controls:SettingsExpander.ItemsFooter>
+                    <controls:SettingsCard Visibility="{x:Bind ViewModel.HasNoGameSourceFolders, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}"
+                                           Header="No game folders added yet"
+                                           Description="Click 'Add Folder' above to add a source directory">
+                        <controls:SettingsCard.HeaderIcon>
+                            <FontIcon Glyph="&#xE7FC;"/>
+                        </controls:SettingsCard.HeaderIcon>
+                    </controls:SettingsCard>
+                </controls:SettingsExpander.ItemsFooter>
+            </controls:SettingsExpander>
 
-                <StackPanel Orientation="Horizontal" Spacing="8" Margin="0,8,0,0">
-                    <Button Content="Add Game Folder" Command="{x:Bind ViewModel.AddNewSourceFolderCommand}" CommandParameter="Game"
-                            HorizontalAlignment="Left"/>
-                    <Button Content="Download Covers &amp; Requirements"
-                            Command="{x:Bind ViewModel.DownloadGameInfoCommand}"
-                            IsEnabled="{x:Bind ViewModel.CanDownloadCovers, Mode=OneWay}"
-                            ToolTipService.ToolTip="Downloads cover images and system requirements for all games in configured folders"
-                            HorizontalAlignment="Left"/>
-                    <Button Content="Cancel Download"
-                            Command="{x:Bind ViewModel.CancelDownloadGameInfoCommand}"
-                            Visibility="{x:Bind ViewModel.IsDownloadingCovers, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}"
-                            HorizontalAlignment="Left"/>
+            <!-- Game Cover Art & Metadata SettingsCard -->
+            <controls:SettingsCard Header="Cover Art &amp; System Requirements"
+                                   Description="Download vertical box art and hardware requirements for all detected games">
+                <controls:SettingsCard.HeaderIcon>
+                    <FontIcon Glyph="&#xEB9F;"/>
+                </controls:SettingsCard.HeaderIcon>
+                <StackPanel Orientation="Horizontal" Spacing="8">
                     <CheckBox Content="Overwrite existing covers"
                               IsChecked="{x:Bind ViewModel.OverwriteExistingCovers, Mode=TwoWay}"
                               ToolTipService.ToolTip="Re-download and replace existing cover images even if already present"
-                              VerticalAlignment="Center"
-                              HorizontalAlignment="Left"/>
+                              VerticalAlignment="Center"/>
+                    <Button Command="{x:Bind ViewModel.DownloadGameInfoCommand}"
+                            IsEnabled="{x:Bind ViewModel.CanDownloadCovers, Mode=OneWay}"
+                            ToolTipService.ToolTip="Downloads cover images and system requirements for all games in configured folders">
+                        <StackPanel Orientation="Horizontal" Spacing="6">
+                            <FontIcon Glyph="&#xE896;" FontSize="12"/>
+                            <TextBlock Text="Download Covers"/>
+                        </StackPanel>
+                    </Button>
+                    <Button Command="{x:Bind ViewModel.CancelDownloadGameInfoCommand}"
+                            Visibility="{x:Bind ViewModel.IsDownloadingCovers, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}"
+                            ToolTipService.ToolTip="Cancel ongoing download operation">
+                        <StackPanel Orientation="Horizontal" Spacing="6">
+                            <FontIcon Glyph="&#xE711;" FontSize="12"/>
+                            <TextBlock Text="Cancel"/>
+                        </StackPanel>
+                    </Button>
                 </StackPanel>
-            </StackPanel>
+            </controls:SettingsCard>
         </StackPanel>
     </ScrollViewer>
 </Page>
-

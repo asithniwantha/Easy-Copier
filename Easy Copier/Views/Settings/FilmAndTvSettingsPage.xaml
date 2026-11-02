@@ -5,55 +5,65 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:controls="using:CommunityToolkit.WinUI.Controls"
     mc:Ignorable="d">
 
     <ScrollViewer Padding="24">
         <StackPanel Spacing="16">
-            <TextBlock Text="Films &amp; TV Settings" FontSize="20" FontWeight="SemiBold" />
-            <StackPanel Spacing="8">
-                <TextBlock Text="Films &amp; TV Folders" FontWeight="SemiBold"/>
-                <Grid MinHeight="80">
-                    <ListView x:Name="TvAndFilmSourceFoldersListView"
-                              ItemsSource="{x:Bind ViewModel.TvAndFilmSourceFolders, Mode=OneWay}"
-                              BorderBrush="{ThemeResource SurfaceStrokeColorDefaultBrush}"
-                              BorderThickness="1"
-                              CornerRadius="4"
-                              MinHeight="80">
-                        <ListView.ItemTemplate>
-                            <DataTemplate x:DataType="x:String">
-                                <Grid>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="*"/>
-                                        <ColumnDefinition Width="Auto"/>
-                                    </Grid.ColumnDefinitions>
-                                    <TextBlock Grid.Column="0" Text="{x:Bind}" VerticalAlignment="Center"
-                                               TextTrimming="CharacterEllipsis"/>
-                                    <Button Grid.Column="1" Content="Remove"
-                                            Command="{Binding ElementName=RootPage, Path=ViewModel.RemoveSourceFolderByPathCommand}"
-                                            CommandParameter="{x:Bind}"/>
-                                </Grid>
-                            </DataTemplate>
-                        </ListView.ItemTemplate>
-                    </ListView>
+            <TextBlock Text="Films &amp; TV Settings" Style="{StaticResource SectionHeaderStyle}" />
 
-                    <!-- Empty state when no film or TV folders are configured -->
-                    <StackPanel Visibility="{x:Bind ViewModel.HasNoTvAndFilmSourceFolders, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}"
-                                HorizontalAlignment="Center" VerticalAlignment="Center" Spacing="6" IsHitTestVisible="False">
-                        <FontIcon Glyph="&#xE8B9;" FontSize="24" Opacity="0.4" HorizontalAlignment="Center"/>
-                        <TextBlock Text="No film or TV folders added yet. Click 'Add Films/TV Folder' below to begin."
-                                   Opacity="0.6" FontSize="13" TextAlignment="Center"/>
+            <!-- Media Folders SettingsExpander -->
+            <controls:SettingsExpander Header="Media Source Folders"
+                                       Description="Manage directories scanned for films and television series"
+                                       ItemsSource="{x:Bind ViewModel.TvAndFilmSourceFolders, Mode=OneWay}"
+                                       IsExpanded="True">
+                <controls:SettingsExpander.HeaderIcon>
+                    <FontIcon Glyph="&#xE8F4;"/>
+                </controls:SettingsExpander.HeaderIcon>
+                <Button Command="{x:Bind ViewModel.AddNewSourceFolderCommand}" CommandParameter="TvAndFilm">
+                    <StackPanel Orientation="Horizontal" Spacing="6">
+                        <FontIcon Glyph="&#xE710;" FontSize="12"/>
+                        <TextBlock Text="Add Folder"/>
                     </StackPanel>
-                </Grid>
-                <Button Content="Add Films/TV Folder" Command="{x:Bind ViewModel.AddNewSourceFolderCommand}" CommandParameter="TvAndFilm"
-                        HorizontalAlignment="Left" Margin="0,8,0,0"/>
+                </Button>
+                <controls:SettingsExpander.ItemTemplate>
+                    <DataTemplate x:DataType="x:String">
+                        <controls:SettingsCard Header="{x:Bind}">
+                            <controls:SettingsCard.HeaderIcon>
+                                <FontIcon Glyph="&#xE8F4;"/>
+                            </controls:SettingsCard.HeaderIcon>
+                            <Button Command="{Binding ElementName=RootPage, Path=ViewModel.RemoveSourceFolderByPathCommand}"
+                                    CommandParameter="{x:Bind}"
+                                    ToolTipService.ToolTip="Remove folder"
+                                    Padding="8,6">
+                                <FontIcon Glyph="&#xE74D;" FontSize="14"/>
+                            </Button>
+                        </controls:SettingsCard>
+                    </DataTemplate>
+                </controls:SettingsExpander.ItemTemplate>
+                <controls:SettingsExpander.ItemsFooter>
+                    <controls:SettingsCard Visibility="{x:Bind ViewModel.HasNoTvAndFilmSourceFolders, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}"
+                                           Header="No film or TV folders added yet"
+                                           Description="Click 'Add Folder' above to add a source directory">
+                        <controls:SettingsCard.HeaderIcon>
+                            <FontIcon Glyph="&#xE714;"/>
+                        </controls:SettingsCard.HeaderIcon>
+                    </controls:SettingsCard>
+                </controls:SettingsExpander.ItemsFooter>
+            </controls:SettingsExpander>
 
-                <TextBox Header="Video File Extensions"
-                         Text="{x:Bind ViewModel.VideoFileExtensions, Mode=TwoWay}"
+            <!-- Video File Recognition SettingsCard -->
+            <controls:SettingsCard Header="Video File Recognition"
+                                   Description="Comma-separated extensions to identify standalone video files (.mp4, .mkv, etc.)"
+                                   ContentAlignment="Right">
+                <controls:SettingsCard.HeaderIcon>
+                    <FontIcon Glyph="&#xE714;"/>
+                </controls:SettingsCard.HeaderIcon>
+                <TextBox Text="{x:Bind ViewModel.VideoFileExtensions, Mode=TwoWay}"
                          PlaceholderText="e.g. .mp4,.mkv,.avi"
-                         Margin="0,16,0,0"
+                         MinWidth="240"
                          ToolTipService.ToolTip="Comma-separated extensions to identify standalone video files" />
-            </StackPanel>
+            </controls:SettingsCard>
         </StackPanel>
     </ScrollViewer>
 </Page>
-

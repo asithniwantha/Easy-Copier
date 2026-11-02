@@ -172,6 +172,18 @@ namespace Easy_Copier.Models
         /// Gets a value indicating whether this entry does not have an associated cover image.
         /// </summary>
         public bool HasNoCover => !HasCover;
+
+        /// <summary>
+        /// Gets the fallback icon glyph corresponding to this entry's content category.
+        /// </summary>
+        public string FallbackGlyph => Category switch
+        {
+            LibraryCategory.Game => "\uE7FC",
+            LibraryCategory.App => "\uE71D",
+            LibraryCategory.TvAndFilm => "\uE714",
+            LibraryCategory.OsImage => "\uE7C5",
+            _ => "\uE7FC"
+        };
     }
 
     /// <summary>

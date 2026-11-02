@@ -5,55 +5,65 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:controls="using:CommunityToolkit.WinUI.Controls"
     mc:Ignorable="d">
 
     <ScrollViewer Padding="24">
         <StackPanel Spacing="16">
-            <TextBlock Text="Apps Settings" FontSize="20" FontWeight="SemiBold" />
-            <StackPanel Spacing="8">
-                <TextBlock Text="App Folders" FontWeight="SemiBold"/>
-                <Grid MinHeight="80">
-                    <ListView x:Name="AppSourceFoldersListView"
-                              ItemsSource="{x:Bind ViewModel.AppSourceFolders, Mode=OneWay}"
-                              BorderBrush="{ThemeResource SurfaceStrokeColorDefaultBrush}"
-                              BorderThickness="1"
-                              CornerRadius="4"
-                              MinHeight="80">
-                        <ListView.ItemTemplate>
-                            <DataTemplate x:DataType="x:String">
-                                <Grid>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="*"/>
-                                        <ColumnDefinition Width="Auto"/>
-                                    </Grid.ColumnDefinitions>
-                                    <TextBlock Grid.Column="0" Text="{x:Bind}" VerticalAlignment="Center"
-                                               TextTrimming="CharacterEllipsis"/>
-                                    <Button Grid.Column="1" Content="Remove"
-                                            Command="{Binding ElementName=RootPage, Path=ViewModel.RemoveSourceFolderByPathCommand}"
-                                            CommandParameter="{x:Bind}"/>
-                                </Grid>
-                            </DataTemplate>
-                        </ListView.ItemTemplate>
-                    </ListView>
+            <TextBlock Text="Apps Settings" Style="{StaticResource SectionHeaderStyle}" />
 
-                    <!-- Empty state when no app folders are configured -->
-                    <StackPanel Visibility="{x:Bind ViewModel.HasNoAppSourceFolders, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}"
-                                HorizontalAlignment="Center" VerticalAlignment="Center" Spacing="6" IsHitTestVisible="False">
-                        <FontIcon Glyph="&#xE71D;" FontSize="24" Opacity="0.4" HorizontalAlignment="Center"/>
-                        <TextBlock Text="No app folders added yet. Click 'Add App Folder' below to begin."
-                                   Opacity="0.6" FontSize="13" TextAlignment="Center"/>
+            <!-- App Folders SettingsExpander -->
+            <controls:SettingsExpander Header="App Source Folders"
+                                       Description="Manage directories scanned for application packages"
+                                       ItemsSource="{x:Bind ViewModel.AppSourceFolders, Mode=OneWay}"
+                                       IsExpanded="True">
+                <controls:SettingsExpander.HeaderIcon>
+                    <FontIcon Glyph="&#xE8F4;"/>
+                </controls:SettingsExpander.HeaderIcon>
+                <Button Command="{x:Bind ViewModel.AddNewSourceFolderCommand}" CommandParameter="App">
+                    <StackPanel Orientation="Horizontal" Spacing="6">
+                        <FontIcon Glyph="&#xE710;" FontSize="12"/>
+                        <TextBlock Text="Add Folder"/>
                     </StackPanel>
-                </Grid>
-                <Button Content="Add App Folder" Command="{x:Bind ViewModel.AddNewSourceFolderCommand}" CommandParameter="App"
-                        HorizontalAlignment="Left" Margin="0,8,0,0"/>
+                </Button>
+                <controls:SettingsExpander.ItemTemplate>
+                    <DataTemplate x:DataType="x:String">
+                        <controls:SettingsCard Header="{x:Bind}">
+                            <controls:SettingsCard.HeaderIcon>
+                                <FontIcon Glyph="&#xE8F4;"/>
+                            </controls:SettingsCard.HeaderIcon>
+                            <Button Command="{Binding ElementName=RootPage, Path=ViewModel.RemoveSourceFolderByPathCommand}"
+                                    CommandParameter="{x:Bind}"
+                                    ToolTipService.ToolTip="Remove folder"
+                                    Padding="8,6">
+                                <FontIcon Glyph="&#xE74D;" FontSize="14"/>
+                            </Button>
+                        </controls:SettingsCard>
+                    </DataTemplate>
+                </controls:SettingsExpander.ItemTemplate>
+                <controls:SettingsExpander.ItemsFooter>
+                    <controls:SettingsCard Visibility="{x:Bind ViewModel.HasNoAppSourceFolders, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}"
+                                           Header="No app folders added yet"
+                                           Description="Click 'Add Folder' above to add a source directory">
+                        <controls:SettingsCard.HeaderIcon>
+                            <FontIcon Glyph="&#xE71D;"/>
+                        </controls:SettingsCard.HeaderIcon>
+                    </controls:SettingsCard>
+                </controls:SettingsExpander.ItemsFooter>
+            </controls:SettingsExpander>
 
-                <TextBox Header="App File Extensions"
-                         Text="{x:Bind ViewModel.AppFileExtensions, Mode=TwoWay}"
+            <!-- App File Recognition SettingsCard -->
+            <controls:SettingsCard Header="App File Recognition"
+                                   Description="Comma-separated extensions to identify standalone app files (.exe, .msi, etc.)"
+                                   ContentAlignment="Right">
+                <controls:SettingsCard.HeaderIcon>
+                    <FontIcon Glyph="&#xE71D;"/>
+                </controls:SettingsCard.HeaderIcon>
+                <TextBox Text="{x:Bind ViewModel.AppFileExtensions, Mode=TwoWay}"
                          PlaceholderText="e.g. .exe,.msi,.rar,.zip"
-                         Margin="0,16,0,0"
+                         MinWidth="240"
                          ToolTipService.ToolTip="Comma-separated extensions to identify standalone app files" />
-            </StackPanel>
+            </controls:SettingsCard>
         </StackPanel>
     </ScrollViewer>
 </Page>
-

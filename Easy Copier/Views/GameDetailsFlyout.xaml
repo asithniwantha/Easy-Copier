@@ -33,7 +33,7 @@
                                     <ColumnDefinition Width="Auto" />
                                 </Grid.ColumnDefinitions>
 
-                                <FontIcon Grid.Column="0" Glyph="{x:Bind IconGlyph}" FontSize="16" Foreground="Gold" />
+                                <FontIcon Grid.Column="0" Glyph="{x:Bind IconGlyph}" FontSize="16" Foreground="{ThemeResource AccentTextFillColorPrimaryBrush}" />
 
                                 <TextBlock Grid.Column="1" Text="{x:Bind Name}"
                                            TextTrimming="CharacterEllipsis" MaxWidth="250" VerticalAlignment="Center" />
@@ -47,12 +47,12 @@
             </StackPanel>
         </ScrollViewer>
 
-        <!-- Separator -->
-        <Border Grid.Column="1" Background="Gray" Width="1" Margin="8,12,8,12" Opacity="0.5" />
+        <!-- Theme-aware Separator -->
+        <Border Grid.Column="1" Background="{ThemeResource DividerStrokeColorDefaultBrush}" Width="1" Margin="8,12,8,12" />
 
         <!-- Right Side: System Requirements View -->
         <ScrollViewer Grid.Column="2" MaxHeight="400" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled" Padding="12">
-            <RichTextBlock x:Name="SysReqTextBlock" TextWrapping="Wrap" FontFamily="Consolas" />
+            <RichTextBlock x:Name="SysReqTextBlock" TextWrapping="Wrap" />
         </ScrollViewer>
     </Grid>
 </UserControl>

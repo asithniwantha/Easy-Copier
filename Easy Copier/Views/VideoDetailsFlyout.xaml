@@ -25,11 +25,11 @@
         <TextBlock Grid.Row="0" Text="{x:Bind ViewModel.Title, Mode=OneWay}"
                    FontWeight="SemiBold" FontSize="16" TextTrimming="CharacterEllipsis"/>
         <TextBlock Grid.Row="1" Text="{x:Bind ViewModel.FolderPath, Mode=OneWay}"
-                   FontSize="12" Opacity="0.7" TextWrapping="Wrap" IsTextSelectionEnabled="True"/>
+                   FontSize="12" Foreground="{ThemeResource TextFillColorSecondaryBrush}" TextWrapping="Wrap" IsTextSelectionEnabled="True"/>
         <TextBlock Grid.Row="2" Text="{x:Bind ViewModel.Summary, Mode=OneWay}" FontWeight="Medium"/>
         <TextBlock Grid.Row="3" Text="{x:Bind ViewModel.StatusMessage, Mode=OneWay}"
                    Visibility="{x:Bind ViewModel.IsStatusVisible, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}"
-                   Foreground="Red" FontStyle="Italic" FontSize="12"/>
+                   Foreground="{ThemeResource SystemFillColorCriticalBrush}" FontStyle="Italic" FontSize="12"/>
 
         <ListView Grid.Row="4" ItemsSource="{x:Bind ViewModel.Files}" SelectionMode="None" MaxHeight="320">
             <ListView.ItemTemplate>
@@ -41,7 +41,7 @@
                         </Grid.ColumnDefinitions>
                         <TextBlock Text="{x:Bind Name}" TextTrimming="CharacterEllipsis"
                                    ToolTipService.ToolTip="{x:Bind Name}"/>
-                        <TextBlock Grid.Column="1" Text="{x:Bind SizeFormatted}" Opacity="0.7"/>
+                        <TextBlock Grid.Column="1" Text="{x:Bind SizeFormatted}" Foreground="{ThemeResource TextFillColorSecondaryBrush}"/>
                     </Grid>
                 </DataTemplate>
             </ListView.ItemTemplate>

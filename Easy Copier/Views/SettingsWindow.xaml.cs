@@ -3,6 +3,7 @@ using Easy_Copier.ViewModels;
 using Easy_Copier.Views.Settings;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Media.Animation;
 using System;
 using System.Threading.Tasks;
 
@@ -46,7 +47,7 @@ namespace Easy_Copier.Views
             _openAction = openAction;
             InitializeComponent();
             SettingsRoot.DataContext = ViewModel;
-            NativeWindowHelper.InitializeModalWindow(this, _owner, ViewModel, 960, 720);
+            NativeWindowHelper.InitializeModalWindow(this, _owner, ViewModel, 1200, 720);
 
             ViewModel.CloseRequested += (s, e) =>
             {
@@ -59,7 +60,7 @@ namespace Easy_Copier.Views
             // Adjust size to content dynamically when layout updates
             if (Content is FrameworkElement rootElement)
             {
-                NativeWindowHelper.EnableDynamicResizing(this, rootElement, 960, 640);
+                NativeWindowHelper.EnableDynamicResizing(this, rootElement, 1400, 840);
             }
         }
 
@@ -111,6 +112,7 @@ namespace Easy_Copier.Views
 
         /// <summary>
         /// Handles navigation selection changes to navigate the content frame to the appropriate settings page.
+        /// Applies a smooth slide navigation transition for visual fluid feedback.
         /// </summary>
         /// <param name="sender">The navigation view control.</param>
         /// <param name="args">Event arguments containing the newly selected item.</param>
@@ -134,7 +136,7 @@ namespace Easy_Copier.Views
 
                 if (ContentFrame.CurrentSourcePageType != pageType)
                 {
-                    ContentFrame.Navigate(pageType, ViewModel);
+                    ContentFrame.Navigate(pageType, ViewModel, new SlideNavigationTransitionInfo { Effect = SlideNavigationTransitionEffect.FromRight });
                 }
             }
         }

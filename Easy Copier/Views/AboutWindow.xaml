@@ -14,40 +14,69 @@
 
     <Grid Padding="24">
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
-        <!-- Custom TitleBar drag region (if needed) -->
+        <Border Grid.Row="0"
+                Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
+                BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
+                BorderThickness="1"
+                CornerRadius="12"
+                Padding="24"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                MaxWidth="420">
+            <StackPanel Spacing="16" HorizontalAlignment="Center">
+                <Image Source="/Assets/easy copier ico.ico" Width="96" Height="96" Margin="0,0,0,8" HorizontalAlignment="Center"/>
 
-        <StackPanel Grid.Row="1" Spacing="16" HorizontalAlignment="Center" VerticalAlignment="Center" MaxWidth="400">
-            <Image Source="/Assets/easy copier ico.ico" Width="100" Height="100" Margin="0,0,0,16"/>
+                <TextBlock Text="Easy Copier" Style="{ThemeResource TitleLargeTextBlockStyle}" HorizontalAlignment="Center"/>
 
-            <TextBlock Text="Easy Copier" FontSize="28" FontWeight="Bold" HorizontalAlignment="Center"/>
+                <!-- Version Badge Pill -->
+                <Border Background="{ThemeResource AccentFillColorDefaultBrush}" CornerRadius="12" Padding="12,4" HorizontalAlignment="Center">
+                    <StackPanel Orientation="Horizontal" Spacing="6">
+                        <TextBlock Text="v" FontSize="12" FontWeight="SemiBold" Foreground="{ThemeResource TextOnAccentFillColorPrimaryBrush}"/>
+                        <TextBlock Text="{x:Bind ViewModel.AppVersion, Mode=OneWay}" FontSize="12" FontWeight="SemiBold" Foreground="{ThemeResource TextOnAccentFillColorPrimaryBrush}"/>
+                    </StackPanel>
+                </Border>
 
-            <StackPanel Orientation="Horizontal" Spacing="8" HorizontalAlignment="Center">
-                <TextBlock Text="Version:" FontWeight="SemiBold"/>
-                <TextBlock Text="{x:Bind ViewModel.AppVersion, Mode=OneWay}"/>
+                <StackPanel Orientation="Horizontal" Spacing="6" HorizontalAlignment="Center">
+                    <TextBlock Text="Developer:" FontWeight="SemiBold" Foreground="{ThemeResource TextFillColorSecondaryBrush}"/>
+                    <TextBlock Text="{x:Bind ViewModel.DeveloperInfo, Mode=OneWay}"/>
+                </StackPanel>
+
+                <TextBlock Text="A modern utility designed to simplify organizing and transferring large game and application libraries to portable drives."
+                           TextWrapping="Wrap" TextAlignment="Center" Style="{ThemeResource BodyTextBlockStyle}"
+                           Foreground="{ThemeResource TextFillColorSecondaryBrush}" Margin="0,4,0,8"/>
+
+                <Button Command="{x:Bind ViewModel.CopyVersionInfoCommand}"
+                        HorizontalAlignment="Stretch" Padding="8,6">
+                    <StackPanel Orientation="Horizontal" Spacing="8" HorizontalAlignment="Center">
+                        <FontIcon Glyph="&#xE8C8;" FontSize="14"/>
+                        <TextBlock Text="Copy Version Details"/>
+                    </StackPanel>
+                </Button>
+
+                <Button Command="{x:Bind ViewModel.OpenGitHubRepoCommand}"
+                        HorizontalAlignment="Stretch" Padding="8,6">
+                    <StackPanel Orientation="Horizontal" Spacing="8" HorizontalAlignment="Center">
+                        <FontIcon Glyph="&#xE71B;" FontSize="14"/>
+                        <TextBlock Text="View Source on GitHub"/>
+                    </StackPanel>
+                </Button>
+
+                <Button Command="{x:Bind ViewModel.OpenGitHubIssuesCommand}"
+                        HorizontalAlignment="Stretch" Padding="8,6">
+                    <StackPanel Orientation="Horizontal" Spacing="8" HorizontalAlignment="Center">
+                        <FontIcon Glyph="&#xE8EC;" FontSize="14"/>
+                        <TextBlock Text="Report an Issue"/>
+                    </StackPanel>
+                </Button>
             </StackPanel>
+        </Border>
 
-            <StackPanel Orientation="Horizontal" Spacing="8" HorizontalAlignment="Center">
-                <TextBlock Text="Developer:" FontWeight="SemiBold"/>
-                <TextBlock Text="{x:Bind ViewModel.DeveloperInfo, Mode=OneWay}"/>
-            </StackPanel>
-
-            <TextBlock Text="A modern utility designed to simplify organizing and transferring large game and application libraries to portable drives."
-                       TextWrapping="Wrap" TextAlignment="Center" Margin="0,8,0,16" Opacity="0.8"/>
-
-            <Button Content="View Source on GitHub"
-                    Command="{x:Bind ViewModel.OpenGitHubRepoCommand}"
-                    HorizontalAlignment="Stretch" HorizontalContentAlignment="Center"/>
-
-            <Button Content="Report an Issue"
-                    Command="{x:Bind ViewModel.OpenGitHubIssuesCommand}"
-                    HorizontalAlignment="Stretch" HorizontalContentAlignment="Center"/>
-        </StackPanel>
-
-        <Button Grid.Row="2" Content="Close" Command="{x:Bind ViewModel.CloseWindowCommand}" HorizontalAlignment="Center" Margin="0,24,0,0" Style="{StaticResource AccentButtonStyle}" Width="120"/>
+        <Button Grid.Row="1" Content="Close" Command="{x:Bind ViewModel.CloseWindowCommand}"
+                HorizontalAlignment="Center" Margin="0,16,0,0"
+                Style="{StaticResource AccentButtonStyle}" Width="120"/>
     </Grid>
 </Window>

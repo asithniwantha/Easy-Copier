@@ -32,19 +32,19 @@
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
 
-                <TextBlock Grid.Row="0" Grid.Column="0" Text="Created:" FontWeight="Medium" Opacity="0.8"/>
+                <TextBlock Grid.Row="0" Grid.Column="0" Text="Created:" FontWeight="Medium" Foreground="{ThemeResource TextFillColorSecondaryBrush}"/>
                 <TextBlock Grid.Row="0" Grid.Column="1" Text="{x:Bind ViewModel.DateCreatedFormatted, Mode=OneWay}"/>
 
-                <TextBlock Grid.Row="1" Grid.Column="0" Text="Modified:" FontWeight="Medium" Opacity="0.8"/>
+                <TextBlock Grid.Row="1" Grid.Column="0" Text="Modified:" FontWeight="Medium" Foreground="{ThemeResource TextFillColorSecondaryBrush}"/>
                 <TextBlock Grid.Row="1" Grid.Column="1" Text="{x:Bind ViewModel.DateModifiedFormatted, Mode=OneWay}"/>
 
-                <TextBlock Grid.Row="2" Grid.Column="0" Text="Accessed:" FontWeight="Medium" Opacity="0.8"/>
+                <TextBlock Grid.Row="2" Grid.Column="0" Text="Accessed:" FontWeight="Medium" Foreground="{ThemeResource TextFillColorSecondaryBrush}"/>
                 <TextBlock Grid.Row="2" Grid.Column="1" Text="{x:Bind ViewModel.DateAccessedFormatted, Mode=OneWay}"/>
             </Grid>
 
             <TextBlock Text="{x:Bind ViewModel.StatusMessage, Mode=OneWay}"
                        Visibility="{x:Bind ViewModel.IsStatusVisible, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}"
-                       Foreground="Red"
+                       Foreground="{ThemeResource SystemFillColorCriticalBrush}"
                        FontStyle="Italic"
                        FontSize="12"/>
         </StackPanel>

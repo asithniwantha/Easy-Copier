@@ -5,14 +5,29 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:controls="using:CommunityToolkit.WinUI.Controls"
     mc:Ignorable="d">
 
     <ScrollViewer Padding="24">
         <StackPanel Spacing="16">
-            <TextBlock Text="Logs &amp; Troubleshooting" FontSize="20" FontWeight="SemiBold" />
-            <TextBlock Text="Access diagnostic logs for troubleshooting and support." TextWrapping="Wrap" />
-            <Button Content="Open Logs Folder" Command="{x:Bind ViewModel.OpenLogsFolderCommand}" HorizontalAlignment="Left" />
+            <TextBlock Text="Logs &amp; Troubleshooting" Style="{StaticResource SectionHeaderStyle}" />
+
+            <!-- Diagnostic Logs SettingsCard -->
+            <controls:SettingsCard Header="Application Event Logs"
+                                   Description="Open the local folder containing diagnostic log files for troubleshooting"
+                                   ActionIconToolTip="Open Logs Folder"
+                                   IsClickEnabled="True"
+                                   Command="{x:Bind ViewModel.OpenLogsFolderCommand}">
+                <controls:SettingsCard.HeaderIcon>
+                    <FontIcon Glyph="&#xE7BA;"/>
+                </controls:SettingsCard.HeaderIcon>
+                <Button Command="{x:Bind ViewModel.OpenLogsFolderCommand}">
+                    <StackPanel Orientation="Horizontal" Spacing="6">
+                        <FontIcon Glyph="&#xE8F4;" FontSize="12"/>
+                        <TextBlock Text="Open Logs Folder"/>
+                    </StackPanel>
+                </Button>
+            </controls:SettingsCard>
         </StackPanel>
     </ScrollViewer>
 </Page>
-

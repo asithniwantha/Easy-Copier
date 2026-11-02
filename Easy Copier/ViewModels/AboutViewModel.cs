@@ -84,5 +84,30 @@ namespace Easy_Copier.ViewModels
         {
             _processService.OpenInExplorer("https://github.com/asithniwantha/Easy-Copier/issues");
         }
+
+        /// <summary>
+        /// Gets or sets a value indicating whether version information was copied to the clipboard.
+        /// </summary>
+        [ObservableProperty]
+        public partial bool IsCopied { get; set; } = false;
+
+        /// <summary>
+        /// Copies version and runtime diagnostic information to the Windows clipboard.
+        /// </summary>
+        [RelayCommand]
+        private void CopyVersionInfo()
+        {
+            try
+            {
+                var package = new Windows.ApplicationModel.DataTransfer.DataPackage();
+                package.SetText($"Easy Copier v{AppVersion}\nOS: {Environment.OSVersion}\nRuntime: .NET {Environment.Version}");
+                Windows.ApplicationModel.DataTransfer.Clipboard.SetContent(package);
+                IsCopied = true;
+            }
+            catch
+            {
+                // Fallback for environments where clipboard access is restricted
+            }
+        }
     }
 }

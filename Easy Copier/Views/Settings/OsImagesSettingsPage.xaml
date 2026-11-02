@@ -5,67 +5,75 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:controls="using:CommunityToolkit.WinUI.Controls"
     mc:Ignorable="d">
 
     <ScrollViewer Padding="24">
         <StackPanel Spacing="16">
-            <TextBlock Text="OS Images Settings" FontSize="20" FontWeight="SemiBold" />
-            <StackPanel Spacing="8">
-                <TextBlock Text="OS Image Folders" FontWeight="SemiBold"/>
-                <Grid MinHeight="80">
-                    <ListView x:Name="OsImageSourceFoldersListView"
-                              ItemsSource="{x:Bind ViewModel.OsImageSourceFolders, Mode=OneWay}"
-                              BorderBrush="{ThemeResource SurfaceStrokeColorDefaultBrush}"
-                              BorderThickness="1"
-                              CornerRadius="4"
-                              MinHeight="80">
-                        <ListView.ItemTemplate>
-                            <DataTemplate x:DataType="x:String">
-                                <Grid>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="*"/>
-                                        <ColumnDefinition Width="Auto"/>
-                                    </Grid.ColumnDefinitions>
-                                    <TextBlock Grid.Column="0" Text="{x:Bind}" VerticalAlignment="Center"
-                                               TextTrimming="CharacterEllipsis"/>
-                                    <Button Grid.Column="1" Content="Remove"
-                                            Command="{Binding ElementName=RootPage, Path=ViewModel.RemoveSourceFolderByPathCommand}"
-                                            CommandParameter="{x:Bind}"/>
-                                </Grid>
-                            </DataTemplate>
-                        </ListView.ItemTemplate>
-                    </ListView>
+            <TextBlock Text="OS Images Settings" Style="{StaticResource SectionHeaderStyle}" />
 
-                    <!-- Empty state when no OS image folders are configured -->
-                    <StackPanel Visibility="{x:Bind ViewModel.HasNoOsImageSourceFolders, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}"
-                                HorizontalAlignment="Center" VerticalAlignment="Center" Spacing="6" IsHitTestVisible="False">
-                        <FontIcon Glyph="&#xE74E;" FontSize="24" Opacity="0.4" HorizontalAlignment="Center"/>
-                        <TextBlock Text="No OS image folders added yet. Click 'Add OS Image Folder' below to begin."
-                                   Opacity="0.6" FontSize="13" TextAlignment="Center"/>
+            <!-- OS Image Folders SettingsExpander -->
+            <controls:SettingsExpander Header="OS Image Source Folders"
+                                       Description="Manage directories scanned for ISO and disk image files"
+                                       ItemsSource="{x:Bind ViewModel.OsImageSourceFolders, Mode=OneWay}"
+                                       IsExpanded="True">
+                <controls:SettingsExpander.HeaderIcon>
+                    <FontIcon Glyph="&#xE8F4;"/>
+                </controls:SettingsExpander.HeaderIcon>
+                <Button Command="{x:Bind ViewModel.AddNewSourceFolderCommand}" CommandParameter="OsImage">
+                    <StackPanel Orientation="Horizontal" Spacing="6">
+                        <FontIcon Glyph="&#xE710;" FontSize="12"/>
+                        <TextBlock Text="Add Folder"/>
                     </StackPanel>
-                </Grid>
-                <Button Content="Add OS Image Folder" Command="{x:Bind ViewModel.AddNewSourceFolderCommand}" CommandParameter="OsImage"
-                        HorizontalAlignment="Left" Margin="0,8,0,0"/>
+                </Button>
+                <controls:SettingsExpander.ItemTemplate>
+                    <DataTemplate x:DataType="x:String">
+                        <controls:SettingsCard Header="{x:Bind}">
+                            <controls:SettingsCard.HeaderIcon>
+                                <FontIcon Glyph="&#xE8F4;"/>
+                            </controls:SettingsCard.HeaderIcon>
+                            <Button Command="{Binding ElementName=RootPage, Path=ViewModel.RemoveSourceFolderByPathCommand}"
+                                    CommandParameter="{x:Bind}"
+                                    ToolTipService.ToolTip="Remove folder"
+                                    Padding="8,6">
+                                <FontIcon Glyph="&#xE74D;" FontSize="14"/>
+                            </Button>
+                        </controls:SettingsCard>
+                    </DataTemplate>
+                </controls:SettingsExpander.ItemTemplate>
+                <controls:SettingsExpander.ItemsFooter>
+                    <controls:SettingsCard Visibility="{x:Bind ViewModel.HasNoOsImageSourceFolders, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}"
+                                           Header="No OS image folders added yet"
+                                           Description="Click 'Add Folder' above to add a source directory">
+                        <controls:SettingsCard.HeaderIcon>
+                            <FontIcon Glyph="&#xE7C5;"/>
+                        </controls:SettingsCard.HeaderIcon>
+                    </controls:SettingsCard>
+                </controls:SettingsExpander.ItemsFooter>
+            </controls:SettingsExpander>
 
-                <StackPanel Spacing="4" Margin="0,16,0,0">
-                    <TextBlock Text="Rufus Executable Path" Foreground="{ThemeResource TextControlHeaderForeground}"/>
-                    <Grid ColumnSpacing="8">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="Auto"/>
-                        </Grid.ColumnDefinitions>
-                        <TextBox Grid.Column="0"
-                                 Text="{x:Bind ViewModel.RufusExecutablePath, Mode=TwoWay}"
-                                 PlaceholderText="%USERPROFILE%\Downloads\Programs\rufus.exe"
-                                 ToolTipService.ToolTip="Path to rufus.exe for opening OS images" />
-                        <Button Grid.Column="1"
-                                Content="Browse..."
-                                Command="{x:Bind ViewModel.BrowseRufusExecutableCommand}"
-                                ToolTipService.ToolTip="Browse for rufus.exe" />
-                    </Grid>
-                </StackPanel>
-            </StackPanel>
+            <!-- Rufus Tool SettingsCard -->
+            <controls:SettingsCard Header="Rufus Bootable USB Tool"
+                                   Description="Path to rufus.exe to launch bootable drive creation from OS Images"
+                                   ContentAlignment="Right">
+                <controls:SettingsCard.HeaderIcon>
+                    <FontIcon Glyph="&#xE7C5;"/>
+                </controls:SettingsCard.HeaderIcon>
+                <Grid ColumnSpacing="8" MinWidth="340">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBox Grid.Column="0"
+                             Text="{x:Bind ViewModel.RufusExecutablePath, Mode=TwoWay}"
+                             PlaceholderText="%USERPROFILE%\Downloads\Programs\rufus.exe"
+                             ToolTipService.ToolTip="Path to rufus.exe for opening OS images" />
+                    <Button Grid.Column="1"
+                            Content="Browse..."
+                            Command="{x:Bind ViewModel.BrowseRufusExecutableCommand}"
+                            ToolTipService.ToolTip="Browse for rufus.exe" />
+                </Grid>
+            </controls:SettingsCard>
         </StackPanel>
     </ScrollViewer>
 </Page>
-

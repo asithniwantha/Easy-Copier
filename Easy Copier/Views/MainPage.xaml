@@ -171,7 +171,7 @@
                                                     CornerRadius="4" Padding="8,4" Margin="8,0,0,0">
                                                 <TextBlock Text="{x:Bind TotalBytes, Converter={StaticResource BytesToSizeConverter}}"
                                                            FontWeight="Bold" FontSize="14"
-                                                           Foreground="White"/>
+                                                           Foreground="{ThemeResource TextOnAccentFillColorPrimaryBrush}"/>
                                             </Border>
                                         </Grid>
                                     </DataTemplate>
@@ -211,7 +211,7 @@
                             </Grid.RowDefinitions>
                             <ProgressBar Grid.Row="0"
                                          Value="{x:Bind ViewModel.SelectedDrive.UsedPercentage, Mode=OneWay}"
-                                         Maximum="100" Margin="0,4,0,4"/>
+                                         Maximum="100" MinHeight="8" CornerRadius="4" Margin="0,4,0,4"/>
                             <TextBlock Grid.Row="1" FontSize="12" Opacity="0.7"
                                        Text="{x:Bind ViewModel.DriveSpaceSummary, Mode=OneWay}"/>
                             <TextBlock Grid.Row="2" FontSize="12" Opacity="0.7"
@@ -227,6 +227,10 @@
                                 <FontIcon Glyph="&#xE711;" FontSize="10" />
                             </Button>
                         </Grid>
+
+                        <!-- Subtle Section Divider -->
+                        <Border Height="1" Margin="0,8,0,0"
+                                Background="{ThemeResource DividerStrokeColorDefaultBrush}"/>
                     </StackPanel>
 
                     <Grid Grid.Row="2">
@@ -270,12 +274,12 @@
                             </Button>
                         </Grid>
 
-                        <StackPanel Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Spacing="8" Opacity="0.7"
+                        <StackPanel Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Spacing="8" Opacity="0.75"
                                     Visibility="{x:Bind ViewModel.IsQueueEmpty, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}">
-                            <FontIcon Glyph="&#xE896;" FontSize="40" HorizontalAlignment="Center"/>
+                            <FontIcon Glyph="&#xE896;" FontSize="40" HorizontalAlignment="Center" Foreground="{ThemeResource TextFillColorSecondaryBrush}"/>
                             <TextBlock Text="Your queue is empty" Style="{ThemeResource BodyStrongTextBlockStyle}" HorizontalAlignment="Center"/>
-                            <TextBlock Text="Select items and choose Add to Copy Queue" FontSize="12" TextWrapping="Wrap"
-                                       TextAlignment="Center" MaxWidth="220"/>
+                            <TextBlock Text="Select items and click Add to Copy Queue" Style="{ThemeResource CaptionTextBlockStyle}" TextWrapping="Wrap"
+                                       TextAlignment="Center" MaxWidth="220" Foreground="{ThemeResource TextFillColorSecondaryBrush}"/>
                         </StackPanel>
 
                         <ScrollViewer Grid.Row="2">
@@ -338,7 +342,7 @@
                                                             <ColumnDefinition Width="Auto"/>
                                                             <ColumnDefinition Width="Auto"/>
                                                         </Grid.ColumnDefinitions>
-                                                        <ProgressBar Grid.Column="0" Minimum="0" Maximum="100" Value="{x:Bind ProgressPercentage, Mode=OneWay}" VerticalAlignment="Center" Margin="0,0,8,0" CornerRadius="3" />
+                                                        <ProgressBar Grid.Column="0" Minimum="0" Maximum="100" Value="{x:Bind ProgressPercentage, Mode=OneWay}" VerticalAlignment="Center" Margin="0,0,8,0" CornerRadius="3" MinHeight="6" />
                                                         <TextBlock Grid.Column="1" Text="{x:Bind SpeedText, Mode=OneWay}" FontSize="11" Opacity="0.6" Margin="0,0,8,0" VerticalAlignment="Center" />
                                                         <TextBlock Grid.Column="2" Text="{x:Bind RemainingTimeText, Mode=OneWay}" FontSize="11" Opacity="0.6" VerticalAlignment="Center" />
                                                     </Grid>
@@ -353,17 +357,20 @@
 
                     <Grid Grid.Row="3" Margin="0,8,0,8">
                         <!-- Empty State -->
-                        <Border Background="{ThemeResource ControlFillColorSecondaryBrush}" CornerRadius="8" Padding="12,10"
+                        <Border Background="{ThemeResource ControlFillColorSecondaryBrush}" CornerRadius="8" Padding="14,12"
                                 Visibility="{x:Bind ViewModel.HasSelectedGames, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}, ConverterParameter=Invert}">
-                            <StackPanel Orientation="Horizontal" Spacing="8" VerticalAlignment="Center" Opacity="0.7">
-                                <FontIcon Glyph="&#xE73A;" FontSize="16"/>
-                                <TextBlock Text="No items selected" VerticalAlignment="Center"/>
+                            <StackPanel Orientation="Horizontal" Spacing="10" VerticalAlignment="Center">
+                                <FontIcon Glyph="&#xE73A;" FontSize="18" Foreground="{ThemeResource TextFillColorSecondaryBrush}"/>
+                                <StackPanel VerticalAlignment="Center" Spacing="2">
+                                    <TextBlock Text="No items selected" Style="{ThemeResource BodyStrongTextBlockStyle}"/>
+                                    <TextBlock Text="Select items from the library to copy" Style="{ThemeResource CaptionTextBlockStyle}" Foreground="{ThemeResource TextFillColorSecondaryBrush}"/>
+                                </StackPanel>
                             </StackPanel>
                         </Border>
 
                         <!-- Highlighted Card State -->
                         <Grid Visibility="{x:Bind ViewModel.HasSelectedGames, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}">
-                            <!-- Background Tint Border (15% opacity accent) -->
+                            <!-- Background Tint Border (12% opacity accent) -->
                             <Border Background="{ThemeResource AccentFillColorDefaultBrush}" Opacity="0.12" CornerRadius="8"/>
                             <!-- Stroke Border (1px accent) -->
                             <Border BorderBrush="{ThemeResource AccentFillColorDefaultBrush}" BorderThickness="1" CornerRadius="8" Padding="12,10">
@@ -409,9 +416,14 @@
                             <ColumnDefinition Width="Auto"/>
                         </Grid.ColumnDefinitions>
 
-                        <Button Grid.Column="0" Content="Add to Copy Queue" Style="{StaticResource AccentButtonStyle}"
+                        <Button Grid.Column="0" Style="{StaticResource AccentButtonStyle}"
                                 Command="{x:Bind ViewModel.CopySelectedGamesCommand}"
-                                HorizontalAlignment="Stretch" Margin="0,0,4,0"/>
+                                HorizontalAlignment="Stretch" Margin="0,0,4,0" Padding="12,8">
+                            <StackPanel Orientation="Horizontal" Spacing="8" HorizontalAlignment="Center">
+                                <FontIcon Glyph="&#xE896;" FontSize="14"/>
+                                <TextBlock Text="Add to Copy Queue" FontWeight="SemiBold"/>
+                            </StackPanel>
+                        </Button>
 
                         <Button Grid.Column="1" Padding="8" VerticalAlignment="Stretch"
                                 Command="{x:Bind ViewModel.SelectCustomDestinationCommand}"
@@ -421,10 +433,15 @@
                         </Button>
                     </Grid>
 
-                    <Button Grid.Row="4" Content="Open in Rufus" Style="{StaticResource AccentButtonStyle}"
+                    <Button Grid.Row="4" Style="{StaticResource AccentButtonStyle}"
                             Command="{x:Bind ViewModel.OpenInRufusCommand}"
                             Visibility="{x:Bind ViewModel.IsOsImagesTabActive, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}"
-                            HorizontalAlignment="Stretch" Margin="0,0,0,8"/>
+                            HorizontalAlignment="Stretch" Margin="0,0,0,8" Padding="12,8">
+                        <StackPanel Orientation="Horizontal" Spacing="8" HorizontalAlignment="Center">
+                            <FontIcon Glyph="&#xE7FC;" FontSize="14"/>
+                            <TextBlock Text="Open in Rufus" FontWeight="SemiBold"/>
+                        </StackPanel>
+                    </Button>
 
                     <Grid Grid.Row="5">
                         <Grid.RowDefinitions>

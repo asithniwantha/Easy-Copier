@@ -8,13 +8,18 @@
     xmlns:models="using:Easy_Copier.Models"
     mc:Ignorable="d">
 
-    <Border Style="{StaticResource GameCardStyle}"
+    <Border x:Name="CardBorder"
+            Style="{StaticResource GameCardStyle}"
             Width="{StaticResource GameCardWidth}"
             Height="{StaticResource GameCardHeight}"
             RightTapped="Card_RightTapped"
             PointerEntered="Card_PointerEntered"
             PointerExited="Card_PointerExited"
             PointerCanceled="Card_PointerExited">
+        <Border.BackgroundTransition>
+            <BrushTransition Duration="0:0:0.15"/>
+        </Border.BackgroundTransition>
+
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
@@ -23,17 +28,24 @@
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
 
+            <!-- Cover Art Area with Fallback and Folder Shortcut Action -->
             <Grid x:Name="CoverAreaGrid"
                   Grid.Row="0"
                   Background="{ThemeResource CardStrokeColorDefaultBrush}"
-                  CornerRadius="4"
+                  CornerRadius="6"
                   PointerEntered="CoverArea_PointerEntered"
                   PointerExited="CoverArea_PointerExited"
                   PointerCanceled="CoverArea_PointerExited">
-                <Image Source="{x:Bind Entry.CoverImagePath, Mode=OneWay, Converter={StaticResource PathToImageSourceConverter}}"
+                <Image x:Name="CoverImage"
+                       Source="{x:Bind Entry.CoverImagePath, Mode=OneWay, Converter={StaticResource PathToImageSourceConverter}}"
                        Stretch="UniformToFill"
-                       Visibility="{x:Bind Entry.HasCover, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}"/>
-                <FontIcon Glyph="&#xE7FC;" FontSize="48" Opacity="0.4"
+                       ImageOpened="CoverImage_ImageOpened"
+                       Visibility="{x:Bind Entry.HasCover, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}">
+                    <Image.OpacityTransition>
+                        <ScalarTransition Duration="0:0:0.2"/>
+                    </Image.OpacityTransition>
+                </Image>
+                <FontIcon Glyph="{x:Bind Entry.FallbackGlyph, Mode=OneWay}" FontSize="48" Opacity="0.35"
                           HorizontalAlignment="Center" VerticalAlignment="Center"
                           Visibility="{x:Bind Entry.HasNoCover, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}"/>
                 <InfoBadge Style="{ThemeResource CautionIconInfoBadgeStyle}"
@@ -50,17 +62,27 @@
                         Opacity="0"
                         Click="OpenFolderButton_Click"
                         ToolTipService.ToolTip="Open folder in File Explorer">
+                    <Button.OpacityTransition>
+                        <ScalarTransition Duration="0:0:0.15"/>
+                    </Button.OpacityTransition>
                     <FontIcon Glyph="&#xE838;" FontSize="12"/>
                 </Button>
             </Grid>
 
+            <!-- Title and Tooltip for Long Names -->
             <TextBlock Grid.Row="1" Text="{x:Bind Entry.Name, Mode=OneWay}"
                        FontWeight="SemiBold" TextTrimming="CharacterEllipsis"
+                       ToolTipService.ToolTip="{x:Bind Entry.Name, Mode=OneWay}"
                        Margin="0,8,0,2"/>
+
+            <!-- Category Description -->
             <TextBlock Grid.Row="2" Text="{x:Bind Entry.Categories, Mode=OneWay, Converter={StaticResource CategoryFormatConverter}}"
                        FontSize="12" Foreground="{ThemeResource TextFillColorSecondaryBrush}"
-                       TextTrimming="CharacterEllipsis" Margin="0,0,0,2" />
+                       TextTrimming="CharacterEllipsis"
+                       ToolTipService.ToolTip="{x:Bind Entry.Categories, Mode=OneWay, Converter={StaticResource CategoryFormatConverter}}"
+                       Margin="0,0,0,2" />
 
+            <!-- Size and Pricing Row -->
             <Grid Grid.Row="3">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
@@ -69,12 +91,13 @@
 
                 <TextBlock Grid.Column="0"
                            Text="{x:Bind Entry.TotalBytes, Mode=OneWay, Converter={StaticResource BytesToSizeConverter}}"
-                           Opacity="0.7" FontSize="12" VerticalAlignment="Bottom"/>
+                           Opacity="0.75" FontSize="12" VerticalAlignment="Bottom"/>
 
                 <TextBlock Grid.Column="1"
                            Text="{x:Bind Entry.TotalBytes, Mode=OneWay, Converter={StaticResource GameSizeToPriceConverter}}"
                            FontWeight="Bold" FontSize="14" VerticalAlignment="Bottom"
                            HorizontalAlignment="Right"
+                           Foreground="{ThemeResource AccentTextFillColorPrimaryBrush}"
                            Visibility="{x:Bind Entry.Category, Mode=OneWay, Converter={StaticResource GameCategoryToVisibilityConverter}}"/>
             </Grid>
         </Grid>

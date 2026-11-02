@@ -4,6 +4,7 @@
     xmlns:converters="using:Easy_Copier.Converters"
     xmlns:views="using:Easy_Copier.Views">
 
+    <!-- Value Converters for UI Presentation -->
     <converters:BytesToSizeConverter x:Key="BytesToSizeConverter"/>
     <converters:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter"/>
     <converters:SeverityToInfoBarSeverityConverter x:Key="SeverityConverter"/>
@@ -12,15 +13,25 @@
     <converters:GameCategoryToVisibilityConverter x:Key="GameCategoryToVisibilityConverter"/>
     <converters:QueueStatusToBrushConverter x:Key="QueueStatusToBrushConverter"/>
 
-    <SolidColorBrush x:Key="AppAccentBrush" Color="#0078D4"/>
-    <SolidColorBrush x:Key="AppSuccessBrush" Color="#107C10"/>
-    <SolidColorBrush x:Key="AppWarningBrush" Color="#FCE100"/>
-    <SolidColorBrush x:Key="AppErrorBrush" Color="#E81123"/>
+    <!-- Design System Spacing Tokens -->
+    <x:Double x:Key="SpacingXS">4</x:Double>
+    <x:Double x:Key="SpacingSM">8</x:Double>
+    <x:Double x:Key="SpacingMD">12</x:Double>
+    <x:Double x:Key="SpacingLG">16</x:Double>
+    <x:Double x:Key="SpacingXL">24</x:Double>
+    <x:Double x:Key="SpacingXXL">32</x:Double>
 
-    <x:Double x:Key="GameCardWidth">200</x:Double>
-    <x:Double x:Key="GameCardHeight">280</x:Double>
+    <!-- Corner Radius Tokens -->
+    <CornerRadius x:Key="SmallCornerRadius">4</CornerRadius>
+    <CornerRadius x:Key="MediumCornerRadius">6</CornerRadius>
+    <CornerRadius x:Key="LargeCornerRadius">8</CornerRadius>
     <CornerRadius x:Key="DefaultCornerRadius">8</CornerRadius>
 
+    <!-- Visual Presentation Dimensions -->
+    <x:Double x:Key="GameCardWidth">200</x:Double>
+    <x:Double x:Key="GameCardHeight">280</x:Double>
+
+    <!-- Card and Surface Styles -->
     <Style x:Key="GameCardStyle" TargetType="Border">
         <Setter Property="Background" Value="{ThemeResource CardBackgroundFillColorSecondaryBrush}"/>
         <Setter Property="CornerRadius" Value="{StaticResource DefaultCornerRadius}"/>
@@ -47,7 +58,7 @@
         <Setter Property="BorderThickness" Value="1"/>
         <Setter Property="CornerRadius" Value="8"/>
         <Setter Property="Padding" Value="12"/>
-        <Setter Property="Margin" Value="0,0,20,8"/>
+        <Setter Property="Margin" Value="0,0,8,8"/>
     </Style>
 
     <Style x:Key="SectionHeaderStyle" TargetType="TextBlock">
@@ -69,6 +80,7 @@
         <Setter Property="Padding" Value="8,4"/>
     </Style>
 
+    <!-- Shared Library Card Template -->
     <DataTemplate x:Key="LibraryItemTemplate">
         <views:LibraryCardControl />
     </DataTemplate>
