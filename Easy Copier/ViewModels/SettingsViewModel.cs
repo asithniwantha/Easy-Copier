@@ -16,7 +16,7 @@ namespace Easy_Copier.ViewModels
     /// <summary>
     /// ViewModel managing application settings, source folder configurations, price tiers, and updates.
     /// </summary>
-    public sealed partial class SettingsViewModel : ObservableObject, IDisposable
+    public sealed partial class SettingsViewModel : ObservableObject, ICloseableViewModel, IDisposable
     {
         private readonly ISettingsService _settingsService;
         private readonly IFolderPickerService _folderPickerService;
@@ -126,32 +126,14 @@ namespace Easy_Copier.ViewModels
         [ObservableProperty]
         public partial string SelectedNavTag { get; set; } = "General";
 
-        /// <summary>Gets or sets a value indicating whether the general settings panel is visible.</summary>
-        [ObservableProperty]
-        public partial bool IsGeneralPanelVisible { get; set; } = true;
-
-        /// <summary>Gets or sets a value indicating whether the games settings panel is visible.</summary>
-        [ObservableProperty]
-        public partial bool IsGamesPanelVisible { get; set; }
-
-        /// <summary>Gets or sets a value indicating whether the apps settings panel is visible.</summary>
-        [ObservableProperty]
-        public partial bool IsAppsPanelVisible { get; set; }
-
-        /// <summary>Gets or sets a value indicating whether the films &amp; TV settings panel is visible.</summary>
-        [ObservableProperty]
-        public partial bool IsFilmAndTvPanelVisible { get; set; }
-
-        /// <summary>Gets or sets a value indicating whether the OS images settings panel is visible.</summary>
-        [ObservableProperty]
-        public partial bool IsOsImagesPanelVisible { get; set; }
-
-        /// <summary>Gets or sets a value indicating whether the logs settings panel is visible.</summary>
-        [ObservableProperty]
-        public partial bool IsLogsPanelVisible { get; set; }
-
         /// <summary>Occurs when the view model requests the containing settings window or dialog to close.</summary>
         public event EventHandler? CloseRequested;
+
+        /// <inheritdoc />
+        public void RequestClose()
+        {
+            CloseRequested?.Invoke(this, EventArgs.Empty);
+        }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="SettingsViewModel"/> class with required dependencies.
@@ -593,12 +575,6 @@ namespace Easy_Copier.ViewModels
         /// <param name="value">The new navigation tag string.</param>
         partial void OnSelectedNavTagChanged(string value)
         {
-            IsGeneralPanelVisible = value is "General";
-            IsGamesPanelVisible = value is "Games";
-            IsAppsPanelVisible = value is "Apps";
-            IsFilmAndTvPanelVisible = value is "FilmAndTv";
-            IsOsImagesPanelVisible = value is "OsImages";
-            IsLogsPanelVisible = value is "Logs";
         }
 
         /// <summary>

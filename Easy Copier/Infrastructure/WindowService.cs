@@ -118,6 +118,11 @@ namespace Easy_Copier.Infrastructure
         private readonly IAppWindowContext _appWindowContext;
 
         /// <summary>
+        /// The settings navigation service used for resolving settings pages.
+        /// </summary>
+        private readonly Services.ISettingsNavigationService _settingsNavigationService;
+
+        /// <summary>
         /// Initializes a new instance of the <see cref="WindowService"/> class using typed ViewModel factories.
         /// </summary>
         /// <param name="settingsViewModelFactory">Factory delegate for resolving <see cref="SettingsViewModel"/> instances.</param>
@@ -130,13 +135,15 @@ namespace Easy_Copier.Infrastructure
             Func<HistoryViewModel> historyViewModelFactory,
             Func<SmartAdderHistoryViewModel> smartAdderHistoryViewModelFactory,
             Func<AboutViewModel> aboutViewModelFactory,
-            IAppWindowContext appWindowContext)
+            IAppWindowContext appWindowContext,
+            Services.ISettingsNavigationService settingsNavigationService)
         {
             _settingsViewModelFactory = settingsViewModelFactory ?? throw new ArgumentNullException(nameof(settingsViewModelFactory));
             _historyViewModelFactory = historyViewModelFactory ?? throw new ArgumentNullException(nameof(historyViewModelFactory));
             _smartAdderHistoryViewModelFactory = smartAdderHistoryViewModelFactory ?? throw new ArgumentNullException(nameof(smartAdderHistoryViewModelFactory));
             _aboutViewModelFactory = aboutViewModelFactory ?? throw new ArgumentNullException(nameof(aboutViewModelFactory));
             _appWindowContext = appWindowContext ?? throw new ArgumentNullException(nameof(appWindowContext));
+            _settingsNavigationService = settingsNavigationService ?? throw new ArgumentNullException(nameof(settingsNavigationService));
         }
 
         /// <summary>
@@ -154,7 +161,7 @@ namespace Easy_Copier.Infrastructure
             // Resolve a fresh transient SettingsViewModel instance via typed factory delegate (no service locator)
             SettingsViewModel viewModel = _settingsViewModelFactory();
             // Pass the primary application window context to modal dialogs as the owner window
-            SettingsWindow settingsWindow = new(viewModel, MainWindow!, openAction);
+            SettingsWindow settingsWindow = new(viewModel, MainWindow!, openAction, _settingsNavigationService);
             if (onClosed != null)
             {
                 settingsWindow.SettingsClosed += (s, e) => onClosed();

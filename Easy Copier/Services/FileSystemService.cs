@@ -1,6 +1,8 @@
 using Easy_Copier.Infrastructure;
 using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 
 namespace Easy_Copier.Services
 {
@@ -59,6 +61,20 @@ namespace Easy_Copier.Services
             }
 
             return (null, null, null);
+        }
+
+        /// <inheritdoc />
+        public IEnumerable<(string RelativePath, long Length)> EnumerateFilesRelative(string path)
+        {
+            if (string.IsNullOrWhiteSpace(path) || !Directory.Exists(path))
+            {
+                return [];
+            }
+
+            EnumerationOptions options = new() { RecurseSubdirectories = true, IgnoreInaccessible = true };
+            DirectoryInfo di = new(path);
+            return di.EnumerateFiles("*", options)
+                .Select(f => (Path.GetRelativePath(path, f.FullName), f.Length));
         }
     }
 }

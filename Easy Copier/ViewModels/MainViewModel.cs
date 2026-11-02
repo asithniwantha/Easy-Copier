@@ -34,11 +34,11 @@ namespace Easy_Copier.ViewModels
         private readonly IFolderPickerService _folderPickerService;
         private readonly IGameRequirementsService _gameRequirementsService;
         private readonly IFileSystemService _fileSystemService;
+        private readonly ILibrarySelectionCoordinator _selectionCoordinator;
         private readonly Func<GameDetailsViewModel> _gameDetailsViewModelFactory;
         private CancellationTokenSource? _scanCancellationTokenSource;
         private CancellationTokenSource? _validationCancellationTokenSource;
         private CancellationTokenSource? _notificationCancellationTokenSource;
-        private List<GameEntry> _selectedGames = [];
         private AppSettings? _cachedSettings;
         private System.Threading.Timer? _updateCheckTimer;
         /// <summary>
@@ -154,29 +154,34 @@ namespace Easy_Copier.ViewModels
         public partial RemovableDrive? SelectedDrive { get; set; }
 
         /// <summary>
-        /// Gets or sets the count of currently selected library items.
+        /// Gets the selection coordinator instance managing item selections across library tabs.
         /// </summary>
-        [ObservableProperty]
-        [NotifyPropertyChangedFor(nameof(HasSelectedGames))]
-        public partial int SelectedGamesCount { get; set; }
+        public ILibrarySelectionCoordinator SelectionCoordinator => _selectionCoordinator;
+
+        /// <summary>
+        /// Gets the count of currently selected library items.
+        /// </summary>
+        public int SelectedGamesCount => _selectionCoordinator.SelectedCount;
 
         /// <summary>
         /// Gets a value indicating whether any library items are currently selected.
         /// </summary>
-        public bool HasSelectedGames => SelectedGamesCount > 0;
-
-
-        /// <summary>
-        /// Gets or sets the aggregate byte size of currently selected library items.
-        /// </summary>
-        [ObservableProperty]
-        public partial long SelectedGamesTotalBytes { get; set; }
+        public bool HasSelectedGames => _selectionCoordinator.HasSelection;
 
         /// <summary>
-        /// Gets or sets the total calculated monetary price of currently selected library items.
+        /// Gets the aggregate byte size of currently selected library items.
         /// </summary>
-        [ObservableProperty]
-        public partial int SelectedGamesTotalPrice { get; set; }
+        public long SelectedGamesTotalBytes => _selectionCoordinator.SelectedTotalBytes;
+
+        /// <summary>
+        /// Gets the total calculated monetary price of currently selected library items.
+        /// </summary>
+        public int SelectedGamesTotalPrice => _selectionCoordinator.SelectedTotalPrice;
+
+        /// <summary>
+        /// Gets the currently selected library items.
+        /// </summary>
+        public IReadOnlyList<GameEntry> SelectedGames => _selectionCoordinator.SelectedEntries;
 
         /// <summary>
         /// Gets or sets the search filter text query.
@@ -284,30 +289,22 @@ namespace Easy_Copier.ViewModels
         /// <summary>
         /// Gets the empty view status message for the games tab.
         /// </summary>
-        public string EmptyGamesMessage => string.IsNullOrWhiteSpace(GamesSearchText)
-            ? "No games found. Add a game folder in Settings and scan your library."
-            : $"No games match \"{GamesSearchText}\".";
+        public string EmptyGamesMessage => FormattingHelpers.FormatEmptyLibraryMessage("games", "game", GamesSearchText);
 
         /// <summary>
         /// Gets the empty view status message for the applications tab.
         /// </summary>
-        public string EmptyAppsMessage => string.IsNullOrWhiteSpace(AppsSearchText)
-            ? "No apps found. Add an app folder in Settings and scan your library."
-            : $"No apps match \"{AppsSearchText}\".";
+        public string EmptyAppsMessage => FormattingHelpers.FormatEmptyLibraryMessage("apps", "app", AppsSearchText);
 
         /// <summary>
         /// Gets the empty view status message for the TV and films tab.
         /// </summary>
-        public string EmptyTvAndFilmsMessage => string.IsNullOrWhiteSpace(TvAndFilmsSearchText)
-            ? "No films/TV series found. Add a folder in Settings and scan your library."
-            : $"No films/TV series match \"{TvAndFilmsSearchText}\".";
+        public string EmptyTvAndFilmsMessage => FormattingHelpers.FormatEmptyLibraryMessage("films/TV series", "film/TV", TvAndFilmsSearchText);
 
         /// <summary>
         /// Gets the empty view status message for the OS images tab.
         /// </summary>
-        public string EmptyOsImagesMessage => string.IsNullOrWhiteSpace(OsImagesSearchText)
-            ? "No OS images found. Add an OS image folder in Settings and scan your library."
-            : $"No OS images match \"{OsImagesSearchText}\".";
+        public string EmptyOsImagesMessage => FormattingHelpers.FormatEmptyLibraryMessage("OS images", "OS image", OsImagesSearchText);
 
         /// <summary>
         /// Gets a value indicating whether a target removable drive is currently selected.
@@ -334,6 +331,11 @@ namespace Easy_Copier.ViewModels
         [ObservableProperty]
         [NotifyPropertyChangedFor(nameof(IsOsImagesTabActive))]
         public partial int CurrentTabIndex { get; set; }
+
+        partial void OnCurrentTabIndexChanged(int value)
+        {
+            _selectionCoordinator?.SetActiveTab(IsOsImagesTabActive);
+        }
 
         /// <summary>
         /// Gets a value indicating whether the active tab is the OS Images tab.
@@ -442,6 +444,7 @@ namespace Easy_Copier.ViewModels
             IGameRequirementsService gameRequirementsService,
             IFolderPickerService folderPickerService,
             IFileSystemService fileSystemService,
+            ILibrarySelectionCoordinator selectionCoordinator,
             SmartAdderViewModel smartAdderViewModel,
             Func<GameDetailsViewModel> gameDetailsViewModelFactory)
         {
@@ -463,8 +466,11 @@ namespace Easy_Copier.ViewModels
             _folderPickerService = folderPickerService;
             _gameRequirementsService = gameRequirementsService;
             _fileSystemService = fileSystemService;
+            _selectionCoordinator = selectionCoordinator ?? throw new ArgumentNullException(nameof(selectionCoordinator));
+            _selectionCoordinator.SelectionChanged += OnSelectionCoordinatorChanged;
             SmartAdderViewModel = smartAdderViewModel;
             _gameDetailsViewModelFactory = gameDetailsViewModelFactory;
+
             GamesTabViewModel = new GamesTabViewModel(this);
             AppsTabViewModel = new AppsTabViewModel(this);
             TvAndFilmsTabViewModel = new TvAndFilmsTabViewModel(this);
@@ -497,6 +503,19 @@ namespace Easy_Copier.ViewModels
         public int QueueCount => TransferQueue.Count;
 
         private bool IsDisposed => Volatile.Read(ref _isDisposed) != 0;
+
+
+        /// <summary>
+        /// Handles selection changed events from the selection coordinator to update UI aggregate properties.
+        /// </summary>
+        private void OnSelectionCoordinatorChanged(object? sender, EventArgs e)
+        {
+            OnPropertyChanged(nameof(SelectedGamesCount));
+            OnPropertyChanged(nameof(SelectedGamesTotalBytes));
+            OnPropertyChanged(nameof(SelectedGamesTotalPrice));
+            OnPropertyChanged(nameof(HasSelectedGames));
+            CopySelectedGamesCommand.NotifyCanExecuteChanged();
+        }
 
         private void OnDrivesChanged(object? sender, EventArgs e)
         {

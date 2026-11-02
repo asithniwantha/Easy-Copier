@@ -13,6 +13,9 @@ namespace Easy_Copier.ViewModels
         /// <summary>
         /// Gets the list of filtered game entries.
         /// </summary>
+        /// <inheritdoc />
+        public override LibraryCategory Category => LibraryCategory.Game;
+
         public ObservableCollection<GameEntry> Games => MainViewModel.Games;
 
         /// <summary>

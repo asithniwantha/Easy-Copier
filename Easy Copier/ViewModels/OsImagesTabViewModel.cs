@@ -14,6 +14,9 @@ namespace Easy_Copier.ViewModels
         /// <summary>
         /// Gets the list of filtered OS Image entries.
         /// </summary>
+        /// <inheritdoc />
+        public override LibraryCategory Category => LibraryCategory.OsImage;
+
         public ObservableCollection<GameEntry> OsImages => MainViewModel.OsImages;
 
         /// <summary>

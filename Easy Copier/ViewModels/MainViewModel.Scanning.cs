@@ -363,7 +363,7 @@ namespace Easy_Copier.ViewModels
         [RelayCommand(CanExecute = nameof(CanCopyGames))]
         private async Task CopySelectedGamesAsync()
         {
-            if (SelectedDrive == null || _selectedGames.Count == 0)
+            if (SelectedDrive == null || SelectedGames.Count == 0)
             {
                 return;
             }
@@ -375,7 +375,7 @@ namespace Easy_Copier.ViewModels
                 RemovableDrive driveForValidation = GetDriveForValidation(SelectedDrive);
 
                 IReadOnlyList<ValidationResult> validation = await _driveCoordinatorService.ValidateTransferAsync(
-                    _selectedGames, driveForValidation, destinationPath);
+                    SelectedGames, driveForValidation, destinationPath);
 
                 ValidationMessages.UpdateFrom(validation);
 
@@ -430,7 +430,7 @@ namespace Easy_Copier.ViewModels
             bool applyToAll = false;
             CopyAction globalAction = CopyAction.Default;
 
-            foreach (GameEntry game in _selectedGames)
+            foreach (GameEntry game in SelectedGames)
             {
                 string destItemPath = _fileSystemService.FileExists(game.FolderPath)
                     ? Path.Combine(destinationPath, Path.GetFileName(game.FolderPath))
@@ -592,14 +592,9 @@ namespace Easy_Copier.ViewModels
         /// <param name="selectedGames">The collection of selected library entries.</param>
         public void UpdateSelectionSummary(System.Collections.Generic.IEnumerable<GameEntry> selectedGames)
         {
-            _selectedGames = [.. selectedGames];
-            SelectedGamesCount = _selectedGames.Count;
-            SelectedGamesTotalBytes = _selectedGames.Sum(g => g.TotalBytes);
-
-            AppSettings settings = _cachedSettings ??= _settingsService.LoadSettingsSync();
-            SelectedGamesTotalPrice = _selectedGames.Sum(g => Infrastructure.FormattingHelpers.CalculatePrice(g.TotalBytes, settings));
-
-            CopySelectedGamesCommand.NotifyCanExecuteChanged();
+            _selectionCoordinator.SetCategorySelection(
+                IsOsImagesTabActive ? LibraryCategory.OsImage : LibraryCategory.Game,
+                selectedGames);
         }
 
         /// <summary>
@@ -635,6 +630,7 @@ namespace Easy_Copier.ViewModels
         [RelayCommand]
         private void ClearSelection()
         {
+            _selectionCoordinator.ClearAll();
             ClearSelectionRequested?.Invoke(this, EventArgs.Empty);
         }
 
@@ -682,13 +678,13 @@ namespace Easy_Copier.ViewModels
         [RelayCommand]
         private async Task OpenInRufusAsync()
         {
-            if (_selectedGames.Count != 1)
+            if (SelectedGames.Count != 1)
             {
                 StatusMessage = "Please select exactly one OS image.";
                 return;
             }
 
-            GameEntry selectedImage = _selectedGames[0];
+            GameEntry selectedImage = SelectedGames[0];
             (bool _, string message) = await _rufusService.LaunchWithIsoAsync(selectedImage.FolderPath);
             StatusMessage = message;
         }
@@ -733,6 +729,7 @@ namespace Easy_Copier.ViewModels
             _driveCoordinatorService.DrivesChanged -= OnDrivesChanged;
             _transferQueueService.ItemCompleted -= OnQueueItemCompleted;
             _transferQueueService.BatchCompleted -= OnBatchCompleted;
+            _selectionCoordinator.SelectionChanged -= OnSelectionCoordinatorChanged;
             _driveCoordinatorService.StopWatching();
 
             _ = (_updateCheckTimer?.Change(Timeout.Infinite, Timeout.Infinite));

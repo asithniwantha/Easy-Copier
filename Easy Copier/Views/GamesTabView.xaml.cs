@@ -20,7 +20,7 @@ namespace Easy_Copier.Views
                 nameof(ViewModel),
                 typeof(GamesTabViewModel),
                 typeof(GamesTabView),
-                new PropertyMetadata(null));
+                new PropertyMetadata(null, OnViewModelPropertyChanged));
 
         /// <summary>
         /// Gets or sets the <see cref="GamesTabViewModel"/> for this control.
@@ -65,43 +65,39 @@ namespace Easy_Copier.Views
         }
 
         /// <summary>
-        /// Handles the <see cref="Selector.SelectionChanged"/> event for the games grid.
+        /// Handles changes to the <see cref="ViewModelProperty"/> to hook clear selection notifications.
         /// </summary>
-        /// <param name="sender">The source of the selection changed event.</param>
-        /// <param name="e">The event data describing selection modifications.</param>
+        private static void OnViewModelPropertyChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            if (d is GamesTabView view)
+            {
+                if (e.OldValue is GamesTabViewModel oldVm)
+                {
+                    oldVm.ClearSelectionRequested -= view.OnClearSelectionRequested;
+                }
+
+                if (e.NewValue is GamesTabViewModel newVm)
+                {
+                    newVm.ClearSelectionRequested += view.OnClearSelectionRequested;
+                }
+            }
+        }
+
+        /// <summary>
+        /// Handles clear selection requests from the ViewModel.
+        /// </summary>
+        private void OnClearSelectionRequested(object? sender, System.EventArgs e)
+        {
+            ClearSelection();
+        }
+
+        /// <summary>
+        /// Handles the <see cref="Selector.SelectionChanged"/> event for the games grid, updating the coordinator and raising local events.
+        /// </summary>
         private void GamesGridView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            ViewModel?.UpdateSelection(GamesGridView.GetSelectedEntries());
             SelectionChanged?.Invoke(this, e);
-        }
-
-        /// <summary>
-        /// Handles text changes in the search box to provide suggestions and update background highlights.
-        /// </summary>
-        /// <param name="sender">The source <see cref="AutoSuggestBox"/> control.</param>
-        /// <param name="args">The event arguments containing text change details.</param>
-        private void SearchBox_TextChanged(AutoSuggestBox sender, AutoSuggestBoxTextChangedEventArgs args)
-        {
-            AutoSuggestBoxHelper.HandleTextChanged(sender, args, ViewModel);
-        }
-
-        /// <summary>
-        /// Handles the event when a suggestion is chosen from the AutoSuggestBox.
-        /// </summary>
-        /// <param name="sender">The source <see cref="AutoSuggestBox"/> control.</param>
-        /// <param name="args">The event arguments containing chosen suggestion details.</param>
-        private void SearchBox_SuggestionChosen(AutoSuggestBox sender, AutoSuggestBoxSuggestionChosenEventArgs args)
-        {
-            AutoSuggestBoxHelper.HandleSuggestionChosen(args, ViewModel);
-        }
-
-        /// <summary>
-        /// Handles the event when the user submits a query from the AutoSuggestBox.
-        /// </summary>
-        /// <param name="sender">The source <see cref="AutoSuggestBox"/> control.</param>
-        /// <param name="args">The event arguments containing query submission details.</param>
-        private void SearchBox_QuerySubmitted(AutoSuggestBox sender, AutoSuggestBoxQuerySubmittedEventArgs args)
-        {
-            AutoSuggestBoxHelper.HandleQuerySubmitted(args, ViewModel);
         }
     }
 }

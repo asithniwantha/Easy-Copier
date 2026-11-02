@@ -6,6 +6,8 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:models="using:Easy_Copier.Models"
+    xmlns:behaviors="using:Easy_Copier.Behaviors"
+    xmlns:interactivity="using:Microsoft.Xaml.Interactivity"
     mc:Ignorable="d">
 
     <Grid>
@@ -20,10 +22,10 @@
                         QueryIcon="Find"
                         FontSize="24" MinHeight="40"
                         Text="{x:Bind ViewModel.SearchText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                        TextChanged="SearchBox_TextChanged"
-                        SuggestionChosen="SearchBox_SuggestionChosen"
-                        QuerySubmitted="SearchBox_QuerySubmitted"
                         HorizontalAlignment="Stretch">
+            <interactivity:Interaction.Behaviors>
+                <behaviors:AutoSuggestBoxSearchBehavior SearchableViewModel="{x:Bind ViewModel, Mode=OneWay}"/>
+            </interactivity:Interaction.Behaviors>
             <AutoSuggestBox.Resources>
                 <x:Double x:Key="AutoSuggestBoxDeleteButtonFontSize">24</x:Double>
                 <x:Double x:Key="AutoSuggestBoxDeleteButtonMinWidth">40</x:Double>
@@ -51,7 +53,7 @@
             <!-- Enriched Empty State with Iconography and Theme Hierarchy -->
             <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Spacing="8"
                         Visibility="{x:Bind ViewModel.IsAppsEmpty, Mode=OneWay}">
-                <FontIcon Glyph="&#xE71D;" FontSize="44" HorizontalAlignment="Center" Foreground="{ThemeResource TextFillColorTertiaryBrush}"/>
+                <FontIcon Glyph="&#xE7FC;" FontSize="44" HorizontalAlignment="Center" Foreground="{ThemeResource TextFillColorTertiaryBrush}"/>
                 <TextBlock Text="{x:Bind ViewModel.EmptyAppsMessage, Mode=OneWay}"
                            HorizontalAlignment="Center" TextAlignment="Center"
                            Style="{ThemeResource BodyTextBlockStyle}"

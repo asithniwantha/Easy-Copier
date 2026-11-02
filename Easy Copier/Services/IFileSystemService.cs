@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 namespace Easy_Copier.Services
 {
@@ -48,5 +49,12 @@ namespace Easy_Copier.Services
         /// <param name="path">The file or directory path to inspect.</param>
         /// <returns>A tuple containing optional creation (<c>Created</c>), modification (<c>Modified</c>), and access (<c>Accessed</c>) timestamps.</returns>
         (DateTime? Created, DateTime? Modified, DateTime? Accessed) GetPathMetadata(string path);
+
+        /// <summary>
+        /// Enumerates all files within the specified directory recursively with their relative file path and size in bytes.
+        /// </summary>
+        /// <param name="path">The root directory path to inspect.</param>
+        /// <returns>An enumerable of tuples containing the file path relative to the root directory and the file length in bytes.</returns>
+        IEnumerable<(string RelativePath, long Length)> EnumerateFilesRelative(string path);
     }
 }

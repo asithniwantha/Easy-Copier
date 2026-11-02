@@ -1,6 +1,7 @@
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using Easy_Copier.Infrastructure;
+using Easy_Copier.Services;
 using System;
 using System.Diagnostics.CodeAnalysis;
 using System.Reflection;
@@ -10,7 +11,7 @@ namespace Easy_Copier.ViewModels
     /// <summary>
     /// ViewModel backing the About dialog, presenting application version info, author details, and GitHub links.
     /// </summary>
-    public partial class AboutViewModel : ObservableObject
+    public partial class AboutViewModel : CloseableViewModelBase
     {
         /// <summary>
         /// The process service used for opening external URLs in default applications.
@@ -18,26 +19,19 @@ namespace Easy_Copier.ViewModels
         private readonly IProcessService _processService;
 
         /// <summary>
+        /// The clipboard service used for copying version diagnostics to the system clipboard.
+        /// </summary>
+        private readonly IClipboardService _clipboardService;
+
+        /// <summary>
         /// Initializes a new instance of the <see cref="AboutViewModel"/> class.
         /// </summary>
         /// <param name="processService">The process service for opening external URLs.</param>
-        public AboutViewModel(IProcessService processService)
+        /// <param name="clipboardService">The clipboard service for copying diagnostic text.</param>
+        public AboutViewModel(IProcessService processService, IClipboardService clipboardService)
         {
-            _processService = processService;
-        }
-
-        /// <summary>
-        /// Event raised when the view requests the containing dialog or window to close.
-        /// </summary>
-        public event EventHandler? CloseRequested;
-
-        /// <summary>
-        /// Requests closing the container window or dialog.
-        /// </summary>
-        [RelayCommand]
-        private void CloseWindow()
-        {
-            CloseRequested?.Invoke(this, EventArgs.Empty);
+            _processService = processService ?? throw new ArgumentNullException(nameof(processService));
+            _clipboardService = clipboardService ?? throw new ArgumentNullException(nameof(clipboardService));
         }
 
         /// <summary>
@@ -92,16 +86,14 @@ namespace Easy_Copier.ViewModels
         public partial bool IsCopied { get; set; } = false;
 
         /// <summary>
-        /// Copies version and runtime diagnostic information to the Windows clipboard.
+        /// Copies version and runtime diagnostic information to the system clipboard.
         /// </summary>
         [RelayCommand]
         private void CopyVersionInfo()
         {
             try
             {
-                var package = new Windows.ApplicationModel.DataTransfer.DataPackage();
-                package.SetText($"Easy Copier v{AppVersion}\nOS: {Environment.OSVersion}\nRuntime: .NET {Environment.Version}");
-                Windows.ApplicationModel.DataTransfer.Clipboard.SetContent(package);
+                _clipboardService.SetText($"Easy Copier v{AppVersion}\nOS: {Environment.OSVersion}\nRuntime: .NET {Environment.Version}");
                 IsCopied = true;
             }
             catch

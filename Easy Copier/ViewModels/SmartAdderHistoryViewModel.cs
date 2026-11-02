@@ -1,6 +1,8 @@
 using CommunityToolkit.Mvvm.ComponentModel;
 using Easy_Copier.Models;
 using Easy_Copier.Services;
+using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 
@@ -10,7 +12,7 @@ namespace Easy_Copier.ViewModels
     /// Backs the SmartAdder Calculation History window, listing previously logged
     /// calculation sessions in reverse-chronological order.
     /// </summary>
-    public sealed partial class SmartAdderHistoryViewModel : ObservableObject
+    public sealed partial class SmartAdderHistoryViewModel : CloseableViewModelBase
     {
         /// <summary>
         /// Specifies the maximum number of history records retrieved from persistent storage.
@@ -39,21 +41,7 @@ namespace Easy_Copier.ViewModels
         /// <param name="smartAdderHistoryService">The service for retrieving recorded calculation sessions.</param>
         public SmartAdderHistoryViewModel(ISmartAdderHistoryService smartAdderHistoryService)
         {
-            _smartAdderHistoryService = smartAdderHistoryService;
-        }
-
-        /// <summary>
-        /// Event raised when the view requests the containing window to close.
-        /// </summary>
-        public event System.EventHandler? CloseRequested;
-
-        /// <summary>
-        /// Invokes the <see cref="CloseRequested"/> event to notify the view to close the window.
-        /// </summary>
-        [CommunityToolkit.Mvvm.Input.RelayCommand]
-        private void CloseWindow()
-        {
-            CloseRequested?.Invoke(this, System.EventArgs.Empty);
+            _smartAdderHistoryService = smartAdderHistoryService ?? throw new ArgumentNullException(nameof(smartAdderHistoryService));
         }
 
         /// <summary>
@@ -62,7 +50,7 @@ namespace Easy_Copier.ViewModels
         /// <returns>A task representing the asynchronous initialization operation.</returns>
         public async Task InitializeAsync()
         {
-            System.Collections.Generic.List<SmartAdderHistoryRecord> records = await _smartAdderHistoryService.GetRecentRecordsAsync(MaxRecords);
+            List<SmartAdderHistoryRecord> records = await _smartAdderHistoryService.GetRecentRecordsAsync(MaxRecords);
 
             Records.Clear();
             foreach (SmartAdderHistoryRecord record in records)
