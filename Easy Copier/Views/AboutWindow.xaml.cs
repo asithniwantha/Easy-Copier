@@ -29,7 +29,7 @@ namespace Easy_Copier.Views
             ViewModel = viewModel;
             _owner = owner;
             InitializeComponent();
-            NativeWindowHelper.InitializeModalWindow(this, _owner, ViewModel, 500, 600);
+            NativeWindowHelper.InitializeModalWindow(this, _owner, ViewModel, 540, 780);
 
             ViewModel.CloseRequested += (s, e) => Close();
         }
