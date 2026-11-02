@@ -15,6 +15,7 @@
             <!-- App Folders SettingsExpander -->
             <controls:SettingsExpander Header="App Source Folders"
                                        Description="Manage directories scanned for application packages"
+                                       ItemsSource="{x:Bind ViewModel.AppSourceFolders, Mode=OneWay}"
                                        IsExpanded="True">
                 <controls:SettingsExpander.HeaderIcon>
                     <FontIcon Glyph="&#xE8F4;"/>
@@ -25,62 +26,30 @@
                         <TextBlock Text="Add Folder"/>
                     </StackPanel>
                 </Button>
-                <controls:SettingsExpander.Items>
-                    <controls:SettingsCard ContentAlignment="Left"
-                                           HorizontalContentAlignment="Stretch"
-                                           HorizontalAlignment="Stretch">
-                        <Grid MinHeight="80" Margin="0,4,0,4" HorizontalAlignment="Stretch">
-                            <ListView x:Name="AppSourceFoldersListView"
-                                      ItemsSource="{x:Bind ViewModel.AppSourceFolders, Mode=OneWay}"
-                                      SelectionMode="None"
-                                      HorizontalAlignment="Stretch"
-                                      HorizontalContentAlignment="Stretch"
-                                      BorderBrush="{ThemeResource SurfaceStrokeColorDefaultBrush}"
-                                      BorderThickness="1"
-                                      CornerRadius="8"
-                                      MinHeight="80">
-                                <ListView.ItemContainerStyle>
-                                    <Style TargetType="ListViewItem">
-                                        <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
-                                    </Style>
-                                </ListView.ItemContainerStyle>
-                                <ListView.ItemTemplate>
-                                    <DataTemplate x:DataType="x:String">
-                                        <Grid Padding="4,2" HorizontalAlignment="Stretch">
-                                            <Grid.ColumnDefinitions>
-                                                <ColumnDefinition Width="Auto"/>
-                                                <ColumnDefinition Width="*"/>
-                                                <ColumnDefinition Width="Auto"/>
-                                            </Grid.ColumnDefinitions>
-                                            <FontIcon Grid.Column="0" Glyph="&#xE8F4;" FontSize="14"
-                                                      Foreground="{ThemeResource AccentTextFillColorPrimaryBrush}"
-                                                      Margin="0,0,10,0" VerticalAlignment="Center"/>
-                                            <TextBlock Grid.Column="1" Text="{x:Bind}" VerticalAlignment="Center"
-                                                       TextTrimming="CharacterEllipsis"
-                                                       ToolTipService.ToolTip="{x:Bind}"/>
-                                            <Button Grid.Column="2"
-                                                    Command="{Binding ElementName=RootPage, Path=ViewModel.RemoveSourceFolderByPathCommand}"
-                                                    CommandParameter="{x:Bind}"
-                                                    ToolTipService.ToolTip="Remove folder"
-                                                    Padding="8,6"
-                                                    VerticalAlignment="Center">
-                                                <FontIcon Glyph="&#xE74D;" FontSize="14"/>
-                                            </Button>
-                                        </Grid>
-                                    </DataTemplate>
-                                </ListView.ItemTemplate>
-                            </ListView>
-
-                            <!-- Empty state when no app folders are configured -->
-                            <StackPanel Visibility="{x:Bind ViewModel.HasNoAppSourceFolders, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}"
-                                        HorizontalAlignment="Center" VerticalAlignment="Center" Spacing="6" IsHitTestVisible="False">
-                                <FontIcon Glyph="&#xE71D;" FontSize="24" Opacity="0.4" HorizontalAlignment="Center"/>
-                                <TextBlock Text="No app folders added yet. Click 'Add Folder' above to begin."
-                                           Opacity="0.6" FontSize="13" TextAlignment="Center"/>
-                            </StackPanel>
-                        </Grid>
+                <controls:SettingsExpander.ItemTemplate>
+                    <DataTemplate x:DataType="x:String">
+                        <controls:SettingsCard Header="{x:Bind}">
+                            <controls:SettingsCard.HeaderIcon>
+                                <FontIcon Glyph="&#xE8F4;"/>
+                            </controls:SettingsCard.HeaderIcon>
+                            <Button Command="{Binding ElementName=RootPage, Path=ViewModel.RemoveSourceFolderByPathCommand}"
+                                    CommandParameter="{x:Bind}"
+                                    ToolTipService.ToolTip="Remove folder"
+                                    Padding="8,6">
+                                <FontIcon Glyph="&#xE74D;" FontSize="14"/>
+                            </Button>
+                        </controls:SettingsCard>
+                    </DataTemplate>
+                </controls:SettingsExpander.ItemTemplate>
+                <controls:SettingsExpander.ItemsFooter>
+                    <controls:SettingsCard Visibility="{x:Bind ViewModel.HasNoAppSourceFolders, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}"
+                                           Header="No app folders added yet"
+                                           Description="Click 'Add Folder' above to add a source directory">
+                        <controls:SettingsCard.HeaderIcon>
+                            <FontIcon Glyph="&#xE71D;"/>
+                        </controls:SettingsCard.HeaderIcon>
                     </controls:SettingsCard>
-                </controls:SettingsExpander.Items>
+                </controls:SettingsExpander.ItemsFooter>
             </controls:SettingsExpander>
 
             <!-- App File Recognition SettingsCard -->
