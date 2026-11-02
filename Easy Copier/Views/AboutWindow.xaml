@@ -49,6 +49,14 @@
                            TextWrapping="Wrap" TextAlignment="Center" Style="{ThemeResource BodyTextBlockStyle}"
                            Foreground="{ThemeResource TextFillColorSecondaryBrush}" Margin="0,4,0,8"/>
 
+                <Button Command="{x:Bind ViewModel.CopyVersionInfoCommand}"
+                        HorizontalAlignment="Stretch" Padding="8,6">
+                    <StackPanel Orientation="Horizontal" Spacing="8" HorizontalAlignment="Center">
+                        <FontIcon Glyph="&#xE8C8;" FontSize="14"/>
+                        <TextBlock Text="Copy Version Details"/>
+                    </StackPanel>
+                </Button>
+
                 <Button Command="{x:Bind ViewModel.OpenGitHubRepoCommand}"
                         HorizontalAlignment="Stretch" Padding="8,6">
                     <StackPanel Orientation="Horizontal" Spacing="8" HorizontalAlignment="Center">

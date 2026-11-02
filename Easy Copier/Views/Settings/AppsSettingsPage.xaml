@@ -10,49 +10,70 @@
     <ScrollViewer Padding="24">
         <StackPanel Spacing="16">
             <TextBlock Text="Apps Settings" Style="{StaticResource SectionHeaderStyle}" />
-            <StackPanel Spacing="8">
-                <TextBlock Text="App Folders" FontWeight="SemiBold"/>
-                <Grid MinHeight="80">
-                    <ListView x:Name="AppSourceFoldersListView"
-                              ItemsSource="{x:Bind ViewModel.AppSourceFolders, Mode=OneWay}"
-                              BorderBrush="{ThemeResource SurfaceStrokeColorDefaultBrush}"
-                              BorderThickness="1"
-                              CornerRadius="8"
-                              MinHeight="80">
-                        <ListView.ItemTemplate>
-                            <DataTemplate x:DataType="x:String">
-                                <Grid>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="*"/>
-                                        <ColumnDefinition Width="Auto"/>
-                                    </Grid.ColumnDefinitions>
-                                    <TextBlock Grid.Column="0" Text="{x:Bind}" VerticalAlignment="Center"
-                                               TextTrimming="CharacterEllipsis"/>
-                                    <Button Grid.Column="1" Content="Remove"
-                                            Command="{Binding ElementName=RootPage, Path=ViewModel.RemoveSourceFolderByPathCommand}"
-                                            CommandParameter="{x:Bind}"/>
-                                </Grid>
-                            </DataTemplate>
-                        </ListView.ItemTemplate>
-                    </ListView>
 
-                    <!-- Empty state when no app folders are configured -->
-                    <StackPanel Visibility="{x:Bind ViewModel.HasNoAppSourceFolders, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}"
-                                HorizontalAlignment="Center" VerticalAlignment="Center" Spacing="6" IsHitTestVisible="False">
-                        <FontIcon Glyph="&#xE71D;" FontSize="24" Opacity="0.4" HorizontalAlignment="Center"/>
-                        <TextBlock Text="No app folders added yet. Click 'Add App Folder' below to begin."
-                                   Opacity="0.6" FontSize="13" TextAlignment="Center"/>
+            <!-- App Folders Card -->
+            <Border Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
+                    BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
+                    BorderThickness="1" CornerRadius="8" Padding="16">
+                <StackPanel Spacing="12">
+                    <StackPanel Orientation="Horizontal" Spacing="8">
+                        <FontIcon Glyph="&#xE8F4;" FontSize="16" Foreground="{ThemeResource AccentTextFillColorPrimaryBrush}"/>
+                        <TextBlock Text="App Source Folders" FontWeight="SemiBold"/>
                     </StackPanel>
-                </Grid>
-                <Button Content="Add App Folder" Command="{x:Bind ViewModel.AddNewSourceFolderCommand}" CommandParameter="App"
-                        HorizontalAlignment="Left" Margin="0,8,0,0"/>
+                    <Grid MinHeight="80">
+                        <ListView x:Name="AppSourceFoldersListView"
+                                  ItemsSource="{x:Bind ViewModel.AppSourceFolders, Mode=OneWay}"
+                                  BorderBrush="{ThemeResource SurfaceStrokeColorDefaultBrush}"
+                                  BorderThickness="1"
+                                  CornerRadius="8"
+                                  MinHeight="80">
+                            <ListView.ItemTemplate>
+                                <DataTemplate x:DataType="x:String">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="Auto"/>
+                                    </Grid.ColumnDefinitions>
+                                        <TextBlock Grid.Column="0" Text="{x:Bind}" VerticalAlignment="Center"
+                                                   TextTrimming="CharacterEllipsis"/>
+                                        <Button Grid.Column="1" Content="Remove"
+                                                Command="{Binding ElementName=RootPage, Path=ViewModel.RemoveSourceFolderByPathCommand}"
+                                                CommandParameter="{x:Bind}"/>
+                                    </Grid>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
 
-                <TextBox Header="App File Extensions"
-                         Text="{x:Bind ViewModel.AppFileExtensions, Mode=TwoWay}"
-                         PlaceholderText="e.g. .exe,.msi,.rar,.zip"
-                         Margin="0,16,0,0"
-                         ToolTipService.ToolTip="Comma-separated extensions to identify standalone app files" />
-            </StackPanel>
+                        <!-- Empty state when no app folders are configured -->
+                        <StackPanel Visibility="{x:Bind ViewModel.HasNoAppSourceFolders, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}"
+                                    HorizontalAlignment="Center" VerticalAlignment="Center" Spacing="6" IsHitTestVisible="False">
+                            <FontIcon Glyph="&#xE71D;" FontSize="24" Opacity="0.4" HorizontalAlignment="Center"/>
+                            <TextBlock Text="No app folders added yet. Click 'Add App Folder' below to begin."
+                                       Opacity="0.6" FontSize="13" TextAlignment="Center"/>
+                        </StackPanel>
+                    </Grid>
+                    <Button Content="Add App Folder" Command="{x:Bind ViewModel.AddNewSourceFolderCommand}" CommandParameter="App"
+                            HorizontalAlignment="Left" Margin="0,4,0,0"/>
+                </StackPanel>
+            </Border>
+
+            <!-- File Recognition Card -->
+            <Border Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
+                    BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
+                    BorderThickness="1" CornerRadius="8" Padding="16">
+                <StackPanel Spacing="12">
+                    <StackPanel Orientation="Horizontal" Spacing="8">
+                        <FontIcon Glyph="&#xE71D;" FontSize="16" Foreground="{ThemeResource AccentTextFillColorPrimaryBrush}"/>
+                        <TextBlock Text="App File Recognition" FontWeight="SemiBold"/>
+                    </StackPanel>
+                    <TextBox Header="App File Extensions"
+                             Text="{x:Bind ViewModel.AppFileExtensions, Mode=TwoWay}"
+                             PlaceholderText="e.g. .exe,.msi,.rar,.zip"
+                             ToolTipService.ToolTip="Comma-separated extensions to identify standalone app files" />
+                    <TextBlock Text="Specify file extensions separated by commas that Easy Copier should scan as standalone applications."
+                               FontSize="12" Foreground="{ThemeResource TextControlHeaderForeground}"/>
+                </StackPanel>
+            </Border>
         </StackPanel>
     </ScrollViewer>
 </Page>

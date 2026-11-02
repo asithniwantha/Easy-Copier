@@ -45,7 +45,7 @@
                         <ScalarTransition Duration="0:0:0.2"/>
                     </Image.OpacityTransition>
                 </Image>
-                <FontIcon Glyph="&#xE7FC;" FontSize="48" Opacity="0.35"
+                <FontIcon Glyph="{x:Bind Entry.FallbackGlyph, Mode=OneWay}" FontSize="48" Opacity="0.35"
                           HorizontalAlignment="Center" VerticalAlignment="Center"
                           Visibility="{x:Bind Entry.HasNoCover, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}"/>
                 <InfoBadge Style="{ThemeResource CautionIconInfoBadgeStyle}"

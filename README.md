@@ -24,7 +24,7 @@ Easy Copier helps shop environments prepare customer drives without guessing whi
 
 * **⚡ High-Speed Transfers:** Optimized file I/O operations tailored for handling massive game files and nested directories using native Windows Shell `IFileOperation`.
 
-* **🎨 Modern UI & Component Architecture:** A beautiful, responsive interface built with WinUI 3 that feels right at home on Windows 11. Features authentic Mica backdrop translucency, design tokens for spacing and radii, unified reusable card controls (`LibraryCardControl`) with hover-reveal folder actions and title tooltips, modular page-navigated settings (`SettingsWindow` with slide navigation transitions), adaptive Action Center width, and consolidated single-slot notifications.
+* **🎨 Modern UI & Component Architecture:** A beautiful, responsive interface built with WinUI 3 that feels right at home on Windows 11. Features authentic Mica backdrop translucency, design tokens for spacing and radii, unified reusable card controls (`LibraryCardControl`) with hover-reveal folder actions, title tooltips, and category-aware fallback glyphs (`\uE7FC` for Games, `\uE71D` for Apps, `\uE714` for Films & TV, `\uE7C5` for OS Images). Includes structured card groupings across all settings pages (`SettingsWindow` with slide navigation transitions), one-click version diagnostics copy in About, adaptive Action Center width, and consolidated single-slot notifications.
 
 * **📐 Dynamic View Resizing:** The application cleanly abstracts responsive window resizing and UI teardowns (e.g., Settings, History) directly to a unified `NativeWindowHelper`.
 

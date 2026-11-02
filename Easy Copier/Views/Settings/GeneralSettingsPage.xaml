@@ -10,24 +10,67 @@
     <ScrollViewer Padding="24">
         <StackPanel Spacing="16">
             <TextBlock Text="General Settings" Style="{StaticResource SectionHeaderStyle}" />
-            <ToggleSwitch Header="Auto-scan library on startup"
-                          IsOn="{x:Bind ViewModel.AutoScanOnStartup, Mode=TwoWay}"/>
-            <ToggleSwitch Header="Start application on Windows log-on"
-                          IsOn="{x:Bind ViewModel.StartOnLogon, Mode=TwoWay}"/>
-            <ToggleSwitch Header="Automatically download updates in the background"
-                          IsOn="{x:Bind ViewModel.AutoDownloadUpdates, Mode=TwoWay}"/>
-            <ToggleSwitch Header="Play sound notifications when transfers complete"
-                          IsOn="{x:Bind ViewModel.PlayNotificationSounds, Mode=TwoWay}"/>
-            <ToggleSwitch Header="Show desktop notifications when transfers complete"
-                          IsOn="{x:Bind ViewModel.ShowDesktopNotifications, Mode=TwoWay}"/>
 
-            <StackPanel Orientation="Horizontal" Spacing="8" Margin="0,8,0,0">
-                <Button Content="Check for updates now"
-                        Command="{x:Bind ViewModel.CheckForUpdatesNowCommand}"/>
-                <Button Content="Find Duplicates"
-                        Command="{x:Bind ViewModel.FindDuplicatesCommand}"
-                        ToolTipService.ToolTip="Detect duplicates across all source libraries"/>
-            </StackPanel>
+            <!-- Startup & Windows Integration Card -->
+            <Border Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
+                    BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
+                    BorderThickness="1" CornerRadius="8" Padding="16">
+                <StackPanel Spacing="12">
+                    <StackPanel Orientation="Horizontal" Spacing="8">
+                        <FontIcon Glyph="&#xE7E8;" FontSize="16" Foreground="{ThemeResource AccentTextFillColorPrimaryBrush}"/>
+                        <TextBlock Text="Startup &amp; Windows Integration" FontWeight="SemiBold"/>
+                    </StackPanel>
+                    <ToggleSwitch Header="Auto-scan library on startup"
+                                  IsOn="{x:Bind ViewModel.AutoScanOnStartup, Mode=TwoWay}"/>
+                    <ToggleSwitch Header="Start application on Windows log-on"
+                                  IsOn="{x:Bind ViewModel.StartOnLogon, Mode=TwoWay}"/>
+                </StackPanel>
+            </Border>
+
+            <!-- Updates & Maintenance Card -->
+            <Border Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
+                    BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
+                    BorderThickness="1" CornerRadius="8" Padding="16">
+                <StackPanel Spacing="12">
+                    <StackPanel Orientation="Horizontal" Spacing="8">
+                        <FontIcon Glyph="&#xE895;" FontSize="16" Foreground="{ThemeResource AccentTextFillColorPrimaryBrush}"/>
+                        <TextBlock Text="Updates &amp; Maintenance" FontWeight="SemiBold"/>
+                    </StackPanel>
+                    <ToggleSwitch Header="Automatically download updates in the background"
+                                  IsOn="{x:Bind ViewModel.AutoDownloadUpdates, Mode=TwoWay}"/>
+                    <StackPanel Orientation="Horizontal" Spacing="8" Margin="0,4,0,0">
+                        <Button Command="{x:Bind ViewModel.CheckForUpdatesNowCommand}">
+                            <StackPanel Orientation="Horizontal" Spacing="6">
+                                <FontIcon Glyph="&#xE72C;" FontSize="12"/>
+                                <TextBlock Text="Check for updates now"/>
+                            </StackPanel>
+                        </Button>
+                        <Button Command="{x:Bind ViewModel.FindDuplicatesCommand}"
+                                ToolTipService.ToolTip="Detect duplicates across all source libraries">
+                            <StackPanel Orientation="Horizontal" Spacing="6">
+                                <FontIcon Glyph="&#xE721;" FontSize="12"/>
+                                <TextBlock Text="Find Duplicates"/>
+                            </StackPanel>
+                        </Button>
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+
+            <!-- Notifications Card -->
+            <Border Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
+                    BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
+                    BorderThickness="1" CornerRadius="8" Padding="16">
+                <StackPanel Spacing="12">
+                    <StackPanel Orientation="Horizontal" Spacing="8">
+                        <FontIcon Glyph="&#xEA8F;" FontSize="16" Foreground="{ThemeResource AccentTextFillColorPrimaryBrush}"/>
+                        <TextBlock Text="Notifications &amp; Feedback" FontWeight="SemiBold"/>
+                    </StackPanel>
+                    <ToggleSwitch Header="Play sound notifications when transfers complete"
+                                  IsOn="{x:Bind ViewModel.PlayNotificationSounds, Mode=TwoWay}"/>
+                    <ToggleSwitch Header="Show desktop notifications when transfers complete"
+                                  IsOn="{x:Bind ViewModel.ShowDesktopNotifications, Mode=TwoWay}"/>
+                </StackPanel>
+            </Border>
         </StackPanel>
     </ScrollViewer>
 </Page>
