@@ -99,6 +99,11 @@ namespace Easy_Copier.Services
             return new DashboardStats(ToPeriods(days), ToPeriods(weeks), top, failureRate);
         }
 
+        /// <summary>
+        /// Converts grouped period tuples into a list of <see cref="PeriodTotal"/> models with normalized proportions.
+        /// </summary>
+        /// <param name="source">The collection of period metrics containing label, total count, failed count, and total bytes.</param>
+        /// <returns>A list of <see cref="PeriodTotal"/> items with relative proportion calculated against the maximum bytes in the period.</returns>
         private static List<PeriodTotal> ToPeriods(List<(string Label, int Total, int Failed, long Bytes)> source)
         {
             long max = source.Count == 0 ? 0 : source.Max(s => s.Bytes);

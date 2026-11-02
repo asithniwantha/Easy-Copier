@@ -23,7 +23,14 @@ namespace Easy_Copier.Views
         /// </summary>
         public event EventHandler? SettingsClosed;
 
+        /// <summary>
+        /// The owner window used for centering and modal presentation.
+        /// </summary>
         private readonly Window _owner;
+
+        /// <summary>
+        /// The startup action indicating a target section to activate upon display.
+        /// </summary>
         private readonly SettingsOpenAction _openAction;
 
         /// <summary>

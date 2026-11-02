@@ -19,9 +19,6 @@ namespace Easy_Copier.Views
         public MainViewModel ViewModel { get; private set; } = null!;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="MainPage"/> class.
-        /// </summary>
-        /// <summary>
         /// Handles the close button click event on the global notification InfoBar.
         /// </summary>
         /// <param name="sender">The InfoBar control sending the event.</param>
@@ -34,6 +31,9 @@ namespace Easy_Copier.Views
             }
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="MainPage"/> class.
+        /// </summary>
         public MainPage()
         {
             InitializeComponent();

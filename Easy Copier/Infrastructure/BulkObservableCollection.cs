@@ -13,6 +13,9 @@ namespace Easy_Copier.Infrastructure
     /// <typeparam name="T">The type of elements in the collection.</typeparam>
     public class BulkObservableCollection<T> : ObservableCollection<T>
     {
+        /// <summary>
+        /// Indicates whether collection changed notifications are currently suppressed during bulk operations.
+        /// </summary>
         private bool _suppressNotification;
 
         /// <summary>

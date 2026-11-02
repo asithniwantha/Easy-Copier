@@ -168,16 +168,49 @@ namespace Easy_Copier.ViewModels
         [ObservableProperty]
         public partial ObservableCollection<string> SelectedRecordSubFiles { get; set; } = [];
 
+        /// <summary>
+        /// Display string for filtering history records to today.
+        /// </summary>
         public const string FilterToday = "Today";
+
+        /// <summary>
+        /// Display string for filtering history records to the last 7 days.
+        /// </summary>
         public const string FilterLast7Days = "Last 7 Days";
+
+        /// <summary>
+        /// Display string for filtering history records to the current month.
+        /// </summary>
         public const string FilterThisMonth = "This Month";
+
+        /// <summary>
+        /// Display string for filtering history records across all time.
+        /// </summary>
         public const string FilterAllTime = "All Time";
 
+        /// <summary>
+        /// Display string for showing all status outcomes.
+        /// </summary>
         public const string StatusAll = "All";
+
+        /// <summary>
+        /// Display string for filtering history records to completed operations.
+        /// </summary>
         public const string StatusCompleted = "Completed";
+
+        /// <summary>
+        /// Display string for filtering history records to failed operations.
+        /// </summary>
         public const string StatusFailed = "Failed";
 
+        /// <summary>
+        /// The default set of available date filter display strings.
+        /// </summary>
         private static readonly string[] DefaultDateFilterStrings = [FilterToday, FilterLast7Days, FilterThisMonth, FilterAllTime];
+
+        /// <summary>
+        /// The default set of available status filter display strings.
+        /// </summary>
         private static readonly string[] DefaultStatusFilterStrings = [StatusAll, StatusCompleted, StatusFailed];
 
         /// <summary>
