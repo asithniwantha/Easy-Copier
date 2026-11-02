@@ -9,10 +9,9 @@
 
     <ScrollViewer Padding="24">
         <StackPanel Spacing="16">
-            <TextBlock Text="Logs &amp; Troubleshooting" FontSize="20" FontWeight="SemiBold" />
+            <TextBlock Text="Logs &amp; Troubleshooting" Style="{StaticResource SectionHeaderStyle}" />
             <TextBlock Text="Access diagnostic logs for troubleshooting and support." TextWrapping="Wrap" />
             <Button Content="Open Logs Folder" Command="{x:Bind ViewModel.OpenLogsFolderCommand}" HorizontalAlignment="Left" />
         </StackPanel>
     </ScrollViewer>
 </Page>
-

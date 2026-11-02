@@ -43,7 +43,7 @@
         </AutoSuggestBox>
 
         <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Right" Spacing="8" Margin="0,0,0,8">
-            <TextBlock Text="Sort by:" VerticalAlignment="Center" Opacity="0.8" />
+            <TextBlock Text="Sort by:" VerticalAlignment="Center" Style="{StaticResource BodyTextBlockStyle}" Foreground="{ThemeResource TextFillColorSecondaryBrush}"/>
             <ComboBox ItemsSource="{x:Bind ViewModel.AvailableTvAndFilmsSortOptions}"
                       SelectedItem="{x:Bind ViewModel.SelectedTvAndFilmsSortOption, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                       Width="170" VerticalAlignment="Center"/>
@@ -59,10 +59,16 @@
                           Width="48" Height="48"
                           HorizontalAlignment="Center" VerticalAlignment="Center"/>
 
-            <TextBlock Text="{x:Bind ViewModel.EmptyTvAndFilmsMessage, Mode=OneWay}"
-                       HorizontalAlignment="Center" VerticalAlignment="Center"
-                       TextWrapping="Wrap" MaxWidth="400" Opacity="0.7"
-                       Visibility="{x:Bind ViewModel.IsTvAndFilmsEmpty, Mode=OneWay}"/>
+            <!-- Enriched Empty State with Iconography and Theme Hierarchy -->
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Spacing="8"
+                        Visibility="{x:Bind ViewModel.IsTvAndFilmsEmpty, Mode=OneWay}">
+                <FontIcon Glyph="&#xE714;" FontSize="44" HorizontalAlignment="Center" Foreground="{ThemeResource TextFillColorTertiaryBrush}"/>
+                <TextBlock Text="{x:Bind ViewModel.EmptyTvAndFilmsMessage, Mode=OneWay}"
+                           HorizontalAlignment="Center" TextAlignment="Center"
+                           Style="{ThemeResource BodyTextBlockStyle}"
+                           Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+                           TextWrapping="Wrap" MaxWidth="420"/>
+            </StackPanel>
 
             <GridView x:Name="TvAndFilmsGridView"
                       ItemsSource="{x:Bind ViewModel.TvAndFilms, Mode=OneWay}"

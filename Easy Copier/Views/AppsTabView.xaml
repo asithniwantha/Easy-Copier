@@ -48,10 +48,16 @@
                           Width="48" Height="48"
                           HorizontalAlignment="Center" VerticalAlignment="Center"/>
 
-            <TextBlock Text="{x:Bind ViewModel.EmptyAppsMessage, Mode=OneWay}"
-                       HorizontalAlignment="Center" VerticalAlignment="Center"
-                       TextWrapping="Wrap" MaxWidth="400" Opacity="0.7"
-                       Visibility="{x:Bind ViewModel.IsAppsEmpty, Mode=OneWay}"/>
+            <!-- Enriched Empty State with Iconography and Theme Hierarchy -->
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Spacing="8"
+                        Visibility="{x:Bind ViewModel.IsAppsEmpty, Mode=OneWay}">
+                <FontIcon Glyph="&#xE71D;" FontSize="44" HorizontalAlignment="Center" Foreground="{ThemeResource TextFillColorTertiaryBrush}"/>
+                <TextBlock Text="{x:Bind ViewModel.EmptyAppsMessage, Mode=OneWay}"
+                           HorizontalAlignment="Center" TextAlignment="Center"
+                           Style="{ThemeResource BodyTextBlockStyle}"
+                           Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+                           TextWrapping="Wrap" MaxWidth="420"/>
+            </StackPanel>
 
             <GridView x:Name="AppsGridView"
                       ItemsSource="{x:Bind ViewModel.Apps, Mode=OneWay}"

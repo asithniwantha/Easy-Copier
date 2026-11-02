@@ -92,6 +92,22 @@
 
 - **Interactive History Bar Chart:** The Daily Volume transfer bar chart in `HistoryPage` features interactive tooltips (`ToolTipService.ToolTip`) and legible date/day labels underneath each volume column for instant temporal context.
 
+- **True Mica Backdrop Integration:** Configured transparent application page backgrounds (`ApplicationPageBackgroundThemeBrush`) in both Dark and Light theme dictionaries, unlocking genuine translucent Windows 11 Mica backdrop rendering across the entire application shell and child modal windows.
+
+- **Fluent Design Token System:** Introduced centralized spacing tokens (`SpacingXS` through `SpacingXXL`), corner radii tokens (`SmallCornerRadius`, `MediumCornerRadius`, `LargeCornerRadius`), and standardized dimensions in `Styles.xaml` for consistent layout rhythm across views.
+
+- **Comprehensive Theme-Aware Color Adaptation:** Replaced legacy hardcoded colors (`Foreground="White"`, `Foreground="Gold"`, `Background="Gray"`, `Foreground="Red"`) across flyouts, badges, and progress indicators with dynamic theme resources (`SystemFillColorCriticalBrush`, `SystemFillColorCautionBrush`, `DividerStrokeColorDefaultBrush`, `TextOnAccentFillColorPrimaryBrush`), ensuring full contrast fidelity and seamless light/dark mode adaptation.
+
+- **Library Card Title Tooltips & Polish:** Enhanced `LibraryCardControl` with `ToolTipService.ToolTip` on entry titles and category labels so truncated text is instantly inspectable on hover, coupled with proportional inner corner radius (6px) matching outer card curvature.
+
+- **Enriched Tab & Panel Empty States:** Upgraded all library tab views (Games, Apps, Films & TV, OS Images) and Action Center empty states with semantic typography, secondary guidance, and contextual glyph iconography (`&#xE7FC;`, `&#xE71D;`, `&#xE714;`, `&#xE8B7;`), creating a visually cohesive empty experience across the app.
+
+- **Card-Structured Conflict Dialog:** Re-engineered `ConflictDialogContent.xaml` to present source and destination directory comparisons in structured side-by-side card containers with clear metadata hierarchy.
+
+- **Settings Fluid Navigation Transitions:** Integrated `SlideNavigationTransitionInfo` across `SettingsWindow` page switches for fluid right-to-left page animations.
+
+- **Polished About Window & Smart Adder Control:** Redesigned `AboutWindow` with centered elevation card styling, version badge pill, and action iconography, alongside a balanced 2-column action grid for `SmartAdderControl`.
+
 ## 🔌 Drive Discovery and Selection
 
 - Detect connected removable USB drives.

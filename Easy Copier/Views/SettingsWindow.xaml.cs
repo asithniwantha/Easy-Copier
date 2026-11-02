@@ -3,6 +3,7 @@ using Easy_Copier.ViewModels;
 using Easy_Copier.Views.Settings;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Media.Animation;
 using System;
 using System.Threading.Tasks;
 
@@ -104,6 +105,7 @@ namespace Easy_Copier.Views
 
         /// <summary>
         /// Handles navigation selection changes to navigate the content frame to the appropriate settings page.
+        /// Applies a smooth slide navigation transition for visual fluid feedback.
         /// </summary>
         /// <param name="sender">The navigation view control.</param>
         /// <param name="args">Event arguments containing the newly selected item.</param>
@@ -127,7 +129,7 @@ namespace Easy_Copier.Views
 
                 if (ContentFrame.CurrentSourcePageType != pageType)
                 {
-                    ContentFrame.Navigate(pageType, ViewModel);
+                    ContentFrame.Navigate(pageType, ViewModel, new SlideNavigationTransitionInfo { Effect = SlideNavigationTransitionEffect.FromRight });
                 }
             }
         }

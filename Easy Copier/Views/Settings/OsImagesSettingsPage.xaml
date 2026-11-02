@@ -9,7 +9,7 @@
 
     <ScrollViewer Padding="24">
         <StackPanel Spacing="16">
-            <TextBlock Text="OS Images Settings" FontSize="20" FontWeight="SemiBold" />
+            <TextBlock Text="OS Images Settings" Style="{StaticResource SectionHeaderStyle}" />
             <StackPanel Spacing="8">
                 <TextBlock Text="OS Image Folders" FontWeight="SemiBold"/>
                 <Grid MinHeight="80">
@@ -17,7 +17,7 @@
                               ItemsSource="{x:Bind ViewModel.OsImageSourceFolders, Mode=OneWay}"
                               BorderBrush="{ThemeResource SurfaceStrokeColorDefaultBrush}"
                               BorderThickness="1"
-                              CornerRadius="4"
+                              CornerRadius="8"
                               MinHeight="80">
                         <ListView.ItemTemplate>
                             <DataTemplate x:DataType="x:String">
@@ -68,4 +68,3 @@
         </StackPanel>
     </ScrollViewer>
 </Page>
-

@@ -24,7 +24,7 @@ Easy Copier helps shop environments prepare customer drives without guessing whi
 
 * **⚡ High-Speed Transfers:** Optimized file I/O operations tailored for handling massive game files and nested directories using native Windows Shell `IFileOperation`.
 
-* **🎨 Modern UI & Component Architecture:** A beautiful, responsive interface built with WinUI 3 that feels right at home on Windows 11. Features unified reusable card controls (`LibraryCardControl`) with hover-reveal folder actions, modular page-navigated settings (`SettingsWindow` with cached page frames), adaptive Action Center width, and consolidated single-slot notifications.
+* **🎨 Modern UI & Component Architecture:** A beautiful, responsive interface built with WinUI 3 that feels right at home on Windows 11. Features authentic Mica backdrop translucency, design tokens for spacing and radii, unified reusable card controls (`LibraryCardControl`) with hover-reveal folder actions and title tooltips, modular page-navigated settings (`SettingsWindow` with slide navigation transitions), adaptive Action Center width, and consolidated single-slot notifications.
 
 * **📐 Dynamic View Resizing:** The application cleanly abstracts responsive window resizing and UI teardowns (e.g., Settings, History) directly to a unified `NativeWindowHelper`.
 
@@ -401,4 +401,9 @@ Distributed under the MIT License. See `LICENSE` for more information.
 * Added in-app warning banner fallback in `App.xaml.cs` when Windows desktop toast notifications fail to register or run in an elevated administrator context. 🔔
 * Enhanced `ProcessService.OpenFormatDialog` with structured logging and inspection of native `SHFormatDrive` return codes (cancellation, errors, and unformattable volumes). 💾
 * Documented inline payload validation thresholds (1,500 bytes) in `GameInfoDownloadService` to explain guards against HTML error pages and spacer GIFs. 🖼️
+* Unlocked true Windows 11 Mica backdrop translucency across the app shell and modal windows by configuring `ApplicationPageBackgroundThemeBrush` to `Transparent` in theme dictionaries. 🪟
+* Established a centralized design token system in `Styles.xaml` providing standardized spacing ramps (`SpacingXS` to `SpacingXXL`) and corner radii tokens (`SmallCornerRadius`, `MediumCornerRadius`, `LargeCornerRadius`). 📐
+* Eliminated hardcoded colors across `MainPage`, flyouts, and dialogs in favor of dynamic theme brushes (`SystemFillColorCriticalBrush`, `SystemFillColorCautionBrush`, `DividerStrokeColorDefaultBrush`, `TextOnAccentFillColorPrimaryBrush`). 🎨
+* Upgraded empty states across all library tab views (Games, Apps, Films & TV, OS Images) and Action Center with dedicated glyph iconography, clear visual hierarchy, and actionable secondary hints. 📭
+* Integrated `SlideNavigationTransitionInfo` for smooth, fluid page transitions in `SettingsWindow` and added card-styled comparison containers in `ConflictDialogContent`. ⚡
 

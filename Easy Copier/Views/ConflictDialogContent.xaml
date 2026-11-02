@@ -6,7 +6,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <StackPanel Spacing="12">
+    <StackPanel Spacing="16">
         <Grid ColumnSpacing="12">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto" />
@@ -19,26 +19,38 @@
                 Grid.Column="1"
                 Text="{x:Bind ItemNameMessage, Mode=OneTime}"
                 TextWrapping="Wrap"
+                Style="{ThemeResource BodyTextBlockStyle}"
                 VerticalAlignment="Center" />
         </Grid>
 
-        <Grid ColumnSpacing="16">
+        <!-- Side-by-Side Comparison Cards -->
+        <Grid ColumnSpacing="12">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto" />
-                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
 
-            <StackPanel Grid.Column="0">
-                <TextBlock FontWeight="SemiBold" Text="Source:" />
-                <TextBlock Text="{x:Bind SourceSizeText, Mode=OneTime}" />
-                <TextBlock Text="{x:Bind SourceFilesText, Mode=OneTime}" />
-            </StackPanel>
+            <Border Grid.Column="0"
+                    Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
+                    BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
+                    BorderThickness="1" CornerRadius="6" Padding="12">
+                <StackPanel Spacing="4">
+                    <TextBlock FontWeight="SemiBold" Text="Source:" Style="{ThemeResource CaptionTextBlockStyle}" Foreground="{ThemeResource TextFillColorSecondaryBrush}"/>
+                    <TextBlock Text="{x:Bind SourceSizeText, Mode=OneTime}" FontWeight="Medium"/>
+                    <TextBlock Text="{x:Bind SourceFilesText, Mode=OneTime}" Style="{ThemeResource CaptionTextBlockStyle}" Foreground="{ThemeResource TextFillColorSecondaryBrush}"/>
+                </StackPanel>
+            </Border>
 
-            <StackPanel Grid.Column="1">
-                <TextBlock FontWeight="SemiBold" Text="Destination:" />
-                <TextBlock Text="{x:Bind DestinationSizeText, Mode=OneTime}" />
-                <TextBlock Text="{x:Bind DestinationFilesText, Mode=OneTime}" />
-            </StackPanel>
+            <Border Grid.Column="1"
+                    Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
+                    BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
+                    BorderThickness="1" CornerRadius="6" Padding="12">
+                <StackPanel Spacing="4">
+                    <TextBlock FontWeight="SemiBold" Text="Destination:" Style="{ThemeResource CaptionTextBlockStyle}" Foreground="{ThemeResource TextFillColorSecondaryBrush}"/>
+                    <TextBlock Text="{x:Bind DestinationSizeText, Mode=OneTime}" FontWeight="Medium"/>
+                    <TextBlock Text="{x:Bind DestinationFilesText, Mode=OneTime}" Style="{ThemeResource CaptionTextBlockStyle}" Foreground="{ThemeResource TextFillColorSecondaryBrush}"/>
+                </StackPanel>
+            </Border>
         </Grid>
 
         <CheckBox

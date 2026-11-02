@@ -15,10 +15,21 @@
 
             <ResourceDictionary.ThemeDictionaries>
                 <ResourceDictionary x:Key="Dark">
-                    <SolidColorBrush x:Key="ApplicationPageBackgroundThemeBrush" Color="#202020"/>
+                    <!-- Transparent page background allows Mica backdrop material from MainWindow/SettingsWindow to shine through cleanly -->
+                    <SolidColorBrush x:Key="ApplicationPageBackgroundThemeBrush" Color="Transparent"/>
+                    <SolidColorBrush x:Key="AppAccentBrush" Color="#0078D4"/>
+                    <SolidColorBrush x:Key="AppSuccessBrush" Color="#107C10"/>
+                    <SolidColorBrush x:Key="AppWarningBrush" Color="#FCE100"/>
+                    <SolidColorBrush x:Key="AppErrorBrush" Color="#E81123"/>
+                    <SolidColorBrush x:Key="PriceTextBrush" Color="#FFA500"/>
                 </ResourceDictionary>
                 <ResourceDictionary x:Key="Light">
-                    <SolidColorBrush x:Key="ApplicationPageBackgroundThemeBrush" Color="#F3F3F3"/>
+                    <SolidColorBrush x:Key="ApplicationPageBackgroundThemeBrush" Color="Transparent"/>
+                    <SolidColorBrush x:Key="AppAccentBrush" Color="#0078D4"/>
+                    <SolidColorBrush x:Key="AppSuccessBrush" Color="#107C10"/>
+                    <SolidColorBrush x:Key="AppWarningBrush" Color="#8F7A00"/>
+                    <SolidColorBrush x:Key="AppErrorBrush" Color="#A80000"/>
+                    <SolidColorBrush x:Key="PriceTextBrush" Color="#D97706"/>
                 </ResourceDictionary>
             </ResourceDictionary.ThemeDictionaries>
         </ResourceDictionary>

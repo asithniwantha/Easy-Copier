@@ -61,12 +61,12 @@
             <Frame x:Name="ContentFrame" />
         </NavigationView>
 
-        <!-- Bottom Actions -->
-        <Border Grid.Row="1" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
-                BorderBrush="{ThemeResource SurfaceStrokeColorDefaultBrush}"
+        <!-- Bottom Actions Bar -->
+        <Border Grid.Row="1" Background="{ThemeResource LayerFillColorDefaultBrush}"
+                BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
                 BorderThickness="0,1,0,0" Padding="24,16">
             <StackPanel Orientation="Horizontal" Spacing="8" HorizontalAlignment="Right">
-                <TextBlock Text="{x:Bind ViewModel.StatusMessage, Mode=OneWay}" VerticalAlignment="Center" Opacity="0.7"/>
+                <TextBlock Text="{x:Bind ViewModel.StatusMessage, Mode=OneWay}" VerticalAlignment="Center" Foreground="{ThemeResource TextFillColorSecondaryBrush}"/>
                 <Button Content="Open Data Folder" Command="{x:Bind ViewModel.OpenDataFolderCommand}"/>
                 <Button Content="Save and Close" Style="{StaticResource AccentButtonStyle}" Command="{x:Bind ViewModel.SaveAndCloseCommand}"/>
             </StackPanel>

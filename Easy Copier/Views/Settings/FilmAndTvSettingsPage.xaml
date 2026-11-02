@@ -9,7 +9,7 @@
 
     <ScrollViewer Padding="24">
         <StackPanel Spacing="16">
-            <TextBlock Text="Films &amp; TV Settings" FontSize="20" FontWeight="SemiBold" />
+            <TextBlock Text="Films &amp; TV Settings" Style="{StaticResource SectionHeaderStyle}" />
             <StackPanel Spacing="8">
                 <TextBlock Text="Films &amp; TV Folders" FontWeight="SemiBold"/>
                 <Grid MinHeight="80">
@@ -17,7 +17,7 @@
                               ItemsSource="{x:Bind ViewModel.TvAndFilmSourceFolders, Mode=OneWay}"
                               BorderBrush="{ThemeResource SurfaceStrokeColorDefaultBrush}"
                               BorderThickness="1"
-                              CornerRadius="4"
+                              CornerRadius="8"
                               MinHeight="80">
                         <ListView.ItemTemplate>
                             <DataTemplate x:DataType="x:String">
@@ -56,4 +56,3 @@
         </StackPanel>
     </ScrollViewer>
 </Page>
-
