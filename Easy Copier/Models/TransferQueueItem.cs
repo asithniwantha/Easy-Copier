@@ -33,7 +33,7 @@ namespace Easy_Copier.Models
     /// <param name="targetDrive">The target removable drive destination.</param>
     /// <param name="destinationPath">The destination root path on the target drive.</param>
     /// <param name="totalPrice">The total calculated price for all items in the batch.</param>
-    public partial class TransferQueueItem(IReadOnlyList<TransferItem> items, RemovableDrive targetDrive, string destinationPath, int totalPrice) : ObservableObject
+    public sealed partial class TransferQueueItem(IReadOnlyList<TransferItem> items, RemovableDrive targetDrive, string destinationPath, int totalPrice) : ObservableObject, IDisposable
     {
         /// <summary>
         /// Gets the unique identifier for this queue item job.
@@ -92,6 +92,32 @@ namespace Easy_Copier.Models
                 StatusMessage = "Transfer cancelled by user";
                 CompletedAt = DateTime.Now;
             }
+        }
+
+        /// <summary>
+        /// Resets the queue item to a fresh queued state with a renewed cancellation token for retry execution.
+        /// Intent: Restores internal transfer state so failed or cancelled jobs can safely execute again without re-allocating new models.
+        /// </summary>
+        public void ResetForRetry()
+        {
+            _cancellationTokenSource?.Dispose();
+            _cancellationTokenSource = new System.Threading.CancellationTokenSource();
+            Status = TransferQueueItemStatus.Queued;
+            StatusMessage = "Waiting in queue...";
+            ProgressPercentage = 0;
+            SpeedText = string.Empty;
+            RemainingTimeText = string.Empty;
+            CompletedAt = null;
+        }
+
+        /// <summary>
+        /// Releases all managed resources used by the <see cref="TransferQueueItem"/> instance.
+        /// Intent: Disposes the underlying cancellation token source to avoid resource leaks when queue items are dismissed.
+        /// </summary>
+        public void Dispose()
+        {
+            _cancellationTokenSource?.Dispose();
+            _cancellationTokenSource = null;
         }
 
         /// <summary>
@@ -169,6 +195,12 @@ namespace Easy_Copier.Models
         public bool IsActive => Status is TransferQueueItemStatus.Queued or TransferQueueItemStatus.InProgress;
 
         /// <summary>
+        /// Gets a value indicating whether this item can be retried (only when failed or cancelled).
+        /// Intent: Controls UI visibility of the retry button so active or completed transfers cannot be restarted erroneously.
+        /// </summary>
+        public bool CanRetry => Status is TransferQueueItemStatus.Failed or TransferQueueItemStatus.Cancelled;
+
+        /// <summary>
         /// Partial method invoked when <see cref="Status"/> changes to notify UI of dependent property changes.
         /// </summary>
         /// <param name="value">The new status value.</param>
@@ -177,6 +209,7 @@ namespace Easy_Copier.Models
             OnPropertyChanged(nameof(StatusGlyph));
             OnPropertyChanged(nameof(StatusLabel));
             OnPropertyChanged(nameof(IsActive));
+            OnPropertyChanged(nameof(CanRetry));
         }
     }
 }

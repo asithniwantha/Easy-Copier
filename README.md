@@ -242,7 +242,7 @@ The selected-drive panel also shows a usage bar, free space, total capacity, and
 
 ## 📅 Future Enhancements
 
-> 🔮 For technical designs, architecture blueprints, and implementation specs for pending roadmap items (M2, M4, M5, M6, M7), see [FUTURE_WORK.md](FUTURE_WORK.md).
+> 🔮 For technical designs, architecture blueprints, and implementation specs for pending roadmap items (M4, M5, M6, M7), see [FUTURE_WORK.md](FUTURE_WORK.md).
 
 - [ ] Add transfer profiles and presets for one-click queueing of common game/app/media bundles.
 
@@ -252,7 +252,7 @@ The selected-drive panel also shows a usage bar, free space, total capacity, and
 
 - [x] Add duplicate detection across source libraries with cleanup recommendations.
 
-- [ ] Add retry and resume support for transient copy failures.
+- [x] Add retry action for failed or cancelled transfer queue items.
 
 - [ ] Add advanced reporting dashboards (daily/weekly totals, most-copied items, and failure-rate trends).
 
@@ -420,3 +420,5 @@ Distributed under the MIT License. See `LICENSE` for more information.
 * **File System Service Decoupling (VideoDetailsViewModel):** Abstracted recursive file enumeration in VideoDetailsViewModel through IFileSystemService.EnumerateFilesRelative, eliminating direct DirectoryInfo and FileInfo disk access from the presentation layer. 📁
 
 * **Deduplicated Empty Message Formatter & Dead Code Cleanup:** Centralized empty-state library string interpolation into FormattingHelpers.FormatEmptyLibraryMessage across MainViewModel, and eliminated obsolete visibility properties from SettingsViewModel. 🧹
+
+* **Queue Item Retry Action (M2):** Implemented inline retry functionality on transfer queue cards allowing users to re-enqueue and resume failed or cancelled copy operations with one click, featuring destination drive validation, cancellation token renewal, and `IDisposable` lifecycle management in `TransferQueueService`. 🔄

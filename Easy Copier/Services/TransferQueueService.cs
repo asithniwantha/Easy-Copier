@@ -4,6 +4,7 @@ using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.IO;
 using System.Linq;
 using System.Threading.Channels;
 using System.Threading.Tasks;
@@ -46,6 +47,13 @@ namespace Easy_Copier.Services
         /// </summary>
         /// <param name="item">The transfer queue item to cancel.</param>
         void CancelItem(TransferQueueItem item);
+
+        /// <summary>
+        /// Re-enqueues a failed or cancelled transfer queue item for execution.
+        /// Intent: Enables users to re-run transfers without having to recreate the transfer batch or re-select files.
+        /// </summary>
+        /// <param name="item">The transfer queue item to retry.</param>
+        void RetryItem(TransferQueueItem item);
 
         /// <summary>
         /// Event raised when an individual transfer queue item finishes processing.
@@ -195,6 +203,7 @@ namespace Easy_Copier.Services
             foreach (TransferQueueItem item in toRemove)
             {
                 _ = QueueItems.Remove(item);
+                item.Dispose();
             }
         }
 
@@ -211,6 +220,35 @@ namespace Easy_Copier.Services
                 _logger.LogInformation("User requested cancellation of queue item {Id} for drive {Drive}", item.Id, item.TargetDrive.DriveLetter);
                 item.Cancel();
             }
+        }
+
+        /// <inheritdoc />
+        public void RetryItem(TransferQueueItem item)
+        {
+            if (item == null || !item.CanRetry)
+            {
+                return;
+            }
+
+            // Verify that the destination volume root is accessible before re-enqueueing.
+            // Intent: Avoids immediate re-failure or infinite queue loops if the removable drive was disconnected.
+            string? root = Path.GetPathRoot(item.DestinationPath);
+            if (!string.IsNullOrEmpty(root) && !Directory.Exists(root))
+            {
+                _logger.LogWarning("Cannot retry item {Id}: destination drive {Root} is not accessible", item.Id, root);
+                RunOnUiThread(() =>
+                {
+                    item.Status = TransferQueueItemStatus.Failed;
+                    item.StatusMessage = $"Target drive {item.TargetDrive.DriveLetter} is not connected";
+                });
+                return;
+            }
+
+            _logger.LogInformation("Retrying queue item {Id} for drive {Drive}", item.Id, item.TargetDrive.DriveLetter);
+
+            RunOnUiThread(item.ResetForRetry);
+
+            _ = _channel.Writer.TryWrite(item);
         }
 
         /// <summary>

@@ -377,6 +377,7 @@
 - Documented architectural synchronization between `DataContext` and `ViewModel` dependency property in `SmartAdderControl.xaml.cs` for ambient template binding support.
 
 - Replaced positional index filter clearing in `HistoryViewModel` with strongly-typed named constant `FilterAllTime` to eliminate array order dependency.
+- Added inline retry action for failed and cancelled transfer queue items: users can re-enqueue failed or user-cancelled batches directly from queue cards without re-browsing or re-selecting items, backed by destination drive accessibility verification and automatic cancellation token regeneration in `TransferQueueService`.
 - Added per-item copy cancellation for queued and in-progress transfers: users can cancel active copy operations from the queue UI, which signals `FileOperationProgressSink` to return `COPYENGINE_E_USER_CANCELLED` and immediately abort the underlying Windows Shell `IFileOperation`.
 - Added cancel capability for bulk cover art and system requirements downloads via `CancelDownloadGameInfoCommand` in `SettingsViewModel` and dedicated Cancel button in `SettingsWindow.xaml`.
 - Added prominent confirmation modal (`ShowConfirmationDialogAsync`) in `SettingsViewModel` when saving configurations that include inaccessible or missing source library folders, preventing silent errors.
@@ -410,7 +411,7 @@
 
 - [x] Add duplicate detection across source libraries with cleanup recommendations.
 
-- [ ] Add retry and resume support for transient copy failures.
+- [x] Add retry action for failed or cancelled transfer queue items.
 
 - [x] Add advanced reporting dashboards (daily/weekly totals, most-copied items, and failure-rate trends).
 

@@ -9,7 +9,7 @@ This document outlines the architectural blueprints, technical specifications, a
 | ID | Capability | Status | Target Layer | Priority |
 |:---|:---|:---:|:---|:---:|
 | **M1** | Per-Item Transfer Cancellation | **Completed** ✅ | `Services`, `Interop`, `ViewModels`, `Views` | High |
-| **M2** | Retry Action for Failed or Cancelled Queue Items | **Open** 🟡 | `Services`, `ViewModels`, `Views` | High |
+| **M2** | Retry Action for Failed or Cancelled Queue Items | **Completed** ✅ | `Services`, `ViewModels`, `Views` | High |
 | **M3** | Cancellation Token for Bulk Cover & Metadata Downloads | **Completed** ✅ | `Services`, `ViewModels`, `Views` | Medium |
 | **M4** | Post-Copy Verification (File Size & Cryptographic Hash) | **Open** 🟡 | `Services`, `Models`, `Settings` | Medium |
 | **M5** | History Pagination & Database Streaming | **Open** 🟡 | `Services`, `ViewModels`, `Views` | Medium |
@@ -30,7 +30,7 @@ This document outlines the architectural blueprints, technical specifications, a
 ---
 
 ### M2: Retry Action for Failed or Cancelled Queue Items
-* **Status:** **Open** 🟡 *(Prerequisite M1 is completed)*
+* **Status:** **Completed** ✅ *(Implemented)*
 * **Objective:** Enable users to re-enqueue or restart failed or user-cancelled queue jobs directly from the transfer queue without needing to re-browse, re-select items, or re-enter target destination paths.
 * **Technical Design:**
   1. **Model Updates (`TransferQueueItem.cs`):**
@@ -183,7 +183,7 @@ This document outlines the architectural blueprints, technical specifications, a
 ```
 Phase 1: Transfer Robustness & Control
 ├── M1: Per-Item Transfer Cancellation (Done ✅)
-└── M2: Retry Button for Failed/Cancelled Queue Items (Ready 🟡)
+└── M2: Retry Button for Failed/Cancelled Queue Items (Done ✅)
 
 Phase 2: Data Integrity & Storage
 ├── M3: Cover Download Cancellation (Done ✅)
