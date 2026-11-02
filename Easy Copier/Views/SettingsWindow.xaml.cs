@@ -40,7 +40,7 @@ namespace Easy_Copier.Views
             _openAction = openAction;
             InitializeComponent();
             SettingsRoot.DataContext = ViewModel;
-            NativeWindowHelper.InitializeModalWindow(this, _owner, ViewModel, 960, 720);
+            NativeWindowHelper.InitializeModalWindow(this, _owner, ViewModel, 1200, 720);
 
             ViewModel.CloseRequested += (s, e) =>
             {
@@ -53,7 +53,7 @@ namespace Easy_Copier.Views
             // Adjust size to content dynamically when layout updates
             if (Content is FrameworkElement rootElement)
             {
-                NativeWindowHelper.EnableDynamicResizing(this, rootElement, 960, 640);
+                NativeWindowHelper.EnableDynamicResizing(this, rootElement, 1400, 840);
             }
         }
 
