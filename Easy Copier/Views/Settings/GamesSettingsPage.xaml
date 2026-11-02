@@ -43,48 +43,51 @@
                 </controls:SettingsExpander.Items>
             </controls:SettingsExpander>
 
-            <!-- Game Folders & Assets SettingsExpander -->
-            <controls:SettingsExpander Header="Game Source Folders &amp; Metadata"
-                                       Description="Manage directories scanned for games and download cover assets"
+            <!-- Game Source Folders SettingsExpander -->
+            <controls:SettingsExpander Header="Game Source Folders"
+                                       Description="Manage directories scanned for game titles"
                                        IsExpanded="True">
                 <controls:SettingsExpander.HeaderIcon>
                     <FontIcon Glyph="&#xE8F4;"/>
                 </controls:SettingsExpander.HeaderIcon>
-                <StackPanel Orientation="Horizontal" Spacing="8">
-                    <Button Content="Add Game Folder" Command="{x:Bind ViewModel.AddNewSourceFolderCommand}" CommandParameter="Game"/>
-                    <Button Content="Download Covers &amp; Requirements"
-                            Command="{x:Bind ViewModel.DownloadGameInfoCommand}"
-                            IsEnabled="{x:Bind ViewModel.CanDownloadCovers, Mode=OneWay}"
-                            ToolTipService.ToolTip="Downloads cover images and system requirements for all games in configured folders"/>
-                    <Button Content="Cancel Download"
-                            Command="{x:Bind ViewModel.CancelDownloadGameInfoCommand}"
-                            Visibility="{x:Bind ViewModel.IsDownloadingCovers, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}"/>
-                    <CheckBox Content="Overwrite existing covers"
-                              IsChecked="{x:Bind ViewModel.OverwriteExistingCovers, Mode=TwoWay}"
-                              ToolTipService.ToolTip="Re-download and replace existing cover images even if already present"
-                              VerticalAlignment="Center"/>
-                </StackPanel>
+                <Button Command="{x:Bind ViewModel.AddNewSourceFolderCommand}" CommandParameter="Game">
+                    <StackPanel Orientation="Horizontal" Spacing="6">
+                        <FontIcon Glyph="&#xE710;" FontSize="12"/>
+                        <TextBlock Text="Add Folder"/>
+                    </StackPanel>
+                </Button>
                 <controls:SettingsExpander.Items>
                     <controls:SettingsCard ContentAlignment="Vertical">
                         <Grid MinHeight="80" Margin="0,4,0,4">
                             <ListView x:Name="GameSourceFoldersListView"
                                       ItemsSource="{x:Bind ViewModel.GameSourceFolders, Mode=OneWay}"
+                                      SelectionMode="None"
                                       BorderBrush="{ThemeResource SurfaceStrokeColorDefaultBrush}"
                                       BorderThickness="1"
                                       CornerRadius="8"
                                       MinHeight="80">
                                 <ListView.ItemTemplate>
                                     <DataTemplate x:DataType="x:String">
-                                        <Grid>
+                                        <Grid Padding="4,2">
                                             <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="Auto"/>
                                                 <ColumnDefinition Width="*"/>
                                                 <ColumnDefinition Width="Auto"/>
                                             </Grid.ColumnDefinitions>
-                                            <TextBlock Grid.Column="0" Text="{x:Bind}" VerticalAlignment="Center"
-                                                       TextTrimming="CharacterEllipsis"/>
-                                            <Button Grid.Column="1" Content="Remove"
+                                            <FontIcon Grid.Column="0" Glyph="&#xE8F4;" FontSize="14"
+                                                      Foreground="{ThemeResource AccentTextFillColorPrimaryBrush}"
+                                                      Margin="0,0,10,0" VerticalAlignment="Center"/>
+                                            <TextBlock Grid.Column="1" Text="{x:Bind}" VerticalAlignment="Center"
+                                                       TextTrimming="CharacterEllipsis"
+                                                       ToolTipService.ToolTip="{x:Bind}"/>
+                                            <Button Grid.Column="2"
                                                     Command="{Binding ElementName=RootPage, Path=ViewModel.RemoveSourceFolderByPathCommand}"
-                                                    CommandParameter="{x:Bind}"/>
+                                                    CommandParameter="{x:Bind}"
+                                                    ToolTipService.ToolTip="Remove folder"
+                                                    Padding="8,6"
+                                                    VerticalAlignment="Center">
+                                                <FontIcon Glyph="&#xE74D;" FontSize="14"/>
+                                            </Button>
                                         </Grid>
                                     </DataTemplate>
                                 </ListView.ItemTemplate>
@@ -93,14 +96,44 @@
                             <!-- Empty state when no game folders are configured -->
                             <StackPanel Visibility="{x:Bind ViewModel.HasNoGameSourceFolders, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}"
                                         HorizontalAlignment="Center" VerticalAlignment="Center" Spacing="6" IsHitTestVisible="False">
-                                <FontIcon Glyph="&#xE8B7;" FontSize="24" Opacity="0.4" HorizontalAlignment="Center"/>
-                                <TextBlock Text="No game folders added yet. Click 'Add Game Folder' above to begin."
+                                <FontIcon Glyph="&#xE7FC;" FontSize="24" Opacity="0.4" HorizontalAlignment="Center"/>
+                                <TextBlock Text="No game folders added yet. Click 'Add Folder' above to begin."
                                            Opacity="0.6" FontSize="13" TextAlignment="Center"/>
                             </StackPanel>
                         </Grid>
                     </controls:SettingsCard>
                 </controls:SettingsExpander.Items>
             </controls:SettingsExpander>
+
+            <!-- Game Cover Art & Metadata SettingsCard -->
+            <controls:SettingsCard Header="Cover Art &amp; System Requirements"
+                                   Description="Download vertical box art and hardware requirements for all detected games">
+                <controls:SettingsCard.HeaderIcon>
+                    <FontIcon Glyph="&#xEB9F;"/>
+                </controls:SettingsCard.HeaderIcon>
+                <StackPanel Orientation="Horizontal" Spacing="8">
+                    <CheckBox Content="Overwrite existing covers"
+                              IsChecked="{x:Bind ViewModel.OverwriteExistingCovers, Mode=TwoWay}"
+                              ToolTipService.ToolTip="Re-download and replace existing cover images even if already present"
+                              VerticalAlignment="Center"/>
+                    <Button Command="{x:Bind ViewModel.DownloadGameInfoCommand}"
+                            IsEnabled="{x:Bind ViewModel.CanDownloadCovers, Mode=OneWay}"
+                            ToolTipService.ToolTip="Downloads cover images and system requirements for all games in configured folders">
+                        <StackPanel Orientation="Horizontal" Spacing="6">
+                            <FontIcon Glyph="&#xE896;" FontSize="12"/>
+                            <TextBlock Text="Download Covers"/>
+                        </StackPanel>
+                    </Button>
+                    <Button Command="{x:Bind ViewModel.CancelDownloadGameInfoCommand}"
+                            Visibility="{x:Bind ViewModel.IsDownloadingCovers, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}"
+                            ToolTipService.ToolTip="Cancel ongoing download operation">
+                        <StackPanel Orientation="Horizontal" Spacing="6">
+                            <FontIcon Glyph="&#xE711;" FontSize="12"/>
+                            <TextBlock Text="Cancel"/>
+                        </StackPanel>
+                    </Button>
+                </StackPanel>
+            </controls:SettingsCard>
         </StackPanel>
     </ScrollViewer>
 </Page>
