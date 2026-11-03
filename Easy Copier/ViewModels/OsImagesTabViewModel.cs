@@ -11,12 +11,12 @@ namespace Easy_Copier.ViewModels
     /// </summary>
     public sealed partial class OsImagesTabViewModel : LibraryTabViewModelBase, ISearchableTabViewModel
     {
-        /// <summary>
-        /// Gets the list of filtered OS Image entries.
-        /// </summary>
         /// <inheritdoc />
         public override LibraryCategory Category => LibraryCategory.OsImage;
 
+        /// <summary>
+        /// Gets the list of filtered OS Image entries.
+        /// </summary>
         public ObservableCollection<GameEntry> OsImages => MainViewModel.OsImages;
 
         /// <summary>

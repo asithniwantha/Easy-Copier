@@ -11,12 +11,12 @@ namespace Easy_Copier.ViewModels
     /// </summary>
     public sealed partial class TvAndFilmsTabViewModel : LibraryTabViewModelBase, ISearchableTabViewModel
     {
-        /// <summary>
-        /// Gets the list of filtered film and TV series entries.
-        /// </summary>
         /// <inheritdoc />
         public override LibraryCategory Category => LibraryCategory.TvAndFilm;
 
+        /// <summary>
+        /// Gets the list of filtered film and TV series entries.
+        /// </summary>
         public ObservableCollection<GameEntry> TvAndFilms => MainViewModel.TvAndFilms;
 
         /// <summary>
