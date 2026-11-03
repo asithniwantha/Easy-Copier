@@ -34,7 +34,14 @@ namespace Easy_Copier.Views
             ".mp4", ".mkv", ".avi", ".mov", ".wmv", ".m4v", ".webm"
         };
 
+        /// <summary>
+        /// Cancellation token source managing asynchronous video preview loading.
+        /// </summary>
         private CancellationTokenSource? _previewCts;
+
+        /// <summary>
+        /// Media player element dynamically added during hover video previews.
+        /// </summary>
         private MediaPlayerElement? _previewElement;
 
         /// <summary>

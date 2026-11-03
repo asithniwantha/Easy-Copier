@@ -35,6 +35,9 @@ namespace Easy_Copier.Infrastructure
     /// </summary>
     public class ProcessService : IProcessService
     {
+        /// <summary>
+        /// Optional logger instance for recording diagnostic and error details.
+        /// </summary>
         private readonly Microsoft.Extensions.Logging.ILogger<ProcessService>? _logger;
 
         /// <summary>
@@ -101,7 +104,15 @@ namespace Easy_Copier.Infrastructure
         /// Native return codes for <see cref="SHFormatDrive(IntPtr, uint, uint, uint)"/>.
         /// </summary>
         private const uint SHFMT_ERROR = 0xFFFFFFFF;
+
+        /// <summary>
+        /// Return code indicating formatting was cancelled by the user.
+        /// </summary>
         private const uint SHFMT_CANCEL = 0xFFFFFFFE;
+
+        /// <summary>
+        /// Return code indicating the drive cannot be formatted.
+        /// </summary>
         private const uint SHFMT_NOFORMAT = 0xFFFFFFFD;
 
         /// <inheritdoc />

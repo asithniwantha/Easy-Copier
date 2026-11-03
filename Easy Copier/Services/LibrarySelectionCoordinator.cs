@@ -11,7 +11,14 @@ namespace Easy_Copier.Services
     /// </summary>
     public class LibrarySelectionCoordinator : ILibrarySelectionCoordinator
     {
+        /// <summary>
+        /// Service used to retrieve application settings for pricing calculation.
+        /// </summary>
         private readonly ISettingsService _settingsService;
+
+        /// <summary>
+        /// Internal dictionary maintaining selected items per library category.
+        /// </summary>
         private readonly Dictionary<LibraryCategory, List<GameEntry>> _selections = new()
         {
             [LibraryCategory.Game] = [],
@@ -20,7 +27,14 @@ namespace Easy_Copier.Services
             [LibraryCategory.OsImage] = []
         };
 
+        /// <summary>
+        /// Indicates whether the OS Images tab is currently active.
+        /// </summary>
         private bool _isOsImagesTabActive;
+
+        /// <summary>
+        /// Cached application settings used for calculating item copy prices.
+        /// </summary>
         private AppSettings? _cachedSettings;
 
         /// <inheritdoc />

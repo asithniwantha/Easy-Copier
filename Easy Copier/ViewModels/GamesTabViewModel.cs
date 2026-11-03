@@ -10,12 +10,12 @@ namespace Easy_Copier.ViewModels
     /// </summary>
     public sealed partial class GamesTabViewModel : LibraryTabViewModelBase, ISearchableTabViewModel
     {
-        /// <summary>
-        /// Gets the list of filtered game entries.
-        /// </summary>
         /// <inheritdoc />
         public override LibraryCategory Category => LibraryCategory.Game;
 
+        /// <summary>
+        /// Gets the list of filtered game entries.
+        /// </summary>
         public ObservableCollection<GameEntry> Games => MainViewModel.Games;
 
         /// <summary>
