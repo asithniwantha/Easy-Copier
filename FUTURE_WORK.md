@@ -13,8 +13,8 @@ This document outlines the architectural blueprints, technical specifications, a
 | **M3** | Cancellation Token for Bulk Cover & Metadata Downloads | **Completed** ✅ | `Services`, `ViewModels`, `Views` | Medium |
 | **M4** | Post-Copy Verification (File Size & Cryptographic Hash) | **Completed** ✅ | `Services`, `Models`, `Settings` | Medium |
 | **M5** | History Pagination & Database Streaming | **Completed** ✅ | `Services`, `ViewModels`, `Views` | Medium |
-| **M6** | Interactive One-Click Duplicate Cleanup Interface | **Open** 🟡 | `Services`, `Views`, `Dialogs` | Medium |
-| **M7** | System Tray Integration & Background Transfer Resilience | **Open** 🟡 | `Infrastructure`, `Views`, `AppLifecycle` | Low |
+| **M6** | Interactive One-Click Duplicate Cleanup Interface | **Completed** ✅ | `Services`, `Views`, `Dialogs` | Medium |
+| **M7** | System Tray Integration & Background Transfer Resilience | **Completed** ✅ | `Infrastructure`, `Views`, `AppLifecycle` | Low |
 
 ---
 
