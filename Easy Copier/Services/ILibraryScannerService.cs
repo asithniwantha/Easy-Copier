@@ -34,5 +34,17 @@ namespace Easy_Copier.Services
             AppSettings settings,
             IProgress<string>? progress = null,
             CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Asynchronously scans libraries and returns structured duplicate item clusters grouped by item title.
+        /// </summary>
+        /// <param name="settings">The application settings containing configured library paths.</param>
+        /// <param name="progress">An optional progress reporter for status updates.</param>
+        /// <param name="cancellationToken">A cancellation token to observe while scanning.</param>
+        /// <returns>A list of <see cref="DuplicateGroup"/> objects containing duplicate copies found.</returns>
+        Task<IReadOnlyList<DuplicateGroup>> GetDuplicateGroupsAsync(
+            AppSettings settings,
+            IProgress<string>? progress = null,
+            CancellationToken cancellationToken = default);
     }
 }

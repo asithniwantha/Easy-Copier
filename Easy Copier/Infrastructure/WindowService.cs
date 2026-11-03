@@ -85,6 +85,11 @@ namespace Easy_Copier.Infrastructure
         /// Opens the About application information window.
         /// </summary>
         void ShowAboutWindow();
+
+        /// <summary>
+        /// Opens the Duplicate Manager window.
+        /// </summary>
+        void ShowDuplicateManagerWindow();
     }
 
     /// <summary>
@@ -113,6 +118,11 @@ namespace Easy_Copier.Infrastructure
         private readonly Func<AboutViewModel> _aboutViewModelFactory;
 
         /// <summary>
+        /// Factory delegate for creating transient <see cref="DuplicateManagerViewModel"/> instances.
+        /// </summary>
+        private readonly Func<DuplicateManagerViewModel> _duplicateManagerViewModelFactory;
+
+        /// <summary>
         /// The application window context provider used for retrieving the main window.
         /// </summary>
         private readonly IAppWindowContext _appWindowContext;
@@ -129,12 +139,15 @@ namespace Easy_Copier.Infrastructure
         /// <param name="historyViewModelFactory">Factory delegate for resolving <see cref="HistoryViewModel"/> instances.</param>
         /// <param name="smartAdderHistoryViewModelFactory">Factory delegate for resolving <see cref="SmartAdderHistoryViewModel"/> instances.</param>
         /// <param name="aboutViewModelFactory">Factory delegate for resolving <see cref="AboutViewModel"/> instances.</param>
+        /// <param name="duplicateManagerViewModelFactory">Factory delegate for resolving <see cref="DuplicateManagerViewModel"/> instances.</param>
         /// <param name="appWindowContext">The main application window context provider.</param>
+        /// <param name="settingsNavigationService">The settings navigation service dependency.</param>
         public WindowService(
             Func<SettingsViewModel> settingsViewModelFactory,
             Func<HistoryViewModel> historyViewModelFactory,
             Func<SmartAdderHistoryViewModel> smartAdderHistoryViewModelFactory,
             Func<AboutViewModel> aboutViewModelFactory,
+            Func<DuplicateManagerViewModel> duplicateManagerViewModelFactory,
             IAppWindowContext appWindowContext,
             Services.ISettingsNavigationService settingsNavigationService)
         {
@@ -142,6 +155,7 @@ namespace Easy_Copier.Infrastructure
             _historyViewModelFactory = historyViewModelFactory ?? throw new ArgumentNullException(nameof(historyViewModelFactory));
             _smartAdderHistoryViewModelFactory = smartAdderHistoryViewModelFactory ?? throw new ArgumentNullException(nameof(smartAdderHistoryViewModelFactory));
             _aboutViewModelFactory = aboutViewModelFactory ?? throw new ArgumentNullException(nameof(aboutViewModelFactory));
+            _duplicateManagerViewModelFactory = duplicateManagerViewModelFactory ?? throw new ArgumentNullException(nameof(duplicateManagerViewModelFactory));
             _appWindowContext = appWindowContext ?? throw new ArgumentNullException(nameof(appWindowContext));
             _settingsNavigationService = settingsNavigationService ?? throw new ArgumentNullException(nameof(settingsNavigationService));
         }
@@ -203,6 +217,18 @@ namespace Easy_Copier.Infrastructure
             // Pass the primary application window context to modal dialogs as the owner window
             AboutWindow aboutWindow = new(viewModel, MainWindow!);
             aboutWindow.Activate();
+        }
+
+        /// <summary>
+        /// Opens the Duplicate Manager window.
+        /// </summary>
+        public void ShowDuplicateManagerWindow()
+        {
+            // Resolve a fresh transient DuplicateManagerViewModel instance via typed factory delegate
+            DuplicateManagerViewModel viewModel = _duplicateManagerViewModelFactory();
+            // Pass the primary application window context to modal dialogs as the owner window
+            DuplicateManagerWindow duplicateManagerWindow = new(viewModel, MainWindow!);
+            duplicateManagerWindow.Activate();
         }
     }
 }

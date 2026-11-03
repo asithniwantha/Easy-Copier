@@ -365,6 +365,12 @@ namespace Easy_Copier.Models
 
         /// <summary>Gets or sets the price for tier 4 content (e.g., &gt; 16 GB).</summary>
         public int PriceTier4 { get; set; } = 400;
+
+        /// <summary>Gets or sets the post-copy data verification strategy.</summary>
+        public CopyVerificationMode VerificationMode { get; set; } = CopyVerificationMode.QuickSizeAndCount;
+
+        /// <summary>Gets or sets a value indicating whether closing the main window minimizes to the system tray when transfers are active.</summary>
+        public bool MinimizeToTrayOnClose { get; set; } = true;
     }
 
     /// <summary>
@@ -530,4 +536,87 @@ namespace Easy_Copier.Models
         IReadOnlyList<PeriodTotal> WeeklyTotals,
         IReadOnlyList<TopCopiedItem> TopItems,
         double OverallFailureRate);
+
+    /// <summary>
+    /// Specifies the post-copy data verification strategy.
+    /// </summary>
+    public enum CopyVerificationMode
+    {
+        /// <summary>No verification is performed after copying.</summary>
+        None,
+
+        /// <summary>Quick verification: checks that all files exist and match exact byte lengths.</summary>
+        QuickSizeAndCount,
+
+        /// <summary>Fast hardware-accelerated SIMD hashing using XxHash64.</summary>
+        FastXxHash64,
+
+        /// <summary>Full cryptographic verification using standard SHA-256 hashes.</summary>
+        FullSha256
+    }
+
+    /// <summary>
+    /// Represents the outcome of a post-copy data verification check.
+    /// </summary>
+    /// <param name="IsSuccess">Indicates whether all verified files matched their source.</param>
+    /// <param name="ErrorMessage">Descriptive error message if verification failed.</param>
+    /// <param name="MismatchedFiles">List of relative file paths that failed validation.</param>
+    public record VerificationResult(
+        bool IsSuccess,
+        string? ErrorMessage = null,
+        IReadOnlyList<string>? MismatchedFiles = null);
+
+    /// <summary>
+    /// Represents a paginated query result containing a slice of items and total count metadata.
+    /// </summary>
+    /// <typeparam name="T">The type of items in the page.</typeparam>
+    /// <param name="Items">The items belonging to the current page.</param>
+    /// <param name="TotalCount">The total number of items across all pages.</param>
+    /// <param name="Page">The current 1-based page number.</param>
+    /// <param name="PageSize">The maximum number of items per page.</param>
+    public record PagedResult<T>(
+        IReadOnlyList<T> Items,
+        int TotalCount,
+        int Page,
+        int PageSize)
+    {
+        /// <summary>
+        /// Gets the total number of pages available.
+        /// </summary>
+        public int TotalPages => PageSize > 0 ? (int)Math.Ceiling((double)TotalCount / PageSize) : 0;
+
+        /// <summary>
+        /// Gets a value indicating whether there is a subsequent page.
+        /// </summary>
+        public bool HasNextPage => Page < TotalPages;
+
+        /// <summary>
+        /// Gets a value indicating whether there is a preceding page.
+        /// </summary>
+        public bool HasPreviousPage => Page > 1;
+    }
+
+    /// <summary>
+    /// Represents a single copy of an item discovered across monitored source libraries.
+    /// </summary>
+    /// <param name="Name">The display title or folder name of the duplicate copy.</param>
+    /// <param name="FolderPath">The full path on disk to the duplicate directory or file.</param>
+    /// <param name="Category">The content library category (Game, App, TvAndFilm, OsImage).</param>
+    /// <param name="TotalBytes">The total size of this duplicate instance in bytes.</param>
+    /// <param name="DateCreated">The creation or last modified timestamp of the duplicate item.</param>
+    public record DuplicateItemEntry(
+        string Name,
+        string FolderPath,
+        LibraryCategory Category,
+        long TotalBytes,
+        DateTime DateCreated);
+
+    /// <summary>
+    /// Represents a cluster of duplicate item entries sharing the same logical title across libraries.
+    /// </summary>
+    /// <param name="ItemName">The common title shared by all copies in the group.</param>
+    /// <param name="Entries">The collection of duplicate copies located across source paths.</param>
+    public record DuplicateGroup(
+        string ItemName,
+        IReadOnlyList<DuplicateItemEntry> Entries);
 }

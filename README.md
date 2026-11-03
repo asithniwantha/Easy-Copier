@@ -67,6 +67,8 @@ Easy Copier helps shop environments prepare customer drives without guessing whi
 | 🧮 **Smart Adder** | Provides an Excel-like calculator for fast operational calculations. |
 
 | ⚙️ **Settings UI** | Modular WinUI 3 page navigation with cached views, folder list empty-state guidance, deep linking, size-to-content window logic, and modal protection. |
+| 🗑️ **Duplicate Manager** | Interactive cleanup interface with dynamic recoverable space calculations, smart presets ("Keep Newest", "Keep Oldest"), and safe undoable recycling to Windows Recycle Bin. |
+| 🔔 **System Tray Resilience** | Minimizes to system tray when closing the window with active transfers, featuring real-time progress tooltips, balloon notifications, and a native context menu. |
 
 ---
 
@@ -242,17 +244,17 @@ The selected-drive panel also shows a usage bar, free space, total capacity, and
 
 ## 📅 Future Enhancements
 
-> 🔮 For technical designs, architecture blueprints, and implementation specs for pending roadmap items (M2, M4, M5, M6, M7), see [FUTURE_WORK.md](FUTURE_WORK.md).
+> 🔮 For technical designs, architecture blueprints, and implementation specs for pending roadmap items (M6, M7), see [FUTURE_WORK.md](FUTURE_WORK.md).
 
 - [ ] Add transfer profiles and presets for one-click queueing of common game/app/media bundles.
 
-- [ ] Add optional post-copy verification (hash/size) to confirm file integrity.
+- [x] Add optional post-copy verification (hash/size) to confirm file integrity.
 
 - [ ] Add automatic best-fit suggestions based on selected drive free space.
 
 - [x] Add duplicate detection across source libraries with cleanup recommendations.
 
-- [ ] Add retry and resume support for transient copy failures.
+- [x] Add retry action for failed or cancelled transfer queue items.
 
 - [ ] Add advanced reporting dashboards (daily/weekly totals, most-copied items, and failure-rate trends).
 
@@ -420,3 +422,13 @@ Distributed under the MIT License. See `LICENSE` for more information.
 * **File System Service Decoupling (VideoDetailsViewModel):** Abstracted recursive file enumeration in VideoDetailsViewModel through IFileSystemService.EnumerateFilesRelative, eliminating direct DirectoryInfo and FileInfo disk access from the presentation layer. 📁
 
 * **Deduplicated Empty Message Formatter & Dead Code Cleanup:** Centralized empty-state library string interpolation into FormattingHelpers.FormatEmptyLibraryMessage across MainViewModel, and eliminated obsolete visibility properties from SettingsViewModel. 🧹
+
+* **Queue Item Retry Action (M2):** Implemented inline retry functionality on transfer queue cards allowing users to re-enqueue and resume failed or cancelled copy operations with one click, featuring destination drive validation, cancellation token renewal, and `IDisposable` lifecycle management in `TransferQueueService`. 🔄
+
+* **Post-Copy Verification (M4):** Integrated post-copy data verification into `WindowsShellTransferService` with configurable strategies in `GeneralSettingsPage` (Quick size/count, Fast `XxHash64` SIMD hashing, Full `SHA-256`), recording discrepancies in SQLite and failing affected jobs for retry. 🛡️
+
+* **History Pagination & Streaming (M5):** Implemented server-side SQL pagination (`LIMIT`/`OFFSET`) and database streaming in `CopyHistoryService` and `HistoryViewModel`, paired with a responsive pagination toolbar and page size selector in `HistoryPage.xaml`. 📄
+
+* **Interactive One-Click Duplicate Cleanup Interface (M6):** Introduced `DuplicateManagerWindow` and `DuplicateManagerViewModel` replacing the static text duplicate report with an interactive management interface featuring visual group cards, dynamic recoverable space calculation, smart presets ("Keep Newest", "Keep Oldest", "Deselect All"), and safe, undoable recycling to the Windows Recycle Bin via native `IFileOperation`. 🗑️
+
+* **System Tray Integration & Background Transfer Resilience (M7):** Implemented background transfer resilience via Win32 `Shell_NotifyIconW` and `comctl32.dll` window subclassing (`ISystemTrayService`), intercepting main window closing when transfers are active (`MinimizeToTrayOnClose`), updating hover tooltips with real-time transfer progress, and offering an interactive Win32 context menu with restore, cancel, and exit actions. 🔔

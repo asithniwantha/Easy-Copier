@@ -232,7 +232,9 @@
 
 - Automatically resize the Settings window to fit content.
 
-- Duplicate detection tool across all configured source libraries, identifying duplicates by name and providing actionable cleanup recommendations.
+- **Interactive One-Click Duplicate Cleanup Interface (M6):** Dedicated `DuplicateManagerWindow` modal dialog displaying redundant copies across monitored libraries with visual cards, folder paths, item sizes, creation timestamps, category glyphs, dynamic recoverable disk space calculation, smart selection presets ("Keep Newest", "Keep Oldest", "Deselect All"), and safe, undoable deletion to the Windows Recycle Bin via native Windows Shell `IFileOperation`.
+
+- **System Tray Integration & Background Transfer Resilience (M7):** Intercepts main window closing when transfers are actively running or queued (`MinimizeToTrayOnClose`), minimizing the application into the Windows taskbar system notification area. Features dynamic progress hover tooltips (`Easy Copier — X transfer(s) (Y MB/s) — Z%`), balloon alerts, and a native Win32 context popup menu to restore the window, cancel active transfers, or exit the application cleanly.
 
 - Toggle to overwrite existing game covers in Settings, allowing users to force refresh and replace outdated or inaccurate cover images.
 
@@ -377,6 +379,9 @@
 - Documented architectural synchronization between `DataContext` and `ViewModel` dependency property in `SmartAdderControl.xaml.cs` for ambient template binding support.
 
 - Replaced positional index filter clearing in `HistoryViewModel` with strongly-typed named constant `FilterAllTime` to eliminate array order dependency.
+- Added inline retry action for failed and cancelled transfer queue items: users can re-enqueue failed or user-cancelled batches directly from queue cards without re-browsing or re-selecting items, backed by destination drive accessibility verification and automatic cancellation token regeneration in `TransferQueueService`.
+- Added post-copy data verification (M4): integrated configurable integrity checks (Quick size & count, Fast XxHash64 SIMD hashing, and Full SHA-256) into `WindowsShellTransferService` and Settings, logging mismatches to SQLite ErrorLog and flagging failed items for one-click retry.
+- Added history pagination & database streaming (M5): implemented server-side SQL pagination (LIMIT/OFFSET), streaming records into UI slices with responsive page navigation controls, page size selector (25/50/100/200), and all-filtered CSV export.
 - Added per-item copy cancellation for queued and in-progress transfers: users can cancel active copy operations from the queue UI, which signals `FileOperationProgressSink` to return `COPYENGINE_E_USER_CANCELLED` and immediately abort the underlying Windows Shell `IFileOperation`.
 - Added cancel capability for bulk cover art and system requirements downloads via `CancelDownloadGameInfoCommand` in `SettingsViewModel` and dedicated Cancel button in `SettingsWindow.xaml`.
 - Added prominent confirmation modal (`ShowConfirmationDialogAsync`) in `SettingsViewModel` when saving configurations that include inaccessible or missing source library folders, preventing silent errors.
@@ -404,13 +409,13 @@
 
 - [ ] Add transfer profiles and presets for one-click queueing of common game/app/media bundles.
 
-- [ ] Add optional post-copy verification (hash/size) to confirm file integrity.
+- [x] Add optional post-copy verification (hash/size) to confirm file integrity.
 
 - [ ] Add automatic best-fit suggestions based on selected drive free space.
 
 - [x] Add duplicate detection across source libraries with cleanup recommendations.
 
-- [ ] Add retry and resume support for transient copy failures.
+- [x] Add retry action for failed or cancelled transfer queue items.
 
 - [x] Add advanced reporting dashboards (daily/weekly totals, most-copied items, and failure-rate trends).
 
@@ -514,3 +519,18 @@ Tracks records of calculations made using the Smart Adder tool.
 ### 🧹 Deduplicated Formatting & Dead Code Elimination
 - Centralized library empty-state messages into FormattingHelpers.FormatEmptyLibraryMessage, providing uniform, localized wording across all tabs.
 - Cleaned up unused legacy panel visibility properties (IsGeneralPanelVisible, IsGamesPanelVisible, etc.) from SettingsViewModel.
+
+### 🗑️ Safe Recycle Bin Deletion Pipeline (ISafeDeletionService & DuplicateManagerViewModel)
+- Upgrades duplicate reporting from a static text prompt to an interactive management dialog (`DuplicateManagerWindow`).
+- Enforces non-destructive file operations via `ISafeDeletionService` which executes `IFileOperation.DeleteItem` configured with `FILEOP_FLAGS.FOF_ALLOWUNDO`. Deleted items are preserved in the Windows Recycle Bin for user recovery rather than permanently eradicated.
+- Thread isolation: Shell COM invocations execute inside dedicated STA background worker threads to protect UI responsiveness.
+- Provides smart preset heuristics: "Keep Newest" preserves the latest created version, "Keep Oldest" preserves the original baseline copy, and live calculation dynamically tracks recoverable disk space and item counts.
+
+### 🔔 Native System Tray Integration & Subclassing (ISystemTrayService & SystemTrayInterop)
+- Protects long-running multi-gigabyte transfers against accidental termination when users click the window close button (`[X]`).
+- Integrates native Win32 `Shell_NotifyIconW` and `comctl32.dll` window subclassing (`SetWindowSubclass`, `RemoveWindowSubclass`) on `MainWindow`'s HWND without interfering with Windows App SDK message routing.
+- Subclass procedure intercepts `WM_TRAYICON`:
+  - `WM_LBUTTONUP`: Restores and foregrounds `MainWindow` (`ShowWindow(SW_RESTORE)` and `SetForegroundWindow`).
+  - `WM_RBUTTONUP` / `WM_CONTEXTMENU`: Renders native Win32 popup menu (`CreatePopupMenu`, `TrackPopupMenuEx`) with "Open Easy Copier", "Cancel Active Transfers", and "Exit Easy Copier".
+- Observes `TransferQueueService.QueueItems` collection and property mutations to update hover tooltips with real-time transfer count, speed, and percentage completion (`Easy Copier — X transfer(s) (Y MB/s) — Z%`).
+- Emits balloon notifications when window is minimized and background operations continue.

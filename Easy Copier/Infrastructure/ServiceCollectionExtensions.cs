@@ -48,11 +48,14 @@ namespace Easy_Copier.Infrastructure
             _ = services.AddSingleton<Services.IFolderPickerService, FolderPickerService>();
             _ = services.AddSingleton<Services.IGameScannerService, Services.GameScannerService>();
             _ = services.AddSingleton<Services.ILibraryScannerService, Services.LibraryScannerService>();
+            _ = services.AddSingleton<Services.ISafeDeletionService, Services.SafeDeletionService>();
+            _ = services.AddSingleton<ISystemTrayService, SystemTrayService>();
             _ = services.AddSingleton<Services.IBatchNotificationService, Services.BatchNotificationService>();
             _ = services.AddSingleton<Services.IDriveDiscoveryService, Services.DriveDiscoveryService>();
             _ = services.AddSingleton<Services.IDriveValidationService, Services.DriveValidationService>();
             _ = services.AddSingleton<Services.IDriveCoordinatorService, Services.DriveCoordinatorService>();
             _ = services.AddSingleton<Services.IFileTransferService, Services.WindowsShellTransferService>();
+            _ = services.AddSingleton<Services.IVerificationService, Services.VerificationService>();
             _ = services.AddSingleton<Services.ITransferQueueService, Services.TransferQueueService>();
             _ = services.AddSingleton<Services.IStartupService, Services.StartupService>();
             _ = services.AddSingleton<IProcessService, ProcessService>();
@@ -102,6 +105,7 @@ namespace Easy_Copier.Infrastructure
             _ = services.AddTransient<ViewModels.HistoryViewModel>();
             _ = services.AddTransient<ViewModels.SmartAdderHistoryViewModel>();
             _ = services.AddTransient<ViewModels.AboutViewModel>();
+            _ = services.AddTransient<ViewModels.DuplicateManagerViewModel>();
             _ = services.AddTransient<ViewModels.GameDetailsViewModel>();
             _ = services.AddTransient<ViewModels.OsImageDetailsViewModel>();
             _ = services.AddTransient<ViewModels.VideoDetailsViewModel>();
@@ -110,6 +114,7 @@ namespace Easy_Copier.Infrastructure
             _ = services.AddSingleton<Func<ViewModels.HistoryViewModel>>(provider => () => provider.GetRequiredService<ViewModels.HistoryViewModel>());
             _ = services.AddSingleton<Func<ViewModels.SmartAdderHistoryViewModel>>(provider => () => provider.GetRequiredService<ViewModels.SmartAdderHistoryViewModel>());
             _ = services.AddSingleton<Func<ViewModels.AboutViewModel>>(provider => () => provider.GetRequiredService<ViewModels.AboutViewModel>());
+            _ = services.AddSingleton<Func<ViewModels.DuplicateManagerViewModel>>(provider => () => provider.GetRequiredService<ViewModels.DuplicateManagerViewModel>());
             _ = services.AddSingleton<Func<ViewModels.GameDetailsViewModel>>(provider => () => provider.GetRequiredService<ViewModels.GameDetailsViewModel>());
             _ = services.AddSingleton<Func<ViewModels.OsImageDetailsViewModel>>(provider => () => provider.GetRequiredService<ViewModels.OsImageDetailsViewModel>());
             _ = services.AddSingleton<Func<ViewModels.VideoDetailsViewModel>>(provider => () => provider.GetRequiredService<ViewModels.VideoDetailsViewModel>());

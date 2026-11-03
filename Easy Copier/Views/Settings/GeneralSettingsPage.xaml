@@ -28,6 +28,10 @@
                                            Description="Automatically launch Easy Copier in the background when signing into Windows">
                         <ToggleSwitch IsOn="{x:Bind ViewModel.StartOnLogon, Mode=TwoWay}"/>
                     </controls:SettingsCard>
+                    <controls:SettingsCard Header="Minimize to system tray on close"
+                                           Description="Keep background transfers running in the system tray when closing the main window">
+                        <ToggleSwitch IsOn="{x:Bind ViewModel.MinimizeToTrayOnClose, Mode=TwoWay}"/>
+                    </controls:SettingsCard>
                 </controls:SettingsExpander.Items>
             </controls:SettingsExpander>
 
@@ -75,6 +79,26 @@
                     <controls:SettingsCard Header="Desktop toast notifications"
                                            Description="Display native Windows notifications upon batch transfer completion">
                         <ToggleSwitch IsOn="{x:Bind ViewModel.ShowDesktopNotifications, Mode=TwoWay}"/>
+                    </controls:SettingsCard>
+                </controls:SettingsExpander.Items>
+            </controls:SettingsExpander>
+
+            <!-- Data Verification & Integrity Expander -->
+            <controls:SettingsExpander Header="Data Verification &amp; Integrity"
+                                       Description="Configure post-copy file size and cryptographic checksum validation"
+                                       IsExpanded="True">
+                <controls:SettingsExpander.HeaderIcon>
+                    <FontIcon Glyph="&#xE8A1;"/>
+                </controls:SettingsExpander.HeaderIcon>
+                <controls:SettingsExpander.Items>
+                    <controls:SettingsCard Header="Post-copy verification mode"
+                                           Description="Choose how copied files are validated against corruption or incomplete writes">
+                        <ComboBox SelectedIndex="{x:Bind ViewModel.VerificationModeIndex, Mode=TwoWay}" MinWidth="220">
+                            <ComboBoxItem Content="None (Fastest)"/>
+                            <ComboBoxItem Content="Quick (File Size &amp; Count)"/>
+                            <ComboBoxItem Content="Fast XxHash64 (SIMD Hashing)"/>
+                            <ComboBoxItem Content="Full SHA-256 (Cryptographic)"/>
+                        </ComboBox>
                     </controls:SettingsCard>
                 </controls:SettingsExpander.Items>
             </controls:SettingsExpander>

@@ -29,6 +29,7 @@ namespace Easy_Copier.ViewModels
         private readonly IUpdateService _updateService;
         private readonly IDialogService _dialogService;
         private readonly ILibraryScannerService _libraryScannerService;
+        private readonly IWindowService _windowService;
         private readonly IProcessService _processService;
         private readonly ObservableCollection<string>[] _allFolderCollections;
 
@@ -51,6 +52,33 @@ namespace Easy_Copier.ViewModels
         /// <summary>Gets or sets a value indicating whether desktop toast notifications are enabled.</summary>
         [ObservableProperty]
         public partial bool ShowDesktopNotifications { get; set; } = true;
+
+        /// <summary>Gets or sets a value indicating whether closing the main window minimizes to the system tray when transfers are running.</summary>
+        [ObservableProperty]
+        public partial bool MinimizeToTrayOnClose { get; set; } = true;
+
+        /// <summary>
+        /// Gets or sets the data integrity verification strategy executed after file transfers.
+        /// </summary>
+        [ObservableProperty]
+        [NotifyPropertyChangedFor(nameof(VerificationModeIndex))]
+        public partial CopyVerificationMode VerificationMode { get; set; } = CopyVerificationMode.QuickSizeAndCount;
+
+        /// <summary>
+        /// Gets or sets the zero-based index representing <see cref="VerificationMode"/> for XAML ComboBox selection.
+        /// </summary>
+        public int VerificationModeIndex
+        {
+            get => (int)VerificationMode;
+            set
+            {
+                if (value >= 0 && value <= 3 && (CopyVerificationMode)value != VerificationMode)
+                {
+                    VerificationMode = (CopyVerificationMode)value;
+                    OnPropertyChanged();
+                }
+            }
+        }
 
         /// <summary>Gets or sets the string representation of price tier 1 (&lt; 5 GB).</summary>
         [ObservableProperty]
@@ -150,6 +178,7 @@ namespace Easy_Copier.ViewModels
         /// <param name="updateService">The update service for checking and downloading software updates.</param>
         /// <param name="dialogService">The dialog service for displaying modal message dialogs.</param>
         /// <param name="libraryScannerService">The library scanner service for duplicate content detection.</param>
+        /// <param name="windowService">The window service for activating child and modal dialog windows.</param>
         public SettingsViewModel(
             ILogger<SettingsViewModel> logger,
             ISettingsService settingsService,
@@ -162,7 +191,8 @@ namespace Easy_Copier.ViewModels
             IDispatcherService dispatcherService,
             IUpdateService updateService,
             IDialogService dialogService,
-            ILibraryScannerService libraryScannerService)
+            ILibraryScannerService libraryScannerService,
+            IWindowService windowService)
         {
             _settingsService = settingsService;
             _folderPickerService = folderPickerService;
@@ -176,6 +206,7 @@ namespace Easy_Copier.ViewModels
             _updateService = updateService;
             _dialogService = dialogService;
             _libraryScannerService = libraryScannerService;
+            _windowService = windowService;
 
             _allFolderCollections = [GameSourceFolders, AppSourceFolders, TvAndFilmSourceFolders, OsImageSourceFolders];
 
@@ -237,37 +268,12 @@ namespace Easy_Copier.ViewModels
         }
 
         /// <summary>
-        /// Asynchronously scans active library folders and generates a duplicate item detection report.
+        /// Opens the interactive Duplicate Library Manager dialog to scan and manage duplicate items across libraries.
         /// </summary>
-        /// <param name="cancellationToken">Cancellation token to observe.</param>
-        /// <returns>A task representing the asynchronous scan operation.</returns>
         [RelayCommand]
-        private async Task FindDuplicatesAsync(CancellationToken cancellationToken)
+        private void FindDuplicates()
         {
-            StatusMessage = "Scanning libraries for duplicates...";
-
-            try
-            {
-                Progress<string> progress = new(msg =>
-                {
-                    _ = _dispatcherService.TryEnqueue(() => StatusMessage = msg);
-                });
-
-                AppSettings settings = GetSettings();
-                string report = await _libraryScannerService.FindDuplicatesReportAsync(settings, progress, cancellationToken);
-
-                await _dialogService.ShowMessageDialogAsync("Duplicate Detection Report", report);
-                StatusMessage = "Duplicate detection complete";
-            }
-            catch (OperationCanceledException)
-            {
-                StatusMessage = "Duplicate scan canceled.";
-            }
-            catch (Exception ex)
-            {
-                _logger.LogError(ex, "Failed to scan for duplicates.");
-                StatusMessage = "Error scanning for duplicates.";
-            }
+            _windowService.ShowDuplicateManagerWindow();
         }
 
         /// <summary>

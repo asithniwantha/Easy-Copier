@@ -66,9 +66,6 @@ namespace Easy_Copier.ViewModels
         /// <summary>Logger instance for recording history operations and diagnostic warnings.</summary>
         private readonly Microsoft.Extensions.Logging.ILogger<HistoryViewModel>? _logger;
 
-        /// <summary>Internal list holding all un-filtered copy history records loaded from storage.</summary>
-        private List<CopyHistoryRecord> _allRecords = [];
-
         /// <summary>Flag indicating whether initial record loading has been executed.</summary>
         private bool _isInitialized;
 
@@ -155,6 +152,56 @@ namespace Easy_Copier.ViewModels
         /// </summary>
         [ObservableProperty]
         public partial string SelectedStatusFilterString { get; set; }
+
+        /// <summary>Gets or sets the current 1-based page number.</summary>
+        [ObservableProperty]
+        public partial int CurrentPage { get; set; } = 1;
+
+        /// <summary>Gets or sets the total number of pages available.</summary>
+        [ObservableProperty]
+        public partial int TotalPages { get; set; } = 1;
+
+        /// <summary>Gets or sets the total count of matching records across all pages.</summary>
+        [ObservableProperty]
+        public partial int TotalRecordCount { get; set; }
+
+        /// <summary>Gets or sets the maximum number of records displayed per page.</summary>
+        [ObservableProperty]
+        public partial int PageSize { get; set; } = 50;
+
+        /// <summary>Gets or sets a value indicating whether a subsequent page is available.</summary>
+        [ObservableProperty]
+        public partial bool HasNextPage { get; set; }
+
+        /// <summary>Gets or sets a value indicating whether a preceding page is available.</summary>
+        [ObservableProperty]
+        public partial bool HasPreviousPage { get; set; }
+
+        /// <summary>Gets or sets the formatted text summarizing current page and total pages.</summary>
+        [ObservableProperty]
+        public partial string PaginationSummaryText { get; set; } = "Page 1 of 1";
+
+        /// <summary>Gets or sets the formatted text summarizing total matching records found.</summary>
+        [ObservableProperty]
+        public partial string TotalRecordSummaryText { get; set; } = "0 transfers found";
+
+        /// <summary>Gets the list of available page size options.</summary>
+        public IReadOnlyList<int> AvailablePageSizes { get; } = [25, 50, 100, 200];
+
+        /// <summary>Gets or sets the selected page size from UI dropdown.</summary>
+        [ObservableProperty]
+        public partial int SelectedPageSize { get; set; } = 50;
+
+        /// <summary>Notification handler invoked when selected page size changes.</summary>
+        partial void OnSelectedPageSizeChanged(int value)
+        {
+            if (value > 0 && PageSize != value)
+            {
+                PageSize = value;
+                CurrentPage = 1;
+                _ = LoadPageDataAsync();
+            }
+        }
 
         /// <summary>
         /// Gets or sets a value indicating whether the detail inspection drawer panel is open.
@@ -263,7 +310,7 @@ namespace Easy_Copier.ViewModels
         /// <summary>
         /// Partial notification handler invoked when <see cref="SelectedDashboardRange"/> changes.
         /// </summary>
-        partial void OnSelectedDashboardRangeChanged(string value) => RefreshDashboard();
+        partial void OnSelectedDashboardRangeChanged(string value) => _ = RefreshDashboardAsync();
 
         /// <summary>
         /// Toggles dashboard visibility.
@@ -272,9 +319,9 @@ namespace Easy_Copier.ViewModels
         private void ToggleDashboard() => IsDashboardVisible = !IsDashboardVisible;
 
         /// <summary>
-        /// Recomputes dashboard data from all loaded records.
+        /// Asynchronously recomputes dashboard analytics from recent historical data.
         /// </summary>
-        private void RefreshDashboard()
+        private async Task RefreshDashboardAsync()
         {
             if (!_isInitialized)
             {
@@ -288,7 +335,11 @@ namespace Easy_Copier.ViewModels
                 _ => 7
             };
 
-            DashboardStats stats = _historyAnalysisService.BuildDashboard(_allRecords, days);
+            DateTime minDate = DateTime.Today.AddDays(-days);
+            DateTime maxDate = DateTime.Today.AddDays(1);
+            List<CopyHistoryRecord> records = await _copyHistoryService.GetRecordsByWeekAsync(minDate, maxDate);
+
+            DashboardStats stats = _historyAnalysisService.BuildDashboard(records, days);
             Dashboard = stats;
             DailyTotals.UpdateFrom(stats.DailyTotals);
             WeeklyTotals.UpdateFrom(stats.WeeklyTotals);
@@ -333,15 +384,9 @@ namespace Easy_Copier.ViewModels
                 return;
             }
 
-            StatusMessage = "Loading records...";
-            // Scope initial retrieval to the past 90 days to cover dashboard metrics without pulling all historical records.
-            DateTime minDate = DateTime.Today.AddDays(-90);
-            DateTime maxDate = DateTime.Today.AddDays(1);
-            List<CopyHistoryRecord> records = await _copyHistoryService.GetRecordsByWeekAsync(minDate, maxDate);
-            _allRecords = records;
             _isInitialized = true;
-            ApplyFilters();
-            RefreshDashboard();
+            await LoadPageDataAsync();
+            await RefreshDashboardAsync();
         }
 
         /// <summary>
@@ -433,7 +478,7 @@ namespace Easy_Copier.ViewModels
         }
 
         /// <summary>
-        /// Filters and sorts in-memory records based on active date, status, and search query parameters.
+        /// Resets page to 1 and asynchronously loads the paged slice from SQLite storage.
         /// </summary>
         private void ApplyFilters()
         {
@@ -442,45 +487,120 @@ namespace Easy_Copier.ViewModels
                 return;
             }
 
-            IEnumerable<CopyHistoryRecord> filtered = _allRecords;
+            CurrentPage = 1;
+            _ = LoadPageDataAsync();
+        }
 
-            // Apply Date Filter
-            DateTime now = DateTime.Now;
-            filtered = SelectedDateFilter switch
+        /// <summary>
+        /// Asynchronously queries SQLite for the active page records and summary metrics.
+        /// </summary>
+        private async Task LoadPageDataAsync()
+        {
+            if (!_isInitialized)
             {
-                DateFilter.Today => filtered.Where(r => r.Timestamp.Date == now.Date),
-                DateFilter.Last7Days => filtered.Where(r => r.Timestamp.Date >= now.AddDays(-7).Date),
-                DateFilter.ThisMonth => filtered.Where(r => r.Timestamp.Year == now.Year && r.Timestamp.Month == now.Month),
-                _ => filtered
-            };
-
-            // Apply Status Filter
-            filtered = SelectedStatusFilter switch
-            {
-                StatusFilter.Completed => filtered.Where(r => r.IsSuccess),
-                StatusFilter.Failed => filtered.Where(r => !r.IsSuccess),
-                _ => filtered
-            };
-
-            // Apply Search Query
-            if (!string.IsNullOrWhiteSpace(SearchQuery))
-            {
-                filtered = filtered.Where(r =>
-                    r.GameName.Contains(SearchQuery, StringComparison.OrdinalIgnoreCase) ||
-                    r.TargetDriveLetter.Contains(SearchQuery, StringComparison.OrdinalIgnoreCase) ||
-                    r.TargetDriveLabel.Contains(SearchQuery, StringComparison.OrdinalIgnoreCase)
-                );
+                return;
             }
 
-            List<CopyHistoryRecord> sortedRecords = filtered.OrderByDescending(r => r.Timestamp).ToList();
+            StatusMessage = "Loading page...";
 
-            _historyAnalysisService.ApplyBatchClustering(sortedRecords);
-            Records.UpdateFrom(sortedRecords);
+            DateTime now = DateTime.Now;
+            DateTime? startDate = SelectedDateFilter switch
+            {
+                DateFilter.Today => now.Date,
+                DateFilter.Last7Days => now.AddDays(-7).Date,
+                DateFilter.ThisMonth => new DateTime(now.Year, now.Month, 1),
+                _ => null
+            };
 
-            SelectedFilterStats = _historyAnalysisService.CalculateStats(sortedRecords);
-            StatusMessage = $"Showing {sortedRecords.Count} records.";
-            HasNoRecords = sortedRecords.Count == 0;
-            HeaderSubtitle = $"{sortedRecords.Count} transfer(s) • {SelectedDateFilterString} • {SelectedStatusFilterString}";
+            DateTime? endDate = SelectedDateFilter switch
+            {
+                DateFilter.Today => now.Date.AddDays(1),
+                DateFilter.Last7Days => now.Date.AddDays(1),
+                DateFilter.ThisMonth => new DateTime(now.Year, now.Month, 1).AddMonths(1),
+                _ => null
+            };
+
+            bool? isSuccess = SelectedStatusFilter switch
+            {
+                StatusFilter.Completed => true,
+                StatusFilter.Failed => false,
+                _ => null
+            };
+
+            string? search = string.IsNullOrWhiteSpace(SearchQuery) ? null : SearchQuery.Trim();
+
+            Task<PagedResult<CopyHistoryRecord>> pageTask = _copyHistoryService.GetPagedRecordsAsync(
+                startDate, endDate, isSuccess, search, CurrentPage, PageSize);
+            Task<(int TotalItems, int SuccessfulItems, long TotalBytes, int TotalAmount)> statsTask = _copyHistoryService.GetFilteredStatsAsync(
+                startDate, endDate, isSuccess, search);
+
+            await Task.WhenAll(pageTask, statsTask);
+
+            PagedResult<CopyHistoryRecord> pagedResult = await pageTask;
+            var (totalItems, successfulItems, totalBytes, totalAmount) = await statsTask;
+
+            TotalRecordCount = pagedResult.TotalCount;
+            TotalPages = Math.Max(1, pagedResult.TotalPages);
+            HasNextPage = pagedResult.HasNextPage;
+            HasPreviousPage = pagedResult.HasPreviousPage;
+
+            PaginationSummaryText = $"Page {CurrentPage} of {TotalPages}";
+            TotalRecordSummaryText = $"{TotalRecordCount:N0} transfer(s) found";
+
+            List<CopyHistoryRecord> pageItems = [.. pagedResult.Items];
+            _historyAnalysisService.ApplyBatchClustering(pageItems);
+            Records.UpdateFrom(pageItems);
+
+            string successRate = totalItems > 0 ? $"{Math.Round((double)successfulItems / totalItems * 100, 1)}%" : "0%";
+            SelectedFilterStats = new HistoryStats(totalItems, successfulItems, totalBytes, totalAmount, successRate);
+
+            HasNoRecords = TotalRecordCount == 0;
+            HeaderSubtitle = $"{TotalRecordCount:N0} transfer(s) • {SelectedDateFilterString} • {SelectedStatusFilterString}";
+            StatusMessage = $"Showing page {CurrentPage} of {TotalPages} ({Records.Count} records).";
+        }
+
+        /// <summary>Advances to the next page of history records.</summary>
+        [RelayCommand]
+        private async Task NextPageAsync()
+        {
+            if (HasNextPage)
+            {
+                CurrentPage++;
+                await LoadPageDataAsync();
+            }
+        }
+
+        /// <summary>Navigates back to the previous page of history records.</summary>
+        [RelayCommand]
+        private async Task PreviousPageAsync()
+        {
+            if (HasPreviousPage)
+            {
+                CurrentPage--;
+                await LoadPageDataAsync();
+            }
+        }
+
+        /// <summary>Navigates directly to the first page of history records.</summary>
+        [RelayCommand]
+        private async Task FirstPageAsync()
+        {
+            if (CurrentPage > 1)
+            {
+                CurrentPage = 1;
+                await LoadPageDataAsync();
+            }
+        }
+
+        /// <summary>Navigates directly to the last page of history records.</summary>
+        [RelayCommand]
+        private async Task LastPageAsync()
+        {
+            if (CurrentPage < TotalPages)
+            {
+                CurrentPage = TotalPages;
+                await LoadPageDataAsync();
+            }
         }
 
         /// <summary>Resets the date, status and search filters to defaults.</summary>
@@ -499,7 +619,7 @@ namespace Easy_Copier.ViewModels
         [RelayCommand]
         private async Task ExportToCsvAsync()
         {
-            if (Records.Count == 0)
+            if (TotalRecordCount == 0)
             {
                 StatusMessage = "No records to export.";
                 return;
@@ -515,9 +635,37 @@ namespace Easy_Copier.ViewModels
 
             if (filePath != null)
             {
-                StatusMessage = "Exporting...";
-                bool success = await _reportService.ExportHistoryToCsvAsync(filePath, Records);
-                StatusMessage = success ? $"Exported successfully to {System.IO.Path.GetFileName(filePath)}" : "Export failed. Check logs.";
+                StatusMessage = "Exporting records...";
+
+                DateTime now = DateTime.Now;
+                DateTime? startDate = SelectedDateFilter switch
+                {
+                    DateFilter.Today => now.Date,
+                    DateFilter.Last7Days => now.AddDays(-7).Date,
+                    DateFilter.ThisMonth => new DateTime(now.Year, now.Month, 1),
+                    _ => null
+                };
+
+                DateTime? endDate = SelectedDateFilter switch
+                {
+                    DateFilter.Today => now.Date.AddDays(1),
+                    DateFilter.Last7Days => now.Date.AddDays(1),
+                    DateFilter.ThisMonth => new DateTime(now.Year, now.Month, 1).AddMonths(1),
+                    _ => null
+                };
+
+                bool? isSuccess = SelectedStatusFilter switch
+                {
+                    StatusFilter.Completed => true,
+                    StatusFilter.Failed => false,
+                    _ => null
+                };
+
+                string? search = string.IsNullOrWhiteSpace(SearchQuery) ? null : SearchQuery.Trim();
+
+                List<CopyHistoryRecord> allFiltered = await _copyHistoryService.GetAllFilteredRecordsAsync(startDate, endDate, isSuccess, search);
+                bool success = await _reportService.ExportHistoryToCsvAsync(filePath, allFiltered);
+                StatusMessage = success ? $"Exported {allFiltered.Count} record(s) to {System.IO.Path.GetFileName(filePath)}" : "Export failed. Check logs.";
             }
         }
     }

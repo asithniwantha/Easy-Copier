@@ -158,12 +158,18 @@ namespace Easy_Copier
                         "Windows desktop toast notifications are unavailable (running elevated or missing Windows App SDK components). In-app notifications will be used instead.",
                         isSuccess: false);
                 }
-                _window = new MainWindow(mainViewModel);
+
+                ISystemTrayService systemTrayService = Services.GetRequiredService<ISystemTrayService>();
+                ITransferQueueService transferQueueService = Services.GetRequiredService<ITransferQueueService>();
+                ISettingsService settingsService = Services.GetRequiredService<ISettingsService>();
+
+                _window = new MainWindow(mainViewModel, systemTrayService, transferQueueService, settingsService);
                 MainWindow = _window;
 
                 _window.Closed += (s, e) =>
                 {
                     logger.LogInformation("Easy Copier application shutting down.");
+                    systemTrayService.Dispose();
                     if (Microsoft.Windows.AppNotifications.AppNotificationManager.IsSupported())
                     {
                         Microsoft.Windows.AppNotifications.AppNotificationManager.Default.Unregister();

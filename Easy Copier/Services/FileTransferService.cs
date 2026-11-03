@@ -51,19 +51,27 @@ namespace Easy_Copier.Services
         private readonly ISettingsService _settingsService;
 
         /// <summary>
+        /// Verification service used for post-copy data integrity validation.
+        /// </summary>
+        private readonly IVerificationService _verificationService;
+
+        /// <summary>
         /// Initializes a new instance of the <see cref="WindowsShellTransferService"/> class.
         /// </summary>
         /// <param name="logger">The logger instance for logging operations.</param>
         /// <param name="copyHistoryService">The copy history service for logging copy outcomes.</param>
         /// <param name="settingsService">The settings service for fetching application settings and pricing rules.</param>
+        /// <param name="verificationService">The verification service used to validate post-copy integrity.</param>
         public WindowsShellTransferService(
             ILogger<WindowsShellTransferService> logger,
             ICopyHistoryService copyHistoryService,
-            ISettingsService settingsService)
+            ISettingsService settingsService,
+            IVerificationService verificationService)
         {
             _logger = logger;
             _copyHistoryService = copyHistoryService;
             _settingsService = settingsService;
+            _verificationService = verificationService;
         }
 
         /// <summary>
@@ -201,6 +209,41 @@ namespace Easy_Copier.Services
                                 ? MergeDirectory(game.FolderPath, destPath)
                                 : CopyItemWithFileOperation(game.FolderPath, request.DestinationPath, destPath, progress, game.TotalBytes, cancellationToken);
                             string errorMsg = "";
+
+                            // Perform post-copy data verification if enabled
+                            if (result && settings.VerificationMode != CopyVerificationMode.None && !cancellationToken.IsCancellationRequested)
+                            {
+                                _logger.LogInformation("Verifying copied files for {Game} with mode {Mode}", game.Name, settings.VerificationMode);
+                                Progress<double> verifyProgress = new(p =>
+                                {
+                                    progress?.Report(new TransferProgress(
+                                        Percentage: p,
+                                        SpeedText: "Verifying...",
+                                        RemainingTimeText: $"{Math.Round(p)}%"));
+                                });
+
+                                VerificationResult verifyResult = _verificationService.VerifyCopyAsync(
+                                    game.FolderPath,
+                                    destPath,
+                                    settings.VerificationMode,
+                                    verifyProgress,
+                                    cancellationToken).GetAwaiter().GetResult();
+
+                                if (!verifyResult.IsSuccess)
+                                {
+                                    result = false;
+                                    errorMsg = verifyResult.ErrorMessage ?? "Data verification failed";
+                                    if (verifyResult.MismatchedFiles != null && verifyResult.MismatchedFiles.Count > 0)
+                                    {
+                                        errorMsg += $" ({string.Join(", ", verifyResult.MismatchedFiles)})";
+                                    }
+                                    _logger.LogWarning("Post-copy verification failed for {Game}: {Error}", game.Name, errorMsg);
+                                }
+                                else
+                                {
+                                    _logger.LogInformation("Post-copy verification succeeded for {Game}", game.Name);
+                                }
+                            }
                             string subFilesJson = "";
                             try
                             {

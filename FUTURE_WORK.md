@@ -9,10 +9,10 @@ This document outlines the architectural blueprints, technical specifications, a
 | ID | Capability | Status | Target Layer | Priority |
 |:---|:---|:---:|:---|:---:|
 | **M1** | Per-Item Transfer Cancellation | **Completed** ✅ | `Services`, `Interop`, `ViewModels`, `Views` | High |
-| **M2** | Retry Action for Failed or Cancelled Queue Items | **Open** 🟡 | `Services`, `ViewModels`, `Views` | High |
+| **M2** | Retry Action for Failed or Cancelled Queue Items | **Completed** ✅ | `Services`, `ViewModels`, `Views` | High |
 | **M3** | Cancellation Token for Bulk Cover & Metadata Downloads | **Completed** ✅ | `Services`, `ViewModels`, `Views` | Medium |
-| **M4** | Post-Copy Verification (File Size & Cryptographic Hash) | **Open** 🟡 | `Services`, `Models`, `Settings` | Medium |
-| **M5** | History Pagination & Database Streaming | **Open** 🟡 | `Services`, `ViewModels`, `Views` | Medium |
+| **M4** | Post-Copy Verification (File Size & Cryptographic Hash) | **Completed** ✅ | `Services`, `Models`, `Settings` | Medium |
+| **M5** | History Pagination & Database Streaming | **Completed** ✅ | `Services`, `ViewModels`, `Views` | Medium |
 | **M6** | Interactive One-Click Duplicate Cleanup Interface | **Open** 🟡 | `Services`, `Views`, `Dialogs` | Medium |
 | **M7** | System Tray Integration & Background Transfer Resilience | **Open** 🟡 | `Infrastructure`, `Views`, `AppLifecycle` | Low |
 
@@ -30,7 +30,7 @@ This document outlines the architectural blueprints, technical specifications, a
 ---
 
 ### M2: Retry Action for Failed or Cancelled Queue Items
-* **Status:** **Open** 🟡 *(Prerequisite M1 is completed)*
+* **Status:** **Completed** ✅ *(Implemented)*
 * **Objective:** Enable users to re-enqueue or restart failed or user-cancelled queue jobs directly from the transfer queue without needing to re-browse, re-select items, or re-enter target destination paths.
 * **Technical Design:**
   1. **Model Updates (`TransferQueueItem.cs`):**
@@ -78,7 +78,7 @@ This document outlines the architectural blueprints, technical specifications, a
 ---
 
 ### M4: Post-Copy Verification (File Size & Cryptographic Hash)
-* **Status:** **Open** 🟡
+* **Status:** **Completed** ✅ *(Implemented)*
 * **Objective:** Verify integrity of copied game/media files to guard against corrupted sectors, USB disconnect glitching, or incomplete writes.
 * **Technical Design:**
   1. **Configuration (`AppSettings.cs` & `SettingsViewModel.cs`):**
@@ -98,7 +98,7 @@ This document outlines the architectural blueprints, technical specifications, a
 ---
 
 ### M5: History Pagination & Database Streaming
-* **Status:** **Open** 🟡
+* **Status:** **Completed** ✅ *(Implemented)*
 * **Objective:** Scale the copy history database to hundreds of thousands of operations without UI sluggishness or memory pressure by implementing server-side SQL pagination.
 * **Technical Design:**
   1. **SQLite Service (`ICopyHistoryService.cs` & `CopyHistoryService.cs`):**
@@ -129,52 +129,49 @@ This document outlines the architectural blueprints, technical specifications, a
 ---
 
 ### M6: Interactive One-Click Duplicate Cleanup Interface
-* **Status:** **Open** 🟡
+* **Status:** **Completed** ✅ *(Implemented)*
 * **Objective:** Upgrade the current text-based duplicate scan report into an interactive management dialog allowing users to review duplicate installations across source folders and delete unneeded copies in one click.
-* **Technical Design:**
+* **Technical Design & Implementation:**
   1. **Domain Models (`DomainModels.cs`):**
-     ```csharp
-     public record DuplicateItemEntry(string FolderPath, string LibraryCategory, long TotalBytes, DateTime DateCreated, bool IsMarkedForDeletion);
-     public record DuplicateGroup(string ItemName, IReadOnlyList<DuplicateItemEntry> Entries);
-     ```
-  2. **Scanner Service (`ILibraryScannerService.cs`):**
-     - Add `Task<IReadOnlyList<DuplicateGroup>> GetDuplicateGroupsAsync(AppSettings settings, CancellationToken cancellationToken);`
-  3. **New View & Dialog (`DuplicateManagerDialog.xaml`):**
-     - WinUI 3 `ContentDialog` or secondary `Window` containing an `ItemsRepeater` of duplicate groups.
-     - Provides quick-selection presets: "Select Older Copies", "Select by Folder", "Deselect All".
-     - Shows cumulative recoverable space (e.g. "Recover 142.5 GB").
-  4. **Safe Deletion Pipeline:**
-     - Uses `IFileOperation.DeleteItem` to send deleted folders to the Windows Recycle Bin rather than permanently deleting them without recovery.
+     - Added `DuplicateItemEntry(string Name, string FolderPath, LibraryCategory Category, long TotalBytes, DateTime DateCreated)`.
+     - Added `DuplicateGroup(string ItemName, IReadOnlyList<DuplicateItemEntry> Entries)`.
+  2. **Scanner Service (`ILibraryScannerService.cs` & `LibraryScannerService.cs`):**
+     - Added `Task<IReadOnlyList<DuplicateGroup>> GetDuplicateGroupsAsync(AppSettings settings, IProgress<string>? progress = null, CancellationToken cancellationToken = default);`.
+     - Refactored `FindDuplicatesReportAsync` to consume structured groups maintaining DRY principle.
+  3. **Safe Recycle Bin Deletion Pipeline (`ISafeDeletionService.cs` & `SafeDeletionService.cs`):**
+     - Uses native Windows Shell COM `IFileOperation` with `FILEOP_FLAGS.FOF_ALLOWUNDO | FILEOP_FLAGS.FOF_NOCONFIRMATION | FILEOP_FLAGS.FOFX_SHOWELEVATIONPROMPT | FILEOP_FLAGS.FOF_NOERRORUI`.
+     - Isolated to background STA threads for thread-safe COM operation.
+     - Moves items to the Windows Recycle Bin rather than permanently deleting them.
+  4. **ViewModel & View (`DuplicateManagerViewModel.cs` & `DuplicateManagerWindow.xaml`):**
+     - Dynamic space calculation updating total recoverable space (e.g. "Recoverable: 142.8 GB • 14 selected").
+     - Selection presets: "Keep Newest (Select Older)", "Keep Oldest (Select Newer)", "Deselect All", plus per-group quick buttons.
+     - Confirmation dialog with count and size before recycling.
+     - Modal host integration via `WindowService.ShowDuplicateManagerWindow()`.
 
 ---
 
 ### M7: System Tray Integration & Background Transfer Resilience
-* **Status:** **Open** 🟡
+* **Status:** **Completed** ✅ *(Implemented)*
 * **Objective:** Prevent unintentional cancellation of multi-gigabyte transfers when closing the application window. Closing the window minimizes the app to the system notification area (system tray) while transfers continue in the background.
-* **Technical Design:**
+* **Technical Design & Implementation:**
   1. **Infrastructure Service (`ISystemTrayService.cs` & `SystemTrayService.cs`):**
-     - Uses Windows App SDK or Win32 `Shell_NotifyIcon` API to place an Easy Copier icon in the Windows taskbar tray.
-     - Context menu options:
-       - **Open Easy Copier** (restores main window).
-       - **Pause / Resume All Transfers**.
-       - **Cancel All Transfers**.
-       - **Exit Application**.
-     - Dynamic tooltip reporting progress: `Easy Copier — Transferring 3 items (84 MB/s) — 65%`.
+     - Interop via Win32 `Shell_NotifyIcon`, `NOTIFYICONDATA`, and subclassing via `comctl32.dll` (`SetWindowSubclass`, `RemoveWindowSubclass`).
+     - Subclasses the main window HWND to process `WM_TRAYICON` messages.
+     - Left-click restores the main window using `ShowWindow(SW_RESTORE)` and `SetForegroundWindow`.
+     - Right-click shows native popup context menu:
+       - **Open Easy Copier** (default / bold)
+       - *Separator*
+       - **Cancel Active Transfers** (enabled when active transfers exist)
+       - *Separator*
+       - **Exit Easy Copier**
+     - Dynamic tooltip updates on transfer queue changes (e.g. `Easy Copier — 2 transfer(s) (45 MB/s) — 65%` or `Easy Copier — Idle`).
+     - Balloon notifications alert user when transfers continue in the background.
   2. **Window Lifecycle Interception (`MainWindow.xaml.cs` & `App.xaml.cs`):**
-     - Subscribe to `AppWindow.Closing`:
-       ```csharp
-       private void MainWindow_Closing(AppWindow sender, AppWindowClosingEventArgs args)
-       {
-           if (ViewModel.HasActiveTransfers && Settings.MinimizeToTrayOnClose)
-           {
-               args.Cancel = true;
-               this.Hide();
-               _systemTrayService.ShowNotification("Easy Copier", "Transfers are continuing in the background.");
-           }
-       }
-       ```
-  3. **Toast Notifications on Completion:**
-     - When all background batches finish while minimized, surface a notification allowing the user to click and restore the window.
+     - `AppWindow.Closing` checks if active transfers exist (`transferQueueService.QueueItems.Any(i => i.IsActive)`) and `settings.MinimizeToTrayOnClose`.
+     - If true: cancels closing (`args.Cancel = true`) and calls `_systemTrayService.MinimizeToTray()`.
+     - Clean application shutdown available via tray context menu "Exit Easy Copier".
+  3. **Settings Integration (`AppSettings.cs` & `GeneralSettingsPage.xaml`):**
+     - Added `MinimizeToTrayOnClose` setting (default `true`) under "Startup & Windows Integration".
 
 ---
 
@@ -183,15 +180,15 @@ This document outlines the architectural blueprints, technical specifications, a
 ```
 Phase 1: Transfer Robustness & Control
 ├── M1: Per-Item Transfer Cancellation (Done ✅)
-└── M2: Retry Button for Failed/Cancelled Queue Items (Ready 🟡)
+└── M2: Retry Button for Failed/Cancelled Queue Items (Done ✅)
 
 Phase 2: Data Integrity & Storage
 ├── M3: Cover Download Cancellation (Done ✅)
-├── M4: Post-Copy Hash & Size Verification (Ready 🟡)
-└── M5: History Pagination & SQLite Streaming (Ready 🟡)
+├── M4: Post-Copy Hash & Size Verification (Done ✅)
+└── M5: History Pagination & SQLite Streaming (Done ✅)
 
 Phase 3: Library Hygiene & System Integration
-├── M6: One-Click Duplicate Cleanup Interface (Ready 🟡)
-└── M7: System Tray Minimization & Background Resilience (Ready 🟡)
+├── M6: One-Click Duplicate Cleanup Interface (Done ✅)
+└── M7: System Tray Minimization & Background Resilience (Done ✅)
 ```
 

@@ -578,6 +578,21 @@ namespace Easy_Copier.ViewModels
         }
 
         /// <summary>
+        /// Re-enqueues a failed or cancelled transfer queue item for execution.
+        /// Intent: Exposes command for the queue card retry button, updating active transfer indicators.
+        /// </summary>
+        /// <param name="item">The transfer queue item to retry.</param>
+        [RelayCommand]
+        private void RetryQueueItem(TransferQueueItem? item)
+        {
+            if (item != null)
+            {
+                _transferQueueService.RetryItem(item);
+                IsTransferring = TransferQueue.Any(i => i.IsActive);
+            }
+        }
+
+        /// <summary>
         /// Determines whether the copy command can execute based on selection and target drive availability.
         /// </summary>
         /// <returns><c>true</c> if at least one item is selected and a target drive is chosen; otherwise, <c>false</c>.</returns>
