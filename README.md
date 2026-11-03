@@ -67,6 +67,8 @@ Easy Copier helps shop environments prepare customer drives without guessing whi
 | 🧮 **Smart Adder** | Provides an Excel-like calculator for fast operational calculations. |
 
 | ⚙️ **Settings UI** | Modular WinUI 3 page navigation with cached views, folder list empty-state guidance, deep linking, size-to-content window logic, and modal protection. |
+| 🗑️ **Duplicate Manager** | Interactive cleanup interface with dynamic recoverable space calculations, smart presets ("Keep Newest", "Keep Oldest"), and safe undoable recycling to Windows Recycle Bin. |
+| 🔔 **System Tray Resilience** | Minimizes to system tray when closing the window with active transfers, featuring real-time progress tooltips, balloon notifications, and a native context menu. |
 
 ---
 
@@ -426,3 +428,7 @@ Distributed under the MIT License. See `LICENSE` for more information.
 * **Post-Copy Verification (M4):** Integrated post-copy data verification into `WindowsShellTransferService` with configurable strategies in `GeneralSettingsPage` (Quick size/count, Fast `XxHash64` SIMD hashing, Full `SHA-256`), recording discrepancies in SQLite and failing affected jobs for retry. 🛡️
 
 * **History Pagination & Streaming (M5):** Implemented server-side SQL pagination (`LIMIT`/`OFFSET`) and database streaming in `CopyHistoryService` and `HistoryViewModel`, paired with a responsive pagination toolbar and page size selector in `HistoryPage.xaml`. 📄
+
+* **Interactive One-Click Duplicate Cleanup Interface (M6):** Introduced `DuplicateManagerWindow` and `DuplicateManagerViewModel` replacing the static text duplicate report with an interactive management interface featuring visual group cards, dynamic recoverable space calculation, smart presets ("Keep Newest", "Keep Oldest", "Deselect All"), and safe, undoable recycling to the Windows Recycle Bin via native `IFileOperation`. 🗑️
+
+* **System Tray Integration & Background Transfer Resilience (M7):** Implemented background transfer resilience via Win32 `Shell_NotifyIconW` and `comctl32.dll` window subclassing (`ISystemTrayService`), intercepting main window closing when transfers are active (`MinimizeToTrayOnClose`), updating hover tooltips with real-time transfer progress, and offering an interactive Win32 context menu with restore, cancel, and exit actions. 🔔

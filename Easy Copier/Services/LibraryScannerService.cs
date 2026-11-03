@@ -90,12 +90,15 @@ namespace Easy_Copier.Services
         }
 
         /// <inheritdoc />
-        public async Task<string> FindDuplicatesReportAsync(
+        public async Task<IReadOnlyList<DuplicateGroup>> GetDuplicateGroupsAsync(
             AppSettings settings,
             IProgress<string>? progress = null,
             CancellationToken cancellationToken = default)
         {
-            (IReadOnlyList<GameEntry>? games, IReadOnlyList<GameEntry>? apps, IReadOnlyList<GameEntry>? tvAndFilms, IReadOnlyList<GameEntry>? osImages) = await ScanAllLibrariesAsync(settings, progress, cancellationToken);
+            ArgumentNullException.ThrowIfNull(settings);
+
+            (IReadOnlyList<GameEntry>? games, IReadOnlyList<GameEntry>? apps, IReadOnlyList<GameEntry>? tvAndFilms, IReadOnlyList<GameEntry>? osImages) =
+                await ScanAllLibrariesAsync(settings, progress, cancellationToken).ConfigureAwait(false);
 
             List<GameEntry> allEntries = [];
             allEntries.AddRange(games);
@@ -103,10 +106,24 @@ namespace Easy_Copier.Services
             allEntries.AddRange(tvAndFilms);
             allEntries.AddRange(osImages);
 
-            List<IGrouping<string, GameEntry>> duplicates = allEntries
+            List<DuplicateGroup> duplicateGroups = allEntries
                 .GroupBy(e => e.Name, StringComparer.OrdinalIgnoreCase)
                 .Where(g => g.Count() > 1)
+                .Select(g => new DuplicateGroup(
+                    g.Key,
+                    g.Select(e => new DuplicateItemEntry(e.Name, e.FolderPath, e.Category, e.TotalBytes, e.DateCreated)).ToList()))
                 .ToList();
+
+            return duplicateGroups;
+        }
+
+        /// <inheritdoc />
+        public async Task<string> FindDuplicatesReportAsync(
+            AppSettings settings,
+            IProgress<string>? progress = null,
+            CancellationToken cancellationToken = default)
+        {
+            IReadOnlyList<DuplicateGroup> duplicates = await GetDuplicateGroupsAsync(settings, progress, cancellationToken).ConfigureAwait(false);
 
             if (duplicates.Count == 0)
             {
@@ -118,10 +135,10 @@ namespace Easy_Copier.Services
             _ = reportBuilder.AppendLine(CultureInfo.InvariantCulture, $"Found {duplicates.Count} duplicated items:");
             _ = reportBuilder.AppendLine();
 
-            foreach (IGrouping<string, GameEntry>? group in duplicates)
+            foreach (DuplicateGroup group in duplicates)
             {
-                _ = reportBuilder.AppendLine(CultureInfo.InvariantCulture, $"- {group.Key} ({group.Count()} copies):");
-                foreach (GameEntry? entry in group)
+                _ = reportBuilder.AppendLine(CultureInfo.InvariantCulture, $"- {group.ItemName} ({group.Entries.Count} copies):");
+                foreach (DuplicateItemEntry entry in group.Entries)
                 {
                     _ = reportBuilder.AppendLine(CultureInfo.InvariantCulture, $"  • [{entry.Category}] {entry.FolderPath}");
                 }

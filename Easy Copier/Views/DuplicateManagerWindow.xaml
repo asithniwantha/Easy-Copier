@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Window
+    x:Class="Easy_Copier.Views.DuplicateManagerWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:vm="using:Easy_Copier.ViewModels"
+    mc:Ignorable="d"
+    Title="Duplicate Library Manager">
+
+    <Window.SystemBackdrop>
+        <MicaBackdrop />
+    </Window.SystemBackdrop>
+
+    <Grid Padding="24" RowSpacing="16">
+        <Grid.RowDefinitions>
+            <!-- Header & Toolbar -->
+            <RowDefinition Height="Auto"/>
+            <!-- Content List / Status -->
+            <RowDefinition Height="*"/>
+            <!-- Footer Actions -->
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- Top Header & Metrics Bar -->
+        <Grid Grid.Row="0" RowSpacing="12">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <!-- Title & Badges -->
+            <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+                <StackPanel Orientation="Vertical" Spacing="4">
+                    <TextBlock Text="Duplicate Library Manager" Style="{ThemeResource TitleTextBlockStyle}" FontWeight="Bold"/>
+                    <TextBlock Text="Review items installed across multiple source folders and safely recycle redundant copies."
+                               Foreground="{ThemeResource TextFillColorSecondaryBrush}" Style="{ThemeResource BodyTextBlockStyle}"/>
+                </StackPanel>
+
+                <!-- Metrics & Space Recovery Pill -->
+                <StackPanel Grid.Column="1" Orientation="Horizontal" Spacing="10" VerticalAlignment="Center">
+                    <Border Background="{ThemeResource LayerFillColorDefaultBrush}" BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}" BorderThickness="1" CornerRadius="8" Padding="12,6">
+                        <StackPanel Orientation="Horizontal" Spacing="6">
+                            <FontIcon Glyph="&#xE8B7;" FontSize="14" Foreground="{ThemeResource TextFillColorSecondaryBrush}"/>
+                            <TextBlock Text="{x:Bind ViewModel.DuplicateGroups.Count, Mode=OneWay}" FontWeight="SemiBold"/>
+                            <TextBlock Text="duplicate groups" Foreground="{ThemeResource TextFillColorSecondaryBrush}"/>
+                        </StackPanel>
+                    </Border>
+
+                    <Border Background="{ThemeResource AccentFillColorDefaultBrush}" CornerRadius="8" Padding="12,6">
+                        <StackPanel Orientation="Horizontal" Spacing="6">
+                            <FontIcon Glyph="&#xE74D;" FontSize="14" Foreground="{ThemeResource TextOnAccentFillColorPrimaryBrush}"/>
+                            <TextBlock Text="Recoverable:" Foreground="{ThemeResource TextOnAccentFillColorPrimaryBrush}"/>
+                            <TextBlock Text="{x:Bind ViewModel.FormattedRecoverableBytes, Mode=OneWay}" FontWeight="Bold" Foreground="{ThemeResource TextOnAccentFillColorPrimaryBrush}"/>
+                            <TextBlock Text="&#x2022;" Foreground="{ThemeResource TextOnAccentFillColorPrimaryBrush}"/>
+                            <TextBlock Text="{x:Bind ViewModel.MarkedForDeletionCount, Mode=OneWay}" FontWeight="SemiBold" Foreground="{ThemeResource TextOnAccentFillColorPrimaryBrush}"/>
+                            <TextBlock Text="selected" Foreground="{ThemeResource TextOnAccentFillColorPrimaryBrush}"/>
+                        </StackPanel>
+                    </Border>
+                </StackPanel>
+            </Grid>
+
+            <!-- Action Toolbar -->
+            <CommandBar Grid.Row="1" DefaultLabelPosition="Right" Background="Transparent">
+                <AppBarButton Icon="Refresh" Label="Rescan" Command="{x:Bind ViewModel.ScanDuplicatesCommand}"/>
+                <AppBarSeparator/>
+                <AppBarButton Label="Keep Newest (Select Older)" Command="{x:Bind ViewModel.SelectOlderCopiesCommand}">
+                    <AppBarButton.Icon>
+                        <FontIcon Glyph="&#xE898;"/>
+                    </AppBarButton.Icon>
+                </AppBarButton>
+                <AppBarButton Label="Keep Oldest (Select Newer)" Command="{x:Bind ViewModel.SelectNewerCopiesCommand}">
+                    <AppBarButton.Icon>
+                        <FontIcon Glyph="&#xE81C;"/>
+                    </AppBarButton.Icon>
+                </AppBarButton>
+                <AppBarButton Label="Deselect All" Command="{x:Bind ViewModel.DeselectAllCommand}">
+                    <AppBarButton.Icon>
+                        <FontIcon Glyph="&#xE894;"/>
+                    </AppBarButton.Icon>
+                </AppBarButton>
+            </CommandBar>
+        </Grid>
+
+        <!-- Main Body Area -->
+        <Grid Grid.Row="1">
+            <!-- Scanning Progress Indicator -->
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Spacing="16"
+                        Visibility="{x:Bind ViewModel.IsScanning, Mode=OneWay}">
+                <ProgressRing IsActive="True" Width="48" Height="48"/>
+                <TextBlock Text="{x:Bind ViewModel.StatusMessage, Mode=OneWay}" Style="{ThemeResource BodyTextBlockStyle}" HorizontalAlignment="Center"/>
+            </StackPanel>
+
+            <!-- Empty State -->
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Spacing="12"
+                        Visibility="{x:Bind ViewModel.HasNoDuplicates, Mode=OneWay}">
+                <FontIcon Glyph="&#xE73E;" FontSize="48" Foreground="{ThemeResource SystemFillColorSuccessBrush}"/>
+                <TextBlock Text="No Duplicates Found" Style="{ThemeResource SubtitleTextBlockStyle}" HorizontalAlignment="Center"/>
+                <TextBlock Text="All monitored library source folders contain unique items. No cleanup required."
+                           Foreground="{ThemeResource TextFillColorSecondaryBrush}" HorizontalAlignment="Center"/>
+            </StackPanel>
+
+            <!-- Duplicate Groups List -->
+            <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled"
+                          Visibility="{x:Bind ViewModel.HasDuplicates, Mode=OneWay}">
+                <ItemsControl ItemsSource="{x:Bind ViewModel.DuplicateGroups, Mode=OneWay}">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate x:DataType="vm:DuplicateGroupViewModel">
+                            <Border Margin="0,0,0,12"
+                                    Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
+                                    BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
+                                    BorderThickness="1"
+                                    CornerRadius="10"
+                                    Padding="16">
+                                <StackPanel Spacing="12">
+                                    <!-- Group Header -->
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="Auto"/>
+                                        </Grid.ColumnDefinitions>
+
+                                        <StackPanel Orientation="Horizontal" Spacing="10" VerticalAlignment="Center">
+                                            <TextBlock Text="{x:Bind ItemName}" Style="{ThemeResource SubtitleTextBlockStyle}" FontWeight="Bold"/>
+                                            <Border Background="{ThemeResource LayerFillColorDefaultBrush}" CornerRadius="6" Padding="8,2">
+                                                <TextBlock Text="{x:Bind FormattedTotalBytes}" FontSize="12" Foreground="{ThemeResource TextFillColorSecondaryBrush}"/>
+                                            </Border>
+                                            <Border Background="{ThemeResource AccentFillColorTertiaryBrush}" CornerRadius="6" Padding="8,2">
+                                                <TextBlock Text="{x:Bind CopiesCountText}"
+                                                           FontSize="12" Foreground="{ThemeResource TextFillColorPrimaryBrush}"/>
+                                            </Border>
+                                        </StackPanel>
+
+                                        <!-- Group-specific Preset Buttons -->
+                                        <StackPanel Grid.Column="1" Orientation="Horizontal" Spacing="6">
+                                            <Button ToolTipService.ToolTip="Keep newest copy in this group" Padding="6,4"
+                                                    Click="GroupSelectOlder_Click">
+                                                <FontIcon Glyph="&#xE898;" FontSize="12"/>
+                                            </Button>
+                                            <Button ToolTipService.ToolTip="Keep oldest copy in this group" Padding="6,4"
+                                                    Click="GroupSelectNewer_Click">
+                                                <FontIcon Glyph="&#xE81C;" FontSize="12"/>
+                                            </Button>
+                                            <Button ToolTipService.ToolTip="Deselect all copies in this group" Padding="6,4"
+                                                    Click="GroupDeselectAll_Click">
+                                                <FontIcon Glyph="&#xE894;" FontSize="12"/>
+                                            </Button>
+                                        </StackPanel>
+                                    </Grid>
+
+                                    <!-- Group Entries List -->
+                                    <ItemsControl ItemsSource="{x:Bind Entries}">
+                                        <ItemsControl.ItemTemplate>
+                                            <DataTemplate x:DataType="vm:DuplicateItemEntryViewModel">
+                                                <Grid Padding="8,6" Margin="0,2" CornerRadius="6"
+                                                      Background="{ThemeResource LayerOnCardFillColorDefaultBrush}">
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="Auto"/>
+                                                        <ColumnDefinition Width="Auto"/>
+                                                        <ColumnDefinition Width="*"/>
+                                                        <ColumnDefinition Width="Auto"/>
+                                                        <ColumnDefinition Width="Auto"/>
+                                                    </Grid.ColumnDefinitions>
+
+                                                    <!-- Selection Checkbox -->
+                                                    <CheckBox Grid.Column="0" IsChecked="{x:Bind IsMarkedForDeletion, Mode=TwoWay}"
+                                                              Margin="0,0,10,0" VerticalAlignment="Center"/>
+
+                                                    <!-- Category Glyph -->
+                                                    <FontIcon Grid.Column="1" Glyph="{x:Bind CategoryGlyph}" FontSize="16"
+                                                              Margin="0,0,12,0" VerticalAlignment="Center"
+                                                              Foreground="{ThemeResource TextFillColorSecondaryBrush}"/>
+
+                                                    <!-- Folder Path & Title -->
+                                                    <StackPanel Grid.Column="2" VerticalAlignment="Center">
+                                                        <TextBlock Text="{x:Bind FolderPath}" Style="{ThemeResource BodyTextBlockStyle}"
+                                                                   TextTrimming="CharacterEllipsis"/>
+                                                    </StackPanel>
+
+                                                    <!-- Date Created -->
+                                                    <TextBlock Grid.Column="3" Text="{x:Bind FormattedDate}"
+                                                               Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+                                                               Style="{ThemeResource CaptionTextBlockStyle}"
+                                                               VerticalAlignment="Center" Margin="16,0,16,0"/>
+
+                                                    <!-- Item Size -->
+                                                    <TextBlock Grid.Column="4" Text="{x:Bind FormattedSize}"
+                                                               FontWeight="SemiBold"
+                                                               Style="{ThemeResource BodyTextBlockStyle}"
+                                                               VerticalAlignment="Center"/>
+                                                </Grid>
+                                            </DataTemplate>
+                                        </ItemsControl.ItemTemplate>
+                                    </ItemsControl>
+                                </StackPanel>
+                            </Border>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </ScrollViewer>
+        </Grid>
+
+        <!-- Bottom Footer Controls -->
+        <Grid Grid.Row="2" ColumnSpacing="12">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <!-- Status & Progress -->
+            <StackPanel Grid.Column="0" VerticalAlignment="Center" Spacing="4">
+                <TextBlock Text="{x:Bind ViewModel.StatusMessage, Mode=OneWay}"
+                           Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+                           Style="{ThemeResource BodyTextBlockStyle}"
+                           TextTrimming="CharacterEllipsis"/>
+                <ProgressBar Value="{x:Bind ViewModel.DeletionProgress, Mode=OneWay}"
+                             Maximum="100"
+                             Visibility="{x:Bind ViewModel.IsDeleting, Mode=OneWay}"/>
+            </StackPanel>
+
+            <!-- Close Button -->
+            <Button Grid.Column="1" Content="Close" Width="100"
+                    Command="{x:Bind ViewModel.CloseWindowCommand}"/>
+
+            <!-- Move Selected to Recycle Bin Button -->
+            <Button Grid.Column="2"
+                    Command="{x:Bind ViewModel.DeleteSelectedCommand}"
+                    IsEnabled="{x:Bind ViewModel.CanDelete, Mode=OneWay}"
+                    Style="{ThemeResource AccentButtonStyle}">
+                <StackPanel Orientation="Horizontal" Spacing="8">
+                    <FontIcon Glyph="&#xE74D;" FontSize="14"/>
+                    <TextBlock Text="Recycle Selected"/>
+                </StackPanel>
+            </Button>
+        </Grid>
+    </Grid>
+</Window>
+

@@ -368,6 +368,9 @@ namespace Easy_Copier.Models
 
         /// <summary>Gets or sets the post-copy data verification strategy.</summary>
         public CopyVerificationMode VerificationMode { get; set; } = CopyVerificationMode.QuickSizeAndCount;
+
+        /// <summary>Gets or sets a value indicating whether closing the main window minimizes to the system tray when transfers are active.</summary>
+        public bool MinimizeToTrayOnClose { get; set; } = true;
     }
 
     /// <summary>
@@ -592,4 +595,28 @@ namespace Easy_Copier.Models
         /// </summary>
         public bool HasPreviousPage => Page > 1;
     }
+
+    /// <summary>
+    /// Represents a single copy of an item discovered across monitored source libraries.
+    /// </summary>
+    /// <param name="Name">The display title or folder name of the duplicate copy.</param>
+    /// <param name="FolderPath">The full path on disk to the duplicate directory or file.</param>
+    /// <param name="Category">The content library category (Game, App, TvAndFilm, OsImage).</param>
+    /// <param name="TotalBytes">The total size of this duplicate instance in bytes.</param>
+    /// <param name="DateCreated">The creation or last modified timestamp of the duplicate item.</param>
+    public record DuplicateItemEntry(
+        string Name,
+        string FolderPath,
+        LibraryCategory Category,
+        long TotalBytes,
+        DateTime DateCreated);
+
+    /// <summary>
+    /// Represents a cluster of duplicate item entries sharing the same logical title across libraries.
+    /// </summary>
+    /// <param name="ItemName">The common title shared by all copies in the group.</param>
+    /// <param name="Entries">The collection of duplicate copies located across source paths.</param>
+    public record DuplicateGroup(
+        string ItemName,
+        IReadOnlyList<DuplicateItemEntry> Entries);
 }

@@ -232,7 +232,9 @@
 
 - Automatically resize the Settings window to fit content.
 
-- Duplicate detection tool across all configured source libraries, identifying duplicates by name and providing actionable cleanup recommendations.
+- **Interactive One-Click Duplicate Cleanup Interface (M6):** Dedicated `DuplicateManagerWindow` modal dialog displaying redundant copies across monitored libraries with visual cards, folder paths, item sizes, creation timestamps, category glyphs, dynamic recoverable disk space calculation, smart selection presets ("Keep Newest", "Keep Oldest", "Deselect All"), and safe, undoable deletion to the Windows Recycle Bin via native Windows Shell `IFileOperation`.
+
+- **System Tray Integration & Background Transfer Resilience (M7):** Intercepts main window closing when transfers are actively running or queued (`MinimizeToTrayOnClose`), minimizing the application into the Windows taskbar system notification area. Features dynamic progress hover tooltips (`Easy Copier — X transfer(s) (Y MB/s) — Z%`), balloon alerts, and a native Win32 context popup menu to restore the window, cancel active transfers, or exit the application cleanly.
 
 - Toggle to overwrite existing game covers in Settings, allowing users to force refresh and replace outdated or inaccurate cover images.
 
@@ -517,3 +519,18 @@ Tracks records of calculations made using the Smart Adder tool.
 ### 🧹 Deduplicated Formatting & Dead Code Elimination
 - Centralized library empty-state messages into FormattingHelpers.FormatEmptyLibraryMessage, providing uniform, localized wording across all tabs.
 - Cleaned up unused legacy panel visibility properties (IsGeneralPanelVisible, IsGamesPanelVisible, etc.) from SettingsViewModel.
+
+### 🗑️ Safe Recycle Bin Deletion Pipeline (ISafeDeletionService & DuplicateManagerViewModel)
+- Upgrades duplicate reporting from a static text prompt to an interactive management dialog (`DuplicateManagerWindow`).
+- Enforces non-destructive file operations via `ISafeDeletionService` which executes `IFileOperation.DeleteItem` configured with `FILEOP_FLAGS.FOF_ALLOWUNDO`. Deleted items are preserved in the Windows Recycle Bin for user recovery rather than permanently eradicated.
+- Thread isolation: Shell COM invocations execute inside dedicated STA background worker threads to protect UI responsiveness.
+- Provides smart preset heuristics: "Keep Newest" preserves the latest created version, "Keep Oldest" preserves the original baseline copy, and live calculation dynamically tracks recoverable disk space and item counts.
+
+### 🔔 Native System Tray Integration & Subclassing (ISystemTrayService & SystemTrayInterop)
+- Protects long-running multi-gigabyte transfers against accidental termination when users click the window close button (`[X]`).
+- Integrates native Win32 `Shell_NotifyIconW` and `comctl32.dll` window subclassing (`SetWindowSubclass`, `RemoveWindowSubclass`) on `MainWindow`'s HWND without interfering with Windows App SDK message routing.
+- Subclass procedure intercepts `WM_TRAYICON`:
+  - `WM_LBUTTONUP`: Restores and foregrounds `MainWindow` (`ShowWindow(SW_RESTORE)` and `SetForegroundWindow`).
+  - `WM_RBUTTONUP` / `WM_CONTEXTMENU`: Renders native Win32 popup menu (`CreatePopupMenu`, `TrackPopupMenuEx`) with "Open Easy Copier", "Cancel Active Transfers", and "Exit Easy Copier".
+- Observes `TransferQueueService.QueueItems` collection and property mutations to update hover tooltips with real-time transfer count, speed, and percentage completion (`Easy Copier — X transfer(s) (Y MB/s) — Z%`).
+- Emits balloon notifications when window is minimized and background operations continue.

@@ -28,6 +28,10 @@
                                            Description="Automatically launch Easy Copier in the background when signing into Windows">
                         <ToggleSwitch IsOn="{x:Bind ViewModel.StartOnLogon, Mode=TwoWay}"/>
                     </controls:SettingsCard>
+                    <controls:SettingsCard Header="Minimize to system tray on close"
+                                           Description="Keep background transfers running in the system tray when closing the main window">
+                        <ToggleSwitch IsOn="{x:Bind ViewModel.MinimizeToTrayOnClose, Mode=TwoWay}"/>
+                    </controls:SettingsCard>
                 </controls:SettingsExpander.Items>
             </controls:SettingsExpander>
 
