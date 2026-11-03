@@ -78,6 +78,26 @@
                     </controls:SettingsCard>
                 </controls:SettingsExpander.Items>
             </controls:SettingsExpander>
+
+            <!-- Data Verification & Integrity Expander -->
+            <controls:SettingsExpander Header="Data Verification &amp; Integrity"
+                                       Description="Configure post-copy file size and cryptographic checksum validation"
+                                       IsExpanded="True">
+                <controls:SettingsExpander.HeaderIcon>
+                    <FontIcon Glyph="&#xE8A1;"/>
+                </controls:SettingsExpander.HeaderIcon>
+                <controls:SettingsExpander.Items>
+                    <controls:SettingsCard Header="Post-copy verification mode"
+                                           Description="Choose how copied files are validated against corruption or incomplete writes">
+                        <ComboBox SelectedIndex="{x:Bind ViewModel.VerificationModeIndex, Mode=TwoWay}" MinWidth="220">
+                            <ComboBoxItem Content="None (Fastest)"/>
+                            <ComboBoxItem Content="Quick (File Size &amp; Count)"/>
+                            <ComboBoxItem Content="Fast XxHash64 (SIMD Hashing)"/>
+                            <ComboBoxItem Content="Full SHA-256 (Cryptographic)"/>
+                        </ComboBox>
+                    </controls:SettingsCard>
+                </controls:SettingsExpander.Items>
+            </controls:SettingsExpander>
         </StackPanel>
     </ScrollViewer>
 </Page>

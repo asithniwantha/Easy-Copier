@@ -365,6 +365,9 @@ namespace Easy_Copier.Models
 
         /// <summary>Gets or sets the price for tier 4 content (e.g., &gt; 16 GB).</summary>
         public int PriceTier4 { get; set; } = 400;
+
+        /// <summary>Gets or sets the post-copy data verification strategy.</summary>
+        public CopyVerificationMode VerificationMode { get; set; } = CopyVerificationMode.QuickSizeAndCount;
     }
 
     /// <summary>
@@ -530,4 +533,63 @@ namespace Easy_Copier.Models
         IReadOnlyList<PeriodTotal> WeeklyTotals,
         IReadOnlyList<TopCopiedItem> TopItems,
         double OverallFailureRate);
+
+    /// <summary>
+    /// Specifies the post-copy data verification strategy.
+    /// </summary>
+    public enum CopyVerificationMode
+    {
+        /// <summary>No verification is performed after copying.</summary>
+        None,
+
+        /// <summary>Quick verification: checks that all files exist and match exact byte lengths.</summary>
+        QuickSizeAndCount,
+
+        /// <summary>Fast hardware-accelerated SIMD hashing using XxHash64.</summary>
+        FastXxHash64,
+
+        /// <summary>Full cryptographic verification using standard SHA-256 hashes.</summary>
+        FullSha256
+    }
+
+    /// <summary>
+    /// Represents the outcome of a post-copy data verification check.
+    /// </summary>
+    /// <param name="IsSuccess">Indicates whether all verified files matched their source.</param>
+    /// <param name="ErrorMessage">Descriptive error message if verification failed.</param>
+    /// <param name="MismatchedFiles">List of relative file paths that failed validation.</param>
+    public record VerificationResult(
+        bool IsSuccess,
+        string? ErrorMessage = null,
+        IReadOnlyList<string>? MismatchedFiles = null);
+
+    /// <summary>
+    /// Represents a paginated query result containing a slice of items and total count metadata.
+    /// </summary>
+    /// <typeparam name="T">The type of items in the page.</typeparam>
+    /// <param name="Items">The items belonging to the current page.</param>
+    /// <param name="TotalCount">The total number of items across all pages.</param>
+    /// <param name="Page">The current 1-based page number.</param>
+    /// <param name="PageSize">The maximum number of items per page.</param>
+    public record PagedResult<T>(
+        IReadOnlyList<T> Items,
+        int TotalCount,
+        int Page,
+        int PageSize)
+    {
+        /// <summary>
+        /// Gets the total number of pages available.
+        /// </summary>
+        public int TotalPages => PageSize > 0 ? (int)Math.Ceiling((double)TotalCount / PageSize) : 0;
+
+        /// <summary>
+        /// Gets a value indicating whether there is a subsequent page.
+        /// </summary>
+        public bool HasNextPage => Page < TotalPages;
+
+        /// <summary>
+        /// Gets a value indicating whether there is a preceding page.
+        /// </summary>
+        public bool HasPreviousPage => Page > 1;
+    }
 }

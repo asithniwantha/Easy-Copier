@@ -242,11 +242,11 @@ The selected-drive panel also shows a usage bar, free space, total capacity, and
 
 ## 📅 Future Enhancements
 
-> 🔮 For technical designs, architecture blueprints, and implementation specs for pending roadmap items (M4, M5, M6, M7), see [FUTURE_WORK.md](FUTURE_WORK.md).
+> 🔮 For technical designs, architecture blueprints, and implementation specs for pending roadmap items (M6, M7), see [FUTURE_WORK.md](FUTURE_WORK.md).
 
 - [ ] Add transfer profiles and presets for one-click queueing of common game/app/media bundles.
 
-- [ ] Add optional post-copy verification (hash/size) to confirm file integrity.
+- [x] Add optional post-copy verification (hash/size) to confirm file integrity.
 
 - [ ] Add automatic best-fit suggestions based on selected drive free space.
 
@@ -422,3 +422,7 @@ Distributed under the MIT License. See `LICENSE` for more information.
 * **Deduplicated Empty Message Formatter & Dead Code Cleanup:** Centralized empty-state library string interpolation into FormattingHelpers.FormatEmptyLibraryMessage across MainViewModel, and eliminated obsolete visibility properties from SettingsViewModel. 🧹
 
 * **Queue Item Retry Action (M2):** Implemented inline retry functionality on transfer queue cards allowing users to re-enqueue and resume failed or cancelled copy operations with one click, featuring destination drive validation, cancellation token renewal, and `IDisposable` lifecycle management in `TransferQueueService`. 🔄
+
+* **Post-Copy Verification (M4):** Integrated post-copy data verification into `WindowsShellTransferService` with configurable strategies in `GeneralSettingsPage` (Quick size/count, Fast `XxHash64` SIMD hashing, Full `SHA-256`), recording discrepancies in SQLite and failing affected jobs for retry. 🛡️
+
+* **History Pagination & Streaming (M5):** Implemented server-side SQL pagination (`LIMIT`/`OFFSET`) and database streaming in `CopyHistoryService` and `HistoryViewModel`, paired with a responsive pagination toolbar and page size selector in `HistoryPage.xaml`. 📄

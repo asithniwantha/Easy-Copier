@@ -11,8 +11,8 @@ This document outlines the architectural blueprints, technical specifications, a
 | **M1** | Per-Item Transfer Cancellation | **Completed** ✅ | `Services`, `Interop`, `ViewModels`, `Views` | High |
 | **M2** | Retry Action for Failed or Cancelled Queue Items | **Completed** ✅ | `Services`, `ViewModels`, `Views` | High |
 | **M3** | Cancellation Token for Bulk Cover & Metadata Downloads | **Completed** ✅ | `Services`, `ViewModels`, `Views` | Medium |
-| **M4** | Post-Copy Verification (File Size & Cryptographic Hash) | **Open** 🟡 | `Services`, `Models`, `Settings` | Medium |
-| **M5** | History Pagination & Database Streaming | **Open** 🟡 | `Services`, `ViewModels`, `Views` | Medium |
+| **M4** | Post-Copy Verification (File Size & Cryptographic Hash) | **Completed** ✅ | `Services`, `Models`, `Settings` | Medium |
+| **M5** | History Pagination & Database Streaming | **Completed** ✅ | `Services`, `ViewModels`, `Views` | Medium |
 | **M6** | Interactive One-Click Duplicate Cleanup Interface | **Open** 🟡 | `Services`, `Views`, `Dialogs` | Medium |
 | **M7** | System Tray Integration & Background Transfer Resilience | **Open** 🟡 | `Infrastructure`, `Views`, `AppLifecycle` | Low |
 
@@ -78,7 +78,7 @@ This document outlines the architectural blueprints, technical specifications, a
 ---
 
 ### M4: Post-Copy Verification (File Size & Cryptographic Hash)
-* **Status:** **Open** 🟡
+* **Status:** **Completed** ✅ *(Implemented)*
 * **Objective:** Verify integrity of copied game/media files to guard against corrupted sectors, USB disconnect glitching, or incomplete writes.
 * **Technical Design:**
   1. **Configuration (`AppSettings.cs` & `SettingsViewModel.cs`):**
@@ -98,7 +98,7 @@ This document outlines the architectural blueprints, technical specifications, a
 ---
 
 ### M5: History Pagination & Database Streaming
-* **Status:** **Open** 🟡
+* **Status:** **Completed** ✅ *(Implemented)*
 * **Objective:** Scale the copy history database to hundreds of thousands of operations without UI sluggishness or memory pressure by implementing server-side SQL pagination.
 * **Technical Design:**
   1. **SQLite Service (`ICopyHistoryService.cs` & `CopyHistoryService.cs`):**
@@ -187,8 +187,8 @@ Phase 1: Transfer Robustness & Control
 
 Phase 2: Data Integrity & Storage
 ├── M3: Cover Download Cancellation (Done ✅)
-├── M4: Post-Copy Hash & Size Verification (Ready 🟡)
-└── M5: History Pagination & SQLite Streaming (Ready 🟡)
+├── M4: Post-Copy Hash & Size Verification (Done ✅)
+└── M5: History Pagination & SQLite Streaming (Done ✅)
 
 Phase 3: Library Hygiene & System Integration
 ├── M6: One-Click Duplicate Cleanup Interface (Ready 🟡)

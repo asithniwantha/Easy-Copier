@@ -378,6 +378,8 @@
 
 - Replaced positional index filter clearing in `HistoryViewModel` with strongly-typed named constant `FilterAllTime` to eliminate array order dependency.
 - Added inline retry action for failed and cancelled transfer queue items: users can re-enqueue failed or user-cancelled batches directly from queue cards without re-browsing or re-selecting items, backed by destination drive accessibility verification and automatic cancellation token regeneration in `TransferQueueService`.
+- Added post-copy data verification (M4): integrated configurable integrity checks (Quick size & count, Fast XxHash64 SIMD hashing, and Full SHA-256) into `WindowsShellTransferService` and Settings, logging mismatches to SQLite ErrorLog and flagging failed items for one-click retry.
+- Added history pagination & database streaming (M5): implemented server-side SQL pagination (LIMIT/OFFSET), streaming records into UI slices with responsive page navigation controls, page size selector (25/50/100/200), and all-filtered CSV export.
 - Added per-item copy cancellation for queued and in-progress transfers: users can cancel active copy operations from the queue UI, which signals `FileOperationProgressSink` to return `COPYENGINE_E_USER_CANCELLED` and immediately abort the underlying Windows Shell `IFileOperation`.
 - Added cancel capability for bulk cover art and system requirements downloads via `CancelDownloadGameInfoCommand` in `SettingsViewModel` and dedicated Cancel button in `SettingsWindow.xaml`.
 - Added prominent confirmation modal (`ShowConfirmationDialogAsync`) in `SettingsViewModel` when saving configurations that include inaccessible or missing source library folders, preventing silent errors.
@@ -405,7 +407,7 @@
 
 - [ ] Add transfer profiles and presets for one-click queueing of common game/app/media bundles.
 
-- [ ] Add optional post-copy verification (hash/size) to confirm file integrity.
+- [x] Add optional post-copy verification (hash/size) to confirm file integrity.
 
 - [ ] Add automatic best-fit suggestions based on selected drive free space.
 

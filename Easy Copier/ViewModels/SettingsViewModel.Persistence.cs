@@ -58,6 +58,7 @@ namespace Easy_Copier.ViewModels
             AutoDownloadUpdates = settings.AutoDownloadUpdates;
             PlayNotificationSounds = settings.PlayNotificationSounds;
             ShowDesktopNotifications = settings.ShowDesktopNotifications;
+            VerificationMode = settings.VerificationMode;
             RufusExecutablePath = settings.RufusExecutablePath ?? @"%USERPROFILE%\Downloads\Programs\rufus.exe";
             VideoFileExtensions = settings.VideoFileExtensions ?? ".mp4,.mkv,.avi";
             AppFileExtensions = settings.AppFileExtensions ?? ".exe,.msi,.rar,.zip";
@@ -90,6 +91,7 @@ namespace Easy_Copier.ViewModels
                 AutoDownloadUpdates = AutoDownloadUpdates,
                 PlayNotificationSounds = PlayNotificationSounds,
                 ShowDesktopNotifications = ShowDesktopNotifications,
+                VerificationMode = VerificationMode,
                 RufusExecutablePath = RufusExecutablePath,
                 VideoFileExtensions = VideoFileExtensions,
                 AppFileExtensions = AppFileExtensions,

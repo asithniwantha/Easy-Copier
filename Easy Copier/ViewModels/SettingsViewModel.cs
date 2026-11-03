@@ -52,6 +52,29 @@ namespace Easy_Copier.ViewModels
         [ObservableProperty]
         public partial bool ShowDesktopNotifications { get; set; } = true;
 
+        /// <summary>
+        /// Gets or sets the data integrity verification strategy executed after file transfers.
+        /// </summary>
+        [ObservableProperty]
+        [NotifyPropertyChangedFor(nameof(VerificationModeIndex))]
+        public partial CopyVerificationMode VerificationMode { get; set; } = CopyVerificationMode.QuickSizeAndCount;
+
+        /// <summary>
+        /// Gets or sets the zero-based index representing <see cref="VerificationMode"/> for XAML ComboBox selection.
+        /// </summary>
+        public int VerificationModeIndex
+        {
+            get => (int)VerificationMode;
+            set
+            {
+                if (value >= 0 && value <= 3 && (CopyVerificationMode)value != VerificationMode)
+                {
+                    VerificationMode = (CopyVerificationMode)value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+
         /// <summary>Gets or sets the string representation of price tier 1 (&lt; 5 GB).</summary>
         [ObservableProperty]
         public partial string PriceTier1 { get; set; } = "100";
