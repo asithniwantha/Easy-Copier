@@ -19,8 +19,19 @@ namespace Easy_Copier.ViewModels
     /// </summary>
     public sealed partial class SmartAdderViewModel : ObservableObject
     {
+        /// <summary>
+        /// The window service used to present the SmartAdder calculation history window.
+        /// </summary>
         private readonly IWindowService _windowService;
+
+        /// <summary>
+        /// The history service for persisting and retrieving previous SmartAdder calculation logs.
+        /// </summary>
         private readonly ISmartAdderHistoryService _smartAdderHistoryService;
+
+        /// <summary>
+        /// The logger instance for logging error and diagnostic information.
+        /// </summary>
         private readonly ILogger<SmartAdderViewModel> _logger;
 
         /// <summary>
@@ -71,6 +82,9 @@ namespace Easy_Copier.ViewModels
             AddNewCell();
         }
 
+        /// <summary>
+        /// Creates a new <see cref="NumberCell"/>, attaches property change listening, and appends it to the cell list.
+        /// </summary>
         private void AddNewCell()
         {
             NumberCell cell = new();
@@ -78,6 +92,11 @@ namespace Easy_Copier.ViewModels
             Cells.Add(cell);
         }
 
+        /// <summary>
+        /// Handles property changes on individual cells to adjust the cell list structure and recalculate totals.
+        /// </summary>
+        /// <param name="sender">The cell that raised the property change event.</param>
+        /// <param name="e">Event data specifying which property changed.</param>
         private void Cell_PropertyChanged(object? sender, PropertyChangedEventArgs e)
         {
             if (e.PropertyName != nameof(NumberCell.InputValue))
@@ -89,6 +108,9 @@ namespace Easy_Copier.ViewModels
             RecalculateTotal();
         }
 
+        /// <summary>
+        /// Ensures there is always exactly one empty trailing cell at the bottom of the input list.
+        /// </summary>
         private void EnsureOneEmptyBottomCell()
         {
             // Remove extra empty trailing cells
@@ -108,6 +130,9 @@ namespace Easy_Copier.ViewModels
             }
         }
 
+        /// <summary>
+        /// Recalculates the total sum from all numeric input cells and updates <see cref="TotalSum"/>.
+        /// </summary>
         private void RecalculateTotal()
         {
             double sum = 0;
@@ -149,6 +174,9 @@ namespace Easy_Copier.ViewModels
             RecalculateTotal();
         }
 
+        /// <summary>
+        /// Opens the SmartAdder calculation history dialog window.
+        /// </summary>
         [RelayCommand]
         private void OpenHistory()
         {

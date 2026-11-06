@@ -14,6 +14,9 @@ namespace Easy_Copier.Services
     /// </summary>
     public class SafeDeletionService : ISafeDeletionService
     {
+        /// <summary>
+        /// Logger instance used to record operational warnings, recycling failures, and debug diagnostics.
+        /// </summary>
         private readonly ILogger<SafeDeletionService> _logger;
 
         /// <summary>

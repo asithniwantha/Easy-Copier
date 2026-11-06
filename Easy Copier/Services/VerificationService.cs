@@ -16,7 +16,14 @@ namespace Easy_Copier.Services
     /// </summary>
     public class VerificationService : IVerificationService
     {
+        /// <summary>
+        /// Logger instance used to record integrity verification milestones, warnings, and errors.
+        /// </summary>
         private readonly ILogger<VerificationService> _logger;
+
+        /// <summary>
+        /// Chunk buffer size (1 MB) used for streaming file reads during cryptographic and non-cryptographic checksum calculation.
+        /// </summary>
         private const int ChunkBufferSize = 1024 * 1024; // 1 MB chunk size for balanced memory footprint and streaming throughput
 
         /// <summary>
