@@ -19,22 +19,69 @@ namespace Easy_Copier.Infrastructure
     /// </summary>
     public sealed class SystemTrayService : ISystemTrayService
     {
+        /// <summary>
+        /// The transfer queue service tracking active and pending copy operations.
+        /// </summary>
         private readonly ITransferQueueService _transferQueueService;
+
+        /// <summary>
+        /// The dispatcher service for marshaling operations to the UI thread.
+        /// </summary>
         private readonly IDispatcherService _dispatcherService;
+
+        /// <summary>
+        /// The logger instance for recording diagnostic and error messages.
+        /// </summary>
         private readonly ILogger<SystemTrayService> _logger;
 
+        /// <summary>
+        /// The native window handle (<c>HWND</c>) of the main application window.
+        /// </summary>
         private IntPtr _hWnd = IntPtr.Zero;
+
+        /// <summary>
+        /// The native icon handle (<c>HICON</c>) loaded for the system tray notification icon.
+        /// </summary>
         private IntPtr _hIcon = IntPtr.Zero;
+
+        /// <summary>
+        /// Indicates whether the notification icon has been added to the system tray.
+        /// </summary>
         private bool _isIconAdded;
+
+        /// <summary>
+        /// Indicates whether the main window procedure is currently subclassed for tray messages.
+        /// </summary>
         private bool _isSubclassed;
+
+        /// <summary>
+        /// Indicates whether this instance has been disposed.
+        /// </summary>
         private bool _disposed;
 
+        /// <summary>
+        /// The unique identifier assigned to the window subclass procedure.
+        /// </summary>
         private const nuint SUBCLASS_ID = 4040;
+
+        /// <summary>
+        /// The menu command identifier for opening or restoring the application window.
+        /// </summary>
         private const uint MENU_OPEN_ID = 5001;
+
+        /// <summary>
+        /// The menu command identifier for canceling all active file transfers.
+        /// </summary>
         private const uint MENU_CANCEL_ID = 5002;
+
+        /// <summary>
+        /// The menu command identifier for cleanly exiting the application.
+        /// </summary>
         private const uint MENU_EXIT_ID = 5003;
 
-        // Intent: Retain rooted reference to callback delegate to prevent garbage collection while registered with comctl32.
+        /// <summary>
+        /// Retains a rooted reference to the subclass callback delegate to prevent garbage collection while registered with comctl32.
+        /// </summary>
         private SystemTrayInterop.SUBCLASSPROC? _subclassProc;
 
         /// <inheritdoc />
@@ -392,6 +439,11 @@ namespace Easy_Copier.Infrastructure
             return text.Length > 120 ? text[..120] + "..." : text;
         }
 
+        /// <summary>
+        /// Handles collection changes in the transfer queue items to hook or unhook property notifications and update tray status.
+        /// </summary>
+        /// <param name="sender">The sender of the collection changed event.</param>
+        /// <param name="e">Event data providing details about added or removed transfer items.</param>
         private void OnQueueItemsCollectionChanged(object? sender, NotifyCollectionChangedEventArgs e)
         {
             if (e.NewItems != null)
@@ -413,6 +465,11 @@ namespace Easy_Copier.Infrastructure
             UpdateTrayProgress();
         }
 
+        /// <summary>
+        /// Handles property changes on individual transfer queue items to refresh the tray icon tooltip during progress updates.
+        /// </summary>
+        /// <param name="sender">The transfer queue item whose property changed.</param>
+        /// <param name="e">Event data containing the property name that changed.</param>
         private void OnQueueItemPropertyChanged(object? sender, PropertyChangedEventArgs e)
         {
             if (e.PropertyName is nameof(TransferQueueItem.Status)
@@ -423,6 +480,9 @@ namespace Easy_Copier.Infrastructure
             }
         }
 
+        /// <summary>
+        /// Modifies the notification icon in the taskbar status area with the updated tooltip text.
+        /// </summary>
         private void UpdateTrayProgress()
         {
             if (_isIconAdded)

@@ -16,8 +16,19 @@ namespace Easy_Copier
     /// </summary>
     public sealed partial class MainWindow : Window
     {
+        /// <summary>
+        /// The system tray service instance used for minimizing the window to tray and tray notification management.
+        /// </summary>
         private readonly ISystemTrayService _systemTrayService;
+
+        /// <summary>
+        /// The transfer queue service instance used to check active transfer operations during window closing.
+        /// </summary>
         private readonly ITransferQueueService _transferQueueService;
+
+        /// <summary>
+        /// The settings service instance used to read user preferences regarding window minimize-to-tray behavior.
+        /// </summary>
         private readonly ISettingsService _settingsService;
 
         /// <summary>

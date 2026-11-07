@@ -19,6 +19,9 @@ namespace Easy_Copier.ViewModels
     /// </summary>
     public sealed partial class DuplicateItemEntryViewModel : ObservableObject
     {
+        /// <summary>
+        /// Callback action invoked whenever <see cref="IsSelectedForDeletion"/> changes to update parent selection state.
+        /// </summary>
         private readonly Action _onSelectionChanged;
 
         /// <summary>
@@ -182,13 +185,39 @@ namespace Easy_Copier.ViewModels
     /// </summary>
     public sealed partial class DuplicateManagerViewModel : CloseableViewModelBase, IDisposable
     {
+        /// <summary>
+        /// The library scanner service used to scan configured library paths for duplicate items.
+        /// </summary>
         private readonly ILibraryScannerService _libraryScannerService;
+
+        /// <summary>
+        /// The safe deletion service used to safely recycle selected duplicate items into the Windows Recycle Bin.
+        /// </summary>
         private readonly ISafeDeletionService _safeDeletionService;
+
+        /// <summary>
+        /// The settings service used to access configured source folders and user preferences.
+        /// </summary>
         private readonly ISettingsService _settingsService;
+
+        /// <summary>
+        /// The dialog service used to display confirmation prompts and error alerts to the user.
+        /// </summary>
         private readonly IDialogService _dialogService;
+
+        /// <summary>
+        /// The dispatcher service for marshaling operations and UI updates to the main thread.
+        /// </summary>
         private readonly IDispatcherService _dispatcherService;
+
+        /// <summary>
+        /// The logger instance for logging duplicate scanning and deletion events.
+        /// </summary>
         private readonly ILogger<DuplicateManagerViewModel> _logger;
 
+        /// <summary>
+        /// The cancellation token source controlling ongoing duplicate scan operations.
+        /// </summary>
         private CancellationTokenSource? _scanCts;
 
         /// <summary>
