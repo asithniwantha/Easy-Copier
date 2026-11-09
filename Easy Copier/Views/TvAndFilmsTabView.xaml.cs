@@ -67,6 +67,8 @@ namespace Easy_Copier.Views
         /// <summary>
         /// Handles changes to the <see cref="ViewModelProperty"/> to hook clear selection notifications.
         /// </summary>
+        /// <param name="d">The dependency object on which the property has changed.</param>
+        /// <param name="e">Event data that describes the property change.</param>
         private static void OnViewModelPropertyChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
             if (d is TvAndFilmsTabView view)
@@ -86,6 +88,8 @@ namespace Easy_Copier.Views
         /// <summary>
         /// Handles clear selection requests from the ViewModel.
         /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">An object that contains no event data.</param>
         private void OnClearSelectionRequested(object? sender, System.EventArgs e)
         {
             ClearSelection();
@@ -94,6 +98,8 @@ namespace Easy_Copier.Views
         /// <summary>
         /// Handles the <see cref="Selector.SelectionChanged"/> event for the TV and films grid, updating the coordinator and raising local events.
         /// </summary>
+        /// <param name="sender">The source of the selection changed event.</param>
+        /// <param name="e">The event data providing information about the items that were added or removed.</param>
         private void TvAndFilmsGridView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             ViewModel?.UpdateSelection(TvAndFilmsGridView.GetSelectedEntries());

@@ -18,19 +18,46 @@ namespace Easy_Copier.ViewModels
     /// </summary>
     public sealed partial class SettingsViewModel : ObservableObject, ICloseableViewModel, IDisposable
     {
+        /// <summary>The settings service used to load and persist configuration.</summary>
         private readonly ISettingsService _settingsService;
+
+        /// <summary>The folder picker service used to prompt the user for directory paths.</summary>
         private readonly IFolderPickerService _folderPickerService;
+
+        /// <summary>The file picker service used to select custom executable paths.</summary>
         private readonly IFilePickerService _filePickerService;
+
+        /// <summary>The source library service used to inspect and validate source folders.</summary>
         private readonly ISourceLibraryService _sourceLibraryService;
+
+        /// <summary>The game info download service used to fetch cover art and genres.</summary>
         private readonly IGameInfoDownloadService _gameInfoDownloadService;
+
+        /// <summary>The startup service configuring automatic launch with Windows.</summary>
         private readonly IStartupService _startupService;
+
+        /// <summary>The dispatcher service for UI thread marshaling.</summary>
         private readonly IDispatcherService _dispatcherService;
+
+        /// <summary>The logger instance for recording settings events and diagnostics.</summary>
         private readonly ILogger<SettingsViewModel> _logger;
+
+        /// <summary>The update service providing application update checks.</summary>
         private readonly IUpdateService _updateService;
+
+        /// <summary>The dialog service for displaying confirmation prompts.</summary>
         private readonly IDialogService _dialogService;
+
+        /// <summary>The library scanner service for scanning folders and duplicates.</summary>
         private readonly ILibraryScannerService _libraryScannerService;
+
+        /// <summary>The window service for launching windows and modal dialogs.</summary>
         private readonly IWindowService _windowService;
+
+        /// <summary>The process service for interacting with external executables.</summary>
         private readonly IProcessService _processService;
+
+        /// <summary>Array indexing all folder collections corresponding to category indices.</summary>
         private readonly ObservableCollection<string>[] _allFolderCollections;
 
         /// <summary>Gets or sets a value indicating whether library scanning automatically runs at application startup.</summary>
@@ -112,6 +139,7 @@ namespace Easy_Copier.ViewModels
         /// <summary>Gets a value indicating whether cover downloading can currently be initiated.</summary>
         public bool CanDownloadCovers => !IsDownloadingCovers;
 
+        /// <summary>Cancellation token source managing active game cover download tasks.</summary>
         private CancellationTokenSource? _downloadGameInfoCts;
 
         /// <summary>Gets the collection of configured game source directory paths.</summary>
