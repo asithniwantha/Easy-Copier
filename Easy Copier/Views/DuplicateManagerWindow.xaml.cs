@@ -50,6 +50,8 @@ namespace Easy_Copier.Views
         /// <summary>
         /// Handles click on a group-specific "Keep Newest Copies" button.
         /// </summary>
+        /// <param name="sender">The button element triggering the click.</param>
+        /// <param name="e">The routed event arguments.</param>
         private void GroupSelectOlder_Click(object sender, RoutedEventArgs e)
         {
             if (sender is FrameworkElement { DataContext: DuplicateGroupViewModel group })
@@ -61,6 +63,8 @@ namespace Easy_Copier.Views
         /// <summary>
         /// Handles click on a group-specific "Keep Oldest Copies" button.
         /// </summary>
+        /// <param name="sender">The button element triggering the click.</param>
+        /// <param name="e">The routed event arguments.</param>
         private void GroupSelectNewer_Click(object sender, RoutedEventArgs e)
         {
             if (sender is FrameworkElement { DataContext: DuplicateGroupViewModel group })
@@ -72,6 +76,8 @@ namespace Easy_Copier.Views
         /// <summary>
         /// Handles click on a group-specific "Deselect All" button.
         /// </summary>
+        /// <param name="sender">The button element triggering the click.</param>
+        /// <param name="e">The routed event arguments.</param>
         private void GroupDeselectAll_Click(object sender, RoutedEventArgs e)
         {
             if (sender is FrameworkElement { DataContext: DuplicateGroupViewModel group })

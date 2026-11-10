@@ -91,6 +91,8 @@ namespace Easy_Copier.Views
         /// <summary>
         /// Reveals the open folder action button and smoothly elevates card surface on pointer hover.
         /// </summary>
+        /// <param name="sender">The card border control triggering the pointer enter event.</param>
+        /// <param name="e">Event data for the pointer entered event.</param>
         private void Card_PointerEntered(object sender, PointerRoutedEventArgs e)
         {
             OpenFolderButton.Opacity = 1.0;
@@ -103,6 +105,8 @@ namespace Easy_Copier.Views
         /// <summary>
         /// Restores standard card surface background and hides the open folder button when pointer exits.
         /// </summary>
+        /// <param name="sender">The card border control triggering the pointer exit event.</param>
+        /// <param name="e">Event data for the pointer exited event.</param>
         private void Card_PointerExited(object sender, PointerRoutedEventArgs e)
         {
             OpenFolderButton.Opacity = 0.0;
@@ -115,6 +119,8 @@ namespace Easy_Copier.Views
         /// <summary>
         /// Smoothly reveals the cover art image when decoded from disk or downloaded from CDN.
         /// </summary>
+        /// <param name="sender">The image control that finished loading.</param>
+        /// <param name="e">Routed event arguments for the image opened event.</param>
         private void CoverImage_ImageOpened(object sender, RoutedEventArgs e)
         {
             if (sender is Image img)

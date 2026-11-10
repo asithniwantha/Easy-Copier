@@ -16,35 +16,87 @@ namespace Easy_Copier.ViewModels
     /// </summary>
     public sealed partial class MainViewModel : ObservableObject, IDisposable
     {
+        /// <summary>The logger instance for operational diagnostic output.</summary>
         private readonly ILogger<MainViewModel> _logger;
+
+        /// <summary>The settings service for loading and persisting user configuration.</summary>
         private readonly ISettingsService _settingsService;
+
+        /// <summary>The library cache service for snapshot storage and validation.</summary>
         private readonly ILibraryCacheService _libraryCacheService;
+
+        /// <summary>The library scanner service for folder indexing.</summary>
         private readonly ILibraryScannerService _libraryScannerService;
+
+        /// <summary>The drive coordinator service managing drive discovery, monitoring, and transfer validation.</summary>
         private readonly IDriveCoordinatorService _driveCoordinatorService;
+
+        /// <summary>The file transfer service executing underlying disk I/O operations.</summary>
         private readonly IFileTransferService _fileTransferService;
+
+        /// <summary>The transfer queue service managing batch execution and notifications.</summary>
         private readonly ITransferQueueService _transferQueueService;
+
+        /// <summary>The window service for launching dialogs and windows.</summary>
         private readonly IWindowService _windowService;
+
+        /// <summary>The process service for external process interactions.</summary>
         private readonly IProcessService _processService;
+
+        /// <summary>The dispatcher service for UI thread marshaling.</summary>
         private readonly IDispatcherService _dispatcherService;
+
+        /// <summary>The update service for checking and downloading updates.</summary>
         private readonly IUpdateService _updateService;
+
+        /// <summary>The source library service for validating source folders.</summary>
         private readonly ISourceLibraryService _sourceLibraryService;
+
+        /// <summary>The dialog service for presenting conflict dialogs.</summary>
         private readonly IDialogService _dialogService;
+
+        /// <summary>The library filter service for query filtering and sorting.</summary>
         private readonly ILibraryFilterService _libraryFilterService;
+
+        /// <summary>The Rufus service for ISO imaging operations.</summary>
         private readonly IRufusService _rufusService;
+
+        /// <summary>The folder picker service for interactive directory selection.</summary>
         private readonly IFolderPickerService _folderPickerService;
+
+        /// <summary>The game system requirements service.</summary>
         private readonly IGameRequirementsService _gameRequirementsService;
+
+        /// <summary>The file system service for path checking.</summary>
         private readonly IFileSystemService _fileSystemService;
+
+        /// <summary>The selection coordinator managing multi-tab selections.</summary>
         private readonly ILibrarySelectionCoordinator _selectionCoordinator;
+
+        /// <summary>Factory delegate for instantiating transient <see cref="GameDetailsViewModel"/> instances.</summary>
         private readonly Func<GameDetailsViewModel> _gameDetailsViewModelFactory;
+
+        /// <summary>Cancellation token source managing active scan tasks.</summary>
         private CancellationTokenSource? _scanCancellationTokenSource;
+
+        /// <summary>Cancellation token source managing active cache validation tasks.</summary>
         private CancellationTokenSource? _validationCancellationTokenSource;
+
+        /// <summary>Cancellation token source managing auto-dismiss timers for notifications.</summary>
         private CancellationTokenSource? _notificationCancellationTokenSource;
+
+        /// <summary>Cached application settings instance.</summary>
         private AppSettings? _cachedSettings;
+
+        /// <summary>Periodic timer for checking application updates.</summary>
         private System.Threading.Timer? _updateCheckTimer;
+
         /// <summary>
         /// Flag used with atomic Interlocked operations to ensure only one background update check runs at a time.
         /// </summary>
         private int _isCheckingForUpdates;
+
+        /// <summary>Indicator flag for object disposal status.</summary>
         private int _isDisposed;
 
         /// <summary>
@@ -261,9 +313,16 @@ namespace Easy_Copier.ViewModels
         public IReadOnlyList<TvAndFilmsSortOption> AvailableTvAndFilmsSortOptions { get; } = Enum.GetValues<TvAndFilmsSortOption>();
 
 
+        /// <summary>Internal unfiltered cache of scanned games.</summary>
         private readonly List<GameEntry> _allGames = [];
+
+        /// <summary>Internal unfiltered cache of scanned applications.</summary>
         private readonly List<GameEntry> _allApps = [];
+
+        /// <summary>Internal unfiltered cache of scanned TV and film items.</summary>
         private readonly List<GameEntry> _allTvAndFilms = [];
+
+        /// <summary>Internal unfiltered cache of scanned OS image entries.</summary>
         private readonly List<GameEntry> _allOsImages = [];
 
         /// <summary>
@@ -423,6 +482,7 @@ namespace Easy_Copier.ViewModels
         /// <param name="gameRequirementsService">The game system requirements service.</param>
         /// <param name="folderPickerService">The folder picker service for interactive directory selection.</param>
         /// <param name="fileSystemService">The file system service for path checking.</param>
+        /// <param name="selectionCoordinator">The selection coordinator managing cross-tab selection aggregates.</param>
         /// <param name="smartAdderViewModel">The SmartAdder calculator view model.</param>
         /// <param name="gameDetailsViewModelFactory">Factory delegate for instantiating transient <see cref="GameDetailsViewModel"/> instances.</param>
         public MainViewModel(
@@ -502,12 +562,17 @@ namespace Easy_Copier.ViewModels
         /// </summary>
         public int QueueCount => TransferQueue.Count;
 
+        /// <summary>
+        /// Gets a value indicating whether this instance has been disposed.
+        /// </summary>
         private bool IsDisposed => Volatile.Read(ref _isDisposed) != 0;
 
 
         /// <summary>
         /// Handles selection changed events from the selection coordinator to update UI aggregate properties.
         /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">An object that contains no event data.</param>
         private void OnSelectionCoordinatorChanged(object? sender, EventArgs e)
         {
             OnPropertyChanged(nameof(SelectedGamesCount));
@@ -517,6 +582,11 @@ namespace Easy_Copier.ViewModels
             CopySelectedGamesCommand.NotifyCanExecuteChanged();
         }
 
+        /// <summary>
+        /// Handles changes to connected system drives by queuing a drive refresh on the UI thread.
+        /// </summary>
+        /// <param name="sender">The source of the drive change event.</param>
+        /// <param name="e">An object that contains no event data.</param>
         private void OnDrivesChanged(object? sender, EventArgs e)
         {
             if (IsDisposed)
@@ -537,6 +607,10 @@ namespace Easy_Copier.ViewModels
             _ = RefreshDrivesAfterDriveChangeAsync();
         }
 
+        /// <summary>
+        /// Asynchronously refreshes available drives following a device change notification if not disposed.
+        /// </summary>
+        /// <returns>A task that represents the asynchronous drive refresh operation.</returns>
         private async Task RefreshDrivesAfterDriveChangeAsync()
         {
             if (IsDisposed)
@@ -547,6 +621,10 @@ namespace Easy_Copier.ViewModels
             await RefreshDrivesAsync();
         }
 
+        /// <summary>
+        /// Timer callback for periodic background update checks.
+        /// </summary>
+        /// <param name="state">State object passed by the timer.</param>
         private void OnUpdateCheckTimerTick(object? state)
         {
             if (!TryEnqueueIfActive(CheckForUpdatesIfActiveAsync))
@@ -555,6 +633,11 @@ namespace Easy_Copier.ViewModels
             }
         }
 
+        /// <summary>
+        /// Enqueues a synchronous action on the dispatcher queue if the view model is not disposed.
+        /// </summary>
+        /// <param name="action">The action delegate to enqueue.</param>
+        /// <returns><c>true</c> if the action was successfully enqueued; otherwise, <c>false</c>.</returns>
         private bool TryEnqueueIfActive(Action action)
         {
             ArgumentNullException.ThrowIfNull(action);
@@ -570,6 +653,11 @@ namespace Easy_Copier.ViewModels
             });
         }
 
+        /// <summary>
+        /// Enqueues an asynchronous action on the dispatcher queue if the view model is not disposed.
+        /// </summary>
+        /// <param name="action">The asynchronous action delegate to enqueue.</param>
+        /// <returns><c>true</c> if the action was successfully enqueued; otherwise, <c>false</c>.</returns>
         private bool TryEnqueueIfActive(Func<Task> action)
         {
             ArgumentNullException.ThrowIfNull(action);
@@ -585,6 +673,10 @@ namespace Easy_Copier.ViewModels
             });
         }
 
+        /// <summary>
+        /// Triggers a background update check if the view model is not disposed.
+        /// </summary>
+        /// <returns>A task that represents the asynchronous update check.</returns>
         private async Task CheckForUpdatesIfActiveAsync()
         {
             if (IsDisposed)
@@ -733,6 +825,12 @@ namespace Easy_Copier.ViewModels
                 || (settings.OsImageSourceFolders?.Count > 0);
         }
 
+        /// <summary>
+        /// Validates the library cache snapshot against current source folder contents and triggers rescanning if invalid.
+        /// </summary>
+        /// <param name="cache">The library cache snapshot to validate.</param>
+        /// <param name="settings">The current application settings containing source folder configurations.</param>
+        /// <returns>A task that represents the asynchronous cache validation operation.</returns>
         private async Task ValidateAndRefreshCacheAsync(LibraryCacheSnapshot cache, AppSettings settings)
         {
             try
