@@ -108,7 +108,7 @@ namespace Easy_Copier.Services
             {
                 string folderName = Path.GetFileName(folderPath).TrimEnd();
 
-                if (folderName.StartsWith('$'))
+                if (folderName.StartsWith("$", StringComparison.Ordinal))
                 {
                     return true;
                 }
@@ -457,7 +457,7 @@ namespace Easy_Copier.Services
             {
                 _logger.LogWarning(ex, "Error reading categories for: {Path}", gameFolderPath);
             }
-            return [GameCategory.Uncategorized];
+            return (GameCategory[])[GameCategory.Uncategorized];
         }
 
         /// <summary>
@@ -472,7 +472,7 @@ namespace Easy_Copier.Services
                 : extensions
                 .Split(VideoExtensionSeparators, StringSplitOptions.RemoveEmptyEntries)
                 .Select(e => e.Trim())
-                .Select(e => e.StartsWith('.') ? e : "." + e)
+                .Select(e => e.StartsWith(".", StringComparison.Ordinal) ? e : "." + e)
                 .ToList();
         }
 

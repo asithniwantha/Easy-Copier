@@ -185,7 +185,7 @@ namespace Easy_Copier.ViewModels
         public partial string TotalRecordSummaryText { get; set; } = "0 transfers found";
 
         /// <summary>Gets the list of available page size options.</summary>
-        public IReadOnlyList<int> AvailablePageSizes { get; } = [25, 50, 100, 200];
+        public IReadOnlyList<int> AvailablePageSizes { get; } = (int[])[25, 50, 100, 200];
 
         /// <summary>Gets or sets the selected page size from UI dropdown.</summary>
         [ObservableProperty]
@@ -262,7 +262,7 @@ namespace Easy_Copier.ViewModels
         /// <summary>
         /// Gets the available dashboard range options.
         /// </summary>
-        public IReadOnlyList<string> DashboardRangeOptions { get; } = ["Last 7 Days", "Last 30 Days", "Last 90 Days"];
+        public IReadOnlyList<string> DashboardRangeOptions { get; } = (string[])["Last 7 Days", "Last 30 Days", "Last 90 Days"];
 
         /// <summary>
         /// Gets or sets the selected dashboard range option.
