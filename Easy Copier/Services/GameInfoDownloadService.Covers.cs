@@ -288,7 +288,7 @@ namespace Easy_Copier.Services
 
                     if (!string.IsNullOrEmpty(bestImgUrl))
                     {
-                        if (bestImgUrl.StartsWith("/", StringComparison.Ordinal))
+                        if (bestImgUrl.StartsWith('/'))
                         {
                             bestImgUrl = "https://gamesystemrequirements.com" + bestImgUrl;
                         }
@@ -631,7 +631,7 @@ namespace Easy_Copier.Services
                     if (match.Success)
                     {
                         string imgUrl = match.Groups[1].Value;
-                        if (imgUrl.StartsWith("/", StringComparison.Ordinal))
+                        if (imgUrl.StartsWith('/'))
                         {
                             imgUrl = "https://lutris.net" + imgUrl;
                         }
