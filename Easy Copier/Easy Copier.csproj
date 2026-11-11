@@ -3,7 +3,7 @@
 
     <LangVersion>preview</LangVersion>
     <OutputType>WinExe</OutputType>
-    <TargetFramework>net10.0-windows10.0.26100.0</TargetFramework>
+    <TargetFramework>net11.0-windows10.0.26100.0</TargetFramework>
     <TargetPlatformMinVersion>10.0.17763.0</TargetPlatformMinVersion>
     <RootNamespace>Easy_Copier</RootNamespace>
     <ApplicationManifest>app.manifest</ApplicationManifest>
@@ -35,22 +35,22 @@
   <ItemGroup>
     <PackageReference Include="CommunityToolkit.WinUI.Controls.SettingsControls" Version="8.3.260402-preview2" />
     <PackageReference Include="CommunityToolkit.WinUI.Extensions" Version="8.3.260402-preview2" />
-    <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="11.0.0-rc.1.26425.128" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="11.0.0" />
     <PackageReference Include="Microsoft.Windows.SDK.BuildTools" Version="10.0.29648.1000-preview" />
-    <PackageReference Include="Microsoft.WindowsAppSDK" Version="2.5.1" />
+    <PackageReference Include="Microsoft.WindowsAppSDK" Version="2.6.5" />
     <PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.2" />
-    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="11.0.0-rc.1.26425.128" />
-    <PackageReference Include="Microsoft.Extensions.Logging" Version="11.0.0-rc.1.26425.128" />
-    <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="11.0.0-rc.1.26425.128" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="11.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging" Version="11.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="11.0.0" />
     <PackageReference Include="Microsoft.Xaml.Behaviors.WinUI.Managed" Version="3.0.1" />
     <PackageReference Include="NReco.VideoConverter" Version="1.2.1" />
     <PackageReference Include="SQLitePCLRaw.lib.e_sqlite3" Version="3.53.3" />
-    <PackageReference Include="System.IO.Hashing" Version="10.0.14" />
-    <PackageReference Include="System.Management" Version="11.0.0-rc.1.26425.128" />
-    <PackageReference Include="System.Windows.Extensions" Version="10.0.3" />
-    <PackageReference Include="Microsoft.Data.Sqlite" Version="11.0.0-rc.1.26425.128" />
+    <PackageReference Include="System.IO.Hashing" Version="11.0.0" />
+    <PackageReference Include="System.Management" Version="11.0.0" />
+    <PackageReference Include="System.Windows.Extensions" Version="11.0.0" />
+    <PackageReference Include="Microsoft.Data.Sqlite" Version="11.0.0" />
     <PackageReference Include="CommunityToolkit.WinUI.UI.Controls.DataGrid" Version="7.1.2" />
-    <PackageReference Include="System.Drawing.Common" Version="10.0.3" />
+    <PackageReference Include="System.Drawing.Common" Version="11.0.0" />
 
   </ItemGroup>
 
@@ -80,6 +80,6 @@
     <PackageReference Include="Serilog.Extensions.Logging" Version="10.0.0" />
     <PackageReference Include="Serilog.Sinks.File" Version="8.0.0-nblumhardt-02322" />
     <PackageReference Include="Serilog.Sinks.Debug" Version="3.0.0" />
-    <PackageReference Include="Velopack" Version="1.2.110-ge826545" />
+    <PackageReference Include="Velopack" Version="1.2.161" />
   </ItemGroup>
   </Project>
