@@ -1,6 +1,5 @@
 using Easy_Copier.ViewModels;
 using Easy_Copier.Views;
-using Microsoft.Extensions.DependencyInjection;
 using System;
 
 namespace Easy_Copier.Infrastructure

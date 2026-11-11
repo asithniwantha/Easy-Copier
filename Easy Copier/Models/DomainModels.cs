@@ -1,6 +1,5 @@
-global using LibraryEntry = Easy_Copier.Models.GameEntry;
 global using ContentEntry = Easy_Copier.Models.GameEntry;
-
+global using LibraryEntry = Easy_Copier.Models.GameEntry;
 using System;
 using System.Collections.Generic;
 

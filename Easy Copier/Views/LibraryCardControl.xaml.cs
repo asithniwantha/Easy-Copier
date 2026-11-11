@@ -29,10 +29,10 @@ namespace Easy_Copier.Views
         /// <summary>
         /// File extensions evaluated as playable video previews.
         /// </summary>
-        private static readonly HashSet<string> PreviewExtensions = new(StringComparer.OrdinalIgnoreCase)
-        {
-            ".mp4", ".mkv", ".avi", ".mov", ".wmv", ".m4v", ".webm"
-        };
+        private static readonly HashSet<string> PreviewExtensions =
+        [
+with(StringComparer.OrdinalIgnoreCase),             ".mp4", ".mkv", ".avi", ".mov", ".wmv", ".m4v", ".webm"
+        ];
 
         /// <summary>
         /// Cancellation token source managing asynchronous video preview loading.
@@ -77,10 +77,7 @@ namespace Easy_Copier.Views
                 if (DataContext is GameEntry entry)
                 {
                     Entry = entry;
-                    if (CoverImage != null)
-                    {
-                        CoverImage.Opacity = 0.0;
-                    }
+                    CoverImage?.Opacity = 0.0;
                 }
             };
 
@@ -96,7 +93,7 @@ namespace Easy_Copier.Views
         private void Card_PointerEntered(object sender, PointerRoutedEventArgs e)
         {
             OpenFolderButton.Opacity = 1.0;
-            if (Application.Current.Resources.TryGetValue("CardBackgroundFillColorDefaultBrush", out var brush) && brush is Microsoft.UI.Xaml.Media.Brush b)
+            if (Application.Current.Resources.TryGetValue("CardBackgroundFillColorDefaultBrush", out object? brush) && brush is Microsoft.UI.Xaml.Media.Brush b)
             {
                 CardBorder.Background = b;
             }
@@ -110,7 +107,7 @@ namespace Easy_Copier.Views
         private void Card_PointerExited(object sender, PointerRoutedEventArgs e)
         {
             OpenFolderButton.Opacity = 0.0;
-            if (Application.Current.Resources.TryGetValue("CardBackgroundFillColorSecondaryBrush", out var brush) && brush is Microsoft.UI.Xaml.Media.Brush b)
+            if (Application.Current.Resources.TryGetValue("CardBackgroundFillColorSecondaryBrush", out object? brush) && brush is Microsoft.UI.Xaml.Media.Brush b)
             {
                 CardBorder.Background = b;
             }
@@ -281,17 +278,11 @@ namespace Easy_Copier.Views
         {
             try
             {
-                if (File.Exists(path))
-                {
-                    return PreviewExtensions.Contains(Path.GetExtension(path)) ? path : null;
-                }
-
-                if (!Directory.Exists(path))
-                {
-                    return null;
-                }
-
-                return Directory.EnumerateFiles(path, "*", SearchOption.AllDirectories)
+                return File.Exists(path)
+                    ? PreviewExtensions.Contains(Path.GetExtension(path)) ? path : null
+                    : !Directory.Exists(path)
+                    ? null
+                    : Directory.EnumerateFiles(path, "*", SearchOption.AllDirectories)
                     .Where(f => PreviewExtensions.Contains(Path.GetExtension(f)))
                     .OrderByDescending(f => new FileInfo(f).Length)
                     .FirstOrDefault();

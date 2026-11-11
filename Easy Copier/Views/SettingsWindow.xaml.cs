@@ -127,7 +127,7 @@ namespace Easy_Copier.Views
 
                 if (ContentFrame.CurrentSourcePageType != pageType)
                 {
-                    ContentFrame.Navigate(pageType, ViewModel, new SlideNavigationTransitionInfo { Effect = SlideNavigationTransitionEffect.FromRight });
+                    _ = ContentFrame.Navigate(pageType, ViewModel, new SlideNavigationTransitionInfo { Effect = SlideNavigationTransitionEffect.FromRight });
                 }
             }
         }

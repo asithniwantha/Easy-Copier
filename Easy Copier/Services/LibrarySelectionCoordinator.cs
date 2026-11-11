@@ -111,12 +111,9 @@ namespace Easy_Copier.Services
         /// </summary>
         private List<GameEntry> GetEffectiveSelectedEntries()
         {
-            if (_isOsImagesTabActive)
-            {
-                return _selections[LibraryCategory.OsImage];
-            }
-
-            return [
+            return _isOsImagesTabActive
+                ? _selections[LibraryCategory.OsImage]
+                : [
                 .. _selections[LibraryCategory.Game],
                 .. _selections[LibraryCategory.App],
                 .. _selections[LibraryCategory.TvAndFilm]

@@ -587,19 +587,31 @@ namespace Easy_Copier.Services
         }
 
         /// <inheritdoc />
-        public Task<IReadOnlyList<RemovableDrive>> GetRemovableDrivesAsync() => Discovery.GetRemovableDrivesAsync();
+        public Task<IReadOnlyList<RemovableDrive>> GetRemovableDrivesAsync()
+        {
+            return Discovery.GetRemovableDrivesAsync();
+        }
 
         /// <inheritdoc />
         public Task<IReadOnlyList<ValidationResult>> ValidateTransferAsync(
             IEnumerable<GameEntry> items,
             RemovableDrive targetDrive,
-            string destinationBasePath) => Validation.ValidateTransferAsync(items, targetDrive, destinationBasePath);
+            string destinationBasePath)
+        {
+            return Validation.ValidateTransferAsync(items, targetDrive, destinationBasePath);
+        }
 
         /// <inheritdoc />
-        public void StartWatching() => Discovery.StartWatching();
+        public void StartWatching()
+        {
+            Discovery.StartWatching();
+        }
 
         /// <inheritdoc />
-        public void StopWatching() => Discovery.StopWatching();
+        public void StopWatching()
+        {
+            Discovery.StopWatching();
+        }
 
         /// <inheritdoc />
         public event EventHandler? DrivesChanged;
@@ -607,7 +619,10 @@ namespace Easy_Copier.Services
         /// <summary>
         /// Relays drive change events from the underlying discovery service.
         /// </summary>
-        private void OnDrivesChanged(object? sender, EventArgs e) => DrivesChanged?.Invoke(sender, e);
+        private void OnDrivesChanged(object? sender, EventArgs e)
+        {
+            DrivesChanged?.Invoke(sender, e);
+        }
 
         /// <summary>
         /// Disposes event subscriptions and underlying resources.

@@ -145,7 +145,7 @@ namespace Easy_Copier.Services
             ArgumentNullException.ThrowIfNull(sourceFolders);
 
             List<GameEntry> games = [];
-            HashSet<string> processedPaths = new(StringComparer.OrdinalIgnoreCase);
+            HashSet<string> processedPaths = [with(StringComparer.OrdinalIgnoreCase)];
 
             string categoryLabel = category == LibraryCategory.App ? "app" :
                                    (category == LibraryCategory.TvAndFilm ? "film/tv" :
@@ -370,7 +370,7 @@ namespace Easy_Copier.Services
                     {
                         FileInfo fileInfo = new(folderPath);
                         DateTime fileLastWrite = fileInfo.LastWriteTimeUtc;
-                        if (_folderStatsCache.TryGetValue(folderPath, out var cachedFile) && cachedFile.LastModified == fileLastWrite)
+                        if (_folderStatsCache.TryGetValue(folderPath, out (DateTime LastModified, long TotalSize, bool HasLargeFiles) cachedFile) && cachedFile.LastModified == fileLastWrite)
                         {
                             return (cachedFile.TotalSize, cachedFile.HasLargeFiles);
                         }
@@ -388,7 +388,7 @@ namespace Easy_Copier.Services
 
                     DirectoryInfo dirInfo = new(folderPath);
                     DateTime dirLastWrite = dirInfo.LastWriteTimeUtc;
-                    if (_folderStatsCache.TryGetValue(folderPath, out var cachedDir) && cachedDir.LastModified == dirLastWrite)
+                    if (_folderStatsCache.TryGetValue(folderPath, out (DateTime LastModified, long TotalSize, bool HasLargeFiles) cachedDir) && cachedDir.LastModified == dirLastWrite)
                     {
                         return (cachedDir.TotalSize, cachedDir.HasLargeFiles);
                     }
@@ -467,12 +467,9 @@ namespace Easy_Copier.Services
         /// <returns>A list of normalized file extension strings.</returns>
         private static List<string> ParseExtensionList(string? extensions)
         {
-            if (string.IsNullOrWhiteSpace(extensions))
-            {
-                return [];
-            }
-
-            return extensions
+            return string.IsNullOrWhiteSpace(extensions)
+                ? []
+                : extensions
                 .Split(VideoExtensionSeparators, StringSplitOptions.RemoveEmptyEntries)
                 .Select(e => e.Trim())
                 .Select(e => e.StartsWith('.') ? e : "." + e)

@@ -3,13 +3,12 @@ using CommunityToolkit.Mvvm.Input;
 using Easy_Copier.Infrastructure;
 using Easy_Copier.Models;
 using Easy_Copier.Services;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
 using System.Text.Json;
 using System.Threading.Tasks;
-using Microsoft.Extensions.Logging;
 
 namespace Easy_Copier.ViewModels
 {
@@ -316,7 +315,10 @@ namespace Easy_Copier.ViewModels
         /// Toggles dashboard visibility.
         /// </summary>
         [RelayCommand]
-        private void ToggleDashboard() => IsDashboardVisible = !IsDashboardVisible;
+        private void ToggleDashboard()
+        {
+            IsDashboardVisible = !IsDashboardVisible;
+        }
 
         /// <summary>
         /// Asynchronously recomputes dashboard analytics from recent historical data.
@@ -537,7 +539,7 @@ namespace Easy_Copier.ViewModels
             await Task.WhenAll(pageTask, statsTask);
 
             PagedResult<CopyHistoryRecord> pagedResult = await pageTask;
-            var (totalItems, successfulItems, totalBytes, totalAmount) = await statsTask;
+            (int totalItems, int successfulItems, long totalBytes, int totalAmount) = await statsTask;
 
             TotalRecordCount = pagedResult.TotalCount;
             TotalPages = Math.Max(1, pagedResult.TotalPages);

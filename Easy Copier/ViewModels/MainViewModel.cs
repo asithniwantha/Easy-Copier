@@ -70,9 +70,6 @@ namespace Easy_Copier.ViewModels
         /// <summary>The file system service for path checking.</summary>
         private readonly IFileSystemService _fileSystemService;
 
-        /// <summary>The selection coordinator managing multi-tab selections.</summary>
-        private readonly ILibrarySelectionCoordinator _selectionCoordinator;
-
         /// <summary>Factory delegate for instantiating transient <see cref="GameDetailsViewModel"/> instances.</summary>
         private readonly Func<GameDetailsViewModel> _gameDetailsViewModelFactory;
 
@@ -208,32 +205,32 @@ namespace Easy_Copier.ViewModels
         /// <summary>
         /// Gets the selection coordinator instance managing item selections across library tabs.
         /// </summary>
-        public ILibrarySelectionCoordinator SelectionCoordinator => _selectionCoordinator;
+        public ILibrarySelectionCoordinator SelectionCoordinator { get; }
 
         /// <summary>
         /// Gets the count of currently selected library items.
         /// </summary>
-        public int SelectedGamesCount => _selectionCoordinator.SelectedCount;
+        public int SelectedGamesCount => SelectionCoordinator.SelectedCount;
 
         /// <summary>
         /// Gets a value indicating whether any library items are currently selected.
         /// </summary>
-        public bool HasSelectedGames => _selectionCoordinator.HasSelection;
+        public bool HasSelectedGames => SelectionCoordinator.HasSelection;
 
         /// <summary>
         /// Gets the aggregate byte size of currently selected library items.
         /// </summary>
-        public long SelectedGamesTotalBytes => _selectionCoordinator.SelectedTotalBytes;
+        public long SelectedGamesTotalBytes => SelectionCoordinator.SelectedTotalBytes;
 
         /// <summary>
         /// Gets the total calculated monetary price of currently selected library items.
         /// </summary>
-        public int SelectedGamesTotalPrice => _selectionCoordinator.SelectedTotalPrice;
+        public int SelectedGamesTotalPrice => SelectionCoordinator.SelectedTotalPrice;
 
         /// <summary>
         /// Gets the currently selected library items.
         /// </summary>
-        public IReadOnlyList<GameEntry> SelectedGames => _selectionCoordinator.SelectedEntries;
+        public IReadOnlyList<GameEntry> SelectedGames => SelectionCoordinator.SelectedEntries;
 
         /// <summary>
         /// Gets or sets the search filter text query.
@@ -393,7 +390,7 @@ namespace Easy_Copier.ViewModels
 
         partial void OnCurrentTabIndexChanged(int value)
         {
-            _selectionCoordinator?.SetActiveTab(IsOsImagesTabActive);
+            SelectionCoordinator?.SetActiveTab(IsOsImagesTabActive);
         }
 
         /// <summary>
@@ -526,8 +523,8 @@ namespace Easy_Copier.ViewModels
             _folderPickerService = folderPickerService;
             _gameRequirementsService = gameRequirementsService;
             _fileSystemService = fileSystemService;
-            _selectionCoordinator = selectionCoordinator ?? throw new ArgumentNullException(nameof(selectionCoordinator));
-            _selectionCoordinator.SelectionChanged += OnSelectionCoordinatorChanged;
+            SelectionCoordinator = selectionCoordinator ?? throw new ArgumentNullException(nameof(selectionCoordinator));
+            SelectionCoordinator.SelectionChanged += OnSelectionCoordinatorChanged;
             SmartAdderViewModel = smartAdderViewModel;
             _gameDetailsViewModelFactory = gameDetailsViewModelFactory;
 

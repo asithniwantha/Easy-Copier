@@ -2,7 +2,6 @@ using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using Easy_Copier.Infrastructure;
 using Easy_Copier.Models;
-using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -296,7 +295,7 @@ namespace Easy_Copier.ViewModels
                 {
                     StatusMessage = $"Found {AvailableDrives.Count} removable drive(s)";
 
-                    if (SelectedDrive == null && AvailableDrives.Any())
+                    if (SelectedDrive == null && AvailableDrives.Count != 0)
                     {
                         SelectedDrive = AvailableDrives.First();
                     }
@@ -607,7 +606,7 @@ namespace Easy_Copier.ViewModels
         /// <param name="selectedGames">The collection of selected library entries.</param>
         public void UpdateSelectionSummary(System.Collections.Generic.IEnumerable<GameEntry> selectedGames)
         {
-            _selectionCoordinator.SetCategorySelection(
+            SelectionCoordinator.SetCategorySelection(
                 IsOsImagesTabActive ? LibraryCategory.OsImage : LibraryCategory.Game,
                 selectedGames);
         }
@@ -645,7 +644,7 @@ namespace Easy_Copier.ViewModels
         [RelayCommand]
         private void ClearSelection()
         {
-            _selectionCoordinator.ClearAll();
+            SelectionCoordinator.ClearAll();
             ClearSelectionRequested?.Invoke(this, EventArgs.Empty);
         }
 
@@ -744,7 +743,7 @@ namespace Easy_Copier.ViewModels
             _driveCoordinatorService.DrivesChanged -= OnDrivesChanged;
             _transferQueueService.ItemCompleted -= OnQueueItemCompleted;
             _transferQueueService.BatchCompleted -= OnBatchCompleted;
-            _selectionCoordinator.SelectionChanged -= OnSelectionCoordinatorChanged;
+            SelectionCoordinator.SelectionChanged -= OnSelectionCoordinatorChanged;
             _driveCoordinatorService.StopWatching();
 
             _ = (_updateCheckTimer?.Change(Timeout.Infinite, Timeout.Infinite));

@@ -4,7 +4,6 @@ using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace Easy_Copier.Services
@@ -499,9 +498,8 @@ namespace Easy_Copier.Services
         private static CopyHistoryRecord? ParseRecord(SqliteDataReader reader)
         {
             string timestampStr = reader.GetString(1);
-            if (DateTime.TryParse(timestampStr, System.Globalization.CultureInfo.InvariantCulture, System.Globalization.DateTimeStyles.RoundtripKind, out DateTime timestamp))
-            {
-                return new CopyHistoryRecord(
+            return DateTime.TryParse(timestampStr, System.Globalization.CultureInfo.InvariantCulture, System.Globalization.DateTimeStyles.RoundtripKind, out DateTime timestamp)
+                ? new CopyHistoryRecord(
                     reader.GetInt32(0),
                     timestamp,
                     reader.GetString(2),
@@ -514,9 +512,8 @@ namespace Easy_Copier.Services
                     reader.IsDBNull(9) ? string.Empty : reader.GetString(9),
                     reader.IsDBNull(10) ? string.Empty : reader.GetString(10),
                     reader.IsDBNull(11) ? string.Empty : reader.GetString(11)
-                );
-            }
-            return null;
+                )
+                : null;
         }
 
         /// <inheritdoc />
@@ -534,7 +531,7 @@ namespace Easy_Copier.Services
             pageSize = Math.Max(1, pageSize);
             int offset = (page - 1) * pageSize;
 
-            var (whereClause, parameters) = BuildWhereClause(startDate, endDate, isSuccess, searchPattern);
+            (string? whereClause, List<SqliteParameter>? parameters) = BuildWhereClause(startDate, endDate, isSuccess, searchPattern);
 
             try
             {
@@ -550,8 +547,14 @@ namespace Easy_Copier.Services
                         _ = countCmd.Parameters.AddWithValue(p.ParameterName, p.Value);
                     }
                     object? scalar = await countCmd.ExecuteScalarAsync(cancellationToken);
-                    if (scalar is long countLong) totalCount = (int)countLong;
-                    else if (scalar is int countInt) totalCount = countInt;
+                    if (scalar is long countLong)
+                    {
+                        totalCount = (int)countLong;
+                    }
+                    else if (scalar is int countInt)
+                    {
+                        totalCount = countInt;
+                    }
                 }
 
                 List<CopyHistoryRecord> records = [];
@@ -600,7 +603,7 @@ namespace Easy_Copier.Services
             string? searchPattern = null,
             System.Threading.CancellationToken cancellationToken = default)
         {
-            var (whereClause, parameters) = BuildWhereClause(startDate, endDate, isSuccess, searchPattern);
+            (string? whereClause, List<SqliteParameter>? parameters) = BuildWhereClause(startDate, endDate, isSuccess, searchPattern);
 
             try
             {
@@ -649,7 +652,7 @@ namespace Easy_Copier.Services
             string? searchPattern = null,
             System.Threading.CancellationToken cancellationToken = default)
         {
-            var (whereClause, parameters) = BuildWhereClause(startDate, endDate, isSuccess, searchPattern);
+            (string? whereClause, List<SqliteParameter>? parameters) = BuildWhereClause(startDate, endDate, isSuccess, searchPattern);
             List<CopyHistoryRecord> records = [];
 
             try

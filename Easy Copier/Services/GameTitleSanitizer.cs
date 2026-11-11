@@ -250,7 +250,7 @@ namespace Easy_Copier.Services
             if (int.TryParse(lastToken, System.Globalization.NumberStyles.Integer, System.Globalization.CultureInfo.InvariantCulture, out int arabicVal))
             {
                 // Numbers between 1 and 99 are valid sequel numbers (exclude years or franchise names like 2077 or 40000)
-                if (arabicVal >= 1 && arabicVal <= 99)
+                if (arabicVal is >= 1 and <= 99)
                 {
                     return arabicVal;
                 }
@@ -347,7 +347,7 @@ namespace Easy_Copier.Services
             }
 
             int matchingTokens = targetTokens.Count(t => candidateTokens.Contains(t, StringComparer.OrdinalIgnoreCase));
-            double tokenDice = (2.0 * matchingTokens) / (targetTokens.Length + candidateTokens.Length);
+            double tokenDice = 2.0 * matchingTokens / (targetTokens.Length + candidateTokens.Length);
 
             // Coverage penalty: ensure most of the target's distinctive title words are represented
             double targetCoverage = (double)matchingTokens / targetTokens.Length;
@@ -361,7 +361,7 @@ namespace Easy_Copier.Services
                 normTarget.StartsWith(normCandidate + " ", StringComparison.OrdinalIgnoreCase))
             {
                 double lengthRatio = Math.Min((double)normTarget.Length / normCandidate.Length, (double)normCandidate.Length / normTarget.Length);
-                return Math.Max(tokenDice, 0.70 * lengthRatio + 0.30);
+                return Math.Max(tokenDice, (0.70 * lengthRatio) + 0.30);
             }
 
             return tokenDice;
@@ -401,7 +401,7 @@ namespace Easy_Copier.Services
             }
 
             // Check for HTML / XML error responses (e.g. <!DOCTYPE, <html, <?xml)
-            if (bytes[0] == '<' || bytes[0] == '{')
+            if (bytes[0] is (byte)'<' or (byte)'{')
             {
                 return false;
             }
@@ -429,12 +429,7 @@ namespace Easy_Copier.Services
             }
 
             // BMP magic bytes: 'BM' (42 4D)
-            if (bytes[0] == 0x42 && bytes[1] == 0x4D)
-            {
-                return true;
-            }
-
-            return false;
+            return bytes[0] == 0x42 && bytes[1] == 0x4D;
         }
     }
 }

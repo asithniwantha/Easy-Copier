@@ -4,6 +4,7 @@ using Easy_Copier.Services;
 using Microsoft.Extensions.Logging;
 using Microsoft.UI.Xaml;
 using System;
+using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.ComponentModel;
 using System.IO;
@@ -45,11 +46,6 @@ namespace Easy_Copier.Infrastructure
         private IntPtr _hIcon = IntPtr.Zero;
 
         /// <summary>
-        /// Indicates whether the notification icon has been added to the system tray.
-        /// </summary>
-        private bool _isIconAdded;
-
-        /// <summary>
         /// Indicates whether the main window procedure is currently subclassed for tray messages.
         /// </summary>
         private bool _isSubclassed;
@@ -85,7 +81,7 @@ namespace Easy_Copier.Infrastructure
         private SystemTrayInterop.SUBCLASSPROC? _subclassProc;
 
         /// <inheritdoc />
-        public bool IsTrayIconVisible => _isIconAdded;
+        public bool IsTrayIconVisible { get; private set; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="SystemTrayService"/> class.
@@ -150,12 +146,12 @@ namespace Easy_Copier.Infrastructure
                 nid.uFlags = SystemTrayInterop.NIF_MESSAGE | SystemTrayInterop.NIF_ICON | SystemTrayInterop.NIF_TIP;
                 nid.szTip = GetCurrentTooltipText();
 
-                if (!_isIconAdded)
+                if (!IsTrayIconVisible)
                 {
                     bool result = SystemTrayInterop.Shell_NotifyIcon(SystemTrayInterop.NIM_ADD, ref nid);
                     if (result)
                     {
-                        _isIconAdded = true;
+                        IsTrayIconVisible = true;
                         // Set modern V4 version behavior
                         nid.uTimeoutOrVersion = 4;
                         _ = SystemTrayInterop.Shell_NotifyIcon(SystemTrayInterop.NIM_SETVERSION, ref nid);
@@ -179,7 +175,7 @@ namespace Easy_Copier.Infrastructure
         /// <inheritdoc />
         public void RemoveTrayIcon()
         {
-            if (!_isIconAdded || _hWnd == IntPtr.Zero)
+            if (!IsTrayIconVisible || _hWnd == IntPtr.Zero)
             {
                 return;
             }
@@ -188,7 +184,7 @@ namespace Easy_Copier.Infrastructure
             {
                 SystemTrayInterop.NOTIFYICONDATA nid = CreateNotifyIconData();
                 _ = SystemTrayInterop.Shell_NotifyIcon(SystemTrayInterop.NIM_DELETE, ref nid);
-                _isIconAdded = false;
+                IsTrayIconVisible = false;
             }
             catch (Exception ex)
             {
@@ -204,7 +200,7 @@ namespace Easy_Copier.Infrastructure
                 return;
             }
 
-            if (!_isIconAdded)
+            if (!IsTrayIconVisible)
             {
                 ShowTrayIcon();
             }
@@ -361,7 +357,7 @@ namespace Easy_Copier.Infrastructure
                 case MENU_CANCEL_ID:
                     _ = _dispatcherService.TryEnqueue(() =>
                     {
-                        var activeItems = _transferQueueService.QueueItems.Where(i => i.IsActive).ToList();
+                        List<TransferQueueItem> activeItems = _transferQueueService.QueueItems.Where(i => i.IsActive).ToList();
                         foreach (TransferQueueItem item in activeItems)
                         {
                             _transferQueueService.CancelItem(item);
@@ -424,7 +420,7 @@ namespace Easy_Copier.Infrastructure
         /// </summary>
         private string GetCurrentTooltipText()
         {
-            var activeItems = _transferQueueService.QueueItems.Where(i => i.IsActive).ToList();
+            List<TransferQueueItem> activeItems = _transferQueueService.QueueItems.Where(i => i.IsActive).ToList();
             if (activeItems.Count == 0)
             {
                 return "Easy Copier \u2014 Idle";
@@ -485,7 +481,7 @@ namespace Easy_Copier.Infrastructure
         /// </summary>
         private void UpdateTrayProgress()
         {
-            if (_isIconAdded)
+            if (IsTrayIconVisible)
             {
                 SystemTrayInterop.NOTIFYICONDATA nid = CreateNotifyIconData();
                 nid.uFlags = SystemTrayInterop.NIF_TIP;

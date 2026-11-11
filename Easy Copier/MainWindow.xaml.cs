@@ -70,9 +70,7 @@ namespace Easy_Copier
             WindowId windowId = Win32Interop.GetWindowIdFromWindow(hwnd);
             AppWindow appWindow = AppWindow.GetFromWindowId(windowId);
 
-            if (appWindow != null)
-            {
-                appWindow.Closing += (s, args) =>
+            appWindow?.Closing += (s, args) =>
                 {
                     AppSettings settings = _settingsService.LoadSettingsSync();
                     bool hasActiveTransfers = _transferQueueService.QueueItems.Any(i => i.IsActive);
@@ -89,7 +87,6 @@ namespace Easy_Copier
                         _systemTrayService.RemoveTrayIcon();
                     }
                 };
-            }
         }
     }
 }

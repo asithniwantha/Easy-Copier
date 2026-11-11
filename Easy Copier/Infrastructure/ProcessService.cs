@@ -1,7 +1,7 @@
+using Microsoft.Extensions.Logging;
 using System;
 using System.Diagnostics;
 using System.Security.Principal;
-using Microsoft.Extensions.Logging;
 
 namespace Easy_Copier.Infrastructure
 {

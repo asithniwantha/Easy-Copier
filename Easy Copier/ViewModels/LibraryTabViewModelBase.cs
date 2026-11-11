@@ -73,12 +73,9 @@ namespace Easy_Copier.ViewModels
         /// <returns>An enumeration of up to 10 unique matching entry names.</returns>
         public static IEnumerable<string> GetSuggestionsFromEntries(IEnumerable<GameEntry> entries, string query)
         {
-            if (string.IsNullOrWhiteSpace(query))
-            {
-                return [];
-            }
-
-            return entries
+            return string.IsNullOrWhiteSpace(query)
+                ? []
+                : entries
                 .Select(i => i.Name)
                 .Where(n => n.Contains(query, StringComparison.OrdinalIgnoreCase))
                 .Distinct()

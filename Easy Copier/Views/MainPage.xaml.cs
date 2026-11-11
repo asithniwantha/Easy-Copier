@@ -21,10 +21,7 @@ namespace Easy_Copier.Views
         /// <param name="args">Event arguments.</param>
         private void GlobalNotification_CloseButtonClick(InfoBar sender, object args)
         {
-            if (ViewModel != null)
-            {
-                ViewModel.IsGlobalNotificationVisible = false;
-            }
+            ViewModel?.IsGlobalNotificationVisible = false;
         }
 
         /// <summary>

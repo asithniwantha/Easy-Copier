@@ -139,7 +139,7 @@ namespace Easy_Copier.ViewModels
         public DuplicateGroupViewModel(string itemName, IEnumerable<DuplicateItemEntryViewModel> entries)
         {
             ItemName = itemName;
-            Entries = new ObservableCollection<DuplicateItemEntryViewModel>(entries);
+            Entries = [with(entries)];
         }
 
         /// <summary>

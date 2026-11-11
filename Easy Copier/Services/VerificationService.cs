@@ -58,17 +58,11 @@ namespace Easy_Copier.Services
                 bool isSourceFile = File.Exists(sourcePath);
                 bool isSourceDir = Directory.Exists(sourcePath);
 
-                if (!isSourceFile && !isSourceDir)
-                {
-                    return new VerificationResult(false, $"Source path does not exist: {sourcePath}");
-                }
-
-                if (isSourceFile)
-                {
-                    return await VerifySingleFileAsync(sourcePath, destinationPath, mode, progress, cancellationToken);
-                }
-
-                return await VerifyDirectoryAsync(sourcePath, destinationPath, mode, progress, cancellationToken);
+                return !isSourceFile && !isSourceDir
+                    ? new VerificationResult(false, $"Source path does not exist: {sourcePath}")
+                    : isSourceFile
+                    ? await VerifySingleFileAsync(sourcePath, destinationPath, mode, progress, cancellationToken)
+                    : await VerifyDirectoryAsync(sourcePath, destinationPath, mode, progress, cancellationToken);
             }
             catch (OperationCanceledException)
             {
@@ -147,7 +141,7 @@ namespace Easy_Copier.Services
 
             // Pre-calculate total bytes to provide accurate streaming progress
             long totalBytes = 0;
-            List<(string SrcPath, string DstPath, string RelPath, long Size)> workList = new(sourceFiles.Length);
+            List<(string SrcPath, string DstPath, string RelPath, long Size)> workList = [with(sourceFiles.Length)];
 
             foreach (string srcFile in sourceFiles)
             {
@@ -160,28 +154,28 @@ namespace Easy_Copier.Services
 
             long processedBytes = 0;
 
-            foreach (var item in workList)
+            foreach ((string SrcPath, string DstPath, string RelPath, long Size) in workList)
             {
                 cancellationToken.ThrowIfCancellationRequested();
 
-                if (!File.Exists(item.DstPath))
+                if (!File.Exists(DstPath))
                 {
-                    mismatchedFiles.Add($"{item.RelPath} (missing at destination)");
-                    processedBytes += item.Size;
+                    mismatchedFiles.Add($"{RelPath} (missing at destination)");
+                    processedBytes += Size;
                     continue;
                 }
 
-                FileInfo dstInfo = new(item.DstPath);
-                if (item.Size != dstInfo.Length)
+                FileInfo dstInfo = new(DstPath);
+                if (Size != dstInfo.Length)
                 {
-                    mismatchedFiles.Add($"{item.RelPath} (size mismatch: {item.Size:N0} != {dstInfo.Length:N0} bytes)");
-                    processedBytes += item.Size;
+                    mismatchedFiles.Add($"{RelPath} (size mismatch: {Size:N0} != {dstInfo.Length:N0} bytes)");
+                    processedBytes += Size;
                     continue;
                 }
 
                 if (mode == CopyVerificationMode.QuickSizeAndCount)
                 {
-                    processedBytes += item.Size;
+                    processedBytes += Size;
                     if (totalBytes > 0)
                     {
                         progress?.Report((double)processedBytes / totalBytes * 100.0);
@@ -191,16 +185,16 @@ namespace Easy_Copier.Services
 
                 // Cryptographic or SIMD hash comparison
                 bool matches = mode == CopyVerificationMode.FastXxHash64
-                    ? await CompareXxHash64Async(item.SrcPath, item.DstPath, item.Size, null, cancellationToken)
-                    : await CompareSha256Async(item.SrcPath, item.DstPath, item.Size, null, cancellationToken);
+                    ? await CompareXxHash64Async(SrcPath, DstPath, Size, null, cancellationToken)
+                    : await CompareSha256Async(SrcPath, DstPath, Size, null, cancellationToken);
 
                 if (!matches)
                 {
                     string hashName = mode == CopyVerificationMode.FastXxHash64 ? "XxHash64" : "SHA-256";
-                    mismatchedFiles.Add($"{item.RelPath} ({hashName} hash mismatch)");
+                    mismatchedFiles.Add($"{RelPath} ({hashName} hash mismatch)");
                 }
 
-                processedBytes += item.Size;
+                processedBytes += Size;
                 if (totalBytes > 0)
                 {
                     progress?.Report((double)processedBytes / totalBytes * 100.0);
