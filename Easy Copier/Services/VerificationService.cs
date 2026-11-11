@@ -88,7 +88,7 @@ namespace Easy_Copier.Services
         {
             if (!File.Exists(destinationFile))
             {
-                return new VerificationResult(false, $"Destination file does not exist: {destinationFile}", [Path.GetFileName(destinationFile)]);
+                return new VerificationResult(false, $"Destination file does not exist: {destinationFile}", (string[])[Path.GetFileName(destinationFile)]);
             }
 
             FileInfo srcInfo = new(sourceFile);
@@ -97,7 +97,7 @@ namespace Easy_Copier.Services
             if (srcInfo.Length != dstInfo.Length)
             {
                 string msg = $"File size mismatch: source ({srcInfo.Length:N0} bytes) != destination ({dstInfo.Length:N0} bytes)";
-                return new VerificationResult(false, msg, [Path.GetFileName(destinationFile)]);
+                return new VerificationResult(false, msg, (string[])[Path.GetFileName(destinationFile)]);
             }
 
             if (mode == CopyVerificationMode.QuickSizeAndCount)
@@ -115,7 +115,7 @@ namespace Easy_Copier.Services
             if (!matches)
             {
                 string modeName = mode == CopyVerificationMode.FastXxHash64 ? "XxHash64" : "SHA-256";
-                return new VerificationResult(false, $"{modeName} checksum mismatch", [Path.GetFileName(destinationFile)]);
+                return new VerificationResult(false, $"{modeName} checksum mismatch", (string[])[Path.GetFileName(destinationFile)]);
             }
 
             return new VerificationResult(true);
