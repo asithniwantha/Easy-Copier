@@ -40,8 +40,9 @@ This document provides a comprehensive technical overview of the features, archi
   4. **PCGamingWiki (PCGW):** MediaWiki search generator API finding covers across varied spelling and subtitle variations.
   5. **Wikipedia / Wikimedia Commons:** MediaWiki search API with page images and REST summary endpoints for video games.
   6. **OpenCritic API:** Queries review aggregator metadata with box art and banner image extraction.
-  7. **Lutris API & Search:** REST API with title validation and HTML search fallback.
-  8. **GameSystemRequirements (GSR):** Scrapes game search results with verified title match scoring.
+  7. **Lutris API & Search:** REST API with title validation and HTML search fallback using a compile-time generated regex.
+  8. **GameSystemRequirements (GSR):** Scrapes game search results using a compile-time generated regex and scores candidate titles.
+  - Lutris and GSR root-relative image paths are prefixed with the respective site address after checking the leading slash character.
 - **Title Sanitization (`GameTitleSanitizer`):**
   - Strips release tags (`[FitGirl Repack]`, `[DODI]`, etc.), scene group suffixes (`-CODEX`, `-EMPRESS`, `-RUNE`), version strings (`v1.0.4`, `build 12345`), and non-essential bracketed metadata.
   - Produces multi-candidate search variations (full cleaned title, base title without edition, title without year, title without subtitle) to maximize hit rate.

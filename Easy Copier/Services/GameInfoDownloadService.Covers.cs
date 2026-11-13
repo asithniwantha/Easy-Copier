@@ -264,7 +264,7 @@ namespace Easy_Copier.Services
                 {
                     string html = await response.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
                     // Match items with link text to score candidate title against gameName
-                    MatchCollection matches = Regex.Matches(html, @"<div class=""game-item"">.*?<a href=""([^""]+)"">(.*?)</a>.*?<img src=""([^""]+)""", RegexOptions.Singleline);
+                    MatchCollection matches = GsrSearchResultRegex().Matches(html);
 
                     string? bestImgUrl = null;
                     double bestScore = 0.0;
@@ -288,7 +288,7 @@ namespace Easy_Copier.Services
 
                     if (!string.IsNullOrEmpty(bestImgUrl))
                     {
-                        if (bestImgUrl.StartsWith('/'))
+                        if (bestImgUrl[0] == '/')
                         {
                             bestImgUrl = "https://gamesystemrequirements.com" + bestImgUrl;
                         }
@@ -304,6 +304,9 @@ namespace Easy_Copier.Services
 
             return false;
         }
+
+        [GeneratedRegex(@"<div class=""game-item"">.*?<a href=""([^""]+)"">(.*?)</a>.*?<img src=""([^""]+)""", RegexOptions.Singleline)]
+        private static partial Regex GsrSearchResultRegex();
 
         /// <summary>
         /// Attempts to download cover art from Wikipedia via the MediaWiki search API and page images.
@@ -627,11 +630,11 @@ namespace Easy_Copier.Services
                 if (response.IsSuccessStatusCode)
                 {
                     string html = await response.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                    Match match = Regex.Match(html, @"<a href=""/games/[^/]+/"".*?<img.*?src=""([^""]+)""", RegexOptions.Singleline);
+                    Match match = LutrisSearchResultRegex().Match(html);
                     if (match.Success)
                     {
                         string imgUrl = match.Groups[1].Value;
-                        if (imgUrl.StartsWith('/'))
+                        if (imgUrl.Length > 0 && imgUrl[0] == '/')
                         {
                             imgUrl = "https://lutris.net" + imgUrl;
                         }
@@ -647,5 +650,8 @@ namespace Easy_Copier.Services
 
             return false;
         }
+
+        [GeneratedRegex(@"<a href=""/games/[^/]+/"".*?<img.*?src=""([^""]+)""", RegexOptions.Singleline)]
+        private static partial Regex LutrisSearchResultRegex();
     }
 }
