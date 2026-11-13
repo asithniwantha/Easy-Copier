@@ -25,7 +25,7 @@ namespace Easy_Copier.Models
         /// <param name="value">The new input string value.</param>
         partial void OnInputValueChanged(string value)
         {
-            IsNegative = !string.IsNullOrEmpty(value) && value.StartsWith("-", System.StringComparison.Ordinal);
+            IsNegative = !string.IsNullOrEmpty(value) && value.StartsWith('-');
         }
 
         /// <summary>

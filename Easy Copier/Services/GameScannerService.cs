@@ -108,7 +108,7 @@ namespace Easy_Copier.Services
             {
                 string folderName = Path.GetFileName(folderPath).TrimEnd();
 
-                if (folderName.StartsWith("$", StringComparison.Ordinal))
+                if (folderName.StartsWith('$'))
                 {
                     return true;
                 }
@@ -472,7 +472,7 @@ namespace Easy_Copier.Services
                 : extensions
                 .Split(VideoExtensionSeparators, StringSplitOptions.RemoveEmptyEntries)
                 .Select(e => e.Trim())
-                .Select(e => e.StartsWith(".", StringComparison.Ordinal) ? e : "." + e)
+                .Select(e => e.StartsWith('.') ? e : "." + e)
                 .ToList();
         }
 
